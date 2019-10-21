@@ -1,0 +1,67 @@
+<form  autocomplete="off" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+
+
+
+    <!-- First Name  -->
+       <mat-form-field>
+           <mat-label>First Name</mat-label>
+           <input matInput placeholder="Adam" formControlName="firstname">
+       </mat-form-field>
+       <br>
+
+       <!-- Last Name  -->
+       <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Stewart" formControlName="lastname">
+        </mat-form-field>
+        <br>
+
+
+        <!-- Phone  -->
+       <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="9874122558" formControlName="phone">
+        </mat-form-field>
+        <br>
+
+
+
+        <!-- Email  -->
+       <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="adam123@gmail.com" formControlName="email"> 
+        </mat-form-field>
+        <br>
+
+
+
+        <!-- Password  -->
+       <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="***********" formControlName="password">
+        </mat-form-field>
+        <br>
+
+
+
+
+         <!-- Confirm Password  -->
+       <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" placeholder="***********" formControlName="confirmpassword">
+        </mat-form-field>
+        <br>
+
+
+
+
+        <!-- Status -->
+        <mat-label>Status</mat-label><br>
+        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+        <!-- Buttons  -->
+        <button mat-flat-button type="reset">Reset</button>
+        <button mat-flat-button type="submit">{{btn_text}} </button>
+
+</form>

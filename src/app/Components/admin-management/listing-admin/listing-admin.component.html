@@ -1,0 +1,29 @@
+
+
+ <!-- Add Admin Button  -->
+<mat-toolbar class="buttonsetToolbar">
+  <button class="singleButton" mat-raised-button color="primary" [routerLink]="['/admin/add']">Add Admin</button>
+</mat-toolbar>
+
+
+
+<!-- Listing goes here  -->
+<lib-listing *ngIf="adminData != null && adminData.length>0" 
+        [datasource]="adminData" 
+        [skip]="adminData_skip"
+        [modify_header_array]="adminData_modify_header" 
+        [sourcedata]="tableName"
+        [apiurl]="apiUrl"  
+        [editroute]="editUrl"
+        [jwttoken]="user_cookie"
+        [statusarr]="status"
+        [updateendpoint]="UpdateEndpoint"
+        [deleteendpoint]="deleteEndpoint"
+        [date_search_endpoint]="searchingEndpoint"
+        [date_search_source]="tableName"
+        [search_settings]="search_settings">
+      </lib-listing>
+      
+      <h2 *ngIf="adminData.length == 0">No record found.</h2>
+      <!-- Listing ends here  -->
+      

@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>User Management</mat-label>
+    <select matNativeControl required (change)="toAdminManagement($event.target.value)">
+        <option>Please choose...</option>
+        <option value="1">Admin Management</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+
+    </select>
+</mat-form-field>
