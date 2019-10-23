@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validator } from '@angular/forms';
+import { Component, OnInit,Inject } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
+import { Router,ActivatedRoute } from '@angular/router';
+import {matchpwd,nameValidator,phoneValidator} from './validators'
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+export interface DialogData {
+  msg: string;
+}
+
 
 
 @Component({
@@ -16,10 +23,30 @@ export class AddEditAdminComponent implements OnInit {
   btn_text: any = "SUBMIT";
   adminForm: FormGroup;
   condition: any;
-  
+  action:any="add"
+  defaultData:any;
+  successMessage:any;
+  dialogRef:any;
+  header_txt:any="Add an admin"
   // ==========================================================
+
+
   constructor(private formBuilder: FormBuilder, public cookieService: CookieService,
-    private http: HttpServiceService) { }
+    private http: HttpServiceService , private router : Router, public activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) { 
+      this.activatedRoute.params.subscribe(params => {
+        if (params['_id'] != null) {
+          this.action = "edit";
+          this.condition={ id: params._id };
+          this.activatedRoute.data.subscribe(resolveData => {
+            this.defaultData = resolveData.adminList.res[0];
+            console.log("==",this.defaultData);
+          });
+        }
+        else
+          this.action = "add";
+      });  
+    }
 
 
 
@@ -31,7 +58,57 @@ export class AddEditAdminComponent implements OnInit {
 
     //Generating the form on ngOnInit
     this.generateForm();
+
+
+
+
+    // Case 
+    switch (this.action) {
+      case 'add':
+        /* Button text */
+        this.btn_text = "SUBMIT";
+        break;
+      case 'edit':
+        /* Button text */
+        this.btn_text = "UPDATE";
+        this.successMessage = "One row updated";
+        this.setDefaultValue(this.defaultData);
+        this.header_txt="Edit Admin Information";
+        break;
+    }
   }
+
+
+
+// =========================================MODAL functions==========================================
+  openDialog(x: any): void {
+    this.dialogRef = this.dialog.open(Modal, {
+      width: '250px',
+      data: { msg: x }
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+  // =====================================================================================================
+
+
+
+ // ===================================Setting the default Value========================
+ setDefaultValue(defaultValue) {
+  this.adminForm.patchValue({
+    firstname: defaultValue.firstname,
+    lastname: defaultValue.lastname,
+    email: defaultValue.email,
+    password:defaultValue.password,
+    confirmpassword:defaultValue.password,
+    phone: defaultValue.phone,
+    status:this.defaultData.status
+
+  })
+}
+// ======================================================================================
 
 
 
@@ -42,12 +119,12 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
-      firstname: [],
-      lastname: [],
-      phone: [],
-      email: [],
-      password: [],
-      confirmpassword: [],
+      firstname: ["",[Validators.required,nameValidator]],
+      lastname: ["",[Validators.required,nameValidator]],
+      phone: ["",[Validators.required,phoneValidator]],
+      email: ["",[Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
+      password: ['',Validators.required],
+      confirmpassword: ['',matchpwd],
       status: []
     });
   }
@@ -75,15 +152,14 @@ export class AddEditAdminComponent implements OnInit {
         this.adminForm.value.status = parseInt("0");
       }
 
-
+     delete this.adminForm.value.confirmpassword;
 
 
 
       /* start process to submited data */
       let postData: any = {
         "source": 'admin',
-        // "data": Object.assign(this.adminForm.value, this.condition),
-        "data": this.adminForm.value,
+        "data": Object.assign(this.adminForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
 
       };
@@ -92,13 +168,13 @@ export class AddEditAdminComponent implements OnInit {
         
         if (response.status == "success") {
           
-          // this.openDialog(this.successMessage);
-          // setTimeout(() => {
-          //   this.dialogRef.close();
-          // }, 2000);
+          this.openDialog(this.successMessage);
+          setTimeout(() => {
+            this.dialogRef.close();
+          }, 2000);
 
 
-          // this.router.navigateByUrl('doctor-management/list');;
+          this.router.navigateByUrl('admin-management/list');;
         } else {
           alert("Some error occurred. Please try again.");
         }
@@ -107,4 +183,29 @@ export class AddEditAdminComponent implements OnInit {
       });
     }
   }
+  // ====================================================================
+
+
+  inputBlur(val: any) {
+    this.adminForm.controls[val].markAsUntouched();
+  }
 }
+
+
+
+// ============================================MODAL COMPONENT===========================================
+@Component({
+  selector: 'app-modal',
+  templateUrl: 'modal.html',
+})
+export class Modal {
+
+  constructor(
+    public dialogRef: MatDialogRef<Modal>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+// ======================================================================================================

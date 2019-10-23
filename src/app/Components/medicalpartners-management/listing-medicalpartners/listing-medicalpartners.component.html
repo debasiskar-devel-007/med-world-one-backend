@@ -1,0 +1,31 @@
+<h1>ADMIN LIST</h1>
+
+ <!-- Add Admin Button  -->
+<mat-toolbar class="buttonsetToolbar">
+  <button class="singleButton" mat-raised-button color="primary" [routerLink]="['/admin/medicalpartners-management/add']">Add Medical Partners</button>
+</mat-toolbar>
+
+
+
+
+<!-- Listing goes here  -->
+<lib-listing *ngIf="mpData != null && mpData.length>0" 
+  [datasource]="mpData" 
+  [skip]="mpData_skip"
+  [modify_header_array]="mpData_modify_header" 
+  [sourcedata]="tableName"
+  [apiurl]="apiUrl"  
+  [editroute]="editUrl"
+  [jwttoken]="user_cookie"
+  [statusarr]="status"
+  [updateendpoint]="UpdateEndpoint"
+  [deleteendpoint]="deleteEndpoint"
+  [date_search_endpoint]="searchingEndpoint"
+  [date_search_source]="tableName"
+  [search_settings]="search_settings"
+  [detail_datatype]="mpData.pendingmodelapplicationarray_detail_datatype" >
+</lib-listing>
+
+<h2 *ngIf="mpData.length == 0">No record found.</h2>
+<!-- Listing ends here  -->
+      

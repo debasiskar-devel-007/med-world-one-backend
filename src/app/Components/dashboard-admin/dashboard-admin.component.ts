@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
 })
 export class DashboardAdminComponent implements OnInit {
 
-  constructor( private router : Router ) { 
+  constructor(private router: Router) {
 
   }
 
   ngOnInit() {
   }
 
-  toAdminManagement(event:any){
+  toAdminManagement(event: any) {
     console.log(event);
-    if(event==1)
-        this.router.navigateByUrl('admin/list');
+    if (event == 1)
+      this.router.navigateByUrl('admin-management/list');
+    else if (event == 2)
+      this.router.navigateByUrl('admin/medicalpartners-management/list');
+      else if (event == 3)
+      this.router.navigateByUrl('admin/salesrep-management/list');
   }
 }

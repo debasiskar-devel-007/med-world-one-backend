@@ -11,10 +11,17 @@ import { CookieService } from 'ngx-cookie-service';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { DashboardAdminComponent } from './Components/dashboard-admin/dashboard-admin.component';
-import { AddEditAdminComponent } from './Components/admin-management/add-edit-admin/add-edit-admin.component';
+import { AddEditAdminComponent, Modal } from './Components/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from './Components/admin-management/listing-admin/listing-admin.component';
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'lib-listing';
+import { AddEditMedicalpartnersComponent , Modal2 } from './Components/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component';
+import { ListingMedicalpartnersComponent } from './Components/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component';
+import { FileUploadModule} from 'file-upload';
+import { ListingSalesrepComponent } from './Components/salesrep-management/listing-salesrep/listing-salesrep.component';
+import { AddEditSalesrepComponent ,Modal3} from './Components/salesrep-management/add-edit-salesrep/add-edit-salesrep.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { ListingModule } from 'lib-listing';
     ForgotPasswordComponent,
     DashboardAdminComponent,
     AddEditAdminComponent,
-    ListingAdminComponent
+    ListingAdminComponent,
+    Modal,
+    AddEditMedicalpartnersComponent,
+    ListingMedicalpartnersComponent,
+    Modal2,
+    ListingSalesrepComponent,
+    AddEditSalesrepComponent,
+    Modal3
   ],
   imports: [
     BrowserModule,
@@ -34,9 +48,11 @@ import { ListingModule } from 'lib-listing';
     LoginModule,
     FormsModule,
     ReactiveFormsModule,
-    ListingModule
+    ListingModule,
+    FileUploadModule
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [Modal,Modal2,Modal3]
 })
 export class AppModule { }

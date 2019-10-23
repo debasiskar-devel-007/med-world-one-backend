@@ -1,42 +1,47 @@
-
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
-
-
 @Component({
-  selector: 'app-listing-admin',
-  templateUrl: './listing-admin.component.html',
-  styleUrls: ['./listing-admin.component.css']
+  selector: 'app-listing-salesrep',
+  templateUrl: './listing-salesrep.component.html',
+  styleUrls: ['./listing-salesrep.component.css']
 })
-export class ListingAdminComponent implements OnInit {
-
+export class ListingSalesrepComponent implements OnInit {
 
 
   // ===============================Declarations=========================
-  adminData: any = [];
-  adminData_skip: any = ["_id"];
-  adminData_modify_header: any = {
-    "status": "Status", "FullName": "Full Name", "email": "Email", "password": "Password",
-    "phone": "Phone"
+  salesData: any = [];
+  salesData_skip: any = ["_id","password","address"];
+  salesData_modify_header: any = {
+    "name":"Name","email":"Email","state":"State","city":"City","zip":"ZIP","phone":"Phone","fax":"FAX",
+    "status":"Status"
   };
-  tableName: any = 'admin';
+  tableName: any = 'salesrep';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
   searchingEndpoint: any = "datalist";
-  editUrl: any = 'admin-management/edit';
+  editUrl: any = 'admin/salesrep-management/edit';
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By Fullname", field: 'fullname' }]
+      textsearch: [{ label: "Search By name", field: 'name' },
+      { label: "Search By state", field: 'state' },
+      { label: "Search By email", field: 'email' }]
     };
   // ====================================================================
+    /*Showing Image in the Modal*/
+    pendingmodelapplicationarray_detail_datatype: [{
+      key: "image",
+      value: 'image',
+      fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'             // Image path 
+    }]
+
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
     private router: Router, public activatedRoute: ActivatedRoute) {
@@ -46,9 +51,10 @@ export class ListingAdminComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      this.adminData = resolveData.adminList.res;
+      this.salesData = resolveData.salesRepList.res;
     });
   }
 
 
 }
+
