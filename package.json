@@ -24,6 +24,7 @@
     "@ckeditor/ckeditor5-angular": "^1.1.0",
     "@ckeditor/ckeditor5-build-classic": "^12.4.0",
     "hammerjs": "^2.0.8",
+    "listing": "0.0.1",
     "listing-angular7": "0.0.95",
     "moment": "^2.24.0",
     "ngx-ckeditor": "^8.0.0",

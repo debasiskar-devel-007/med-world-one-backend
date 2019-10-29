@@ -40,7 +40,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { FileUploadModule } from 'file-upload';
 import { MatDialogModule, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ListingModule } from 'listing-angular7';
+import { ListingModule } from 'lib-listing';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { Subject } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
