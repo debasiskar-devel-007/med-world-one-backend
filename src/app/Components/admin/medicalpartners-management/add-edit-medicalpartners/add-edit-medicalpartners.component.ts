@@ -1,0 +1,333 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validator } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HttpServiceService } from 'src/app/services/http-service.service';
+export interface DialogData {
+  msg: string;
+}
+
+
+@Component({
+  selector: 'app-add-edit-medicalpartners',
+  templateUrl: './add-edit-medicalpartners.component.html',
+  styleUrls: ['./add-edit-medicalpartners.component.css']
+})
+export class AddEditMedicalpartnersComponent implements OnInit {
+
+  // =====================Declarations==================
+  btn_text: any = "SUBMIT";
+  medicalPartnerForm: FormGroup;
+  condition: any;
+  action: any = "add"
+  defaultData: any;
+  successMessage: any;
+  dialogRef: any;
+  header_txt: any = "Add a Medical Partner"
+  collect_email_array: any = [];
+  collect_phone_array: any = [];
+  ErrCode: boolean;
+  states: any;
+  cities: any;
+  allCities: any;
+  fullImgPath:any;
+  imgName:any;
+  imgType:any;
+  img_flag:boolean = false;
+  // ===================================================
+
+
+
+  //  =====================Image Upload Configuration====================
+  public configData: any = {
+    baseUrl: "http://3.15.236.141:5005/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format: ["jpg", "jpeg", "png"], // use all small font
+    type: "med_partner_img",
+    path: "files",
+    prefix: "medpartner_picture_"
+  }
+  // baseUrl:any= "http://3.15.236.141:5005/";
+  // endpoint: any="uploads";
+  // size:any= "51200";
+  // format:any= ["jpg", "jpeg", "png", "bmp", "zip", 'html']; // use all small font
+  // type:any = "profile-picture";
+  // path:any= "files";
+  // prefix:any= "profile_picture_";
+  //  ====================================================================
+
+
+
+  constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
+    public http: HttpServiceService, public router: Router, private activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.mpList.res[0];
+        });
+      }
+      else
+        this.action = "add";
+    });
+  }
+
+
+  ngOnInit() {
+    //generating the form here
+    this.generateForm();
+
+    //Calling list of states here
+    this.allStateCityData();
+
+
+    // Case 
+    switch (this.action) {
+      case 'add':
+        /* Button text */
+        this.btn_text = "SUBMIT";
+        break;
+      case 'edit':
+        /* Button text */
+        this.btn_text = "UPDATE";
+        this.successMessage = "One row updated";
+        this.setDefaultValue(this.defaultData); 
+        setTimeout(() => {
+          this.getCityByName(this.defaultData.state);
+        }, 2000);      
+        this.header_txt = "Edit Medical Partner's Information"
+        this.img_flag=true;
+        break;
+    }
+  }
+
+
+
+// =========================================MODAL functions==========================================
+openDialog(x: any): void {
+  this.dialogRef = this.dialog.open(Modal2, {
+    width: '250px',
+    data: { msg: x }
+  });
+
+  this.dialogRef.afterClosed().subscribe(result => {
+
+  });
+}
+// =====================================================================================================
+
+
+
+  // =========================Form Generations==============
+  generateForm() {
+    this.medicalPartnerForm = this.formBuilder.group({
+      hospitalname: [],
+      contactperson: [],
+      contactemails: [],
+      contactphones: [],
+      password: [],
+      confirmpassword: [],
+      address: [],
+      state: [],
+      city: [],
+      zip: [],
+      speciality: [],
+      noofdoctors: [],
+      noofbeds: [],
+      noofstaffs: [],
+      status: [],
+      mpimage: []
+    });
+  }
+  //  ===========================================================
+
+
+
+ // ===================================Setting the default Value========================
+ setDefaultValue(defaultValue) {
+   console.log(defaultValue);
+  this.medicalPartnerForm.patchValue({
+   hospitalname:this.defaultData.hospitalname,
+   contactperson:defaultValue.contactperson,
+   address:defaultValue.address,
+   zip:defaultValue.zip,
+   speciality:defaultValue.speciality,
+   state:defaultValue.state,
+   city:defaultValue.city,
+   noofdoctors:defaultValue.noofdoctors,
+   noofbeds:defaultValue.noofbeds,
+   noofstaffs:defaultValue.noofstaffs,
+   status:defaultValue.status,
+   password:defaultValue.password
+
+  })
+    this.collect_email_array = defaultValue.contactemails;
+    this.collect_phone_array = defaultValue.contactphones;
+    
+    this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
+    this.imgName = defaultValue.mpimage.name;
+    this.imgType = defaultValue.mpimage.type;
+    console.log("Image",this.fullImgPath);
+}
+// ======================================================================================
+
+
+
+
+  //collecting mass emails
+  collect_email(event: any) {
+    if (event.keyCode == 13) {
+      this.collect_email_array.push(event.target.value);
+      this.medicalPartnerForm.controls['contactemails'].patchValue("");
+      return;
+    }
+  }
+
+  //collecting mass phones
+  collect_phones(event: any) {
+    if (event.keyCode == 13) {
+      this.collect_phone_array.push(event.target.value);
+      this.medicalPartnerForm.controls['contactphones'].patchValue("");
+      return;
+    }
+  }
+
+
+
+
+  // ====================SUBMIT FUNCTION+===================
+  onSubmit() {
+    console.log(this.medicalPartnerForm.value);
+
+    // Service File Upload Works 
+    if (this.configData.files) {
+
+      if (this.configData.files.length > 1) { this.ErrCode = true; return; }
+      this.medicalPartnerForm.value.mpimage =
+        {
+          "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+          "image": this.configData.files[0].upload.data.data.fileservername,
+          "name": this.configData.files[0].name,
+          "type": this.configData.files[0].type
+        };
+    } else {
+      this.medicalPartnerForm.value.mpimage = false;
+    }
+
+
+    if (this.medicalPartnerForm.invalid) {
+      return;
+    }
+    else {
+
+      //status
+      if (this.medicalPartnerForm.value.status) {
+        this.medicalPartnerForm.value.status = parseInt("1");
+      }
+      else {
+        this.medicalPartnerForm.value.status = parseInt("0");
+      }
+
+      this.medicalPartnerForm.value.contactemails = this.collect_email_array;
+      this.medicalPartnerForm.value.contactphones = this.collect_phone_array;
+
+      delete this.medicalPartnerForm.value.confirmpassword;
+
+
+
+      /* start process to submited data */
+      let postData: any = {
+        "source": 'medicalpartners',
+        "data": Object.assign(this.medicalPartnerForm.value, this.condition),
+        "token": this.cookieService.get('jwtToken')
+
+      };
+      console.log("+++");
+      this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+
+        if (response.status == "success") {
+          console.log(response.status);
+          this.openDialog(this.successMessage);
+          setTimeout(() => {
+            this.dialogRef.close();
+          }, 2000);
+
+
+          this.router.navigateByUrl('admin/medicalpartners-management/list');;
+        } else {
+          alert("Some error occurred. Please try again.");
+        }
+      }, (error) => {
+        alert("Some error occurred. Please try again.");
+      });
+    }
+  }
+  // ====================================================================
+
+  //Blur function
+  inputBlur(val: any) {
+    this.medicalPartnerForm.controls[val].markAsUntouched();
+  }
+  //delete mass email
+  clearEmail(index) {
+    this.collect_email_array.splice(index, 1);
+  }
+  //delete mass phone
+  clearPhones(index) {
+    this.collect_phone_array.splice(index, 1);
+  }
+
+  //for getting all states & cities function start here
+  allStateCityData() {
+    this.http.getSiteSettingData("./assets/data-set/state.json").subscribe(response => {
+      this.states = response;
+    });
+
+    this.http.getSiteSettingData("./assets/data-set/city.json").subscribe(response => {
+      this.allCities = response;
+    });
+  }
+
+  //for getting all states & cities  function end here
+  getCity(event: any) {
+    var val = event;
+    this.cities = this.allCities[val];
+  }
+
+  //activating the state operation
+  getCityByName(stateName) {
+    this.cities = this.allCities[stateName];
+  }
+
+  //clearing the image
+  clear_image()
+  {
+    this.img_flag = false;
+  }
+
+}
+
+
+
+
+// ============================================MODAL COMPONENT===========================================
+@Component({
+  selector: 'app-modal',
+  templateUrl: 'modal2.html',
+})
+export class Modal2 {
+
+  constructor(
+    public dialogRef: MatDialogRef<Modal2>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+// ======================================================================================================

@@ -37,6 +37,19 @@
       "file-upload/*": [
         "dist/file-upload/*"
       ],
+      "blog": [
+        "dist/blog"
+      ],
+      "blog/*": [
+        "dist/blog/*"
+      ],
+      "listing-library": [
+        "dist/listing-library"
+      ],
+      "listing-library/*": [
+        "dist/listing-library/*"
+      ],
+     
     }
   },
     
