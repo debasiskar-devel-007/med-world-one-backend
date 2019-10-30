@@ -13,10 +13,18 @@ import { ListingMedicalpartnersComponent } from '../Components/admin/medicalpart
 import { AddEditSalesrepComponent } from '../Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component';
 import { ListingSalesrepComponent } from '../Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component';
 import { ForgotPasswordComponent } from '../Components/auth/forgot-password/forgot-password.component';
-import { AddEditBlogcatComponent } from '../Components/managewebsites/add-edit-blogcat/add-edit-blogcat.component';
-import { ListingBlogcatComponent } from '../Components/managewebsites/listing-blogcat/listing-blogcat.component';
-import { ListingBlogsComponent } from '../Components/managewebsites/listing-blogs/listing-blogs.component';
-import { AddEditBlogsComponent } from '../Components/managewebsites/add-edit-blogs/add-edit-blogs.component';
+import { AddEditBlogcatComponent } from '../Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component';
+import { ListingBlogcatComponent } from '../Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component';
+import { ListingBlogsComponent } from '../Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component';
+import { AddEditBlogsComponent } from '../Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component';
+import { AddEditTeamComponent } from '../Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component';
+import { ListingTeamComponent } from '../Components/managewebsites/teammanagement/listing-team/listing-team.component';
+import { AddeditTeamCatComponent } from '../Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component';
+import { ListingTeamCatComponent } from '../Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component';
+import { AddEditInventoryCatComponent } from '../Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component';
+import { ListingInventoryCatComponent } from '../Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component';
+import { AddEditBrandComponent } from '../Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component';
+import { ListingBrandComponent } from '../Components/inventory/manageinventory/brand/listing-brand/listing-brand.component';
 
 
 
@@ -41,6 +49,14 @@ const routes: Routes = [
     //   endpoint: 'datalist'
     // },
   },
+
+
+
+
+
+
+  // __________________ADMIN MANGEMENT____________________
+  // =====================================================
 
   // _______________MANAGE ADMIN____________
   { path: 'admin-management/add', component: AddEditAdminComponent },
@@ -72,9 +88,6 @@ const routes: Routes = [
   },
 
 
-
-  // __________________ADMIN MANGEMENT____________________
-  // =======================================================
 
 
   //____________MANAGE MEDICAL PARTNERS_____________
@@ -206,7 +219,140 @@ const routes: Routes = [
       },
       endpoint: 'datalist'
     },
-  }
+  },
+
+
+//  _____________________TEAM CATEGORY________________
+
+{ path: 'manage-websites/team-category/add', component: AddeditTeamCatComponent },
+
+{
+  path: 'manage-websites/team-category/list',
+  component: ListingTeamCatComponent,
+  canActivate: [AuthguardService],
+  resolve: { teamCatList: ResolveService },
+  data: {
+    requestcondition: {
+      source: 'Team_category_view',
+      condition: {}
+    },
+    endpoint: 'datalist'
+  },
+},
+{
+  path: 'manage-websites/team-category/edit/:_id',
+  component: AddeditTeamCatComponent,
+  canActivate: [AuthguardService],
+  resolve: { teamCatList: ResolveService },
+  data: {
+    requestcondition: {
+      source: 'Team_category',
+      condition: {}
+    },
+    endpoint: 'datalist'
+  },
+},
+
+
+
+
+//  _____________________TEAM________________
+
+  { path: 'manage-websites/team/add', component: AddEditTeamComponent },
+
+  {
+    path: 'manage-websites/team/list',
+    component: ListingTeamComponent,
+    canActivate: [AuthguardService],
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'manage-websites/team/edit/:_id',
+    component: AddEditTeamComponent,
+    canActivate: [AuthguardService],
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+
+
+
+
+   // _______________________INVENTORY________________
+  // =========================================================
+
+
+  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent },
+
+  {
+    path: 'inventory/manage-inventory/inventory-category/list',
+    component: ListingInventoryCatComponent,
+    canActivate: [AuthguardService],
+    resolve: { inventoryCatList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'inventory_category_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'inventory/manage-inventory/inventory-category/edit/:_id',
+    component: AddEditInventoryCatComponent,
+    canActivate: [AuthguardService],
+    resolve: { inventoryCatList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'inventory_category',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+  // _______________BRAND_______________
+  { path: 'inventory/manage-inventory/brand/add', component: AddEditBrandComponent },
+
+  {
+    path: 'inventory/manage-inventory/brand/list',
+    component: ListingBrandComponent,
+    canActivate: [AuthguardService],
+    resolve: { brandList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'brands_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'inventory/manage-inventory/brand/edit/:_id',
+    component: AddEditBrandComponent,
+    canActivate: [AuthguardService],
+    resolve: { brandList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'brands',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
 ];
 
 @NgModule({

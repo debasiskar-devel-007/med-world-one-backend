@@ -1,0 +1,5 @@
+.buttonsetToolbar {
+    justify-content: flex-end;
+}
+.buttonsetToolbar .singleButton{ width: 220px; border-radius: 0; }
+.buttonsetToolbar .singleButton:nth-last-child(1){ margin-left: 16px; }

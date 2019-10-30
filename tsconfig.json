@@ -49,6 +49,12 @@
       "listing-library/*": [
         "dist/listing-library/*"
       ],
+      "team": [
+        "dist/team"
+      ],
+      "team/*": [
+        "dist/team/*"
+      ],
      
     }
   },

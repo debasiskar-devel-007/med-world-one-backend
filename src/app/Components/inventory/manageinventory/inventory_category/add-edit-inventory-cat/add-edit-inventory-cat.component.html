@@ -1,0 +1,38 @@
+<app-adminheader>
+    <h3>{{ header_txt }}</h3>
+    <form [formGroup]="inventoryCategoryForm" autocomplete="off">
+
+        <!-- Category name  -->
+        <mat-form-field>
+            <input matInput placeholder="Category name" formControlName="category_name">
+        </mat-form-field><br>
+
+        <!-- Parent Category  -->
+        <mat-form-field>
+            <mat-label>Parent Category</mat-label>
+            <select matNativeControl required formControlName="parent_category" >
+                <option value="0" >Select a category</option>
+                <option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.category_name }}</option>
+            </select>
+        </mat-form-field><br>
+
+        <!-- Description  -->
+        <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        </mat-form-field><br>
+
+        <!-- Priority -->
+        <mat-form-field>
+            <input matInput placeholder="Priority" formControlName="priority">
+        </mat-form-field><br>
+
+        <!-- Status  -->
+        <mat-label>Status</mat-label><br>
+        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+        <!-- Buttons  -->
+        <button mat-flat-button type="reset">RESET</button>
+        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
+    </form>
+</app-adminheader>

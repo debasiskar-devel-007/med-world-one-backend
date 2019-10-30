@@ -41,7 +41,6 @@ export class AddEditAdminComponent implements OnInit {
           this.condition={ id: params._id };
           this.activatedRoute.data.subscribe(resolveData => {
             this.defaultData = resolveData.adminList.res[0];
-            console.log("==",this.defaultData);
           });
         }
         else
@@ -137,8 +136,6 @@ export class AddEditAdminComponent implements OnInit {
 
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-    console.log(this.adminForm.value);
-
 
     if (this.adminForm.invalid) {
       return;
@@ -164,7 +161,7 @@ export class AddEditAdminComponent implements OnInit {
         "token": this.cookieService.get('jwtToken')
 
       };
-      console.log("+++");
+     
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         
         if (response.status == "success") {

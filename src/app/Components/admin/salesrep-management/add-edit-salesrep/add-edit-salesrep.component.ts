@@ -117,7 +117,6 @@ openDialog(x: any): void {
 
  // ===================================Setting the default Value========================
  setDefaultValue(defaultValue) {
-  console.log(defaultValue);
  this.salesRepForm.patchValue({
    name:defaultValue.name,
    email:defaultValue.email,
@@ -163,9 +162,7 @@ openDialog(x: any): void {
 
   // ==================SUBMIT===================
   onSubmit() {
-    console.log("+++", this.salesRepForm.value);
-
-
+   
     if (this.salesRepForm.invalid) {
       return;
     }
@@ -192,11 +189,10 @@ openDialog(x: any): void {
         "token": this.cookieService.get('jwtToken')
 
       };
-      console.log("+++");
+     
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-          console.log(response.status);
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();

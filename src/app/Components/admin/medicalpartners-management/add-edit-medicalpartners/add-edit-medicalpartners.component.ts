@@ -150,7 +150,6 @@ openDialog(x: any): void {
 
  // ===================================Setting the default Value========================
  setDefaultValue(defaultValue) {
-   console.log(defaultValue);
   this.medicalPartnerForm.patchValue({
    hospitalname:this.defaultData.hospitalname,
    contactperson:defaultValue.contactperson,
@@ -172,7 +171,6 @@ openDialog(x: any): void {
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgType = defaultValue.mpimage.type;
-    console.log("Image",this.fullImgPath);
 }
 // ======================================================================================
 
@@ -202,7 +200,6 @@ openDialog(x: any): void {
 
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-    console.log(this.medicalPartnerForm.value);
 
     // Service File Upload Works 
     if (this.configData.files) {
@@ -247,11 +244,11 @@ openDialog(x: any): void {
         "token": this.cookieService.get('jwtToken')
 
       };
-      console.log("+++");
+     
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-          console.log(response.status);
+         
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();
