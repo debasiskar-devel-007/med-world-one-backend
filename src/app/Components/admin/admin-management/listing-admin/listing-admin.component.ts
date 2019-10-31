@@ -21,10 +21,10 @@ export class ListingAdminComponent implements OnInit {
   adminData: any = [];
   adminData_skip: any = ["_id"];
   adminData_modify_header: any = {
-    "status": "Status", "FullName": "Full Name", "email": "Email", "password": "Password",
-    "phone": "Phone"
+    "status": "Status", "fullname": "Full Name", "email": "Email", "password": "Password",
+    "phone": "Phone","type":"Type"
   };
-  tableName: any = 'admin';
+  tableName: any = 'user';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
@@ -34,8 +34,8 @@ export class ListingAdminComponent implements OnInit {
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   public search_settings: any =
     {
-      selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By Fullname", field: 'fullname' }]
+      selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],
+      textsearch: [{ label: "Search By full name...", field: 'fullname' }]
     };
   // ====================================================================
 

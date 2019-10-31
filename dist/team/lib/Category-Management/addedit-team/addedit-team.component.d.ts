@@ -1,0 +1,35 @@
+import { OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../Service/api.service';
+export declare class AddeditTeamComponent implements OnInit {
+    fb: FormBuilder;
+    activeroute: ActivatedRoute;
+    _http: HttpClient;
+    router: Router;
+    apiService: ApiService;
+    CategoryManagementTeamForm: FormGroup;
+    DataListViaResolve: any;
+    allData: any;
+    SingledataEdit: any;
+    getDataEndpointData: any;
+    addEndpointData: any;
+    serverUrlData: any;
+    spinnerLoader: boolean;
+    listingPageUrl: any;
+    params_id: any;
+    ButtonText: any;
+    TeamData: any;
+    serverUrl: any;
+    getDataEndpoint: any;
+    singleEditData: any;
+    addEndpoint: any;
+    ListPageRoute: any;
+    constructor(fb: FormBuilder, activeroute: ActivatedRoute, _http: HttpClient, router: Router, apiService: ApiService);
+    ngOnInit(): void;
+    inputUntouch(form: any, val: any): void;
+    CategoryManagementTeamFormSubmit(): void;
+    getData(): void;
+    ResetTeamForm(): void;
+}

@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +13,11 @@ export class LoginComponent implements OnInit {
   public fullUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";  // server url
   public endpoint: any = "login";
   public buttonName:any= 'Login Button';
+
+  loading: boolean;
+ 
+
+
 
   public signUpRouteingUrl: any = {
     "path": "",
@@ -28,6 +34,8 @@ export class LoginComponent implements OnInit {
   public routerStatus: any;
 
   constructor() {
+
+
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {
@@ -35,11 +43,11 @@ export class LoginComponent implements OnInit {
           "routerNav": "dashboard-admin"
         },
         {
-          "type": "user",
+          "type": "hospital",
           "routerNav": "dashboard/tech"
         },
         {
-          "type": "model",
+          "type": "salesrep",
           "routerNav": "modelDashbord"
         }
       ]
@@ -47,8 +55,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
   }
 
 }

@@ -1,0 +1,72 @@
+<app-adminheader>
+
+
+    <h1>{{ header_txt }}</h1>
+    <form autocomplete="off" [formGroup]="inventoryForm">
+
+     
+        <!-- Inventory Name  -->
+        <mat-form-field>
+            <input matInput placeholder="Inventory Name" formControlName="inventory_name">
+        </mat-form-field><br>
+
+
+        <!-- Brand selection -->
+        <mat-form-field>
+            <mat-label>Select brand</mat-label>
+            <select matNativeControl required formControlName="brand_name">
+                <option value="0">Select a category</option>
+                <option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}</option>
+            </select>
+        </mat-form-field><br>
+
+
+        <!-- Inventory Category Selection  -->
+        <mat-form-field>
+            <mat-label>Select Inventory Category</mat-label>
+            <select matNativeControl required formControlName="inventory_category">
+                <option value="0">Select a category</option>
+                <option value="{{ item._id }}" *ngFor="let item of inventory_category_array">{{ item.category_name }}
+                </option>
+            </select>
+        </mat-form-field><br>
+
+
+        <!-- Description  -->
+        <mat-form-field>
+            <textarea matInput placeholder="Please describe" formControlName="description"></textarea>
+        </mat-form-field><br>
+
+
+        <!-- Condition -->
+        <mat-label>Condition:</mat-label>
+        <mat-radio-group formControlName="condition">
+            <mat-radio-button value="New" checked="checked">New</mat-radio-button>
+            <mat-radio-button value="Used">Used</mat-radio-button>
+        </mat-radio-group><br>
+
+
+
+        <!-- Availability -->
+        <mat-form-field>
+            <mat-label>Availabiity:</mat-label>
+            <select matNativeControl required formControlName="availabiity">
+                <option value="In stock">In stock</option>
+                <option value="Available">Available</option>
+            </select>
+        </mat-form-field><br>
+
+        <!-- Status -->
+
+        <mat-label>Status</mat-label><br>
+        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+
+        <!-- Buttons  -->
+        <button mat-flat-button type="reset">RESET</button>
+        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
+
+    </form>
+
+</app-adminheader>

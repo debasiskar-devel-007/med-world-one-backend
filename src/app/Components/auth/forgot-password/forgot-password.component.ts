@@ -10,7 +10,7 @@ export class ForgotPasswordComponent implements OnInit {
   // public signUpRouteingUrl: any = 'sign-up';
   public serverUrl:any = 'https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/';
   public addEndpoint: any = {
-    endpoint:'forgotpassword'
+    endpoint:'forgetpassword'
   };
   public loginRouteingUrl: any = {
     // "path":"login",

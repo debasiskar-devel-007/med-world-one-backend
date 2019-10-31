@@ -26,7 +26,7 @@ export class AddEditAdminComponent implements OnInit {
   condition: any;
   action:any="add"
   defaultData:any;
-  successMessage:any;
+  successMessage:any="Submitted Successfully!!!";
   dialogRef:any;
   header_txt:any="Add an admin"
   // ==========================================================
@@ -125,7 +125,8 @@ export class AddEditAdminComponent implements OnInit {
       email: ["",[Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['',Validators.required],
       confirmpassword: ['',matchpwd],
-      status: []
+      status: [],
+      type :['admin']
     });
   }
   // ===============================================
@@ -156,7 +157,7 @@ export class AddEditAdminComponent implements OnInit {
 
       /* start process to submited data */
       let postData: any = {
-        "source": 'admin',
+        "source": 'user',
         "data": Object.assign(this.adminForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
 

@@ -23,7 +23,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   condition: any;
   action: any = "add"
   defaultData: any;
-  successMessage: any;
+  successMessage: any="Submitted Successfully!!!";
   dialogRef: any;
   header_txt: any = "Add a Medical Partner"
   collect_email_array: any = [];
@@ -50,13 +50,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     path: "files",
     prefix: "medpartner_picture_"
   }
-  // baseUrl:any= "http://3.15.236.141:5005/";
-  // endpoint: any="uploads";
-  // size:any= "51200";
-  // format:any= ["jpg", "jpeg", "png", "bmp", "zip", 'html']; // use all small font
-  // type:any = "profile-picture";
-  // path:any= "files";
-  // prefix:any= "profile_picture_";
+  
   //  ====================================================================
 
 
@@ -141,7 +135,8 @@ openDialog(x: any): void {
       noofbeds: [],
       noofstaffs: [],
       status: [],
-      mpimage: []
+      mpimage: [],
+      type:['hospital'],
     });
   }
   //  ===========================================================
@@ -239,7 +234,7 @@ openDialog(x: any): void {
 
       /* start process to submited data */
       let postData: any = {
-        "source": 'medicalpartners',
+        "source": 'user',
         "data": Object.assign(this.medicalPartnerForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
 

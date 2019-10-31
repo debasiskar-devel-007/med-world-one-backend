@@ -25,6 +25,8 @@ import { AddEditInventoryCatComponent } from '../Components/inventory/manageinve
 import { ListingInventoryCatComponent } from '../Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component';
 import { AddEditBrandComponent } from '../Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component';
 import { ListingBrandComponent } from '../Components/inventory/manageinventory/brand/listing-brand/listing-brand.component';
+import { AddEditInventoryComponent } from '../Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component';
+import { ListingInventoryComponent } from '../Components/inventory/inventorylist/listing-inventory/listing-inventory.component';
 
 
 
@@ -67,8 +69,8 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'admin_view',
-        condition: {}
+        source: 'user_view',
+        condition: { 'type':'admin' }
       },
       endpoint: 'datalist'
     },
@@ -80,7 +82,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'admin',
+        source: 'user_view',
         condition: {}
       },
       endpoint: 'datalist'
@@ -99,8 +101,8 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'medicalpartners_view',
-        condition: {}
+        source: 'user_view',
+        condition: {'type':'hospital'}
       },
       endpoint: 'datalist'
     },
@@ -112,8 +114,8 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'medicalpartners',
-        condition: {}
+        source: 'user',
+        condition: {  }
       },
       endpoint: 'datalist'
     },
@@ -129,8 +131,8 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'salesrep_view',
-        condition: {}
+        source: 'user_view',
+        condition: {'type':'salesrep'}
       },
       endpoint: 'datalist'
     },
@@ -142,8 +144,8 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'salesrep',
-        condition: {}
+        source: 'user',
+        condition: { }
       },
       endpoint: 'datalist'
     },
@@ -348,6 +350,39 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'brands',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+
+
+  //________________INVENTORY LIST_________________
+
+  { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
+
+  {
+    path: 'inventory/inventory-list/list',
+    component: ListingInventoryComponent,
+    canActivate: [AuthguardService],
+    resolve: { inventoryList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'inventories',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'inventory/inventory-list/edit/:_id',
+    component: AddEditInventoryComponent,
+    canActivate: [AuthguardService],
+    resolve: { inventoryList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'inventories',
         condition: {}
       },
       endpoint: 'datalist'

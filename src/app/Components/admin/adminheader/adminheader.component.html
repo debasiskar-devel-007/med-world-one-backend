@@ -48,7 +48,7 @@
                  <!-- Resource manager list -->
                  <mat-menu #userManagement="matMenu">
                         <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list" routerLinkActive="active">Manage Inventory</button>
-                        <button mat-menu-item [routerLink]="'/admin-dashboard/inventory-list'" routerLinkActive="active">Inventory List</button>
+                        <button mat-menu-item [routerLink]="'/inventory/inventory-list/list'" routerLinkActive="active">Inventory List</button>
                     </mat-menu>
 
             </mat-nav-list>
@@ -86,12 +86,12 @@
                 <mat-icon>build</mat-icon> Settings
             </button>
 
-            <button mat-menu-item routerLink="/home">
+            <button mat-menu-item (click)="logout()">
               <mat-icon >power_settings_new</mat-icon> Logout
           </button>
 
         </mat-menu>
-        <span class="username">Adam Coury</span>
+        <span class="username">{{ user_name }}</span>
         <button mat-icon-button [matMenuTriggerFor]="appMenu">
             <span class="user_profile">
                 <mat-icon>account_circle</mat-icon>

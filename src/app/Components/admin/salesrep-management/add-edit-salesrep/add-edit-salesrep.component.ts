@@ -29,7 +29,7 @@ export class AddEditSalesrepComponent implements OnInit {
   header_txt:any= "Add sales Rep";
   action:any;
   defaultData:any;
-  successMessage:any;
+  successMessage:any="Submitted Successfully!!!";
   dialogRef:any;
   // =========================================
 
@@ -90,7 +90,8 @@ export class AddEditSalesrepComponent implements OnInit {
       zip: ['',[Validators.required]],
       phone: ['',[Validators.required,phoneValidator]],
       fax: ['',[Validators.required]],
-      status: ['',]
+      status: ['',],
+      type:['salesrep']
     });
   }
 // =====================================================
@@ -184,7 +185,7 @@ openDialog(x: any): void {
 
       /* start process to submited data */
       let postData: any = {
-        "source": 'salesrep',
+        "source": 'user',
         "data": Object.assign(this.salesRepForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
 

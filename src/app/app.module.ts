@@ -65,6 +65,18 @@ import { ListingInventoryCatComponent } from './Components/inventory/manageinven
 import { AddEditBrandComponent,Modal5 } from './Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component';
 import { ListingBrandComponent } from './Components/inventory/manageinventory/brand/listing-brand/listing-brand.component';
 
+//Inventory List
+import { AddEditInventoryComponent } from './Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component';
+import { ListingInventoryComponent } from './Components/inventory/inventorylist/listing-inventory/listing-inventory.component';
+
+
+
+
+import { LoaderService } from './services/loader.service';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './Class/common/loader.interceptor';
+import { HttpLoaderComponent } from './Components/common/http-loader/http-loader.component';
+
 
 @NgModule({
   declarations: [
@@ -105,7 +117,11 @@ import { ListingBrandComponent } from './Components/inventory/manageinventory/br
 
     AddEditBrandComponent,
     ListingBrandComponent,
-    Modal5
+    Modal5,
+    AddEditInventoryComponent,
+    ListingInventoryComponent,
+    HttpLoaderComponent,
+
     
 
   ],
@@ -121,10 +137,17 @@ import { ListingBrandComponent } from './Components/inventory/manageinventory/br
     FileUploadModule,
     BlogModule,
     CKEditorModule,
-    TeamModule
+    TeamModule,
+    HttpClientModule
   ],
-  providers: [CookieService],
+  providers: [CookieService,
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   entryComponents: [Modal5,Modal4 ,Modal, Modal2, Modal3]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(public http: HttpClient) {
+    
+  }
+}
