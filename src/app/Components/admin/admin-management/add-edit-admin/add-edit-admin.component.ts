@@ -1,9 +1,9 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
-import { Router,ActivatedRoute } from '@angular/router';
-import {matchpwd,nameValidator,phoneValidator} from '../../../common/validators'
+import { Router, ActivatedRoute } from '@angular/router';
+import { matchpwd, nameValidator, phoneValidator } from '../../../common/validators'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 export interface DialogData {
@@ -24,34 +24,35 @@ export class AddEditAdminComponent implements OnInit {
   btn_text: any = "SUBMIT";
   adminForm: FormGroup;
   condition: any;
-  action:any="add"
-  defaultData:any;
-  successMessage:any="Submitted Successfully!!!";
-  dialogRef:any;
-  header_txt:any="Add an admin"
+  action: any = "add"
+  defaultData: any;
+  successMessage: any = "Submitted Successfully!!!";
+  dialogRef: any;
+  header_txt: any = "Add an admin"
+  isDisabled:boolean =  false;
   // ==========================================================
 
 
   constructor(private formBuilder: FormBuilder, public cookieService: CookieService,
-    private http: HttpServiceService , private router : Router, public activatedRoute: ActivatedRoute,
-    public dialog: MatDialog) { 
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition={ id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.adminList.res[0];
-          });
-        }
-        else
-          this.action = "add";
-      });  
-    }
+    private http: HttpServiceService, private router: Router, public activatedRoute: ActivatedRoute,
+    public dialog: MatDialog) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.isDisabled = true;
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.adminList.res[0];
+        });
+      }
+      else
+        this.action = "add";
+    });
+  }
 
 
 
-
-
+ 
 
 
   ngOnInit() {
@@ -64,6 +65,7 @@ export class AddEditAdminComponent implements OnInit {
 
     // Case 
     switch (this.action) {
+
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
@@ -71,16 +73,17 @@ export class AddEditAdminComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.successMessage = "One row updated";
+        this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData);
-        this.header_txt="Edit Admin Information";
+        this.header_txt = "Edit Admin Information";
+        
         break;
     }
   }
 
 
 
-// =========================================MODAL functions==========================================
+  // =========================================MODAL functions==========================================
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(Modal, {
       width: '250px',
@@ -95,20 +98,20 @@ export class AddEditAdminComponent implements OnInit {
 
 
 
- // ===================================Setting the default Value========================
- setDefaultValue(defaultValue) {
-  this.adminForm.patchValue({
-    firstname: defaultValue.firstname,
-    lastname: defaultValue.lastname,
-    email: defaultValue.email,
-    password:defaultValue.password,
-    confirmpassword:defaultValue.password,
-    phone: defaultValue.phone,
-    status:this.defaultData.status
+  // ===================================Setting the default Value========================
+  setDefaultValue(defaultValue) {
+    this.adminForm.patchValue({
+      firstname: defaultValue.firstname,
+      lastname: defaultValue.lastname,
+      email: defaultValue.email,
+      // password: defaultValue.password,
+      // confirmpassword: defaultValue.password,
+      phone: defaultValue.phone,
+      status: this.defaultData.status
 
-  })
-}
-// ======================================================================================
+    })
+  }
+  // ======================================================================================
 
 
 
@@ -119,14 +122,14 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
-      firstname: ["",[Validators.required,nameValidator]],
-      lastname: ["",[Validators.required,nameValidator]],
-      phone: ["",[Validators.required,phoneValidator]],
-      email: ["",[Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
-      password: ['',Validators.required],
-      confirmpassword: ['',matchpwd],
+      firstname: ["", [Validators.required, nameValidator]],
+      lastname: ["", [Validators.required, nameValidator]],
+      phone: ["", [Validators.required, phoneValidator]],
+      email: ["", [Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
+      password: ['', Validators.required],
+      confirmpassword: ['', matchpwd],
       status: [],
-      type :['admin']
+      Type: ['admin']
     });
   }
   // ===============================================
@@ -151,7 +154,7 @@ export class AddEditAdminComponent implements OnInit {
         this.adminForm.value.status = parseInt("0");
       }
 
-     delete this.adminForm.value.confirmpassword;
+      delete this.adminForm.value.confirmpassword;
 
 
 
@@ -162,11 +165,11 @@ export class AddEditAdminComponent implements OnInit {
         "token": this.cookieService.get('jwtToken')
 
       };
-     
+
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-        
+
         if (response.status == "success") {
-          
+
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();

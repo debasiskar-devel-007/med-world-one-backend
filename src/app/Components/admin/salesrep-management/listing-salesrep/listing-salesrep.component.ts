@@ -15,10 +15,10 @@ export class ListingSalesrepComponent implements OnInit {
 
   // ===============================Declarations=========================
   salesData: any = [];
-  salesData_skip: any = ["_id","password","address"];
+  salesData_skip: any = ["_id","password","address","Type","fullname"];
   salesData_modify_header: any = {
     "name":"Name","email":"Email","state":"State","city":"City","zip":"ZIP","phone":"Phone","fax":"FAX",
-    "status":"Status"
+    "status":"Status","date":"Date"
   };
   tableName: any = 'user';
   UpdateEndpoint: any = "addorupdatedata";
@@ -28,12 +28,14 @@ export class ListingSalesrepComponent implements OnInit {
   editUrl: any = 'admin/salesrep-management/edit';
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+  view:any="user_view";
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
       textsearch: [{ label: "Search By name", field: 'name' },
       { label: "Search By state", field: 'state' },
-      { label: "Search By email", field: 'email' }]
+      { label: "Search By email", field: 'email' }],
+      datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };
   // ====================================================================
     /*Showing Image in the Modal*/

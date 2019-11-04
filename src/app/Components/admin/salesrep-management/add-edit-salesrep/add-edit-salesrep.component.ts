@@ -66,7 +66,7 @@ export class AddEditSalesrepComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.successMessage = "One row updated";
+        this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData); 
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
@@ -91,7 +91,7 @@ export class AddEditSalesrepComponent implements OnInit {
       phone: ['',[Validators.required,phoneValidator]],
       fax: ['',[Validators.required]],
       status: ['',],
-      type:['salesrep']
+      Type:['salesrep']
     });
   }
 // =====================================================
@@ -121,7 +121,7 @@ openDialog(x: any): void {
  this.salesRepForm.patchValue({
    name:defaultValue.name,
    email:defaultValue.email,
-   password:defaultValue.password,
+  
    state:defaultValue.state,
    city:defaultValue.city,
    address:defaultValue.address,

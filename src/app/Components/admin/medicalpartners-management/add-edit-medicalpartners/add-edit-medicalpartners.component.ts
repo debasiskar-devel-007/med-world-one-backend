@@ -89,7 +89,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.successMessage = "One row updated";
+        this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData); 
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
@@ -136,7 +136,7 @@ openDialog(x: any): void {
       noofstaffs: [],
       status: [],
       mpimage: [],
-      type:['hospital'],
+      Type:['hospital'],
     });
   }
   //  ===========================================================
@@ -157,7 +157,7 @@ openDialog(x: any): void {
    noofbeds:defaultValue.noofbeds,
    noofstaffs:defaultValue.noofstaffs,
    status:defaultValue.status,
-   password:defaultValue.password
+   
 
   })
     this.collect_email_array = defaultValue.contactemails;

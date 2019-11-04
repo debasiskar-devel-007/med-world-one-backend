@@ -26,7 +26,7 @@
 
 
     <!-- Password  -->
-    <mat-form-field *ngIf="action=='add'">
+    <mat-form-field>
         <mat-label>Password:</mat-label>
         <input matInput type="password" formControlName="password">
         <mat-error *ngIf="salesRepForm.controls['password']?.touched || salesRepForm.controls['password'].errors 
@@ -35,7 +35,7 @@
 
 
     <!-- Confirm Password  -->
-    <mat-form-field *ngIf="action=='add'">
+    <mat-form-field>
         <mat-label>Confirm Password:</mat-label>
         <input matInput type="password" formControlName="confirmpassword">
         <mat-error *ngIf="salesRepForm.controls['confirmpassword']?.touched || salesRepForm.controls['confirmpassword'].errors 

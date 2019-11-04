@@ -70,7 +70,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: { 'type':'admin' }
+        condition: { 'Type':'admin' }
       },
       endpoint: 'datalist'
     },
@@ -82,8 +82,8 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
-        condition: {}
+        source: 'user',
+        condition: { }
       },
       endpoint: 'datalist'
     },
@@ -102,7 +102,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: {'type':'hospital'}
+        condition: {'Type':'hospital'}
       },
       endpoint: 'datalist'
     },
@@ -132,7 +132,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: {'type':'salesrep'}
+        condition: {'Type':'salesrep'}
       },
       endpoint: 'datalist'
     },

@@ -17,11 +17,10 @@ export class ListingMedicalpartnersComponent implements OnInit {
 
   // ===============================Declarations=========================
   mpData: any = [];
-  mpData_skip: any = ["_id", "password", "address", "noofdoctors", "noofbeds", "mpimage", "noofstaffs"];
+  mpData_skip: any = ["_id", "password","contactphones","contactemails","address","noofdoctors","noofbeds","Type","image","noofstaffs","fullname"];
   mpData_modify_header: any = {
-    "hospitalname": "Hospital Name", "contactperson": "Contact Person",
-    "contactemails": "Contact Email(s)", "contactphones": "Contact Phone(s)", "state": "State", "city": "City",
-    "zip": "ZIP", "speciality": "Speciality", "status": "Status","created at":"Created at"
+   "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
+   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date"
   };
   tableName: any = 'user';
   UpdateEndpoint: any = "addorupdatedata";
@@ -31,19 +30,21 @@ export class ListingMedicalpartnersComponent implements OnInit {
   editUrl: any = 'admin/medicalpartners-management/edit';
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+  view:any='user_view';
   public search_settings: any =
     {
-      selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By Hospital name", field: 'hospitalname' },
-      { label: "Search By state", field: 'state' },
-      { label: "Search By speciality", field: 'speciality' }]
+      selectsearch: [{ label: 'status...', field: 'status', values: this.status }],
+      textsearch: [{ label: "hospital name", field: 'hospitalname' },
+      { label: "state", field: 'state' },
+      { label: "speciality", field: 'speciality' }],
+      datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };
   // ====================================================================
     /*Showing Image in the Modal*/
     pendingmodelapplicationarray_detail_datatype: [{
       key: "image",
       value: 'image',
-      fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'             // Image path 
+      fileurl: '"https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/'       // Image path 
     }]
 
 
