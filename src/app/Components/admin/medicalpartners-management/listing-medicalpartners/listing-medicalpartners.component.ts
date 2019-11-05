@@ -20,7 +20,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
   mpData_skip: any = ["_id", "password","contactphones","contactemails","address","noofdoctors","noofbeds","Type","image","noofstaffs","fullname"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
-   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date"
+   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email'
   };
   tableName: any = 'user';
   UpdateEndpoint: any = "addorupdatedata";

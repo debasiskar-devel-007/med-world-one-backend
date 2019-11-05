@@ -17,7 +17,7 @@
     <!-- Email  -->
     <mat-form-field>
         <mat-label>Email:</mat-label>
-        <input matInput formControlName="email">
+        <input matInput formControlName="email" [readonly]="flag==true?true:false">
         <mat-error *ngIf="!salesRepForm.controls['email'].valid && salesRepForm.controls['email'].errors.required">Email is required.</mat-error>
         <mat-error *ngIf="!salesRepForm.controls['email'].valid && !salesRepForm.controls['email'].errors.required">
           Email

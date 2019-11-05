@@ -39,8 +39,8 @@
 
         <!-- Email  -->
        <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input  matInput placeholder="adam123@gmail.com" formControlName="email" (blur)="inputBlur('email')" [disabled]="isDisabled"> 
+            <mat-label>Email </mat-label>
+            <input  matInput placeholder="adam123@gmail.com" [readonly]="flag==true?true:false" formControlName="email"  (blur)="inputBlur('email')" > 
             <mat-error *ngIf="!adminForm.controls['email'].valid && adminForm.controls['email'].errors.required">Email is required.</mat-error>
             <mat-error *ngIf="!adminForm.controls['email'].valid && !adminForm.controls['email'].errors.required">
               Email

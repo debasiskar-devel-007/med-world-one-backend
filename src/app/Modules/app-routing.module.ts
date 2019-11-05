@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../Components/auth/login/login.component';
 // import { ForgetPasswordComponent } from 'login/lib/forget-password/forget-password.component';
@@ -27,6 +27,7 @@ import { AddEditBrandComponent } from '../Components/inventory/manageinventory/b
 import { ListingBrandComponent } from '../Components/inventory/manageinventory/brand/listing-brand/listing-brand.component';
 import { AddEditInventoryComponent } from '../Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component';
 import { ListingInventoryComponent } from '../Components/inventory/inventorylist/listing-inventory/listing-inventory.component';
+import { AccountsComponent } from '../Components/common/accounts/accounts.component';
 
 
 
@@ -388,8 +389,16 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-];
 
+
+
+
+// ________________________ACCOUNT SETTINGS______________________
+
+{ path : 'account-settings',component: AccountsComponent }
+
+
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

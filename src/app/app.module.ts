@@ -76,6 +76,7 @@ import { LoaderService } from './services/loader.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './Class/common/loader.interceptor';
 import { HttpLoaderComponent } from './Components/common/http-loader/http-loader.component';
+import { AccountsComponent } from './Components/common/accounts/accounts.component';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { HttpLoaderComponent } from './Components/common/http-loader/http-loader
     AddEditInventoryComponent,
     ListingInventoryComponent,
     HttpLoaderComponent,
+    AccountsComponent,
 
     
 

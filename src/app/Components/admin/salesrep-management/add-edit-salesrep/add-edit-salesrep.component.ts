@@ -31,6 +31,7 @@ export class AddEditSalesrepComponent implements OnInit {
   defaultData:any;
   successMessage:any="Submitted Successfully!!!";
   dialogRef:any;
+  flag:boolean=false;
   // =========================================
 
 
@@ -66,6 +67,7 @@ export class AddEditSalesrepComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
+        this.flag=true;
         this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData); 
         setTimeout(() => {

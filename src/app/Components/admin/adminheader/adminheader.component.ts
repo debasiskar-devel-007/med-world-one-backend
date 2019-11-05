@@ -24,7 +24,17 @@ export class AdminheaderComponent implements OnInit {
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
     this.user_cookie = cookieService.get('jwtToken');
-  this.user_name = this.user_data.firstname + ' '+this.user_data.lastname;
+    console.log("USER DETAILS",this.user_data);
+    if(this.user_data.Type=='admin')
+    {
+    console.log('admin');
+    this.user_name=this.user_data.firstname + ' ' + this.user_data.lastname;
+    }
+    else if (this.user_data.Type=='salesrep')
+    console.log('salesrep');
+    else
+    console.log('hospital');
+
   }
 
   ngOnInit() {

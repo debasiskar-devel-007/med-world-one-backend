@@ -30,6 +30,7 @@ export class AddEditAdminComponent implements OnInit {
   dialogRef: any;
   header_txt: any = "Add an admin"
   isDisabled:boolean =  false;
+  flag:boolean= false;
   // ==========================================================
 
 
@@ -57,8 +58,8 @@ export class AddEditAdminComponent implements OnInit {
 
   ngOnInit() {
 
-    //Generating the form on ngOnInit
-    this.generateForm();
+    
+    
 
 
 
@@ -69,16 +70,22 @@ export class AddEditAdminComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+         //Generating the form on ngOnInit
+         this.generateForm();
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
         this.successMessage = "One row updated!!!";
+         //Generating the form on ngOnInit
+         this.generateForm();
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Admin Information";
-        
+        this.flag=true;
         break;
     }
+
+   
   }
 
 

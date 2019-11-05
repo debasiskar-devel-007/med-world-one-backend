@@ -36,6 +36,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   imgName:any;
   imgType:any;
   img_flag:boolean = false;
+  flag:boolean=false;
   // ===================================================
 
 
@@ -89,6 +90,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
+        this.flag=true;
         this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData); 
         setTimeout(() => {
@@ -122,6 +124,7 @@ openDialog(x: any): void {
     this.medicalPartnerForm = this.formBuilder.group({
       hospitalname: [],
       contactperson: [],
+      email:[],
       contactemails: [],
       contactphones: [],
       password: [],
@@ -148,6 +151,7 @@ openDialog(x: any): void {
   this.medicalPartnerForm.patchValue({
    hospitalname:this.defaultData.hospitalname,
    contactperson:defaultValue.contactperson,
+   email:this.defaultData.primaryemail,
    address:defaultValue.address,
    zip:defaultValue.zip,
    speciality:defaultValue.speciality,
