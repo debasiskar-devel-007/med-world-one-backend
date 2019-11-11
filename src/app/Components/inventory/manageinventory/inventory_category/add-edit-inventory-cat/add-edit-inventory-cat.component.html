@@ -10,7 +10,7 @@
         <!-- Parent Category  -->
         <mat-form-field>
             <mat-label>Parent Category</mat-label>
-            <select matNativeControl required formControlName="parent_category" >
+            <select matNativeControl formControlName="parent_category" >
                 <option value="0" >Select a category</option>
                 <option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.category_name }}</option>
             </select>

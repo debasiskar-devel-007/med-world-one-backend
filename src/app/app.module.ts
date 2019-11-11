@@ -6,7 +6,7 @@ import { DemoMaterialModule } from './Modules/material-module';
 import { LoginModule } from 'login';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListingModule } from 'lib-listing';
+import { ListingModule } from 'listing-angular7';
 import { FileUploadModule } from 'file-upload';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -77,6 +77,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { LoaderInterceptor } from './Class/common/loader.interceptor';
 import { HttpLoaderComponent } from './Components/common/http-loader/http-loader.component';
 import { AccountsComponent } from './Components/common/accounts/accounts.component';
+import { DialogBoxComponent } from './Components/common/dialog-box/dialog-box.component';
 
 
 @NgModule({
@@ -124,7 +125,7 @@ import { AccountsComponent } from './Components/common/accounts/accounts.compone
     HttpLoaderComponent,
     AccountsComponent,
 
-    
+    DialogBoxComponent
 
   ],
   imports: [
@@ -146,7 +147,7 @@ import { AccountsComponent } from './Components/common/accounts/accounts.compone
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  entryComponents: [Modal5,Modal4 ,Modal, Modal2, Modal3]
+  entryComponents: [Modal5,Modal4 ,Modal, Modal2, Modal3,DialogBoxComponent]
 })
 export class AppModule { 
   constructor(public http: HttpClient) {

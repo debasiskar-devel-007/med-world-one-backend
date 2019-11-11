@@ -24,6 +24,7 @@ export class ListingInventoryComponent implements OnInit {
  editUrl: any = 'inventory/inventory-list/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+ view:any="inventories_view";
  public search_settings: any =
    {
      selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
@@ -34,7 +35,7 @@ export class ListingInventoryComponent implements OnInit {
    pendingmodelapplicationarray_detail_datatype: [{
      key: "image",
      value: 'image',
-     fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'             // Image path 
+     fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'      // Image path 
    }]
 
 

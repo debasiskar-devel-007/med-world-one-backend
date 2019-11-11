@@ -1,7 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
+import { DialogBoxComponent } from '../../../common/dialog-box/dialog-box.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {matchpwd,nameValidator,phoneValidator} from './validators'
@@ -32,6 +32,9 @@ export class AddEditSalesrepComponent implements OnInit {
   successMessage:any="Submitted Successfully!!!";
   dialogRef:any;
   flag:boolean=false;
+  linkTo: any;
+  user_data: any;
+  role: any;
   // =========================================
 
 
@@ -49,6 +52,12 @@ export class AddEditSalesrepComponent implements OnInit {
         else
           this.action = "add";
       });
+
+      /*Getting the role*/
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.user_data = JSON.parse(allData.user_details);
+    this.role = this.user_data.Type;
     }
 
   ngOnInit() {
@@ -63,6 +72,7 @@ export class AddEditSalesrepComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+        this.linkTo = "/admin/salesrep-management/list";
         break;
       case 'edit':
         /* Button text */
@@ -74,6 +84,10 @@ export class AddEditSalesrepComponent implements OnInit {
           this.getCityByName(this.defaultData.state);
         }, 2000);      
         this.header_txt = "Edit SalesRep Information";
+        if (this.role== 'admin')
+        this.linkTo = "/admin/salesrep-management/list";
+        else
+        this.linkTo = "/dashboard-admin";
         break;
     }
   }
@@ -85,7 +99,7 @@ export class AddEditSalesrepComponent implements OnInit {
       name: ['',[Validators.required,nameValidator]],
       email: ['',[Validators.required,Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['',Validators.required],
-      confirmpassword: ['',matchpwd],
+      confirmpassword: [''],
       state: ['',],
       city: ['',],
       address: ['',[Validators.required]],
@@ -123,7 +137,7 @@ openDialog(x: any): void {
  this.salesRepForm.patchValue({
    name:defaultValue.name,
    email:defaultValue.email,
-  
+   password:defaultValue.password,
    state:defaultValue.state,
    city:defaultValue.city,
    address:defaultValue.address,
@@ -162,6 +176,42 @@ openDialog(x: any): void {
   getCityByName(stateName) {
     this.cities = this.allCities[stateName];
   }
+
+
+
+  change_password(){
+    let data: any = {
+      width: '250px',
+      data: { 
+        header: "Change Password",
+        message: "Record Saved Successfully",
+        id:this.condition,
+        button1: { text: "Cancel" },
+        button2: { text: "Submit" },
+      }
+    }
+    this.penDialog(data);
+    
+  }
+
+  penDialog(data) {
+    this.dialogRef = this.dialog.open(DialogBoxComponent, data);
+    this.dialogRef.afterClosed().subscribe(result => {
+      switch(result) {
+        case "Cancel":
+         
+          break;
+        case "Add Next":
+          location.reload();
+          break;
+      }
+    });
+  }
+
+
+
+
+
 
   // ==================SUBMIT===================
   onSubmit() {
@@ -202,7 +252,7 @@ openDialog(x: any): void {
           }, 2000);
 
 
-          this.router.navigateByUrl('admin/salesrep-management/list');;
+          this.router.navigateByUrl(this.linkTo);
         } else {
           alert("Some error occurred. Please try again.");
         }

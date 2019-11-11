@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators ,FormArrayName} from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -24,6 +24,7 @@ export class AddEditInventoryComponent implements OnInit {
    action:any;
    defaultData:any;
    successMessage:any="Submitted Successfully!!!";
+   yom_flag:boolean=false;
 // ===================================================
 
 
@@ -80,9 +81,12 @@ export class AddEditInventoryComponent implements OnInit {
         inventory_name:[],
         brand_name:[],
         inventory_category:[],
+        model:[],
         description:[],
         condition:['New',],
+        yom:[],
         availabiity:[],
+        instock:[],
         status:[]
       });
   }
@@ -97,9 +101,11 @@ setDefaultValue(defaultValue) {
     inventory_name:defaultValue.inventory_name,
     brand_name:defaultValue.brand_name,
     inventory_category:defaultValue.inventory_category,
+    model:defaultValue.model,
     description:defaultValue.description,
     condition:defaultValue.condition,
     availabiity:defaultValue.availabiity,
+    instock:defaultValue.instock,
     status:defaultValue.status
   })
  }
@@ -136,13 +142,13 @@ setDefaultValue(defaultValue) {
         "source": 'inventories',
         "data": Object.assign(this.inventoryForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["parent_category"]
+        "sourceobj": ["brand_name","inventory_category"],
+        
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-         console.log("sdhgcjdsjh",response.status);
             // this.openDialog(this.successMessage);
             // setTimeout(() => {
             //   this.dialogRef.close();
@@ -196,7 +202,11 @@ setDefaultValue(defaultValue) {
         let result: any;
         result = response;
         this.inventory_category_array = result.res;
-        console.log("=====================",this.inventory_category_array);
       });
+    }
+
+    /*create_field*/
+    create_field(){
+      this.inventoryForm.addControl('newcontrol',new FormControl('',Validators.required));
     }
 }

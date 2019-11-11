@@ -18,7 +18,7 @@ export class ResolveService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
 
-    / will come into play while editing otherwise no effect /
+    /* will come into play while editing otherwise no effect */
     let requestData: any = route.data.requestcondition;
     requestData.condition = Object.assign(requestData.condition, route.params);
 

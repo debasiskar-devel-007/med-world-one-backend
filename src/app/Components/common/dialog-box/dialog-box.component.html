@@ -1,8 +1,16 @@
 <div class="modal">
     <h1 mat-dialog-title>{{ data.header }}</h1>
-    <div mat-dialog-content>
-        <p>{{ data.message }}</p>
-    </div>
+    <form autocomplete="off" [formGroup]="passwordForm">
+    <mat-form-field *ngIf="Type!='admin'">
+        <input matInput placeholder="Enter Current Password" type="password" formControlName="currentpassword">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Enter New Password" type="password" formControlName="newpassword">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Re-enter New Password" type="password" formControlName="newpassword2">
+    </mat-form-field>
+</form>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="button1()">{{ data.button1.text }}</button>

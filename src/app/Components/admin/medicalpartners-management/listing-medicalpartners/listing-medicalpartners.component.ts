@@ -42,9 +42,9 @@ export class ListingMedicalpartnersComponent implements OnInit {
   // ====================================================================
     /*Showing Image in the Modal*/
     pendingmodelapplicationarray_detail_datatype: [{
-      key: "image",
-      value: 'image',
-      fileurl: '"https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/'       // Image path 
+      key: 'images',
+      value: 'images',
+      fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'       // Image path 
     }]
 
 

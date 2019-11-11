@@ -118,7 +118,8 @@ openDialog(x: any): void {
     var data: any;
     data = {
       'source': 'inventory_category',
-      'token': this.cookieService.get('jwtToken')
+      'token': this.cookieService.get('jwtToken'),
+      "sourceobj": ["parent_category"],
     };
     this.http.httpViaPost("datalist",data).subscribe(response => {
       let result: any;

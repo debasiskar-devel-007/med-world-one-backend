@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators, EmailValidator } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
+import { DialogBoxComponent } from '../../../common/dialog-box/dialog-box.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { matchpwd, nameValidator, phoneValidator } from '../../../common/validators'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -29,8 +29,10 @@ export class AddEditAdminComponent implements OnInit {
   successMessage: any = "Submitted Successfully!!!";
   dialogRef: any;
   header_txt: any = "Add an admin"
-  isDisabled:boolean =  false;
-  flag:boolean= false;
+  flag: boolean = false;
+  linkTo: any;
+  user_data: any;
+  role: any;
   // ==========================================================
 
 
@@ -40,7 +42,6 @@ export class AddEditAdminComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
-        this.isDisabled = true;
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.adminList.res[0];
@@ -49,17 +50,23 @@ export class AddEditAdminComponent implements OnInit {
       else
         this.action = "add";
     });
+
+    /*Getting the role*/
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.user_data = JSON.parse(allData.user_details);
+    this.role = this.user_data.Type;
   }
 
 
 
- 
+
 
 
   ngOnInit() {
 
-    
-    
+
+
 
 
 
@@ -70,22 +77,25 @@ export class AddEditAdminComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
-         //Generating the form on ngOnInit
-         this.generateForm();
+        //Generating the form on ngOnInit
+        this.generateForm();
+        this.linkTo = "/admin-management/list";
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
         this.successMessage = "One row updated!!!";
-         //Generating the form on ngOnInit
-         this.generateForm();
+        //Generating the form on ngOnInit
+        this.generateForm();
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Admin Information";
-        this.flag=true;
+        this.flag = true;
+        if (this.role == 'admin')
+          this.linkTo = "/dashboard-admin";
         break;
     }
 
-   
+
   }
 
 
@@ -111,10 +121,9 @@ export class AddEditAdminComponent implements OnInit {
       firstname: defaultValue.firstname,
       lastname: defaultValue.lastname,
       email: defaultValue.email,
-      // password: defaultValue.password,
-      // confirmpassword: defaultValue.password,
+      password: defaultValue.password,
       phone: defaultValue.phone,
-      status: this.defaultData.status
+      status: defaultValue.status
 
     })
   }
@@ -134,7 +143,7 @@ export class AddEditAdminComponent implements OnInit {
       phone: ["", [Validators.required, phoneValidator]],
       email: ["", [Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['', Validators.required],
-      confirmpassword: ['', matchpwd],
+      confirmpassword: [''],
       status: [],
       Type: ['admin']
     });
@@ -143,6 +152,34 @@ export class AddEditAdminComponent implements OnInit {
 
 
 
+  change_password() {
+    let data: any = {
+      width: '250px',
+      data: {
+        header: "Change Password",
+        message: "Record Saved Successfully",
+        id: this.condition,
+        button1: { text: "Cancel" },
+        button2: { text: "Submit" },
+      }
+    }
+    this.penDialog(data);
+
+  }
+
+  penDialog(data) {
+    this.dialogRef = this.dialog.open(DialogBoxComponent, data);
+    this.dialogRef.afterClosed().subscribe(result => {
+      switch (result) {
+        case "Cancel":
+
+          break;
+        case "Add Next":
+          location.reload();
+          break;
+      }
+    });
+  }
 
 
   // ====================SUBMIT FUNCTION+===================
@@ -182,13 +219,13 @@ export class AddEditAdminComponent implements OnInit {
             this.dialogRef.close();
           }, 2000);
 
+          this.router.navigateByUrl(this.linkTo);
 
-          this.router.navigateByUrl('admin-management/list');;
         } else {
-          alert("Some error occurred. Please try again.");
+          // alert("Some error occurred. Please try again.");
         }
       }, (error) => {
-        alert("Some error occurred. Please try again.");
+        // alert("Some error occurred. Please try again.");
       });
     }
   }

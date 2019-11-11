@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validator } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
+import { DialogBoxComponent } from '../../../common/dialog-box/dialog-box.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
@@ -23,7 +23,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   condition: any;
   action: any = "add"
   defaultData: any;
-  successMessage: any="Submitted Successfully!!!";
+  successMessage: any = "Submitted Successfully!!!";
   dialogRef: any;
   header_txt: any = "Add a Medical Partner"
   collect_email_array: any = [];
@@ -32,11 +32,14 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   states: any;
   cities: any;
   allCities: any;
-  fullImgPath:any;
-  imgName:any;
-  imgType:any;
-  img_flag:boolean = false;
-  flag:boolean=false;
+  fullImgPath: any;
+  imgName: any;
+  imgType: any;
+  img_flag: boolean = false;
+  flag: boolean = false;
+  linkTo: any;
+  user_data: any;
+  role: any;
   // ===================================================
 
 
@@ -51,7 +54,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     path: "files",
     prefix: "medpartner_picture_"
   }
-  
+
   //  ====================================================================
 
 
@@ -70,6 +73,12 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       else
         this.action = "add";
     });
+
+    /*Getting the role*/
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.user_data = JSON.parse(allData.user_details);
+    this.role = this.user_data.Type;
   }
 
 
@@ -86,36 +95,41 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+        this.linkTo = "/admin/medicalpartners-management/list"
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.flag=true;
+        this.flag = true;
         this.successMessage = "One row updated!!!";
-        this.setDefaultValue(this.defaultData); 
+        this.setDefaultValue(this.defaultData);
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
-        }, 2000);      
+        }, 2000);
         this.header_txt = "Edit Medical Partner's Information"
-        this.img_flag=true;
+        this.img_flag = true;
+        if (this.role== 'admin')
+          this.linkTo = "/admin/medicalpartners-management/list";
+          else
+          this.linkTo = "/dashboard-admin";
         break;
     }
   }
 
 
 
-// =========================================MODAL functions==========================================
-openDialog(x: any): void {
-  this.dialogRef = this.dialog.open(Modal2, {
-    width: '250px',
-    data: { msg: x }
-  });
+  // =========================================MODAL functions==========================================
+  openDialog(x: any): void {
+    this.dialogRef = this.dialog.open(Modal2, {
+      width: '250px',
+      data: { msg: x }
+    });
 
-  this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe(result => {
 
-  });
-}
-// =====================================================================================================
+    });
+  }
+  // =====================================================================================================
 
 
 
@@ -124,7 +138,7 @@ openDialog(x: any): void {
     this.medicalPartnerForm = this.formBuilder.group({
       hospitalname: [],
       contactperson: [],
-      email:[],
+      email: [],
       contactemails: [],
       contactphones: [],
       password: [],
@@ -139,39 +153,39 @@ openDialog(x: any): void {
       noofstaffs: [],
       status: [],
       mpimage: [],
-      Type:['hospital'],
+      Type: ['hospital'],
     });
   }
   //  ===========================================================
 
 
 
- // ===================================Setting the default Value========================
- setDefaultValue(defaultValue) {
-  this.medicalPartnerForm.patchValue({
-   hospitalname:this.defaultData.hospitalname,
-   contactperson:defaultValue.contactperson,
-   email:this.defaultData.primaryemail,
-   address:defaultValue.address,
-   zip:defaultValue.zip,
-   speciality:defaultValue.speciality,
-   state:defaultValue.state,
-   city:defaultValue.city,
-   noofdoctors:defaultValue.noofdoctors,
-   noofbeds:defaultValue.noofbeds,
-   noofstaffs:defaultValue.noofstaffs,
-   status:defaultValue.status,
-   
-
-  })
+  // ===================================Setting the default Value========================
+  setDefaultValue(defaultValue) {
+    this.medicalPartnerForm.patchValue({
+      hospitalname: defaultValue.hospitalname,
+      contactperson: defaultValue.contactperson,
+      email: defaultValue.email,
+      password: defaultValue.password,
+      address: defaultValue.address,
+      zip: defaultValue.zip,
+      speciality: defaultValue.speciality,
+      state: defaultValue.state,
+      city: defaultValue.city,
+      noofdoctors: defaultValue.noofdoctors,
+      noofbeds: defaultValue.noofbeds,
+      noofstaffs: defaultValue.noofstaffs,
+      status: defaultValue.status,
+      mpimage : defaultValue.mpimage
+    })
     this.collect_email_array = defaultValue.contactemails;
     this.collect_phone_array = defaultValue.contactphones;
-    
+
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgType = defaultValue.mpimage.type;
-}
-// ======================================================================================
+  }
+  // ======================================================================================
 
 
 
@@ -194,6 +208,34 @@ openDialog(x: any): void {
     }
   }
 
+  change_password() {
+    let data: any = {
+      width: '250px',
+      data: {
+        header: "Change Password",
+        message: "Record Saved Successfully",
+        id: this.condition,
+        button1: { text: "Cancel" },
+        button2: { text: "Submit" },
+      }
+    }
+    this.penDialog(data);
+
+  }
+
+  penDialog(data) {
+    this.dialogRef = this.dialog.open(DialogBoxComponent, data);
+    this.dialogRef.afterClosed().subscribe(result => {
+      switch (result) {
+        case "Cancel":
+
+          break;
+        case "Add Next":
+          location.reload();
+          break;
+      }
+    });
+  }
 
 
 
@@ -243,18 +285,18 @@ openDialog(x: any): void {
         "token": this.cookieService.get('jwtToken')
 
       };
-     
+
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-         
+
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
 
+          this.router.navigateByUrl(this.linkTo);
 
-          this.router.navigateByUrl('admin/medicalpartners-management/list');;
         } else {
           alert("Some error occurred. Please try again.");
         }
@@ -301,8 +343,7 @@ openDialog(x: any): void {
   }
 
   //clearing the image
-  clear_image()
-  {
+  clear_image() {
     this.img_flag = false;
   }
 
