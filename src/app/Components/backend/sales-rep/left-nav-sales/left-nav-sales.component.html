@@ -1,0 +1,28 @@
+<mat-nav-list class="listing_container">
+    <span *ngIf="pageUrl === 'salesrep'">
+        <a mat-list-item [routerLink]="'/salesrep/my-details'" routerLinkActive="active"><i class="fa fa-user"
+                aria-hidden="true"></i> my Details </a>
+        <a mat-list-item [routerLink]="'/salesrep/change-password'" routerLinkActive="active"><i
+                class="fa fa-unlock-alt" aria-hidden="true"></i> change password </a>
+        <a mat-list-item [routerLink]="'/salesrep/my-hospital'" routerLinkActive="active"> <i class="fa fa-medkit"
+                aria-hidden="true"></i> my hospital </a>
+        <a mat-list-item [routerLink]="'/salesrep/my-added-inventory'" routerLinkActive="active"> <i class="fa fa-tag"
+                aria-hidden="true"></i> inventory added by me </a>
+        <a mat-list-item [routerLink]="'/salesrep/view-quotes'" routerLinkActive="active"><i class="fa fa-comments"
+                aria-hidden="true"></i> view quotes</a>
+        <a mat-list-item [routerLink]="'/salesrep/my-sales'" routerLinkActive="active"> <i class="fa fa-bar-chart"
+                name="My Sales" aria-hidden="true"></i> my sales</a>
+    </span>
+    <span *ngIf="pageUrl === 'hospital'">
+        <a mat-list-item [routerLink]="'/hospital/my-details'" routerLinkActive="active"><i class="fa fa-user"
+                aria-hidden="true"></i> my Details </a>
+        <a mat-list-item [routerLink]="'/hospital/change-password'" routerLinkActive="active"><i
+                class="fa fa-unlock-alt" aria-hidden="true"></i> change password </a>
+        <a mat-list-item [routerLink]="'/hospital/my-hospital'" routerLinkActive="active"> <i class="fa fa-medkit"
+                aria-hidden="true"></i> my sales rep </a>
+        <a mat-list-item [routerLink]="'/hospital/added-inventory'" routerLinkActive="active"> <i class="fa fa-tag"
+                aria-hidden="true"></i> inventory added by me </a>
+        <a mat-list-item [routerLink]="'/hospital/view-quotes'" routerLinkActive="active"><i class="fa fa-comments"
+                aria-hidden="true"></i> view quotes</a>
+    </span>
+</mat-nav-list>

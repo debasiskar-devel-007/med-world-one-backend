@@ -1,0 +1,21 @@
+<app-frontend-header></app-frontend-header>
+<mat-card-content class="main_wrapper">
+  <mat-toolbar class="my_account_header">
+      <span>
+          <i class="fa fa-user-circle" aria-hidden="true"></i>
+          <h2>my account</h2>
+      </span>
+
+
+  </mat-toolbar>
+  <mat-card class="container">
+    <mat-card-content class="inner_wrapper_left">
+      <app-left-nav-sales></app-left-nav-sales>
+    </mat-card-content>
+    <mat-card-content class="inner_wrapper_right">
+        <ng-content ></ng-content>
+    </mat-card-content>
+  </mat-card>
+</mat-card-content>
+
+<app-frontend-footer></app-frontend-footer>

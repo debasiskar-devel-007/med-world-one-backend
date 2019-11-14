@@ -1,0 +1,40 @@
+.sh_buyfrmus_topblock { background: url("../../../../assets/images/ourteamBanner.jpg") no-repeat 100% center; background-size: cover;}
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding:  60px 706px 60px 6.5%; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-family: "RobotoBold"; font-size: 90px; text-transform: uppercase; color: #fff; margin-bottom: 0; line-height: 75px;}
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .paragraph { font-family: "RobotoMedium"; font-size: 30px; color: #89fbff; margin-top: 20px; margin-bottom: 0; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .sub_para { font-family: "RobotoMedium"; font-size: 24px; color: #89fbff; margin-top: 25px; padding-right: 110px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .manufac_action_btn { width: 290px; background: #111214; font-family: "RobotoMedium"; font-size: 30px; color: #fff; text-transform: uppercase; padding: 10px; border-radius: 0; text-align:center; margin-top: 20px; }
+
+.total_team_sec { width: 1665px; margin:0 auto;}
+.total_team_sec .image_wrapper{ text-align: center; margin-bottom: 0;}
+.total_team_sec .image_wrapper img{ max-width: 100%; display: block; }
+.total_team_sec .content_wrapper { background: #1272c2; position: relative; }
+.total_team_sec .content_wrapper::after { content: ''; display: inline-block; background: #0667b9; position: absolute; top: 0; right: 0; height: 100%; width: 50%; clip-path: polygon(90% 0, 100% 0, 84% 100%, 0% 100%);}
+
+.total_team_sec .content_wrapper .content_wrapper_inner{ position: relative; z-index: 1; padding: 30px 80px; text-align: center; }
+.total_team_sec .content_wrapper .content_wrapper_inner .team_title{font-family: "RobotoMedium"; font-size: 30px; color: #fff; line-height: 34px; border-bottom: 2px solid #004b8a; padding-bottom: 20px; margin-bottom: 22px; }
+.total_team_sec .content_wrapper .content_wrapper_inner .sub_title{font-family: "RobotoMedium"; font-size: 18px; color: #fff; text-transform: uppercase; }
+.total_team_sec .content_wrapper .content_wrapper_inner .team_paragraph{font-family: "RobotoRegular"; font-size: 16px; color: #fff; }
+
+.Team_members_block{ background: linear-gradient(0deg, #eaeaea, transparent); width: 1665px; margin: 20px auto; display: flex; flex-wrap: wrap; }
+.Team_members_block .team_items { width: 23%; background: #fff; border: 1px solid #dadada; position: relative; min-height: 200px; text-align: center; margin: 0.9%;  margin-top: 160px;}
+.Team_members_block .team_items .member_image  { position: absolute; top: -120px; clip-path: polygon(50% 0, 100% 22%, 100% 70%, 50% 100%, 0 76%, 0 24%); left: 15%; width: 70%; }
+.Team_members_block .team_items .member_image img{ max-width: 100%;}
+.Team_members_block .team_items .member_content_wrapper .title{ font-family: "RobotoMedium"; font-size: 20px; color: #151515;  text-transform: uppercase; }
+.Team_members_block .team_items .member_content_wrapper .phone{ font-family: "RobotoRegular"; font-size: 20px; color: #151515; margin: 10px 0; }
+.Team_members_block .team_items .member_content_wrapper .email{ font-family: "RobotoRegular"; font-size: 20px; color: #151515; margin: 10px 0; }
+.Team_members_block .team_items .member_content_wrapper .short_desc{ font-family: "RobotoRegular"; font-size: 16px; color: #151515;   }
+.Team_members_block .team_items .member_content_wrapper { margin-top: 45%; padding: 0 20px; }
+.Team_members_block .team_items  .view_details{ font-family: "RobotoBold"; font-size: 30px; background: #1069b5; color: #fff; border-radius: 0; width: 100%;       text-transform: uppercase; padding: 10px; }
+
+
+@media screen and (max-width: 1800px){
+.total_team_sec { width: 90%; }
+.Team_members_block { width: 90%; }
+}
+@media screen and (max-width: 1500px){
+.Team_members_block .team_items .member_content_wrapper {
+    margin-top: 35%;
+     padding: 0 20px;
+    }
+}

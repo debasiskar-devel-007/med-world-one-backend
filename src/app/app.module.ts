@@ -40,7 +40,7 @@ import { AddEditSalesrepComponent, Modal3 } from './Components/admin/salesrep-ma
 
 
 //Blogs
-import { BlogModule } from 'blog';
+import { BlogModule, BlogComponent } from 'blog';
 import { AddEditBlogsComponent } from './Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component';
 import { ListingBlogsComponent } from './Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component';
 
@@ -79,6 +79,39 @@ import { HttpLoaderComponent } from './Components/common/http-loader/http-loader
 import { AccountsComponent } from './Components/common/accounts/accounts.component';
 import { DialogBoxComponent } from './Components/common/dialog-box/dialog-box.component';
 import { MatIconRegistry } from '@angular/material';
+import { HomePageComponent } from './Components/frontend/home-page/home-page.component';
+import { BuyFromUsComponent } from './Components/frontend/buy-from-us/buy-from-us.component';
+import { ManufacturarDirectComponent } from './Components/frontend/manufacturar-direct/manufacturar-direct.component';
+import { MedicalPartnersComponent } from './Components/frontend/medical-partners/medical-partners.component';
+import { ContactUsComponent } from './Components/frontend/contact-us/contact-us.component';
+import { TeamPageComponent } from './Components/frontend/team-page/team-page.component';
+import { BlogComponentFrontEnd } from './Components/frontend/blog/blog.component';
+import { BlogDetailsComponent } from './Components/frontend/blog-details/blog-details.component';
+import { InventoryComponent } from './Components/frontend/inventory/inventory.component';
+import { InventoryDetailsComponent } from './Components/frontend/inventory-details/inventory-details.component';
+import { AboutUsFrontComponent } from './Components/frontend/about-us-front/about-us-front.component';
+import { SalesRepLoginComponent } from './Components/frontend/logins/sales-rep-login/sales-rep-login.component';
+import { MyDetailsHospitalComponent } from './Components/backend/hospital/my-details-hospital/my-details-hospital.component';
+import { HospitalChangePasswordComponent } from './Components/backend/hospital/hospital-change-password/hospital-change-password.component';
+import { HospitalMySalesrepComponent } from './Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component';
+import { HospitalInventoryAddedComponent } from './Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component';
+import { DetailsHospitalInventoryComponent } from './Components/backend/hospital/details-inventory/details-inventory.component';
+import { HospitalAddInventoryComponent } from './Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component';
+import { HospitalViewQuotesComponent } from './Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component';
+import { DetailsQuotesComponent } from './Components/backend/hospital/details-quotes/details-quotes.component';
+import { MyDetailsComponent } from './Components/backend/sales-rep/my-details/my-details.component';
+import { SalesrepChangePasswordComponent } from './Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component';
+import { SalesrepHospitalComponent } from './Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component';
+import { SalesrepInventoryAddedComponent } from './Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component';
+import { EditInventoryComponent } from './Components/backend/sales-rep/edit-inventory/edit-inventory.component';
+import { DetailsInventoryComponent } from './Components/backend/sales-rep/details-inventory/details-inventory.component';
+import { SalesrepViewQuotesComponent } from './Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component';
+import { SalesrepSalesComponent } from './Components/backend/sales-rep/salesrep-sales/salesrep-sales.component';
+import { ManageHospitalComponent } from './Components/backend/sales-rep/manage-hospital/manage-hospital.component';
+import { FrontendFooterComponent } from './Components/frontend/frontend-footer/frontend-footer.component';
+import { FrontendHeaderComponent } from './Components/frontend/frontend-header/frontend-header.component';
+import { MyaccountComponent } from './Components/backend/sales-rep/myaccount/myaccount.component';
+import { LeftNavSalesComponent } from './Components/backend/sales-rep/left-nav-sales/left-nav-sales.component';
 
 
 @NgModule({
@@ -126,7 +159,45 @@ import { MatIconRegistry } from '@angular/material';
     HttpLoaderComponent,
     AccountsComponent,
 
-    DialogBoxComponent
+    DialogBoxComponent,
+
+    // front end
+    HomePageComponent,
+    BuyFromUsComponent,
+    ManufacturarDirectComponent,
+    MedicalPartnersComponent,
+    ContactUsComponent,
+    TeamPageComponent,
+    BlogComponentFrontEnd,
+    BlogDetailsComponent,
+    InventoryComponent,
+    InventoryDetailsComponent,
+    AboutUsFrontComponent,
+    SalesRepLoginComponent,
+    MyDetailsHospitalComponent,
+    HospitalChangePasswordComponent,
+    HospitalMySalesrepComponent,
+    HospitalInventoryAddedComponent,
+    DetailsHospitalInventoryComponent,
+    HospitalAddInventoryComponent,
+    HospitalViewQuotesComponent,
+    DetailsQuotesComponent,
+    MyDetailsComponent,
+    SalesrepChangePasswordComponent,
+    SalesrepHospitalComponent,
+    SalesrepInventoryAddedComponent,
+    EditInventoryComponent,
+    DetailsInventoryComponent,
+    SalesrepViewQuotesComponent,
+    SalesrepSalesComponent,
+    ManageHospitalComponent,
+    FrontendFooterComponent,
+    FrontendHeaderComponent,
+    MyaccountComponent,
+    LeftNavComponent,
+    LeftNavSalesComponent
+
+
 
   ],
   imports: [

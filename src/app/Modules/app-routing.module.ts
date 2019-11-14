@@ -28,6 +28,37 @@ import { ListingBrandComponent } from '../Components/inventory/manageinventory/b
 import { AddEditInventoryComponent } from '../Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component';
 import { ListingInventoryComponent } from '../Components/inventory/inventorylist/listing-inventory/listing-inventory.component';
 import { AccountsComponent } from '../Components/common/accounts/accounts.component';
+import { HomePageComponent } from '../Components/frontend/home-page/home-page.component';
+import { BuyFromUsComponent } from '../Components/frontend/buy-from-us/buy-from-us.component';
+import { ManufacturarDirectComponent } from '../Components/frontend/manufacturar-direct/manufacturar-direct.component';
+import { MedicalPartnersComponent } from '../Components/frontend/medical-partners/medical-partners.component';
+import { ContactUsComponent } from '../Components/frontend/contact-us/contact-us.component';
+import { TeamPageComponent } from '../Components/frontend/team-page/team-page.component';
+
+import { BlogDetailsComponent } from '../Components/frontend/blog-details/blog-details.component';
+import { InventoryComponent } from '../Components/frontend/inventory/inventory.component';
+import { InventoryDetailsComponent } from '../Components/frontend/inventory-details/inventory-details.component';
+import { AboutUsFrontComponent } from '../Components/frontend/about-us-front/about-us-front.component';
+import { SalesRepLoginComponent } from '../Components/frontend/logins/sales-rep-login/sales-rep-login.component';
+import { MyDetailsHospitalComponent } from '../Components/backend/hospital/my-details-hospital/my-details-hospital.component';
+import { HospitalChangePasswordComponent } from '../Components/backend/hospital/hospital-change-password/hospital-change-password.component';
+import { HospitalMySalesrepComponent } from '../Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component';
+import { HospitalInventoryAddedComponent } from '../Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component';
+import { DetailsHospitalInventoryComponent } from '../Components/backend/hospital/details-inventory/details-inventory.component';
+import { HospitalAddInventoryComponent } from '../Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component';
+import { HospitalViewQuotesComponent } from '../Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component';
+import { DetailsQuotesComponent } from '../Components/backend/hospital/details-quotes/details-quotes.component';
+import { MyDetailsComponent } from '../Components/backend/sales-rep/my-details/my-details.component';
+import { SalesrepChangePasswordComponent } from '../Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component';
+import { SalesrepHospitalComponent } from '../Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component';
+import { SalesrepInventoryAddedComponent } from '../Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component';
+import { EditInventoryComponent } from '../Components/backend/sales-rep/edit-inventory/edit-inventory.component';
+import { DetailsInventoryComponent } from '../Components/backend/sales-rep/details-inventory/details-inventory.component';
+import { SalesrepViewQuotesComponent } from '../Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component';
+import { SalesrepSalesComponent } from '../Components/backend/sales-rep/salesrep-sales/salesrep-sales.component';
+import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-hospital/manage-hospital.component';
+import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
+import { BlogComponent } from 'blog/blog';
 
 
 
@@ -395,7 +426,72 @@ const routes: Routes = [
 
 // ________________________ACCOUNT SETTINGS______________________
 
-{ path : 'account-settings',component: AccountsComponent }
+{ path : 'account-settings',component: AccountsComponent },
+
+// front end routing
+  // front end routing
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'home', component: HomePageComponent},
+  {path: 'sales-rep/home', component: HomePageComponent},
+  {path: 'buy-from-us', component: BuyFromUsComponent},
+  {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
+  {path: 'medical-partners', component: MedicalPartnersComponent},
+  {path: 'contactus', component: ContactUsComponent},
+  {path: 'our-team', component: TeamPageComponent},
+  {path: 'blog', component: BlogComponentFrontEnd},
+  {path: 'blog-details', component: BlogDetailsComponent},
+  {path: 'inventory', component: InventoryComponent},
+  {path: 'inventory-details', component: InventoryDetailsComponent},
+  {path: 'about-us', component: AboutUsFrontComponent},
+  {path: 'salesrep-login', component: SalesRepLoginComponent},
+
+  // admin frontend
+  { path: 'hospital/my-details', component: MyDetailsHospitalComponent},
+  { path: 'hospital/change-password', component: HospitalChangePasswordComponent},
+  { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent},
+  { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent},
+  { path: 'hospital/added-inventory/details', component: DetailsHospitalInventoryComponent},
+  { path: 'hospital/added-inventory/add', component: HospitalAddInventoryComponent},
+  { path: 'hospital/view-quotes', component: HospitalViewQuotesComponent},
+  { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent},
+
+
+  { path: 'salesrep/my-details', component: MyDetailsComponent},
+  { path: 'salesrep/change-password', component: SalesrepChangePasswordComponent},
+  { path: 'salesrep/my-hospital', component: SalesrepHospitalComponent},
+  { path: 'salesrep/my-added-inventory', component: SalesrepInventoryAddedComponent},
+  { path: 'salesrep/my-added-inventory/add', component: EditInventoryComponent},
+  { path: 'salesrep/my-added-inventory/details', component: DetailsInventoryComponent},
+  { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent},
+  { path: 'salesrep/my-sales', component: SalesrepSalesComponent},
+  { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent},
+
+  // { path: 'admin-login', component: LoginComponent},
+  // { path: 'hospital-login', component: HospitalLoginComponent},
+  // { path: 'admin-dashboard/admin', component: AdminComponent},
+  // { path: 'admin-dashboard/article-manager', component: ArticleComponent},
+  // { path: 'admin-dashboard/manage-inventory', component: ManageInventoryComponent},
+  // { path: 'admin-dashboard/manage-quotes', component: ManageQuotesComponent},
+  // { path: 'admin-dashboard/manage-team', component: ManageTeamComponent},
+  // { path: 'admin-dashboard/manage-hospital', component: HospitalManagementComponent},
+  // { path: 'admin-dashboard/inventory-list', component: InventoryListComponent},
+  // { path: 'admin-dashboard/manage-admin', component: ManageAdminComponent},
+  // { path: 'admin-dashboard/manage-salesrep', component: ManageSalesRepComponent},
+  // { path: 'admin-dashboard/manage-articles', component: ManageArticlesComponent},
+  // { path: 'admin-dashboard/language-container', component: LanguageContainerComponent},
+  // { path: 'admin-dashboard/contact', component: ContactUsBackendComponent},
+
+  // user routing
+  // { path: 'user-dashboard/user', component: UserComponent},
+  // { path: 'user-dashboard/360-healthcare', component: HealthcareThreeSixtyComponent},
+  // { path: 'user-dashboard/webiners', component: UserWebinersComponent},
+  // { path: 'user-dashboard/articles', component: UserArticlesComponent},
+  // { path: 'user-dashboard/teledoc/home', component: HomeComponent},
+  // { path: 'user-dashboard/teledoc/medical-facilities', component: MedicalFacilitiesComponent},
+  // { path: 'user-dashboard/teledoc/opportunities', component: OpportunitiesComponent},
+  // { path: 'user-dashboard/teledoc/faq', component: FAQComponent},
+  // { path: 'user-dashboard/teledoc/aboutus', component: AboutUsComponent},
+  // { path: 'user-dashboard/teledoc/book-appointments', component: BookAppointmentsComponent},
 
 
 ];

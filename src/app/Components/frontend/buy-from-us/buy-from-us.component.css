@@ -1,0 +1,208 @@
+
+.sh_buyfrmus_topblock { background: url("../../../../assets/images/buyfromus_topBanner.png") no-repeat 100% center; background-size: cover; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper {  padding: 30px 800px 30px 6.5%; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header {  font-family: "RobotoBold"; font-size: 90px; text-transform: uppercase; color: #fff; margin-bottom: 0; }
+
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .paragraph {
+  font-family: "RobotoMedium";
+  font-size: 30px;
+  color: #89fbff;
+  margin-top: 5px;
+}
+
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .ab_action_button {
+  width: 290px;
+  background: #111214;
+  font-family: "RobotoMedium";
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 7px;
+  border-radius: 0;
+}
+
+.sh_buyfrmus_block2 {
+  width: 1665px;
+  margin: 26px auto;
+}
+
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 {
+  background: #1586e5;
+}
+
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner {
+  background: url("../../../../assets/images/sh_buyfrmus_block2_sub1_leftimage.jpg") no-repeat left center;
+  background-size: contain;
+}
+
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper{
+  padding: 30px 50px 30px 580px;
+}
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper p{
+  font-size: 16px; font-family: "RobotoRegular"; color: #fff;
+}
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .title {
+  font-family: "RobotoMedium";
+  font-size: 30px;
+  color: #fff;
+  border-bottom: 2px solid #004b8a;
+  padding-bottom: 16px;
+  margin-bottom: 0;
+  line-height: 34px;
+}
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper .action_btn{
+  font-family: "RobotoMedium";
+  font-size: 20px;
+  background: #111214;
+  color: #fff;
+  text-transform: uppercase;
+  width: 220px;
+  border-radius: 0;
+  padding: 6px;
+
+}
+
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 {
+  background: #1586e5;
+}
+.sh_buyfrmus_block2_sub2{
+  background: url("../../../../assets/images/sh_buyfrmus_block2_sub2_right_image.png") no-repeat right center;
+  background-size: contain;
+}
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 667px 20px 0; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-family: "MontserratSemibold"; font-size: 48px; text-transform: uppercase; color: #282828; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-family: "MontserratSemibold"; font-size: 30px; text-transform: uppercase; color: #282828; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { font-family: "RobotoRegular"; font-size: 16px;  color: #383838; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section a { color: #0374d6; text-decoration: none; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .btn_actions{ background: #111214; width: 260px; font-family: "RobotoMedium"; text-transform: uppercase;  color: #fff; font-size: 30px; padding: 7px; border-radius: 0; }
+.buyfromus_bottomBanner{
+  background: url("../../../../assets/images/buyfromus_bottomBanner.jpg") no-repeat 0% center;
+  background-size: cover;
+}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper {padding: 40px 130px 40px 715px;}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .title_wrapper{ font-size: 48px; text-transform: uppercase; font-family: "MontserratSemibold"; color: #fff;}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .subtitle_wrapper{ font-size: 30px; text-transform: uppercase;  font-family: "MontserratSemibold"; color: #03fff6;}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .paragraph_wrapper{ font-size: 16px;   font-family: "RobotoRegular"; color: #fff;}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .paragraph_wrapper span{ text-transform: uppercase; font-family: "RobotoMedium";  }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .bottom_actionbutton { width: 250px; padding: 7px; background: #111214; text-transform: uppercase; color: #fff; font-size: 30px;
+  font-family: "RobotoMedium"; border-radius: 0; margin-top: 16px; }
+
+
+
+
+
+@media screen and (max-width: 1780px) {
+  .sh_buyfrmus_block2 { width: 90%; margin: 26px auto; }
+}
+@media screen and (max-width: 1740px) {
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-size: 40px; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-size: 26px; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { padding-right: 45px; }
+}
+@media screen and (max-width: 1620px) {
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 620px 20px 0; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { padding-right: 120px; }
+}
+@media screen and (max-width: 1580px) {
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px 415px 30px 75px; }
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 20px 50px 30px 580px; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-size: 36px; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-size: 27px; }
+}
+
+@media screen and (max-width: 1560px) {
+  .buyfromus_bottomBanner .buyfromus_bottom_wrapper {
+    padding: 40px 75px 40px 710px;
+}
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .title_wrapper { font-size: 44px; line-height: 46px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .subtitle_wrapper { font-size: 26px; line-height: 32px; }
+}
+
+@media screen and (max-width: 1500px) {
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 20px 20px 30px 597px; }
+  .sh_buyfrmus_block2_sub2 { background-position: 105% center; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 540px 20px 0; }
+}
+@media screen and (max-width: 1400px) {
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .title { font-size: 26px; line-height: 30px; }
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper  { padding: 30px 415px 30px 5%;}
+  .sh_buyfrmus_block2_sub2 { background-position: 145% center; }
+}
+@media screen and (max-width: 1366px) {
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .title { font-size: 24px; line-height: 24px; }
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 20px 20px 30px 630px; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 475px 20px 0; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { padding-right: 150px; }
+.buyfromus_bottomBanner { background-position: 7% center; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper { padding: 40px 34px 40px 710px; }
+}
+@media screen and (max-width: 1340px) {
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-size: 30px; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 470px 20px 0; }
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-size: 22px; }
+}
+@media screen and (max-width: 1300px) {
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { padding-right: 100px; }
+}
+@media screen and (max-width: 1280px) {
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 20px 20px 20px 615px; }
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner { background-position: -4% center;    }
+  .buyfromus_bottomBanner.buyfromus_bottom_wrapper{ padding: 40px 34px 40px 538px; }
+}
+@media screen and (max-width: 1260px) {
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .title { font-size: 22px; line-height: 24px; }
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 20px 20px 20px 600px; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-size: 28px; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-size: 20px; }
+}
+@media screen and (max-width: 1240px) {
+  .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { font-size: 15px; }
+}
+@media screen and (max-width: 1220px) {
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner { background-position: -12% center;   }
+}
+@media screen and (max-width: 1199px) {
+  .sh_buyfrmus_topblock { background-position: 100% top; background-size: 260%; padding-top: 60%; background-color: #4b82ba; }
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px; }
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner {
+    background-position: center top;
+    background-size: 100%;
+    padding-top: 67%;
+}
+.sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .wrapper { padding: 25px; }
+.sh_buyfrmus_block2_sub2  {
+  background-position: 100% top;
+  background-size: 126%;
+  padding-top: 92%;
+  background-color: #f5f5f5;
+}
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { font-size: 16px; padding: 0; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 26px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper { padding: 38px; }
+.buyfromus_bottomBanner  {
+  background-size: 100%;
+  background-position: center top;
+  background: #1081d1;
+}
+}
+
+@media screen and (max-width: 991px) {
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper {  text-align: center; }
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner { text-align: center; }
+  .sh_buyfrmus_block2 .sh_buyfrmus_block2_sub1 .sh_buyfrmus_block2_sub1_inner .title { line-height: 30px; }
+  .sh_buyfrmus_block2_sub2  { text-align: center; }
+  .buyfromus_bottomBanner .buyfromus_bottom_wrapper { text-align: center; }
+}
+@media screen and (max-width: 668px) {
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 70px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .title_wrapper { font-size: 32px; line-height: 37px; margin-bottom: 20px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .subtitle_wrapper { font-size: 22px; line-height: 26px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper { padding: 26px; }
+}
+@media screen and (max-width: 360px) {
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .ab_action_button { width: 100%; font-size: 26px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 38px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .paragraph { font-size: 20px; line-height: 24px; }
+.buyfromus_bottomBanner .buyfromus_bottom_wrapper .title_wrapper { font-size: 28px; line-height: 32px; margin-bottom: 20px; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .btn_actions { width: 100%; font-size: 28px; }
+}

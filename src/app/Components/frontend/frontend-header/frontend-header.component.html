@@ -1,0 +1,82 @@
+<mat-card class="front_main">
+
+  <mat-toolbar class="frontend_nav">
+
+    <mat-card-content class="logo_wrapper" routerLink="/home">
+      <img src="assets/images/logo.png">
+
+    </mat-card-content>
+    <button class="toggle_button" mat-button (click)="mobileView()">
+      <i class="material-icons"> menu </i>
+    </button>
+    <mat-nav-list class="listing_container"  [ngClass]="status ? 'hide' : 'show'" >
+      <a mat-list-item [routerLink]="'/home'" routerLinkActive="active"> Home </a>
+      <a mat-list-item [routerLink]="'/buy-from-us'" routerLinkActive="active"> Buy From Us </a>
+      <a mat-list-item [routerLink]="'/inventory'" routerLinkActive="active"> Inventory </a>
+      <a mat-list-item [routerLink]="'/medical-partners'" routerLinkActive="active"> Medical Partners</a>
+      <a mat-list-item [routerLink]="'/manufacturar-direct'" routerLinkActive="active"> Manufacturar Direct</a>
+      <a mat-list-item [routerLink]="'/our-team'" routerLinkActive="active"> Our Team</a>
+      <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
+      <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
+      <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
+      <a mat-list-item class="login" *ngIf="headerFlag == ''" [matMenuTriggerFor]="loginmenu">Login</a>
+      <a mat-list-item class="signup" *ngIf="headerFlag == ''">Signup</a>
+      <a mat-list-item class="signup" *ngIf="headerFlag != ''" (click)="logout();">Logout</a>
+      <mat-card-content class="a_pro" *ngIf="headerFlag != ''">
+        <span class="profile">
+          <img src="https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg">
+        </span>
+        <i class="material-icons" [matMenuTriggerFor]="repmenu"> more_vert </i>
+      </mat-card-content>
+
+      <mat-menu #repmenu="matMenu" class="pro_menu">
+        <ng-container *ngIf="headerFlag == 'sales-rep'">
+          <button mat-menu-item [routerLink]="'/salesrep/my-details'"><i class="material-icons"> account_circle </i> My
+            Account</button>
+          <button mat-menu-item [routerLink]="'/salesrep/change-password'" routerLinkActive="active"><i
+              class="fa fa-unlock-alt" aria-hidden="true"></i> change password </button>
+          <button mat-menu-item [routerLink]="'/salesrep/my-hospital'" routerLinkActive="active"> <i
+              class="fa fa-medkit" aria-hidden="true"></i> my hospital </button>
+          <button mat-menu-item [routerLink]="'/salesrep/my-added-inventory'" routerLinkActive="active"> <i
+              class="fa fa-tag" aria-hidden="true"></i> inventory added by me </button>
+          <button mat-menu-item [routerLink]="'/salesrep/view-quotes'" routerLinkActive="active"><i
+              class="fa fa-comments" aria-hidden="true"></i> view quotes</button>
+          <button mat-menu-item [routerLink]="'/salesrep/my-sales'" routerLinkActive="active"> <i
+              class="fa fa-bar-chart" aria-hidden="true"></i> my sales</button>
+        </ng-container>
+
+        <ng-container *ngIf="headerFlag == 'hospital'">
+          <button mat-menu-item [routerLink]="'/hospital/my-details'"><i class="material-icons"> account_circle </i> My
+            Account</button>
+          <button mat-menu-item [routerLink]="'/hospital/change-password'" routerLinkActive="active"><i
+              class="fa fa-unlock-alt" aria-hidden="true"></i> change password </button>
+          <button mat-menu-item [routerLink]="'/hospital/my-hospital'" routerLinkActive="active"> <i
+              class="fa fa-medkit" aria-hidden="true"></i> my hospital </button>
+          <button mat-menu-item [routerLink]="'/hospital/added-inventory'" routerLinkActive="active"> <i
+              class="fa fa-tag" aria-hidden="true"></i> inventory added by me </button>
+          <button mat-menu-item [routerLink]="'/hospital/view-quotes'" routerLinkActive="active"><i
+              class="fa fa-comments" aria-hidden="true"></i> view quotes</button>
+
+        </ng-container>
+
+
+      </mat-menu>
+
+
+      <mat-menu #loginmenu="matMenu">
+        <button mat-menu-item [routerLink]="'/admin-login'">Admin Login</button>
+        <button mat-menu-item [routerLink]="'/salesrep-login'">Sales Rep Login</button>
+        <button mat-menu-item [routerLink]="'/hospital-login'">Hospital Login</button>
+      </mat-menu>
+    </mat-nav-list>
+
+    <button mat-button [matMenuTriggerFor]="menu" class="language_container">English <i class="material-icons">
+        keyboard_arrow_down </i></button>
+    <mat-menu #menu="matMenu" class="language_container1">
+      <button mat-menu-item>Chinese</button>
+      <button mat-menu-item>Portuguese</button>
+      <button mat-menu-item>Spanish</button>
+    </mat-menu>
+  </mat-toolbar>
+
+</mat-card>

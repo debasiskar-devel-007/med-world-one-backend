@@ -211,3 +211,177 @@ tr td br{ display: none; }
   font-family: "HelveticaBold"; font-size: 30px; text-transform: uppercase; color: #fff; margin-bottom: 0; }
 
   .content_header_wrapper  .singleButton{ width: 185px; background: #f7462e; color: #fff; font-family: "HelveticaRegular"; border-radius: 0; font-size: 20px; }
+
+
+
+  /* front end css */
+  html, body {
+    height: 100%;
+    overflow-y: overlay;
+  }
+
+  @font-face {
+    font-family: 'RobotoMedium';
+    src: url('../fonts//Roboto-Medium.woff2') format('woff2'), url('../fonts/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'RobotoRegular';
+    src: url('../fonts/Roboto-Regular.woff2') format('woff2'), url('../fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'HelveticaBold';
+    src: url('../fonts/Helvetica-Bold.woff2') format('woff2'), url('../fonts/bold/Helvetica-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'HelveticaRegular';
+    src: url('../fonts/Helvetica.woff2') format('woff2'), url('..fonts/Helvetica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
+        url('../fonts/Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MontserratSemibold';
+    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+        url('../fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MontserratBold';
+    src: url('../fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('../fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'MontserratSemibold';
+    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
+        url('../fonts/Montserrat-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'HelveticaRegular';
+    src: url('../fonts/Helvetica.woff2') format('woff2'),
+        url('../fonts/Helvetica.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+
+  .images {
+    position: relative; margin-bottom: 0!important;
+  }
+
+  .images img {
+    max-width: 100%;
+  }
+
+  .tab_pannel {
+    width: 165px;
+    position: fixed;
+    right: 0;
+    top: 20%;
+    display: block;
+    background: #1bdcff;
+    box-shadow: -1px 1px 7px 2px #4a3131;
+  }
+
+  .tab_pannel .mat-list-base {
+    padding: 0;
+  }
+
+  .tab_pannel .mat-list-base .mat-list-item, .tab_pannel .mat-list-base .mat-list-option {
+    display: block;
+    height: 48px;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0;
+    background: #01b2d3;
+    margin: 5px 0;
+    color: #fff;
+  }
+
+  .language_container1 {
+    max-width: 300px;
+    width: 180px!important;
+    background: #00376b!important;
+  }
+
+  .language_container1 button:nth-child(3) {
+    border-bottom: none;
+  }
+
+  .language_container1 button {
+    color: #fff;
+    height: auto;
+    line-height: inherit;
+    padding: 8px;
+    border-bottom: 1px solid #fff;
+  }
+  .pro_menu{
+    /* background: #114575!important; */
+    background: linear-gradient(10deg, #1a62b1, #002750)!important;
+  }
+  .pro_menu .mat-menu-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-transform: capitalize;
+    color: #ffffff;
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  .pro_menu .mat-menu-item:nth-last-child(1) {
+    border: none;
+  }
+
+  .pro_menu .mat-menu-item i {
+    margin-right: 5px;
+    font-size: 24px;
+  }
+  .pro_menu .mat-menu-item-highlighted:not([disabled]), .pro_menu .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+  .pro_menu .mat-menu-item.cdk-program-focused:not([disabled]), .pro_menu .mat-menu-item:hover:not([disabled]) {
+    background: #1580da;
+  }
+  .pro_menu .active{  background: #1580da!important; }
+  /* loader css */
+  .spinner_rotate{
+    position: fixed!important;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+  }
+  .spinner_rotate .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #fff!important;
+  }
+
+  input.mat-input-element {
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .hospital_items .hospital_right .item_list .mat-list-item .mat-list-item-content { padding: 0!important; align-items: baseline;}
+  .my_details_wrapper .mat_paginator .mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled] {
+    color: #fff!important;
+  }
+  .my_details_wrapper .mat-select-value-text { color: #fff!important; }
+  .my_details_wrapper .mat-select-arrow { color: #fff!important; }
+  .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}

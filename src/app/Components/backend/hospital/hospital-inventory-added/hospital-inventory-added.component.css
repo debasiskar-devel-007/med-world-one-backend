@@ -1,0 +1,20 @@
+.two {
+  position: absolute!important;
+  z-index: 9;
+  background: #111214!important;
+  width: auto!important;
+  color: #fff!important;
+  font-size: 18px!important;
+  text-transform: capitalize!important;
+  padding: 0px 20px 0px!important;
+  border-radius: 0!important;
+  right: 120px;
+  top: 115px;
+}
+.view_details{
+  position: absolute;
+    background: transparent;
+    bottom: 24px;
+    left: 44px;
+    width: 250px; color: transparent;
+}

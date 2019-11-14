@@ -1,0 +1,109 @@
+.sh_buyfrmus_topblock { background: url("../../../../assets/images/medicalPartnerBanner.jpg") no-repeat 100% center; background-size: cover;}
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 580px 80px 6.5%; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-family: "RobotoBold"; font-size: 90px; text-transform: uppercase; color: #fff; margin-bottom: 0; line-height: 75px;}
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .paragraph { font-family: "RobotoMedium"; font-size: 30px; color: #89fbff; margin-top: 5px; margin-bottom: 0; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .sub_para { font-family: "RobotoMedium"; font-size: 24px; color: #89fbff; margin-top: 25px; padding-right: 110px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .ab_action_button { width: 290px; background: #111214; font-family: "RobotoMedium"; font-size: 30px; color: #fff; text-transform: uppercase;
+  padding: 7px; border-radius: 0; text-align:center; }
+.sh_hp_wrapper{ background: #1371c1; position: relative; width: 1665px; margin: 20px auto; }
+.sh_hp_wrapper::after{ content: ''; display: inline-block; width: 50%; height: 100%; background: #045fad; clip-path: polygon(85% 0, 100% 0, 75% 100%, 0% 100%); position: absolute;
+    right: 0; top: 0; }
+.sh_hp_wrapper .content_wrapper { display: flex; justify-content: space-between;  padding: 20px; position: relative; z-index: 1; }
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper { padding-left: 40px;}
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .header{ font-family: "RobotoMedium"; color: #fff; font-size: 30px; padding-bottom: 10px;}
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .subheader{ font-family: "RobotoMedium"; color: #fff; font-size: 18px; margin-bottom: 0px; line-height: 28px;}
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .inner_paragraph{ font-family: "RobotoRegular"; color: #fff; font-size: 16px; line-height: 28px; }
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .inner_action{width: 200px; font-family: "RobotoMedium"; color: #fff; font-size: 18px; background: #111214; border-radius: 0; text-transform: uppercase; padding: 6px;}
+
+.sh_agent_content_section{ background: #cde5fe; }
+.sh_agent_content_section .sh_agent_content_wrapper{ width: 1665px; margin: 0 auto; }
+.sh_agent_content_section .sh_agent_content_wrapper .agent_header{ font-family: "MontserratSemibold"; font-size: 48px; color: #282828; text-transform: uppercase; text-align: center;
+    line-height: 48px; margin-bottom: 35px;}
+.sh_agent_content_section .sh_agent_content_wrapper .agent_list_one { background: #fff; display: flex; justify-content: space-between; margin-bottom: 0; position: relative; }
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left {  position: relative; width: 50%; margin-bottom: 0; padding: 26px; box-sizing: border-box; }
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left:after{clip-path: polygon(0 0, 0% 100%, 100% 100%); content: ''; display: inline-block; background: #045fad;  position: absolute;  width: 20px; height: 20px; width: 50px; height: 50px; left: 0; bottom: 0px;}
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left:nth-child(even)::after{ bottom: 0px;
+    left: auto;
+    right: 0;
+    transform: rotate(-90deg);}
+
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left  .mat-list-base .mat-list-item { height: auto; line-height: 36px; position: relative; background: url("../../../../assets/images/doted_icon.jpg"); background-size: 10px; background-repeat: no-repeat; background-position: left 10px; padding-left: 15px; font-size: 20px; font-family: "RobotoRegular";}
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_right { margin-bottom: 0; width: 50%; }
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_right img{ max-width: 100%; height: 100%; }
+
+.sh_agent_content_section  { background: #cde5fe; padding: 40px 0; }
+.sh_key_client_wrapper{ background: #137dd6; position: relative; padding: 35px 0;}
+.sh_key_client_wrapper::after{     content: '';
+    background: #045fad;
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    clip-path: polygon(85% 0, 100% 0, 79% 100%, 0% 100%);
+    position: absolute;
+    top: 0;
+    right: 0;}
+
+.sh_key_client_wrapper .sh_key_content_wrapper { width: 1665px; margin: 0 auto;   position: relative;
+    z-index: 1;}
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper { display: flex; justify-content: space-between;}
+.sh_key_client_wrapper .sh_key_content_wrapper .sh_key_title {font-family: "MontserratSemibold"; color: #fff; text-transform: uppercase; font-size: 48px; text-align: center;     margin-bottom: 16px;
+    padding: 0 40px;
+    line-height: 46px;}
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_left_wrapper { width: 50%; margin-bottom: 0; padding: 10px; box-shadow: 1px 0px 4px 1px #545454;
+    background: #1993fc; box-sizing: border-box;}
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_left_wrapper img { max-width: 100%; }
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_right_wrapper { width: 50%; background: #fff; padding: 20px;
+box-sizing: border-box; }
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_right_wrapper .lists{ padding: 0;}
+.sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_right_wrapper .lists .mat-list-item{ width: 50%; display: inline-flex; background: url(../../../../assets/images/doted_icon.jpg) no-repeat center left; background-size: 10px; font-family: "RobotoRegular"; font-size: 20px; padding-left: 16px; box-sizing: border-box; }
+
+
+
+.sh_hospital_equipment_wrapper{
+    background: url("../../../../assets/images/equipment_banner.jpg") no-repeat center center;
+    background-size: cover;
+}
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper{ padding: 40px 30px 40px 450px; }
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_equipment_title{ color: #222222; text-transform: uppercase; font-size: 48px; font-family: "Montserratbold";}
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_equipment_subtitle{ color: #222222; text-transform: uppercase; font-size: 30px; font-family: "MontserratSemibold";}
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_hospital_para{ font-size: 18px; font-family: "RobotoRegular"; color: #222222; line-height: 26px;}
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .hospital_action_button{  width: 270px;
+    font-size: 30px;
+    font-family: "RobotoMedium";
+    background: #111214;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 0;
+    padding: 7px;
+    margin-top: 10px;}
+
+@media screen and (max-width: 1880px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 80px; }
+}
+@media screen and (max-width: 1800px){
+    .sh_hp_wrapper { width: 90%; }
+    .sh_agent_content_section .sh_agent_content_wrapper { width: 90%; }
+    .sh_key_client_wrapper .sh_key_content_wrapper { width: 90%; }
+}
+@media screen and (max-width: 1770px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 72px; }
+}
+@media screen and (max-width: 1660px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 500px 80px 6.5%; }
+    .sh_hospital_equipment_wrapper { background-position: 20% center; }
+}
+@media screen and (max-width: 1560px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper {
+        padding: 80px 500px 80px 4.5%;
+    }
+}
+@media screen and (max-width: 1540px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 580px 80px 4.5%; }
+}
+@media screen and (max-width: 1500px){
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { height: auto;line-height: 30px; }
+}
+@media screen and (max-width: 1400px){
+
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { line-height: 26px; font-size: 16px; font-family: "RobotoRegular"; }
+}
