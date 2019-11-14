@@ -64,7 +64,7 @@ import { BlogComponent } from 'blog/blog';
 
 const routes: Routes = [
   // Auth Route
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
@@ -466,32 +466,7 @@ const routes: Routes = [
   { path: 'salesrep/my-sales', component: SalesrepSalesComponent},
   { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent},
 
-  // { path: 'admin-login', component: LoginComponent},
-  // { path: 'hospital-login', component: HospitalLoginComponent},
-  // { path: 'admin-dashboard/admin', component: AdminComponent},
-  // { path: 'admin-dashboard/article-manager', component: ArticleComponent},
-  // { path: 'admin-dashboard/manage-inventory', component: ManageInventoryComponent},
-  // { path: 'admin-dashboard/manage-quotes', component: ManageQuotesComponent},
-  // { path: 'admin-dashboard/manage-team', component: ManageTeamComponent},
-  // { path: 'admin-dashboard/manage-hospital', component: HospitalManagementComponent},
-  // { path: 'admin-dashboard/inventory-list', component: InventoryListComponent},
-  // { path: 'admin-dashboard/manage-admin', component: ManageAdminComponent},
-  // { path: 'admin-dashboard/manage-salesrep', component: ManageSalesRepComponent},
-  // { path: 'admin-dashboard/manage-articles', component: ManageArticlesComponent},
-  // { path: 'admin-dashboard/language-container', component: LanguageContainerComponent},
-  // { path: 'admin-dashboard/contact', component: ContactUsBackendComponent},
 
-  // user routing
-  // { path: 'user-dashboard/user', component: UserComponent},
-  // { path: 'user-dashboard/360-healthcare', component: HealthcareThreeSixtyComponent},
-  // { path: 'user-dashboard/webiners', component: UserWebinersComponent},
-  // { path: 'user-dashboard/articles', component: UserArticlesComponent},
-  // { path: 'user-dashboard/teledoc/home', component: HomeComponent},
-  // { path: 'user-dashboard/teledoc/medical-facilities', component: MedicalFacilitiesComponent},
-  // { path: 'user-dashboard/teledoc/opportunities', component: OpportunitiesComponent},
-  // { path: 'user-dashboard/teledoc/faq', component: FAQComponent},
-  // { path: 'user-dashboard/teledoc/aboutus', component: AboutUsComponent},
-  // { path: 'user-dashboard/teledoc/book-appointments', component: BookAppointmentsComponent},
 
 
 ];
