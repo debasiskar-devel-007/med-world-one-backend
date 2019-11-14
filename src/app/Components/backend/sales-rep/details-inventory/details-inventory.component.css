@@ -11,6 +11,8 @@
 .my_details_wrapper .button_wrapper .manage_button{  width: 190px; border-radius: 0; text-transform: capitalize; background: #111214; color: #fff; font-family: "RobotoMedium"; font-size: 18px; padding: 5px;
   margin-left: auto;}
 
+
+  .details_description .mat-list-item{ height: auto; line-height: 30px;   }
 .hospital_details_wrapper {   padding: 20px; border: 1px solid #ddd; background: #fff; margin: 5px 16px 16px; }
 .hospital_details_wrapper .details_description .mat-list-item span { min-width: 120px; height: auto; align-items: inherit; font-size: 14px; font-family: "HelveticaBold";
   color: #30373d; text-transform: uppercase; padding: 0; word-break: break-word;}
@@ -33,6 +35,12 @@
 .hospital_items .hospital_right .item_list .mat-list-base .mat-list-item .mat-list-item-content { padding: 0; }
 .my_details_wrapper .mat_paginator{ background: #105d9f; color: #fff; display: flex; justify-content: center; align-items: center; margin: 0 16px; }
 
+
+  .button_action button{ width:290px; font-family: "RobotoMedium"; font-size: 30px; text-transform: uppercase; padding: 8px;
+  margin-left: 6px; color: #fff; border-radius: 0; }
+ .button_action { justify-content: flex-end; margin-top: 20px;}
+ .button_action button:nth-child(1){ background: #137fda; margin-left: 0; }
+  .button_action button:nth-child(2){ background: #111214; }
 
 @media screen and (max-width: 1500px){
   .hospital_items .hospital_right .title { font-size: 18px; }
