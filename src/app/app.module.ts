@@ -58,11 +58,11 @@ import { AddeditTeamCatComponent } from './Components/managewebsites/teammanagem
 
 
 //Inventory Category
-import { AddEditInventoryCatComponent , Modal4} from './Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component';
+import { AddEditInventoryCatComponent, Modal4 } from './Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component';
 import { ListingInventoryCatComponent } from './Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component';
 
 //Brand
-import { AddEditBrandComponent,Modal5 } from './Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component';
+import { AddEditBrandComponent, Modal5 } from './Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component';
 import { ListingBrandComponent } from './Components/inventory/manageinventory/brand/listing-brand/listing-brand.component';
 
 //Inventory List
@@ -78,6 +78,7 @@ import { LoaderInterceptor } from './Class/common/loader.interceptor';
 import { HttpLoaderComponent } from './Components/common/http-loader/http-loader.component';
 import { AccountsComponent } from './Components/common/accounts/accounts.component';
 import { DialogBoxComponent } from './Components/common/dialog-box/dialog-box.component';
+import { MatIconRegistry } from '@angular/material';
 
 
 @NgModule({
@@ -102,7 +103,7 @@ import { DialogBoxComponent } from './Components/common/dialog-box/dialog-box.co
     AdminheaderComponent,
     FooterComponent,
     LeftNavComponent,
-   
+
     AddEditBlogsComponent,
     ListingBlogsComponent,
     AddEditBlogcatComponent,
@@ -147,10 +148,10 @@ import { DialogBoxComponent } from './Components/common/dialog-box/dialog-box.co
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  entryComponents: [Modal5,Modal4 ,Modal, Modal2, Modal3,DialogBoxComponent]
+  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3, DialogBoxComponent]
 })
-export class AppModule { 
-  constructor(public http: HttpClient) {
-    
+export class AppModule {
+  constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
   }
 }

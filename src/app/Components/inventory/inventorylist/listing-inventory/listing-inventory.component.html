@@ -1,24 +1,34 @@
 <app-adminheader>
+    <mat-card class="main_wrapper">
+        <mat-card-content class="inventory_banner">
+            <mat-card-title class="inventory_title">Inventory List</mat-card-title>
+            <p class="inventory_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printer
+                took a galley of type and scrambled it to make a type specimen book.</p>
+        </mat-card-content>
 
-    <h1>Inventory List</h1>
-    <!-- Add Brand Button  -->
-    <mat-toolbar class="buttonsetToolbar">
-        <button class="singleButton" mat-raised-button color="accent"
-            [routerLink]="['/inventory/inventory-list/add']">Add Inventory</button>
-       
-    </mat-toolbar>
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active"> inventory-list </a>
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/inventory-list/list'"> list
+            </a>
+        </mat-card-content>
+        <!-- Add Brand Button  -->
+        <mat-toolbar class="content_header_wrapper">
+            <mat-card-title class="toolbar_header">inventory list </mat-card-title>
+            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']"><mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Inventory</button>
+        </mat-toolbar>
 
 
-    <!-- Listing goes here  -->
-    <lib-listing *ngIf="inventoryListData != null && inventoryListData.length>0"
-        [datasource]="inventoryListData" [skip]="inventoryListData_skip"
-        [modify_header_array]="inventoryListData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
-        [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status" [updateendpoint]="UpdateEndpoint"
-        [deleteendpoint]="deleteEndpoint" [date_search_endpoint]="searchingEndpoint" [date_search_source]="view"
-        [search_settings]="search_settings"
-        [detail_datatype]="inventoryListData.pendingmodelapplicationarray_detail_datatype">
-    </lib-listing>
+        <!-- Listing goes here  -->
+        <lib-listing *ngIf="inventoryListData != null && inventoryListData.length>0" [datasource]="inventoryListData"
+            [skip]="inventoryListData_skip" [modify_header_array]="inventoryListData_modify_header"
+            [sourcedata]="tableName" [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="user_cookie"
+            [statusarr]="status" [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
+            [date_search_endpoint]="searchingEndpoint" [date_search_source]="view" [search_settings]="search_settings"
+            [detail_datatype]="inventoryListData.pendingmodelapplicationarray_detail_datatype">
+        </lib-listing>
 
-    <h2 *ngIf="inventoryListData.length == 0">No record found.</h2>
-    <!-- Listing ends here  -->
+        <h2 *ngIf="inventoryListData.length == 0">No record found.</h2>
+        <!-- Listing ends here  -->
+    </mat-card>
 </app-adminheader>

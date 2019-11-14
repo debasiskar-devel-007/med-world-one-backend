@@ -1,5 +1,25 @@
 <app-adminheader>
-<h1>ADMIN LIST</h1>
+    <mat-card class="main_wrapper">
+    <mat-card-content class="inventory_banner">
+        <mat-card-title class="inventory_title">Admin list</mat-card-title>
+        <p class="inventory_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printer
+            took a galley of type and scrambled it to make a type specimen book.</p>
+    </mat-card-content>
+    <mat-card-content class="bred_cram_wrapper">
+        <a mat-list-item routerLinkActive="active"> Dashboard </a>
+        <a mat-list-item routerLinkActive="active"> inventory-list </a>
+        <a mat-list-item routerLinkActive="active activebread"
+            [routerLink]="'/admin-management/list'"> list
+        </a>
+    </mat-card-content>
+    <mat-toolbar class="content_header_wrapper">
+        <mat-card-title class="toolbar_header">Admin List</mat-card-title>
+        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Admin List </button>
+    </mat-toolbar>
+
+
+
 
  <!-- Add Admin Button  -->
 <mat-toolbar class="buttonsetToolbar">
@@ -27,4 +47,5 @@
       
       <h2 *ngIf="adminData.length == 0">No record found.</h2>
       <!-- Listing ends here  -->
+      </mat-card>
     </app-adminheader>

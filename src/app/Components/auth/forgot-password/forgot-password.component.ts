@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  public logo: any = '../../assets/favicon.ico';
+  public logo: any = './assets/images/logo.png';
+  public fromTitle: any = 'Forgotten password'
+  
   // public signUpRouteingUrl: any = 'sign-up';
   public serverUrl:any = 'https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/';
   public addEndpoint: any = {
@@ -28,7 +30,7 @@ export class ForgotPasswordComponent implements OnInit {
   };
   public buttonName: any = 'Update Password';
 
-  public domanUrl: any = 'http://localhost:4200/resetpassword';
+  public domainUrl: any = 'http://localhost:4200/resetpassword';
   constructor() { }
 
   ngOnInit() {

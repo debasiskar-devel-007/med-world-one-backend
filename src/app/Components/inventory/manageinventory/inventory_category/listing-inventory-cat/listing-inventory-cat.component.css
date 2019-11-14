@@ -1,5 +1,32 @@
-.buttonsetToolbar {
-    justify-content: flex-end;
+.inventory_banner {
+    background: url("../../../../../../assets/images/inventory_categoryBanner.jpg") no-repeat center center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 50px;
+    padding-right: 45%;
 }
-.buttonsetToolbar .singleButton{ width: 220px; border-radius: 0; }
-.buttonsetToolbar .singleButton:nth-last-child(1){ margin-left: 16px; }
+
+.inventory_banner .inventory_title {
+    font-size: 48px;
+    color: #fff;
+    font-family: "HelveticaBold";
+    text-transform: uppercase;
+}
+
+.inventory_banner .inventory_para {
+    font-size: 24px;
+    color: #89fbff;
+    font-family: "HelveticaBold";
+    margin: 0;
+}
+
+.buttonsetToolbar .singleButton {
+    width: 330px;
+    border-radius: 0;
+    color: #fff;
+}
+
+.buttonsetToolbar .singleButton { font-size: 20px; text-transform: uppercase; font-family: "HelveticaRegular"; padding: 5px; }
+.buttonsetToolbar .singleButton:nth-child(1) {  background: #0bb4e5; }
+.buttonsetToolbar .singleButton:nth-child(2) {  background: #2c3439; margin-left: 16px;}

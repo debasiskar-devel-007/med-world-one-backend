@@ -1,4 +1,58 @@
 <app-adminheader>
+    <mat-card class="main_wrapper">
+
+        <mat-card-content class="top_banner">
+            <mat-card-content class="top_banner_content">
+                <mat-card-title class="top_banner_title">welcome to <span> MD STOCK</span></mat-card-title>
+                <p class="top_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </mat-card-content>
+        </mat-card-content>
+
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/dashboard-admin'"> Dashboard </a>
+        </mat-card-content>
+        <!-- bred -->
 
 
+        <mat-card-content class="admin_counter">
+            <mat-card-content class="counter_item one">
+                <mat-card-content class="counter_inner_bg bg_one">
+                    <mat-card-content class="counter_number">
+                        <h1 class="total_number">105</h1>
+                        <p class="type_user">hospital</p>
+                    </mat-card-content>
+                    <mat-card-content class="counter_button">
+                        <button mat-button>view all</button>
+                    </mat-card-content>
+                </mat-card-content>
+            </mat-card-content>
+
+            <mat-card-content class="counter_item two">
+                    <mat-card-content class="counter_inner_bg bg_two">
+                        <mat-card-content class="counter_number">
+                            <h1 class="total_number">105</h1>
+                            <p class="type_user">hospital</p>
+                        </mat-card-content>
+                        <mat-card-content class="counter_button">
+                            <button mat-button>view all</button>
+                        </mat-card-content>
+                    </mat-card-content>
+                </mat-card-content>
+
+                <mat-card-content class="counter_item three">
+                        <mat-card-content class="counter_inner_bg bg_three">
+                            <mat-card-content class="counter_number">
+                                <h1 class="total_number">105</h1>
+                                <p class="type_user">hospital</p>
+                            </mat-card-content>
+                            <mat-card-content class="counter_button">
+                                <button mat-button>view all</button>
+                            </mat-card-content>
+                        </mat-card-content>
+                    </mat-card-content>
+        </mat-card-content>
+ 
+    </mat-card>
 </app-adminheader>

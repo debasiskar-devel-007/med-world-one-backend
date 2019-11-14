@@ -1,0 +1,38 @@
+.top_banner{ background: url("../../../../assets/images/admin_top_banner.jpg") no-repeat center; background-size: cover; margin-bottom: 0; border-top-left-radius: 5px; border-top-right-radius: 5px; display: block; }
+.top_banner .top_banner_content{ padding: 70px 30px 80px; width: 620px; }
+.top_banner .top_banner_content .top_banner_title{ font-family: "HelveticaRegular"; text-transform: uppercase; font-size: 48px; color: #272727; }
+.top_banner .top_banner_content .top_banner_title span{ font-family: "HelveticaBold";   color: #fff; }
+.top_banner .top_banner_content .top_para{ font-family: "HelveticaBold"; font-size: 24px; color: #fff; padding-right: 55px;}
+
+.admin_counter { display: flex; justify-content: space-between;}
+.admin_counter .counter_item {   width: 32.8%; margin-bottom: 0; }
+.one{ background: url("../../../../assets/images/admin_itembg1.jpg") no-repeat; background-size: cover;}
+.two{ background: url("../../../../assets/images/admin_itembg2.jpg") no-repeat; background-size: cover;}
+.three{ background: url("../../../../assets/images/admin_itembg3.jpg") no-repeat;background-size: cover;}
+
+.bg_one{ background: url("../../../../assets/images/admin_bg_one.png") no-repeat 96% 40%;
+    background-size: 100px;
+}
+
+.bg_two{ background: url("../../../../assets/images/admin_bg_two.png") no-repeat 96% 40%;
+    background-size: 100px;
+}
+.bg_three{ background: url("../../../../assets/images/admin_bg_three.png") no-repeat 96% 40%;
+    background-size: 100px;
+}
+
+.admin_counter .counter_item  .counter_inner_bg { display: flex; justify-content: space-between; height: 100%;  padding: 20px;
+    box-sizing: border-box;
+}
+.admin_counter .counter_item  .counter_inner_bg .counter_number  { width: 83%; margin-bottom: 0; }
+.admin_counter .counter_item  .counter_inner_bg .counter_number .total_number { font-size: 102px; font-family: "HelveticaBold"; color: #fff; margin-bottom: 0;
+}
+.admin_counter .counter_item  .counter_inner_bg .counter_number .type_user { font-size: 32px; font-family: "HelveticaBold"; color: #fff; margin: 0; text-transform: capitalize;
+}
+.admin_counter .counter_item  .counter_inner_bg .counter_button { display: flex;  margin-top: auto; width: auto;} 
+
+.admin_counter .counter_item  .counter_inner_bg .counter_button button { background: #fffaf4;
+    border: 1px solid #bfbfbf;
+    border-radius: 25px;
+    text-transform: uppercase;
+    line-height: 30px; width: 90px;}

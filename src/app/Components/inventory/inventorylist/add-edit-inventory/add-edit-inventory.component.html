@@ -1,94 +1,113 @@
 <app-adminheader>
+    <mat-card class="main_wrapper">
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active"> inventory-list </a>
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/inventory-list/add'"> add
+            </a>
+        </mat-card-content>
 
 
-    <h1>{{ header_txt }}</h1>
-    <form autocomplete="off" [formGroup]="inventoryForm">
+        <mat-card-content class="from_wrapper">
+
+            <h1 class="form_header">{{ header_txt }}</h1>
+            <form autocomplete="off" [formGroup]="inventoryForm">
 
 
-        <!-- Inventory Name  -->
-        <mat-form-field>
-            <input matInput placeholder="Inventory Name" formControlName="inventory_name">
-        </mat-form-field><br>
+                <!-- Inventory Name  -->
+                <mat-form-field>
+                    <mat-label class="label">Inventory Name</mat-label>
+                    <input matInput formControlName="inventory_name">
+                </mat-form-field><br>
 
 
-        <!-- Brand selection -->
-        <mat-form-field>
-            <mat-label>Select Brand</mat-label>
-            <select matNativeControl required formControlName="brand_name">
-                <option value="0">Select a brand</option>
-                <option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}</option>
-            </select>
-        </mat-form-field><br>
+                <!-- Brand mat-selection -->
+                <mat-form-field>
+                    <mat-label class="label">mat-select Brand</mat-label>
+                    <mat-select matNativeControl required formControlName="brand_name">
+                        <mat-option value="0">mat-select a brand</mat-option>
+                        <mat-option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field><br>
 
 
-        <!-- Inventory Category Selection  -->
-        <mat-form-field>
-            <mat-label>Select Category</mat-label>
-            <select matNativeControl required formControlName="inventory_category">
-                <option value="0">Select a category</option>
-                <option value="{{ item._id }}" *ngFor="let item of inventory_category_array">{{ item.category_name }}
-                </option>
-            </select>
-        </mat-form-field><br>
+                <!-- Inventory Category mat-selection  -->
+                <mat-form-field>
+                    <mat-label class="label">mat-select Category</mat-label>
+                    <mat-select matNativeControl required formControlName="inventory_category">
+                        <mat-option value="0">mat-select a category</mat-option>
+                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array">
+                            {{ item.category_name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field><br>
 
 
-        <!-- Model -->
-        <mat-form-field>
-            <input matInput placeholder="Model" formControlName="model">
-        </mat-form-field><br>
+                <!-- Model -->
 
 
-        <!-- Description  -->
-        <mat-form-field>
-            <textarea matInput placeholder="Please describe" formControlName="description"></textarea>
-        </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label class="label">Model</mat-label>
+                    <input matInput formControlName="model">
+                </mat-form-field><br>
 
 
-
-
-        <!-- Condition -->
-        <mat-label>Condition:</mat-label>
-        <mat-radio-group formControlName="condition">
-            <mat-radio-button value="New" (click)="yom_flag=false">New</mat-radio-button>
-            <mat-radio-button value="Used" (click)="yom_flag=true">Used</mat-radio-button>
-        </mat-radio-group><br>
+                <!-- Description  -->
+                <mat-form-field>
+                    <mat-label class="label">Description</mat-label>
+                    <textarea matInput formControlName="description"></textarea>
+                </mat-form-field><br>
 
 
 
-        <!-- Year of manufacture -->
 
-        <mat-form-field *ngIf="yom_flag==true">
-            <input matInput placeholder="Year of manufacture" type="number" formControlName="yom">
-        </mat-form-field>
-        <br>
-
-        <!-- Availability -->
-        <mat-form-field>
-            <mat-label>Availabiity:</mat-label>
-            <select matNativeControl required formControlName="availabiity">
-                <option value="Not Available">Not Available</option>
-                <option value="Available">Available</option>
-            </select>
-        </mat-form-field><br>
+                <!-- Condition -->
+                <mat-label class="label">Condition:</mat-label>
+                <mat-radio-group formControlName="condition">
+                    <mat-radio-button value="New" (click)="yom_flag=false"> New</mat-radio-button>
+                    <mat-radio-button value="Used" (click)="yom_flag=true">Used</mat-radio-button>
+                </mat-radio-group><br>
 
 
-        <!-- In Stock  -->
-        <mat-form-field>
-            <input matInput type="number" placeholder="In Stock" formControlName="instock">
-        </mat-form-field><br>
-        <!-- Status -->
 
-        <mat-label>Status</mat-label><br>
-        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                <!-- Year of manufacture -->
+
+                <mat-form-field *ngIf="yom_flag==true">
+                    <mat-label class="label">Year of manufacture</mat-label>
+                    <input matInput type="number" formControlName="yom">
+                </mat-form-field>
+                <br>
+
+                <!-- Availability -->
+                <mat-form-field>
+                    <mat-label class="label">Availabiity:</mat-label>
+                    <mat-select matNativeControl required formControlName="availabiity">
+                        <mat-option value="Not Available">Not Available</mat-option>
+                        <mat-option value="Available">Available</mat-option>
+                    </mat-select>
+                </mat-form-field><br>
 
 
-        <!-- Dynamic form fields  -->
-        <button mat-flat-button type="button" (click)="create_field()">Add field </button>
+                <!-- In Stock  -->
+                <mat-form-field>
+                    <mat-label class="label">In Stock</mat-label>
+                    <input matInput type="number" formControlName="instock">
+                </mat-form-field><br>
+                <!-- Status -->
 
-        <!-- Buttons  -->
-        <button mat-flat-button type="reset">RESET</button>
-        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
+                <mat-label class="label">Status</mat-label><br>
+                <mat-checkbox formControlName="status">Active</mat-checkbox><br>
 
-    </form>
+                <span class="button_wrapper">
+                    <!-- Dynamic form fields  -->
+                    <button mat-flat-button type="button" (click)="create_field()" color="primary">Add field </button>
 
+                    <!-- Buttons  -->
+                    <button mat-flat-button type="reset" color="warn">RESET</button>
+                    <button mat-flat-button type="button" (click)="onSubmit()" color="accent">{{btn_text}} </button>
+                </span>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </app-adminheader>
