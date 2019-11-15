@@ -7,13 +7,10 @@
         </mat-card-content>
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
-<<<<<<< HEAD
             <a mat-list-item routerLinkActive="active activebread"
-                routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category list
-=======
-            <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/inventory-list/list">Inventory list
->>>>>>> 9474d34a81d1b4a8e63531e26a46152b5f11cf29
-            </a>
+                routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category list</a>
+
+
         </mat-card-content>
         <!-- Add Admin Button  -->
         <!-- <mat-toolbar class="buttonsetToolbar">
@@ -55,9 +52,16 @@
                     <!-- Listing ends here  -->
                 </mat-card-content>
             </mat-tab>
-            <mat-tab label="Brand"> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis veniam, voluptatum ratione voluptatem impedit adipisci veritatis deleniti fugit enim error, repudiandae, perspiciatis illo qui culpa illum pariatur iste quibusdam consequatur laudantium? Consequatur nam unde assumenda aut nisi sint! Tempora, cumque, ad perferendis quidem, harum voluptatum id debitis accusantium perspiciatis unde deserunt consequuntur quia veritatis optio? Explicabo dolorem illo possimus facere debitis architecto quis provident sit, aperiam tempora dolore expedita, officiis molestias, excepturi totam molestiae quae officia eaque iusto ex quisquam repellendus in. Vero cum necessitatibus molestias quo porro sequi magnam autem ea neque nulla unde inventore velit aut, optio, cupiditate maxime consequatur. Odio labore incidunt eius delectus sint sed hic doloribus ad tempora porro? Quo voluptatum illum delectus rem praesentium culpa recusandae natus. Laudantium molestias eveniet, odio, distinctio tempore id fuga, voluptatem qui sit similique ad nam nisi provident fugiat rem autem. Error quia maxime iusto, perspiciatis nostrum sapiente aut soluta minus tenetur ex libero fuga dolorum! Temporibus amet laudantium eligendi voluptatibus, doloremque nobis iste porro in dolores ut quia tenetur eius illo architecto, animi ab quod aliquam asperiores ad quas? Mollitia et expedita consectetur eligendi nostrum deserunt hic corporis quas, odit nulla velit, nisi aspernatur nam ut optio fugiat.</p>    
-            
+            <mat-tab label="Brand">
+                <mat-card-content class="tabs_wrapper">
+                    <mat-toolbar class="content_header_wrapper">
+                        <mat-card-title class="toolbar_header">inventory Brand list </mat-card-title>
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+                            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Brand
+                        </button>
+                    </mat-toolbar>
+                    <p> Add brand listing here..</p>
+                </mat-card-content>
             </mat-tab>
         </mat-tab-group>
 
