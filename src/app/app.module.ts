@@ -112,6 +112,9 @@ import { FrontendFooterComponent } from './Components/frontend/frontend-footer/f
 import { FrontendHeaderComponent } from './Components/frontend/frontend-header/frontend-header.component';
 import { MyaccountComponent } from './Components/backend/sales-rep/myaccount/myaccount.component';
 import { LeftNavSalesComponent } from './Components/backend/sales-rep/left-nav-sales/left-nav-sales.component';
+import { HospitalLoginComponent } from './Components/frontend/logins/hospital-login/hospital-login.component';
+import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
+import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 
 
 @NgModule({
@@ -195,8 +198,12 @@ import { LeftNavSalesComponent } from './Components/backend/sales-rep/left-nav-s
     FrontendHeaderComponent,
     MyaccountComponent,
     LeftNavComponent,
-    LeftNavSalesComponent
-
+    LeftNavSalesComponent,
+    HospitalLoginComponent,
+    UploadDialogBoxComponent,
+    DialogContentExampleDialog,
+    LoginComponent, 
+    LoginAdminComponent
 
 
   ],
