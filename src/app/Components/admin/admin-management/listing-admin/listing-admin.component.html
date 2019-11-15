@@ -1,51 +1,31 @@
 <app-adminheader>
     <mat-card class="main_wrapper">
-    <mat-card-content class="inventory_banner">
-        <mat-card-title class="inventory_title">Admin list</mat-card-title>
-        <p class="inventory_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printer
-            took a galley of type and scrambled it to make a type specimen book.</p>
-    </mat-card-content>
-    <mat-card-content class="bred_cram_wrapper">
-        <a mat-list-item routerLinkActive="active"> Dashboard </a>
-        <a mat-list-item routerLinkActive="active"> inventory-list </a>
-        <a mat-list-item routerLinkActive="active activebread"
-            [routerLink]="'/admin-management/list'"> list
-        </a>
-    </mat-card-content>
-    <mat-toolbar class="content_header_wrapper">
-        <mat-card-title class="toolbar_header">Admin List</mat-card-title>
-        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
-            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Admin List </button>
-    </mat-toolbar>
+        <mat-card-content class="inventory_banner">
+            <mat-card-title class="inventory_title">Admin list</mat-card-title>
+            <p class="inventory_para">We make premium quality used medical equipment available, from Hospitals that are
+                looking to replace them, to other hospitals that need them.</p>
+        </mat-card-content>
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLink="/dashboard-admin"> Dashboard </a>
+            <a mat-list-item routerLinkActive="activebread" [routerLink]="'/admin-management/list'">admin list </a>
+        </mat-card-content>
+        <mat-toolbar class="content_header_wrapper">
+            <mat-card-title class="toolbar_header">Admin List</mat-card-title>
+            <button class="singleButton" mat-raised-button [routerLink]="['/admin-management/add']">
+                <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Admin
+            </button>
+        </mat-toolbar>
 
 
+        <!-- Listing goes here  -->
+        <lib-listing *ngIf="adminData != null && adminData.length>0" [datasource]="adminData" [skip]="adminData_skip"
+            [modify_header_array]="adminData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
+            [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status" [updateendpoint]="UpdateEndpoint"
+            [deleteendpoint]="deleteEndpoint" [date_search_endpoint]="searchingEndpoint" [date_search_source]="view"
+            [search_settings]="search_settings">
+        </lib-listing>
 
-
- <!-- Add Admin Button  -->
-<mat-toolbar class="buttonsetToolbar">
-  <button class="singleButton" mat-raised-button color="primary" [routerLink]="['/admin-management/add']">Add Admin</button>
-</mat-toolbar>
-
-
-
-<!-- Listing goes here  -->
-<lib-listing *ngIf="adminData != null && adminData.length>0" 
-        [datasource]="adminData" 
-        [skip]="adminData_skip"
-        [modify_header_array]="adminData_modify_header" 
-        [sourcedata]="tableName"
-        [apiurl]="apiUrl"  
-        [editroute]="editUrl"
-        [jwttoken]="user_cookie"
-        [statusarr]="status"
-        [updateendpoint]="UpdateEndpoint"
-        [deleteendpoint]="deleteEndpoint"
-        [date_search_endpoint]="searchingEndpoint"
-        [date_search_source]="view"
-        [search_settings]="search_settings">
-      </lib-listing>
-      
-      <h2 *ngIf="adminData.length == 0">No record found.</h2>
-      <!-- Listing ends here  -->
-      </mat-card>
-    </app-adminheader>
+        <h2 *ngIf="adminData.length == 0">No record found.</h2>
+        <!-- Listing ends here  -->
+    </mat-card>
+</app-adminheader>

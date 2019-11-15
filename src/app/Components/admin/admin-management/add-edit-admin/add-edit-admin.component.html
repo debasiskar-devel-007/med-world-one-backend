@@ -1,8 +1,8 @@
 <app-adminheader>
      <mat-card class="main_wrapper">
           <mat-card-content class="bred_cram_wrapper">
-               <a mat-list-item routerLinkActive="active"> Dashboard </a>
-               <a mat-list-item routerLinkActive="active"> inventory-list </a>
+               <a mat-list-item routerLinkActive="active" routerLink="/dashboard-admin"> Dashboard </a>
+               <a mat-list-item routerLinkActive="active" routerLink="/admin-management/list">manage admin list </a>
                <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/admin-management/add'">
                     add
                </a>

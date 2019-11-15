@@ -1,115 +1,138 @@
 <app-adminheader>
-<h1>{{ header_txt }}</h1>
+    <mat-card class="main_wrapper">
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active" routerLink="/dashboard-admin"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active" routerLink="/admin/salesrep-management/list"> SalesRep list </a>
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/admin/salesrep-management/add'"> add
+            </a>
+        </mat-card-content>
 
-<form autocomplete="off" [formGroup]="salesRepForm" >
 
-    <!-- Name  -->
-    <mat-form-field>
-        <mat-label>Name:</mat-label>
-        <input matInput formControlName="name" >
-        <mat-error *ngIf="!salesRepForm.controls['name'].valid
+        <mat-card-content class="from_wrapper">
+
+            <h1 class="form_header">{{ header_txt }}</h1>
+            <form autocomplete="off" [formGroup]="salesRepForm">
+
+                <!-- Name  -->
+                <mat-form-field>
+                    <mat-label>Name:</mat-label>
+                    <input matInput formControlName="name">
+                    <mat-error *ngIf="!salesRepForm.controls['name'].valid
         && salesRepForm.controls['name'].errors.required"> Name is required.</mat-error>
-        <mat-error *ngIf="!salesRepForm.controls['name'].valid && !salesRepForm.controls['name'].errors.required">
-          Name is not valid</mat-error>
-    </mat-form-field><br>
+                    <mat-error
+                        *ngIf="!salesRepForm.controls['name'].valid && !salesRepForm.controls['name'].errors.required">
+                        Name is not valid</mat-error>
+                </mat-form-field><br>
 
 
-    <!-- Email  -->
-    <mat-form-field>
-        <mat-label>Email:</mat-label>
-        <input matInput formControlName="email" [readonly]="flag==true?true:false">
-        <mat-error *ngIf="!salesRepForm.controls['email'].valid && salesRepForm.controls['email'].errors.required">Email is required.</mat-error>
-        <mat-error *ngIf="!salesRepForm.controls['email'].valid && !salesRepForm.controls['email'].errors.required">
-          Email
-          is not valid</mat-error>
-    </mat-form-field><br>
+                <!-- Email  -->
+                <mat-form-field>
+                    <mat-label>Email:</mat-label>
+                    <input matInput formControlName="email" [readonly]="flag==true?true:false">
+                    <mat-error
+                        *ngIf="!salesRepForm.controls['email'].valid && salesRepForm.controls['email'].errors.required">
+                        Email is required.</mat-error>
+                    <mat-error
+                        *ngIf="!salesRepForm.controls['email'].valid && !salesRepForm.controls['email'].errors.required">
+                        Email
+                        is not valid</mat-error>
+                </mat-form-field><br>
 
 
-    <!-- Password  -->
-    <mat-form-field *ngIf="action=='add'">
-        <mat-label>Password:</mat-label>
-        <input matInput type="password" formControlName="password">
-        <mat-error *ngIf="salesRepForm.controls['password']?.touched || salesRepForm.controls['password'].errors 
+                <!-- Password  -->
+                <mat-form-field *ngIf="action=='add'">
+                    <mat-label>Password:</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-error *ngIf="salesRepForm.controls['password']?.touched || salesRepForm.controls['password'].errors 
         && salesRepForm.controls['password'].errors.required">Password is required.</mat-error>
-    </mat-form-field><br>
+                </mat-form-field><br>
 
 
-    <!-- Confirm Password  -->
-    <mat-form-field *ngIf="action=='add'">
-        <mat-label>Confirm Password:</mat-label>
-        <input matInput type="password" formControlName="confirmpassword">
-        <mat-error *ngIf="salesRepForm.controls['confirmpassword']?.touched || salesRepForm.controls['confirmpassword'].errors 
+                <!-- Confirm Password  -->
+                <mat-form-field *ngIf="action=='add'">
+                    <mat-label>Confirm Password:</mat-label>
+                    <input matInput type="password" formControlName="confirmpassword">
+                    <mat-error *ngIf="salesRepForm.controls['confirmpassword']?.touched || salesRepForm.controls['confirmpassword'].errors 
         && salesRepForm.controls['confirmpassword'].errors.required">Password do not match</mat-error>
-    </mat-form-field><br>
+                </mat-form-field><br>
 
 
-    <!-- Address  -->
-    <mat-form-field>
-            <mat-label>Address:</mat-label>
-            <input matInput formControlName="address">
-            <mat-error *ngIf="salesRepForm.controls['address']?.touched || salesRepForm.controls['address'].errors 
+                <!-- Address  -->
+                <mat-form-field>
+                    <mat-label>Address:</mat-label>
+                    <input matInput formControlName="address">
+                    <mat-error *ngIf="salesRepForm.controls['address']?.touched || salesRepForm.controls['address'].errors 
             && salesRepForm.controls['address'].errors.required">Address is required.</mat-error>
-        </mat-form-field><br>
+                </mat-form-field><br>
 
 
-    <!-- State  -->
-    <mat-form-field appearance="fill">
-        <mat-label>State</mat-label>
-        <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
-            <mat-option [value]=0>Select a category</mat-option>
-            <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}</mat-option>
-        </mat-select>
-    </mat-form-field><br>
+                <!-- State  -->
+                <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                        <mat-option [value]=0>Select a category</mat-option>
+                        <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}</mat-option>
+                    </mat-select>
+                </mat-form-field><br>
 
-    <!-- City  -->
+                <!-- City  -->
 
-    <mat-form-field appearance="fill">
-        <mat-label>City</mat-label>
-        <mat-select formControlName="city">
-            <mat-option [value]=0>Select a category</mat-option>
-            <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
-        </mat-select>
-    </mat-form-field><br>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <mat-select formControlName="city">
+                        <mat-option [value]=0>Select a category</mat-option>
+                        <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
+                    </mat-select>
+                </mat-form-field><br>
 
 
-    
 
-    <!-- ZIP  -->
-    <mat-form-field>
-        <mat-label>ZIP:</mat-label>
-        <input matInput formControlName="zip">
-        <mat-error *ngIf="salesRepForm.controls['zip']?.touched || salesRepForm.controls['zip'].errors 
+
+                <!-- ZIP  -->
+                <mat-form-field>
+                    <mat-label>ZIP:</mat-label>
+                    <input matInput formControlName="zip">
+                    <mat-error *ngIf="salesRepForm.controls['zip']?.touched || salesRepForm.controls['zip'].errors 
         && salesRepForm.controls['zip'].errors.required">ZIP is required.</mat-error>
-    </mat-form-field><br>
+                </mat-form-field><br>
 
 
-    <!-- Phone  -->
-    <mat-form-field>
-        <mat-label>Phone:</mat-label>
-        <input matInput formControlName="phone">
-        <mat-error *ngIf="!salesRepForm.controls['phone'].valid && salesRepForm.controls['phone'].errors.required">Phone is required.</mat-error>
-        <mat-error *ngIf="!salesRepForm.controls['phone'].valid && !salesRepForm.controls['phone'].errors.required">Phone must be only 10 digit integers</mat-error>
-    </mat-form-field><br>
+                <!-- Phone  -->
+                <mat-form-field>
+                    <mat-label>Phone:</mat-label>
+                    <input matInput formControlName="phone">
+                    <mat-error
+                        *ngIf="!salesRepForm.controls['phone'].valid && salesRepForm.controls['phone'].errors.required">
+                        Phone is required.</mat-error>
+                    <mat-error
+                        *ngIf="!salesRepForm.controls['phone'].valid && !salesRepForm.controls['phone'].errors.required">
+                        Phone must be only 10 digit integers</mat-error>
+                </mat-form-field><br>
 
 
-    <!-- Fax  -->
-    <mat-form-field>
-        <mat-label>Fax:</mat-label>
-        <input matInput formControlName="fax">
-        <mat-error *ngIf="salesRepForm.controls['fax']?.touched || salesRepForm.controls['fax'].errors 
+                <!-- Fax  -->
+                <mat-form-field>
+                    <mat-label>Fax:</mat-label>
+                    <input matInput formControlName="fax">
+                    <mat-error *ngIf="salesRepForm.controls['fax']?.touched || salesRepForm.controls['fax'].errors 
         && salesRepForm.controls['fax'].errors.required">Fax is required.</mat-error>
-    </mat-form-field><br>
+                </mat-form-field><br>
 
 
 
 
-    <!-- Status -->
-    <mat-label>Status:</mat-label><br>
-    <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                <!-- Status -->
+                <mat-label>Status:</mat-label><br>
+                <mat-checkbox formControlName="status">Active</mat-checkbox><br>
 
-    <!-- Buttons  -->
-    <button mat-flat-button type="reset">RESET</button>
-    <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
-    <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'">CHANGE PASSWORD</button>
-</form>
+                <!-- Buttons  -->
+                <span class="button_wrapper">
+                    <button mat-flat-button type="reset" color="warn">RESET</button>
+                    <button mat-flat-button type="button" (click)="onSubmit()" color="primary">{{btn_text}} </button>
+                    <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'" color="accent">CHANGE
+                        PASSWORD</button>
+                </span>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </app-adminheader>

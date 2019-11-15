@@ -23,7 +23,7 @@
 
                 <!-- Brand mat-selection -->
                 <mat-form-field>
-                    <mat-label class="label">mat-select Brand</mat-label>
+                    <mat-label class="label">Brand Name</mat-label>
                     <mat-select matNativeControl required formControlName="brand_name">
                         <mat-option value="0">mat-select a brand</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
@@ -34,7 +34,7 @@
 
                 <!-- Inventory Category mat-selection  -->
                 <mat-form-field>
-                    <mat-label class="label">mat-select Category</mat-label>
+                    <mat-label class="label">Inventory Category</mat-label>
                     <mat-select matNativeControl required formControlName="inventory_category">
                         <mat-option value="0">mat-select a category</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array">
