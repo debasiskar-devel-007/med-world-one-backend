@@ -340,10 +340,10 @@ const routes: Routes = [
     resolve: { inventoryCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'inventory_category_view',
+        source: '',
         condition: {}
       },
-      endpoint: 'datalist'
+      endpoint: 'inventorybrand'
     },
   },
   {

@@ -169,7 +169,7 @@ openDialog(x: any): void {
             }, 2000);
 
 
-          this.router.navigateByUrl('inventory/manage-inventory/brand/list');;
+          this.router.navigateByUrl('inventory/manage-inventory/inventory-category/list');;
         } else {
           alert("Some error occurred. Please try again.");
         }
