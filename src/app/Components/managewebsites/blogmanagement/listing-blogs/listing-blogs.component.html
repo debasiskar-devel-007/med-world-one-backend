@@ -1,16 +1,22 @@
 <app-adminheader>
 
-    <mat-card>
-        <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
-            <h2 class="headerSpan">Blogs</h2>
+    <mat-card class="main_wrapper">
+        <mat-card-content class="inventory_banner">
+            <mat-card-title class="inventory_title">Blogs LISTing</mat-card-title>
+            <p class="inventory_para">You can always continue to learn new information, methods and other developments taking place in the Healthcare industry, and blogs, articles, and medical journals happen to be the best source from where you can gather such information, or so we have found.</p>
+        </mat-card-content>
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLink="/dashboard-admin"> Dashboard </a>
+            <a mat-list-item routerLinkActive="activebread" [routerLink]="'/manage-websites/addblogs/list'"> Blogs List</a>
+        </mat-card-content>
+        <mat-toolbar class="content_header_wrapper">
+            <mat-card-title class="toolbar_header">Blogs LIST</mat-card-title>
+            <button class="singleButton" mat-raised-button [routerLink]="['/manage-websites/addblogs/add']">
+                <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Blogs
+            </button>
         </mat-toolbar>
-
-        <!-- ---------------------Button for adding new role------------------------------ -->
-        <mat-toolbar class="buttonsetToolbar">
-            <button style="margin-left: auto;" class="singleButton" mat-raised-button color="primary"
-                [routerLink]="['/manage-websites/addblogs/add']">Add New Blog</button>
-        </mat-toolbar>
-
+         
+        
 
         <!-- to listing library -->
         <lib-listing-blogmanagementlib [config]="blogListConfig"></lib-listing-blogmanagementlib>
