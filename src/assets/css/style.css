@@ -385,3 +385,6 @@ tr td br{ display: none; }
   .my_details_wrapper .mat-select-value-text { color: #fff!important; }
   .my_details_wrapper .mat-select-arrow { color: #fff!important; }
   .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}
+  .admin_submenu{ background: linear-gradient(-6deg, #053f75, #379fff)!important;}
+  .admin_submenu button{ color: #fff; border-bottom: 2px solid #ddd;}
+  .admin_submenu button:last-child{ color: #fff; border: none;}
