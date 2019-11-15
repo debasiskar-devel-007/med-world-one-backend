@@ -1,43 +1,76 @@
 <app-adminheader>
     <mat-card class="main_wrapper">
         <mat-card-content class="inventory_banner">
-            <mat-card-title class="inventory_title">Inventory Category List</mat-card-title>
-            <p class="inventory_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printer
-                took a galley of type and scrambled it to make a type specimen book.</p>
+            <mat-card-title class="inventory_title">Inventory Category</mat-card-title>
+            <p class="inventory_para">Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment
+                Needs</p>
         </mat-card-content>
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/inventory-list/list">Inventory list
-            </a>
-        </mat-card-content>
-        <mat-toolbar class="content_header_wrapper">
-            <mat-card-title class="toolbar_header">inventory list </mat-card-title>
-            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
-                <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Inventory
-            </button>
-        </mat-toolbar>
+            <a mat-list-item routerLinkActive="active activebread"
+                routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category list</a>
 
-        
+
+        </mat-card-content>
         <!-- Add Admin Button  -->
-        <mat-toolbar class="buttonsetToolbar">
+        <!-- <mat-toolbar class="buttonsetToolbar">
             <button class="singleButton" mat-raised-button
-                [routerLink]="['/inventory/manage-inventory/inventory-category/add']">Add Inventory Category</button>
+                [routerLink]="['/inventory/manage-inventory/inventory-category/add']">Category</button>
             <button class="singleButton" mat-raised-button
                 [routerLink]="['/inventory/manage-inventory/brand/list']">Brand</button>
-        </mat-toolbar>
+        </mat-toolbar> -->
+
+        <!-- tab section -->
+        <mat-tab-group class="brand_group">
+            <mat-tab label="Category">
 
 
-        <!-- Listing goes here  -->
-        <lib-listing *ngIf="inventoryCategoryData != null && inventoryCategoryData.length>0"
-            [datasource]="inventoryCategoryData" [skip]="inventoryCategoryData_skip"
-            [modify_header_array]="inventoryCategoryData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
-            [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status" [updateendpoint]="UpdateEndpoint"
-            [deleteendpoint]="deleteEndpoint" [date_search_endpoint]="searchingEndpoint"
-            [date_search_source]="tableName" [search_settings]="search_settings"
-            [detail_datatype]="inventoryCategoryData.pendingmodelapplicationarray_detail_datatype">
-        </lib-listing>
+                <mat-card-content class="tabs_wrapper">
+                    <mat-toolbar class="content_header_wrapper">
+                        <mat-card-title class="toolbar_header">inventory Category list </mat-card-title>
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+                            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Category
+                        </button>
+                    </mat-toolbar>
 
-        <h2 *ngIf="inventoryCategoryData.length == 0">No record found.</h2>
-        <!-- Listing ends here  -->
+
+
+
+
+                    <!-- Listing goes here  -->
+                    <lib-listing *ngIf="inventoryCategoryData != null && inventoryCategoryData.length>0"
+                        [datasource]="inventoryCategoryData" [skip]="inventoryCategoryData_skip"
+                        [modify_header_array]="inventoryCategoryData_modify_header" [sourcedata]="tableName"
+                        [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"
+                        [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
+                        [date_search_endpoint]="searchingEndpoint" [date_search_source]="tableName"
+                        [search_settings]="search_settings"
+                        [detail_datatype]="inventoryCategoryData.pendingmodelapplicationarray_detail_datatype">
+                    </lib-listing>
+
+                    <h2 *ngIf="inventoryCategoryData.length == 0">No record found.</h2>
+                    <!-- Listing ends here  -->
+                </mat-card-content>
+            </mat-tab>
+            <mat-tab label="Brand">
+                <mat-card-content class="tabs_wrapper">
+                    <mat-toolbar class="content_header_wrapper">
+                        <mat-card-title class="toolbar_header">inventory Brand list </mat-card-title>
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+                            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Brand
+                        </button>
+                    </mat-toolbar>
+                    <p> Add brand listing here..</p>
+                </mat-card-content>
+            </mat-tab>
+        </mat-tab-group>
+
+        <!--end  tab section -->
+
+
+
+
+
+
     </mat-card>
 </app-adminheader>
