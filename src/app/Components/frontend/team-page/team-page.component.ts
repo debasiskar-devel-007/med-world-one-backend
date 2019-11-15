@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-team-page',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamPageComponent implements OnInit {
 
-  constructor() { }
+   public teamList:any = [];
+  constructor( public activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activeRoute.data.forEach(data => {
+      console.log(data);
+      let result: any= data.teamList.res;
+      this.teamList = result;
+      console.log("dataaaaaaaa", this.teamList);
+    })
+  
   }
+
 
 }

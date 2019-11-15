@@ -439,7 +439,17 @@ const routes: Routes = [
   {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
   {path: 'medical-partners', component: MedicalPartnersComponent},
   {path: 'contactus', component: ContactUsComponent},
-  {path: 'our-team', component: TeamPageComponent},
+  {path: 'our-team',
+   component: TeamPageComponent,
+   resolve: { teamList: ResolveService },
+   data: {
+     requestcondition: {
+       source: 'Team_management_view',
+       condition: {}
+     },
+     endpoint: 'datalist'
+   },
+  },
   {path: 'blog', component: BlogComponentFrontEnd},
   {path: 'blog-details', component: BlogDetailsComponent},
   {path: 'inventory', component: InventoryComponent},
