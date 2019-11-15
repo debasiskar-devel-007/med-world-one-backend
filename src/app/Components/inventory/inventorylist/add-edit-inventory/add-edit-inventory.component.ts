@@ -27,7 +27,16 @@ export class AddEditInventoryComponent implements OnInit {
    yom_flag:boolean=false;
 // ===================================================
 
-
+//image upload 
+public configData: any = {
+  baseUrl: "http://3.15.236.141:5005/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'], // use all small font
+  type: "profile-picture",
+  path: "files",
+  prefix: "profile_picture_"
+}
 
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
     private http: HttpServiceService,private router : Router, 

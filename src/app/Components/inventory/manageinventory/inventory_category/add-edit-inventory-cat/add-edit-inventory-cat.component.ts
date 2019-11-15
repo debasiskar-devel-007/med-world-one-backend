@@ -16,6 +16,8 @@ export interface DialogData {
 })
 export class AddEditInventoryCatComponent implements OnInit {
 
+ 
+
   // ====================declarations==================
   header_txt: any = "Add an inventory header";
   btn_text: any = "SUBMIT";

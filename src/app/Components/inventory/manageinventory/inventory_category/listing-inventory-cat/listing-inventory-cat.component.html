@@ -8,7 +8,7 @@
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
             <a mat-list-item routerLinkActive="active activebread"
-                routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category list</a>
+                routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category & Brand list</a>
 
 
         </mat-card-content>
@@ -20,7 +20,8 @@
                 [routerLink]="['/inventory/manage-inventory/brand/list']">Brand</button>
         </mat-toolbar> -->
 
-        <!-- tab section -->
+
+        <!-- tab section for category -->
         <mat-tab-group class="brand_group">
             <mat-tab label="Category">
 
@@ -28,12 +29,10 @@
                 <mat-card-content class="tabs_wrapper">
                     <mat-toolbar class="content_header_wrapper">
                         <mat-card-title class="toolbar_header">inventory Category list </mat-card-title>
-                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/inventory-category/add']">
                             <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Category
                         </button>
                     </mat-toolbar>
-
-
 
 
 
@@ -50,21 +49,54 @@
 
                     <h2 *ngIf="inventoryCategoryData.length == 0">No record found.</h2>
                     <!-- Listing ends here  -->
+
+
+
+
                 </mat-card-content>
             </mat-tab>
+
+
+             <!-- tab section for brand -->
+
             <mat-tab label="Brand">
                 <mat-card-content class="tabs_wrapper">
                     <mat-toolbar class="content_header_wrapper">
                         <mat-card-title class="toolbar_header">inventory Brand list </mat-card-title>
-                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/brand/add']">
                             <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Brand
                         </button>
                     </mat-toolbar>
-                    <p> Add brand listing here..</p>
-                </mat-card-content>
-            </mat-tab>
-        </mat-tab-group>
 
+                     <!-- Listing goes here  -->
+                     <lib-listing *ngIf="brandData != null && brandData.length>0"
+                        [datasource]="brandData" 
+                        [skip]="brandData_skip"
+                        [modify_header_array]="brandData_modify_header"
+                        [sourcedata]="tableNameBrand"
+                        [apiurl]="apiUrlBrand"
+                        [editroute]="editUrlBrand" 
+                        [jwttoken]="token" 
+                        [statusarr]="statusBrand" 
+                        [updateendpoint]="UpdateEndpointBrand"
+                        [deleteendpoint]="deleteEndpointBrand" 
+                        [date_search_endpoint]="searchingEndpointBrand" 
+                        [date_search_source]="tableNameBrand"
+                        [search_settings]="search_settingsBrand"
+                        [detail_datatype]="brandData.pendingmodelapplicationarray_detail_datatype">
+                    </lib-listing>
+                
+                    <h2 *ngIf="brandData.length == 0">No record found.</h2>
+                    <!-- Listing ends here  -->
+
+
+                </mat-card-content>
+
+            </mat-tab>
+            
+        </mat-tab-group>
+    
+        
         <!--end  tab section -->
 
 
