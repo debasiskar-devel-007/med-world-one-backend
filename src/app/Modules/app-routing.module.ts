@@ -59,6 +59,8 @@ import { SalesrepSalesComponent } from '../Components/backend/sales-rep/salesrep
 import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-hospital/manage-hospital.component';
 import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
 import { BlogComponent } from 'blog/blog';
+import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
+import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 
 
 
@@ -446,6 +448,8 @@ const routes: Routes = [
   {path: 'salesrep-login', component: SalesRepLoginComponent},
 
   // admin frontend
+  { path: 'login', component: LoginAdminComponent},
+  { path: 'hospital-login', component: HospitalLoginComponent},
   { path: 'hospital/my-details', component: MyDetailsHospitalComponent},
   { path: 'hospital/change-password', component: HospitalChangePasswordComponent},
   { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent},
