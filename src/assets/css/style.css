@@ -385,6 +385,7 @@ tr td br{ display: none; }
   .my_details_wrapper .mat-select-value-text { color: #fff!important; }
   .my_details_wrapper .mat-select-arrow { color: #fff!important; }
   .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}
+<<<<<<< HEAD
   .brand_group .mat-tab-label { background: #0bb4e5;
     text-transform: uppercase;
     color: #fff;
@@ -400,3 +401,8 @@ tr td br{ display: none; }
       color: #fff;
       opacity: 1; border-bottom: 2px solid #f7462e;
   }
+=======
+  .admin_submenu{ background: linear-gradient(-6deg, #053f75, #379fff)!important;}
+  .admin_submenu button{ color: #fff; border-bottom: 2px solid #ddd;}
+  .admin_submenu button:last-child{ color: #fff; border: none;}
+>>>>>>> 9474d34a81d1b4a8e63531e26a46152b5f11cf29
