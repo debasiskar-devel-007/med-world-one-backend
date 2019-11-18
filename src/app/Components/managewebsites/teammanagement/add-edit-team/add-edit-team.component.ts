@@ -28,11 +28,11 @@ export class AddEditTeamComponent implements OnInit {
   constructor( public activeRoute : ActivatedRoute ) { }
 
   ngOnInit() {
-    this.activeRoute.data.forEach(data => {
-      let result: any;
-      result = data.teamList.res;
-      this.teamDataList = result;    
-    })
+    // this.activeRoute.data.forEach(data => {
+    //   let result: any;
+    //   result = data.teamList.res;
+    //   this.teamDataList = result;    
+    // })
     
     if(this.activeRoute.snapshot.params._id){
        this.activeRoute.data.forEach(data => {
