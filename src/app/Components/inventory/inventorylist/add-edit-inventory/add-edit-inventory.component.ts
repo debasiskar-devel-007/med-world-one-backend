@@ -4,6 +4,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { InventoryComponent } from 'src/app/Components/frontend/inventory/inventory.component';
+// import { deflate } from 'zlib';
 
 
 @Component({
@@ -25,6 +27,12 @@ export class AddEditInventoryComponent implements OnInit {
    defaultData:any;
    successMessage:any="Submitted Successfully!!!";
    yom_flag:boolean=false;
+   ErrCode: boolean;
+   public fullImagePath:any;
+   public imageName:any;
+   public imageType:any;
+   public img_flag:any=false;
+
 // ===================================================
 
 //image upload 
@@ -33,9 +41,9 @@ public configData: any = {
   endpoint: "uploads",
   size: "51200", // kb
   format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'], // use all small font
-  type: "profile-picture",
+  type: "inventory-picture",
   path: "files",
-  prefix: "profile_picture_"
+  prefix: "inventory_picture_"
 }
 
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
@@ -52,12 +60,13 @@ public configData: any = {
         else
           this.action = "add";
       });
+
+      //generating the form
+    this.generateForm();
     }
 
   ngOnInit() {
 
-    //generating the form
-    this.generateForm();
 
     //getting the brand name
      this.getBrandName();
@@ -77,6 +86,7 @@ public configData: any = {
         this.successMessage = "One row updated";
         this.setDefaultValue(this.defaultData);            
         this.header_txt = "Edit Brand Information";
+        this.img_flag = true;
         break;
     }
   }
@@ -94,9 +104,11 @@ public configData: any = {
         description:[],
         condition:['New',],
         yom:[],
+
         availabiity:[],
         instock:[],
-        status:[]
+        status:[],
+        inventory_image:[]
       });
   }
   // =======================================================
@@ -115,8 +127,14 @@ setDefaultValue(defaultValue) {
     condition:defaultValue.condition,
     availabiity:defaultValue.availabiity,
     instock:defaultValue.instock,
-    status:defaultValue.status
+    status:defaultValue.status,
+    inventory_image:defaultValue.inventory_image
+    
   })
+  this.fullImagePath=defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
+  this.imageName=defaultValue.inventory_image.name;
+  this.imageType=defaultValue.inventory_image.type;
+  
  }
  // ===================================================================================
 
@@ -126,6 +144,23 @@ setDefaultValue(defaultValue) {
   // ======================submit form=======================
   onSubmit()
   {
+
+
+    // Service File Upload Works 
+    if (this.configData.files) {
+
+      if (this.configData.files.length > 1) { this.ErrCode = true; return; }
+      this.inventoryForm.value.inventory_image =
+        {
+          "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+          "image": this.configData.files[0].upload.data.data.fileservername,
+          "name": this.configData.files[0].name,
+          "type": this.configData.files[0].type
+        };
+    } else {
+      this.inventoryForm.value.inventory_image = false;
+    }
+    console.log('>>>>>>>>>>>>>>',this.inventoryForm.value.inventory_image)
     console.log("--------------->",this.inventoryForm.value);
     if (this.inventoryForm.invalid) {
       return;
@@ -180,8 +215,6 @@ setDefaultValue(defaultValue) {
 
 
 
-
-
   //getting the brand name
    
    getBrandName() {
@@ -197,6 +230,10 @@ setDefaultValue(defaultValue) {
     });
   }
 
+  // clear image in InventoryComponent//
+  clear_image(){
+  this.img_flag=false;
+}
 
 
     //getting the brand name
