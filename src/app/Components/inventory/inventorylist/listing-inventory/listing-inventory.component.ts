@@ -32,8 +32,8 @@ export class ListingInventoryComponent implements OnInit {
    };
  // ====================================================================
    /*Showing Image in the Modal*/
-   pendingmodelapplicationarray_detail_datatype: [{
-     key: "image",
+   image_detail_datatype: [{
+     key: "images",
      value: 'image',
      fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'      // Image path 
    }]

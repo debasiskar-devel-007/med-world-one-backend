@@ -27,7 +27,7 @@
                     <mat-label class="label">select Brand</mat-label>
 
                     <mat-select matNativeControl required formControlName="brand_name">
-                        <mat-option value="0">mat-select a brand</mat-option>
+                        <mat-option value="0">select a brand</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
                         </mat-option>
                     </mat-select>
@@ -40,7 +40,7 @@
                     <mat-label class="label">select Category</mat-label>
 
                     <mat-select matNativeControl required formControlName="inventory_category">
-                        <mat-option value="0">mat-select a category</mat-option>
+                        <mat-option value="0">select a category</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array">
                             {{ item.category_name }}
                         </mat-option>
@@ -63,10 +63,24 @@
                     <textarea matInput formControlName="description"></textarea>
                 </mat-form-field><br>
 
+               
 
                 <!-- image upload -->
-                <h3>Insert Image :</h3>
-        <lib-file-upload [config]="configData"></lib-file-upload><br>
+                <h3>Inventory Image :</h3>
+        <lib-file-upload [config]="configData" ></lib-file-upload><br>
+        <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
+
+         <!-- Card view for Image  -->
+         <mat-card-content class="files-view" *ngIf="img_flag==true" >
+            <mat-card class="example-card">
+                <img mat-card-image [src]="fullImagePath">
+                <mat-card-title>{{ imageName }}</mat-card-title>
+                <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
+                <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
+
+            </mat-card>
+        </mat-card-content>
+
 
 
                 <!-- Condition -->
@@ -94,7 +108,6 @@
                         <mat-option value="Available">Available</mat-option>
                     </mat-select>
                 </mat-form-field><br>
-
 
 
                 <!-- In Stock  -->
