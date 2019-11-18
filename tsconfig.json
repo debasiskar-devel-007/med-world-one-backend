@@ -54,13 +54,20 @@
       ],
       "team/*": [
         "dist/team/*"
+      ],
+      "contactus": [
+        "dist/contactus"
+      ],
+      "contactus/*": [
+        "dist/contactus/*"
       ]
-    
-     
+
+
+
     }
   },
-    
- 
+
+
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

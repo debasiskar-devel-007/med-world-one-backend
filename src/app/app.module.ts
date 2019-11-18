@@ -84,7 +84,7 @@ import { BuyFromUsComponent } from './Components/frontend/buy-from-us/buy-from-u
 import { ManufacturarDirectComponent } from './Components/frontend/manufacturar-direct/manufacturar-direct.component';
 import { MedicalPartnersComponent } from './Components/frontend/medical-partners/medical-partners.component';
 import { ContactUsComponent } from './Components/frontend/contact-us/contact-us.component';
-import { TeamPageComponent } from './Components/frontend/team-page/team-page.component';
+import { TeamPageComponent, TeamDetails } from './Components/frontend/team-page/team-page.component';
 import { BlogComponentFrontEnd } from './Components/frontend/blog/blog.component';
 import { BlogDetailsComponent } from './Components/frontend/blog-details/blog-details.component';
 import { InventoryComponent } from './Components/frontend/inventory/inventory.component';
@@ -115,6 +115,9 @@ import { LeftNavSalesComponent } from './Components/backend/sales-rep/left-nav-s
 import { HospitalLoginComponent } from './Components/frontend/logins/hospital-login/hospital-login.component';
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
+import { ContactusModule } from 'contactus';
+
+
 
 
 
@@ -203,8 +206,9 @@ import { LoginAdminComponent } from './Components/frontend/logins/login/login.co
     HospitalLoginComponent,
     UploadDialogBoxComponent,
     DialogContentExampleDialog,
-    LoginComponent, 
-    LoginAdminComponent
+    LoginComponent,
+    LoginAdminComponent,
+    TeamDetails
 
 
   ],
@@ -221,13 +225,14 @@ import { LoginAdminComponent } from './Components/frontend/logins/login/login.co
     BlogModule,
     CKEditorModule,
     TeamModule,
-    HttpClientModule
+    HttpClientModule,
+    ContactusModule
   ],
   providers: [CookieService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3, DialogBoxComponent]
+  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

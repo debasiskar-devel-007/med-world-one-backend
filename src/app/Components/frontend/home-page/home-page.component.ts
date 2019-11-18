@@ -49,4 +49,9 @@ export class HomePageComponent implements OnInit {
     document.querySelector('.blog_item_paragraph').innerHTML = truncateText('.blog_item_paragraph', 350);
   }
 
+
+
+  redLine(){
+
+  }
 }
