@@ -57,7 +57,7 @@ export class AddEditSalesrepComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
-    this.role = this.user_data.Type;
+    this.role = this.user_data.type;
     }
 
   ngOnInit() {
@@ -96,7 +96,8 @@ export class AddEditSalesrepComponent implements OnInit {
   // ================generateForm===================
   generateForm() {
     this.salesRepForm = this.formBuilder.group({
-      name: ['',[Validators.required,nameValidator]],
+      firstname: ['',[Validators.required,nameValidator]],
+      lastname:[],
       email: ['',[Validators.required,Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['',Validators.required],
       confirmpassword: [''],
@@ -107,7 +108,7 @@ export class AddEditSalesrepComponent implements OnInit {
       phone: ['',[Validators.required,phoneValidator]],
       fax: ['',[Validators.required]],
       status: ['',],
-      Type:['salesrep']
+      type:['salesrep']
     });
   }
 // =====================================================
@@ -135,7 +136,8 @@ openDialog(x: any): void {
  // ===================================Setting the default Value========================
  setDefaultValue(defaultValue) {
  this.salesRepForm.patchValue({
-   name:defaultValue.name,
+   firstname:defaultValue.firstname,
+   lastname:this.defaultData.lastname,
    email:defaultValue.email,
    password:defaultValue.password,
    state:defaultValue.state,
