@@ -65,6 +65,14 @@ import { LoginAdminComponent } from '../Components/frontend/logins/login/login.c
 
 
 const routes: Routes = [
+
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'home', component: HomePageComponent},
+  {path: 'sales-rep/home', component: HomePageComponent},
+  {path: 'buy-from-us', component: BuyFromUsComponent},
+  {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
+  {path: 'medical-partners', component: MedicalPartnersComponent},
+  {path: 'contactus', component: ContactUsComponent},
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -74,8 +82,9 @@ const routes: Routes = [
   //Admin Dashboard
   {
     path: 'dashboard-admin',
-    component: DashboardAdminComponent,
-    canActivate: [AuthguardService],
+    component: DashboardAdminComponent
+    // ,
+    // canActivate: [AuthguardService],
     // resolve :{techDashboardData :ResolveService},
     // data: {
     //   requestcondition: {
@@ -451,6 +460,17 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
+  {path: 'our-team',
+   component: TeamPageComponent,
+   resolve: { teamList: ResolveService },
+   data: {
+     requestcondition: {
+       source: 'Team_management_view',
+       condition: {}
+     },
+     endpoint: 'datalist'
+   },
+  },
   { path: 'blog', component: BlogComponentFrontEnd },
   { path: 'blog-details', component: BlogDetailsComponent },
   { path: 'inventory', component: InventoryComponent },
@@ -494,7 +514,6 @@ const routes: Routes = [
   { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent },
   { path: 'salesrep/my-sales', component: SalesrepSalesComponent },
   { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent },
-
 
 
 
