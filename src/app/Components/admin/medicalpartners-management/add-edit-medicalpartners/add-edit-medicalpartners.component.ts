@@ -34,7 +34,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   allCities: any;
   fullImgPath: any;
   imgName: any;
-  imgType: any;
+  imgtype: any;
   img_flag: boolean = false;
   flag: boolean = false;
   linkTo: any;
@@ -78,7 +78,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
-    this.role = this.user_data.Type;
+    this.role = this.user_data.type;
   }
 
 
@@ -153,7 +153,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       noofstaffs: [],
       status: [],
       mpimage: [],
-      Type: ['hospital'],
+      type: ['hospital'],
     });
   }
   //  ===========================================================
@@ -183,7 +183,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
-    this.imgType = defaultValue.mpimage.type;
+    this.imgtype = defaultValue.mpimage.type;
   }
   // ======================================================================================
 

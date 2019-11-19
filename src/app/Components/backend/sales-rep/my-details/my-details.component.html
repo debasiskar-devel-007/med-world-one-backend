@@ -8,46 +8,47 @@
 
 
         <mat-card-content class="mydetails_form_wrapper">
+            <form [formGroup]="salesRepForm" autocomplete="off">
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">First Name</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlName="firstname">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">Last Name</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlName="lastname">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">EMAIL ADDRESS </mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlname="email">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">CITY</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlname="city">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">STATE</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlname="state">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">ZIP CODE</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlname="zip">
                 </mat-form-field>
             </mat-card-content>
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">DATE JOINED</mat-label>
                 <mat-form-field>
-                    <input matInput>
+                    <input matInput formControlname="date">
                 </mat-form-field>
             </mat-card-content>
 
@@ -55,7 +56,7 @@
                 <button mat-button>update</button>
                 <button mat-button>cancel</button>
             </mat-toolbar>
-
+            </form>
 
         </mat-card-content>
     </mat-card-content>

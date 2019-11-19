@@ -11,17 +11,17 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class ListingInventoryCatComponent implements OnInit {
 
-  public user_cookie:any;
+  public user_cookie:any='';
 
  // ===============================Declarations for category=========================
  inventoryCategoryData: any = [];
+ public detail_skip_array_cat:any=["_id"];
  inventoryCategoryData_skip: any = ["_id","description_html","description","created_at"];
  inventoryCategoryData_modify_header: any = {"category name":"Category Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
  tableName: any = 'inventory_category';
  UpdateEndpoint: any = "addorupdatedata";
  deleteEndpoint: any = "deletesingledata";
-
  searchingEndpoint: any = "datalist";
  editUrl: any = 'inventory/manage-inventory/inventory-category/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
@@ -36,12 +36,12 @@ export class ListingInventoryCatComponent implements OnInit {
 // ===============================Declarations for brand=========================
 public brandData: any = [];
 brandData_skip: any = ["_id","description_html","description","created_at"];
+public detail_skip_array:any=["_id"];
 brandData_modify_header: any = {"brand name":"Brand Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
 public tableNameBrand: any = "brands";
 UpdateEndpointBrand: any = "addorupdatedata";
 public deleteEndpointBrand: any = "deletesingledata";
-public token : any = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1NzM5MDc1NDcsImlhdCI6MTU3MzgyMTE0N30.SDcX65zMYn8Hhaf1PtkjhshtTUbyL82Dz0hTjEIicYE"
 searchingEndpointBrand: any = "datalist";
 editUrlBrand: any = 'inventory/manage-inventory/brand/edit';
 apiUrlBrand: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";

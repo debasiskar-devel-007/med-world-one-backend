@@ -12,6 +12,8 @@ export class FrontendHeaderComponent implements OnInit {
   public status: boolean = true;
   public headerFlag: string = '';
   public pageUrl: string = '';
+  public user_details:any='';
+  public Type:any='';
 
   // @HostListener("window:resize", [])
 
@@ -26,6 +28,11 @@ export class FrontendHeaderComponent implements OnInit {
 
   constructor(private cookieService: CookieService, public router: Router) {
     this.headerFlag = this.cookieService.get('loginFlag');
+    if(this.cookieService.get('jwtToken')!=null && this.cookieService.get('jwtToken')!=''){
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+      this.Type=this.user_details.Type;
+      console.log(this.user_details.Type);
+      }
   }
 
   mobileView() {
