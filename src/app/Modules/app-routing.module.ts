@@ -104,7 +104,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: { 'Type':'admin' }
+        condition: { 'type': 'admin' }
       },
       endpoint: 'datalist'
     },
@@ -117,7 +117,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user',
-        condition: { }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -136,7 +136,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: {'Type':'hospital'}
+        condition: { 'type': 'hospital' }
       },
       endpoint: 'datalist'
     },
@@ -149,7 +149,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -166,7 +166,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user_view',
-        condition: {'Type':'salesrep'}
+        condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'
     },
@@ -179,7 +179,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'user',
-        condition: { }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -225,10 +225,10 @@ const routes: Routes = [
   },
 
 
-// ________________BLOGS______________
+  // ________________BLOGS______________
 
 
-{ path: 'manage-websites/addblogs/add', component: AddEditBlogsComponent },
+  { path: 'manage-websites/addblogs/add', component: AddEditBlogsComponent },
 
   {
     path: 'manage-websites/addblogs/list',
@@ -258,41 +258,41 @@ const routes: Routes = [
   },
 
 
-//  _____________________TEAM CATEGORY________________
+  //  _____________________TEAM CATEGORY________________
 
-{ path: 'manage-websites/team-category/add', component: AddeditTeamCatComponent },
+  { path: 'manage-websites/team-category/add', component: AddeditTeamCatComponent },
 
-{
-  path: 'manage-websites/team-category/list',
-  component: ListingTeamCatComponent,
-  canActivate: [AuthguardService],
-  resolve: { teamCatList: ResolveService },
-  data: {
-    requestcondition: {
-      source: 'Team_category_view',
-      condition: {}
+  {
+    path: 'manage-websites/team-category/list',
+    component: ListingTeamCatComponent,
+    canActivate: [AuthguardService],
+    resolve: { teamCatList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_category_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
     },
-    endpoint: 'datalist'
   },
-},
-{
-  path: 'manage-websites/team-category/edit/:_id',
-  component: AddeditTeamCatComponent,
-  canActivate: [AuthguardService],
-  resolve: { teamCatList: ResolveService },
-  data: {
-    requestcondition: {
-      source: 'Team_category',
-      condition: {}
+  {
+    path: 'manage-websites/team-category/edit/:_id',
+    component: AddeditTeamCatComponent,
+    canActivate: [AuthguardService],
+    resolve: { teamCatList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_category',
+        condition: {}
+      },
+      endpoint: 'datalist'
     },
-    endpoint: 'datalist'
   },
-},
 
 
 
 
-//  _____________________TEAM________________
+  //  _____________________TEAM________________
 
   { path: 'manage-websites/team/add', component: AddEditTeamComponent },
 
@@ -327,7 +327,7 @@ const routes: Routes = [
 
 
 
-   // _______________________INVENTORY________________
+  // _______________________INVENTORY________________
   // =========================================================
 
 
@@ -426,59 +426,74 @@ const routes: Routes = [
 
 
 
-// ________________________ACCOUNT SETTINGS______________________
+  // ________________________ACCOUNT SETTINGS______________________
 
-{ path : 'account-settings',component: AccountsComponent },
+  { path: 'account-settings', component: AccountsComponent },
 
-// front end routing
+  // front end routing
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'home', component: HomePageComponent},
-  {path: 'sales-rep/home', component: HomePageComponent},
-  {path: 'buy-from-us', component: BuyFromUsComponent},
-  {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
-  {path: 'medical-partners', component: MedicalPartnersComponent},
-  {path: 'contactus', component: ContactUsComponent},
-  {path: 'our-team',
-   component: TeamPageComponent,
-   resolve: { teamList: ResolveService },
-   data: {
-     requestcondition: {
-       source: 'Team_management_view',
-       condition: {}
-     },
-     endpoint: 'datalist'
-   },
+  { path: 'home', component: HomePageComponent },
+  { path: 'sales-rep/home', component: HomePageComponent },
+  { path: 'buy-from-us', component: BuyFromUsComponent },
+  { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
+  { path: 'medical-partners', component: MedicalPartnersComponent },
+  { path: 'contactus', component: ContactUsComponent },
+  {
+    path: 'our-team',
+    component: TeamPageComponent,
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
-  {path: 'blog', component: BlogComponentFrontEnd},
-  {path: 'blog-details', component: BlogDetailsComponent},
-  {path: 'inventory', component: InventoryComponent},
-  {path: 'inventory-details', component: InventoryDetailsComponent},
-  {path: 'about-us', component: AboutUsFrontComponent},
-  {path: 'salesrep-login', component: SalesRepLoginComponent},
+  { path: 'blog', component: BlogComponentFrontEnd },
+  { path: 'blog-details', component: BlogDetailsComponent },
+  { path: 'inventory', component: InventoryComponent },
+  { path: 'inventory-details', component: InventoryDetailsComponent },
+  { path: 'about-us', component: AboutUsFrontComponent },
+  { path: 'salesrep-login', component: SalesRepLoginComponent },
+
+
 
   // admin frontend
-  { path: 'login', component: LoginAdminComponent},
-  { path: 'hospital-login', component: HospitalLoginComponent},
-  { path: 'hospital/my-details', component: MyDetailsHospitalComponent},
-  { path: 'hospital/change-password', component: HospitalChangePasswordComponent},
-  { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent},
-  { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent},
-  { path: 'hospital/added-inventory/details', component: DetailsHospitalInventoryComponent},
-  { path: 'hospital/added-inventory/add', component: HospitalAddInventoryComponent},
-  { path: 'hospital/view-quotes', component: HospitalViewQuotesComponent},
-  { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent},
+  { path: 'login', component: LoginAdminComponent },
+  { path: 'hospital-login', component: HospitalLoginComponent },
+  { path: 'hospital/my-details', component: MyDetailsHospitalComponent },
+  { path: 'hospital/change-password', component: HospitalChangePasswordComponent },
+  { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent },
+  { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent },
+  { path: 'hospital/added-inventory/details', component: DetailsHospitalInventoryComponent },
+  { path: 'hospital/added-inventory/add', component: HospitalAddInventoryComponent },
+  { path: 'hospital/view-quotes', component: HospitalViewQuotesComponent },
+  { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent },
 
 
-  { path: 'salesrep/my-details', component: MyDetailsComponent},
-  { path: 'salesrep/change-password', component: SalesrepChangePasswordComponent},
-  { path: 'salesrep/my-hospital', component: SalesrepHospitalComponent},
-  { path: 'salesrep/my-added-inventory', component: SalesrepInventoryAddedComponent},
-  { path: 'salesrep/my-added-inventory/add', component: EditInventoryComponent},
-  { path: 'salesrep/my-added-inventory/details', component: DetailsInventoryComponent},
-  { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent},
-  { path: 'salesrep/my-sales', component: SalesrepSalesComponent},
-  { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent},
+  {
+    path: 'salesrep/my-details',
+    component: MyDetailsComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'user_view',
+        condition: { 'type': 'salesrep' }
+      },
+      endpoint: 'datalist'
+    },
+
+  },
+  { path: 'salesrep/change-password', component: SalesrepChangePasswordComponent },
+  { path: 'salesrep/my-hospital', component: SalesrepHospitalComponent },
+  { path: 'salesrep/my-added-inventory', component: SalesrepInventoryAddedComponent },
+  { path: 'salesrep/my-added-inventory/add', component: EditInventoryComponent },
+  { path: 'salesrep/my-added-inventory/details', component: DetailsInventoryComponent },
+  { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent },
+  { path: 'salesrep/my-sales', component: SalesrepSalesComponent },
+  { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent },
 
 
 

@@ -55,7 +55,7 @@ export class AddEditAdminComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
-    this.role = this.user_data.Type;
+    this.role = this.user_data.type;
   }
 
 
@@ -145,7 +145,7 @@ export class AddEditAdminComponent implements OnInit {
       password: ['', Validators.required],
       confirmpassword: [''],
       status: [],
-      Type: ['admin']
+      type: ['admin']
     });
   }
   // ===============================================
