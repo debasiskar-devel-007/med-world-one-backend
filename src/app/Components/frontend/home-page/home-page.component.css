@@ -21,8 +21,9 @@ img {
   max-width: 100%;
   position: relative;
   margin: auto;
+  max-height: 91.8vh;
 }
-
+.mySlides img{ height: 91.8vh;}
 /* Caption text */
 
 .text {
@@ -114,16 +115,16 @@ img {
   padding: 0;
   margin-left: 140px;
   text-align: left;
-  bottom: 155px;
+  bottom: 100px;
 }
 
 .mySlides .text .title {
   font-family: "RobotoBold";
-  font-size: 110px;
+  font-size: 100px;
   text-transform: uppercase;
   color: #fff;
   padding: 0;
-  line-height: 110px;
+  line-height: 95px;
   margin-bottom: 0;
 }
 
@@ -256,7 +257,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("./../../../../assets/images/home_hospital_love1.jpg") no-repeat 20% center; background-size: cover; padding: 30px 30px 30px 900px;
+  background: url("./../../../../assets/images/home_hospital_love1.jpg") no-repeat 20% center; background-size: cover; padding: 30px 0px 30px 900px;
 }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2{ background: url("./../../../../assets/images/home_hospital_love2.jpg") no-repeat; background-size: cover;     padding: 30px 875px 30px 0px; background-position: 100% center;
 }
@@ -271,22 +272,21 @@ img {
 
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_subheader {
   font-family: "MontserratSemibold";
-  font-size: 30px;
+  font-size: 18px;
   line-height: 32px;
   text-transform: uppercase;
   color: #282828;
+  margin-bottom: 0;
 }
 
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_paragraph { font-family: "RobotoRegular"; font-size: 16px; line-height: 32px; color: #383838; }
-.h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_action_button { background: #111214; font-family: "RobotoMedium"; font-size: 30px;
-  text-transform: uppercase; color: #fff; border-radius: 0; padding: 6px 25px; white-space: normal;}
+.h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_action_button { background: #111214; font-family: "RobotoMedium"; font-size: 18px; text-transform: uppercase; color: #fff; border-radius: 0; padding: 6px 10px; white-space: normal;}
 .home_aboutus_section { background: url("../../../../assets/images/home_aboutus_sectionBanner.jpg") no-repeat center; background-size: cover; margin-bottom: 0; }
 .home_aboutus_section .home_aboutus_section_content { padding: 30px 120px 45px 945px; box-sizing: border-box;}
 .home_aboutus_section .home_aboutus_section_content .home_aboutus_header { font-size: 46px; font-family: "MontserratSemibold"; color: #fff; text-transform: uppercase;}
 .home_aboutus_section .home_aboutus_section_content .home_about_paragraph { font-size: 16px; font-family: "RobotoRegular"; color: #fff;}
 .home_aboutus_section .home_aboutus_section_content .home_about_paragraph span { color: #67faff; }
-.home_aboutus_section .home_aboutus_section_content .home_about_action_button { color: #fff; margin-top: 30px; background: #111214; font-family: "RobotoMedium"; text-transform: uppercase;
-  border-radius: 0; font-size: 30px; padding: 8px; width: 290px; }
+.home_aboutus_section .home_aboutus_section_content .home_about_action_button { color: #fff; margin-top: 30px; background: #111214; font-family: "RobotoMedium"; text-transform: uppercase; border-radius: 0; font-size: 26px; padding: 5px 18px; }
 .home_blogsection { background: linear-gradient(0deg, #cad9e3, #e5edf1); margin-bottom: 0; padding: 40px 0; }
 .home_blogsection .home_content_wrapper .header_group .blog_header_title { font-family: "HelveticaBold"; font-size: 48px; color: #282828; text-transform: uppercase;}
 .home_blogsection .home_content_wrapper {width: 1700px; margin: 0 auto;}
@@ -309,16 +309,13 @@ img {
 .home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(5){ background: #6e7678; color: #fff; }
 .home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(6){ background: #95d03a; color: #fff; }
 .home_blogsection .home_content_wrapper .viewall_wrapper{ background: transparent; justify-content: center; margin-top: 50px;}
-.home_blogsection .home_content_wrapper .viewall_wrapper .blogview_all{background: #111214; width: 290px; font-family: "RobotoMedium"; color: #e2f2ff; border-radius: 0;
-text-transform: uppercase; font-size: 30px; padding: 8px; }
+.home_blogsection .home_content_wrapper .viewall_wrapper .blogview_all{background: #111214;  font-family: "RobotoMedium"; color: #e2f2ff; border-radius: 0;
+text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper{ padding: 0; }
-.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_header { font-family: "MontserratSemibold"; font-size: 48px; text-transform: uppercase;
-    color: #282828; }
-.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_subheader { font-family: "MontserratSemibold"; font-size: 30px; line-height: 32px;
-      text-transform: uppercase; color: #282828; }
+.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_header { font-family: "MontserratSemibold"; font-size: 48px; text-transform: uppercase; color: #282828; }
+.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_subheader { font-family: "MontserratSemibold"; font-size: 30px; line-height: 32px; text-transform: uppercase; color: #282828; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_paragraph{ font-family: "RobotoRegular"; font-size: 16px; line-height: 32px;       color: #383838;}
-.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_action_button {  background: #111214; font-family: "RobotoMedium"; font-size: 30px;
-text-transform: uppercase; color: #fff; border-radius: 0; padding: 6px 25px;}
+.h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_action_button {  background: #111214; font-family: "RobotoMedium"; font-size: 26px; text-transform: uppercase; color: #fff; border-radius: 0; padding: 4px 15px;}
 
 @media screen and (max-width: 1800px){
 .h_part2 { width: 90%; margin: 0 auto;}
@@ -381,6 +378,7 @@ text-transform: uppercase; color: #fff; border-radius: 0; padding: 6px 25px;}
   .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_header { font-size: 32px; }
   .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_paragraph { line-height: 24px; }
 }
+
 @media screen and (max-width: 1360px){
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content { padding-left: 615px; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_subheader { line-height: 28px; }
@@ -422,6 +420,8 @@ text-transform: uppercase; color: #fff; border-radius: 0; padding: 6px 25px;}
 .home_aboutus_section  { margin-bottom: 0; background-size: 225%; background-position: 0% top; padding: 30px; padding-top: 52%; background-color: #0d5192; }
 .home_blogsection .blog_item_wrapper { display: flex; flex-wrap: wrap; }
 .home_blogsection .home_content_wrapper .blog_item { width: 32%; margin: .5%; }
+.slideshow-container { max-height: inherit;}
+.slideshow-container img{ height: auto;}
 }
 @media screen and (max-width: 1040px){
   .h_part2 .h_part2_content_wrapper .inner_items .inner_overflow_wrapper .item_header { font-size: 26px; }

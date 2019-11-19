@@ -1,0 +1,32 @@
+import { OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { HttpClient } from '@angular/common/http';
+import { LoadingComponent } from '../loading/loading.component';
+import { MatDialog } from '@angular/material';
+export declare class ContactusListingComponent implements OnInit {
+    apiService: ApiService;
+    http: HttpClient;
+    loadingComponent: LoadingComponent;
+    dialog: MatDialog;
+    formTitleValue: any;
+    contactUsAllData: any;
+    contactUsAllDataHeaderSkipValue: any;
+    contactUsAllDataModifyHeaderValue: any;
+    contactUsAllData_collection: any;
+    serverURL: any;
+    addEndpointData: any;
+    getDataEndpointData: any;
+    updateendpointData: any;
+    deleteendpointData: any;
+    formTitle: string;
+    serverUrl: any;
+    contactUsAllDataHeader_skip: any;
+    contactUsAllDataModify_header: any;
+    addEndpoint: any;
+    getDataEndpoint: any;
+    updateendpoint: any;
+    deleteendpoint: any;
+    constructor(apiService: ApiService, http: HttpClient, loadingComponent: LoadingComponent, dialog: MatDialog);
+    ngOnInit(): void;
+    getAllData(): void;
+}

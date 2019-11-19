@@ -1,0 +1,21 @@
+{
+  "name": "sharetools",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
+  },
+  "main": "bundles/sharetools.umd.js",
+  "module": "fesm5/sharetools.js",
+  "es2015": "fesm2015/sharetools.js",
+  "esm5": "esm5/sharetools.js",
+  "esm2015": "esm2015/sharetools.js",
+  "fesm5": "fesm5/sharetools.js",
+  "fesm2015": "fesm2015/sharetools.js",
+  "typings": "sharetools.d.ts",
+  "metadata": "sharetools.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

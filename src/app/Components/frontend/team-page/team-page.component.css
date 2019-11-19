@@ -28,6 +28,40 @@
 .Team_members_block .team_items  .view_details{ font-family: "RobotoBold"; font-size: 30px; background: #1069b5; color: #fff; border-radius: 0; width: 100%;       text-transform: uppercase; padding: 10px; }
 
 
+/* modal */
+.modal_content{
+  margin-bottom: 0;}
+.modal_content .img_wrapper{ width: 300px;
+  margin: 0 auto;
+  background: #d1c6a8;
+  border: 2px solid #ddd;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;}
+  .modal_content .img_wrapper img{ max-width: 100%;}
+.modal_content .person_name{color: #127dd6;
+  text-transform: uppercase;
+  font-family: "HelveticaBold";
+  font-size: 32px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.phone,
+.email{
+  font-family: "RobotoRegular";
+  font-size: 20px;
+  color: #151515;
+  margin: 10px 0;
+}
+.short_desc{
+  font-family: "RobotoRegular";
+  font-size: 16px;
+  color: #151515;
+
+}
+
 @media screen and (max-width: 1800px){
 .total_team_sec { width: 90%; }
 .Team_members_block { width: 90%; }

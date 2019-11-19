@@ -58,15 +58,12 @@
     margin-bottom: 16px;
     padding: 5px 16px;
     box-sizing: border-box; }
+.contact_form_banner .contactus_wrapper{ width: 1665px; margin: 0 auto;}
 
-    .contact_form_banner .form_section .submit_btn{float: right; border-radius: 0; padding: 7px; width: 190px; color: #fff; background: #111214; text-transform: uppercase; font-family: "RobotoBold"; font-size: 30px;}
-    .clearfix{
-        clear: both; display: block;
-    }
-    .contact_form_banner .form_section input::placeholder{ color: #fff; }
+
 
     @media screen and (max-width: 1800px){
-        .contact_form_banner .form_section { width: 90%; }
+        .contact_form_banner .contactus_wrapper { width: 90%; }
         .main_contact_wrapper .title_wrapper { width: 90%; }
         .sh_hp_wrapper { width: 90%; }
     }

@@ -68,7 +68,7 @@
 </mat-card-content>
 <mat-card-content class="contact_form_banner">
 
-  <mat-card-content class="form_section">
+  <!-- <mat-card-content class="form_section">
     <mat-card-content class="form_section_actions">
       <span>
         <mat-form-field>
@@ -94,6 +94,13 @@
       <button mat-button class="submit_btn">submit</button>
       <span class="clearfix"></span>
     </mat-card-content>
+  </mat-card-content> -->
+
+  <mat-card-content class="contactus_wrapper">
+    <lib-contactus class="form_section" [serverUrl]="serverUrl" [addEndpoint]="addEndpoint" [routeingUrl]="routeingUrl"
+      [formTitle]="formTitle" [modaleLogo]="modaleLogo"> </lib-contactus>
+
+
   </mat-card-content>
 </mat-card-content>
 

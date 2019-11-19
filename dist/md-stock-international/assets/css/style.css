@@ -127,8 +127,7 @@ body {
     box-shadow: -1px 4px 7px 2px #bfbfbf;
     padding: 16px;
 }
-.login_lib_wrapper .example-container
-.mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary {
+.login_lib_wrapper .example-container button {
     background: #073769!important;
     margin-top: 30px;
     font-family: "RobotoBold";
@@ -153,6 +152,7 @@ body {
   text-transform: capitalize;
   font-family: "HelveticaRegular";
 }
+ 
 
 .activebread{
   background: #fff!important;
@@ -210,7 +210,7 @@ tr td br{ display: none; }
  .content_header_wrapper .toolbar_header{
   font-family: "HelveticaBold"; font-size: 30px; text-transform: uppercase; color: #fff; margin-bottom: 0; }
 
-  .content_header_wrapper  .singleButton{ width: 185px; background: #f7462e; color: #fff; font-family: "HelveticaRegular"; border-radius: 0; font-size: 20px; }
+  .content_header_wrapper  .singleButton{ min-width: 185px; background: #f7462e; color: #fff; font-family: "HelveticaRegular"; border-radius: 0; font-size: 20px; }
 
 
 
@@ -385,3 +385,27 @@ tr td br{ display: none; }
   .my_details_wrapper .mat-select-value-text { color: #fff!important; }
   .my_details_wrapper .mat-select-arrow { color: #fff!important; }
   .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}
+
+  .brand_group .mat-tab-label { background: #0bb4e5;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 20px;
+    font-family: "HelveticaBold";
+    opacity: 1;
+    min-width: 240px;
+   
+}
+
+    .brand_group .mat-tab-label-active {
+      background-color: #000!important;
+      color: #fff;
+      opacity: 1; border-bottom: 2px solid #f7462e;
+  }
+
+  .admin_submenu{ background: linear-gradient(-6deg, #053f75, #379fff)!important;}
+  .admin_submenu button{ color: #fff; border-bottom: 2px solid #ddd;}
+  .admin_submenu button:last-child{ color: #fff; border: none;}
+
+  .quotation .mat-menu-item-highlighted:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item:hover:not([disabled]) {
+    background: #3193ee!important;
+}
