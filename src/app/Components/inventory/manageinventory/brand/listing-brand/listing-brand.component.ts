@@ -20,7 +20,7 @@ export class ListingBrandComponent implements OnInit {
  tableName: any = 'brands';
  UpdateEndpoint: any = "addorupdatedata";
  deleteEndpoint: any = "deletesingledata";
- user_cookie: any;
+ user_cookie: any='';
  searchingEndpoint: any = "datalist";
  editUrl: any = 'inventory/manage-inventory/brand/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";

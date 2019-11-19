@@ -10,7 +10,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class ListingInventoryComponent implements OnInit {
 
-
+  user_cookie: any ='';
  // ===============================Declarations=========================
  inventoryListData: any = [];
  inventoryListData_skip: any = ["_id","description_html","description","created_at"];
@@ -20,7 +20,7 @@ export class ListingInventoryComponent implements OnInit {
  tableName: any = 'inventories';
  UpdateEndpoint: any = "addorupdatedata";
  deleteEndpoint: any = "deletesingledata";
- user_cookie: any;
+
  searchingEndpoint: any = "datalist";
  editUrl: any = 'inventory/inventory-list/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
