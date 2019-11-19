@@ -61,6 +61,8 @@ import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.componen
 import { BlogComponent } from 'blog/blog';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
 import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
+import { ListingPriceMarkupManagementComponent } from '../components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
+import { AddEditPriceMarkupManagementComponent } from '../components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 
 
 
@@ -424,8 +426,39 @@ const routes: Routes = [
   },
 
 
+  //____________________price markup management______________________//
 
+{path:'inventory/price-markup-management-list/add',component:AddEditPriceMarkupManagementComponent},
 
+{
+  path:'inventory/price-markup-management-list/list', component: ListingPriceMarkupManagementComponent,
+canActivate: [AuthguardService],
+resolve:{priceMarkupList: ResolveService},
+data:{
+requestcondition:{
+  source:'priceMarkup_view',
+  condition:{}
+},
+endpoint:'datalist'
+}
+},
+
+{
+  path:'inventory/price-markup-management-list/edit/:_id',component:AddEditPriceMarkupManagementComponent,
+  canActivate: [AuthguardService],
+resolve:{priceMarkupList: ResolveService},
+data:{
+requestcondition:{
+  source:'priceMarkup_view',
+  condition:{}
+},
+endpoint: 'datalist'
+
+}
+
+},
+
+  
 // ________________________ACCOUNT SETTINGS______________________
 
 { path : 'account-settings',component: AccountsComponent },
