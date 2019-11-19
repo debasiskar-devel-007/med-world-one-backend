@@ -1,10 +1,40 @@
 <mat-card-content class="modal_content">
-  <mat-card-content class="img_wrapper">
-    <img src="../../../../assets/images/team_member_image.jpg">
-  </mat-card-content>
 
-<!-- <img src="https://4.bp.blogspot.com/-0Wwqn009dkY/WlEXudEAgSI/AAAAAAAAbNc/QcYMXoTln7U94A8ZorzUxioMs9fjPrjKwCLcBGAs/s1600/Photographer.jpg"> -->
-<mat-card-content class="person_name">  {{data.membername}}</mat-card-content>
-<mat-card-content class="email"><strong>Member Email:</strong>{{data.multipleemail}}</mat-card-content>
-<mat-card-content class="phone"><strong>Member Phone:</strong>{{data.multiplephone}}</mat-card-content>
-<mat-card-content class="short_desc"><strong>Member Description:</strong>{{data.description}}</mat-card-content>
+  <mat-card-content class="bg">
+    <mat-card-content class="img_wrapper">
+      <img src="../../../../assets/images/team_member_image.jpg">
+    </mat-card-content>
+  </mat-card-content>
+  <mat-card-content class="details">
+    <mat-card-content class="person_name"> {{data.membername}}</mat-card-content>
+    <mat-card-title class="about">About {{data.membername}} </mat-card-title>
+
+
+    <fieldset>
+      <legend>Contact Details:</legend>
+      <mat-card-content class="contact_wrapper">
+        <mat-card-content class="itemss">
+          <mat-card-title class="header-title">Email</mat-card-title>
+          <mat-card-title class="email"> {{data.multipleemail}}</mat-card-title>
+        </mat-card-content>
+        <mat-card-content class="itemss">
+          <mat-card-title class="header-title">Phone</mat-card-title>
+          <mat-card-title class="email"> {{data.multiplephone}}</mat-card-title>
+        </mat-card-content>
+      </mat-card-content>
+
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>Personal Details:</legend>
+      <mat-card-content class="short_desc">Description:{{data.description}}</mat-card-content>
+      <p class="short_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, illo accusantium. Nisi
+        corporis sunt labore ullam, molestiae necessitatibus reiciendis! Eveniet.</p>
+    </fieldset>
+
+    <span class="button_wrapper">
+      <button mat-raised-button color="accent" [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+    </span>
+
+
+  </mat-card-content>

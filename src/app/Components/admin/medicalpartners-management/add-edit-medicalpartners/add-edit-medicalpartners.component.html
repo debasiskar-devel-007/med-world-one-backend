@@ -167,10 +167,12 @@
 
 
                 <!-- Buttons  -->
-                <button mat-flat-button type="reset">RESET</button>
-                <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
+                <span class="button_wrapper">
+                <button mat-flat-button type="reset" color="warn">RESET</button>
+                <button mat-flat-button type="button" (click)="onSubmit()" color="primary">{{btn_text}} </button>
                 <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'">CHANGE
                     PASSWORD</button>
+                  </span>
             </form>
 
         </mat-card-content>
