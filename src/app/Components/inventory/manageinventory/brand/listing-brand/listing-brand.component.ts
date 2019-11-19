@@ -13,18 +13,19 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class ListingBrandComponent implements OnInit {
 
  // ===============================Declarations=========================
- brandData: any = [];
- brandData_skip: any = ["_id","description_html","description","created_at"];
- brandData_modify_header: any = {"brand name":"Brand Name",
+ public brandData: any = [];
+ public detail_skip_array: any = ["_id"];
+ public brandData_skip: any = ["_id","description_html","description","created_at"];
+ public brandData_modify_header: any = {"brand name":"Brand Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
- tableName: any = 'brands';
- UpdateEndpoint: any = "addorupdatedata";
- deleteEndpoint: any = "deletesingledata";
- user_cookie: any='';
- searchingEndpoint: any = "datalist";
- editUrl: any = 'inventory/manage-inventory/brand/edit';
+public tableName: any = 'brands';
+public UpdateEndpoint: any = "addorupdatedata";
+public deleteEndpoint: any = "deletesingledata";
+ public user_cookie: any='';
+ public searchingEndpoint: any = "datalist";
+ public editUrl: any = 'inventory/manage-inventory/brand/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
- status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+ public status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
  public search_settings: any =
    {
      selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
@@ -32,7 +33,7 @@ export class ListingBrandComponent implements OnInit {
    };
  // ====================================================================
    /*Showing Image in the Modal*/
-   pendingmodelapplicationarray_detail_datatype: [{
+   public pendingmodelapplicationarray_detail_datatype: any=[{
      key: "image",
      value: 'image',
      fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'             // Image path 
