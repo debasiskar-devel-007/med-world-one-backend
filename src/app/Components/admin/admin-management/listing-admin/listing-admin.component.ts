@@ -19,7 +19,7 @@ export class ListingAdminComponent implements OnInit {
 
   // ===============================Declarations=========================
   adminData: any = [];
-  adminData_skip: any = ["_id","password","Type"];
+  adminData_skip: any = ["_id","password","type"];
   adminData_modify_header: any = {
     "status": "Status", "fullname": "Full Name", "email": "Email",
     "phone": "Phone","date":"Date"

@@ -116,6 +116,8 @@ import { HospitalLoginComponent } from './Components/frontend/logins/hospital-lo
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 import { ContactusModule } from 'contactus';
+import { AddEditPriceMarkupManagementComponent } from './components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
+import { ListingPriceMarkupManagementComponent } from './components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 
 
 
@@ -208,7 +210,9 @@ import { ContactusModule } from 'contactus';
     DialogContentExampleDialog,
     LoginComponent,
     LoginAdminComponent,
-    TeamDetails
+    TeamDetails,
+    AddEditPriceMarkupManagementComponent,
+    ListingPriceMarkupManagementComponent
 
 
   ],

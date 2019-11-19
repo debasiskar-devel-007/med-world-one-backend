@@ -63,6 +63,11 @@ export class HttpServiceService {
     return this.http.post(this.baseUrl + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
   }
 
+  getJsonObject(path:any){
+    var result = this.http.get(path).pipe(map(res => res));
+    return result;
+}
+
 
 }
 
