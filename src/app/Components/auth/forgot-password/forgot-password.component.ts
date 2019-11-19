@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HttpServiceService} from '../../../services/http-service.service';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgot-password.component.html',
@@ -29,8 +29,8 @@ export class ForgotPasswordComponent implements OnInit {
   };
   public buttonName: any = 'Reset Password';
 
-  public domainUrl: any = 'http://localhost:4200/resetpassword';
-  constructor() { }
+  public domainUrl: any = this.httpServiceService.resetPassword+'reset-password';
+  constructor(public httpServiceService:HttpServiceService) { }
 
   ngOnInit() {
   }

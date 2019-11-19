@@ -66,7 +66,7 @@ import { LoginAdminComponent } from '../Components/frontend/logins/login/login.c
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'sales-rep/home', component: HomePageComponent},
   {path: 'buy-from-us', component: BuyFromUsComponent},
