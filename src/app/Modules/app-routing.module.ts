@@ -480,6 +480,11 @@ const routes: Routes = [
 
 
 
+
+  // ==================================================================================
+                                    // FRONT END
+  // ==================================================================================
+
   // admin frontend
   { path: 'login', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },

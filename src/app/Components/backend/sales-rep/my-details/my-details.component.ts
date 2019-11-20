@@ -34,12 +34,14 @@ export class MyDetailsComponent implements OnInit {
 
 
     if (this.id != null)
+    {
       this.condition = { id: this.id };
     this.activatedRoute.data.subscribe(resolveData => {
       this.defaultData = resolveData.data.res[0];
       console.log("+++", this.defaultData);
       this.setDefaultValue(this.defaultData);
     });
+  }
 
 
   }
