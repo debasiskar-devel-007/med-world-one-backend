@@ -71,6 +71,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'sales-rep/home', component: HomePageComponent},
+  {path: 'hospital/home', component: HomePageComponent},
   {path: 'buy-from-us', component: BuyFromUsComponent},
   {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
   {path: 'medical-partners', component: MedicalPartnersComponent},
@@ -114,7 +115,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'admin' }
       },
       endpoint: 'datalist'
@@ -146,7 +147,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'hospital' }
       },
       endpoint: 'datalist'
@@ -521,7 +522,19 @@ endpoint: 'datalist'
   // admin frontend
   { path: 'login', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },
-  { path: 'hospital/my-details', component: MyDetailsHospitalComponent },
+  {
+    path: 'hospital/my-details',
+    component: MyDetailsHospitalComponent,
+    canActivate: [AuthguardService],
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'users_view',
+        condition: { 'type': 'hospital' }
+      },
+      endpoint: 'datalist'
+    },
+  },
   { path: 'hospital/change-password', component: HospitalChangePasswordComponent },
   { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent },
   { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent },
@@ -537,7 +550,7 @@ endpoint: 'datalist'
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'

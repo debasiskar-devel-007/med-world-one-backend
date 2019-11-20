@@ -8,99 +8,124 @@
 
 
         <mat-card-content class="mydetails_form_wrapper">
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">Hospital Name</mat-label>
-                <mat-form-field>
-                    <input matInput>
-                </mat-form-field>
-            </mat-card-content>
-            <span class="address_wrapper">
+            <form [formGroup]="hospitalAccountForm" autocomplete="off">
                 <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">Phone(s) </mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">EMAIL(s)</mat-label>
-                    <mat-form-field>
-                        <input matInput type="email">
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">Contact Person</mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
-            </span>
-            <span class="address_wrapper">
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">City</mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
 
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">STATE</mat-label>
+                    <mat-label class="mydetails_ac_lebel">Hospital Name</mat-label>
                     <mat-form-field>
-                        <input matInput>
+                        <input matInput formControlName="hospitalname">
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">ZIP</mat-label>
+                    <mat-label class="mydetails_ac_lebel">Primary Email</mat-label>
                     <mat-form-field>
-                        <input matInput>
+                        <input matInput formControlName="email">
                     </mat-form-field>
                 </mat-card-content>
-            </span>
-            <span class="doctors_stuff">
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">Speciality</mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">No of Doctors </mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">No of Beds </mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
-                <mat-card-content class="forms">
-                    <mat-label class="mydetails_ac_lebel">No of Staffs </mat-label>
-                    <mat-form-field>
-                        <input matInput>
-                    </mat-form-field>
-                </mat-card-content>
+                <span class="address_wrapper">
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">Phone(s) </mat-label>
+                        <mat-form-field>
+                            <input matInput>
+                           
+                        </mat-form-field>
 
-            </span>
-            <mat-card-content class="file_uploader">
-                <mat-label class="mydetails_ac_lebel">Image</mat-label>
+                        <mat-chip-list>
+                                <mat-chip *ngFor="let item of contactphonesarray;let i = index">{{ item }}</mat-chip>
+                            </mat-chip-list>
 
-                <mat-card-content class="inner_wrapper">
-                    <mat-card-content class="upoader">
-                        <img src="../../../../../assets/images/change_passlock_icon.png">
+                    </mat-card-content>
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">EMAIL(s)</mat-label>
+
+                        <mat-form-field>
+                            <input matInput type="email">
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let item of contactemailarray;let i = index">{{ item }}</mat-chip>
+                            </mat-chip-list>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">Contact Person</mat-label>
+                        <mat-form-field>
+                            <input matInput formControlName="contactperson">
+                        </mat-form-field>
+                    </mat-card-content>
+                </span>
+                <span class="address_wrapper">
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">STATE</mat-label>
+                        <mat-form-field class="parent_cat" appearance="fill">
+
+                            <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                                <!-- <mat-option [value]=0>Select a category</mat-option> -->
+                                <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </mat-card-content>
 
-                    <input type="file" #trigger hidden>
-                    <button class="change_image" mat-button (click)="trigger.click()">change image</button>
+
+
+
+
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">CITY</mat-label>
+                        <mat-form-field>
+                            <mat-select formControlName="city">
+                                <!-- <mat-option value=0 class="mydetails_ac_lebel">Select a city</mat-option> -->
+                                <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-card-content>
+
+                </span>
+                <span class="doctors_stuff">
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">Speciality</mat-label>
+                        <mat-form-field>
+                            <input matInput formControlName="speciality">
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">No of Doctors </mat-label>
+                        <mat-form-field>
+                            <input matInput formControlName="noofdoctors">
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">No of Beds </mat-label>
+                        <mat-form-field>
+                            <input matInput formControlName="noofbeds">
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-content class="forms">
+                        <mat-label class="mydetails_ac_lebel">No of Staffs </mat-label>
+                        <mat-form-field>
+                            <input matInput formControlName="noofstaffs">
+                        </mat-form-field>
+                    </mat-card-content>
+
+                </span>
+                <mat-card-content class="file_uploader">
+                    <mat-label class="mydetails_ac_lebel">Image</mat-label>
+
+                    <mat-card-content class="inner_wrapper">
+                        <mat-card-content class="upoader">
+                            <img [src]="fullpath">
+                        </mat-card-content>
+
+                        <input type="file" #trigger hidden>
+                        <button class="change_image" mat-button (click)="trigger.click()">change image</button>
+                    </mat-card-content>
                 </mat-card-content>
-            </mat-card-content>
 
-            <mat-toolbar class="button_action">
-                <button mat-button>update</button>
-                <button mat-button>cancel</button>
-            </mat-toolbar>
+                <mat-toolbar class="button_action">
+                    <button mat-button>update</button>
+                    <button mat-button>cancel</button>
+                </mat-toolbar>
 
-
+            </form>
         </mat-card-content>
     </mat-card-content>
 
