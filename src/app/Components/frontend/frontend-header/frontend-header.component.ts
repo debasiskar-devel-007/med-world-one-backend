@@ -46,8 +46,10 @@ export class FrontendHeaderComponent implements OnInit {
 
   logout() {
     this.cookieService.deleteAll();
-    this.router.navigate(['home']);
-
+    
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 500);
   }
 
 }

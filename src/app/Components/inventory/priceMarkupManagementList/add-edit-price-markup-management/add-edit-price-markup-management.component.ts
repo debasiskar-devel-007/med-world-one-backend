@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+
+export interface DialogData {
+  msg: string;
+}
 
 @Component({
   selector: 'app-add-edit-price-markup-management',
@@ -20,15 +24,17 @@ public successMessage:any="Submitted Successfully!!!"
 public countryList:any=[];
 public condition:any;
 public action:any='add';
-public header_txt:any='Add Price Markup'
+public header_txt:any='Add Price Markup';
 
 
-  constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute) {
 
+  constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute,public dialog: MatDialog) {
+
+   
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
-        this.condition = { _id: params._id };
+        this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.priceMarkupList.res[0];
         });
@@ -41,16 +47,31 @@ public header_txt:any='Add Price Markup'
 
   ngOnInit() {
 
-    this.generateForm();
-    this.getCountryList();
 
+    this.generateForm();
+//country list
+    let data: any = {
+      "source": 'country',
+      "token": this.cookieService.get('jwtToken')
+    };
+  
+    this.http.httpViaPost('datalist ', data).subscribe((response: any) => {
+     
+      this.countryList=response.res;
+      console.log('+++++>>>>>>',this.countryList)
+    })
+
+    
+
+
+    
   }
 //form for price markup//
   generateForm(){
     this.priceMarkupForm=this.formBuilder.group({
-      Country:[],
-      setValue:[],
-      Notes: []
+      country:['',Validators.required],
+      setValue:['',Validators.required],
+      notes: []
 
     });
     // Case 
@@ -69,13 +90,30 @@ public header_txt:any='Add Price Markup'
   }
   }
 
+
+
+// =========================================MODAL functions==========================================
+openDialog(x: any): void {
+  this.dialogRef = this.dialog.open(Modal6, {
+    width: '250px',
+    data: { msg: x }
+  });
+
+  this.dialogRef.afterClosed().subscribe(result => {
+
+  });
+}
+// =====================================================================================================
+
+
+
   //set default value
 
   setDefaultValue(defaultValue) {
     this.priceMarkupForm.patchValue({
-      Country:defaultValue.country,
+      country:defaultValue.country,
       setValue:defaultValue.setValue,
-      Notes:defaultValue.Notes,
+      notes:defaultValue.notes,
 
     })
   }
@@ -89,8 +127,11 @@ public header_txt:any='Add Price Markup'
       let postData: any = {
         "source": 'priceMarkup',
         "data": Object.assign(this.priceMarkupForm.value, this.condition),
-        "token": this.cookieService.get('jwtToken')
+        "token": this.cookieService.get('jwtToken'),
+        "sourceobj":["country"]
       };
+      
+
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         let result:any;
@@ -100,28 +141,46 @@ public header_txt:any='Add Price Markup'
 
         if (result.status == "success") {
          
-            // this.openDialog(this.successMessage);
-            // setTimeout(() => {
-              // this.dialogRef.close();
-            // }, 2000);
+            this.openDialog(this.successMessage);
+            setTimeout(() => {
+              this.dialogRef.close();
+            }, 2000);
 
-        this.router.navigateByUrl('inventory/price-markup-management-list/list');
+        this.router.navigateByUrl('/inventory/price-markup-management-list/list');
         }
       
         })
 
     }
   }
-
-  //city list Json
-  getCountryList() {
-    this.http.getJsonObject('assets/json/country.json').subscribe((res) => {
-      let result: any = {};
-      result = res;
-      this.countryList = result;
-    })
-  }
+//blur for validation
+inputBlur(val:any){
+  console.log(val)
   
+this.priceMarkupForm.controls[val].markAsUntouched();
 }
+
+ 
+}
+
+
+
+  // ============================================MODAL COMPONENT===========================================
+  @Component({
+    selector: 'app-modal',
+    templateUrl: 'modal6.html',
+  })
+  export class Modal6 {
+  
+    constructor(
+      public dialogRef: MatDialogRef<Modal6>,
+      @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+  }
+  // ======================================================================================================
+  
 
 
