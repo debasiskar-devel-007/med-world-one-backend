@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+
+export interface DialogData {
+  msg: string;
+}
 
 @Component({
   selector: 'app-add-edit-price-markup-management',
@@ -23,7 +27,7 @@ public action:any='add';
 public header_txt:any='Add Price Markup'
 
 
-  constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute) {
+  constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute,public dialog: MatDialog) {
 
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
@@ -69,6 +73,23 @@ public header_txt:any='Add Price Markup'
   }
   }
 
+
+
+// =========================================MODAL functions==========================================
+openDialog(x: any): void {
+  this.dialogRef = this.dialog.open(Modal6, {
+    width: '250px',
+    data: { msg: x }
+  });
+
+  this.dialogRef.afterClosed().subscribe(result => {
+
+  });
+}
+// =====================================================================================================
+
+
+
   //set default value
 
   setDefaultValue(defaultValue) {
@@ -100,10 +121,10 @@ public header_txt:any='Add Price Markup'
 
         if (result.status == "success") {
          
-            // this.openDialog(this.successMessage);
-            // setTimeout(() => {
-              // this.dialogRef.close();
-            // }, 2000);
+            this.openDialog(this.successMessage);
+            setTimeout(() => {
+              this.dialogRef.close();
+            }, 2000);
 
         this.router.navigateByUrl('inventory/price-markup-management-list/list');
         }
@@ -114,14 +135,36 @@ public header_txt:any='Add Price Markup'
   }
 
   //city list Json
-  getCountryList() {
-    this.http.getJsonObject('assets/json/country.json').subscribe((res) => {
-      let result: any = {};
-      result = res;
-      this.countryList = result;
-    })
-  }
+  // getCountryList() {
+  //   this.http.getJsonObject('assets/json/country.json').subscribe((res) => {
+  //     let result: any = {};
+  //     result = res;
+  //     this.countryList = result;
+  //   })
+  // }
+
+  
   
 }
+
+
+
+  // ============================================MODAL COMPONENT===========================================
+  @Component({
+    selector: 'app-modal',
+    templateUrl: 'modal6.html',
+  })
+  export class Modal6 {
+  
+    constructor(
+      public dialogRef: MatDialogRef<Modal6>,
+      @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+  }
+  // ======================================================================================================
+  
 
 

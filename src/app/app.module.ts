@@ -116,7 +116,7 @@ import { HospitalLoginComponent } from './Components/frontend/logins/hospital-lo
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 import { ContactusModule } from 'contactus';
-import { AddEditPriceMarkupManagementComponent } from './components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
+import { AddEditPriceMarkupManagementComponent, Modal6 } from './components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ListingPriceMarkupManagementComponent } from './components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 
 
@@ -163,6 +163,7 @@ import { ListingPriceMarkupManagementComponent } from './components/inventory/pr
     AddEditBrandComponent,
     ListingBrandComponent,
     Modal5,
+    Modal6,
     AddEditInventoryComponent,
     ListingInventoryComponent,
     HttpLoaderComponent,
@@ -236,7 +237,7 @@ import { ListingPriceMarkupManagementComponent } from './components/inventory/pr
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3, DialogBoxComponent, TeamDetails]
+  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

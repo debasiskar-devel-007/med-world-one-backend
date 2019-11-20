@@ -39,11 +39,11 @@ export class LoginComponent implements OnInit {
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {
-          "Type": "admin",
+          "type": "admin",
           "routerNav": "dashboard-admin"
         },
         {
-          "Type": "salesrep",
+          "type": "salesrep",
           "routerNav": "sales-rep/home"
         }
       ]
