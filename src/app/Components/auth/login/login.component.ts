@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-
+import {HttpServiceService} from '../../../services/http-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   public logo: any = './assets/images/logo.png';
   public fromTitle: any = "Login Form";    // This is a From Title
-  public fullUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";  // server url
+  public fullUrl: any = this.httpServiceService.baseUrl;  // server url
   public endpoint: any = "login";
   public buttonName:any= 'Login Button';
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   public signUpRouteingUrl: any = {
     "path": "",
     "buttonName": "Don't have an account yet? Contact us",
-    "customLink": "",
+    "customLink": "/contactus",
     "customURl": ""
   };
   public forgetRouteingUrl: any = {
@@ -33,21 +33,27 @@ export class LoginComponent implements OnInit {
 
   public routerStatus: any;
 
-  constructor() {
+  constructor(public httpServiceService:HttpServiceService) {
 
-
+    console.log(this.httpServiceService.resetPassword);
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {
-          "Type": "admin",
+          "type": "admin",
           "routerNav": "dashboard-admin"
         },
         {
-          "Type": "salesrep",
+          "type": "salesrep",
           "routerNav": "sales-rep/home"
+        },
+        {
+          "type": "hospital",
+          "routerNav" : "hospital/home"
         }
       ]
     }
+
+  
   }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HttpServiceService} from '../../../services/http-service.service';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgot-password.component.html',
@@ -7,30 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
   public logo: any = './assets/images/logo.png';
-  public fromTitle: any = 'Forgotten password'
+  public fromTitle: any = 'FORGOTTEN PASSWORD'
     // public signUpRouteingUrl: any = 'sign-up';
-  public serverUrl:any = 'https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/';
+  public serverUrl:any =this.httpServiceService.baseUrl;
   public addEndpoint: any = {
     endpoint:'forgetpassword'
   };
   public loginRouteingUrl: any = {
     // "path":"login",
     "path":"",
-    "buttonName":"login",
+    "buttonName":"Login",
     "customLink":"/login",
     "customURl":""
   };
   public signUpRouteingUrl: any = {
     // "path":"sign-up",
     "path":"",
-    "buttonName":"sign-up",
+    "buttonName":"Sign Up",
     "customLink":"",
     "customURl":""
   };
   public buttonName: any = 'Reset Password';
 
-  public domainUrl: any = 'http://localhost:4200/resetpassword';
-  constructor() { }
+  public domainUrl: any = this.httpServiceService.resetPassword+'reset-password';
+
+  constructor(public httpServiceService:HttpServiceService) {}
 
   ngOnInit() {
   }

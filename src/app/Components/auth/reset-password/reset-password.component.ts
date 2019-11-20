@@ -1,6 +1,5 @@
-
-
 import { Component, OnInit } from '@angular/core';
+import {HttpServiceService} from '../../../services/http-service.service';
 
 @Component({
   selector: 'app-resetpassword',
@@ -10,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ResetPasswordComponent implements OnInit {
   public fromTitleName: any = 'Reset From';
   public logo: any = './assets/images/logo.png';
-  public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
+  public serverUrl: any = this.httpServiceService.baseUrl;
   public addEndpoint: any = {
-    endpoint:'addorupdatedata',
-    source:'usermanagement'
+    endpoint:'resetpassword',
+    source:'users'
   };
-  constructor() { }
+  constructor(public httpServiceService:HttpServiceService) { }
 
   ngOnInit() {
   }

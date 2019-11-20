@@ -61,16 +61,17 @@ import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.componen
 import { BlogComponent } from 'blog/blog';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
 import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
-import { ListingPriceMarkupManagementComponent } from '../components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
-import { AddEditPriceMarkupManagementComponent } from '../components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
+import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
+import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 
 
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'sales-rep/home', component: HomePageComponent},
+  {path: 'hospital/home', component: HomePageComponent},
   {path: 'buy-from-us', component: BuyFromUsComponent},
   {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
   {path: 'medical-partners', component: MedicalPartnersComponent},
@@ -79,7 +80,7 @@ const routes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
   {
@@ -114,7 +115,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'admin' }
       },
       endpoint: 'datalist'
@@ -146,7 +147,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'hospital' }
       },
       endpoint: 'datalist'
@@ -513,10 +514,27 @@ endpoint: 'datalist'
 
 
 
+
+  // ==================================================================================
+                                    // FRONT END
+  // ==================================================================================
+
   // admin frontend
   { path: 'login', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },
-  { path: 'hospital/my-details', component: MyDetailsHospitalComponent },
+  {
+    path: 'hospital/my-details',
+    component: MyDetailsHospitalComponent,
+    canActivate: [AuthguardService],
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'users_view',
+        condition: { 'type': 'hospital' }
+      },
+      endpoint: 'datalist'
+    },
+  },
   { path: 'hospital/change-password', component: HospitalChangePasswordComponent },
   { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent },
   { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent },
@@ -532,7 +550,7 @@ endpoint: 'datalist'
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'
