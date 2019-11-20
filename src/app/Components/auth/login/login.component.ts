@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public httpServiceService:HttpServiceService) {
 
-
+    console.log(this.httpServiceService.resetPassword);
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {
@@ -52,9 +52,7 @@ export class LoginComponent implements OnInit {
       ]
     }
 
-    
-
-    console.log("Router Status",this.routerStatus);
+  
   }
 
   ngOnInit() {

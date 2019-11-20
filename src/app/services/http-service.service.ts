@@ -18,6 +18,7 @@ export class HttpServiceService {
     // this.getSiteSettingData().subscribe(responce => {
     //   this.siteSettingData = responce;
     // });
+   
   }
   /* read site setting data */
   public getSiteSettingData(url): Observable<any> {

@@ -131,6 +131,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "md-stock-international:serve:production"
+            },
+            "dev": {
+              "devServerTarget": "md-stock-international:serve:production"
             }
           }
         }
