@@ -1,30 +1,43 @@
 <app-adminheader>
-    <h3>{{ header_txt }}</h3>
-    <form [formGroup]="inventoryCategoryForm" autocomplete="off">
+  <mat-card class="main_wrapper">
+    <mat-card-content class="bred_cram_wrapper">
+      <a mat-list-item routerLinkActive="active"> Dashboard </a>
+      <a mat-list-item routerLinkActive="active" routerLink="/inventory/manage-inventory/inventory-category/list">
+        inventory category list </a>
+      <a mat-list-item routerLinkActive="active activebread"
+        [routerLink]="'/inventory/manage-inventory/inventory-category/add'"> add
+      </a>
+    </mat-card-content>
+
+
+    <mat-card-content class="from_wrapper">
+      <h3 class="form_header">{{ header_txt }}</h3>
+      <form [formGroup]="inventoryCategoryForm" autocomplete="off">
 
         <!-- Category name  -->
         <mat-form-field>
-            <input matInput placeholder="Category name" formControlName="category_name">
+          <input matInput placeholder="Category name" formControlName="category_name">
         </mat-form-field><br>
 
         <!-- Parent Category  -->
         <mat-form-field>
-            <mat-label>Parent Category</mat-label>
-            <select matNativeControl formControlName="parent_category" >
-                <option value="0" >Select a category</option>
-                <option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.category_name }}</option>
-            </select>
+          <mat-label>Parent Category</mat-label>
+          <mat-select matNativeControl formControlName="parent_category">
+            <mat-option value="0">Select a category</mat-option>
+            <mat-option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.category_name }}
+            </mat-option>
+          </mat-select>
         </mat-form-field><br>
 
         <!-- Description  -->
         <mat-form-field>
-            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+          <textarea matInput placeholder="Description" formControlName="description"></textarea>
         </mat-form-field><br>
 
 
         <!-- Priority -->
         <mat-form-field>
-            <input matInput placeholder="Priority" formControlName="priority">
+          <input matInput placeholder="Priority" formControlName="priority">
         </mat-form-field><br>
 
         <!-- Status  -->
@@ -33,7 +46,11 @@
 
 
         <!-- Buttons  -->
-        <button mat-flat-button type="reset">RESET</button>
-        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
-    </form>
+        <span class="button_wrapper">
+          <button mat-flat-button type="reset" color="warn">RESET</button>
+          <button mat-flat-button type="button" (click)="onSubmit()" color="primary">{{btn_text}} </button>
+        </span>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </app-adminheader>
