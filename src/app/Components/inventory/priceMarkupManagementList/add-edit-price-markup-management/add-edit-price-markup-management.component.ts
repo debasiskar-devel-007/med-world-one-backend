@@ -46,7 +46,7 @@ public header_txt:any='Add Price Markup'
   ngOnInit() {
 
     this.generateForm();
-    this.getCountryList();
+    // this.getCountryList();
 
   }
 //form for price markup//
