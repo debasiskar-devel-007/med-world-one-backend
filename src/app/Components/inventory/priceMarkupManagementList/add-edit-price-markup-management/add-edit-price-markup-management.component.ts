@@ -29,6 +29,9 @@ public header_txt:any='Add Price Markup'
 
   constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute,public dialog: MatDialog) {
 
+    this.generateForm();
+    // this.getCountryList();
+
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -45,9 +48,19 @@ public header_txt:any='Add Price Markup'
 
   ngOnInit() {
 
-    this.generateForm();
-    this.getCountryList();
+//country list
+    let data: any = {
+      "source": 'country',
+      "token": this.cookieService.get('jwtToken')
+    };
+  
+    this.http.httpViaPost('datalist ', data).subscribe((response: any) => {
+     
+      this.countryList=response.res;
+      console.log('+++++>>>>>>',this.countryList)
+    })
 
+    
   }
 //form for price markup//
   generateForm(){
@@ -126,7 +139,7 @@ openDialog(x: any): void {
               this.dialogRef.close();
             }, 2000);
 
-        this.router.navigateByUrl('inventory/price-markup-management-list/list');
+        this.router.navigateByUrl('/inventory/price-markup-management-list/list');
         }
       
         })
@@ -143,7 +156,6 @@ openDialog(x: any): void {
   //   })
   // }
 
-  
   
 }
 

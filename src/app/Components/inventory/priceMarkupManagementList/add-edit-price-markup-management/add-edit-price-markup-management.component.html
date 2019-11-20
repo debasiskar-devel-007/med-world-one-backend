@@ -13,7 +13,7 @@
                 <mat-label>Select Country</mat-label>
                 <select matNativeControl formControlName="Country" >
                     <option value="0" >Default</option>
-                    <option *ngFor="let Country of countryList" value="{{Country.code}}" >{{Country.name}}</option>
+                    <option *ngFor="let country of countryList" value="{{country._id}}" >{{country.name}}</option>
                 </select>
             </mat-form-field><br>
             <!-- set value field  -->
