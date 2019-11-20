@@ -45,6 +45,7 @@ export class FrontendHeaderComponent implements OnInit {
   }
 
   logout() {
+    console.log("logout");
     this.cookieService.deleteAll();
     
     setTimeout(() => {
