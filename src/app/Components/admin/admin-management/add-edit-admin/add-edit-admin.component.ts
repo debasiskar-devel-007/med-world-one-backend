@@ -184,8 +184,7 @@ export class AddEditAdminComponent implements OnInit {
 
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-
-    if (this.adminForm.invalid) {
+   if (this.adminForm.invalid) {
       return;
     }
     else {
@@ -204,7 +203,7 @@ export class AddEditAdminComponent implements OnInit {
 
       /* start process to submited data */
       let postData: any = {
-        "source": 'user',
+        "source": 'users',
         "data": Object.assign(this.adminForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
 

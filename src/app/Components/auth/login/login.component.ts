@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
         {
           "type": "salesrep",
           "routerNav": "sales-rep/home"
-        },{
-          "type":"hospital",
-          "routerNav": "hospital/home"
+        },
+        {
+          "type": "hospital",
+          "routerNav" : "hospital/home"
         }
       ]
     }
