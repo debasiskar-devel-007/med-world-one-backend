@@ -68,9 +68,10 @@ import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/p
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomePageComponent},
   {path: 'sales-rep/home', component: HomePageComponent},
+  {path: 'hospital/home', component: HomePageComponent},
   {path: 'buy-from-us', component: BuyFromUsComponent},
   {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
   {path: 'medical-partners', component: MedicalPartnersComponent},

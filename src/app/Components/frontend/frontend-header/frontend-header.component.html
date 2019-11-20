@@ -19,10 +19,10 @@
       <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
-      <a mat-list-item class="login" *ngIf="headerFlag == ''" [matMenuTriggerFor]="loginmenu">Login</a>
-      <a mat-list-item class="signup" *ngIf="headerFlag == ''">Signup</a>
-      <a mat-list-item class="signup" *ngIf="headerFlag != ''" (click)="logout();">Logout</a>
-      <mat-card-content class="a_pro" *ngIf="headerFlag != ''">
+      <a mat-list-item class="login" *ngIf="Type == ''" [matMenuTriggerFor]="loginmenu">Login</a>
+      <a mat-list-item class="signup" *ngIf="Type == ''">Signup</a>
+      <a mat-list-item class="signup" *ngIf="Type != ''" (click)="logout();">Logout</a>
+      <mat-card-content class="a_pro" *ngIf="Type != ''">
         <span class="profile">
           <img src="https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg">
         </span>
@@ -30,7 +30,7 @@
       </mat-card-content>
 
       <mat-menu #repmenu="matMenu" class="pro_menu">
-        <ng-container *ngIf="headerFlag == 'sales-rep'">
+        <ng-container *ngIf="Type == 'salesrep'">
           <button mat-menu-item [routerLink]="'/salesrep/my-details'"><i class="material-icons"> account_circle </i> My
             Account</button>
           <button mat-menu-item [routerLink]="'/salesrep/change-password'" routerLinkActive="active"><i
@@ -45,7 +45,7 @@
               class="fa fa-bar-chart" aria-hidden="true"></i> my sales</button>
         </ng-container>
 
-        <ng-container *ngIf="headerFlag == 'hospital'">
+        <ng-container *ngIf="Type == 'hospital'">
           <button mat-menu-item [routerLink]="'/hospital/my-details'"><i class="material-icons"> account_circle </i> My
             Account</button>
           <button mat-menu-item [routerLink]="'/hospital/change-password'" routerLinkActive="active"><i

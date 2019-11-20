@@ -30,8 +30,7 @@ public header_txt:any='Add Price Markup'
   constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute,public dialog: MatDialog) {
 
     this.generateForm();
-    // this.getCountryList();
-
+   
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -48,6 +47,7 @@ public header_txt:any='Add Price Markup'
 
   ngOnInit() {
 
+
 //country list
     let data: any = {
       "source": 'country',
@@ -59,6 +59,9 @@ public header_txt:any='Add Price Markup'
       this.countryList=response.res;
       console.log('+++++>>>>>>',this.countryList)
     })
+
+    
+
 
     
   }

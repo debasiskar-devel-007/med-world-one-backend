@@ -60,6 +60,14 @@
                   "maximumError": "2mb"
                 }
               ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
             }
           }
         },
@@ -71,6 +79,9 @@
           "configurations": {
             "production": {
               "browserTarget": "md-stock-international:build:production"
+            },
+            "dev": {
+              "browserTarget": "md-stock-international:build:dev"
             }
           }
         },

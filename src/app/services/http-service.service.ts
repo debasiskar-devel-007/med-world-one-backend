@@ -3,15 +3,16 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
-
+import {environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 
 export class HttpServiceService {
+  public resetPassword =  environment["RESET_PASSWORD_URL"];
   private environment: any = "dev";
   private siteSettingData: any;
-  public baseUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  public baseUrl: any = environment["API_URL"];
 
   constructor(private http: HttpClient, public CookieService: CookieService) {
     // this.getSiteSettingData().subscribe(responce => {
