@@ -152,7 +152,7 @@ body {
   text-transform: capitalize;
   font-family: "HelveticaRegular";
 }
- 
+
 
 .activebread{
   background: #fff!important;
@@ -393,7 +393,7 @@ tr td br{ display: none; }
     font-family: "HelveticaBold";
     opacity: 1;
     min-width: 240px;
-   
+
 }
 
     .brand_group .mat-tab-label-active {
@@ -409,3 +409,24 @@ tr td br{ display: none; }
   .quotation .mat-menu-item-highlighted:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item:hover:not([disabled]) {
     background: #3193ee!important;
 }
+.contact_form_banner .contactus_wrapper .form_section .example-container{ display:inherit; flex-direction: inherit; }
+.contact_form_banner .contactus_wrapper .form_section .example-container .mat-form-field{ background: #15365c!important; margin-bottom: 10px; width: 100%; padding: 0 10px; box-sizing: border-box; }
+.contact_form_banner .contactus_wrapper .form_section .example-container .fromClass:nth-of-type(1){width: 32%; display: inline-block; }
+.contact_form_banner .contactus_wrapper .form_section .example-container .fromClass:nth-of-type(2){width: 33%; display: inline-block;  margin: 0 15px; }
+.contact_form_banner .contactus_wrapper .form_section .example-container .fromClass:nth-of-type(3){width: 33%; display: inline-block }
+.contact_form_banner .contactus_wrapper .form_section .example-container .fromClass:nth-of-type(4){width: 100%; }
+.contact_form_banner .contactus_wrapper .form_section .example-container .fromClass:nth-of-type(5){width: 100%; }
+.contact_form_banner .contactus_wrapper .form_section .from button {text-transform: uppercase; width: auto; height: auto; text-align: center; margin-top: 10px;  float: right;
+  background: #111214; min-width: 210px; border-radius: 0; font-size: 28px; font-family: "RobotoMedium"; padding: 6px;}
+
+  .contact_form_banner .contactus_wrapper .form_section .example-container .mat-form-field-label { color: #fff !important; }
+  .contact_form_banner .contactus_wrapper .form_section .example-container .mat-form-field-infix {  color: #fff !important; }
+  @media screen and (max-width: 1400px) {
+    .frontend_nav .listing_container .mat-list-item .mat-list-item-content { padding: 0 10px!important; }
+  }
+  @media screen and (max-width: 1300px){
+  .frontend_nav .listing_container .mat-list-item .mat-list-item-content { padding: 0 6px!important; }
+}
+.cdk-global-scrollblock{top: 0!important;}
+.modal_wrapper{ min-width: 50vw;    border: 5px solid #066bff;}
+.modal_wrapper { min-width: 50vw;    border: 5px solid #066bff;}
