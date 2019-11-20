@@ -1,35 +1,52 @@
 <app-adminheader>
+
     <mat-card class="main_wrapper">
         <mat-card-content class="bred_cram_wrapper">
-            <!-- <a mat-list-item routerLinkActive="active"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active"> Price Markup Management List </a>
-            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/price-markup-management-list/add'"> add
-            </a> -->
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'" > Dashboard </a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/price-markup-management-list/list'"> price-markup-management-list </a>
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/price-markup-management-list/add'">
+                add
+            </a>
         </mat-card-content>
-<p>{{header_txt}}</p>
-        <form [formGroup]="priceMarkupForm" autocomplete="off">
-            <!--  Country name  -->
-        <mat-form-field>
-                <mat-label>Select Country</mat-label>
-                <select matNativeControl formControlName="Country" >
-                    <option value="0" >Default</option>
-                    <option *ngFor="let country of countryList" value="{{country._id}}" >{{country.name}}</option>
-                </select>
-            </mat-form-field><br>
-            <!-- set value field  -->
-            <mat-form-field>
-                    <input matInput type="number" placeholder="Set Value" formControlName="setValue">
+
+
+        <mat-card-content class="from_wrapper">
+
+            <p class="form_header">{{header_txt}}</p>
+            <form [formGroup]="priceMarkupForm" autocomplete="off">
+                <!--  Country name  -->
+                <mat-form-field>
+                    <mat-label>Select Country</mat-label>
+                    <select matNativeControl  formControlName="country">
+                        <option value="0">Default</option>
+                        <option *ngFor="let country of countryList" value="{{country._id}}">{{country.name}}
+                        </option>
+                    </select>
+                    <mat-error
+                        *ngIf="!priceMarkupForm.controls['country'].touched && priceMarkupForm.controls['country'].errors">
+                        country is required</mat-error>
+
+                </mat-form-field><br>
+                <!-- set value field  -->
+                <mat-form-field>
+                    <input matInput type="number" placeholder="Set Value" 
+                        formControlName="setValue">
+                    <mat-error
+                        *ngIf="!priceMarkupForm.controls['setValue'].touched && priceMarkupForm.controls['setValue'].errors">
+                        setValue is required</mat-error>
                 </mat-form-field><br>
 
                 <mat-form-field>
-                    <textarea matInput  placeholder="Notes" formControlName="Notes"></textarea>
+                    <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
                 </mat-form-field><br>
+                <span class="button_wrapper">
+                    <button mat-raised-button color="warn" type="reset">RESET</button> &nbsp;
+                    <button mat-raised-button color="primary" type="button" (click)="onSubmit()">{{btn_text}}
+                    </button>
+                </span>
+            </form>
+        </mat-card-content>
 
-        <button mat-raised-button color="primary" type="reset">RESET</button> &nbsp;
-        <button   mat-raised-button color="primary" type="button" (click)="onSubmit()">{{btn_text}} </button>
-
-        </form>
-
-</mat-card>
+    </mat-card>
 
 </app-adminheader>

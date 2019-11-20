@@ -17,15 +17,16 @@ public priceMarkupData: any = [];
 priceMarkupData_skip: any = ["_id","description_html","description","created_at"];
 public detail_skip_array:any=["_id"];
 priceMarkupData_modify_header: any = {
-"COUNTRY":'Country Name',
-"SETVALUE":"Value",
-"DATEADDED":"Date"
+  "setValue":"Percentage",
+  "notes":"Notes",
+  "country":"Country Name",
+  "date_added":"Date"
 };
 public tableName: any = "priceMarkup";
 UpdateEndpoint: any = "addorupdatedata";
 public deleteEndpoint: any = "deletesingledata";
 searchingEndpoint: any = "datalist";
-editUrl: any = 'inventory/price-markup-management-list/edit';
+editUrl: any = '/inventory/price-markup-management-list/edit';
 apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
 public search_settings: any =
   {

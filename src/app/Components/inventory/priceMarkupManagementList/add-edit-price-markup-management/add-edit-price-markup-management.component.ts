@@ -24,17 +24,17 @@ public successMessage:any="Submitted Successfully!!!"
 public countryList:any=[];
 public condition:any;
 public action:any='add';
-public header_txt:any='Add Price Markup'
+public header_txt:any='Add Price Markup';
+
 
 
   constructor(public formBuilder: FormBuilder,public http:HttpServiceService,public  cookieService: CookieService,public router:Router,public activatedRoute:ActivatedRoute,public dialog: MatDialog) {
 
-    this.generateForm();
    
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
-        this.condition = { _id: params._id };
+        this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.priceMarkupList.res[0];
         });
@@ -48,6 +48,7 @@ public header_txt:any='Add Price Markup'
   ngOnInit() {
 
 
+    this.generateForm();
 //country list
     let data: any = {
       "source": 'country',
@@ -68,9 +69,9 @@ public header_txt:any='Add Price Markup'
 //form for price markup//
   generateForm(){
     this.priceMarkupForm=this.formBuilder.group({
-      Country:[],
-      setValue:[],
-      Notes: []
+      country:['',Validators.required],
+      setValue:['',Validators.required],
+      notes: []
 
     });
     // Case 
@@ -110,9 +111,9 @@ openDialog(x: any): void {
 
   setDefaultValue(defaultValue) {
     this.priceMarkupForm.patchValue({
-      Country:defaultValue.country,
+      country:defaultValue.country,
       setValue:defaultValue.setValue,
-      Notes:defaultValue.Notes,
+      notes:defaultValue.notes,
 
     })
   }
@@ -126,8 +127,11 @@ openDialog(x: any): void {
       let postData: any = {
         "source": 'priceMarkup',
         "data": Object.assign(this.priceMarkupForm.value, this.condition),
-        "token": this.cookieService.get('jwtToken')
+        "token": this.cookieService.get('jwtToken'),
+        "sourceobj":["country"]
       };
+      
+
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         let result:any;
@@ -149,17 +153,14 @@ openDialog(x: any): void {
 
     }
   }
-
-  //city list Json
-  // getCountryList() {
-  //   this.http.getJsonObject('assets/json/country.json').subscribe((res) => {
-  //     let result: any = {};
-  //     result = res;
-  //     this.countryList = result;
-  //   })
-  // }
-
+//blur for validation
+inputBlur(val:any){
+  console.log(val)
   
+this.priceMarkupForm.controls[val].markAsUntouched();
+}
+
+ 
 }
 
 
