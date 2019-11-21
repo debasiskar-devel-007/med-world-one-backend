@@ -459,7 +459,7 @@ endpoint:'datalist'
 resolve:{priceMarkupList: ResolveService},
 data:{
 requestcondition:{
-  source:'priceMarkup_view',
+  source:'priceMarkup',
   condition:{}
 },
 endpoint: 'datalist'

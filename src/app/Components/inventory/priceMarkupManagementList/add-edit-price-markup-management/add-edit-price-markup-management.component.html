@@ -4,8 +4,8 @@
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'" > Dashboard </a>
             <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/price-markup-management-list/list'"> price-markup-management-list </a>
-            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/price-markup-management-list/add'">
-                add
+            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/price-markup-management-list/add'">{{name_txt}}
+                
             </a>
         </mat-card-content>
 
@@ -16,14 +16,15 @@
             <form [formGroup]="priceMarkupForm" autocomplete="off">
                 <!--  Country name  -->
                 <mat-form-field >
-                    <mat-label>Select Country*</mat-label>
-                    <select matNativeControl  formControlName="country" (blur)="inputBlur('country')" >
-                        <option value="0">Default</option>
-                        <option *ngFor="let country of countryList" value="{{country._id}}">{{country.name}}
-                        </option>
-                    </select>
+                    <mat-label class="label">Select Country*</mat-label>
+                    <mat-select matNativeControl  formControlName="country" (blur)="inputBlur('country')" >
+                        <mat-option value="0">Default</mat-option>
+                        <mat-option value="{{country._id}}" *ngFor="let country of countryList" >{{country.name}}
+                        </mat-option>
+                        </mat-select>
+                    
                         <mat-error
-                        *ngIf="!priceMarkupForm.controls['country'].valid && priceMarkupForm.controls['country'].errors.required && priceMarkupForm.controls['country'].touched && priceMarkupForm.hasError('countrycontrol')">
+                        *ngIf="!priceMarkupForm.controls['country'].valid && priceMarkupForm.controls['country'].errors.required && priceMarkupForm.controls['country'].touched ">
                         country field can not be blank</mat-error>
 
                 </mat-form-field><br>

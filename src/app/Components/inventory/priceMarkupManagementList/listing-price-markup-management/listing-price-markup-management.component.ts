@@ -30,7 +30,7 @@ editUrl: any = '/inventory/price-markup-management-list/edit';
 apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
 public search_settings: any =
   {
-    textsearch: [{ label: "Search By country name...", field: 'Country' }]
+    textsearch: [{ }]
   };
 // ====================================================================
 
