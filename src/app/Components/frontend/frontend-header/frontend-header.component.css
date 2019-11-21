@@ -150,8 +150,7 @@
   .frontend_nav .listing_container { padding-left: 3%; }
 }
 @media screen and (max-width: 1560px) {
-  .frontend_nav { width: 95%;}
-  .frontend_nav .listing_container .mat-list-item{ margin: 0px;}
+  .frontend_nav { width: 95%;} 
 }
 
 @media screen and (max-width: 1500px) {
