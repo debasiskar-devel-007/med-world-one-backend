@@ -327,7 +327,11 @@ const routes: Routes = [
     },
   },
 
-  // _______________________INVENTORY________________
+
+
+
+
+  // _______________________INVENTORY category________________
   // =========================================================
 
 
@@ -447,7 +451,7 @@ endpoint:'datalist'
 resolve:{priceMarkupList: ResolveService},
 data:{
 requestcondition:{
-  source:'priceMarkup_view',
+  source:'priceMarkup',
   condition:{}
 },
 endpoint: 'datalist'
