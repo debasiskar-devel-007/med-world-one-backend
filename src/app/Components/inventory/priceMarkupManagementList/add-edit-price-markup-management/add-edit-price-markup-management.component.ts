@@ -218,7 +218,6 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
         result = response;
         console.log('>>>>>>', result)
 
-
         if (result.status == "success") {
 
           this.openDialog(this.successMessage);
