@@ -19,7 +19,7 @@
       <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
-      <a mat-list-item class="login" *ngIf="type == ''" [matMenuTriggerFor]="loginmenu">Login</a>
+      <a mat-list-item class="login" *ngIf="type == ''" [routerLink]="'/login'">Login</a>
       <a mat-list-item class="signup" *ngIf="type == ''">Signup</a>
       <a mat-list-item class="signup" *ngIf="type != ''" (click)="logout();">Logout</a>
       <mat-card-content class="a_pro" *ngIf="type != ''">
@@ -63,11 +63,11 @@
       </mat-menu>
 
 
-      <mat-menu #loginmenu="matMenu">
+      <!-- <mat-menu #loginmenu="matMenu">
         <button mat-menu-item [routerLink]="'/login'">Admin Login</button>
         <button mat-menu-item [routerLink]="'/salesrep-login'">Sales Rep Login</button>
         <button mat-menu-item [routerLink]="'/hospital-login'">Hospital Login</button>
-      </mat-menu>
+      </mat-menu> -->
     </mat-nav-list>
 
     <button mat-button [matMenuTriggerFor]="menu" class="language_container">English <i class="material-icons">
