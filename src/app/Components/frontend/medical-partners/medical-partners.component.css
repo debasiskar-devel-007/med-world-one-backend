@@ -8,7 +8,8 @@
 .sh_hp_wrapper{ background: #1371c1; position: relative; width: 1665px; margin: 20px auto; }
 .sh_hp_wrapper::after{ content: ''; display: inline-block; width: 50%; height: 100%; background: #045fad; clip-path: polygon(85% 0, 100% 0, 75% 100%, 0% 100%); position: absolute;
     right: 0; top: 0; }
-.sh_hp_wrapper .content_wrapper { display: flex; justify-content: space-between;  padding: 20px; position: relative; z-index: 1; }
+.sh_hp_wrapper .content_wrapper { display: flex; justify-content: space-between;  padding: 20px; position: relative; z-index: 1; align-items: center; }
+.sh_hp_wrapper .content_wrapper .inner_image_wrapper  { margin-bottom: 0;}
 .sh_hp_wrapper .content_wrapper .inner_content_wrapper { padding-left: 40px;}
 .sh_hp_wrapper .content_wrapper .inner_content_wrapper .header{ font-family: "RobotoMedium"; color: #fff; font-size: 30px; padding-bottom: 10px;}
 .sh_hp_wrapper .content_wrapper .inner_content_wrapper .subheader{ font-family: "RobotoMedium"; color: #fff; font-size: 18px; margin-bottom: 0px; line-height: 28px;}
@@ -57,13 +58,11 @@ box-sizing: border-box; }
 .sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_right_wrapper .lists{ padding: 0;}
 .sh_key_client_wrapper .sh_key_content_wrapper .content_wrapper .key_right_wrapper .lists .mat-list-item{ width: 50%; display: inline-flex; background: url(../../../../assets/images/doted_icon.jpg) no-repeat center left; background-size: 10px; font-family: "RobotoRegular"; font-size: 20px; padding-left: 16px; box-sizing: border-box; }
 
-
-
 .sh_hospital_equipment_wrapper{
-    background: url("../../../../assets/images/equipment_banner.jpg") no-repeat center center;
+    background: url("../../../../assets/images/equipment_banner.jpg") no-repeat 0% center;
     background-size: cover;
 }
-.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper{ padding: 40px 30px 40px 450px; }
+.sh_hospital_equipment_wrapper .sh_hospital_content_wrapper{ padding: 40px 30px 40px 570px; }
 .sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_equipment_title{ color: #222222; text-transform: uppercase; font-size: 48px; font-family: "Montserratbold";}
 .sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_equipment_subtitle{ color: #222222; text-transform: uppercase; font-size: 30px; font-family: "MontserratSemibold";}
 .sh_hospital_equipment_wrapper .sh_hospital_content_wrapper .sh_hospital_para{ font-size: 18px; font-family: "RobotoRegular"; color: #222222; line-height: 26px;}
@@ -98,12 +97,46 @@ box-sizing: border-box; }
     }
 }
 @media screen and (max-width: 1540px){
-    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 580px 80px 4.5%; }
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 410px 80px 4.5%; }
+    .sh_key_client_wrapper .sh_key_content_wrapper .sh_key_title { font-size: 32px; padding: 0; line-height: 38px; }
 }
 @media screen and (max-width: 1500px){
 .sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { height: auto;line-height: 30px; }
 }
-@media screen and (max-width: 1400px){
-
+@media screen and (max-width: 1480px){
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .header { font-size: 25px; padding-bottom: 8px; }
+.sh_hp_wrapper .content_wrapper .inner_content_wrapper .inner_paragraph { line-height: 22px; }
+}
+@media screen and (max-width: 1440px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 60px;}
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 80px 390px 80px 4.5%; }
+}
+@media screen and (max-width: 1400px){    
 .sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { line-height: 26px; font-size: 16px; font-family: "RobotoRegular"; }
+}
+
+
+@media screen and (max-width: 1280px){
+    .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 50px; }
+}
+@media screen and (max-width: 1199px){
+.sh_buyfrmus_topblock  { background-position:  100% top; background-size: 295%; padding-top: 69%; background-color: #2e85d4; }
+.sh_hp_wrapper .content_wrapper { display: flex; justify-content: space-between; flex-direction: column; }
+.sh_hp_wrapper .content_wrapper .inner_image_wrapper { border: 5px solid #fff; display: flex; margin-bottom: 16px; box-shadow: 2px 2px 2px;}
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .sub_para { padding-right: 0; margin-top: 15px;}
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { line-height: 24px; font-size: 15px; }
+}
+@media screen and (max-width: 991px){
+
+.sh_agent_content_section .sh_agent_content_wrapper .agent_list_one { display: flex; flex-direction: column; }
+.sh_agent_content_section .sh_agent_content_wrapper .agent_list_one:nth-child(odd) { display: flex; flex-direction: column-reverse; }
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left,
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_right { width: auto; } 
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_left .mat-list-base .mat-list-item { line-height: 30px; font-size: 18px; }
+.sh_agent_content_section .sh_agent_content_wrapper .inner_wrapper_right img { height: auto; }
+}
+@media screen and (max-width: 768px){
+.sh_agent_content_section .sh_agent_content_wrapper .agent_header { font-size: 30px; line-height: 38px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 44px;  text-align: center;}
 }

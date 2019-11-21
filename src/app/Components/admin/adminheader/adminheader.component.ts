@@ -10,8 +10,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class AdminheaderComponent implements OnInit {
 
   public indexUrl: string;
-  user_data : any;
-  user_name : any;
+  public user_data : any;
+  public user_name : any;
   user_cookie : any;
   constructor(public router: Router , private cookieService : CookieService) {
     // let url = this.router.url;
@@ -23,14 +23,15 @@ export class AdminheaderComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
+    
     this.user_cookie = cookieService.get('jwtToken');
-    console.log("ADMIN HEADER PAGE");
-    if(this.user_data.Type==='admin')
+    //console.log("ADMIN HEADER PAGE");
+    if(this.user_data.type==='admin')
     {
     console.log('admin');
     this.user_name=this.user_data.firstname + ' ' + this.user_data.lastname;
     }
-    else if (this.user_data.Type==='salesrep')
+    else if (this.user_data.type==='salesrep')
     console.log('salesrep');
     else
     console.log('hospital');

@@ -7,7 +7,7 @@ import {HttpServiceService} from '../../../services/http-service.service';
 })
 export class ForgotPasswordComponent implements OnInit {
   public logo: any = './assets/images/logo.png';
-  public fromTitle: any = 'Forgotten password'
+  public fromTitle: any = 'FORGOTTEN PASSWORD'
     // public signUpRouteingUrl: any = 'sign-up';
   public serverUrl:any =this.httpServiceService.baseUrl;
   public addEndpoint: any = {
@@ -16,14 +16,14 @@ export class ForgotPasswordComponent implements OnInit {
   public loginRouteingUrl: any = {
     // "path":"login",
     "path":"",
-    "buttonName":"login",
+    "buttonName":"Login",
     "customLink":"/login",
     "customURl":""
   };
   public signUpRouteingUrl: any = {
     // "path":"sign-up",
     "path":"",
-    "buttonName":"sign-up",
+    "buttonName":"Sign Up",
     "customLink":"",
     "customURl":""
   };
@@ -31,7 +31,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   public domainUrl: any = this.httpServiceService.resetPassword+'reset-password';
 
-  constructor(public httpServiceService:HttpServiceService) { console.log(this.httpServiceService.resetPassword);}
+  constructor(public httpServiceService:HttpServiceService) {}
 
   ngOnInit() {
   }

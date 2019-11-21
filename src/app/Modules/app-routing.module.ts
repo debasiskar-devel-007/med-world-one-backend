@@ -80,7 +80,7 @@ const routes: Routes = [
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
   {
@@ -115,7 +115,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'admin' }
       },
       endpoint: 'datalist'
@@ -147,7 +147,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'hospital' }
       },
       endpoint: 'datalist'
@@ -514,10 +514,27 @@ endpoint: 'datalist'
 
 
 
+
+  // ==================================================================================
+                                    // FRONT END
+  // ==================================================================================
+
   // admin frontend
   { path: 'login', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },
-  { path: 'hospital/my-details', component: MyDetailsHospitalComponent },
+  {
+    path: 'hospital/my-details',
+    component: MyDetailsHospitalComponent,
+    canActivate: [AuthguardService],
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'users_view',
+        condition: { 'type': 'hospital' }
+      },
+      endpoint: 'datalist'
+    },
+  },
   { path: 'hospital/change-password', component: HospitalChangePasswordComponent },
   { path: 'hospital/my-hospital', component: HospitalMySalesrepComponent },
   { path: 'hospital/added-inventory', component: HospitalInventoryAddedComponent },
@@ -533,7 +550,7 @@ endpoint: 'datalist'
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'

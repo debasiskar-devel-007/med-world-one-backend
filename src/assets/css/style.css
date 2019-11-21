@@ -378,7 +378,7 @@ tr td br{ display: none; }
   .my_details_wrapper .mat_paginator .mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled] {
     color: #fff!important;
   }
-  .my_details_wrapper .mat-select-value-text { color: #fff!important; }
+  /* .my_details_wrapper .mat-select-value-text { color: #fff!important; } */
   .my_details_wrapper .mat-select-arrow { color: #fff!important; }
   .my_details_wrapper .mydetails_form_wrapper .forms .mat-form-field .mat-form-field-flex { padding: 0 10px!important; }
   .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}
@@ -429,4 +429,4 @@ tr td br{ display: none; }
 .modal_wrapper{  width: 680px; overflow: auto; }
 .modal_wrapper .mat-dialog-container  { padding: 0; }
 /* for header */
-.frontend_nav .listing_container .mat-list-item .mat-list-item-content { justify-content: center;}
+.frontend_nav .listing_container .mat-list-item .mat-list-item-content { justify-content: center; padding: 0 10px;}

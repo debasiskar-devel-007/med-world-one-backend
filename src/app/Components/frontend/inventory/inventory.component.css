@@ -75,6 +75,7 @@
 @media screen and (max-width: 1260px){
 .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px 460px 30px 4.5%; }
  .sh_view_inv_blok2 .sh_view_inv_blok2_inner { padding: 0 60px; margin-bottom: 25px; }
+ .search_bar .search_button{ padding: 0; }
 }
 @media screen and (max-width: 1199px){
   .sh_view_inv_blok2 .sh_search_wrapper .switch_btn { width: 280px; }
@@ -92,7 +93,7 @@
 @media screen and (max-width: 991px){
   .sh_buyfrmus_topblock  { background-position: 100% top; background-size: 215%; background-color: #5589c2; padding-top: 51%; text-align: center; }
   .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px; }
-  .sh_view_inv_blok2 .sh_search_wrapper .switch_btn { width: 240px; }
+  .sh_view_inv_blok2 .sh_search_wrapper .switch_btn { width: 320px; margin-bottom: 10px}
   .sh_view_inv_blok2 .sh_search_wrapper .searchfilter { width: 500px; }
   .search_bar { width: 304px; }
   .sh_view_inv_blok2 .sh_search_wrapper .switch_btn button {font-size: 16px; }
@@ -120,6 +121,10 @@
   .sh_view_inv_blok2  .sh_search_wrapper  .searchfilter  { width: 100%; flex-direction: column; box-sizing: border-box; padding-top: 5px; }
   .search_bar { width: 100%; margin-top: 5px; }
   .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-size: 68px; }
+  .sh_view_inv_blok2 { width: 95%; margin: 0px auto; }
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 16px; }
+  .sh_view_inv_blok2 .sh_view_inv_blok2_inner .top_header { font-size: 36px; line-height: 34px; margin-bottom: 20px; }
+  .sh_view_inv_blok2 .sh_view_inv_blok2_inner .top_subheader { font-size: 22px; }
 }
 @media screen and (max-width: 420px){
 .sh_inventory_content .sh_inventory_content_item .action_buttons .quotes { margin-bottom: 10px; width: 100%; display: flex; flex-direction: column; }
