@@ -66,16 +66,17 @@ import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/p
 
 
 
+
 const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'home', component: HomePageComponent},
-  {path: 'sales-rep/home', component: HomePageComponent},
-  {path: 'hospital/home', component: HomePageComponent},
-  {path: 'buy-from-us', component: BuyFromUsComponent},
-  {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
-  {path: 'medical-partners', component: MedicalPartnersComponent},
-  {path: 'contactus', component: ContactUsComponent},
+  { path: 'home', component: HomePageComponent },
+  { path: 'sales-rep/home', component: HomePageComponent },
+  { path: 'hospital/home', component: HomePageComponent },
+  { path: 'buy-from-us', component: BuyFromUsComponent },
+  { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
+  { path: 'medical-partners', component: MedicalPartnersComponent },
+  { path: 'contactus', component: ContactUsComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -438,38 +439,38 @@ const routes: Routes = [
 
   //____________________price markup management______________________//
 
-{path:'inventory/price-markup-management-list/add',component:AddEditPriceMarkupManagementComponent},
+  { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
 
-{
-  path:'inventory/price-markup-management-list/list', component: ListingPriceMarkupManagementComponent,
-canActivate: [AuthguardService],
-resolve:{priceMarkupList: ResolveService},
-data:{
-requestcondition:{
-  source:'priceMarkup_view',
-  condition:{}
-},
-endpoint:'datalist'
-}
-},
+  {
+    path: 'inventory/price-markup-management-list/list', component: ListingPriceMarkupManagementComponent,
+    canActivate: [AuthguardService],
+    resolve: { priceMarkupList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'priceMarkup_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    }
+  },
 
-{
-  path:'inventory/price-markup-management-list/edit/:_id',component:AddEditPriceMarkupManagementComponent,
-  canActivate: [AuthguardService],
-resolve:{priceMarkupList: ResolveService},
-data:{
-requestcondition:{
-  source:'priceMarkup_view',
-  condition:{}
-},
-endpoint: 'datalist'
+  {
+    path: 'inventory/price-markup-management-list/edit/:_id', component: AddEditPriceMarkupManagementComponent,
+    canActivate: [AuthguardService],
+    resolve: { priceMarkupList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'priceMarkup_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
 
-}
+    }
 
-},
+  },
 
-  
-// ________________________ACCOUNT SETTINGS______________________
+
+  // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
 
@@ -494,16 +495,17 @@ endpoint: 'datalist'
       endpoint: 'datalist'
     },
   },
-  {path: 'our-team',
-   component: TeamPageComponent,
-   resolve: { teamList: ResolveService },
-   data: {
-     requestcondition: {
-       source: 'Team_management_view',
-       condition: {}
-     },
-     endpoint: 'datalist'
-   },
+  {
+    path: 'our-team',
+    component: TeamPageComponent,
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   { path: 'blog', component: BlogComponentFrontEnd },
   { path: 'blog-details', component: BlogDetailsComponent },
@@ -511,12 +513,15 @@ endpoint: 'datalist'
   { path: 'inventory-details', component: InventoryDetailsComponent },
   { path: 'about-us', component: AboutUsFrontComponent },
   { path: 'salesrep-login', component: SalesRepLoginComponent },
+  
+  // _____________________language container_____________________
+  // { path: 'admin-dashboard/', component: LoginAdminComponent },
 
 
 
 
   // ==================================================================================
-                                    // FRONT END
+  // FRONT END
   // ==================================================================================
 
   // admin frontend

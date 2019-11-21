@@ -46,3 +46,6 @@
     @media screen and (max-width:840px){
 .my_details_wrapper .mydetails_form_wrapper .button_action button { width: 49%; }
 }
+.clickable{
+    cursor: pointer;
+}

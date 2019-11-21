@@ -13,7 +13,9 @@
 
                     <mat-label class="mydetails_ac_lebel">Hospital Name</mat-label>
                     <mat-form-field>
-                        <input matInput formControlName="hospitalname">
+                        <input matInput formControlName="hospitalname" (blur)="inputBlur('hospitalname')">
+                        <mat-error *ngIf="!hospitalAccountForm.controls['hospitalname'].valid
+          && hospitalAccountForm.controls['hospitalname'].errors.required">Hospital Name is required.</mat-error>
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-content class="forms">
@@ -26,29 +28,39 @@
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">Phone(s) </mat-label>
                         <mat-form-field>
-                            <input matInput>
-                           
+                            <input matInput formControlName="contactphones" (keyup)="addMultiplePhones($event)">
                         </mat-form-field>
 
                         <mat-chip-list>
-                                <mat-chip *ngFor="let item of contactphonesarray;let i = index">{{ item }}</mat-chip>
-                            </mat-chip-list>
+                            <mat-chip *ngFor="let item of contactphonesarray;let i = index">{{ item }}<mat-icon
+                                    class="clickable" (click)="deletephones(i)">close</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
 
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">EMAIL(s)</mat-label>
 
                         <mat-form-field>
-                            <input matInput type="email">
-                            <mat-chip-list>
-                                <mat-chip *ngFor="let item of contactemailarray;let i = index">{{ item }}</mat-chip>
-                            </mat-chip-list>
+                            <input matInput type="email" formControlName="contactemails"
+                                (keyup)="addMultipleEmails($event)">
                         </mat-form-field>
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let item of contactemailarray;let i = index">{{ item }}<mat-icon
+                                    class="clickable" (click)="deleteemails(i)">close</mat-icon>
+                            </mat-chip>
+                        </mat-chip-list>
+
                     </mat-card-content>
+
+
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">Contact Person</mat-label>
                         <mat-form-field>
-                            <input matInput formControlName="contactperson">
+                            <input matInput formControlName="contactperson" (blur)="inputBlur('contactperson')">
+                            <mat-error *ngIf="!hospitalAccountForm.controls['contactperson'].valid
+                            && hospitalAccountForm.controls['contactperson'].errors.required">Contact Person is required.
+                            </mat-error>
                         </mat-form-field>
                     </mat-card-content>
                 </span>
@@ -84,25 +96,35 @@
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">Speciality</mat-label>
                         <mat-form-field>
-                            <input matInput formControlName="speciality">
+                            <input matInput formControlName="speciality" (blur)="inputBlur('speciality')">
+                            <mat-error *ngIf="!hospitalAccountForm.controls['speciality'].valid
+          && hospitalAccountForm.controls['speciality'].errors.required">Speciality is required.</mat-error>
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Doctors </mat-label>
+
                         <mat-form-field>
-                            <input matInput formControlName="noofdoctors">
+                            <input matInput formControlName="noofdoctors" (blur)="inputBlur('noofdoctors')"> 
+                            <mat-error *ngIf="!hospitalAccountForm.controls['noofdoctors'].valid
+                            && hospitalAccountForm.controls['noofdoctors'].errors.required">Number of doctors are required.
+                            </mat-error>
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Beds </mat-label>
                         <mat-form-field>
-                            <input matInput formControlName="noofbeds">
+                            <input matInput formControlName="noofbeds" (blur)="inputBlur('noofbeds')">
+                            <mat-error *ngIf="!hospitalAccountForm.controls['noofbeds'].valid
+          && hospitalAccountForm.controls['noofbeds'].errors.required">Number of beds are required.</mat-error>
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Staffs </mat-label>
                         <mat-form-field>
-                            <input matInput formControlName="noofstaffs">
+                            <input matInput formControlName="noofstaffs" (blur)="inputBlur('noofstaffs')">
+                            <mat-error *ngIf="!hospitalAccountForm.controls['noofstaffs'].valid
+          && hospitalAccountForm.controls['noofstaffs'].errors.required">Number of staffs are required.</mat-error>
                         </mat-form-field>
                     </mat-card-content>
 
@@ -116,13 +138,14 @@
                         </mat-card-content>
 
                         <input type="file" #trigger hidden>
-                        <button class="change_image" mat-button (click)="trigger.click()">change image</button>
+                        <button type="button" class="change_image" mat-button (click)="trigger.click()">change
+                            image</button>
                     </mat-card-content>
                 </mat-card-content>
 
                 <mat-toolbar class="button_action">
-                    <button mat-button>update</button>
-                    <button mat-button>cancel</button>
+                    <button mat-button type="button" (click)="onUpdate()">update</button>
+                    <button mat-button type="button" (click)="onCancel()">cancel</button>
                 </mat-toolbar>
 
             </form>

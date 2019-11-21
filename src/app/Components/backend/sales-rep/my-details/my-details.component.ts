@@ -100,7 +100,7 @@ export class MyDetailsComponent implements OnInit {
 
   /** Submit function goes here **/
   onSubmit() {
-    console.log("CONDITIOJN=====================",this.condition);
+    
      if (this.salesRepForm.invalid)
        return;
      else {

@@ -123,6 +123,7 @@ import { ListingPriceMarkupManagementComponent } from './Components/inventory/pr
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -213,7 +214,8 @@ import { ListingPriceMarkupManagementComponent } from './Components/inventory/pr
     LoginAdminComponent,
     TeamDetails,
     AddEditPriceMarkupManagementComponent,
-    ListingPriceMarkupManagementComponent
+    ListingPriceMarkupManagementComponent,
+
 
 
   ],
