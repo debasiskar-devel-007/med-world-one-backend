@@ -15,25 +15,25 @@
             <p class="form_header">{{header_txt}}</p>
             <form [formGroup]="priceMarkupForm" autocomplete="off">
                 <!--  Country name  -->
-                <mat-form-field>
-                    <mat-label>Select Country</mat-label>
-                    <select matNativeControl  formControlName="country">
+                <mat-form-field >
+                    <mat-label>Select Country*</mat-label>
+                    <select matNativeControl  formControlName="country" (blur)="inputBlur('country')" >
                         <option value="0">Default</option>
                         <option *ngFor="let country of countryList" value="{{country._id}}">{{country.name}}
                         </option>
                     </select>
-                    <mat-error
-                        *ngIf="!priceMarkupForm.controls['country'].touched && priceMarkupForm.controls['country'].errors">
-                        country is required</mat-error>
+                        <mat-error
+                        *ngIf="!priceMarkupForm.controls['country'].valid && priceMarkupForm.controls['country'].errors.required && priceMarkupForm.controls['country'].touched && priceMarkupForm.hasError('countrycontrol')">
+                        country field can not be blank</mat-error>
 
                 </mat-form-field><br>
                 <!-- set value field  -->
                 <mat-form-field>
-                    <input matInput type="number" placeholder="Set Value" 
+                    <input matInput type="number" (blur)="inputBlur('setValue')" placeholder="Set Value*" 
                         formControlName="setValue">
-                    <mat-error
-                        *ngIf="!priceMarkupForm.controls['setValue'].touched && priceMarkupForm.controls['setValue'].errors">
-                        setValue is required</mat-error>
+                        <mat-error
+                        *ngIf="!priceMarkupForm.controls['setValue'].valid && priceMarkupForm.controls['setValue'].errors.required && priceMarkupForm.controls['setValue'].touched " >
+                        setvalue field can not be blank</mat-error>
                 </mat-form-field><br>
 
                 <mat-form-field>

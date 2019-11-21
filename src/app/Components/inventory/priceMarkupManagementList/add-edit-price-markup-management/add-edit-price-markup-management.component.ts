@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import {ifCountryExists} from '../../../../_helpers/country.match.validator';
 
 export interface DialogData {
   msg: string;
@@ -25,6 +26,8 @@ public countryList:any=[];
 public condition:any;
 public action:any='add';
 public header_txt:any='Add Price Markup';
+public priceMarkupData:any;
+
 
 
 
@@ -62,10 +65,58 @@ public header_txt:any='Add Price Markup';
     })
 
     
+//data view from price markup table
+
+let postdata: any = {
+  "source": 'priceMarkup',
+  "token": this.cookieService.get('jwtToken')
+};
+
+this.http.httpViaPost('datalist ', postdata).subscribe((response: any) => {
+ 
+  this.priceMarkupData=response.res;
+  console.log('-------------->>>>>>',this.priceMarkupData)
+})
 
 
     
   }
+
+
+
+
+
+  public checkuniquecountry(country: string){
+    return (group: FormGroup): {[key: string]: any} => {
+      console.log('grp',group);
+      let countrycontrol = group.controls['country'];
+
+      if(countrycontrol.value==null || countrycontrol.value.length<4){
+
+        countrycontrol.setErrors({'incorrect': true});
+      console.log('true');
+      return {
+        countrycontrol: true
+      };
+      }
+
+      for(let b in this.priceMarkupData){
+
+        if(this.priceMarkupData[b]._id==countrycontrol.value){
+
+          countrycontrol.setErrors({'incorrect': true});
+        console.log('true');
+        return {
+          countrycontrol: true
+        };
+        }
+
+      }
+    }
+  }
+
+
+
 //form for price markup//
   generateForm(){
     this.priceMarkupForm=this.formBuilder.group({
@@ -89,6 +140,8 @@ public header_txt:any='Add Price Markup';
         break;
   }
   }
+
+
 
 
 
@@ -119,7 +172,27 @@ openDialog(x: any): void {
   }
   //submit button
   onSubmit() {
-    if(this.priceMarkupForm.valid){
+    let flagval:any=0;
+    for(var x in this.priceMarkupForm.controls){
+    this.priceMarkupForm.controls[x].markAsTouched();
+    }
+
+    //flagval=1;
+    console.log(this.priceMarkupForm.controls['country'].value);
+   // for(var x in this.countryList._id){
+      for(let y in this.priceMarkupData){
+        console.log('ccc',this.priceMarkupData[y].country);
+        if(this.priceMarkupData[y].country==this.priceMarkupForm.controls['country'].value){
+          flagval=1;
+          //alert(55);
+        }
+          
+      }
+    //}
+
+
+
+    if(this.priceMarkupForm.valid && flagval==0 ){
       console.log(this.priceMarkupForm.value)
 
 
@@ -152,15 +225,16 @@ openDialog(x: any): void {
         })
 
     }
+    if(flagval ==1){
+      alert('country error');
+    }
   }
 //blur for validation
 inputBlur(val:any){
   console.log(val)
-  
 this.priceMarkupForm.controls[val].markAsUntouched();
 }
 
- 
 }
 
 

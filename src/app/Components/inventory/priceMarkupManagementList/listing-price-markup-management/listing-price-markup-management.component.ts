@@ -17,7 +17,7 @@ public priceMarkupData: any = [];
 priceMarkupData_skip: any = ["_id","description_html","description","created_at"];
 public detail_skip_array:any=["_id"];
 priceMarkupData_modify_header: any = {
-  "setValue":"Percentage",
+  "setValue":"Percentage (%)",
   "notes":"Notes",
   "country":"Country Name",
   "date_added":"Date"
