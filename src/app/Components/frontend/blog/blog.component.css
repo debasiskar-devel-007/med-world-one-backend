@@ -86,17 +86,34 @@ padding: 5px 0; position: relative; padding-left: 20px;}
 @media screen and (max-width: 1800px){
   .sh_blog_content_wrapper { width: 90%; }
 }
+@media screen and (max-width: 1640px){
+  .sh_buyfrmus_topblock { background-position: 75% center; }
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 60px 710px 60px 6.5%;}
+
+}
 @media screen and (max-width: 1600px){
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report p {  margin: 0 7px; }
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report{width: 50%; display: flex; justify-content: space-between;
     align-items: center;
 }
 .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_wrapper button { padding: 0 10px; }
+.sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 60px 615px 60px 4.5%; }
+}
+@media screen and (max-width: 1540px){
+.sh_buyfrmus_topblock { background-position: 85% center; }
 }
 @media screen and (max-width: 1500px){
-  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 60px 800px 60px 4.5%;}
   .sh_blog_content_wrapper .sh_blog_content { padding: 0 100px;}
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .blog_inner_title{ font-size: 20px; padding-bottom: 15px; }
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .inner_blog_desc { line-height: 22px; }
 }
 
+@media screen and (max-width: 1300px){
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper{ padding: 60px 470px 60px 4.5%; }
+  .sh_buyfrmus_topblock { background-position: 83% center;}
+}
+@media screen and (max-width: 1199px){
+  .sh_blog_content_wrapper .sh_blog_content_bottom { display: flex; justify-content: space-between; flex-direction: column-reverse; }
+  .sh_blog_content_wrapper .sh_blog_content_right { width: 100%; }
+  .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left { width: 100%; margin: 20px 0; }
+}
