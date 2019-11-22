@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
@@ -13,7 +13,7 @@ import { LoginComponent } from './Components/auth/login/login.component';
 import { ResetPasswordComponent } from './Components/auth/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Components/auth/forgot-password/forgot-password.component';
 import { DashboardAdminComponent } from './Components/admin/dashboard-admin/dashboard-admin.component';
-
+import { CommonModule } from '@angular/common';
 import { AdminheaderComponent } from './Components/admin/adminheader/adminheader.component';
 import { FooterComponent } from './Components/admin/footer/footer.component';
 import { LeftNavComponent } from './Components/admin/left-nav/left-nav.component';
@@ -116,10 +116,17 @@ import { HospitalLoginComponent } from './Components/frontend/logins/hospital-lo
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 import { ContactusModule } from 'contactus';
+
+// Pricemarkup
 import { AddEditPriceMarkupManagementComponent, Modal6} from './Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ListingPriceMarkupManagementComponent } from './Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 
 
+import { ContactusListingComponent } from './Components/miscellaneous/contactus-listing/contactus-listing.component';
+
+//Language Container
+import { AddEditLanguageComponent } from './Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
+import { ListingLanguageComponent } from './Components/miscellaneous/language-container/listing-language/listing-language.component';
 
 
 
@@ -215,7 +222,9 @@ import { ListingPriceMarkupManagementComponent } from './Components/inventory/pr
     TeamDetails,
     AddEditPriceMarkupManagementComponent,
     ListingPriceMarkupManagementComponent,
-
+    ContactusListingComponent,
+    AddEditLanguageComponent,
+    ListingLanguageComponent
 
 
   ],
@@ -233,12 +242,14 @@ import { ListingPriceMarkupManagementComponent } from './Components/inventory/pr
     CKEditorModule,
     TeamModule,
     HttpClientModule,
-    ContactusModule
+    ContactusModule,
+    CommonModule
   ],
   providers: [CookieService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {

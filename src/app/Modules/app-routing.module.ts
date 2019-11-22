@@ -63,7 +63,9 @@ import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-l
 import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
-
+import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
+import { AddEditLanguageComponent } from '../Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
+import { ListingLanguageComponent } from '../Components/miscellaneous/language-container/listing-language/listing-language.component';
 
 
 
@@ -178,7 +180,7 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'
@@ -198,14 +200,8 @@ const routes: Routes = [
     },
   },
 
-
-
-
   // _______________________MANAGE WEBSITES________________
   // =========================================================
-
-
-
 
   // ________________BLOG CATEGORY______________
   { path: 'manage-websites/addblogcategory/add', component: AddEditBlogcatComponent },
@@ -303,8 +299,6 @@ const routes: Routes = [
   },
 
 
-
-
   //  _____________________TEAM________________
 
   { path: 'manage-websites/team/add', component: AddEditTeamComponent },
@@ -340,7 +334,7 @@ const routes: Routes = [
 
 
 
-  // _______________________INVENTORY________________
+  // _______________________INVENTORY category________________
   // =========================================================
 
 
@@ -404,7 +398,6 @@ const routes: Routes = [
   },
 
 
-
   //________________INVENTORY LIST_________________
 
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
@@ -435,8 +428,9 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-
-
+//_______________Admin Contact us Listing_____________//
+{path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
+data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -515,7 +509,31 @@ const routes: Routes = [
   { path: 'salesrep-login', component: SalesRepLoginComponent },
   
   // _____________________language container_____________________
-  // { path: 'admin-dashboard/', component: LoginAdminComponent },
+  { path: 'admin-dashboard/language/add', component: AddEditLanguageComponent },
+  {
+    path: 'admin-dashboard/language/list',
+    component: ListingLanguageComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'languages',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'admin-dashboard/language/edit/:_id',
+    component: AddEditLanguageComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'languages',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
 
 

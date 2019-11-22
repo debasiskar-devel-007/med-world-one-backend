@@ -1,1 +1,30 @@
-<p>listing-language works!</p>
+
+<app-adminheader>
+
+    <!-- Add Brand Button  -->
+    <mat-toolbar class="content_header_wrapper">
+            <mat-card-title class="toolbar_header">Language List</mat-card-title>
+            <button class="singleButton" mat-raised-button [routerLink]="['/admin-dashboard/language/add']"><mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Language</button>
+        </mat-toolbar>
+
+
+<!-- Listing goes here  -->
+<lib-listing *ngIf="languageListData != null && languageListData.length>0"
+        [datasource]="languageListData"
+        [skip]="languageListData_skip" 
+        [modify_header_array]="languageListData_modify_header"
+        [sourcedata]="tableName" 
+        [apiurl]="apiUrl"
+        [editroute]="editUrl"
+        [jwttoken]="user_cookie"
+        [statusarr]="status" 
+        [updateendpoint]="UpdateEndpoint" 
+        [deleteendpoint]="deleteEndpoint"
+        [date_search_endpoint]="searchingEndpoint" 
+        [date_search_source]="view" 
+        [search_settings]="search_settings"
+        [detail_datatype]="image_detail_datatype"
+        [detail_skip_array]="detail_skip_array">
+    </lib-listing>
+
+</app-adminheader>

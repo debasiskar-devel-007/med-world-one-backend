@@ -18,7 +18,8 @@
         </mat-toolbar>
 
         <!-- listing start -->
-        <lib-listing *ngIf="priceMarkupData != null && priceMarkupData.length>0"
+        <div class="hide-action">
+        <lib-listing class="priceMark" *ngIf="priceMarkupData != null && priceMarkupData.length>0"
             [datasource]="priceMarkupData" 
             [skip]="priceMarkupData_skip"
             [modify_header_array]="priceMarkupData_modify_header"
@@ -34,6 +35,7 @@
             [detail_datatype]="priceMarkuparray_detail_datatype"
             [detail_skip_array]="detail_skip_array">
         </lib-listing>
+    </div>
         <!-- Listing ends here  -->
     </mat-card>
 </app-adminheader>

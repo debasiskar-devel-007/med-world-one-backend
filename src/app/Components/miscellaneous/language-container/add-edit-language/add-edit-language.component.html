@@ -1,1 +1,31 @@
-<p>add-edit-language works!</p>
+<app-adminheader>
+    <form [formGroup]="languageForm" autocomplete="off">
+
+        <!-- Language selection   -->
+        <mat-form-field>
+            <mat-label>Select Language</mat-label>
+            <select matNativeControl required formControlName="selectlanguage">
+                <option value="English">English</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Portuguese">Portuguese</option>
+            </select>           
+        </mat-form-field><br>
+
+
+
+        <!-- Description  -->
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field><br>
+
+        <!-- Selected language  -->
+        <mat-checkbox formControlName="primarylanguage">Primary Language</mat-checkbox><br>
+          
+
+        <!-- Buttons  -->
+        <button type="button" (click)="onSubmit()">{{ btn_text }}</button>
+        <button type="button">Reset</button>
+    </form>
+</app-adminheader>
