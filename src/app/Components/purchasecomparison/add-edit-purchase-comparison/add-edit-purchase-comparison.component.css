@@ -57,3 +57,19 @@
   color: #fff;
   background: #01498c;
   border-radius: 0;}
+
+
+  @media screen and (max-width: 1800px){
+    .purchageWrapper .purchase_item .List_wrapper .mat-list-item .mat-form-field {
+      width: auto;
+  }
+  .purchageWrapper .purchase_item .List_wrapper .mat-list-item label {
+    width: 114px;
+}
+  }
+
+  @media screen and (max-width: 1600px){
+    .size_wrapper  { display: inline-flex; flex-direction: column;  }
+    .size_wrapper  { width: auto; }
+    .purchageWrapper .purchase_item .List_wrapper .mat-list-item .mat-form-field { width: 100%; }
+  }
