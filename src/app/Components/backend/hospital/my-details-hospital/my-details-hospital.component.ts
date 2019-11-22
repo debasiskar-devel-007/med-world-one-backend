@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
@@ -63,6 +64,7 @@ export class MyDetailsHospitalComponent implements OnInit {
     
     this.contactemailarray = this.userData.contactemails;
     this.contactphonesarray = this.userData.contactphones;
+    console.log("Data from cookie",this.userData);
   }
 
   ngOnInit() {
@@ -91,7 +93,6 @@ export class MyDetailsHospitalComponent implements OnInit {
       noofdoctors: ['',Validators.required],
       noofbeds: ['',Validators.required],
       noofstaffs: ['',Validators.required]
-
     });
   }
 
