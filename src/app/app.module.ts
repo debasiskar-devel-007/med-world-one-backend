@@ -127,6 +127,8 @@ import { ContactusListingComponent } from './Components/miscellaneous/contactus-
 //Language Container
 import { AddEditLanguageComponent } from './Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
 import { ListingLanguageComponent } from './Components/miscellaneous/language-container/listing-language/listing-language.component';
+import { AddEditPurchaseComparisonComponent } from './Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent } from './Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 
 
 
@@ -224,7 +226,9 @@ import { ListingLanguageComponent } from './Components/miscellaneous/language-co
     ListingPriceMarkupManagementComponent,
     ContactusListingComponent,
     AddEditLanguageComponent,
-    ListingLanguageComponent
+    ListingLanguageComponent,
+    AddEditPurchaseComparisonComponent,
+    ListingPurchaseComparisonComponent
 
 
   ],
