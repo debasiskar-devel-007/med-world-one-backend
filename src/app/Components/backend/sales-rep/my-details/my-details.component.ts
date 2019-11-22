@@ -37,9 +37,9 @@ export class MyDetailsComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
-    console.log("id->",this.id);
+    
     this.condition = { id:this.id };
-    console.log("Data from cookie", this.userData);
+    
 
 
 
@@ -49,7 +49,6 @@ export class MyDetailsComponent implements OnInit {
       this.condition = { id: this.id };
       this.activatedRoute.data.subscribe(resolveData => {
         this.defaultData = resolveData.data.res[0];
-        console.log("+++", this.defaultData);
         this.setDefaultValue(this.defaultData);
       });
     }
@@ -86,7 +85,6 @@ export class MyDetailsComponent implements OnInit {
 
   /**  Setting the default value **/
   setDefaultValue(defaultValue) {
-    console.log("default Value", defaultValue);
     this.salesRepForm.patchValue({
       firstname: defaultValue.firstname,
       lastname: defaultValue.lastname,
