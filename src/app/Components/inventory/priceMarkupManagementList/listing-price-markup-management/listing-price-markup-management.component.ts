@@ -17,7 +17,7 @@ public priceMarkupData: any = [];
 priceMarkupData_skip: any = ["_id","description_html","description","created_at"];
 public detail_skip_array:any=["_id"];
 priceMarkupData_modify_header: any = {
-  "setValue":"Percentage",
+  "setValue":"Percentage (%)",
   "notes":"Notes",
   "country":"Country Name",
   "date_added":"Date"
@@ -30,7 +30,7 @@ editUrl: any = '/inventory/price-markup-management-list/edit';
 apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
 public search_settings: any =
   {
-    textsearch: [{ label: "Search By country name...", field: 'Country' }]
+    textsearch: [{ }]
   };
 // ====================================================================
 

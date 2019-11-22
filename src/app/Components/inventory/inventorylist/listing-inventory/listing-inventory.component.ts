@@ -13,14 +13,13 @@ export class ListingInventoryComponent implements OnInit {
   user_cookie: any ='';
  // ===============================Declarations=========================
  inventoryListData: any = [];
- inventoryListData_skip: any = ["_id","description_html","description","created_at"];
+ inventoryListData_skip: any = ["_id","description_html","description","created_at","image"];
  detail_skip_array:any=["_id"]
  inventoryListData_modify_header: any = {"brand name":"Brand Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
  tableName: any = 'inventories';
  UpdateEndpoint: any = "addorupdatedata";
  deleteEndpoint: any = "deletesingledata";
-
  searchingEndpoint: any = "datalist";
  editUrl: any = 'inventory/inventory-list/edit';
  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
