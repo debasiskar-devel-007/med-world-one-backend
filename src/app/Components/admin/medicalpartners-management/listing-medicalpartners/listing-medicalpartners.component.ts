@@ -22,7 +22,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
    "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email'
   };
-  tableName: any = 'user';
+  tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;

@@ -66,8 +66,8 @@ import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/p
 import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
 import { AddEditLanguageComponent } from '../Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
 import { ListingLanguageComponent } from '../Components/miscellaneous/language-container/listing-language/listing-language.component';
-import { AddEditPurchaseComparisonComponent } from '../Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
-import { ListingPurchaseComparisonComponent } from '../Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+import { AddEditPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 
 
 
@@ -538,26 +538,26 @@ data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
   },
 
   // __________________purchase comparison____________________________
-  { path: 'purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
+  { path: 'inventory/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
   {
-    path: 'purchase-comparison/list',
+    path: 'inventory/purchase-comparison/list',
     component: ListingPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparisontable',
+        source: 'purchasecomparison_view',
         condition: {}
       },
       endpoint: 'datalist'
     },
   },
   {
-    path: 'purchase-comparison/edit/:_id',
+    path: 'inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparisontable',
+        source: 'purchasecomparison',
         condition: {}
       },
       endpoint: 'datalist'

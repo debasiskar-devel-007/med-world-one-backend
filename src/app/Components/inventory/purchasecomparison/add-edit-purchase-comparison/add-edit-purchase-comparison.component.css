@@ -20,7 +20,9 @@
   font-family: "Roboto";
   font-size: 26px;
   text-transform: uppercase; box-shadow: 1px 2px 8px 0px #cccccc;
-  padding: 10px 5px; }
+  padding: 16px 10px;
+  background: #258cec;
+  box-sizing: border-box; color: #fff;} 
 .header_wrapper{ display: inline-block; margin-bottom: 16px;
   width: 100%; }
 .List_wrapper{ width: 49%;
@@ -32,7 +34,7 @@
     display: inline-flex;
     width: 100%;
    }
-  .loop_class{ display: inline-flex;}
+  .loop_class{ display: inline-flex;  background: #f1f1f1; margin-bottom: 16px;}
 .buttons_wrapper button{ width: 160px;
   padding: 5px;
   font-size: 18px;
@@ -43,7 +45,7 @@
   border-radius: 0;}
 .main_prchase{    width: 90%;
   margin: 50px auto;
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
   display: block;
   box-shadow: -1px 5px 8px 0px #b1afaf;
   padding: 16px;
@@ -73,3 +75,7 @@
     .size_wrapper  { width: auto; }
     .purchageWrapper .purchase_item .List_wrapper .mat-list-item .mat-form-field { width: 100%; }
   }
+hr{
+  height: 10px;
+  color:rebeccapurple;
+}

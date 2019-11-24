@@ -1,0 +1,155 @@
+<app-adminheader>
+
+  <mat-toolbar class="puschase_header">
+    <span>Select Hospitals </span>
+    <mat-form-field>
+      <mat-label>Hospital Name</mat-label>
+      <mat-select matNativeControl (selectionChange)="takeName($event)">
+        <mat-option value="{{ item._id }}" *ngFor="let item of hospital_name_array;let i = index;" >
+          {{ item.hospitalname }}</mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </mat-toolbar>
+
+  <mat-card-content class="main_prchase">
+    <span class="header_wrapper">
+      <mat-card-title class="header"> Hospital's previous purchase bill info</mat-card-title>
+      <mat-card-title class="header">MD STock Purchase Quote</mat-card-title>
+    </span>
+    <mat-card-content class="purchageWrapper">
+
+      <mat-card-content class="purchase_item">
+        <!-- 50% section -->
+
+        <form [formGroup]="purchaseForm" autocomplete="off">
+            <!-- <input type="hidden" formControlName="hospitalname" /> -->
+          <div formArrayName="items" *ngFor="let item of purchaseForm.get('items').controls; let i = index;">
+            <div [formGroupName]="i">
+              <span class="loop_class">
+                <mat-list class="List_wrapper">
+                  <mat-list-item> <label>Product name : </label>
+                    <mat-form-field class="example-form-field">
+                      <input matInput type="text" placeholder="Enter Product Name" formControlName="productname_sr">
+                      <button mat-button *ngIf="productName" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="productName=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                  <mat-list-item> <label>Price : </label>
+                    <mat-form-field class="example-form-field">
+                      <input matInput type="text" placeholder="Enter Price" formControlName="price_sr">
+                      <button mat-button *ngIf="price" matSuffix mat-icon-button aria-label="Clear" (click)="price=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                  <span class="size_wrapper">
+                    <mat-list-item> <label>Size : </label>
+                      <mat-form-field class="example-form-field">
+                        <input matInput type="text" placeholder="Enter Size" formControlName="size_sr">
+                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </mat-list-item>
+                    <mat-list-item> <label>Color : </label>
+                      <mat-form-field class="example-form-field">
+                        <input matInput type="text" placeholder="Enter Color" formControlName="color_sr">
+                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
+                          (click)="color=''">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </mat-list-item>
+                  </span>
+
+                  <mat-list-item> <label>Description: </label>
+                    <mat-form-field class="example-form-field">
+                      <textarea matInput type="text" placeholder="Enter Description"
+                        formControlname="description_sr"></textarea>
+                      <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="description=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                </mat-list>
+
+                <mat-list class="List_wrapper">
+                  <mat-list-item> <label>Product name : </label>
+                    <mat-form-field class="example-form-field">
+                      <input matInput type="text" placeholder="Enter Product Name" formControlName="productname_md">
+                      <button mat-button *ngIf="productName2" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="productName2=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                  <mat-list-item> <label>Price : </label>
+                    <mat-form-field class="example-form-field">
+                      <input matInput type="text" placeholder="Enter Price" formControlName="price_md">
+                      <button mat-button *ngIf="price2" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="price2=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                  <span class="size_wrapper">
+                    <mat-list-item> <label>Size : </label>
+                      <mat-form-field class="example-form-field">
+                        <input matInput type="text" placeholder="Enter Size" formControlname="size_md">
+                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </mat-list-item>
+                    <mat-list-item> <label>Color : </label>
+                      <mat-form-field class="example-form-field">
+                        <input matInput type="text" placeholder="Enter Color" formControlname="color_sr">
+                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
+                          (click)="color=''">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </mat-list-item>
+                  </span>
+                  <mat-list-item> <label>Description: </label>
+                    <mat-form-field class="example-form-field">
+                      <textarea matInput type="text" placeholder="Enter Description"
+                        formControlName="description_md"></textarea>
+                      <button mat-button *ngIf="description2" matSuffix mat-icon-button aria-label="Clear"
+                        (click)="description2=''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </mat-list-item>
+                </mat-list>
+                <!-- </mat-card-content>
+      <mat-card-content class="purchase_item"> -->
+                <!-- 50% section -->
+                <!-- <mat-card-title class="header">MD STock Purchase Quote</mat-card-title> -->
+
+
+              </span>
+            
+            </div>
+          </div>
+
+        </form>
+      </mat-card-content>
+
+
+    </mat-card-content>
+
+    <mat-toolbar class="buttons_wrapper">
+      <button mat-button color="primary" type="button" (click)="addItem()">Add</button>
+    </mat-toolbar>
+
+  </mat-card-content>
+
+  <mat-toolbar class="addToBiller">
+    <button mat-button color="primary" (click)="onSubmit()">{{btn_text}}</button>
+  </mat-toolbar>
+</app-adminheader>
