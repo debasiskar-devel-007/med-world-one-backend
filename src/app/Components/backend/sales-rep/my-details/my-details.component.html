@@ -12,7 +12,7 @@
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">First Name</mat-label>
                 <mat-form-field>
-                    <input matInput formControlName="firstname">
+                    <input matInput formControlName="firstname" (blur)="inputBlur('firstname')">
                     <mat-error *ngIf="!salesRepForm.controls['firstname'].valid
           && salesRepForm.controls['firstname'].errors.required">First Name is required.</mat-error>
                 </mat-form-field>
@@ -20,7 +20,7 @@
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">Last Name</mat-label>
                 <mat-form-field>
-                    <input matInput formControlName="lastname">
+                    <input matInput formControlName="lastname" (blur)="inputBlur('lastname')">
                     <mat-error *ngIf="!salesRepForm.controls['lastname'].valid
           && salesRepForm.controls['lastname'].errors.required">Last Name is required.</mat-error>
                 </mat-form-field>
@@ -28,7 +28,7 @@
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">EMAIL ADDRESS </mat-label>
                 <mat-form-field>
-                    <input matInput formControlName="email">
+                    <input matInput formControlName="email" (blur)="inputBlur('email')">
                 </mat-form-field>
             </mat-card-content>
            
@@ -64,7 +64,7 @@
             <mat-card-content class="forms">
                 <mat-label class="mydetails_ac_lebel">ZIP CODE</mat-label>
                 <mat-form-field>
-                    <input matInput formControlName="zip">
+                    <input matInput formControlName="zip" (blur)="inputBlur('zip')">
                     <mat-error *ngIf="!salesRepForm.controls['zip'].valid
           && salesRepForm.controls['zip'].errors.required">ZIP is required.</mat-error>
                 </mat-form-field>
@@ -77,7 +77,7 @@
             </mat-card-content>
 
             <mat-toolbar class="button_action">
-                <button mat-button (click)="onSubmit()" >update</button>
+                <button mat-button type="button" (click)="onUpdate()" >update</button>
                 <button mat-button>cancel</button>
             </mat-toolbar>
             </form>

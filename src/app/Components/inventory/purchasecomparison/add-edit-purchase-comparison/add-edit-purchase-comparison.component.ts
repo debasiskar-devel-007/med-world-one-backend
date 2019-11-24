@@ -119,6 +119,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
   /** submit function **/
   onSubmit(){
+
+    
    this.purchaseForm.value.hospitalname = this.tmp_value
    console.log("All values",this.purchaseForm.value);
 
