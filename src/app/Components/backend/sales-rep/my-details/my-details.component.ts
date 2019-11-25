@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -6,6 +5,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
 import { zip } from 'rxjs';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-my-details',
@@ -31,7 +31,7 @@ export class MyDetailsComponent implements OnInit {
 
   constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, public http: HttpServiceService, private snackBar: MatSnackBar,
-    public router: Router) {
+    public router: Router,public clipboardService:ClipboardService) {
 
     /*Getting the role*/
     let allData: any = {};
@@ -178,4 +178,9 @@ export class MyDetailsComponent implements OnInit {
     this.salesRepForm.controls[val].markAsUntouched();
   }
 
+  /** */
+  copytoclipboard(){
+    this.clipboardService.copyFromContent(this.sharelink);
+    this.snackBar.open('Copy Link');
+  }
 }

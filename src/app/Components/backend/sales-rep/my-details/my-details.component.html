@@ -85,7 +85,8 @@
         </mat-card-content>
         <mat-card>
             <mat-label>SHARE LINK FOR HOSPITAL SIGN UP</mat-label><br>
-            <a href={{sharelink}} target="_blank">{{sharelink}}</a>
+            <mat-label>{{sharelink}}</mat-label>
+            <button type="button" (click)="copytoclipboard()">copy</button>
         </mat-card>
         
     </mat-card-content>
