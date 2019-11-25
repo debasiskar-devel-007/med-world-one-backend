@@ -181,6 +181,9 @@ export class MyDetailsComponent implements OnInit {
   /** */
   copytoclipboard(){
     this.clipboardService.copyFromContent(this.sharelink);
-    this.snackBar.open('Copy Link');
+   this.snackBar.open('Link Copy','', {
+      duration: 500
+    });
+    
   }
 }
