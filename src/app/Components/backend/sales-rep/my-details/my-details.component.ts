@@ -26,6 +26,7 @@ export class MyDetailsComponent implements OnInit {
   allCities: any;
   cities: any;
   message: string = "Account Details Updated Successfully!!";
+  sharelink:any;
 
 
   constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
@@ -38,7 +39,7 @@ export class MyDetailsComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
-
+    this.sharelink='https://dev.mdstockinternational.com/'+this.id;
     this.condition = { id: this.id };
 
     /**  generating the form **/
