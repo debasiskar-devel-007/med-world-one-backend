@@ -1,3 +1,4 @@
+
 .my_details_wrapper{
     background: #f5f5f5; border: 1px solid #dddd; padding-bottom: 20px;
 }
@@ -45,4 +46,7 @@
 }
     @media screen and (max-width:840px){
 .my_details_wrapper .mydetails_form_wrapper .button_action button { width: 49%; }
+}
+.clickable{
+    cursor: pointer;
 }

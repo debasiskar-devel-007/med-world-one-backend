@@ -49,7 +49,7 @@ export class FrontendHeaderComponent implements OnInit {
     this.cookieService.deleteAll();
     
     setTimeout(() => {
-      this.router.navigate(['/']);
+      this.router.navigateByUrl('/');
     }, 500);
   }
 

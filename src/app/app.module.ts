@@ -116,9 +116,20 @@ import { HospitalLoginComponent } from './Components/frontend/logins/hospital-lo
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 import { ContactusModule } from 'contactus';
+
+// Pricemarkup
 import { AddEditPriceMarkupManagementComponent, Modal6} from './Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ListingPriceMarkupManagementComponent } from './Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
+
+
 import { ContactusListingComponent } from './Components/miscellaneous/contactus-listing/contactus-listing.component';
+
+//Language Container
+import { AddEditLanguageComponent } from './Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
+import { ListingLanguageComponent } from './Components/miscellaneous/language-container/listing-language/listing-language.component';
+import { AddEditPurchaseComparisonComponent } from './Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent } from './Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+
 
 
 
@@ -213,7 +224,11 @@ import { ContactusListingComponent } from './Components/miscellaneous/contactus-
     TeamDetails,
     AddEditPriceMarkupManagementComponent,
     ListingPriceMarkupManagementComponent,
-    ContactusListingComponent
+    ContactusListingComponent,
+    AddEditLanguageComponent,
+    ListingLanguageComponent,
+    AddEditPurchaseComparisonComponent,
+    ListingPurchaseComparisonComponent
 
 
   ],

@@ -200,8 +200,8 @@ tr td br{ display: none; }
     color: #fff!important;
   }
   /* hiding icon from price markup table */
-  .priceMark .searchdiv:last-child, 
-  .priceMark .cursor:last-child, 
+  .priceMark .searchdiv:last-child,
+  .priceMark .cursor:last-child,
   .priceMark .cursor:nth-of-type(3){ display: none;}
 
   /* end table */
@@ -438,3 +438,5 @@ tr td br{ display: none; }
 .modal_wrapper .mat-dialog-container  { padding: 0; }
 /* for header */
 .frontend_nav .listing_container .mat-list-item .mat-list-item-content { justify-content: center; padding: 0 10px;}
+
+.purchageWrapper .purchase_item .List_wrapper .mat-list-item  .mat-list-item-content{  padding: 0!important;  }

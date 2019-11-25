@@ -12,6 +12,10 @@
                 aria-hidden="true"></i> view quotes</a>
         <a mat-list-item [routerLink]="'/salesrep/my-sales'" routerLinkActive="active"> <i class="fa fa-bar-chart"
                 name="My Sales" aria-hidden="true"></i> my sales</a>
+
+                <a mat-list-item [routerLink]="'/purchase-comparison/add'" routerLinkActive="active"> <i class="fa fa-list-alt"
+                  name="My Sales" aria-hidden="true"></i> Price Comparison Report </a>
+
     </span>
     <span *ngIf="pageUrl === 'hospital'">
         <a mat-list-item [routerLink]="'/hospital/my-details'" routerLinkActive="active"><i class="fa fa-user"

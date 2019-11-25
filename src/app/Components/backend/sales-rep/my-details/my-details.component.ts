@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -100,7 +101,7 @@ export class MyDetailsComponent implements OnInit {
 
   /** Submit function goes here **/
   onSubmit() {
-    console.log("CONDITIOJN=====================",this.condition);
+    
      if (this.salesRepForm.invalid)
        return;
      else {

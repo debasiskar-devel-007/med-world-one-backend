@@ -64,18 +64,23 @@ import { LoginAdminComponent } from '../Components/frontend/logins/login/login.c
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
+import { AddEditLanguageComponent } from '../Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
+import { ListingLanguageComponent } from '../Components/miscellaneous/language-container/listing-language/listing-language.component';
+import { AddEditPurchaseComparisonComponent } from '../Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent } from '../Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+
 
 
 const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'home', component: HomePageComponent},
-  {path: 'sales-rep/home', component: HomePageComponent},
-  {path: 'hospital/home', component: HomePageComponent},
-  {path: 'buy-from-us', component: BuyFromUsComponent},
-  {path: 'manufacturar-direct', component: ManufacturarDirectComponent},
-  {path: 'medical-partners', component: MedicalPartnersComponent},
-  {path: 'contactus', component: ContactUsComponent},
+  { path: 'home', component: HomePageComponent },
+  { path: 'sales-rep/home', component: HomePageComponent },
+  { path: 'hospital/home', component: HomePageComponent },
+  { path: 'buy-from-us', component: BuyFromUsComponent },
+  { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
+  { path: 'medical-partners', component: MedicalPartnersComponent },
+  { path: 'contactus', component: ContactUsComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -177,7 +182,7 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user_view',
+        source: 'users_view',
         condition: { 'type': 'salesrep' }
       },
       endpoint: 'datalist'
@@ -430,38 +435,38 @@ const routes: Routes = [
 data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
   //____________________price markup management______________________//
 
-{path:'inventory/price-markup-management-list/add',component:AddEditPriceMarkupManagementComponent},
+  { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
 
-{
-  path:'inventory/price-markup-management-list/list', component: ListingPriceMarkupManagementComponent,
-canActivate: [AuthguardService],
-resolve:{priceMarkupList: ResolveService},
-data:{
-requestcondition:{
-  source:'priceMarkup_view',
-  condition:{}
-},
-endpoint:'datalist'
-}
-},
+  {
+    path: 'inventory/price-markup-management-list/list', component: ListingPriceMarkupManagementComponent,
+    canActivate: [AuthguardService],
+    resolve: { priceMarkupList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'priceMarkup_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    }
+  },
 
-{
-  path:'inventory/price-markup-management-list/edit/:_id',component:AddEditPriceMarkupManagementComponent,
-  canActivate: [AuthguardService],
-resolve:{priceMarkupList: ResolveService},
-data:{
-requestcondition:{
-  source:'priceMarkup',
-  condition:{}
-},
-endpoint: 'datalist'
+  {
+    path: 'inventory/price-markup-management-list/edit/:_id', component: AddEditPriceMarkupManagementComponent,
+    canActivate: [AuthguardService],
+    resolve: { priceMarkupList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'priceMarkup_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
 
-}
+    }
 
-},
+  },
 
-  
-// ________________________ACCOUNT SETTINGS______________________
+
+  // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
 
@@ -486,16 +491,17 @@ endpoint: 'datalist'
       endpoint: 'datalist'
     },
   },
-  {path: 'our-team',
-   component: TeamPageComponent,
-   resolve: { teamList: ResolveService },
-   data: {
-     requestcondition: {
-       source: 'Team_management_view',
-       condition: {}
-     },
-     endpoint: 'datalist'
-   },
+  {
+    path: 'our-team',
+    component: TeamPageComponent,
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   { path: 'blog', component: BlogComponentFrontEnd },
   { path: 'blog-details', component: BlogDetailsComponent },
@@ -503,12 +509,66 @@ endpoint: 'datalist'
   { path: 'inventory-details', component: InventoryDetailsComponent },
   { path: 'about-us', component: AboutUsFrontComponent },
   { path: 'salesrep-login', component: SalesRepLoginComponent },
+  
+  // _____________________language container_____________________
+  { path: 'admin-dashboard/language/add', component: AddEditLanguageComponent },
+  {
+    path: 'admin-dashboard/language/list',
+    component: ListingLanguageComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'languages',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'admin-dashboard/language/edit/:_id',
+    component: AddEditLanguageComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'languages',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+  // __________________purchase comparison____________________________
+  { path: 'purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
+  {
+    path: 'purchase-comparison/list',
+    component: ListingPurchaseComparisonComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchasecomparisontable',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'purchase-comparison/edit/:_id',
+    component: AddEditPurchaseComparisonComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchasecomparisontable',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
 
 
 
   // ==================================================================================
-                                    // FRONT END
+  // FRONT END
   // ==================================================================================
 
   // admin frontend
