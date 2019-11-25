@@ -64,7 +64,7 @@ export class MyDetailsHospitalComponent implements OnInit {
     
     this.contactemailarray = this.userData.contactemails;
     this.contactphonesarray = this.userData.contactphones;
-    console.log("Data from cookie",this.userData);
+    
   }
 
   ngOnInit() {
@@ -234,7 +234,6 @@ export class MyDetailsHospitalComponent implements OnInit {
          
  
            setTimeout(() => {
-             console.log("hit");
              this.router.navigateByUrl('hospital/my-details');
            }, 6000);         
          }

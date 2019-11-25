@@ -127,8 +127,11 @@ import { ContactusListingComponent } from './Components/miscellaneous/contactus-
 //Language Container
 import { AddEditLanguageComponent } from './Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
 import { ListingLanguageComponent } from './Components/miscellaneous/language-container/listing-language/listing-language.component';
-import { AddEditPurchaseComparisonComponent } from './Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
-import { ListingPurchaseComparisonComponent } from './Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+
+
+//purchase comparison
+import { AddEditPurchaseComparisonComponent } from './Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent ,quoteModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 
 
 
@@ -228,7 +231,8 @@ import { ListingPurchaseComparisonComponent } from './Components/purchasecompari
     AddEditLanguageComponent,
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
-    ListingPurchaseComparisonComponent
+    ListingPurchaseComparisonComponent,
+    quoteModal
 
 
   ],
@@ -254,7 +258,7 @@ import { ListingPurchaseComparisonComponent } from './Components/purchasecompari
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [quoteModal,Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
