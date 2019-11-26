@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-import { InventoryComponent } from 'src/app/Components/frontend/inventory/inventory.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-edit-purchase-comparison',
@@ -23,11 +23,14 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public defaultData:any;
   public btn_text:any;
   public tmp_value:any;
+  public reportName:string;
+  
 
 
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
-    public formBuilder: FormBuilder , private router : Router , public activatedRoute : ActivatedRoute) {
+    public formBuilder: FormBuilder , private router : Router , public activatedRoute : ActivatedRoute,
+    private matSnackBar : MatSnackBar) {
       this.activatedRoute.params.subscribe(params => {
         if (params['_id'] != null) {
           this.action = "edit";
@@ -84,7 +87,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   generateForm() {
     this.purchaseForm = this.formBuilder.group({
       items: new FormArray([]),
-      hospitalname:[]
+      hospital_id:[]
     });
   }
 
@@ -101,6 +104,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       size_md: [],
       color_md: [],
       description_md: [],
+      reportname:[]
 
     });
   }
@@ -113,15 +117,21 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
   /** takeName **/
   takeName(event:any){
-    this.tmp_value= event.value;
+    this.tmp_value = event.value;
     console.log("----------------HN",this.tmp_value);
+  }
+
+  /** taking the report name **/
+  takeReportName(event:any){
+     console.log("+++++++++++",event);
   }
 
   /** submit function **/
   onSubmit(){
 
-    
-   this.purchaseForm.value.hospitalname = this.tmp_value
+    console.log('Report NAme',this.reportName);
+   this.purchaseForm.value.hospital_id = this.tmp_value;
+   this.purchaseForm.value.reportname = this.reportName;
    console.log("All values",this.purchaseForm.value);
 
     if (this.purchaseForm.invalid) {
@@ -135,7 +145,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "source": 'purchasecomparison',
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["hospitalname"],
+        "sourceobj": ["hospital_id"],
         
       };
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../../environments/environment.dev';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddEditTeamComponent implements OnInit {
   public teamDataList:any=[];
-  public serverUrl:any="https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  public serverUrl:any=environment.API_URL;
   public addendpoint:any="addorupdatedata";
   public listPageRoute:any="manage-websites/team/list";
   public getdataEndpoint:any="datalist";

@@ -133,7 +133,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -165,7 +165,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -195,7 +195,7 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -545,7 +545,7 @@ data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparison_view',
+        source: 'purchasecomparison_view_admin',
         condition: {}
       },
       endpoint: 'datalist'

@@ -17,12 +17,12 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   user_cookie: any = '';
   purchaseFormData: any = [];
-  displayedColumns: string[] = ['no', 'hospitalname', 'actions','date'];
+  displayedColumns: string[] = ['no', 'hospitalname','salesrepname','date', 'actions'];
   datasource = null;
   dialogRef:any;
   quoteArray : any = [];
 
-  //  @ViewChild(Mat)
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
@@ -36,6 +36,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
       // console.log("----------",this.purchaseFormData);
     });
     this.datasource = new MatTableDataSource(this.purchaseFormData);
+    this.datasource.paginator = this.paginator;
     console.log("------------", this.purchaseFormData);
   }
 
@@ -52,7 +53,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   /** Modal function **/
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(quoteModal, {
-      width: '250px',
+      width: '1000px',
       data: { msg: x }
     });
 
@@ -68,6 +69,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 @Component({
   selector: 'app-modal',
   templateUrl: 'quoteModal.html',
+  styleUrls: ['./listing-purchase-comparison.component.css']
 })
 export class quoteModal {
 

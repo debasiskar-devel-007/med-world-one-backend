@@ -25,6 +25,15 @@
                 </mat-form-field><br>
 
 
+                 <!-- Sales rep  -->
+                 <mat-form-field appearance="fill">
+                    <mat-label>Select Sales Representative</mat-label>
+                    <mat-select formControlName="salesrepselect">                       
+                        <mat-option *ngFor="let sale of salesNameArray;" value="{{ sale._id }}">{{ sale.firstname }} {{ sale.lastname }}</mat-option>
+                    </mat-select>
+                </mat-form-field><br>
+
+
                 <!-- Contact Person  -->
                 <mat-form-field>
                     <mat-label>Contact Person</mat-label>

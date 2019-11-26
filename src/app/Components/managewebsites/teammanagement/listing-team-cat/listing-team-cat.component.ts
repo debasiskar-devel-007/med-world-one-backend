@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../../../environments/environment.dev';
 
 @Component({
   selector: 'app-listing-team-cat',
@@ -18,7 +19,7 @@ export class ListingTeamCatComponent implements OnInit {
   public addPageRoute: any = 'manage-websites/team-category/add';
   manageTeamRoute:any = 'manage-websites/team/list';
   public editpageRoute: any = 'manage-websites/team-category/edit';
-  public serverUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  public serverUrl: any = environment.API_URL;
   public jwtToken = this.cookies.get('jwtToken');
 
 

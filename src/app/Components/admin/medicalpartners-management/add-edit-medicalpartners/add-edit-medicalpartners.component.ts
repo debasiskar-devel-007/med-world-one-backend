@@ -40,6 +40,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   linkTo: any;
   user_data: any;
   role: any;
+  salesNameArray:any=[];
   // ===================================================
 
 
@@ -68,6 +69,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.mpList.res[0];
+          console.log("+++++++++++",this.defaultData);
         });
       }
       else
@@ -89,6 +91,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     //Calling list of states here
     this.allStateCityData();
 
+    //getting all sales names
+    this.getSalesName();
+
 
     // Case 
     switch (this.action) {
@@ -108,9 +113,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         }, 2000);
         this.header_txt = "Edit Medical Partner's Information"
         this.img_flag = true;
-        if (this.role== 'admin')
+        if (this.role == 'admin')
           this.linkTo = "/admin/medicalpartners-management/list";
-          else
+        else
           this.linkTo = "/dashboard-admin";
         break;
     }
@@ -137,6 +142,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   generateForm() {
     this.medicalPartnerForm = this.formBuilder.group({
       hospitalname: [],
+      salesrepselect:[],
       contactperson: [],
       email: [],
       contactemails: [],
@@ -164,6 +170,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   setDefaultValue(defaultValue) {
     this.medicalPartnerForm.patchValue({
       hospitalname: defaultValue.hospitalname,
+      salesrepselect: defaultValue.salesrepselect,
       contactperson: defaultValue.contactperson,
       email: defaultValue.email,
       password: defaultValue.password,
@@ -176,7 +183,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       noofbeds: defaultValue.noofbeds,
       noofstaffs: defaultValue.noofstaffs,
       status: defaultValue.status,
-      mpimage : defaultValue.mpimage
+      mpimage: defaultValue.mpimage
     })
     this.collect_email_array = defaultValue.contactemails;
     this.collect_phone_array = defaultValue.contactphones;
@@ -242,7 +249,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
 
-    // Service File Upload Works 
+    //  File Upload Works 
     if (this.configData.files) {
 
       if (this.configData.files.length > 1) { this.ErrCode = true; return; }
@@ -282,7 +289,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       let postData: any = {
         "source": 'users',
         "data": Object.assign(this.medicalPartnerForm.value, this.condition),
-        "token": this.cookieService.get('jwtToken')
+        "token": this.cookieService.get('jwtToken'),
+        "sourceobj":["salesrepselect"]
 
       };
 
@@ -345,6 +353,20 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   //clearing the image
   clear_image() {
     this.img_flag = false;
+  }
+
+  /*getting sales rep*/
+  getSalesName() {
+    var data: any;
+    data = {
+      'source': 'users_view',
+      'token':this.cookieService.get('jwtToken'),
+      'condition': { 'type': 'salesrep' }
+    }
+
+    this.http.httpViaPost('datalist',data).subscribe(response=>{
+       this.salesNameArray = response.res;
+    });
   }
 
 }
