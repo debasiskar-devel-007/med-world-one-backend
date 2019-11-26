@@ -8,6 +8,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
 import { FileUploadModule } from 'file-upload';
+import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
 import { ResetPasswordComponent } from './Components/auth/reset-password/reset-password.component';
@@ -251,7 +252,8 @@ import { ListingPurchaseComparisonComponent ,quoteModal} from './Components/inve
     TeamModule,
     HttpClientModule,
     ContactusModule,
-    CommonModule
+    CommonModule,
+    ClipboardModule
   ],
   providers: [CookieService,
     LoaderService,
