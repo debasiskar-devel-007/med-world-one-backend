@@ -1,33 +1,52 @@
 <h1 mat-dialog-title>QUOTES</h1>
 <div mat-dialog-content>
-  
-   <div *ngFor="let item of data.msg">
-      <p>Hospital previous quotes</p>
-      <mat-label>Product Name</mat-label>
-      <p>{{item.productname_sr }}</p>
-      <mat-label>Price</mat-label>
-      <p>{{item.price_sr }}</p>
-      <mat-label>Color</mat-label>
-      <p>{{item.color_sr }}</p>
-      <mat-label>Size</mat-label>
-      <p>{{item.size_sr }}</p>
-      <mat-label>Description</mat-label>
-      <p>{{item.description_sr }}</p>
 
 
-      <p>MD Stock quotes</p>
-      <mat-label>Product Name</mat-label>
-      <p>{{item.productname_md }}</p>
-      <mat-label>Price</mat-label>
-      <p>{{item.price_md }}</p>
-      <mat-label>Color</mat-label>
-      <p>{{item.color_md }}</p>
-      <mat-label>Size</mat-label>
-      <p>{{item.size_md }}</p>
-      <mat-label>Description</mat-label>
-      <p>{{item.description_md }}</p>
-      <hr>
-   </div>
+   <mat-card>
+      <table border="1">
+         <tr>
+            <th>
+               <p>Hospital previous quotes</p>
+            </th>
+            <th>
+               <p>MD Stock quotes</p>
+            </th>
+         </tr>
+         <tr  *ngFor="let item of data.msg">
+            <td>
+               <p>
+                  <mat-label>Product Name : {{ item.productname_sr }}</mat-label>
+               </p>
+               <mat-label>Price : {{item.price_sr }}</mat-label>
+               <p>
+                  <mat-label>Color : {{item.color_sr }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Size : {{item.size_sr }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Description : {{item.description_sr }}</mat-label>
+               </p>
+            </td>
+            <td>
+               <p>
+                  <mat-label>Product Name : {{item.productname_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Price : {{item.price_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Color : {{item.color_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Size : {{item.size_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Description : {{item.description_md }}</mat-label>
+               </p>
+            </td>
+         </tr>
+      </table>
+   </mat-card>
 
 </div>
-
