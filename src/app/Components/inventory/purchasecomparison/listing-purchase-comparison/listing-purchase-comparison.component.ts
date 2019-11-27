@@ -17,7 +17,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   user_cookie: any = '';
   purchaseFormData: any = [];
-  displayedColumns: string[] = ['no', 'hospitalname','salesrepname','date', 'actions'];
+  displayedColumns: string[] = ['no', 'hospitalname','salesrepname','reportname','draft','date', 'actions'];
   datasource = null;
   dialogRef:any;
   quoteArray : any = [];

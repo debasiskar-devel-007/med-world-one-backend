@@ -18,30 +18,31 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public hospital_name_array: any = [];
   public purchaseForm: FormGroup;
   public items: FormArray;
-  public condition:any;
-  public action:any;
-  public defaultData:any;
-  public btn_text:any;
-  public tmp_value:any;
-  public reportName:string;
-  
+  public condition: any;
+  public action: any;
+  public defaultData: any;
+  public btn_text: any;
+  public tmp_value: any;
+  public reportName: string;
+
+
 
 
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
-    public formBuilder: FormBuilder , private router : Router , public activatedRoute : ActivatedRoute,
-    private matSnackBar : MatSnackBar) {
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition = { id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.data.res[0];
-          });
-        }
-        else
-          this.action = "add";
-      });
+    public formBuilder: FormBuilder, private router: Router, public activatedRoute: ActivatedRoute,
+    private matSnackBar: MatSnackBar) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.data.res[0];
+        });
+      }
+      else
+        this.action = "add";
+    });
 
   }
 
@@ -55,6 +56,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     /** by default a single form will be selected **/
     this.addItem();
 
+
+    /** Switch case**/
     switch (this.action) {
       case 'add':
         /* Button text */
@@ -87,11 +90,14 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   generateForm() {
     this.purchaseForm = this.formBuilder.group({
       items: new FormArray([]),
-      hospital_id:[]
+      hospital_id: [],
+      report_name: [],
+      is_draft: []
     });
   }
 
 
+  /**  Form Array **/
   createItem(): FormGroup {
     return this.formBuilder.group({
       productname_sr: [],
@@ -104,11 +110,11 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       size_md: [],
       color_md: [],
       description_md: [],
-      reportname:[]
-
     });
   }
 
+
+  /** adding item to form array **/
   addItem(): void {
     this.items = this.purchaseForm.get('items') as FormArray;
     this.items.push(this.createItem());
@@ -116,23 +122,28 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
 
   /** takeName **/
-  takeName(event:any){
+  takeName(event: any) {
     this.tmp_value = event.value;
-    console.log("----------------HN",this.tmp_value);
+    console.log("----------------HN", this.tmp_value);
   }
 
   /** taking the report name **/
-  takeReportName(event:any){
-     console.log("+++++++++++",event);
+  takereport_name(event: any) {
+    console.log("+++++++++++", event);
+  }
+
+  /** set draft **/
+  setDraft() {
+    this.purchaseForm.value.is_draft = 1;
   }
 
   /** submit function **/
-  onSubmit(){
+  onSubmit() {
 
-    console.log('Report NAme',this.reportName);
-   this.purchaseForm.value.hospital_id = this.tmp_value;
-   this.purchaseForm.value.reportname = this.reportName;
-   console.log("All values",this.purchaseForm.value);
+    console.log('Report NAme', this.reportName);
+    this.purchaseForm.value.hospital_id = this.tmp_value;
+    this.purchaseForm.value.report_name = this.reportName;
+    console.log("All values", this.purchaseForm.value);
 
     if (this.purchaseForm.invalid) {
       return;
@@ -146,16 +157,16 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
         "sourceobj": ["hospital_id"],
-        
+
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-            // this.openDialog(this.successMessage);
-            // setTimeout(() => {
-            //   this.dialogRef.close();
-            // }, 2000);
+          // this.openDialog(this.successMessage);
+          // setTimeout(() => {
+          //   this.dialogRef.close();
+          // }, 2000);
 
 
           // this.router.navigateByUrl('inventory/inventory-list/list');;
