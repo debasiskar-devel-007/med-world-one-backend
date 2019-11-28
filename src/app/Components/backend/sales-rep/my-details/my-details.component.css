@@ -18,13 +18,72 @@
     .my_details_wrapper .mydetails_form_wrapper .button_action { justify-content: flex-end; }
     .my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(1){ background: #137fda; margin-left: 0; }
     .my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(2){ background: #111214; }
+    .my_details_wrapper .mydetails_form_wrapper .button_action button { width: 49%; }
 
-
-    @media screen and (max-width: 991px){
-
-        .my_details_wrapper .mydetails_form_wrapper{ padding: 16px;}
-        .my_details_wrapper .mydetails_form_wrapper .forms { width: 100%; margin: 1% 0; }
-    }
-    @media screen and (max-width:840px){
-.my_details_wrapper .mydetails_form_wrapper .button_action button { width: 49%; }
+.share_linkBar{ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    background: #0673df; padding: 5px; flex-wrap: wrap;}
+   
+ 
+.share_linkBar .share_LL{ 
+    background: #002950;
+    margin-bottom: 0;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-family: "HelveticaRegular";
 }
+.share_linkBar .copyLinkWrappr{background: #fff;
+    width: 49%;
+    padding: 3px 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center; position: relative; margin: 0 10px;  }
+
+    .share_linkBar .copyLinkWrappr  button{
+        background: #ee210d;
+        position: absolute;
+        color: #fff;
+        font-size: 22px;
+        padding: 0;
+        width: auto;
+        border-radius: 0;
+        right: 0;
+        height: 100%;    
+    }
+.share_linkBar .share_link{
+    display: inline-block;
+    max-width: 90%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+    font-family: "MontserratSemibold";
+    padding-right: 50px;
+    word-break: break-all;
+}
+.social_media_wrapper{ margin-bottom: 0; border: 1px solid #d1cdcd;
+    border-bottom: 1.5px solid #d1cdcd;}
+.social_media_wrapper button{font-size: 18px;
+    font-family: "MontserratBold";
+    color: #fff;
+    border-radius: 0;
+    width: auto;}
+.social_media_wrapper button:nth-child(1){background: #3b5998;}
+.social_media_wrapper button:nth-child(2){background: #0e76a8;}
+.social_media_wrapper button:nth-child(3){background: #00acee;}
+.social_media_wrapper button:nth-child(4){background: #34526f;}
+@media screen and (max-width: 1440px){
+    .share_linkBar .copyLinkWrappr { width: 37%; }
+}
+@media screen and (max-width: 991px){
+
+    .my_details_wrapper .mydetails_form_wrapper{ padding: 16px;}
+    .my_details_wrapper .mydetails_form_wrapper .forms { width: 100%; margin: 1% 0; }
+}
+ 
