@@ -10526,7 +10526,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"front_main\">\r\n\r\n  <mat-toolbar class=\"frontend_nav\">\r\n\r\n    <mat-card-content class=\"logo_wrapper\" routerLink=\"/home\">\r\n      <img src=\"assets/images/logo.png\">\r\n\r\n    </mat-card-content>\r\n    <button class=\"toggle_button\" mat-button (click)=\"mobileView()\">\r\n      <i class=\"material-icons\"> menu </i>\r\n    </button>\r\n    <mat-nav-list class=\"listing_container\"  [ngClass]=\"status ? 'hide' : 'show'\" >\r\n      <a mat-list-item [routerLink]=\"'/home'\" routerLinkActive=\"active\"> Home </a>\r\n      <a mat-list-item [routerLink]=\"'/buy-from-us'\" routerLinkActive=\"active\"> Buy From Us </a>\r\n      <a mat-list-item [routerLink]=\"'/inventory'\" routerLinkActive=\"active\"> Inventory </a>\r\n      <a mat-list-item [routerLink]=\"'/medical-partners'\" routerLinkActive=\"active\"> Medical Partners</a>\r\n      <a mat-list-item [routerLink]=\"'/manufacturar-direct'\" routerLinkActive=\"active\"> Manufacturar Direct</a>\r\n      <a mat-list-item [routerLink]=\"'/our-team'\" routerLinkActive=\"active\"> Our Team</a>\r\n      <a mat-list-item [routerLink]=\"'/blog'\" routerLinkActive=\"active\">Blog</a>\r\n      <a mat-list-item [routerLink]=\"'/about-us'\" routerLinkActive=\"active\"> About Us</a>\r\n      <a mat-list-item [routerLink]=\"'/contactus'\" routerLinkActive=\"active\"> Contact Us</a>\r\n      <a mat-list-item class=\"login\" *ngIf=\"type == ''\" [routerLink]=\"'/login'\">Login</a>\r\n      <a mat-list-item class=\"signup\" *ngIf=\"type == ''\">Signup</a>\r\n      <a mat-list-item class=\"signup\" *ngIf=\"type != ''\" (click)=\"logout();\">Logout</a>\r\n      <mat-card-content class=\"a_pro\" *ngIf=\"type != ''\">\r\n        <span class=\"profile\">\r\n          <img src=\"https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg\">\r\n        </span>\r\n        <i class=\"material-icons\" [matMenuTriggerFor]=\"repmenu\"> more_vert </i>\r\n      </mat-card-content>\r\n\r\n      <mat-menu #repmenu=\"matMenu\" class=\"pro_menu\">\r\n        <ng-container *ngIf=\"type == 'salesrep'\">\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-details'\"><i class=\"material-icons\"> account_circle </i> My\r\n            Account</button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/change-password'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-unlock-alt\" aria-hidden=\"true\"></i> change password </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-hospital'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-medkit\" aria-hidden=\"true\"></i> my hospital </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-added-inventory'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-tag\" aria-hidden=\"true\"></i> inventory added by me </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/view-quotes'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-comments\" aria-hidden=\"true\"></i> view quotes</button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-sales'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> my sales</button>\r\n              <button mat-menu-item [routerLink]=\"'/purchase-comparison/add'\" routerLinkActive=\"active\"> <i\r\n                class=\"fa fa-list-alt\" aria-hidden=\"true\"></i> Price Comparison Report</button>\r\n        </ng-container>\r\n\r\n        <ng-container *ngIf=\"type == 'hospital'\">\r\n          <button mat-menu-item [routerLink]=\"'/hospital/my-details'\"><i class=\"material-icons\"> account_circle </i> My\r\n            Account</button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/change-password'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-unlock-alt\" aria-hidden=\"true\"></i> change password </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/my-hospital'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-medkit\" aria-hidden=\"true\"></i> my hospital </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/added-inventory'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-tag\" aria-hidden=\"true\"></i> inventory added by me </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/view-quotes'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-comments\" aria-hidden=\"true\"></i> view quotes</button>\r\n\r\n        </ng-container>\r\n\r\n\r\n      </mat-menu>\r\n\r\n\r\n      <!-- <mat-menu #loginmenu=\"matMenu\">\r\n        <button mat-menu-item [routerLink]=\"'/login'\">Admin Login</button>\r\n        <button mat-menu-item [routerLink]=\"'/salesrep-login'\">Sales Rep Login</button>\r\n        <button mat-menu-item [routerLink]=\"'/hospital-login'\">Hospital Login</button>\r\n      </mat-menu> -->\r\n    </mat-nav-list>\r\n\r\n    <button mat-button [matMenuTriggerFor]=\"menu\" class=\"language_container\">English <i class=\"material-icons\">\r\n        keyboard_arrow_down </i></button>\r\n    <mat-menu #menu=\"matMenu\" class=\"language_container1\">\r\n      <button mat-menu-item>Chinese</button>\r\n      <button mat-menu-item>Portuguese</button>\r\n      <button mat-menu-item>Spanish</button>\r\n    </mat-menu>\r\n  </mat-toolbar>\r\n\r\n</mat-card>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"front_main\">\r\n\r\n  <mat-toolbar class=\"frontend_nav\">\r\n\r\n    <mat-card-content class=\"logo_wrapper\" routerLink=\"/home\">\r\n      <img src=\"assets/images/logo.png\">\r\n\r\n    </mat-card-content>\r\n    <button class=\"toggle_button\" mat-button (click)=\"mobileView()\">\r\n      <i class=\"material-icons\"> menu </i>\r\n    </button>\r\n    <mat-nav-list class=\"listing_container\"  [ngClass]=\"status ? 'hide' : 'show'\" >\r\n      <a mat-list-item [routerLink]=\"'/home'\" routerLinkActive=\"active\"> Home </a>\r\n      <a mat-list-item [routerLink]=\"'/buy-from-us'\" routerLinkActive=\"active\"> Buy From Us </a>\r\n      <a mat-list-item [routerLink]=\"'/inventory'\" routerLinkActive=\"active\"> Inventory </a>\r\n      <a mat-list-item [routerLink]=\"'/medical-partners'\" routerLinkActive=\"active\"> Medical Partners</a>\r\n      <a mat-list-item [routerLink]=\"'/manufacturar-direct'\" routerLinkActive=\"active\"> Manufacturar Direct</a>\r\n      <a mat-list-item [routerLink]=\"'/our-team'\" routerLinkActive=\"active\"> Our Team</a>\r\n      <a mat-list-item [routerLink]=\"'/blog'\" routerLinkActive=\"active\">Blog</a>\r\n      <a mat-list-item [routerLink]=\"'/about-us'\" routerLinkActive=\"active\"> About Us</a>\r\n      <a mat-list-item [routerLink]=\"'/contactus'\" routerLinkActive=\"active\"> Contact Us</a>\r\n      <a mat-list-item class=\"login\" *ngIf=\"type == ''\" [routerLink]=\"'/login'\">Login</a>\r\n      <a mat-list-item href=\"https://dev-hospital-signup.mdstockinternational.com\" class=\"signup\" *ngIf=\"type == ''\">Signup</a>\r\n      <a mat-list-item class=\"signup\" *ngIf=\"type != ''\" (click)=\"logout();\">Logout</a>\r\n      <mat-card-content class=\"a_pro\" *ngIf=\"type != ''\">\r\n        <span class=\"profile\">\r\n          <img src=\"https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg\">\r\n        </span>\r\n        <i class=\"material-icons\" [matMenuTriggerFor]=\"repmenu\"> more_vert </i>\r\n      </mat-card-content>\r\n\r\n      <mat-menu #repmenu=\"matMenu\" class=\"pro_menu\">\r\n        <ng-container *ngIf=\"type == 'salesrep'\">\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-details'\"><i class=\"material-icons\"> account_circle </i> My\r\n            Account</button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/change-password'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-unlock-alt\" aria-hidden=\"true\"></i> change password </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-hospital'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-medkit\" aria-hidden=\"true\"></i> my hospital </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-added-inventory'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-tag\" aria-hidden=\"true\"></i> inventory added by me </button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/view-quotes'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-comments\" aria-hidden=\"true\"></i> view quotes</button>\r\n          <button mat-menu-item [routerLink]=\"'/salesrep/my-sales'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i> my sales</button>\r\n              <button mat-menu-item [routerLink]=\"'/purchase-comparison/add'\" routerLinkActive=\"active\"> <i\r\n                class=\"fa fa-list-alt\" aria-hidden=\"true\"></i> Price Comparison Report</button>\r\n        </ng-container>\r\n\r\n        <ng-container *ngIf=\"type == 'hospital'\">\r\n          <button mat-menu-item [routerLink]=\"'/hospital/my-details'\"><i class=\"material-icons\"> account_circle </i> My\r\n            Account</button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/change-password'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-unlock-alt\" aria-hidden=\"true\"></i> change password </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/my-hospital'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-medkit\" aria-hidden=\"true\"></i> my hospital </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/added-inventory'\" routerLinkActive=\"active\"> <i\r\n              class=\"fa fa-tag\" aria-hidden=\"true\"></i> inventory added by me </button>\r\n          <button mat-menu-item [routerLink]=\"'/hospital/view-quotes'\" routerLinkActive=\"active\"><i\r\n              class=\"fa fa-comments\" aria-hidden=\"true\"></i> view quotes</button>\r\n\r\n        </ng-container>\r\n\r\n\r\n      </mat-menu>\r\n\r\n\r\n      <!-- <mat-menu #loginmenu=\"matMenu\">\r\n        <button mat-menu-item [routerLink]=\"'/login'\">Admin Login</button>\r\n        <button mat-menu-item [routerLink]=\"'/salesrep-login'\">Sales Rep Login</button>\r\n        <button mat-menu-item [routerLink]=\"'/hospital-login'\">Hospital Login</button>\r\n      </mat-menu> -->\r\n    </mat-nav-list>\r\n\r\n    <button mat-button [matMenuTriggerFor]=\"menu\" class=\"language_container\">English <i class=\"material-icons\">\r\n        keyboard_arrow_down </i></button>\r\n    <mat-menu #menu=\"matMenu\" class=\"language_container1\">\r\n      <button mat-menu-item>Chinese</button>\r\n      <button mat-menu-item>Portuguese</button>\r\n      <button mat-menu-item>Spanish</button>\r\n    </mat-menu>\r\n  </mat-toolbar>\r\n\r\n</mat-card>\r\n");
 
 /***/ }),
 
@@ -10825,7 +10825,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n\r\n<h1>Purchase  Comparison Report</h1>\r\n    <mat-card class=\"purchaseComparison\">\r\n\r\n       <mat-form-field>\r\n            <input matInput placeholder=\"hospital...\">\r\n       </mat-form-field>\r\n\r\n\r\n\r\n\r\n       <button type=\"button\" routerLink=\"/inventory/purchase-comparison/add\">Add Quote</button>\r\n        <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8\">\r\n\r\n            <!--- Note that these columns can be defined in any order.\r\n                      The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"no\">\r\n                <th mat-header-cell *matHeaderCellDef> No </th>\r\n                <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }} </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hospitalname\">\r\n                <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.hospitalname}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"salesrepname\">\r\n                <th mat-header-cell *matHeaderCellDef> Sales Representative Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.salesrepname}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"reportname\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"draft\" >\r\n                <th mat-header-cell *matHeaderCellDef> As Draft </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <span *ngIf=\"element.is_draft == 1\"><mat-icon>drafts</mat-icon></span>\r\n                    <span *ngIf=\"element.is_draft != 1\">N/A</span>\r\n                </td>\r\n               \r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"date\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <div>\r\n                        <mat-icon class=\"clickable\" (click)=\"viewQuote(element.items)\">remove_red_eye</mat-icon>\r\n                        <mat-icon class=\"clickable\">send</mat-icon>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n        </table>\r\n\r\n        <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n    </mat-card>\r\n</app-adminheader>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n\r\n    <h1>Purchase Comparison Report</h1>\r\n    <mat-card class=\"purchaseComparison\">\r\n        <mat-toolbar class=\"searchBar\">\r\n\r\n            <!-- Search hospital name  -->\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"search by hospital name\" (keyup.enter)=\"search_hospital($event)\">\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n            <!-- search by draft  -->\r\n            <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <mat-select matNativeControl (selectionChange)=\"search_draft($event)\" placeholder=\"search by draft\">\r\n                    <mat-option value=1>Draft</mat-option>\r\n                    <mat-option value=\"saab\">Sent</mat-option>                   \r\n                </mat-select>\r\n            </mat-form-field>\r\n\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"search by sales rep\">\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n            <mat-form-field>\r\n                <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                <mat-datepicker #picker></mat-datepicker>\r\n            </mat-form-field>\r\n            <!--           \r\n          <mat-form-field>\r\n            <input matInput placeholder=\"Choose a date\" [satDatepicker]=\"picker\" [value]=\"date\">\r\n            <sat-datepicker #picker [rangeMode]=\"true\"></sat-datepicker>\r\n            <sat-datepicker-toggle matSuffix [for]=\"picker\"></sat-datepicker-toggle>\r\n        </mat-form-field> -->\r\n\r\n\r\n\r\n            <button mat-button class=\"action_button\" type=\"button\" routerLink=\"/inventory/purchase-comparison/add\">Add\r\n                Quote</button>\r\n\r\n        </mat-toolbar>\r\n\r\n        <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8\">\r\n\r\n            <!--- Note that these columns can be defined in any order.\r\n                      The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"no\">\r\n                <th mat-header-cell *matHeaderCellDef> No </th>\r\n                <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }}\r\n                    <span *ngIf=\"element.is_draft == 1\">\r\n                        <mat-icon>drafts</mat-icon>\r\n                    </span>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hospitalname\">\r\n                <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.hospital_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"salesrepname\">\r\n                <th mat-header-cell *matHeaderCellDef> Sales Representative Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.salesrep_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"reportname\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"date\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <div>\r\n                        <mat-icon class=\"clickable\" (click)=\"viewQuote(element._id)\">remove_red_eye</mat-icon>\r\n                        <mat-icon class=\"clickable\">send</mat-icon>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n        </table>\r\n\r\n        <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n    </mat-card>\r\n</app-adminheader>");
 
 /***/ }),
 
@@ -10838,7 +10838,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>QUOTES</h1>\r\n<div mat-dialog-content>\r\n  \r\n   <div *ngFor=\"let item of data.msg\">\r\n      <p>Hospital previous quotes</p>\r\n      <mat-label>Product Name</mat-label>\r\n      <p>{{item.productname_sr }}</p>\r\n      <mat-label>Price</mat-label>\r\n      <p>{{item.price_sr }}</p>\r\n      <mat-label>Color</mat-label>\r\n      <p>{{item.color_sr }}</p>\r\n      <mat-label>Size</mat-label>\r\n      <p>{{item.size_sr }}</p>\r\n      <mat-label>Description</mat-label>\r\n      <p>{{item.description_sr }}</p>\r\n\r\n\r\n      <p>MD Stock quotes</p>\r\n      <mat-label>Product Name</mat-label>\r\n      <p>{{item.productname_md }}</p>\r\n      <mat-label>Price</mat-label>\r\n      <p>{{item.price_md }}</p>\r\n      <mat-label>Color</mat-label>\r\n      <p>{{item.color_md }}</p>\r\n      <mat-label>Size</mat-label>\r\n      <p>{{item.size_md }}</p>\r\n      <mat-label>Description</mat-label>\r\n      <p>{{item.description_md }}</p>\r\n      <hr>\r\n   </div>\r\n\r\n</div>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h1 mat-dialog-title>QUOTES</h1>\r\n<div mat-dialog-content>\r\n\r\n\r\n   <mat-card>\r\n      <table border=\"1\">\r\n         <tr>\r\n            <th>\r\n               <p>Hospital previous quotes</p>\r\n            </th>\r\n            <th>\r\n               <p>MD Stock quotes</p>\r\n            </th>\r\n         </tr>\r\n         <tr  *ngFor=\"let item of data.msg\">\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{ item.productname_sr }}</mat-label>\r\n               </p>\r\n               <mat-label>Price : {{item.price_sr }}</mat-label>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_sr }}</mat-label>\r\n               </p>\r\n            </td>\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{item.productname_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Price : {{item.price_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_md }}</mat-label>\r\n               </p>\r\n            </td>\r\n         </tr>\r\n      </table>\r\n   </mat-card>\r\n\r\n</div>");
 
 /***/ }),
 
@@ -11909,7 +11909,7 @@ let AddEditMedicalpartnersComponent = class AddEditMedicalpartnersComponent {
         // ===================================================
         //  =====================Image Upload Configuration====================
         this.configData = {
-            baseUrl: "http://3.15.236.141:5005/",
+            baseUrl: "https://fileupload.influxhostserver.com/",
             endpoint: "uploads",
             size: "51200",
             format: ["jpg", "jpeg", "png"],
@@ -12261,7 +12261,8 @@ let ListingMedicalpartnersComponent = class ListingMedicalpartnersComponent {
             "noofdoctors", "noofbeds", "Type", "image", "noofstaffs", "fullname", "images"];
         this.mpData_modify_header = {
             "hospitalname": "Hospital Name", "contactperson": "Contact Person", "state": "State", "city": "City",
-            "zip": "ZIP", "speciality": "Speciality", "status": "Status", "date": "Date", 'email': 'Primary Email'
+            "zip": "ZIP", "speciality": "Speciality", "status": "Status", "date": "Date", 'email': 'Primary Email',
+            "salesrepname": "SalesRep"
         };
         this.tableName = 'users';
         this.UpdateEndpoint = "addorupdatedata";
@@ -13807,7 +13808,7 @@ let MyDetailsComponent = class MyDetailsComponent {
         this.userData = JSON.parse(allData.user_details);
         this.role = this.userData.type;
         this.id = this.userData._id;
-        this.sharelink = 'https://dev.mdstockinternational.com/' + this.id;
+        this.sharelink = 'https://dev-hospital-signup.mdstockinternational.com/' + this.id;
         this.condition = { id: this.id };
         /**  generating the form **/
         this.generateForm();
@@ -16914,6 +16915,11 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
             else
                 this.action = "add";
         });
+        /** getting the user id **/
+        let allData = {};
+        allData = cookieService.getAll();
+        this.user_data = JSON.parse(allData.user_details);
+        this.id = this.user_data.id;
     }
     ngOnInit() {
         /** getting the hospital name **/
@@ -16954,7 +16960,8 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
             items: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([]),
             hospital_id: [],
             report_name: [],
-            is_draft: []
+            is_draft: [],
+            user_id: []
         });
     }
     /**  Form Array **/
@@ -16995,6 +17002,7 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
         console.log('Report NAme', this.reportName);
         this.purchaseForm.value.hospital_id = this.tmp_value;
         this.purchaseForm.value.report_name = this.reportName;
+        this.purchaseForm.value.user_id = this.id;
         console.log("All values", this.purchaseForm.value);
         if (this.purchaseForm.invalid) {
             return;
@@ -17005,7 +17013,7 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
                 "source": 'purchasecomparison',
                 "data": Object.assign(this.purchaseForm.value, this.condition),
                 "token": this.cookieService.get('jwtToken'),
-                "sourceobj": ["hospital_id"],
+                "sourceobj": ["hospital_id", "user_id"],
             };
             this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
                 if (response.status == "success") {
@@ -17053,7 +17061,7 @@ AddEditPurchaseComparisonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".clickable{\r\n    cursor: pointer;\r\n}\r\n\r\n \r\n.purchaseComparison table{ width: 100%;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7QUFDbkI7OztBQUdBLDJCQUEyQixXQUFXLENBQUMiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2ludmVudG9yeS9wdXJjaGFzZWNvbXBhcmlzb24vbGlzdGluZy1wdXJjaGFzZS1jb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNsaWNrYWJsZXtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuIFxyXG4ucHVyY2hhc2VDb21wYXJpc29uIHRhYmxleyB3aWR0aDogMTAwJTt9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".clickable{\r\n    cursor: pointer;\r\n}\r\n\r\n \r\n.purchaseComparison table{ width: 100%;}\r\n\r\n \r\n.searchBar{ justify-content: space-between;}\r\n\r\n \r\n.searchBar .action_button{width: 180px;\r\n    background: #06294e;\r\n    color: #fff;\r\n    text-transform: uppercase;\r\n    font-size: 18px;\r\n    padding: 6px;\r\n    border-radius: 0;}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7QUFDbkI7OztBQUdBLDJCQUEyQixXQUFXLENBQUM7OztBQUN2QyxZQUFZLDhCQUE4QixDQUFDOzs7QUFDM0MsMEJBQTBCLFlBQVk7SUFDbEMsbUJBQW1CO0lBQ25CLFdBQVc7SUFDWCx5QkFBeUI7SUFDekIsZUFBZTtJQUNmLFlBQVk7SUFDWixnQkFBZ0IsQ0FBQyIsImZpbGUiOiJzcmMvYXBwL0NvbXBvbmVudHMvaW52ZW50b3J5L3B1cmNoYXNlY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24vbGlzdGluZy1wdXJjaGFzZS1jb21wYXJpc29uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2xpY2thYmxle1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4gXHJcbi5wdXJjaGFzZUNvbXBhcmlzb24gdGFibGV7IHdpZHRoOiAxMDAlO31cclxuLnNlYXJjaEJhcnsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO31cclxuLnNlYXJjaEJhciAuYWN0aW9uX2J1dHRvbnt3aWR0aDogMTgwcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMDYyOTRlO1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgcGFkZGluZzogNnB4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogMDt9Il19 */");
 
 /***/ }),
 
@@ -17091,7 +17099,7 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
         this.dialog = dialog;
         this.user_cookie = '';
         this.purchaseFormData = [];
-        this.displayedColumns = ['no', 'hospitalname', 'salesrepname', 'reportname', 'draft', 'date', 'actions'];
+        this.displayedColumns = ['no', 'hospitalname', 'salesrepname', 'reportname', 'date', 'actions'];
         this.datasource = null;
         this.quoteArray = [];
         this.user_cookie = cookieService.get('jwtToken');
@@ -17106,12 +17114,17 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
         console.log("------------", this.purchaseFormData);
     }
     /** quote view **/
-    viewQuote(val) {
-        console.log("val", val);
-        // for (const key in val) {
-        //   console.log(val[key]);    
-        // }
-        this.openDialog(val);
+    viewQuote(index) {
+        console.log("index", index);
+        let data = {
+            'source': 'purchasecomparison_view_data',
+            'token': this.cookieService.get('jwtToken'),
+            'condition': { '_id': index }
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            let result = response.res;
+            this.openDialog(result[0].items);
+        });
     }
     /** Modal function **/
     openDialog(x) {
@@ -17120,6 +17133,39 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
             data: { msg: x }
         });
         this.dialogRef.afterClosed().subscribe(result => {
+        });
+    }
+    /** searching data**/
+    search_hospital(event) {
+        console.log("search value", event.target.value);
+        let data = {
+            'source': 'purchasecomparison_view_admin',
+            'condition': {
+                'hospital_name_regex': event.target.value
+            },
+            'token': this.cookieService.get('jwtToken')
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            let result = response.res;
+            this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](result);
+            this.datasource.paginator = this.paginator;
+        });
+    }
+    /** search draft **/
+    search_draft(event) {
+        console.log(event.value);
+        let data = {
+            'source': 'purchasecomparison_view_admin',
+            'condition': {
+                'is_draft': parseInt(event.value)
+            },
+            'token': this.cookieService.get('jwtToken')
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            let result = response.res;
+            console.log(result);
+            this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](result);
+            this.datasource.paginator = this.paginator;
         });
     }
 };
