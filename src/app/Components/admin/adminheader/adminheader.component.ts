@@ -46,7 +46,7 @@ export class AdminheaderComponent implements OnInit {
     this.cookieService.delete('jwtToken');
     this.cookieService.deleteAll();
     setTimeout(() => {
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/home');
     }, 3000);
   }
   /**logout function end here**/

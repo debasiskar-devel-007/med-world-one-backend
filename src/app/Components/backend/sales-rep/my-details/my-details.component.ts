@@ -39,7 +39,7 @@ export class MyDetailsComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
-    this.sharelink='https://dev.mdstockinternational.com/'+this.id;
+    this.sharelink='https://dev-hospital-signup.mdstockinternational.com/'+this.id;
     this.condition = { id: this.id };
 
     /**  generating the form **/

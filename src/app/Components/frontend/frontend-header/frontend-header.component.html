@@ -20,7 +20,7 @@
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
       <a mat-list-item class="login" *ngIf="type == ''" [routerLink]="'/login'">Login</a>
-      <a mat-list-item class="signup" *ngIf="type == ''">Signup</a>
+      <a mat-list-item href="https://dev-hospital-signup.mdstockinternational.com" class="signup" *ngIf="type == ''">Signup</a>
       <a mat-list-item class="signup" *ngIf="type != ''" (click)="logout();">Logout</a>
       <mat-card-content class="a_pro" *ngIf="type != ''">
         <span class="profile">
