@@ -2,7 +2,8 @@
     <mat-card class="main_wrapper">
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active"  [routerLink]="'/inventory/inventory-list/list'"> inventory-list </a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/inventory-list/list'"> inventory-list
+            </a>
             <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/inventory-list/add'"> add
             </a>
         </mat-card-content>
@@ -24,7 +25,7 @@
                 <!-- Brand mat-selection -->
                 <mat-form-field>
 
-                    <mat-label class="label">select Brand</mat-label>
+                    <mat-label class="label">Select Brand</mat-label>
 
                     <mat-select matNativeControl required formControlName="brand_name">
                         <mat-option value="0">select a brand</mat-option>
@@ -37,7 +38,7 @@
                 <!-- Inventory Category mat-selection  -->
                 <mat-form-field>
 
-                    <mat-label class="label">select Category</mat-label>
+                    <mat-label class="label">Select Category</mat-label>
 
                     <mat-select matNativeControl required formControlName="inventory_category">
                         <mat-option value="0">select a category</mat-option>
@@ -115,16 +116,71 @@
                     <mat-label class="label">In Stock</mat-label>
                     <input matInput type="number" formControlName="instock">
                 </mat-form-field><br>
+
+                <br><br>
+                <fieldset>
+                    <legend>Add specifications</legend>
+
+                    <!-- SKU  -->
+                    <mat-form-field>
+                        <mat-label>SKU#</mat-label>
+                        <input matInput formControlName="sku">
+                    </mat-form-field>
+
+
+                    <!-- Manufacturer  -->
+                    <mat-form-field>
+                        <mat-label>Manufacturer</mat-label>
+                        <input matInput formControlName="manufacturer">
+                    </mat-form-field>
+
+
+                    <!-- Application  -->
+                    <mat-form-field>
+                        <mat-label>Application</mat-label>
+                        <input matInput formControlName="application">
+                    </mat-form-field>
+
+                    <!-- UNSPSC  -->
+                    <mat-form-field>
+                        <mat-label>UNSPSC Code</mat-label>
+                        <input matInput formControlName="unspsc">
+                    </mat-form-field>
+
+                    <!-- Latex free Indicator  -->
+                    <mat-form-field>
+                        <mat-label>Latex free Indicator</mat-label>
+                        <input matInput formControlName="latexfreeindicator">
+                    </mat-form-field>
+
+                    
+                    <br><br>
+                    <div *ngFor="let i of i_count" class="dynamic_attribute">
+                        <mat-form-field>
+                            <input matInput placeholder="Enter Attribute Name">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Enter Value">
+                        </mat-form-field>
+                    </div>
+                    <button mat-flat-button type="button" (click)="addFields()" color="accent">
+                            <mat-icon>add</mat-icon> Add more Specification
+                        </button>
+                </fieldset>
+                <br>
+
                 <!-- Status -->
 
                 <mat-label class="label">Status</mat-label><br>
                 <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
 
                 <span class="button_wrapper">
                     <!-- Dynamic form fields  -->
                     <button mat-flat-button type="button" (click)="create_field()" color="primary">Add field </button>
 
                     <!-- Buttons  -->
+                   
                     <button mat-flat-button type="reset" color="warn">RESET</button>
                     <button mat-flat-button type="button" (click)="onSubmit()" color="accent">{{btn_text}} </button>
                 </span>
