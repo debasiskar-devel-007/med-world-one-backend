@@ -121,9 +121,6 @@ setDefaultValue(defaultValue) {
   this.inventoryForm.patchValue({
     inventory_name:defaultValue.inventory_name,
     brand_name:defaultValue.brand_name,
-    inventory_category:defaultValue.inventory_category,
-    model:defaultValue.model,
-    description:defaultValue.description,
     condition:defaultValue.condition,
     availabiity:defaultValue.availabiity,
     instock:defaultValue.instock,
@@ -253,6 +250,7 @@ setDefaultValue(defaultValue) {
 
     /*create_field*/
     create_field(){
+      console.log('hit ......!')
       this.inventoryForm.addControl('newcontrol',new FormControl('',Validators.required));
     }
 }

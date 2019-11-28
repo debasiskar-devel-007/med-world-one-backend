@@ -455,7 +455,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     resolve: { priceMarkupList: ResolveService },
     data: {
       requestcondition: {
-        source: 'priceMarkup_view',
+        source: 'priceMarkup',
         condition: {}
       },
       endpoint: 'datalist'

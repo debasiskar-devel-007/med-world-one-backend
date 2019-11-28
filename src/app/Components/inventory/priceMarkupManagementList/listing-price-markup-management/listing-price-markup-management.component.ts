@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { environment } from '../../../../../environments/environment.dev' 
 
 @Component({
   selector: 'app-listing-price-markup-management',
@@ -27,7 +28,7 @@ UpdateEndpoint: any = "addorupdatedata";
 public deleteEndpoint: any = "deletesingledata";
 searchingEndpoint: any = "datalist";
 editUrl: any = '/inventory/price-markup-management-list/edit';
-apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+public apiUrl: any;
 public search_settings: any =
   {
     textsearch: [{ }]
@@ -38,6 +39,8 @@ public search_settings: any =
   constructor(private http: HttpServiceService, private cookieService: CookieService,
     private router: Router, public activatedRoute: ActivatedRoute) { 
     this.user_cookie = cookieService.get('jwtToken');
+    this.apiUrl = http.baseUrl;
+
     console.log("tokennnnnnnnnnn",this.user_cookie);
   }
 
