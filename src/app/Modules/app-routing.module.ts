@@ -73,14 +73,13 @@ import { ListingPurchaseComparisonComponent } from '../Components/inventory/purc
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -133,7 +132,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -165,7 +164,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -195,7 +194,7 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -432,7 +431,7 @@ const routes: Routes = [
   },
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
-data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
+data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -456,7 +455,7 @@ data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
     resolve: { priceMarkupList: ResolveService },
     data: {
       requestcondition: {
-        source: 'priceMarkup_view',
+        source: 'priceMarkup',
         condition: {}
       },
       endpoint: 'datalist'
@@ -545,7 +544,7 @@ data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparison_view',
+        source: 'purchasecomparison_view_admin',
         condition: {}
       },
       endpoint: 'datalist'

@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-import { InventoryComponent } from 'src/app/Components/frontend/inventory/inventory.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-edit-purchase-comparison',
@@ -18,27 +18,41 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public hospital_name_array: any = [];
   public purchaseForm: FormGroup;
   public items: FormArray;
-  public condition:any;
-  public action:any;
-  public defaultData:any;
-  public btn_text:any;
-  public tmp_value:any;
+  public condition: any;
+  public action: any;
+  public defaultData: any;
+  public btn_text: any;
+  public tmp_value: any;
+  public reportName: string;
+  public user_data:any;
+  public id:any;
+
+
 
 
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
-    public formBuilder: FormBuilder , private router : Router , public activatedRoute : ActivatedRoute) {
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition = { id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.data.res[0];
-          });
-        }
-        else
-          this.action = "add";
-      });
+    public formBuilder: FormBuilder, private router: Router, public activatedRoute: ActivatedRoute,
+    private matSnackBar: MatSnackBar) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.data.res[0];
+        });
+      }
+      else
+        this.action = "add";
+    });
+
+    /** getting the user id **/
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.user_data = JSON.parse(allData.user_details);
+    this.id = this.user_data.id;
+  
+   
 
   }
 
@@ -52,6 +66,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     /** by default a single form will be selected **/
     this.addItem();
 
+
+    /** Switch case**/
     switch (this.action) {
       case 'add':
         /* Button text */
@@ -84,11 +100,15 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   generateForm() {
     this.purchaseForm = this.formBuilder.group({
       items: new FormArray([]),
-      hospitalname:[]
+      hospital_id: [],
+      report_name: [],
+      is_draft: [],
+      user_id: []
     });
   }
 
 
+  /**  Form Array **/
   createItem(): FormGroup {
     return this.formBuilder.group({
       productname_sr: [],
@@ -101,10 +121,11 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       size_md: [],
       color_md: [],
       description_md: [],
-
     });
   }
 
+
+  /** adding item to form array **/
   addItem(): void {
     this.items = this.purchaseForm.get('items') as FormArray;
     this.items.push(this.createItem());
@@ -112,17 +133,29 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
 
   /** takeName **/
-  takeName(event:any){
-    this.tmp_value= event.value;
-    console.log("----------------HN",this.tmp_value);
+  takeName(event: any) {
+    this.tmp_value = event.value;
+    console.log("----------------HN", this.tmp_value);
+  }
+
+  /** taking the report name **/
+  takereport_name(event: any) {
+    console.log("+++++++++++", event);
+  }
+
+  /** set draft **/
+  setDraft() {
+    this.purchaseForm.value.is_draft = 1;
   }
 
   /** submit function **/
-  onSubmit(){
+  onSubmit() {
 
-    
-   this.purchaseForm.value.hospitalname = this.tmp_value
-   console.log("All values",this.purchaseForm.value);
+    console.log('Report NAme', this.reportName);
+    this.purchaseForm.value.hospital_id = this.tmp_value;
+    this.purchaseForm.value.report_name = this.reportName;
+    this.purchaseForm.value.user_id = this.id;
+    console.log("All values", this.purchaseForm.value);
 
     if (this.purchaseForm.invalid) {
       return;
@@ -135,17 +168,17 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "source": 'purchasecomparison',
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["hospitalname"],
-        
+        "sourceobj": ["hospital_id","user_id"],
+
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-            // this.openDialog(this.successMessage);
-            // setTimeout(() => {
-            //   this.dialogRef.close();
-            // }, 2000);
+          // this.openDialog(this.successMessage);
+          // setTimeout(() => {
+          //   this.dialogRef.close();
+          // }, 2000);
 
 
           // this.router.navigateByUrl('inventory/inventory-list/list');;
