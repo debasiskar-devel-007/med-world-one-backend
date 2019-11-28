@@ -1,11 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, FormArrayName } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { InventoryComponent } from 'src/app/Components/frontend/inventory/inventory.component';
-// import { deflate } from 'zlib';
+
+import * as _ from "lodash";
 
 
 @Component({
@@ -32,8 +33,13 @@ export class AddEditInventoryComponent implements OnInit {
   public imageName: any;
   public imageType: any;
   public img_flag: any = false;
-  public add_field_flag:boolean=false;
-  public i_count:any = [];
+  public add_field_flag: boolean = false;
+  public i_count: any = [];
+  public dummy_array: any;
+  public attr_name: any;
+  public attr_value: any;
+
+
 
 
   // ===================================================
@@ -110,11 +116,12 @@ export class AddEditInventoryComponent implements OnInit {
       instock: [],
       status: [],
       inventory_image: [],
-      sku:[],
-      manufacturer:[],
-      application:[],
-      unspsc:[],
-      latexfreeindicator:[]
+      sku: [],
+      manufacturer: [],
+      application: [],
+      unspsc: [],
+      latexfreeindicator: [],
+      credentials: this.formBuilder.array([]),
     });
   }
   // =======================================================
@@ -124,6 +131,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
+    console.log("defaultValue", defaultValue);
     this.inventoryForm.patchValue({
       inventory_name: defaultValue.inventory_name,
       brand_name: defaultValue.brand_name,
@@ -134,12 +142,30 @@ export class AddEditInventoryComponent implements OnInit {
       availabiity: defaultValue.availabiity,
       instock: defaultValue.instock,
       status: defaultValue.status,
-      inventory_image: defaultValue.inventory_image
+      inventory_image: defaultValue.inventory_image,
+      sku: defaultValue.sku,
+      manufacturer: defaultValue.manufacturer,
+      application: defaultValue.application,
+      unspsc: defaultValue.unspsc,
+      latexfreeindicator: defaultValue.latexfreeindicator,
+
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
     this.imageName = defaultValue.inventory_image.name;
     this.imageType = defaultValue.inventory_image.type;
+    // const creds = this.inventoryForm.controls.credentials as FormArray;
+    for (const i2 in defaultValue.credentials) {
+      //  console.log("->",defaultValue.credentials[i2]);
+      var res = defaultValue.credentials[i2];
+      var a_name = Object.keys(res);
+      var a_value = Object.values(res);
+      // defaultValue.attr_name = a_name;
+
+      console.log("->", a_name + "+" + a_value);
+      this.addFields(a_name, a_value);
+    }
+
 
   }
   // ===================================================================================
@@ -150,6 +176,13 @@ export class AddEditInventoryComponent implements OnInit {
   // ======================submit form=======================
   onSubmit() {
 
+    const creds = this.inventoryForm.controls.credentials as FormArray;
+    creds.push(this.formBuilder.group({
+      [this.attr_name]: this.attr_value
+    }));
+
+
+    console.log(this.inventoryForm.value);
 
     // Service File Upload Works 
     if (this.configData.files) {
@@ -165,8 +198,7 @@ export class AddEditInventoryComponent implements OnInit {
     } else {
       this.inventoryForm.value.inventory_image = false;
     }
-    console.log('>>>>>>>>>>>>>>', this.inventoryForm.value.inventory_image)
-    console.log("--------------->", this.inventoryForm.value);
+
     if (this.inventoryForm.invalid) {
       return;
     }
@@ -258,8 +290,27 @@ export class AddEditInventoryComponent implements OnInit {
 
 
   /** adding dynamic fields **/
-  addFields(){
-    this.i_count.push('A');
-    this.inventoryForm.addControl('xxx',new FormControl('',Validators.required));
+  addFields(a: any, b: any) {
+    // this.i_count.push(this.inventoryForm.addControl( this.attr_name,new FormControl(this.attr_value)));   
+    const creds = this.inventoryForm.controls.credentials as FormArray;
+    a = this.attr_name;
+    b = this.attr_value;
+    creds.push(this.formBuilder.group({
+      [a]: b
+    }));
+  }
+
+  /** make attribute**/
+  makeAttr(event: any) {
+    this.attr_name = event.target.value;
+  }
+
+  /** make name **/
+  makeValue(event: any) {
+    this.attr_value = event.target.value;
+  }
+
+  trackByFn(index) {
+    return index;
   }
 }
