@@ -199,7 +199,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   //collecting mass emails
   collect_email(event: any) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 32) {
       this.collect_email_array.push(event.target.value);
       this.medicalPartnerForm.controls['contactemails'].patchValue("");
       return;
@@ -208,7 +208,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   //collecting mass phones
   collect_phones(event: any) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 32) {
       this.collect_phone_array.push(event.target.value);
       this.medicalPartnerForm.controls['contactphones'].patchValue("");
       return;

@@ -8,11 +8,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ContactusListingComponent implements OnInit {
 public contactData:any=[];
 // ===============================Declarations=========================
-contactData_skip: any = [];
+contactData_skip: any = ["_id"];
 detail_skip_array:any=[]
 contactData_modify_header: any = {
 };
-tableName: any = 'Contact Person';
+tableName: any = 'Contact Persons';
 UpdateEndpoint: any = "";
 deleteEndpoint: any = "deletesingledata";
 
@@ -37,7 +37,7 @@ public search_settings: any = {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
     this.contactData = resolveData.contactlist.res;
-      console.log(resolveData.contactlist.res);
+      //console.log(resolveData.contactlist.res);
     });
   }
 

@@ -73,7 +73,7 @@ import { ListingPurchaseComparisonComponent } from '../Components/inventory/purc
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
@@ -432,7 +432,7 @@ const routes: Routes = [
   },
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
-data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
+data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
