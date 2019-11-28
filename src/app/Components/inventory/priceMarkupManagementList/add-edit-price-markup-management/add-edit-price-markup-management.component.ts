@@ -27,7 +27,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
   public action: any = 'add';
   public header_txt: any = 'Add Price Markup';
   public priceMarkupData: any;
-  public name_txt:any="ADD";
+  public name_txt:any="Add";
 
 
 
@@ -134,12 +134,12 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
-        this.name_txt="ADD";
+        this.name_txt="Add";
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.name_txt="EDIT";
+        this.name_txt="Edit";
         this.successMessage = "One row updated";
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Price Markup";
@@ -180,7 +180,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
   //submit button
   onSubmit() {
     let flagval: any = 0;
-    for (var x in this.priceMarkupForm.controls) {
+    for (let x in this.priceMarkupForm.controls) {
       this.priceMarkupForm.controls[x].markAsTouched();
     }
 
@@ -210,8 +210,6 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
         "token": this.cookieService.get('jwtToken'),
         "sourceobj": ["country"]
       };
-
-
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         let result: any;

@@ -129,6 +129,7 @@ export class AddEditInventoryComponent implements OnInit {
 
 
 
+
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
     console.log("defaultValue", defaultValue);
@@ -169,8 +170,6 @@ export class AddEditInventoryComponent implements OnInit {
 
   }
   // ===================================================================================
-
-
 
 
   // ======================submit form=======================
@@ -274,6 +273,7 @@ export class AddEditInventoryComponent implements OnInit {
 
 
   //getting the brand name
+
 
   getInventoryCategory() {
     var data: any;
