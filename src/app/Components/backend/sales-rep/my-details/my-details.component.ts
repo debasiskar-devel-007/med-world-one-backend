@@ -1,10 +1,11 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
+import { zip } from 'rxjs';
+import { ClipboardService } from 'ngx-clipboard';
 
 @Component({
   selector: 'app-my-details',
@@ -25,11 +26,12 @@ export class MyDetailsComponent implements OnInit {
   allCities: any;
   cities: any;
   message: string = "Account Details Updated Successfully!!";
-  
+  sharelink:any;
+
 
   constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder, public http: HttpServiceService , private snackBar : MatSnackBar,
-    public router : Router) {
+    private formBuilder: FormBuilder, public http: HttpServiceService, private snackBar: MatSnackBar,
+    public router: Router,public clipboardService:ClipboardService) {
 
     /*Getting the role*/
     let allData: any = {};
@@ -37,22 +39,16 @@ export class MyDetailsComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
-    console.log("id->",this.id);
-    this.condition = { id:this.id };
-    console.log("Data from cookie", this.userData);
+    this.sharelink='https://dev-hospital-signup.mdstockinternational.com/'+this.id;
+    this.condition = { id: this.id };
 
-
-
-    //calling the form generation
+    /**  generating the form **/
     this.generateForm();
-    if (this.id != null) {
-      this.condition = { id: this.id };
-      this.activatedRoute.data.subscribe(resolveData => {
-        this.defaultData = resolveData.data.res[0];
-        console.log("+++", this.defaultData);
-        this.setDefaultValue(this.defaultData);
-      });
-    }
+    /**  setting the default value **/
+    this.setDefaultValue(this.userData);
+
+    console.log("ALL", this.userData);
+
 
 
   }
@@ -73,12 +69,12 @@ export class MyDetailsComponent implements OnInit {
   /* Form Generation */
   generateForm() {
     this.salesRepForm = this.formBuilder.group({
-      firstname: ['',Validators.required],
-      lastname: ['',Validators.required],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
       email: [{ value: '--', disabled: true }],
       city: [],
       state: [],
-      zip: ['',Validators.required],
+      zip: ['', Validators.required],
       date: [{ value: '--', disabled: true }]
     });
   }
@@ -86,7 +82,6 @@ export class MyDetailsComponent implements OnInit {
 
   /**  Setting the default value **/
   setDefaultValue(defaultValue) {
-    console.log("default Value", defaultValue);
     this.salesRepForm.patchValue({
       firstname: defaultValue.firstname,
       lastname: defaultValue.lastname,
@@ -100,42 +95,61 @@ export class MyDetailsComponent implements OnInit {
 
 
   /** Submit function goes here **/
-  onSubmit() {
-    
-     if (this.salesRepForm.invalid)
-       return;
-     else {
- 
-       let postData: any = {
-         'source': 'users',
-         'data': Object.assign(this.salesRepForm.value,this.condition),
-         'token': this.cookieService.get('jwtToken')
-       }
- 
-       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-         if (response.status == 'success') { 
-         
-      
-           let action: any = "Ok";
-           this.snackBar.open(this.message, action, {
-             duration: 1000,
-           });
- 
-          
- 
-           setTimeout(() => {
-             this.router.navigateByUrl('/salesrep/my-details');
-           }, 3000);         
-         }
-         else{
-           this.snackBar.open(response.status, "OK", {
-             duration: 1500
-           });   
-         }
- 
-       });
-     }
-   }
+  onUpdate() {
+    for (let i in this.salesRepForm.controls) {
+      this.salesRepForm.controls[i].markAsTouched();
+    }
+
+    if (this.salesRepForm.invalid)
+      return;
+    else {
+
+      let postData: any = {
+        'source': 'users',
+        'data': Object.assign(this.salesRepForm.value, this.condition),
+        'token': this.cookieService.get('jwtToken')
+      }
+
+      this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+        if (response.status == 'success') {
+
+          var userDetailsCookie: any = JSON.parse(this.cookieService.get('user_details'));
+          var type: any = userDetailsCookie.type;
+          this.cookieService.delete('user_details');
+
+          /**  setting the required fields **/
+          userDetailsCookie.firstname = this.salesRepForm.value.firstname;
+          userDetailsCookie.lastname = this.salesRepForm.value.lastname;
+          userDetailsCookie.state = this.salesRepForm.value.state;
+          userDetailsCookie.city = this.salesRepForm.value.city;
+          userDetailsCookie.zip = this.salesRepForm.value.zip;
+
+          setTimeout(() => {
+            this.cookieService.set('user_details', userDetailsCookie);
+          }, 1000);
+
+
+          userDetailsCookie = JSON.stringify(userDetailsCookie);
+          let action: any = "Ok";
+          this.snackBar.open(this.message, action, {
+            duration: 1000,
+          });
+
+
+
+          setTimeout(() => {
+            this.router.navigateByUrl('/salesrep/my-details');
+          }, 3000);
+        }
+        else {
+          this.snackBar.open(response.status, "OK", {
+            duration: 1500
+          });
+        }
+
+      });
+    }
+  }
 
   /**for getting all states & cities function start here**/
   allStateCityData() {
@@ -159,4 +173,17 @@ export class MyDetailsComponent implements OnInit {
     this.cities = this.allCities[stateName];
   }
 
+  /** blur function**/
+  inputBlur(val: any) {
+    this.salesRepForm.controls[val].markAsUntouched();
+  }
+
+  /** */
+  copytoclipboard(){
+    this.clipboardService.copyFromContent(this.sharelink);
+   this.snackBar.open('Link Copy','', {
+      duration: 500
+    });
+    
+  }
 }

@@ -66,21 +66,20 @@ import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/p
 import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
 import { AddEditLanguageComponent } from '../Components/miscellaneous/language-container/add-edit-language/add-edit-language.component';
 import { ListingLanguageComponent } from '../Components/miscellaneous/language-container/listing-language/listing-language.component';
-import { AddEditPurchaseComparisonComponent } from '../Components/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
-import { ListingPurchaseComparisonComponent } from '../Components/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+import { AddEditPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -133,7 +132,7 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -165,7 +164,7 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -195,7 +194,7 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'user',
+        source: 'users',
         condition: {}
       },
       endpoint: 'datalist'
@@ -432,7 +431,7 @@ const routes: Routes = [
   },
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
-data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
+data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -538,26 +537,26 @@ data:{requestcondition:{source:'contactus',condition:{}},endpoint:'datalist'},},
   },
 
   // __________________purchase comparison____________________________
-  { path: 'purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
+  { path: 'inventory/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
   {
-    path: 'purchase-comparison/list',
+    path: 'inventory/purchase-comparison/list',
     component: ListingPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparisontable',
+        source: 'purchasecomparison_view_admin',
         condition: {}
       },
       endpoint: 'datalist'
     },
   },
   {
-    path: 'purchase-comparison/edit/:_id',
+    path: 'inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        source: 'purchasecomparisontable',
+        source: 'purchasecomparison',
         condition: {}
       },
       endpoint: 'datalist'

@@ -24,7 +24,7 @@ export class ListingAdminComponent implements OnInit {
     "status": "Status", "fullname": "Full Name", "email": "Email",
     "phone": "Phone","date":"Date"
   };
-  tableName: any = 'user';
+  tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;

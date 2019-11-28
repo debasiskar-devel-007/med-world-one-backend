@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>QUOTES</h1>
+<div mat-dialog-content>
+
+
+   <mat-card>
+      <table border="1">
+         <tr>
+            <th>
+               <p>Hospital previous quotes</p>
+            </th>
+            <th>
+               <p>MD Stock quotes</p>
+            </th>
+         </tr>
+         <tr  *ngFor="let item of data.msg">
+            <td>
+               <p>
+                  <mat-label>Product Name : {{ item.productname_sr }}</mat-label>
+               </p>
+               <mat-label>Price : {{item.price_sr }}</mat-label>
+               <p>
+                  <mat-label>Color : {{item.color_sr }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Size : {{item.size_sr }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Description : {{item.description_sr }}</mat-label>
+               </p>
+            </td>
+            <td>
+               <p>
+                  <mat-label>Product Name : {{item.productname_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Price : {{item.price_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Color : {{item.color_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Size : {{item.size_md }}</mat-label>
+               </p>
+               <p>
+                  <mat-label>Description : {{item.description_md }}</mat-label>
+               </p>
+            </td>
+         </tr>
+      </table>
+   </mat-card>
+
+</div>

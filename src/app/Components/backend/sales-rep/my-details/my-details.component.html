@@ -9,82 +9,98 @@
 
         <mat-card-content class="mydetails_form_wrapper">
             <form [formGroup]="salesRepForm" autocomplete="off">
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">First Name</mat-label>
-                <mat-form-field>
-                    <input matInput formControlName="firstname">
-                    <mat-error *ngIf="!salesRepForm.controls['firstname'].valid
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">First Name</mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="firstname" (blur)="inputBlur('firstname')">
+                        <mat-error *ngIf="!salesRepForm.controls['firstname'].valid
           && salesRepForm.controls['firstname'].errors.required">First Name is required.</mat-error>
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">Last Name</mat-label>
-                <mat-form-field>
-                    <input matInput formControlName="lastname">
-                    <mat-error *ngIf="!salesRepForm.controls['lastname'].valid
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">Last Name</mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="lastname" (blur)="inputBlur('lastname')">
+                        <mat-error *ngIf="!salesRepForm.controls['lastname'].valid
           && salesRepForm.controls['lastname'].errors.required">Last Name is required.</mat-error>
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">EMAIL ADDRESS </mat-label>
-                <mat-form-field>
-                    <input matInput formControlName="email">
-                </mat-form-field>
-            </mat-card-content>
-           
-                
-          
-
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">STATE</mat-label>
-            <mat-form-field class="parent_cat" appearance="fill">
-     
-                <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
-                    <!-- <mat-option [value]=0>Select a category</mat-option> -->
-                    <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </mat-card-content>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">EMAIL ADDRESS </mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="email" (blur)="inputBlur('email')">
+                    </mat-form-field>
+                </mat-card-content>
 
 
-           
 
 
-        <mat-card-content class="forms">
-            <mat-label class="mydetails_ac_lebel">CITY</mat-label>
-            <mat-form-field>
-                <mat-select formControlName="city">
-                    <!-- <mat-option value=0 class="mydetails_ac_lebel">Select a city</mat-option> -->
-                    <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </mat-card-content>
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">STATE</mat-label>
+                    <mat-form-field class="parent_cat" appearance="fill">
 
-       
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">ZIP CODE</mat-label>
-                <mat-form-field>
-                    <input matInput formControlName="zip">
-                    <mat-error *ngIf="!salesRepForm.controls['zip'].valid
+                        <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                            <!-- <mat-option [value]=0>Select a category</mat-option> -->
+                            <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card-content>
+
+
+
+
+
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">CITY</mat-label>
+                    <mat-form-field>
+                        <mat-select formControlName="city">
+                            <!-- <mat-option value=0 class="mydetails_ac_lebel">Select a city</mat-option> -->
+                            <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-card-content>
+
+
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">ZIP CODE</mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="zip" (blur)="inputBlur('zip')">
+                        <mat-error *ngIf="!salesRepForm.controls['zip'].valid
           && salesRepForm.controls['zip'].errors.required">ZIP is required.</mat-error>
-                </mat-form-field>
-            </mat-card-content>
-            <mat-card-content class="forms">
-                <mat-label class="mydetails_ac_lebel">DATE JOINED</mat-label>
-                <mat-form-field>
-                    <input matInput formControlName="date">
-                </mat-form-field>
-            </mat-card-content>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-content class="forms">
+                    <mat-label class="mydetails_ac_lebel">DATE JOINED</mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="date">
+                    </mat-form-field>
+                </mat-card-content>
 
-            <mat-toolbar class="button_action">
-                <button mat-button (click)="onSubmit()" >update</button>
-                <button mat-button>cancel</button>
-            </mat-toolbar>
+                <mat-toolbar class="button_action">
+                    <button mat-button type="button" (click)="onUpdate()">update</button>
+                    <button mat-button>cancel</button>
+                </mat-toolbar>
             </form>
 
         </mat-card-content>
-    </mat-card-content>
+        <mat-toolbar class="share_linkBar">
+            <mat-card-content class="share_LL">SHARE LINK FOR HOSPITAL SIGN UP</mat-card-content>
+            <span class="copyLinkWrappr">
+                <mat-label class="share_link">{{sharelink}}</mat-label>
+                <button mat-button type="button" (click)="copytoclipboard()"><i class="fa fa-clipboard"
+                        aria-hidden="true"></i>
+                </button>
+            </span>
 
+            <mat-card-content class="social_media_wrapper">
+                <button mat-button><i class="fa fa-facebook" aria-hidden="true"></i></button>
+                <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i></button>
+                <button mat-button><i class="fa fa-twitter" aria-hidden="true"></i></button>
+                <button mat-button><i class="fa fa-tumblr" aria-hidden="true"></i></button>
+            </mat-card-content>
+        </mat-toolbar>
+    </mat-card-content>
 
     <!-- <mat-card-content class="images">
         <img src="/assets/images/sales_myaccount.jpg">

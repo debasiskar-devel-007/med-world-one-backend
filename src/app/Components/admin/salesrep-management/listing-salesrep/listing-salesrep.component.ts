@@ -20,7 +20,7 @@ export class ListingSalesrepComponent implements OnInit {
     "name":"Name","email":"Email","state":"State","city":"City","zip":"ZIP","phone":"Phone","fax":"FAX",
     "status":"Status","date":"Date"
   };
-  tableName: any = 'user';
+  tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;

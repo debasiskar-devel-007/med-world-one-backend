@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../../../environments/environment.dev';
 
 @Component({
   selector: 'app-listing-team',
@@ -10,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ListingTeamComponent implements OnInit {
 
   public allDataList:any=[];
-  public serverUrl:any="https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  public serverUrl:any=environment.API_URL;
   public token=this.cookies.get('jwtToken');
   public deleteendpoint:any="deletesingledata";
   public editUrl="manage-websites/team/edit";

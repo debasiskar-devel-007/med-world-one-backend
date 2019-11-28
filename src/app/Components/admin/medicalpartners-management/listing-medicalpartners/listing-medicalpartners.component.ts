@@ -17,12 +17,14 @@ export class ListingMedicalpartnersComponent implements OnInit {
 
   // ===============================Declarations=========================
   mpData: any = [];
-  mpData_skip: any = ["_id", "password","contactphones","contactemails","address","noofdoctors","noofbeds","Type","image","noofstaffs","fullname"];
+  mpData_skip: any = ["_id", "password","contactphones","contactemails","address",
+  "noofdoctors","noofbeds","Type","image","noofstaffs","fullname","images"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
-   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email'
+   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email',
+   "salesrepname":"SalesRep"
   };
-  tableName: any = 'user';
+  tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
@@ -41,7 +43,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
     };
   // ====================================================================
     /*Showing Image in the Modal*/
-    pendingmodelapplicationarray_detail_datatype: [{
+    pendingmodelapplicationarray_detail_datatype:any= [{
       key: 'images',
       value: 'images',
       fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'       // Image path 

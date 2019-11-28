@@ -54,17 +54,17 @@ export class MyDetailsHospitalComponent implements OnInit {
 
    
 
-    this.basepath = this.userData.mpimage.basepath;
-    this.image = this.userData.mpimage.image;
-    this.name = this.userData.mpimage.name;
-    this.type = this.userData.mpimage.type;
-    this.fullpath = this.basepath + this.image;
+    // this.basepath = this.userData.mpimage.basepath;
+    // this.image = this.userData.mpimage.image;
+    // this.name = this.userData.mpimage.name;
+    // this.type = this.userData.mpimage.type;
+    // this.fullpath = this.basepath + this.image;
     
 
     
     this.contactemailarray = this.userData.contactemails;
     this.contactphonesarray = this.userData.contactphones;
-    console.log("Data from cookie",this.userData);
+    
   }
 
   ngOnInit() {
@@ -234,7 +234,6 @@ export class MyDetailsHospitalComponent implements OnInit {
          
  
            setTimeout(() => {
-             console.log("hit");
              this.router.navigateByUrl('hospital/my-details');
            }, 6000);         
          }

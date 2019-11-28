@@ -1,0 +1,14 @@
+.clickable{
+    cursor: pointer;
+}
+
+ 
+.purchaseComparison table{ width: 100%;}
+.searchBar{ justify-content: space-between;}
+.searchBar .action_button{width: 180px;
+    background: #06294e;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 6px;
+    border-radius: 0;}
