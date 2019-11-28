@@ -24,6 +24,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public btn_text: any;
   public tmp_value: any;
   public reportName: string;
+  public user_data:any;
+  public id:any;
 
 
 
@@ -43,6 +45,14 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       else
         this.action = "add";
     });
+
+    /** getting the user id **/
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.user_data = JSON.parse(allData.user_details);
+    this.id = this.user_data.id;
+  
+   
 
   }
 
@@ -92,7 +102,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       items: new FormArray([]),
       hospital_id: [],
       report_name: [],
-      is_draft: []
+      is_draft: [],
+      user_id: []
     });
   }
 
@@ -143,6 +154,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     console.log('Report NAme', this.reportName);
     this.purchaseForm.value.hospital_id = this.tmp_value;
     this.purchaseForm.value.report_name = this.reportName;
+    this.purchaseForm.value.user_id = this.id;
     console.log("All values", this.purchaseForm.value);
 
     if (this.purchaseForm.invalid) {
@@ -156,7 +168,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "source": 'purchasecomparison',
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["hospital_id"],
+        "sourceobj": ["hospital_id","user_id"],
 
       };
 

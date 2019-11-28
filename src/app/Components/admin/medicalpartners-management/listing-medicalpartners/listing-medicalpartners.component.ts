@@ -21,7 +21,8 @@ export class ListingMedicalpartnersComponent implements OnInit {
   "noofdoctors","noofbeds","Type","image","noofstaffs","fullname","images"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
-   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email'
+   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email',
+   "salesrepname":"SalesRep"
   };
   tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
