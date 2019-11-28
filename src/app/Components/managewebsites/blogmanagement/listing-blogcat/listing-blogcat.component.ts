@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-listing-blogcat',
@@ -11,7 +12,7 @@ export class ListingBlogcatComponent implements OnInit {
 
   //Listing for blog category
   public blogListConfig:any = {
-    apiBaseUrl: "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/",
+    apiBaseUrl: environment.API_URL,
     listEndPoint: "datalist",
     datasource: "",
     tableName: "blog_category",

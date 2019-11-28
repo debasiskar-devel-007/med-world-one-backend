@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../../../../../environments/environment.dev';
 
 @Component({
   selector: 'app-add-edit-blogs',
@@ -10,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AddEditBlogsComponent implements OnInit {
 
 
-  server: any ='https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/';
+  server: any = environment.API_URL;
   addUrl: any = 'addorupdatedata';
   getDataUrl: any= 'datalist';
   public editdata: any = [];

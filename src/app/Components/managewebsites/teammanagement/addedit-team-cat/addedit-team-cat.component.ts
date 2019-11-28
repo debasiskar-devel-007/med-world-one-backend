@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../../../environments/environment.dev';
 
 @Component({
   selector: 'app-addedit-team-cat',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddeditTeamCatComponent implements OnInit {
 
   public teamDataList: any = [];
-  public serverUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  public serverUrl: any = environment.API_URL;
   public addendpoint: any = "addorupdatedata";
   public listRoute: any = "manage-websites/team-category/list";
   public SingleTeamData: any = [];

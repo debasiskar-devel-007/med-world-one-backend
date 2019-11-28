@@ -13,7 +13,7 @@ export class AccountsComponent implements OnInit {
   // ==============declaraton=========
   user_data: any;
   accountForm: FormGroup;
-  id:any;
+  id: any;
   // ==================================
 
   constructor(public cookieService: CookieService, private formBuilder: FormBuilder,
@@ -30,17 +30,31 @@ export class AccountsComponent implements OnInit {
   ngOnInit() {
 
     //checking the types
-    if (this.user_data.Type == 'admin') {
-      console.log('admin');      
-         this.router.navigateByUrl('/admin-management/edit/'+this.id);
-    }
-    else if (this.user_data.Type == 'hospital') {
-      console.log('hospital');
-      this.router.navigateByUrl('/admin/medicalpartners-management/edit/'+this.id);
-    }
-    else {
-      console.log('salesrep');
-      this.router.navigateByUrl('/admin/salesrep-management/edit/'+this.id);
+    // if (this.user_data.type == 'admin') {
+
+    // }
+    // else if (this.user_data.type == 'hospital') {
+
+    // }
+    // else {
+
+    // }
+    console.log("---***------",this.user_data.type);
+    switch (this.user_data.type) {
+      case 'admin':
+        console.log('admin');
+        this.router.navigateByUrl('/admin-management/edit/' + this.id);
+        break;
+      case 'hospital':
+        console.log('hospital');
+        this.router.navigateByUrl('/admin/medicalpartners-management/edit/' + this.id);
+        break;
+      case 'salesrep':
+        console.log('salesrep');
+        this.router.navigateByUrl('/admin/salesrep-management/edit/' + this.id);
+        break;
+
+
     }
 
   }

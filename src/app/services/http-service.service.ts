@@ -35,7 +35,7 @@ export class HttpServiceService {
       })
     };
 
-    return this.http.post(this.baseUrl + endpoint, jsonData);
+    return this.http.post(this.baseUrl + endpoint, jsonData,httpOptions);
   }
 
   /* call api via get method */
@@ -51,9 +51,12 @@ export class HttpServiceService {
     return this.http.get(this.baseUrl + endpoint, jsonData);
   }
 
+
+
   /* Resolve service */
   ResolveViaPost(requestdata: any, endpoint: any): Observable<any> {
     /* set common header */
+    
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
