@@ -24,8 +24,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public btn_text: any;
   public tmp_value: any;
   public reportName: string;
-  public user_data:any;
-  public id:any;
+  public user_data: any;
+  public id: any;
 
 
 
@@ -51,8 +51,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
     this.id = this.user_data.id;
-  
-   
+    console.log("id",this.id);
+
 
   }
 
@@ -87,11 +87,15 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     let data: any = {
       'source': 'users_view',
       'token': this.cookieService.get('jwtToken'),
-      'condition': { 'type': 'hospital' }
+      'condition': {
+        'type': 'hospital',
+        'salesrepselect_object': this.id
+      }
     }
 
     this.http.httpViaPost('datalist', data).subscribe((response) => {
       let result = response.res;
+      console.log("salesnamerep",result);
       this.hospital_name_array = result;
     });
   }
@@ -168,7 +172,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "source": 'purchasecomparison',
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["hospital_id","user_id"],
+        "sourceobj": ["hospital_id", "user_id"],
 
       };
 
