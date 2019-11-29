@@ -450,3 +450,6 @@ tr td br{ display: none; }
 .contact_form_banner .form_section  .mat-form-field-appearance-legacy .mat-form-field-underline {
   height: 0;
 }
+
+.comparisonModal { overflow: auto; }
+.comparisonModal .mat-dialog-container{ padding: 0; }
