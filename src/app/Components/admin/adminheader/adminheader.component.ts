@@ -44,14 +44,13 @@ export class AdminheaderComponent implements OnInit {
    /**logout function start here**/
    logout() {
     this.cookieService.delete('jwtToken');
-    
+    this.cookieService.delete('user_details');
+    this.cookieService.deleteAll();
    
-    setTimeout(() => {
-      this.cookieService.deleteAll();
-    }, 3000);
+
     setTimeout(() => {
       this.router.navigateByUrl('/home');
-    }, 3000);
+    }, 1000);
   }
   /**logout function end here**/
 

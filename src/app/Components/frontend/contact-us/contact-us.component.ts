@@ -3,6 +3,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -12,7 +14,16 @@ export class ContactUsComponent implements OnInit {
   public collect_email_array: any = [];
   public collect_phone_array: any = [];
   public contactusForm: FormGroup;
-  constructor(public _snackBar: MatSnackBar, public formBuilder: FormBuilder, public cookieService: CookieService, public httpServiceService: HttpServiceService) {
+  public api_url:any =this.httpServiceService.baseUrl;
+  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder, public cookieService: CookieService, public httpServiceService: HttpServiceService) {
+    
+    const link = this.api_url + 'temptoken';
+    this.httpClient.post(link, {}).subscribe(res => {
+    let result: any = res;
+    this.cookieService.set('jwtToken', result.token);
+
+  });
+
     this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: [''],
@@ -64,7 +75,7 @@ export class ContactUsComponent implements OnInit {
     };
     if (this.contactusForm.valid) {
       this.httpServiceService.httpViaPost('addorupdatedata', data).subscribe(res => {
-        console.log(res);
+        //console.log(res);
         if (res.status == "success") {
           this._snackBar.open('Message sent successfully', '', {
             duration: 2000,

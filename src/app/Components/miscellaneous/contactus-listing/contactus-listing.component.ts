@@ -9,7 +9,7 @@ export class ContactusListingComponent implements OnInit {
 public contactData:any=[];
 // ===============================Declarations=========================
 contactData_skip: any = ["_id"];
-detail_skip_array:any=[]
+detail_skip_array:any=["_id"]
 contactData_modify_header: any = {
 };
 tableName: any = 'Contact Persons';
