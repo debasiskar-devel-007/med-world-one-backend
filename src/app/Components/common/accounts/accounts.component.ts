@@ -43,15 +43,16 @@ export class AccountsComponent implements OnInit {
     switch (this.user_data.type) {
       case 'admin':
         console.log('admin');
-        this.router.navigateByUrl('/admin-management/edit/' + this.id);
+        // this.router.navigateByUrl('/admin-management/edit/' + this.id);
+        
         break;
       case 'hospital':
         console.log('hospital');
-        this.router.navigateByUrl('/admin/medicalpartners-management/edit/' + this.id);
+        // this.router.navigateByUrl('/admin/medicalpartners-management/edit/' + this.id);
         break;
       case 'salesrep':
         console.log('salesrep');
-        this.router.navigateByUrl('/admin/salesrep-management/edit/' + this.id);
+        // this.router.navigateByUrl('/admin/salesrep-management/edit/' + this.id);
         break;
 
 

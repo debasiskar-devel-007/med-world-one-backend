@@ -19,10 +19,10 @@ export class ListingAdminComponent implements OnInit {
 
   // ===============================Declarations=========================
   adminData: any = [];
-  adminData_skip: any = ["_id","password","type"];
+  adminData_skip: any = ["_id", "password", "type", "salesrepname"];
   adminData_modify_header: any = {
-    "status": "Status", "fullname": "Full Name", "email": "Email",
-    "phone": "Phone","date":"Date"
+    "user full name": "Full Name", "status": "Status", "email": "Email",
+    "phone": "Phone", "date": "Date"
   };
   tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
@@ -32,12 +32,12 @@ export class ListingAdminComponent implements OnInit {
   editUrl: any = 'admin-management/edit';
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
-  view:any="user_view";
+  view: any = "user_view";
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],
       textsearch: [{ label: "Search By full name...", field: 'fullname' }],
-      datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],   // this is use for  date search 
+      datesearch: [{ startdatelabel: "Start Date", enddatelabel: "End Date", submit: "Search By Date", field: "date" }],   // this is use for  date search 
     };
   // ====================================================================
 

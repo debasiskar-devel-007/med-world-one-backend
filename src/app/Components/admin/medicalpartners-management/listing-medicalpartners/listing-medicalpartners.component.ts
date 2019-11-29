@@ -18,7 +18,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
   // ===============================Declarations=========================
   mpData: any = [];
   mpData_skip: any = ["_id", "password","contactphones","contactemails","address",
-  "noofdoctors","noofbeds","Type","image","noofstaffs","fullname","images"];
+  "noofdoctors","noofbeds","type","image","noofstaffs","fullname","images","salesrepname","user_full_name"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
    "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email',

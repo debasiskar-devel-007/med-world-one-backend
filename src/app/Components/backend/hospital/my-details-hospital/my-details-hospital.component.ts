@@ -54,11 +54,11 @@ export class MyDetailsHospitalComponent implements OnInit {
 
    
 
-    // this.basepath = this.userData.mpimage.basepath;
-    // this.image = this.userData.mpimage.image;
-    // this.name = this.userData.mpimage.name;
-    // this.type = this.userData.mpimage.type;
-    // this.fullpath = this.basepath + this.image;
+    this.basepath = this.userData.mpimage.basepath;
+    this.image = this.userData.mpimage.image;
+    this.name = this.userData.mpimage.name;
+    this.type = this.userData.mpimage.type;
+    this.fullpath = this.basepath + this.image;
     
 
     

@@ -69,7 +69,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.mpList.res[0];
-          console.log("+++++++++++",this.defaultData);
         });
       }
       else
@@ -366,7 +365,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
     this.http.httpViaPost('datalist',data).subscribe(response=>{
        this.salesNameArray = response.res;
+      console.log("sales response",response.res);
     });
+    console.log("sales name",this.salesNameArray);
   }
 
 }

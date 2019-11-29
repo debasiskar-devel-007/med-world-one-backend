@@ -157,24 +157,20 @@
                     <br><br>
 
                     <!-- DYNAMIC FORM ATTRIBUTE  -->
-                    <div class="dynamic_attribute" formArrayName="credentials"
-                        *ngFor="let creds of inventoryForm.controls.credentials?.value; let i = index trackBy: trackByFn">
-
-                        <ng-container [formGroupName]="i">
-                            <div *ngFor="let c of temp_array">
-                                <mat-form-field>
-                                    <input matInput placeholder="Enter Attribute Name" (focusout)="makeAttr($event)"
-                                        value="{{c.name}}">
-                                </mat-form-field>
-                                <mat-form-field>
-                                    <input matInput placeholder="Enter Value" (focusout)="makeValue($event)"
-                                        value="{{c.value}}">
-                                </mat-form-field>
-                            </div>
-                        </ng-container>
-
+                    <div class="dynamic_attributes"  formArrayName="dynamic_items" *ngFor="let item of inventoryForm.get('dynamic_items').controls; let i = index;">
+                        <div [formGroupName]="i">
+                            <mat-form-field>
+                                <input matInput placeholder="Enter Attribute Name" (focusout)="makeAttr($event)"
+                                   >
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Enter Value" (focusout)="makeValue($event)"
+                                   >
+                            </mat-form-field>
+                        </div>
                     </div>
-                    <button mat-flat-button type="button" (click)="addFields('','')" color="accent">
+
+                    <button mat-flat-button type="button" (click)="addItem()" color="accent">
                         <mat-icon>add</mat-icon> Add More Specification
                     </button>
                 </fieldset>
