@@ -59,8 +59,6 @@ export class MyDetailsComponent implements OnInit {
     /**  setting the default value **/
     this.setDefaultValue(this.userData);
 
-    console.log("ALL", this.userData);
-
 
 
   }
@@ -87,7 +85,7 @@ export class MyDetailsComponent implements OnInit {
       city: [],
       state: [],
       zip: ['', Validators.required],
-      date: [{ value: '--', disabled: true }]
+      phone:[]
     });
   }
 
@@ -101,7 +99,7 @@ export class MyDetailsComponent implements OnInit {
       city: defaultValue.city,
       state: defaultValue.state,
       zip: defaultValue.zip,
-      date: defaultValue.date
+      phone: defaultValue.phone
     });
   }
 
@@ -135,6 +133,7 @@ export class MyDetailsComponent implements OnInit {
           userDetailsCookie.state = this.salesRepForm.value.state;
           userDetailsCookie.city = this.salesRepForm.value.city;
           userDetailsCookie.zip = this.salesRepForm.value.zip;
+          userDetailsCookie.phone = this.salesRepForm.value.phone;
 
           setTimeout(() => {
             this.cookieService.set('user_details', userDetailsCookie);

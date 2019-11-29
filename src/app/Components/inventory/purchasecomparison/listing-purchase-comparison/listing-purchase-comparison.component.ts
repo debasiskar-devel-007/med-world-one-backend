@@ -30,8 +30,11 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = [];
   filteredOptions: Observable<string[]>;
-  sales_rep_array: any = [];
-
+  sales_rep_array:any=[];
+  userData:any;
+  role:any;
+  headerFlag:string;
+  viewTable:string;
 
 
   /** View child **/
@@ -50,7 +53,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     });
     this.datasource = new MatTableDataSource(this.purchaseFormData);
     this.datasource.paginator = this.paginator;
-    console.log("------------", this.purchaseFormData);
+    console.log("DATALIST", this.datasource);
 
     /** getting the salesrep names **/
     this.getSalesRepNames();
@@ -64,6 +67,14 @@ export class ListingPurchaseComparisonComponent implements OnInit {
         map(value => this._filter(value))
       );
 
+  
+      this.headerFlag = this.activatedRoute.snapshot.url[0].path;
+      console.log("->",this.headerFlag);
+     
+      if(this.headerFlag=='admin')
+        this.viewTable ="purchasecomparison_view_admin";
+        else
+        this.viewTable="purchasecomparison_view_rep"
 
   }
 
@@ -78,7 +89,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   viewQuote(index: any) {
     console.log("index", index);
     let data: any = {
-      'source': 'purchasecomparison_view_data',
+      'source': '"purchasecomparison_view_data',
       'token': this.cookieService.get('jwtToken'),
       'condition': { '_id': index }
     }

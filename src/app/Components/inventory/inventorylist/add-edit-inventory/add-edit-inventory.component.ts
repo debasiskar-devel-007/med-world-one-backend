@@ -34,13 +34,14 @@ export class AddEditInventoryComponent implements OnInit {
   public imageType: any;
   public img_flag: any = false;
   public add_field_flag: boolean = false;
-  public i_count: any = [];
+  public i_count: number = 0;
   public dummy_array: any;
   public attr_name: any;
   public attr_value: any;
   public a_name: string;
   public a_value: string;
   public temp_array: any = [];
+  public dynamic_items: FormArray;
 
 
 
@@ -125,7 +126,7 @@ export class AddEditInventoryComponent implements OnInit {
       application: [],
       unspsc: [],
       latexfreeindicator: [],
-      credentials: this.formBuilder.array([]),
+      dynamic_items: new FormArray([])
     });
   }
   // =======================================================
@@ -160,17 +161,17 @@ export class AddEditInventoryComponent implements OnInit {
     this.imageName = defaultValue.inventory_image.name;
     this.imageType = defaultValue.inventory_image.type;
     // const creds = this.inventoryForm.controls.credentials as FormArray;
-    for (const i2 in defaultValue.credentials) {
-      //  console.log("->",defaultValue.credentials[i2]);
-      var res = defaultValue.credentials[i2];
-      console.log("-------->", Object.keys(res).toString());
-      this.a_name = Object.keys(res).toString();
-      this.a_value = Object.values(res).toString();
-      // this.addFields(this.a_name,this.a_value);
-      this.temp_array.push({ 'name': this.a_name, 'value': this.a_value });
-    }
-    console.log("44", this.temp_array); console.log(defaultValue.credentials);
-    this.addFields('', '');
+    // for (const i2 in defaultValue.credentials) {
+    //   //  console.log("->",defaultValue.credentials[i2]);
+    //   var res = defaultValue.credentials[i2];
+    //   console.log("-------->", Object.keys(res).toString());
+    //   this.a_name = Object.keys(res).toString();
+    //   this.a_value = Object.values(res).toString();
+    //   // this.addFields(this.a_name,this.a_value);
+    //   this.temp_array.push({ 'name': this.a_name, 'value': this.a_value });
+    // }
+    // console.log("44", this.temp_array); console.log(defaultValue.credentials);
+    // this.addFields('', '');
   }
   // ===================================================================================
 
@@ -178,11 +179,8 @@ export class AddEditInventoryComponent implements OnInit {
   // ======================submit form=======================
   onSubmit() {
 
-    const creds = this.inventoryForm.controls.credentials as FormArray;
-    creds.push(this.formBuilder.group({
-      [this.attr_name]: this.attr_value
-    }));
 
+    this.dynamic_items.push(this.createItem());
 
     console.log(this.inventoryForm.value);
 
@@ -293,14 +291,33 @@ export class AddEditInventoryComponent implements OnInit {
 
 
   /** adding dynamic fields **/
-  addFields(a: any, b: any) {
-    // this.i_count.push(this.inventoryForm.addControl( this.attr_name,new FormControl(this.attr_value)));   
-    const creds = this.inventoryForm.controls.credentials as FormArray;
-    a = this.attr_name;
-    b = this.attr_value;
-    creds.push(this.formBuilder.group({
-      [a]: b
-    }));
+  createItem2(): FormGroup {
+    return this.formBuilder.group({       
+    });
+  }
+
+
+  /** adding dynamic fields **/
+  createItem(): FormGroup {
+    return this.formBuilder.group({
+      [this.attr_name]: this.attr_value
+    });
+  }
+
+
+  addItem(): void {
+    console.log("i", this.i_count);
+    this.dynamic_items = this.inventoryForm.get('dynamic_items') as FormArray;
+
+
+    if (this.i_count == 0) {
+      this.dynamic_items.push(this.createItem2());
+      this.dynamic_items = new FormArray([]);
+    }
+    else
+      this.dynamic_items.push(this.createItem());
+    this.i_count++;
+
   }
 
   /** make attribute**/

@@ -536,10 +536,10 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     },
   },
 
-  // __________________purchase comparison____________________________
-  { path: 'inventory/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
+  // __________________admin purchase comparison____________________________
+  { path: 'admin/inventory/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
   {
-    path: 'inventory/purchase-comparison/list',
+    path: 'admin/inventory/purchase-comparison/list',
     component: ListingPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {
@@ -551,7 +551,33 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     },
   },
   {
-    path: 'inventory/purchase-comparison/edit/:_id',
+    path: 'admin/inventory/purchase-comparison/edit/:_id',
+    component: AddEditPurchaseComparisonComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchasecomparison',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+// ________________________salesrep  purchase comparison___________________________
+  { path: 'salesrep/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
+  {
+    path: 'salesrep/purchase-comparison/list',
+    component: ListingPurchaseComparisonComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchasecomparison_view_admin',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+  {
+    path: 'salesrep/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
     resolve: { data: ResolveService },
     data: {

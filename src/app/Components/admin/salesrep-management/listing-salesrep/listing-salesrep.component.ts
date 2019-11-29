@@ -15,10 +15,10 @@ export class ListingSalesrepComponent implements OnInit {
 
   // ===============================Declarations=========================
   salesData: any = [];
-  salesData_skip: any = ["_id","password","address","Type","fullname"];
+  salesData_skip: any = ["_id","password","address","type","fullname","salesrepname"];
   salesData_modify_header: any = {
     "name":"Name","email":"Email","state":"State","city":"City","zip":"ZIP","phone":"Phone","fax":"FAX",
-    "status":"Status","date":"Date"
+    "status":"Status","date":"Date","user full name":"Full Name"
   };
   tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
