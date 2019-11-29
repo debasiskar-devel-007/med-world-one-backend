@@ -30,7 +30,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = [];
   filteredOptions: Observable<string[]>;
-  sales_rep_array:any=[];
+  sales_rep_array: any = [];
 
 
 
@@ -52,8 +52,8 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     this.datasource.paginator = this.paginator;
     console.log("------------", this.purchaseFormData);
 
-     /** getting the salesrep names **/
-      this.getSalesRepNames();
+    /** getting the salesrep names **/
+    this.getSalesRepNames();
 
 
 
@@ -64,7 +64,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
         map(value => this._filter(value))
       );
 
-     
+
   }
 
   /** filtered options for autocomplete**/
@@ -93,7 +93,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   /** Modal function **/
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(quoteModal, {
-      width: '1000px',
+      panelClass: 'comparisonModal',
       data: { msg: x }
     });
 
@@ -141,40 +141,40 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   }
 
   /** getting the sales rep names **/
-  getSalesRepNames(){
-      let data:any={
-        source:'users_view',
-        token:this.cookieService.get('jwtToken'),
-        condition:{ 'type':'salesrep' }
+  getSalesRepNames() {
+    let data: any = {
+      source: 'users_view',
+      token: this.cookieService.get('jwtToken'),
+      condition: { 'type': 'salesrep' }
+    }
+
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      for (let i = 0; i < result.length; i++) {
+        this.options[i] = result[i].firstname + " " + result[i].lastname;
       }
 
-      this.http.httpViaPost('datalist',data).subscribe(response=>{
-          let result =  response.res;
-          for(let i=0;i<result.length;i++){
-             this.options[i]=result[i].firstname+" "+result[i].lastname;
-          }
- 
 
-          console.log(this.options);
-      });
+      console.log(this.options);
+    });
   }
 
   /** searching by salesrep **/
-  search_salesrep(event:any){
-  // console.log("-------",event.target.value);
-  // let data: any = {
-  //   'source': 'purchasecomparison_view_admin',
-  //   'condition': {
-  //     'hospital_name_regex': event.target.value
-  //   },
-  //   'token': this.cookieService.get('jwtToken')
-  // }
-  // this.http.httpViaPost('datalist', data).subscribe(response => {
-  //   let result = response.res;
-  //   this.datasource = new MatTableDataSource(result);
-  //   this.datasource.paginator = this.paginator;
-  // });
-  
+  search_salesrep(event: any) {
+    // console.log("-------",event.target.value);
+    // let data: any = {
+    //   'source': 'purchasecomparison_view_admin',
+    //   'condition': {
+    //     'hospital_name_regex': event.target.value
+    //   },
+    //   'token': this.cookieService.get('jwtToken')
+    // }
+    // this.http.httpViaPost('datalist', data).subscribe(response => {
+    //   let result = response.res;
+    //   this.datasource = new MatTableDataSource(result);
+    //   this.datasource.paginator = this.paginator;
+    // });
+
   }
 
 }
