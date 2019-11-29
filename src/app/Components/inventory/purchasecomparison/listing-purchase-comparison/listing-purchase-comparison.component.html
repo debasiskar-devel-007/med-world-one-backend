@@ -1,6 +1,23 @@
 <app-adminheader>
 
-    <h1>Purchase Comparison Report</h1>
+    <mat-card class="main_wrapper">
+        <mat-card-content class="inventory_banner">
+            <mat-card-title class="inventory_title">Price Markup Management List</mat-card-title>
+            <p class="inventory_para">Expansive Price Markup Management List</p>
+        </mat-card-content>
+
+        <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/purchase-comparison/list">Price Markup Management List</a> 
+         
+        </mat-card-content>
+        <!-- Add Brand Button  -->
+        
+        <mat-toolbar class="content_header_wrapper">
+            <mat-card-title class="toolbar_header">Purchase Comparison Report</mat-card-title>
+            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/price-markup-management-list/add']"><mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Price Markup</button>
+        </mat-toolbar> 
+ 
     <mat-card class="purchaseComparison">
         <mat-toolbar class="searchBar">
 
@@ -57,7 +74,7 @@
 
         </mat-toolbar>
 
-        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8 prchaseListTable">
 
             <!--- Note that these columns can be defined in any order.
                       The actual rendered columns are set as a property on the row definition" -->
@@ -112,4 +129,6 @@
         <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
 
     </mat-card>
+    </mat-card>
+    
 </app-adminheader>
