@@ -440,3 +440,13 @@ tr td br{ display: none; }
 .frontend_nav .listing_container .mat-list-item .mat-list-item-content { justify-content: center; padding: 0 10px;}
 
 .purchageWrapper .purchase_item .List_wrapper .mat-list-item  .mat-list-item-content{  padding: 0!important;  }
+/* contact us misc */
+.cursor{ cursor: pointer;}
+.contactus_misc .cursor:first-child{ display: none; }
+.contactus_misc .cursor:last-child{ display: none; }
+.contact_form_banner .form_section .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #fff;
+}
+.contact_form_banner .form_section  .mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 0;
+}
