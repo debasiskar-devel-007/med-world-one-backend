@@ -133,7 +133,7 @@ import { ListingLanguageComponent } from './Components/miscellaneous/language-co
 //purchase comparison
 import { AddEditPurchaseComparisonComponent } from './Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent ,quoteModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
-
+import { MetaModule } from '@ngx-meta/core';
 
 
 
@@ -253,7 +253,8 @@ import { ListingPurchaseComparisonComponent ,quoteModal} from './Components/inve
     HttpClientModule,
     ContactusModule,
     CommonModule,
-    ClipboardModule
+    ClipboardModule,
+    MetaModule.forRoot(),
   ],
   providers: [CookieService,
     LoaderService,

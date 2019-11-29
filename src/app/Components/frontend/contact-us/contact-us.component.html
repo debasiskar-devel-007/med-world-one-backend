@@ -96,86 +96,109 @@
     </mat-card-content>
   </mat-card-content> -->
 
-  <mat-card-content class="contactus_wrapper">
+  <mat-card-content class="form_section">
+    <mat-card-content class="form_section_actions">
 
-    <form [formGroup]="contactusForm" autocomplete="off">
-
-      <!-- Name  -->
-      <mat-form-field>
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Name" formControlName="name" (blur)="inputUntouch(contactusForm, 'name')">
-        <span *ngIf="
+      <form [formGroup]="contactusForm" autocomplete="off">
+        <span>
+          <!-- Name  -->
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name" (blur)="inputUntouch(contactusForm, 'name')">
+            <mat-error *ngIf="
                   contactusForm.controls['name'].touched &&
                   !contactusForm.controls['name'].valid
-                " class="errortext">Name is required</span>
-      </mat-form-field><br>
+                " class="errortext">Name is required </mat-error>
+          </mat-form-field>
 
-      <!-- Contact Email  -->
-      <mat-form-field>
-        <mat-label>Email(s)</mat-label>
-        <input matInput placeholder="Emails" formControlName="email" (keyup)="collect_email($event)"
-          (blur)="inputUntouch(contactusForm, 'email')">
-      </mat-form-field><br>
-      <div>
-        <mat-chip-list>
-          <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
-            <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
-          </mat-chip>
+          <!-- Contact Email  -->
+          <!-- <mat-form-field>
+            <mat-label>Email(s)</mat-label>
+            <input matInput placeholder="Emails" formControlName="email" (keyup)="collect_email($event)"
+              (blur)="inputUntouch(contactusForm, 'email')">
+            <mat-error *ngIf=" contactusForm.controls['email'].touched && !contactusForm.controls['email'].valid" class="errortext">Email
+              is required</mat-error>
+          </mat-form-field>
+          <div>
+            <mat-chip-list>
+              <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
+                <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
+              </mat-chip>
 
-        </mat-chip-list>
-        <span *ngIf="
-                  contactusForm.controls['email'].touched &&
-                  !contactusForm.controls['email'].valid
-                " class="errortext">Email is required</span>
-      </div>
+            </mat-chip-list>
 
-      <!-- Contact Phones  -->
-      <mat-form-field>
-        <mat-label>Phones(s)</mat-label>
-        <input matInput placeholder="Phones" formControlName="phone" (keyup)="collect_phones($event)"
-          (blur)="inputUntouch(contactusForm, 'phone')">
-      </mat-form-field><br>
-      <div>
-        <mat-chip-list>
-          <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
-            <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
-          </mat-chip>
+          </div> -->
+          <mat-form-field>
+            <mat-label>Email(s)</mat-label>
+            <mat-chip-list #chipListt>
+              <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
+                <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
+              </mat-chip>
+            <input matInput placeholder="Emails" formControlName="email" [matChipInputFor]="chipListt" [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_email($event)"
+              (blur)="inputUntouch(contactusForm, 'email')">
 
-        </mat-chip-list>
-        <span *ngIf="
-                  contactusForm.controls['phone'].touched &&
-                  !contactusForm.controls['phone'].valid
-                " class="errortext">Phone is required</span>
-      </div>
+            <!-- <mat-error *ngIf=" contactusForm.controls['email'].touched && !contactusForm.controls['email'].valid" class="errortext">Email
+              is required</mat-error> -->
+            </mat-chip-list>
+          </mat-form-field>
 
-      <!-- Address  -->
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Address" formControlName="address" (blur)="inputUntouch(contactusForm, 'address')">
-        <span *ngIf="
+          <!-- Contact Phones  -->
+          <mat-form-field>
+            <mat-label>Phones(s)</mat-label>
+             <mat-chip-list #chipList>
+                <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
+                  <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
+                </mat-chip>
+
+            <input matInput placeholder="Phones" formControlName="phone" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_phones($event)"
+              (blur)="inputUntouch(contactusForm, 'phone')">
+
+              <!-- <mat-error *ngIf="
+              contactusForm.controls['phone'].touched &&
+              !contactusForm.controls['phone'].valid
+            " class="errortext">Phone is required</mat-error> -->
+          </mat-chip-list>
+          </mat-form-field>
+      
+            
+
+           
+            
+          
+        </span>
+        <!-- Address  -->
+        <mat-form-field class="address">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" formControlName="address"
+            (blur)="inputUntouch(contactusForm, 'address')">
+          <mat-error *ngIf="
                   contactusForm.controls['address'].touched &&
                   !contactusForm.controls['address'].valid
-                " class="errortext">Address is required</span>
-      </mat-form-field>
+                " class="errortext">Address is required</mat-error>
+        </mat-form-field>
 
-      <!-- Message  -->
-      <mat-form-field>
-        <mat-label>Message</mat-label>
-        <input matInput placeholder="Message" formControlName="message" (blur)="inputUntouch(contactusForm, 'message')">
-        <span *ngIf="
+        <!-- Message  -->
+        <mat-form-field class="message">
+          <mat-label>Message</mat-label>
+          <input matInput placeholder="Message" formControlName="message"
+            (blur)="inputUntouch(contactusForm, 'message')">
+          <mat-error *ngIf="
                   contactusForm.controls['message'].touched &&
                   !contactusForm.controls['message'].valid
-                " class="errortext">Message is required</span>
-      </mat-form-field>
+                " class="errortext">Message is required</mat-error>
+        </mat-form-field>
 
 
-      <!-- Buttons  -->
-      <span class="button_wrapper">
-        <button mat-flat-button type="button" (click)="onSubmit()" color="primary">Send</button>
-      </span>
-    </form>
-
+        <!-- Buttons  -->
+        <mat-toolbar class="sentButton">
+          <button mat-button type="button" (click)="onSubmit()" class="submit_btn">Send</button>
+        </mat-toolbar>
+      </form>
+    </mat-card-content>
   </mat-card-content>
+
+
+
 </mat-card-content>
 
 

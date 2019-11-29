@@ -4,6 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
 export interface DialogData {
   msg: string;
 }
@@ -15,14 +19,22 @@ export interface DialogData {
 })
 export class ListingPurchaseComparisonComponent implements OnInit {
 
+
+  /**  declarations **/
   user_cookie: any = '';
   purchaseFormData: any = [];
   displayedColumns: string[] = ['no', 'hospitalname', 'salesrepname', 'reportname', 'date', 'actions'];
   datasource = null;
   dialogRef: any;
   quoteArray: any = [];
+  myControl = new FormControl();
+  options: string[] = [];
+  filteredOptions: Observable<string[]>;
+  sales_rep_array:any=[];
 
 
+
+  /** View child **/
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
 
@@ -39,6 +51,27 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     this.datasource = new MatTableDataSource(this.purchaseFormData);
     this.datasource.paginator = this.paginator;
     console.log("------------", this.purchaseFormData);
+
+     /** getting the salesrep names **/
+      this.getSalesRepNames();
+
+
+
+    /** filtered options for autocomplete **/
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+
+     
+  }
+
+  /** filtered options for autocomplete**/
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   /** quote view **/
@@ -105,6 +138,43 @@ export class ListingPurchaseComparisonComponent implements OnInit {
       this.datasource = new MatTableDataSource(result);
       this.datasource.paginator = this.paginator;
     });
+  }
+
+  /** getting the sales rep names **/
+  getSalesRepNames(){
+      let data:any={
+        source:'users_view',
+        token:this.cookieService.get('jwtToken'),
+        condition:{ 'type':'salesrep' }
+      }
+
+      this.http.httpViaPost('datalist',data).subscribe(response=>{
+          let result =  response.res;
+          for(let i=0;i<result.length;i++){
+             this.options[i]=result[i].firstname+" "+result[i].lastname;
+          }
+ 
+
+          console.log(this.options);
+      });
+  }
+
+  /** searching by salesrep **/
+  search_salesrep(event:any){
+  // console.log("-------",event.target.value);
+  // let data: any = {
+  //   'source': 'purchasecomparison_view_admin',
+  //   'condition': {
+  //     'hospital_name_regex': event.target.value
+  //   },
+  //   'token': this.cookieService.get('jwtToken')
+  // }
+  // this.http.httpViaPost('datalist', data).subscribe(response => {
+  //   let result = response.res;
+  //   this.datasource = new MatTableDataSource(result);
+  //   this.datasource.paginator = this.paginator;
+  // });
+  
   }
 
 }

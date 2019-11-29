@@ -6,7 +6,7 @@
 
             <!-- Search hospital name  -->
             <mat-form-field>
-                <input matInput placeholder="search by hospital name" (keyup.enter)="search_hospital($event)">
+                <input matInput placeholder="search by hospital name" (keyup)="search_hospital($event)">
                 <span matPrefix>
                     <mat-icon>search</mat-icon>
                 </span>
@@ -19,16 +19,25 @@
                 </span>
                 <mat-select matNativeControl (selectionChange)="search_draft($event)" placeholder="search by draft">
                     <mat-option value=1>Draft</mat-option>
-                    <mat-option value="saab">Sent</mat-option>                   
+                    <mat-option value="saab">Sent</mat-option>
                 </mat-select>
             </mat-form-field>
 
+            <!-- search by sales rep  -->
             <mat-form-field>
-                <input matInput placeholder="search by sales rep">
+                <input type="text" placeholder="search by salesrep" aria-label="Number" matInput [formControl]="myControl"
+                    [matAutocomplete]="auto" (keyup)="search_salesrep($event)">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
                 <span matPrefix>
                     <mat-icon>search</mat-icon>
                 </span>
             </mat-form-field>
+
+
             <mat-form-field>
                 <input matInput [matDatepicker]="picker" placeholder="Choose a date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

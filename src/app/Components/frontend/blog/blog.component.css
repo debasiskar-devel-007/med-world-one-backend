@@ -36,7 +36,7 @@
       bottom: 0;
   }
 
-  .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .inner_blog_desc{ font-size: 16px; font-family: "HelveticaRegular"; line-height: 24px; color:#535454; }
+  .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .inner_blog_desc{ font-size: 16px; font-family: "HelveticaRegular"; line-height: 24px; color:#535454;  margin-bottom: 0; }
 
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social{flex-wrap: wrap; border-top: 1px solid #d2d2d2; background: transparent; height: auto; align-items: initial; padding: 0; display: flex; justify-content: space-between; padding-top: 10px; }
 
@@ -93,7 +93,7 @@ padding: 5px 0; position: relative; padding-left: 20px;}
 }
 @media screen and (max-width: 1600px){
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report p {  margin: 0 7px; }
-  .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report{width: 50%; display: flex; justify-content: space-between;
+  .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report{width: auto; display: flex; justify-content: space-between;
     align-items: center;
 }
 .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_wrapper button { padding: 0 10px; }
@@ -116,4 +116,8 @@ padding: 5px 0; position: relative; padding-left: 20px;}
   .sh_blog_content_wrapper .sh_blog_content_bottom { display: flex; justify-content: space-between; flex-direction: column-reverse; }
   .sh_blog_content_wrapper .sh_blog_content_right { width: 100%; }
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left { width: 100%; margin: 20px 0; }
+
+  .sh_buyfrmus_topblock { background-position: 100% top; background-size: 225%; padding-top: 53%; background-color: #41a2f7; }
+  .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px; }
+  .sh_blog_content_wrapper .sh_blog_content { padding: 0; }
 }
