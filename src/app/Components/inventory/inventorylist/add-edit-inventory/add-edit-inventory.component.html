@@ -27,7 +27,7 @@
 
                     <mat-label class="label">Select Brand</mat-label>
 
-                    <mat-select matNativeControl  formControlName="brand_name">
+                    <mat-select matNativeControl formControlName="brand_name">
                         <mat-option value="0">select a brand</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
                         </mat-option>
@@ -153,24 +153,30 @@
                         <input matInput formControlName="latexfreeindicator">
                     </mat-form-field>
 
-                    
+
                     <br><br>
 
-                     <!-- DYNAMIC FORM ATTRIBUTE  -->
-                     <div class="dynamic_attribute" formArrayName="credentials" 
-                     *ngFor="let creds of inventoryForm.controls.credentials?.value; let i = index trackBy: trackByFn" >
+                    <!-- DYNAMIC FORM ATTRIBUTE  -->
+                    <div class="dynamic_attribute" formArrayName="credentials"
+                        *ngFor="let creds of inventoryForm.controls.credentials?.value; let i = index trackBy: trackByFn">
+
                         <ng-container [formGroupName]="i">
-                        <mat-form-field>
-                            <input matInput placeholder="Enter Attribute Name" (focusout)="makeAttr($event)" >
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="Enter Value" (focusout)="makeValue($event)">
-                        </mat-form-field>
+                            <div *ngFor="let c of temp_array">
+                                <mat-form-field>
+                                    <input matInput placeholder="Enter Attribute Name" (focusout)="makeAttr($event)"
+                                        value="{{c.name}}">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input matInput placeholder="Enter Value" (focusout)="makeValue($event)"
+                                        value="{{c.value}}">
+                                </mat-form-field>
+                            </div>
                         </ng-container>
+
                     </div>
                     <button mat-flat-button type="button" (click)="addFields('','')" color="accent">
-                            <mat-icon>add</mat-icon> Add More Specification
-                        </button>
+                        <mat-icon>add</mat-icon> Add More Specification
+                    </button>
                 </fieldset>
                 <br>
 
@@ -182,10 +188,11 @@
 
                 <span class="button_wrapper">
                     <!-- Dynamic form fields  -->
-                    <button mat-flat-button type="button" (click)="create_field()" color="primary"> &nbsp; Add field </button>
+                    <button mat-flat-button type="button" (click)="create_field()" color="primary"> &nbsp; Add field
+                    </button>
 
                     <!-- Buttons  -->
-                   
+
                     <button mat-flat-button type="reset" color="warn">RESET</button>
                     <button mat-flat-button type="button" (click)="onSubmit()" color="accent">{{btn_text}} </button>
                 </span>

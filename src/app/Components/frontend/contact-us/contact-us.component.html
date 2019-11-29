@@ -112,7 +112,7 @@
           </mat-form-field>
 
           <!-- Contact Email  -->
-          <mat-form-field>
+          <!-- <mat-form-field>
             <mat-label>Email(s)</mat-label>
             <input matInput placeholder="Emails" formControlName="email" (keyup)="collect_email($event)"
               (blur)="inputUntouch(contactusForm, 'email')">
@@ -127,27 +127,44 @@
 
             </mat-chip-list>
 
-          </div>
+          </div> -->
+          <mat-form-field>
+            <mat-label>Email(s)</mat-label>
+            <mat-chip-list #chipListt>
+              <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
+                <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
+              </mat-chip>
+            <input matInput placeholder="Emails" formControlName="email" [matChipInputFor]="chipListt" [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_email($event)"
+              (blur)="inputUntouch(contactusForm, 'email')">
+
+            <!-- <mat-error *ngIf=" contactusForm.controls['email'].touched && !contactusForm.controls['email'].valid" class="errortext">Email
+              is required</mat-error> -->
+            </mat-chip-list>
+          </mat-form-field>
 
           <!-- Contact Phones  -->
           <mat-form-field>
             <mat-label>Phones(s)</mat-label>
-            <input matInput placeholder="Phones" formControlName="phone" (keyup)="collect_phones($event)"
+             <mat-chip-list #chipList>
+                <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
+                  <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
+                </mat-chip>
+
+            <input matInput placeholder="Phones" formControlName="phone" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_phones($event)"
               (blur)="inputUntouch(contactusForm, 'phone')">
-              <mat-error *ngIf="
+
+              <!-- <mat-error *ngIf="
               contactusForm.controls['phone'].touched &&
               !contactusForm.controls['phone'].valid
-            " class="errortext">Phone is required</mat-error>
+            " class="errortext">Phone is required</mat-error> -->
+          </mat-chip-list>
           </mat-form-field>
-          <div>
-            <mat-chip-list>
-              <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
-                <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
-              </mat-chip>
-
-            </mat-chip-list>
+      
             
-          </div>
+
+           
+            
+          
         </span>
         <!-- Address  -->
         <mat-form-field class="address">

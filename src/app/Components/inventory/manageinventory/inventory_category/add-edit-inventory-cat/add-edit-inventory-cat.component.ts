@@ -21,6 +21,7 @@ export class AddEditInventoryCatComponent implements OnInit {
   // ====================declarations==================
   header_txt: any = "Add an inventory header";
   btn_text: any = "SUBMIT";
+  header_text:any="Add";
   inventoryCategoryForm: FormGroup;
   condition: any;
   parentcat_array:any = [];
@@ -77,6 +78,7 @@ export class AddEditInventoryCatComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
+        this.header_text="Edit"
         this.successMessage = "One row updated";
         this.setDefaultValue(this.defaultData);            
         this.header_txt = "Edit Inventory Category";
