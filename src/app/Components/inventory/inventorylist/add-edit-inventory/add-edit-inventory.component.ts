@@ -38,6 +38,10 @@ export class AddEditInventoryComponent implements OnInit {
   public dummy_array: any;
   public attr_name: any;
   public attr_value: any;
+  public a_name: string;
+  public a_value: string;
+  public temp_array: any = [];
+
 
 
 
@@ -159,15 +163,14 @@ export class AddEditInventoryComponent implements OnInit {
     for (const i2 in defaultValue.credentials) {
       //  console.log("->",defaultValue.credentials[i2]);
       var res = defaultValue.credentials[i2];
-      var a_name = Object.keys(res);
-      var a_value = Object.values(res);
-      // defaultValue.attr_name = a_name;
-
-      console.log("->", a_name + "+" + a_value);
-      this.addFields(a_name, a_value);
+      console.log("-------->", Object.keys(res).toString());
+      this.a_name = Object.keys(res).toString();
+      this.a_value = Object.values(res).toString();
+      // this.addFields(this.a_name,this.a_value);
+      this.temp_array.push({ 'name': this.a_name, 'value': this.a_value });
     }
-
-
+    console.log("44", this.temp_array); console.log(defaultValue.credentials);
+    this.addFields('', '');
   }
   // ===================================================================================
 
