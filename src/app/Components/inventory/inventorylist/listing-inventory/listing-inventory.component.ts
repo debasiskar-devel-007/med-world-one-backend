@@ -13,7 +13,7 @@ export class ListingInventoryComponent implements OnInit {
   user_cookie: any ='';
  // ===============================Declarations=========================
  inventoryListData: any = [];
- inventoryListData_skip: any = ["_id","description_html","description","created_at","image"];
+ inventoryListData_skip: any = ["_id","description_html","description","created_at","inventory_image",'image'];
  detail_skip_array:any=["_id"]
  inventoryListData_modify_header: any = {"brand name":"Brand Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};

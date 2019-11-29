@@ -1,11 +1,12 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators ,FormArrayName} from '@angular/forms';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { InventoryComponent } from 'src/app/Components/frontend/inventory/inventory.component';
-// import { deflate } from 'zlib';
+
+import * as _ from "lodash";
 
 
 @Component({
@@ -16,66 +17,74 @@ import { InventoryComponent } from 'src/app/Components/frontend/inventory/invent
 export class AddEditInventoryComponent implements OnInit {
 
 
-// ======================declarations=================
-   brand_name_array : any = [];
-   inventoryForm : FormGroup;
-   inventory_category_array : any = [];
-   header_txt:any="Add Inventory";
-   btn_text:any="SUBMIT";
-   condition:any;
-   action:any;
-   defaultData:any;
-   successMessage:any="Submitted Successfully!!!";
-   yom_flag:boolean=false;
-   ErrCode: boolean;
-   public fullImagePath:any;
-   public imageName:any;
-   public imageType:any;
-   public img_flag:any=false;
+  // ======================declarations=================
+  public brand_name_array: any = [];
+  public inventoryForm: FormGroup;
+  public inventory_category_array: any = [];
+  public header_txt: any = "Add Inventory";
+  public btn_text: any = "SUBMIT";
+  public condition: any;
+  public action: any;
+  public defaultData: any;
+  public successMessage: any = "Submitted Successfully!!!";
+  public yom_flag: boolean = false;
+  public ErrCode: boolean;
+  public fullImagePath: any;
+  public imageName: any;
+  public imageType: any;
+  public img_flag: any = false;
+  public add_field_flag: boolean = false;
+  public i_count: any = [];
+  public dummy_array: any;
+  public attr_name: any;
+  public attr_value: any;
 
-// ===================================================
 
-//image upload 
-public configData: any = {
-  baseUrl: "http://3.15.236.141:5005/",
-  endpoint: "uploads",
-  size: "51200", // kb
-  format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'], // use all small font
-  type: "inventory-picture",
-  path: "files",
-  prefix: "inventory_picture_"
-}
+
+
+  // ===================================================
+
+  //image upload 
+  public configData: any = {
+    baseUrl: "http://3.15.236.141:5005/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'], // use all small font
+    type: "inventory-picture",
+    path: "files",
+    prefix: "inventory_picture_"
+  }
 
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
-    private http: HttpServiceService,private router : Router, 
-    private activatedRoute: ActivatedRoute,public dialog: MatDialog) { 
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition = { id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.inventoryList.res[0];
-          });
-        }
-        else
-          this.action = "add";
-      });
+    private http: HttpServiceService, private router: Router,
+    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.inventoryList.res[0];
+        });
+      }
+      else
+        this.action = "add";
+    });
 
-      //generating the form
+    //generating the form
     this.generateForm();
-    }
+  }
 
   ngOnInit() {
 
 
     //getting the brand name
-     this.getBrandName();
+    this.getBrandName();
 
-     //getting the inventory category
-     this.getInventoryCategory();
+    //getting the inventory category
+    this.getInventoryCategory();
 
-     // Case 
-     switch (this.action) {
+    // Case 
+    switch (this.action) {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
@@ -84,7 +93,7 @@ public configData: any = {
         /* Button text */
         this.btn_text = "UPDATE";
         this.successMessage = "One row updated";
-        this.setDefaultValue(this.defaultData);            
+        this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Brand Information";
         this.img_flag = true;
         break;
@@ -94,54 +103,85 @@ public configData: any = {
 
 
   // =====================generate form=====================
-  generateForm()
-  {
-      this.inventoryForm = this.formBuilder.group({
-        inventory_name:[],
-        brand_name:[],
-        inventory_category:[],
-        model:[],
-        description:[],
-        condition:['New',],
-        yom:[],
-
-        availabiity:[],
-        instock:[],
-        status:[],
-        inventory_image:[]
-      });
+  generateForm() {
+    this.inventoryForm = this.formBuilder.group({
+      inventory_name: [],
+      brand_name: [],
+      inventory_category: [],
+      model: [],
+      description: [],
+      condition: ['New',],
+      yom: [],
+      availabiity: [],
+      instock: [],
+      status: [],
+      inventory_image: [],
+      sku: [],
+      manufacturer: [],
+      application: [],
+      unspsc: [],
+      latexfreeindicator: [],
+      credentials: this.formBuilder.array([]),
+    });
   }
   // =======================================================
-   
 
 
 
-// ===================================Setting the default Value========================
-setDefaultValue(defaultValue) {
-  this.inventoryForm.patchValue({
-    inventory_name:defaultValue.inventory_name,
-    brand_name:defaultValue.brand_name,
-    condition:defaultValue.condition,
-    availabiity:defaultValue.availabiity,
-    instock:defaultValue.instock,
-    status:defaultValue.status,
-    inventory_image:defaultValue.inventory_image
-    
-  })
-  this.fullImagePath=defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
-  this.imageName=defaultValue.inventory_image.name;
-  this.imageType=defaultValue.inventory_image.type;
-  
- }
- // ===================================================================================
 
 
+  // ===================================Setting the default Value========================
+  setDefaultValue(defaultValue) {
+    console.log("defaultValue", defaultValue);
+    this.inventoryForm.patchValue({
+      inventory_name: defaultValue.inventory_name,
+      brand_name: defaultValue.brand_name,
+      inventory_category: defaultValue.inventory_category,
+      model: defaultValue.model,
+      description: defaultValue.description,
+      condition: defaultValue.condition,
+      availabiity: defaultValue.availabiity,
+      instock: defaultValue.instock,
+      status: defaultValue.status,
+      inventory_image: defaultValue.inventory_image,
+      sku: defaultValue.sku,
+      manufacturer: defaultValue.manufacturer,
+      application: defaultValue.application,
+      unspsc: defaultValue.unspsc,
+      latexfreeindicator: defaultValue.latexfreeindicator,
+
+
+    })
+    this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
+    this.imageName = defaultValue.inventory_image.name;
+    this.imageType = defaultValue.inventory_image.type;
+    // const creds = this.inventoryForm.controls.credentials as FormArray;
+    for (const i2 in defaultValue.credentials) {
+      //  console.log("->",defaultValue.credentials[i2]);
+      var res = defaultValue.credentials[i2];
+      var a_name = Object.keys(res);
+      var a_value = Object.values(res);
+      // defaultValue.attr_name = a_name;
+
+      console.log("->", a_name + "+" + a_value);
+      this.addFields(a_name, a_value);
+    }
+
+
+  }
+  // ===================================================================================
 
 
   // ======================submit form=======================
-  onSubmit()
-  {
+  onSubmit() {
 
+    const creds = this.inventoryForm.controls.credentials as FormArray;
+    creds.push(this.formBuilder.group({
+      [this.attr_name]: this.attr_value
+    }));
+
+
+    console.log(this.inventoryForm.value);
 
     // Service File Upload Works 
     if (this.configData.files) {
@@ -157,8 +197,7 @@ setDefaultValue(defaultValue) {
     } else {
       this.inventoryForm.value.inventory_image = false;
     }
-    console.log('>>>>>>>>>>>>>>',this.inventoryForm.value.inventory_image)
-    console.log("--------------->",this.inventoryForm.value);
+
     if (this.inventoryForm.invalid) {
       return;
     }
@@ -183,17 +222,17 @@ setDefaultValue(defaultValue) {
         "source": 'inventories',
         "data": Object.assign(this.inventoryForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["brand_name","inventory_category"],
-        
+        "sourceobj": ["brand_name", "inventory_category"],
+
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-            // this.openDialog(this.successMessage);
-            // setTimeout(() => {
-            //   this.dialogRef.close();
-            // }, 2000);
+          // this.openDialog(this.successMessage);
+          // setTimeout(() => {
+          //   this.dialogRef.close();
+          // }, 2000);
 
 
           this.router.navigateByUrl('inventory/inventory-list/list');;
@@ -213,14 +252,14 @@ setDefaultValue(defaultValue) {
 
 
   //getting the brand name
-   
-   getBrandName() {
+
+  getBrandName() {
     var data: any;
     data = {
       'source': 'brands',
       'token': this.cookieService.get('jwtToken')
     };
-    this.http.httpViaPost("datalist",data).subscribe(response => {
+    this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response;
       this.brand_name_array = result.res;
@@ -228,29 +267,50 @@ setDefaultValue(defaultValue) {
   }
 
   // clear image in InventoryComponent//
-  clear_image(){
-  this.img_flag=false;
-}
+  clear_image() {
+    this.img_flag = false;
+  }
 
 
-    //getting the brand name
-   
-    getInventoryCategory() {
-      var data: any;
-      data = {
-        'source': 'inventory_category',
-        'token': this.cookieService.get('jwtToken')
-      };
-      this.http.httpViaPost("datalist",data).subscribe(response => {
-        let result: any;
-        result = response;
-        this.inventory_category_array = result.res;
-      });
-    }
+  //getting the brand name
 
-    /*create_field*/
-    create_field(){
-      console.log('hit ......!')
-      this.inventoryForm.addControl('newcontrol',new FormControl('',Validators.required));
-    }
+
+  getInventoryCategory() {
+    var data: any;
+    data = {
+      'source': 'inventory_category',
+      'token': this.cookieService.get('jwtToken')
+    };
+    this.http.httpViaPost("datalist", data).subscribe(response => {
+      let result: any;
+      result = response;
+      this.inventory_category_array = result.res;
+    });
+  }
+
+
+  /** adding dynamic fields **/
+  addFields(a: any, b: any) {
+    // this.i_count.push(this.inventoryForm.addControl( this.attr_name,new FormControl(this.attr_value)));   
+    const creds = this.inventoryForm.controls.credentials as FormArray;
+    a = this.attr_name;
+    b = this.attr_value;
+    creds.push(this.formBuilder.group({
+      [a]: b
+    }));
+  }
+
+  /** make attribute**/
+  makeAttr(event: any) {
+    this.attr_name = event.target.value;
+  }
+
+  /** make name **/
+  makeValue(event: any) {
+    this.attr_value = event.target.value;
+  }
+
+  trackByFn(index) {
+    return index;
+  }
 }
