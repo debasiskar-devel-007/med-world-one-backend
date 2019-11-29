@@ -6,7 +6,7 @@ import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
 import { zip } from 'rxjs';
 import { ClipboardService } from 'ngx-clipboard';
-
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-my-details',
   templateUrl: './my-details.component.html',
@@ -31,8 +31,19 @@ export class MyDetailsComponent implements OnInit {
 
   constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, public http: HttpServiceService, private snackBar: MatSnackBar,
-    public router: Router,public clipboardService:ClipboardService) {
-
+    public router: Router,public clipboardService:ClipboardService,public readonly meta: MetaService) {
+      this.meta.setTitle('MD-stock-international');
+      this.meta.setTag('og:description', 'MD-stock-international');
+      this.meta.setTag('og:title', 'Hospital Signup');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:url', 'https://dev.mdstockinternational.com/');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+      this.meta.setTag('og:keywords','');
+     
+      this.meta.setTag('twitter:description', 'MD-stock-international');
+      this.meta.setTag('twitter:title', 'MD-stock-international');
+      this.meta.setTag('twitter:card', 'summary');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
     /*Getting the role*/
     let allData: any = {};
     allData = cookieService.getAll()

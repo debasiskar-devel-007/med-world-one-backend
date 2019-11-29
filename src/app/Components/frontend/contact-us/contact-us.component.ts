@@ -15,8 +15,8 @@ export class ContactUsComponent implements OnInit {
   constructor(public _snackBar: MatSnackBar, public formBuilder: FormBuilder, public cookieService: CookieService, public httpServiceService: HttpServiceService) {
     this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      email: [''],
+      phone: [''],
       address: ['', Validators.required],
       message: ['', Validators.required]
     })
@@ -55,6 +55,8 @@ export class ContactUsComponent implements OnInit {
     for (let i in this.contactusForm.controls) {
       this.contactusForm.controls[i].markAsTouched();
     }
+    this.contactusForm.value.email=this.collect_email_array;
+    this.contactusForm.value.phone=this.collect_phone_array;
     console.log(this.contactusForm.value);
     let data: any = {
       "source": "contactus",
