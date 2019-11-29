@@ -2,25 +2,25 @@
     <app-adminheader>
             <mat-card class="main_wrapper">
                 <mat-card-content class="inventory_banner">
-                    <mat-card-title class="inventory_title">Manage Blog</mat-card-title>
+                    <mat-card-title class="inventory_title">Manage Category & Blog</mat-card-title>
                     <p class="inventory_para">Expansive Blog Listing For An One-Stop-Shop For All Your Hospital Equipment
                         Needs</p>
                 </mat-card-content>
                 <mat-card-content class="bred_cram_wrapper">
                     <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
-                    <a mat-list-item routerLinkActive="active activebread" routerLink="/manage-websites/addblogcategory/list">Manage Blog</a>
+                    <a mat-list-item routerLinkActive="active activebread" routerLink="/manage-websites/addblogcategory/list">Manage Category & Blog</a>
         
         
                 </mat-card-content>
                 
                 <!-- tab section for category -->
                 <mat-tab-group class="brand_group">
-                    <mat-tab label="Blog Category">
+                    <mat-tab label="Category">
         
         
                         <mat-card-content class="tabs_wrapper">
                             <mat-toolbar class="content_header_wrapper">
-                                <mat-card-title class="toolbar_header">Blog Category</mat-card-title>
+                                <mat-card-title class="toolbar_header">Category List</mat-card-title>
                                 <button class="singleButton" mat-raised-button [routerLink]="['/manage-websites/addblogcategory/add']">
                                     <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Category
                                 </button>
@@ -38,7 +38,7 @@
         
                      <!-- tab section for brand -->
         
-                    <mat-tab label="Blog List">
+                    <mat-tab label="Blog">
                         <mat-card-content class="tabs_wrapper">
                             <mat-toolbar class="content_header_wrapper">
                                 <mat-card-title class="toolbar_header">Blog list </mat-card-title>
