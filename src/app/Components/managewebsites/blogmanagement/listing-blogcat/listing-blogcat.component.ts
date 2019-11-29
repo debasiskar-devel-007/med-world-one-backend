@@ -35,15 +35,15 @@ public baseUrl:any=environment.API_URL;
 
   //Blogs Lib List
   
-// ===============================Declarations=========================
+// ===============================Declarations for blog listing=========================
 public bloglist_skip: any = ["_id","description","created_at","credentials","blogs_image","blogs_file"];
 public detail_skip_array:any=["_id"]
-public bloglist_modify_header: any = {"status":"Status","description_html":"Description"};
+public bloglist_modify_header: any = {"status":"Status","description html":"Description","blogtitle":"Blog Title"};
 public tableName: any = 'blogs';
 public UpdateEndpoint: any = "addorupdatedata";
 public deleteEndpoint: any = "deletesingledata";
 public searchingEndpoint: any = "datalist";
-public editUrl: any = 'manage-websites/addblogs/edit';
+public editUrl: any = 'manage-websites/addblogs/edit/';
 public user_cookie:any=this.cookieService.get('jwtToken');
 public apiUrl: any = this.baseUrl;
 public status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
@@ -69,7 +69,7 @@ public search_settings: any = {
     });
 
 
-    //listing for blog //
+    //blog data from datalist //
 
     let data:any;
     data={
