@@ -68,6 +68,7 @@ import { AddEditLanguageComponent } from '../Components/miscellaneous/language-c
 import { ListingLanguageComponent } from '../Components/miscellaneous/language-container/listing-language/listing-language.component';
 import { AddEditPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontactinfo/addcontactinfo.component';
 
 
 
@@ -432,6 +433,8 @@ const routes: Routes = [
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
 data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},},
+// add admin contact info
+ {path:'admin-dashboard/addcontactinfo',component:AddcontactinfoComponent},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },

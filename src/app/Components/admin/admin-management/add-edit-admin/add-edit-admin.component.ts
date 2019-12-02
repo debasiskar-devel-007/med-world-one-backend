@@ -138,8 +138,8 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
-      firstname: ["", [Validators.required, nameValidator]],
-      lastname: ["", [Validators.required, nameValidator]],
+      firstname: ["", [Validators.required]],
+      lastname: ["", [Validators.required]],
       phone: ["", [Validators.required, phoneValidator]],
       email: ["", [Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['', Validators.required],
@@ -199,8 +199,6 @@ export class AddEditAdminComponent implements OnInit {
 
       delete this.adminForm.value.confirmpassword;
 
-
-
       /* start process to submited data */
       let postData: any = {
         "source": 'users',
@@ -208,18 +206,23 @@ export class AddEditAdminComponent implements OnInit {
         "token": this.cookieService.get('jwtToken')
 
       };
+      
+      /**delete password when id not null */
+      if(postData.data.id){
+          //console.log("with ID");
+          delete postData.data.password;
+        }else{
+          //console.log("withOut ID");
+        }
+          //console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-
         if (response.status == "success") {
-
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
-
           this.router.navigateByUrl(this.linkTo);
-
         } else {
           // alert("Some error occurred. Please try again.");
         }

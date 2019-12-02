@@ -10810,7 +10810,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <h1>Purchase Comparison Report</h1>\r\n  <mat-toolbar class=\"puschase_header\">\r\n    <span>Select Hospitals </span>\r\n    <mat-form-field>\r\n      <mat-label>Hospital Name</mat-label>\r\n      <mat-select matNativeControl (selectionChange)=\"takeName($event)\">\r\n        <mat-option value=\"{{ item._id }}\" *ngFor=\"let item of hospital_name_array;let i = index;\">\r\n          {{ item.hospitalname }}</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>Report Name/Alias</mat-label>\r\n      <input matInput [(ngModel)]=\"reportName\">\r\n    </mat-form-field>\r\n  </mat-toolbar>\r\n\r\n  <mat-card-content class=\"main_prchase\">\r\n    <span class=\"header_wrapper\">\r\n      <mat-card-title class=\"header\"> Hospital's previous purchase bill info</mat-card-title>\r\n      <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title>\r\n    </span>\r\n    <mat-card-content class=\"purchageWrapper\">\r\n\r\n      <mat-card-content class=\"purchase_item\">\r\n        <!-- 50% section -->\r\n\r\n        <form [formGroup]=\"purchaseForm\" autocomplete=\"off\">\r\n          <!-- <input type=\"hidden\" formControlName=\"hospitalname\" /> -->\r\n          <div formArrayName=\"items\" *ngFor=\"let item of purchaseForm.get('items').controls; let i = index;\">\r\n            <div [formGroupName]=\"i\">\r\n              <span class=\"loop_class\">\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_sr\">\r\n                      <button mat-button *ngIf=\"productName\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_sr\">\r\n                      <button mat-button *ngIf=\"price\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"price=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlName=\"size_sr\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlName=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlname=\"description_sr\"></textarea>\r\n                      <button mat-button *ngIf=\"description\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_md\">\r\n                      <button mat-button *ngIf=\"productName2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_md\">\r\n                      <button mat-button *ngIf=\"price2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"price2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlname=\"size_md\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlname=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlName=\"description_md\"></textarea>\r\n                      <button mat-button *ngIf=\"description2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n                <!-- </mat-card-content>\r\n      <mat-card-content class=\"purchase_item\"> -->\r\n                <!-- 50% section -->\r\n                <!-- <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title> -->\r\n\r\n\r\n              </span>\r\n\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </mat-card-content>\r\n\r\n\r\n    </mat-card-content>\r\n\r\n    <mat-toolbar class=\"buttons_wrapper\">\r\n      <button mat-button color=\"primary\" type=\"button\" (click)=\"addItem()\">Add</button>\r\n    </mat-toolbar>\r\n\r\n  </mat-card-content>\r\n\r\n  <mat-toolbar class=\"addToBiller\">\r\n    <button mat-button color=\"primary\" (click)=\"onSubmit()\">{{btn_text}}</button>\r\n\r\n    <button mat-button color=\"primary\" (click)=\"setDraft()\">Save As Draft</button>\r\n  </mat-toolbar>\r\n</app-adminheader>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader *ngIf=\"headerFlag=='admin'\">\r\n  <h1>Purchase Comparison Report</h1>\r\n  <mat-toolbar class=\"puschase_header\">\r\n    <span>Select Hospitals </span>\r\n    <mat-form-field>\r\n      <mat-label>Hospital Name</mat-label>\r\n      <mat-select matNativeControl (selectionChange)=\"takeName($event)\">\r\n        <mat-option value=\"{{ item._id }}\" *ngFor=\"let item of hospital_name_array;let i = index;\">\r\n          {{ item.hospitalname }}</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>Report Name/Alias</mat-label>\r\n      <input matInput [(ngModel)]=\"reportName\">\r\n    </mat-form-field>\r\n  </mat-toolbar>\r\n\r\n  <mat-card-content class=\"main_prchase\">\r\n    <span class=\"header_wrapper\">\r\n      <mat-card-title class=\"header\"> Hospital's previous purchase bill info</mat-card-title>\r\n      <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title>\r\n    </span>\r\n    <mat-card-content class=\"purchageWrapper\">\r\n\r\n      <mat-card-content class=\"purchase_item\">\r\n        <!-- 50% section -->\r\n\r\n        <form [formGroup]=\"purchaseForm\" autocomplete=\"off\">\r\n          <!-- <input type=\"hidden\" formControlName=\"hospitalname\" /> -->\r\n          <div formArrayName=\"items\" *ngFor=\"let item of purchaseForm.get('items').controls; let i = index;\">\r\n            <div [formGroupName]=\"i\">\r\n              <span class=\"loop_class\">\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_sr\">\r\n                      <button mat-button *ngIf=\"productName\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_sr\">\r\n                      <button mat-button *ngIf=\"price\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"price=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlName=\"size_sr\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlName=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlname=\"description_sr\"></textarea>\r\n                      <button mat-button *ngIf=\"description\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_md\">\r\n                      <button mat-button *ngIf=\"productName2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_md\">\r\n                      <button mat-button *ngIf=\"price2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"price2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlname=\"size_md\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlname=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlName=\"description_md\"></textarea>\r\n                      <button mat-button *ngIf=\"description2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n                <!-- </mat-card-content>\r\n      <mat-card-content class=\"purchase_item\"> -->\r\n                <!-- 50% section -->\r\n                <!-- <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title> -->\r\n\r\n\r\n              </span>\r\n\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </mat-card-content>\r\n\r\n\r\n    </mat-card-content>\r\n\r\n    <mat-toolbar class=\"buttons_wrapper\">\r\n      <button mat-button color=\"primary\" type=\"button\" (click)=\"addItem()\">Add</button>\r\n    </mat-toolbar>\r\n\r\n  </mat-card-content>\r\n\r\n  <mat-toolbar class=\"addToBiller\">\r\n    <button mat-button color=\"primary\" (click)=\"onSubmit()\">{{btn_text}}</button>\r\n\r\n    <button mat-button color=\"primary\" (click)=\"setDraft()\">Save As Draft</button>\r\n  </mat-toolbar>\r\n</app-adminheader>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<!-- rep section  -->\r\n<div *ngIf=\"headerFlag=='salesrep'\"> \r\n  <app-frontend-header></app-frontend-header>\r\n\r\n  <h1>Purchase Comparison Report</h1>\r\n  <h3>Welcome {{salesRepName}}</h3>\r\n  <mat-toolbar class=\"puschase_header\">\r\n    <span>Select Hospitals </span>\r\n    <mat-form-field>\r\n      <mat-label>Hospital Name</mat-label>\r\n      <mat-select matNativeControl (selectionChange)=\"takeName($event)\">\r\n        <mat-option value=\"{{ item._id }}\" *ngFor=\"let item of hospital_name_array;let i = index;\">\r\n          {{ item.hospitalname }}</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <mat-form-field>\r\n      <mat-label>Report Name/Alias</mat-label>\r\n      <input matInput [(ngModel)]=\"reportName\">\r\n    </mat-form-field>\r\n  </mat-toolbar>\r\n\r\n  <mat-card-content class=\"main_prchase\">\r\n    <span class=\"header_wrapper\">\r\n      <mat-card-title class=\"header\"> Hospital's previous purchase bill info</mat-card-title>\r\n      <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title>\r\n    </span>\r\n    <mat-card-content class=\"purchageWrapper\">\r\n\r\n      <mat-card-content class=\"purchase_item\">\r\n        <!-- 50% section -->\r\n\r\n        <form [formGroup]=\"purchaseForm\" autocomplete=\"off\">\r\n          <!-- <input type=\"hidden\" formControlName=\"hospitalname\" /> -->\r\n          <div formArrayName=\"items\" *ngFor=\"let item of purchaseForm.get('items').controls; let i = index;\">\r\n            <div [formGroupName]=\"i\">\r\n              <span class=\"loop_class\">\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_sr\">\r\n                      <button mat-button *ngIf=\"productName\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_sr\">\r\n                      <button mat-button *ngIf=\"price\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"price=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlName=\"size_sr\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlName=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlname=\"description_sr\"></textarea>\r\n                      <button mat-button *ngIf=\"description\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n\r\n                <mat-list class=\"List_wrapper\">\r\n                  <mat-list-item> <label>Product name : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Product Name\" formControlName=\"productname_md\">\r\n                      <button mat-button *ngIf=\"productName2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"productName2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <mat-list-item> <label>Price : </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <input matInput type=\"text\" placeholder=\"Enter Price\" formControlName=\"price_md\">\r\n                      <button mat-button *ngIf=\"price2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"price2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                  <span class=\"size_wrapper\">\r\n                    <mat-list-item> <label>Size : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Size\" formControlname=\"size_md\">\r\n                        <button mat-button *ngIf=\"size\" matSuffix mat-icon-button aria-label=\"Clear\" (click)=\"size=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                    <mat-list-item> <label>Color : </label>\r\n                      <mat-form-field class=\"example-form-field\">\r\n                        <input matInput type=\"text\" placeholder=\"Enter Color\" formControlname=\"color_sr\">\r\n                        <button mat-button *ngIf=\"color\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                          (click)=\"color=''\">\r\n                          <mat-icon>close</mat-icon>\r\n                        </button>\r\n                      </mat-form-field>\r\n                    </mat-list-item>\r\n                  </span>\r\n                  <mat-list-item> <label>Description: </label>\r\n                    <mat-form-field class=\"example-form-field\">\r\n                      <textarea matInput type=\"text\" placeholder=\"Enter Description\"\r\n                        formControlName=\"description_md\"></textarea>\r\n                      <button mat-button *ngIf=\"description2\" matSuffix mat-icon-button aria-label=\"Clear\"\r\n                        (click)=\"description2=''\">\r\n                        <mat-icon>close</mat-icon>\r\n                      </button>\r\n                    </mat-form-field>\r\n                  </mat-list-item>\r\n                </mat-list>\r\n                <!-- </mat-card-content>\r\n      <mat-card-content class=\"purchase_item\"> -->\r\n                <!-- 50% section -->\r\n                <!-- <mat-card-title class=\"header\">MD STock Purchase Quote</mat-card-title> -->\r\n\r\n\r\n              </span>\r\n\r\n            </div>\r\n          </div>\r\n\r\n        </form>\r\n      </mat-card-content>\r\n\r\n\r\n    </mat-card-content>\r\n\r\n    <mat-toolbar class=\"buttons_wrapper\">\r\n      <button mat-button color=\"primary\" type=\"button\" (click)=\"addItem()\">Add</button>\r\n    </mat-toolbar>\r\n\r\n  </mat-card-content>\r\n\r\n  <mat-toolbar class=\"addToBiller\">\r\n    <button mat-button color=\"primary\" (click)=\"onSubmit()\">{{btn_text}}</button>\r\n\r\n    <button mat-button color=\"primary\" (click)=\"setDraft()\">Save As Draft</button>\r\n  </mat-toolbar>\r\n  <app-frontend-footer *ngIf=\"headerFlag=='salesrep'\"></app-frontend-footer>\r\n</div>");
 
 /***/ }),
 
@@ -10823,7 +10823,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader *ngIf=\"headerFlag == 'admin'\">\r\n\r\n    <mat-card class=\"main_wrapper\">\r\n        <mat-card-content class=\"inventory_banner\">\r\n            <mat-card-title class=\"inventory_title\">Price Markup Management List</mat-card-title>\r\n            <p class=\"inventory_para\">Expansive Price Markup Management List</p>\r\n        </mat-card-content>\r\n\r\n        <mat-card-content class=\"bred_cram_wrapper\">\r\n            <a mat-list-item routerLinkActive=\"active activebread\" routerLink=\"/dashboard-admin\"> Dashboard </a>\r\n            <a mat-list-item routerLinkActive=\"active activebread\"\r\n                routerLink=\"/inventory/purchase-comparison/list\">Price Markup Management List</a>\r\n\r\n        </mat-card-content>\r\n        <!-- Add Brand Button  -->\r\n\r\n        <mat-toolbar class=\"content_header_wrapper\">\r\n            <mat-card-title class=\"toolbar_header\">Purchase Comparison Report</mat-card-title>\r\n            <button class=\"singleButton\" mat-raised-button\r\n                [routerLink]=\"['/inventory/price-markup-management-list/add']\">\r\n                <mat-icon fontSet=\"fontawesome\" fontIcon=\"fa-plus\"></mat-icon>Add Price Markup\r\n            </button>\r\n        </mat-toolbar>\r\n\r\n\r\n        <mat-card class=\"purchaseComparison\" *ngIf=\"headerFlag == 'admin'\">\r\n\r\n            <mat-toolbar class=\"searchBar\">\r\n\r\n                <!-- Search hospital name  -->\r\n                <mat-form-field>\r\n                    <input matInput placeholder=\"search by hospital name\" (keyup)=\"search_hospital($event)\">\r\n                    <span matPrefix>\r\n                        <mat-icon>search</mat-icon>\r\n                    </span>\r\n                </mat-form-field>\r\n\r\n                <!-- search by draft  -->\r\n                <mat-form-field>\r\n                    <span matPrefix>\r\n                        <mat-icon>search</mat-icon>\r\n                    </span>\r\n                    <mat-select matNativeControl (selectionChange)=\"search_draft($event)\" placeholder=\"search by draft\">\r\n                        <mat-option value=1>Draft</mat-option>\r\n                        <mat-option value=0>Sent</mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n\r\n                <!-- search by sales rep  -->\r\n                <mat-form-field>\r\n                    <input type=\"text\" placeholder=\"search by salesrep\" aria-label=\"Number\" matInput\r\n                        [formControl]=\"myControl\" [matAutocomplete]=\"auto\" (keyup)=\"search_salesrep($event)\">\r\n                    <mat-autocomplete #auto=\"matAutocomplete\">\r\n                        <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n                            {{option}}\r\n                        </mat-option>\r\n                    </mat-autocomplete>\r\n                    <span matPrefix>\r\n                        <mat-icon>search</mat-icon>\r\n                    </span>\r\n                </mat-form-field>\r\n\r\n\r\n                <mat-form-field>\r\n                    <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                    <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                    <mat-datepicker #picker></mat-datepicker>\r\n                </mat-form-field>\r\n                <!--           \r\n          <mat-form-field>\r\n            <input matInput placeholder=\"Choose a date\" [satDatepicker]=\"picker\" [value]=\"date\">\r\n            <sat-datepicker #picker [rangeMode]=\"true\"></sat-datepicker>\r\n            <sat-datepicker-toggle matSuffix [for]=\"picker\"></sat-datepicker-toggle>\r\n        </mat-form-field> -->\r\n\r\n\r\n\r\n                <button mat-button class=\"action_button\" type=\"button\"\r\n                    routerLink=\"/admin/inventory/purchase-comparison/add\">Add\r\n                    Quote</button>\r\n\r\n            </mat-toolbar>\r\n\r\n            <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8 prchaseListTable\">\r\n\r\n                <!--- Note that these columns can be defined in any order.\r\n                      The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n                <!-- Position Column -->\r\n                <ng-container matColumnDef=\"no\">\r\n                    <th mat-header-cell *matHeaderCellDef> No </th>\r\n                    <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }}\r\n                        <span *ngIf=\"element.is_draft == 1\">\r\n                            <mat-icon>drafts</mat-icon>\r\n                        </span>\r\n                    </td>\r\n                </ng-container>\r\n\r\n                <ng-container matColumnDef=\"hospitalname\">\r\n                    <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.hospital_name}}</td>\r\n                </ng-container>\r\n\r\n                <ng-container matColumnDef=\"salesrepname\">\r\n                    <th mat-header-cell *matHeaderCellDef> Sales Representative Name </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.salesrep_full_name}}</td>\r\n                </ng-container>\r\n\r\n                <ng-container matColumnDef=\"reportname\">\r\n                    <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n                </ng-container>\r\n\r\n\r\n                <ng-container matColumnDef=\"date\">\r\n                    <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                    <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n                </ng-container>\r\n\r\n\r\n                <ng-container matColumnDef=\"actions\">\r\n                    <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                    <td mat-cell *matCellDef=\"let element\">\r\n                        <div>\r\n                            <mat-icon class=\"clickable\" (click)=\"viewQuote(element._id)\">remove_red_eye</mat-icon>\r\n                            <mat-icon class=\"clickable\">send</mat-icon>\r\n                        </div>\r\n                    </td>\r\n                </ng-container>\r\n\r\n\r\n                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n            </table>\r\n\r\n            <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n        </mat-card>\r\n    </mat-card>\r\n\r\n</app-adminheader>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<app-frontend-header *ngIf=\"headerFlag == 'salesrep'\"></app-frontend-header>\r\n<h1>Purchase Comparison Report</h1>\r\n<mat-card class=\"main_wrapper\">\r\n    <mat-card-content class=\"inventory_banner\">\r\n        <mat-card-title class=\"inventory_title\">Price Markup Management List</mat-card-title>\r\n        <p class=\"inventory_para\">Expansive Price Markup Management List</p>\r\n    </mat-card-content>\r\n\r\n    <mat-card-content class=\"bred_cram_wrapper\">\r\n        <a mat-list-item routerLinkActive=\"active activebread\" routerLink=\"/dashboard-admin\"> Dashboard </a>\r\n        <a mat-list-item routerLinkActive=\"active activebread\" routerLink=\"/inventory/purchase-comparison/list\">Price\r\n            Markup Management List</a>\r\n\r\n    </mat-card-content>\r\n    <!-- Add Brand Button  -->\r\n\r\n    <mat-toolbar class=\"content_header_wrapper\">\r\n        <mat-card-title class=\"toolbar_header\">Purchase Comparison Report</mat-card-title>\r\n        <button class=\"singleButton\" mat-raised-button [routerLink]=\"['/inventory/price-markup-management-list/add']\">\r\n            <mat-icon fontSet=\"fontawesome\" fontIcon=\"fa-plus\"></mat-icon>Add Price Markup\r\n        </button>\r\n    </mat-toolbar>\r\n\r\n    <mat-card class=\"purchaseComparison\" *ngIf=\"headerFlag == 'salesrep'\">\r\n        <mat-toolbar class=\"searchBar\">\r\n\r\n            <!-- Search hospital name  -->\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"search by hospital name\" (keyup)=\"search_hospital($event)\">\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n            <!-- search by draft  -->\r\n            <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <mat-select matNativeControl (selectionChange)=\"search_draft($event)\" placeholder=\"search by draft\">\r\n                    <mat-option value=1>Draft</mat-option>\r\n                    <mat-option value=0>Sent</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n\r\n            <!-- search by sales rep  -->\r\n            <mat-form-field>\r\n                <input type=\"text\" placeholder=\"search by salesrep\" aria-label=\"Number\" matInput\r\n                    [formControl]=\"myControl\" [matAutocomplete]=\"auto\" (keyup)=\"search_salesrep($event)\">\r\n                <mat-autocomplete #auto=\"matAutocomplete\">\r\n                    <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n                        {{option}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n\r\n            <mat-form-field>\r\n                <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                <mat-datepicker #picker></mat-datepicker>\r\n            </mat-form-field>\r\n            <!--           \r\n              <mat-form-field>\r\n                <input matInput placeholder=\"Choose a date\" [satDatepicker]=\"picker\" [value]=\"date\">\r\n                <sat-datepicker #picker [rangeMode]=\"true\"></sat-datepicker>\r\n                <sat-datepicker-toggle matSuffix [for]=\"picker\"></sat-datepicker-toggle>\r\n            </mat-form-field> -->\r\n\r\n\r\n\r\n            <button mat-button class=\"action_button\" type=\"button\" routerLink=\"/salesrep/purchase-comparison/add\">Add\r\n                Quote</button>\r\n\r\n        </mat-toolbar>\r\n\r\n        <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8\">\r\n\r\n            <!--- Note that these columns can be defined in any order.\r\n                          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"no\">\r\n                <th mat-header-cell *matHeaderCellDef> No </th>\r\n                <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }}\r\n                    <span *ngIf=\"element.is_draft == 1\">\r\n                        <mat-icon>drafts</mat-icon>\r\n                    </span>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hospitalname\">\r\n                <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.hospital_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"salesrepname\">\r\n                <th mat-header-cell *matHeaderCellDef> Sales Representative Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.salesrep_full_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"reportname\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"date\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <div>\r\n                        <mat-icon class=\"clickable\" (click)=\"viewQuote(element._id)\">remove_red_eye</mat-icon>\r\n                        <mat-icon class=\"clickable\">send</mat-icon>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n        </table>\r\n\r\n        <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n    </mat-card>\r\n</mat-card>\r\n\r\n<app-frontend-footer *ngIf=\"headerFlag=='salesrep'\"></app-frontend-footer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader *ngIf=\"headerFlag == 'admin'\">\r\n\r\n\r\n\r\n\r\n    <mat-card class=\"purchaseComparison\" *ngIf=\"headerFlag == 'admin'\">\r\n\r\n        <mat-toolbar class=\"searchBar\">\r\n\r\n            <!-- Search hospital name  -->\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"search by hospital name\" (keyup)=\"search_hospital($event)\">\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n            <!-- search by draft  -->\r\n            <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <mat-select matNativeControl (selectionChange)=\"search_draft($event)\" placeholder=\"search by draft\">\r\n                    <mat-option value=1>Draft</mat-option>\r\n                    <mat-option value=0>Sent</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n\r\n            <!-- search by sales rep  -->\r\n            <mat-form-field>\r\n                <input type=\"text\" placeholder=\"search by salesrep\" aria-label=\"Number\" matInput\r\n                    [formControl]=\"myControl\" [matAutocomplete]=\"auto\" (keyup)=\"search_salesrep($event)\">\r\n                <mat-autocomplete #auto=\"matAutocomplete\">\r\n                    <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\r\n                        {{option}}\r\n                    </mat-option>\r\n                </mat-autocomplete>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n\r\n            <!-- search by date  -->\r\n            <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <input matInput type=\"text\" ngxDaterangepickerMd [(ngModel)]=\"selected\" \r\n                    placeholder=\"search by date range\" (ngModelChange)=\"search_by_date($event)\"/>                    \r\n            </mat-form-field>\r\n            \r\n\r\n\r\n            <button mat-button class=\"action_button\" type=\"button\"\r\n                routerLink=\"/admin/inventory/purchase-comparison/add\">Add\r\n                Quote</button>\r\n\r\n        </mat-toolbar>\r\n\r\n        <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8 prchaseListTable\">\r\n\r\n            <!--- Note that these columns can be defined in any order.\r\n                      The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"no\">\r\n                <th mat-header-cell *matHeaderCellDef> No </th>\r\n                <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }}\r\n                    <span *ngIf=\"element.is_draft == 1\">\r\n                        <mat-icon>drafts</mat-icon>\r\n                    </span>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hospitalname\">\r\n                <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.hospital_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"salesrepname\">\r\n                <th mat-header-cell *matHeaderCellDef> Sales Representative Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.salesrep_full_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"reportname\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"date\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <div>\r\n                        <mat-icon class=\"clickable\" (click)=\"viewQuote(element._id)\">remove_red_eye</mat-icon>\r\n                        <mat-icon class=\"clickable\" (click)=\"sendMailModal(element._id)\">send</mat-icon>\r\n                        <mat-icon class=\"clickable\" [routerLink]=\"['/admin/inventory/purchase-comparison/edit/', element._id]\" *ngIf=\"element.is_draft == 1\">edit</mat-icon>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n        </table>\r\n\r\n        <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n    </mat-card>\r\n\r\n</app-adminheader>\r\n\r\n\r\n\r\n\r\n\r\n<div *ngIf=\"headerFlag == 'salesrep'\">\r\n\r\n    <app-frontend-header></app-frontend-header>\r\n\r\n\r\n    <mat-card class=\"purchaseComparison\" *ngIf=\"headerFlag == 'salesrep'\">\r\n        <mat-toolbar class=\"searchBar\">\r\n\r\n            <!-- Search hospital name  -->\r\n            <mat-form-field>\r\n                <input matInput placeholder=\"search by hospital name\" (keyup)=\"search_hospital($event)\">\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n            </mat-form-field>\r\n\r\n            <!-- search by draft  -->\r\n            <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <mat-select matNativeControl (selectionChange)=\"search_draft($event)\" placeholder=\"search by draft\">\r\n                    <mat-option value=1>Draft</mat-option>\r\n                    <mat-option value=0>Sent</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n\r\n\r\n\r\n        <!-- search by date  -->\r\n        <mat-form-field>\r\n                <span matPrefix>\r\n                    <mat-icon>search</mat-icon>\r\n                </span>\r\n                <input matInput type=\"text\" ngxDaterangepickerMd [(ngModel)]=\"selected\" \r\n                    placeholder=\"search by date range\" (ngModelChange)=\"search_by_date($event)\"/>                    \r\n            </mat-form-field>\r\n\r\n\r\n\r\n            <button mat-button class=\"action_button\" type=\"button\" routerLink=\"/salesrep/purchase-comparison/add\">Add\r\n                Quote</button>\r\n\r\n        </mat-toolbar>\r\n\r\n        <table mat-table [dataSource]=\"datasource\" class=\"mat-elevation-z8\">\r\n\r\n            <!--- Note that these columns can be defined in any order.\r\n                          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n            <!-- Position Column -->\r\n            <ng-container matColumnDef=\"no\">\r\n                <th mat-header-cell *matHeaderCellDef> No </th>\r\n                <td mat-cell *matCellDef=\"let element;let i = index\">{{ i+1 }}\r\n                    <span *ngIf=\"element.is_draft == 1\">\r\n                        <mat-icon>drafts</mat-icon>\r\n                    </span>\r\n                </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"hospitalname\">\r\n                <th mat-header-cell *matHeaderCellDef> Hospital Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.hospital_name}}</td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"salesrepname\">\r\n                <th mat-header-cell *matHeaderCellDef></th>\r\n                <td mat-cell *matCellDef=\"let element\"> </td>\r\n            </ng-container>\r\n\r\n            <ng-container matColumnDef=\"reportname\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Name </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.report_name}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"date\">\r\n                <th mat-header-cell *matHeaderCellDef> Report Sent On </th>\r\n                <td mat-cell *matCellDef=\"let element\"> {{element.date_added}}</td>\r\n            </ng-container>\r\n\r\n\r\n            <ng-container matColumnDef=\"actions\">\r\n                <th mat-header-cell *matHeaderCellDef> Actions </th>\r\n                <td mat-cell *matCellDef=\"let element\">\r\n                    <div>\r\n                        <mat-icon class=\"clickable\" (click)=\"viewQuote(element._id)\">remove_red_eye</mat-icon>\r\n                        <mat-icon class=\"clickable\">send</mat-icon>\r\n                    </div>\r\n                </td>\r\n            </ng-container>\r\n\r\n\r\n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n        </table>\r\n\r\n        <mat-paginator [pageSizeOptions]=\"[5,10,20]\" showFirstLastButtons></mat-paginator>\r\n\r\n    </mat-card>\r\n\r\n    <app-frontend-footer *ngIf=\"headerFlag=='salesrep'\"></app-frontend-footer>\r\n</div>");
 
 /***/ }),
 
@@ -10836,7 +10836,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"dialogContainer\">\r\n   <mat-card-content-title class=\"Title\">QUOTES</mat-card-content-title>\r\n\r\n   <mat-card-content class=\"dialog_table\">\r\n      <table>\r\n         <tr>\r\n            <th>\r\n               <p>Hospital previous quotes</p>\r\n            </th>\r\n            <th>\r\n               <p>MD Stock quotes</p>\r\n            </th>\r\n         </tr>\r\n         <tr *ngFor=\"let item of data.msg\">\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{ item.productname_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Price : {{item.price_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_sr }}</mat-label>\r\n               </p>\r\n            </td>\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{item.productname_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Price : {{item.price_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_md }}</mat-label>\r\n               </p>\r\n            </td>\r\n         </tr>\r\n      </table>\r\n   </mat-card-content>\r\n</mat-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"dialogContainer\">\r\n   <mat-card-content-title class=\"Title\">PURCHASE COMPARISON REPORT</mat-card-content-title>\r\n\r\n   <mat-card-content class=\"dialog_table\">\r\n      <table>\r\n         <tr>\r\n            <th>\r\n               <p>Hospital previous quotes</p>\r\n            </th>\r\n            <th>\r\n               <p>MD Stock quotes</p>\r\n            </th>\r\n         </tr>\r\n         <tr *ngFor=\"let item of data.msg\">\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{ item.productname_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Price : {{item.price_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_sr }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_sr }}</mat-label>\r\n               </p>\r\n            </td>\r\n            <td>\r\n               <p>\r\n                  <mat-label>Product Name : {{item.productname_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Price : {{item.price_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Color : {{item.color_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Size : {{item.size_md }}</mat-label>\r\n               </p>\r\n               <p>\r\n                  <mat-label>Description : {{item.description_md }}</mat-label>\r\n               </p>\r\n            </td>\r\n         </tr>\r\n      </table>\r\n   </mat-card-content>\r\n</mat-card>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/sendMailModal.html":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/sendMailModal.html ***!
+  \**********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"dialogContainer\">\r\n   <mat-card-content-title class=\"Title\">SEND MAIL</mat-card-content-title>\r\n\r\n   <mat-card-content class=\"sendMail\">\r\n      <mat-form-field>\r\n        <span class=\"label_class\"> Subject :</span> <input matInput >\r\n      </mat-form-field>\r\n      <mat-form-field class=\"body\" appearance=\"outline\">\r\n      <span class=\"label_class\">Body :</span> <textarea matInput rows=\"5\" cols=\"40\"></textarea>\r\n      </mat-form-field>\r\n\r\n\r\n      <mat-toolbar class=\"button_wrapper\">\r\n         <button mat-button >Send</button>\r\n      </mat-toolbar>\r\n   </mat-card-content>\r\n</mat-card>");
 
 /***/ }),
 
@@ -11418,8 +11431,8 @@ let AddEditAdminComponent = class AddEditAdminComponent {
     // ==============GENERATE FORM==================
     generateForm() {
         this.adminForm = this.formBuilder.group({
-            firstname: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _common_validators__WEBPACK_IMPORTED_MODULE_6__["nameValidator"]]],
-            lastname: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _common_validators__WEBPACK_IMPORTED_MODULE_6__["nameValidator"]]],
+            firstname: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+            lastname: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
             phone: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _common_validators__WEBPACK_IMPORTED_MODULE_6__["phoneValidator"]]],
             email: ["", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
             password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -11474,6 +11487,15 @@ let AddEditAdminComponent = class AddEditAdminComponent {
                 "data": Object.assign(this.adminForm.value, this.condition),
                 "token": this.cookieService.get('jwtToken')
             };
+            /**delete password when id not null */
+            if (postData.data.id) {
+                //console.log("with ID");
+                delete postData.data.password;
+            }
+            else {
+                //console.log("withOut ID");
+            }
+            //console.log(postData);
             this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
                 if (response.status == "success") {
                     this.openDialog(this.successMessage);
@@ -11683,10 +11705,10 @@ let AdminheaderComponent = class AdminheaderComponent {
     }
     /**logout function start here**/
     logout() {
-        this.cookieService.delete('jwtToken');
-        this.cookieService.delete('user_details');
         this.cookieService.deleteAll();
+        this.cookieService.deleteAll('/');
         setTimeout(() => {
+            window.location.href = '/';
             this.router.navigateByUrl('/home');
         }, 1000);
     }
@@ -12107,6 +12129,14 @@ let AddEditMedicalpartnersComponent = class AddEditMedicalpartnersComponent {
                 "token": this.cookieService.get('jwtToken'),
                 "sourceobj": ["salesrepselect"]
             };
+            if (postData.data.id) {
+                //console.log("with ID");
+                delete postData.data.password;
+            }
+            else {
+                //console.log("withOut ID");
+            }
+            //console.log(postData);
             this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
                 if (response.status == "success") {
                     this.openDialog(this.successMessage);
@@ -12258,7 +12288,7 @@ let ListingMedicalpartnersComponent = class ListingMedicalpartnersComponent {
         // ===============================Declarations=========================
         this.mpData = [];
         this.mpData_skip = ["_id", "password", "contactphones", "contactemails", "address",
-            "noofdoctors", "noofbeds", "type", "image", "noofstaffs", "fullname", "images", "salesrepname", "user_full_name"];
+            "noofdoctors", "noofbeds", "type", "image", "noofstaffs", "fullname", "images", 'salesrepselect', "user_full_name"];
         this.mpData_modify_header = {
             "hospitalname": "Hospital Name", "contactperson": "Contact Person", "state": "State", "city": "City",
             "zip": "ZIP", "speciality": "Speciality", "status": "Status", "date": "Date", 'email': 'Primary Email',
@@ -12416,7 +12446,7 @@ let AddEditSalesrepComponent = class AddEditSalesrepComponent {
     // ================generateForm===================
     generateForm() {
         this.salesRepForm = this.formBuilder.group({
-            firstname: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _validators__WEBPACK_IMPORTED_MODULE_7__["nameValidator"]]],
+            firstname: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
             lastname: [],
             email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
             password: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -12526,6 +12556,15 @@ let AddEditSalesrepComponent = class AddEditSalesrepComponent {
                 "data": Object.assign(this.salesRepForm.value, this.condition),
                 "token": this.cookieService.get('jwtToken')
             };
+            /**delete password when id not null */
+            if (postData.data.id) {
+                //console.log("with ID");
+                delete postData.data.password;
+            }
+            else {
+                //console.log("withOut ID");
+            }
+            //console.log(postData);
             this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
                 if (response.status == "success") {
                     this.openDialog(this.successMessage);
@@ -14460,7 +14499,7 @@ let DialogBoxComponent = class DialogBoxComponent {
         let allData = {};
         allData = cookieService.getAll();
         this.user_data = JSON.parse(allData.user_details);
-        this.Type = this.user_data.Type;
+        this.Type = this.user_data.type;
         console.log("+++++++++++++++++++++Type", this.Type);
         if (this.Type == 'admin')
             this.adminflag = 1;
@@ -15106,8 +15145,8 @@ let FrontendHeaderComponent = class FrontendHeaderComponent {
         this.pageUrl = '';
         this.user_details = '';
         this.type = '';
-        this.headerFlag = this.cookieService.get('loginFlag');
-        if (this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+        // this.headerFlag = this.cookieService.get('loginFlag');
+        if (this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
             this.user_details = JSON.parse(this.cookieService.get('user_details'));
             this.type = this.user_details.type;
             console.log(this.user_details.type);
@@ -15120,11 +15159,12 @@ let FrontendHeaderComponent = class FrontendHeaderComponent {
     ngOnInit() {
     }
     logout() {
-        console.log("logout");
         this.cookieService.deleteAll();
+        this.cookieService.deleteAll('/');
         setTimeout(() => {
+            window.location.href = '/';
             this.router.navigateByUrl('/home');
-        }, 500);
+        }, 1000);
     }
 };
 FrontendHeaderComponent.ctorParameters = () => [
@@ -15731,7 +15771,7 @@ let AddEditInventoryComponent = class AddEditInventoryComponent {
         // ===================================================
         //image upload 
         this.configData = {
-            baseUrl: "http://3.15.236.141:5005/",
+            baseUrl: "https://fileupload.influxhostserver.com/",
             endpoint: "uploads",
             size: "51200",
             format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'],
@@ -17058,13 +17098,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponent {
-    constructor(http, cookieService, formBuilder, router, activatedRoute, matSnackBar) {
+    constructor(http, cookieService, formBuilder, router, activatedRoute, snackBar) {
         this.http = http;
         this.cookieService = cookieService;
         this.formBuilder = formBuilder;
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.matSnackBar = matSnackBar;
+        this.snackBar = snackBar;
         /** declarations **/
         this.hospital_name_array = [];
         this.activatedRoute.params.subscribe(params => {
@@ -17073,6 +17113,12 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
                 this.condition = { id: params._id };
                 this.activatedRoute.data.subscribe(resolveData => {
                     this.defaultData = resolveData.data.res[0];
+                    console.log('default Data', this.defaultData);
+                    this.hospital_name_array._id = this.defaultData.hospital_id;
+                    console.log('hospital array', this.hospital_name_array);
+                    this.generateForm();
+                    this.reportName = this.defaultData.report_name;
+                    this.setDefaultValue(this.defaultData);
                 });
             }
             else
@@ -17083,10 +17129,18 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
         allData = cookieService.getAll();
         this.user_data = JSON.parse(allData.user_details);
         this.id = this.user_data.id;
+        this.role = this.user_data;
+        this.salesRepName = this.user_data.firstname + ' ' + this.user_data.lastname;
     }
     ngOnInit() {
+        /** getting the header flag **/
+        this.headerFlag = this.activatedRoute.snapshot.url[0].path;
+        if (this.headerFlag == 'salesrep')
+            this.salerep_id = this.id;
+        else
+            this.salerep_id = undefined;
         /** getting the hospital name **/
-        this.getHospitalName();
+        this.getHospitalNames();
         /** generate form call **/
         this.generateForm();
         /** by default a single form will be selected **/
@@ -17105,12 +17159,21 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
                 break;
         }
     }
-    /** getting t he hospital names **/
-    getHospitalName() {
+    setDefaultValue(defaultValue) {
+        console.log(this.defaultData);
+        this.purchaseForm.patchValue({
+            report_name: this.defaultData.report_name,
+        });
+    }
+    /** getting the hospital names for admin **/
+    getHospitalNames() {
         let data = {
             'source': 'users_view',
             'token': this.cookieService.get('jwtToken'),
-            'condition': { 'type': 'hospital' }
+            'condition': {
+                'type': 'hospital',
+                'salesrepselect_object': this.salerep_id
+            }
         };
         this.http.httpViaPost('datalist', data).subscribe((response) => {
             let result = response.res;
@@ -17150,11 +17213,10 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
     /** takeName **/
     takeName(event) {
         this.tmp_value = event.value;
-        console.log("----------------HN", this.tmp_value);
     }
     /** taking the report name **/
     takereport_name(event) {
-        console.log("+++++++++++", event);
+        this.reportName = event.target.value;
     }
     /** set draft **/
     setDraft() {
@@ -17162,11 +17224,9 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
     }
     /** submit function **/
     onSubmit() {
-        console.log('Report NAme', this.reportName);
         this.purchaseForm.value.hospital_id = this.tmp_value;
         this.purchaseForm.value.report_name = this.reportName;
         this.purchaseForm.value.user_id = this.id;
-        console.log("All values", this.purchaseForm.value);
         if (this.purchaseForm.invalid) {
             return;
         }
@@ -17180,11 +17240,16 @@ let AddEditPurchaseComparisonComponent = class AddEditPurchaseComparisonComponen
             };
             this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
                 if (response.status == "success") {
-                    // this.openDialog(this.successMessage);
-                    // setTimeout(() => {
-                    //   this.dialogRef.close();
-                    // }, 2000);
-                    // this.router.navigateByUrl('inventory/inventory-list/list');;
+                    let action = "Ok";
+                    this.snackBar.open('Report Added!!!', action, {
+                        duration: 1000,
+                    });
+                    setTimeout(() => {
+                        if (this.headerFlag == 'admin')
+                            this.router.navigateByUrl('/admin/inventory/purchase-comparison/list');
+                        else
+                            this.router.navigateByUrl('/salesrep/purchase-comparison/list');
+                    }, 1000);
                 }
                 else {
                     alert("Some error occurred. Please try again.");
@@ -17224,7 +17289,7 @@ AddEditPurchaseComparisonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".clickable{ cursor: pointer; } \r\n.purchaseComparison table{ width: 100%;} \r\n.searchBar{ justify-content: space-between; height: auto;} \r\n.searchBar .action_button{width: 180px; background: #06294e; color: #fff; text-transform: uppercase; font-size: 18px; padding: 6px; border-radius: 0;} \r\n.inventory_banner { background: url('inventory_categoryBanner.jpg') no-repeat center center; background-size: cover; border-top-left-radius: 10px;        border-top-right-radius: 10px;\r\npadding: 50px; padding-right: 45%; } \r\n.inventory_banner .inventory_title { font-size: 48px; color: #fff; font-family: \"HelveticaBold\"; text-transform: uppercase; } \r\n.inventory_banner .inventory_para { font-size: 24px; color: #89fbff; font-family: \"HelveticaBold\"; margin: 0; } \r\n.buttonsetToolbar .singleButton { width: 330px; border-radius: 0; color: #fff;} \r\n.buttonsetToolbar .singleButton { font-size: 20px; text-transform: uppercase; font-family: \"HelveticaRegular\"; padding: 5px; } \r\n.buttonsetToolbar .singleButton:nth-child(1) {  background: #0bb4e5; } \r\n.buttonsetToolbar .singleButton:nth-child(2) {  background: #2c3439; margin-left: 16px;} \r\n.brand_group .tabs_wrapper{ margin-top: 16px; } \r\n.dialogContainer{ width: 800px; background: #f7f7f7; border: 1px solid #fff; padding: 0; } \r\n.dialogContainer table{ width: 100%; border: none; border-spacing: 0;} \r\n.dialogContainer .Title{ color: #fff; font-size: 30px; font-family: \"RobotoBold\"; display: block; text-align: center; margin-bottom: 20px;  \r\npadding-bottom: 5px; background: #0062b7; padding: 10px; box-sizing: border-box; box-shadow: 0px 3px 3px 0px #adadad; } \r\n.dialogContainer .dialog_table{ padding: 4px 16px; background: #3199ff;} \r\n.dialogContainer .dialog_table  table { border-collapse: collapse; } \r\n.dialogContainer .dialog_table  table, .dialogContainer .dialog_table table th, .dialog_table table td { border-collapse: separate;\r\n    border-spacing: 0 15px; } \r\n.dialogContainer .dialog_table table th{ background: #ccfff1; font-size: 20px; text-transform: capitalize; font-family: \"RobotoBold\"; font-weight: normal; color: #228267; line-height: 10px;} \r\n.dialog_table table td {width: 50%; box-sizing: border-box; } \r\n.dialog_table table td p{ background: #d6d6d6; padding: 10px; margin: 5px 0; color: #000; font-size: 16px; font-family: \"HelveticaRegular\"; } \r\n.dialog_table table td p:nth-child(odd){ background: #fff; }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLGVBQWUsRUFBRTtBQUM3QiwyQkFBMkIsV0FBVyxDQUFDO0FBQ3ZDLFlBQVksOEJBQThCLEVBQUUsWUFBWSxDQUFDO0FBQ3pELDBCQUEwQixZQUFZLEVBQUUsbUJBQW1CLEVBQUUsV0FBVyxFQUFFLHlCQUF5QixFQUFFLGVBQWUsRUFBRSxZQUFZLEVBQUUsZ0JBQWdCLENBQUM7QUFDckosb0JBQW9CLHVFQUFvRyxFQUFFLHNCQUFzQixFQUFFLDRCQUE0QixTQUFTLDZCQUE2QjtBQUNwTixhQUFhLEVBQUUsa0JBQWtCLEVBQUU7QUFDbkMscUNBQXFDLGVBQWUsRUFBRSxXQUFXLEVBQUUsNEJBQTRCLEVBQUUseUJBQXlCLEVBQUU7QUFDNUgsb0NBQW9DLGVBQWUsRUFBRSxjQUFjLEVBQUUsNEJBQTRCLEVBQUUsU0FBUyxFQUFFO0FBQzlHLGtDQUFrQyxZQUFZLEVBQUUsZ0JBQWdCLEVBQUUsV0FBVyxDQUFDO0FBQzlFLGtDQUFrQyxlQUFlLEVBQUUseUJBQXlCLEVBQUUsK0JBQStCLEVBQUUsWUFBWSxFQUFFO0FBQzdILGdEQUFnRCxtQkFBbUIsRUFBRTtBQUNyRSxnREFBZ0QsbUJBQW1CLEVBQUUsaUJBQWlCLENBQUM7QUFDdkYsNEJBQTRCLGdCQUFnQixFQUFFO0FBRTlDLGtCQUFrQixZQUFZLEVBQUUsbUJBQW1CLEVBQUUsc0JBQXNCLEVBQUUsVUFBVSxFQUFFO0FBQ3pGLHdCQUF3QixXQUFXLEVBQUUsWUFBWSxFQUFFLGlCQUFpQixDQUFDO0FBQ3JFLHlCQUF5QixXQUFXLEVBQUUsZUFBZSxFQUFFLHlCQUF5QixFQUFFLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUI7QUFDekksbUJBQW1CLEVBQUUsbUJBQW1CLEVBQUUsYUFBYSxFQUFFLHNCQUFzQixFQUFFLG1DQUFtQyxFQUFFO0FBQ3RILGdDQUFnQyxpQkFBaUIsRUFBRSxtQkFBbUIsQ0FBQztBQUN2RSx3Q0FBd0MseUJBQXlCLEVBQUU7QUFDbkUseUdBQXlHLHlCQUF5QjtJQUM5SCxzQkFBc0IsRUFBRTtBQUM1Qix5Q0FBeUMsbUJBQW1CLEVBQUUsZUFBZSxFQUFFLDBCQUEwQixFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLGNBQWMsRUFBRSxpQkFBaUIsQ0FBQztBQUU3TCx3QkFBd0IsVUFBVSxFQUFFLHNCQUFzQixFQUFFO0FBQzVELDBCQUEwQixtQkFBbUIsRUFBRSxhQUFhLEVBQUUsYUFBYSxFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUUsK0JBQStCLEVBQUU7QUFDNUkseUNBQXlDLGdCQUFnQixFQUFFIiwiZmlsZSI6InNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jbGlja2FibGV7IGN1cnNvcjogcG9pbnRlcjsgfSBcclxuLnB1cmNoYXNlQ29tcGFyaXNvbiB0YWJsZXsgd2lkdGg6IDEwMCU7fVxyXG4uc2VhcmNoQmFyeyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGhlaWdodDogYXV0bzt9XHJcbi5zZWFyY2hCYXIgLmFjdGlvbl9idXR0b257d2lkdGg6IDE4MHB4OyBiYWNrZ3JvdW5kOiAjMDYyOTRlOyBjb2xvcjogI2ZmZjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1zaXplOiAxOHB4OyBwYWRkaW5nOiA2cHg7IGJvcmRlci1yYWRpdXM6IDA7fVxyXG4uaW52ZW50b3J5X2Jhbm5lciB7IGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvaW52ZW50b3J5X2NhdGVnb3J5QmFubmVyLmpwZ1wiKSBuby1yZXBlYXQgY2VudGVyIGNlbnRlcjsgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjsgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMTBweDsgICAgICAgIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxMHB4O1xyXG5wYWRkaW5nOiA1MHB4OyBwYWRkaW5nLXJpZ2h0OiA0NSU7IH1cclxuLmludmVudG9yeV9iYW5uZXIgLmludmVudG9yeV90aXRsZSB7IGZvbnQtc2l6ZTogNDhweDsgY29sb3I6ICNmZmY7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYUJvbGRcIjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgfVxyXG4uaW52ZW50b3J5X2Jhbm5lciAuaW52ZW50b3J5X3BhcmEgeyBmb250LXNpemU6IDI0cHg7IGNvbG9yOiAjODlmYmZmOyBmb250LWZhbWlseTogXCJIZWx2ZXRpY2FCb2xkXCI7IG1hcmdpbjogMDsgfVxyXG4uYnV0dG9uc2V0VG9vbGJhciAuc2luZ2xlQnV0dG9uIHsgd2lkdGg6IDMzMHB4OyBib3JkZXItcmFkaXVzOiAwOyBjb2xvcjogI2ZmZjt9XHJcbi5idXR0b25zZXRUb29sYmFyIC5zaW5nbGVCdXR0b24geyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYVJlZ3VsYXJcIjsgcGFkZGluZzogNXB4OyB9XHJcbi5idXR0b25zZXRUb29sYmFyIC5zaW5nbGVCdXR0b246bnRoLWNoaWxkKDEpIHsgIGJhY2tncm91bmQ6ICMwYmI0ZTU7IH1cclxuLmJ1dHRvbnNldFRvb2xiYXIgLnNpbmdsZUJ1dHRvbjpudGgtY2hpbGQoMikgeyAgYmFja2dyb3VuZDogIzJjMzQzOTsgbWFyZ2luLWxlZnQ6IDE2cHg7fVxyXG4uYnJhbmRfZ3JvdXAgLnRhYnNfd3JhcHBlcnsgbWFyZ2luLXRvcDogMTZweDsgfVxyXG4gICBcclxuLmRpYWxvZ0NvbnRhaW5lcnsgd2lkdGg6IDgwMHB4OyBiYWNrZ3JvdW5kOiAjZjdmN2Y3OyBib3JkZXI6IDFweCBzb2xpZCAjZmZmOyBwYWRkaW5nOiAwOyB9XHJcbi5kaWFsb2dDb250YWluZXIgdGFibGV7IHdpZHRoOiAxMDAlOyBib3JkZXI6IG5vbmU7IGJvcmRlci1zcGFjaW5nOiAwO31cclxuLmRpYWxvZ0NvbnRhaW5lciAuVGl0bGV7IGNvbG9yOiAjZmZmOyBmb250LXNpemU6IDMwcHg7IGZvbnQtZmFtaWx5OiBcIlJvYm90b0JvbGRcIjsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMjBweDsgIFxyXG5wYWRkaW5nLWJvdHRvbTogNXB4OyBiYWNrZ3JvdW5kOiAjMDA2MmI3OyBwYWRkaW5nOiAxMHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyBib3gtc2hhZG93OiAwcHggM3B4IDNweCAwcHggI2FkYWRhZDsgfVxyXG4uZGlhbG9nQ29udGFpbmVyIC5kaWFsb2dfdGFibGV7IHBhZGRpbmc6IDRweCAxNnB4OyBiYWNrZ3JvdW5kOiAjMzE5OWZmO31cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlICB0YWJsZSB7IGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IH1cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlICB0YWJsZSwgLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlIHRhYmxlIHRoLCAuZGlhbG9nX3RhYmxlIHRhYmxlIHRkIHsgYm9yZGVyLWNvbGxhcHNlOiBzZXBhcmF0ZTtcclxuICAgIGJvcmRlci1zcGFjaW5nOiAwIDE1cHg7IH1cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlIHRhYmxlIHRoeyBiYWNrZ3JvdW5kOiAjY2NmZmYxOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplOyBmb250LWZhbWlseTogXCJSb2JvdG9Cb2xkXCI7IGZvbnQtd2VpZ2h0OiBub3JtYWw7IGNvbG9yOiAjMjI4MjY3OyBsaW5lLWhlaWdodDogMTBweDt9XHJcblxyXG4uZGlhbG9nX3RhYmxlIHRhYmxlIHRkIHt3aWR0aDogNTAlOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyB9XHJcbi5kaWFsb2dfdGFibGUgdGFibGUgdGQgcHsgYmFja2dyb3VuZDogI2Q2ZDZkNjsgcGFkZGluZzogMTBweDsgbWFyZ2luOiA1cHggMDsgY29sb3I6ICMwMDA7IGZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFwiSGVsdmV0aWNhUmVndWxhclwiOyB9XHJcbi5kaWFsb2dfdGFibGUgdGFibGUgdGQgcDpudGgtY2hpbGQob2RkKXsgYmFja2dyb3VuZDogI2ZmZjsgfSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".clickable{ cursor: pointer; } \r\n.purchaseComparison table{ width: 100%;} \r\n.searchBar{ justify-content: space-between; height: auto;} \r\n.searchBar .action_button{width: 180px; background: #06294e; color: #fff; text-transform: uppercase; font-size: 18px; padding: 6px; border-radius: 0;} \r\n.inventory_banner { background: url('inventory_categoryBanner.jpg') no-repeat center center; background-size: cover; border-top-left-radius: 10px;        border-top-right-radius: 10px;\r\npadding: 50px; padding-right: 45%; } \r\n.inventory_banner .inventory_title { font-size: 48px; color: #fff; font-family: \"HelveticaBold\"; text-transform: uppercase; } \r\n.inventory_banner .inventory_para { font-size: 24px; color: #89fbff; font-family: \"HelveticaBold\"; margin: 0; } \r\n.buttonsetToolbar .singleButton { width: 330px; border-radius: 0; color: #fff;} \r\n.buttonsetToolbar .singleButton { font-size: 20px; text-transform: uppercase; font-family: \"HelveticaRegular\"; padding: 5px; } \r\n.buttonsetToolbar .singleButton:nth-child(1) {  background: #0bb4e5; } \r\n.buttonsetToolbar .singleButton:nth-child(2) {  background: #2c3439; margin-left: 16px;} \r\n.brand_group .tabs_wrapper{ margin-top: 16px; } \r\n.dialogContainer{ width: 800px; background: #f7f7f7; border: 1px solid #fff; padding: 0; } \r\n.dialogContainer table{ width: 100%; border: none; border-spacing: 0;} \r\n.dialogContainer .Title{ color: #fff; font-size: 30px; font-family: \"RobotoBold\"; display: block; text-align: center; margin-bottom: 20px;  \r\npadding-bottom: 5px; background: #0062b7; padding: 10px; box-sizing: border-box; box-shadow: 0px 3px 3px 0px #adadad; } \r\n.dialogContainer .dialog_table{ padding: 4px 16px; background: #3199ff;} \r\n.dialogContainer .dialog_table  table { border-collapse: collapse; } \r\n.dialogContainer .dialog_table  table, .dialogContainer .dialog_table table th, .dialog_table table td { border-collapse: separate;\r\n    border-spacing: 0 15px; } \r\n.dialogContainer .dialog_table table th{ background: #ccfff1; font-size: 20px; text-transform: capitalize; font-family: \"RobotoBold\"; font-weight: normal; color: #228267; line-height: 10px;} \r\n.dialog_table table td {width: 50%; box-sizing: border-box; } \r\n.dialog_table table td p{ background: #d6d6d6; padding: 10px; margin: 5px 0; color: #000; font-size: 16px; font-family: \"HelveticaRegular\"; } \r\n.dialog_table table td p:nth-child(odd){ background: #fff; } \r\n.dialogContainer .sendMail { padding: 16px;} \r\n.dialogContainer .sendMail .mat-form-field{ width: 100%;} \r\n.dialogContainer .sendMail .button_wrapper{ padding: 0; justify-content: flex-end; } \r\n.dialogContainer .sendMail .button_wrapper button{  font-size: 18px; font-family: \"HelveticaBold\";  text-transform: uppercase;\r\n    background: #1962b7; color: #fff; width: 130px; border-radius: 0; padding: 4px;} \r\n.dialogContainer .sendMail .body{ min-height: 120px;} \r\n.label_class{ color: #1962b7; font-size: 18px; font-family: \"HelveticaRegular\"; margin-bottom: 5px; display: block; }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZLGVBQWUsRUFBRTtBQUM3QiwyQkFBMkIsV0FBVyxDQUFDO0FBQ3ZDLFlBQVksOEJBQThCLEVBQUUsWUFBWSxDQUFDO0FBQ3pELDBCQUEwQixZQUFZLEVBQUUsbUJBQW1CLEVBQUUsV0FBVyxFQUFFLHlCQUF5QixFQUFFLGVBQWUsRUFBRSxZQUFZLEVBQUUsZ0JBQWdCLENBQUM7QUFDckosb0JBQW9CLHVFQUFvRyxFQUFFLHNCQUFzQixFQUFFLDRCQUE0QixTQUFTLDZCQUE2QjtBQUNwTixhQUFhLEVBQUUsa0JBQWtCLEVBQUU7QUFDbkMscUNBQXFDLGVBQWUsRUFBRSxXQUFXLEVBQUUsNEJBQTRCLEVBQUUseUJBQXlCLEVBQUU7QUFDNUgsb0NBQW9DLGVBQWUsRUFBRSxjQUFjLEVBQUUsNEJBQTRCLEVBQUUsU0FBUyxFQUFFO0FBQzlHLGtDQUFrQyxZQUFZLEVBQUUsZ0JBQWdCLEVBQUUsV0FBVyxDQUFDO0FBQzlFLGtDQUFrQyxlQUFlLEVBQUUseUJBQXlCLEVBQUUsK0JBQStCLEVBQUUsWUFBWSxFQUFFO0FBQzdILGdEQUFnRCxtQkFBbUIsRUFBRTtBQUNyRSxnREFBZ0QsbUJBQW1CLEVBQUUsaUJBQWlCLENBQUM7QUFDdkYsNEJBQTRCLGdCQUFnQixFQUFFO0FBRTlDLGtCQUFrQixZQUFZLEVBQUUsbUJBQW1CLEVBQUUsc0JBQXNCLEVBQUUsVUFBVSxFQUFFO0FBQ3pGLHdCQUF3QixXQUFXLEVBQUUsWUFBWSxFQUFFLGlCQUFpQixDQUFDO0FBQ3JFLHlCQUF5QixXQUFXLEVBQUUsZUFBZSxFQUFFLHlCQUF5QixFQUFFLGNBQWMsRUFBRSxrQkFBa0IsRUFBRSxtQkFBbUI7QUFDekksbUJBQW1CLEVBQUUsbUJBQW1CLEVBQUUsYUFBYSxFQUFFLHNCQUFzQixFQUFFLG1DQUFtQyxFQUFFO0FBQ3RILGdDQUFnQyxpQkFBaUIsRUFBRSxtQkFBbUIsQ0FBQztBQUN2RSx3Q0FBd0MseUJBQXlCLEVBQUU7QUFDbkUseUdBQXlHLHlCQUF5QjtJQUM5SCxzQkFBc0IsRUFBRTtBQUM1Qix5Q0FBeUMsbUJBQW1CLEVBQUUsZUFBZSxFQUFFLDBCQUEwQixFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLGNBQWMsRUFBRSxpQkFBaUIsQ0FBQztBQUU3TCx3QkFBd0IsVUFBVSxFQUFFLHNCQUFzQixFQUFFO0FBQzVELDBCQUEwQixtQkFBbUIsRUFBRSxhQUFhLEVBQUUsYUFBYSxFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUUsK0JBQStCLEVBQUU7QUFDNUkseUNBQXlDLGdCQUFnQixFQUFFO0FBQzNELDZCQUE2QixhQUFhLENBQUM7QUFDM0MsNENBQTRDLFdBQVcsQ0FBQztBQUN4RCw0Q0FBNEMsVUFBVSxFQUFFLHlCQUF5QixFQUFFO0FBQ25GLG9EQUFvRCxlQUFlLEVBQUUsNEJBQTRCLEdBQUcseUJBQXlCO0lBQ3pILG1CQUFtQixFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUUsZ0JBQWdCLEVBQUUsWUFBWSxDQUFDO0FBQ25GLGtDQUFrQyxpQkFBaUIsQ0FBQztBQUNwRCxjQUFjLGNBQWMsRUFBRSxlQUFlLEVBQUUsK0JBQStCLEVBQUUsa0JBQWtCLEVBQUUsY0FBYyxFQUFFIiwiZmlsZSI6InNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL2xpc3RpbmctcHVyY2hhc2UtY29tcGFyaXNvbi9saXN0aW5nLXB1cmNoYXNlLWNvbXBhcmlzb24uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jbGlja2FibGV7IGN1cnNvcjogcG9pbnRlcjsgfSBcclxuLnB1cmNoYXNlQ29tcGFyaXNvbiB0YWJsZXsgd2lkdGg6IDEwMCU7fVxyXG4uc2VhcmNoQmFyeyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGhlaWdodDogYXV0bzt9XHJcbi5zZWFyY2hCYXIgLmFjdGlvbl9idXR0b257d2lkdGg6IDE4MHB4OyBiYWNrZ3JvdW5kOiAjMDYyOTRlOyBjb2xvcjogI2ZmZjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1zaXplOiAxOHB4OyBwYWRkaW5nOiA2cHg7IGJvcmRlci1yYWRpdXM6IDA7fVxyXG4uaW52ZW50b3J5X2Jhbm5lciB7IGJhY2tncm91bmQ6IHVybChcIi4uLy4uLy4uLy4uLy4uL2Fzc2V0cy9pbWFnZXMvaW52ZW50b3J5X2NhdGVnb3J5QmFubmVyLmpwZ1wiKSBuby1yZXBlYXQgY2VudGVyIGNlbnRlcjsgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjsgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMTBweDsgICAgICAgIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAxMHB4O1xyXG5wYWRkaW5nOiA1MHB4OyBwYWRkaW5nLXJpZ2h0OiA0NSU7IH1cclxuLmludmVudG9yeV9iYW5uZXIgLmludmVudG9yeV90aXRsZSB7IGZvbnQtc2l6ZTogNDhweDsgY29sb3I6ICNmZmY7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYUJvbGRcIjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgfVxyXG4uaW52ZW50b3J5X2Jhbm5lciAuaW52ZW50b3J5X3BhcmEgeyBmb250LXNpemU6IDI0cHg7IGNvbG9yOiAjODlmYmZmOyBmb250LWZhbWlseTogXCJIZWx2ZXRpY2FCb2xkXCI7IG1hcmdpbjogMDsgfVxyXG4uYnV0dG9uc2V0VG9vbGJhciAuc2luZ2xlQnV0dG9uIHsgd2lkdGg6IDMzMHB4OyBib3JkZXItcmFkaXVzOiAwOyBjb2xvcjogI2ZmZjt9XHJcbi5idXR0b25zZXRUb29sYmFyIC5zaW5nbGVCdXR0b24geyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYVJlZ3VsYXJcIjsgcGFkZGluZzogNXB4OyB9XHJcbi5idXR0b25zZXRUb29sYmFyIC5zaW5nbGVCdXR0b246bnRoLWNoaWxkKDEpIHsgIGJhY2tncm91bmQ6ICMwYmI0ZTU7IH1cclxuLmJ1dHRvbnNldFRvb2xiYXIgLnNpbmdsZUJ1dHRvbjpudGgtY2hpbGQoMikgeyAgYmFja2dyb3VuZDogIzJjMzQzOTsgbWFyZ2luLWxlZnQ6IDE2cHg7fVxyXG4uYnJhbmRfZ3JvdXAgLnRhYnNfd3JhcHBlcnsgbWFyZ2luLXRvcDogMTZweDsgfVxyXG4gICBcclxuLmRpYWxvZ0NvbnRhaW5lcnsgd2lkdGg6IDgwMHB4OyBiYWNrZ3JvdW5kOiAjZjdmN2Y3OyBib3JkZXI6IDFweCBzb2xpZCAjZmZmOyBwYWRkaW5nOiAwOyB9XHJcbi5kaWFsb2dDb250YWluZXIgdGFibGV7IHdpZHRoOiAxMDAlOyBib3JkZXI6IG5vbmU7IGJvcmRlci1zcGFjaW5nOiAwO31cclxuLmRpYWxvZ0NvbnRhaW5lciAuVGl0bGV7IGNvbG9yOiAjZmZmOyBmb250LXNpemU6IDMwcHg7IGZvbnQtZmFtaWx5OiBcIlJvYm90b0JvbGRcIjsgZGlzcGxheTogYmxvY2s7IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luLWJvdHRvbTogMjBweDsgIFxyXG5wYWRkaW5nLWJvdHRvbTogNXB4OyBiYWNrZ3JvdW5kOiAjMDA2MmI3OyBwYWRkaW5nOiAxMHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyBib3gtc2hhZG93OiAwcHggM3B4IDNweCAwcHggI2FkYWRhZDsgfVxyXG4uZGlhbG9nQ29udGFpbmVyIC5kaWFsb2dfdGFibGV7IHBhZGRpbmc6IDRweCAxNnB4OyBiYWNrZ3JvdW5kOiAjMzE5OWZmO31cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlICB0YWJsZSB7IGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7IH1cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlICB0YWJsZSwgLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlIHRhYmxlIHRoLCAuZGlhbG9nX3RhYmxlIHRhYmxlIHRkIHsgYm9yZGVyLWNvbGxhcHNlOiBzZXBhcmF0ZTtcclxuICAgIGJvcmRlci1zcGFjaW5nOiAwIDE1cHg7IH1cclxuLmRpYWxvZ0NvbnRhaW5lciAuZGlhbG9nX3RhYmxlIHRhYmxlIHRoeyBiYWNrZ3JvdW5kOiAjY2NmZmYxOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplOyBmb250LWZhbWlseTogXCJSb2JvdG9Cb2xkXCI7IGZvbnQtd2VpZ2h0OiBub3JtYWw7IGNvbG9yOiAjMjI4MjY3OyBsaW5lLWhlaWdodDogMTBweDt9XHJcblxyXG4uZGlhbG9nX3RhYmxlIHRhYmxlIHRkIHt3aWR0aDogNTAlOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyB9XHJcbi5kaWFsb2dfdGFibGUgdGFibGUgdGQgcHsgYmFja2dyb3VuZDogI2Q2ZDZkNjsgcGFkZGluZzogMTBweDsgbWFyZ2luOiA1cHggMDsgY29sb3I6ICMwMDA7IGZvbnQtc2l6ZTogMTZweDsgZm9udC1mYW1pbHk6IFwiSGVsdmV0aWNhUmVndWxhclwiOyB9XHJcbi5kaWFsb2dfdGFibGUgdGFibGUgdGQgcDpudGgtY2hpbGQob2RkKXsgYmFja2dyb3VuZDogI2ZmZjsgfVxyXG4uZGlhbG9nQ29udGFpbmVyIC5zZW5kTWFpbCB7IHBhZGRpbmc6IDE2cHg7fVxyXG4uZGlhbG9nQ29udGFpbmVyIC5zZW5kTWFpbCAubWF0LWZvcm0tZmllbGR7IHdpZHRoOiAxMDAlO31cclxuLmRpYWxvZ0NvbnRhaW5lciAuc2VuZE1haWwgLmJ1dHRvbl93cmFwcGVyeyBwYWRkaW5nOiAwOyBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kOyB9XHJcbi5kaWFsb2dDb250YWluZXIgLnNlbmRNYWlsIC5idXR0b25fd3JhcHBlciBidXR0b257ICBmb250LXNpemU6IDE4cHg7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYUJvbGRcIjsgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgICBiYWNrZ3JvdW5kOiAjMTk2MmI3OyBjb2xvcjogI2ZmZjsgd2lkdGg6IDEzMHB4OyBib3JkZXItcmFkaXVzOiAwOyBwYWRkaW5nOiA0cHg7fVxyXG4uZGlhbG9nQ29udGFpbmVyIC5zZW5kTWFpbCAuYm9keXsgbWluLWhlaWdodDogMTIwcHg7fVxyXG4ubGFiZWxfY2xhc3N7IGNvbG9yOiAjMTk2MmI3OyBmb250LXNpemU6IDE4cHg7IGZvbnQtZmFtaWx5OiBcIkhlbHZldGljYVJlZ3VsYXJcIjsgbWFyZ2luLWJvdHRvbTogNXB4OyBkaXNwbGF5OiBibG9jazsgfSJdfQ== */");
 
 /***/ }),
 
@@ -17232,13 +17297,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************************************************************************************!*\
   !*** ./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.ts ***!
   \******************************************************************************************************************************/
-/*! exports provided: ListingPurchaseComparisonComponent, quoteModal */
+/*! exports provided: ListingPurchaseComparisonComponent, quoteModal, sendMailModal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListingPurchaseComparisonComponent", function() { return ListingPurchaseComparisonComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quoteModal", function() { return quoteModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sendMailModal", function() { return sendMailModal; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
@@ -17248,6 +17314,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -17274,26 +17343,37 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
         this.options = [];
         this.sales_rep_array = [];
         this.user_cookie = cookieService.get('jwtToken');
+        let allData = {};
+        allData = cookieService.getAll();
+        this.userData = JSON.parse(allData.user_details);
+        this.id = this.userData._id;
     }
     ngOnInit() {
-        this.activatedRoute.data.subscribe(resolveData => {
-            this.purchaseFormData = resolveData.data.res;
-            // console.log("----------",this.purchaseFormData);
-        });
-        this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.purchaseFormData);
-        this.datasource.paginator = this.paginator;
-        console.log("DATALIST", this.datasource);
+        /** getting the header flag **/
+        this.headerFlag = this.activatedRoute.snapshot.url[0].path;
+        /** getting data for listing **/
+        if (this.headerFlag == 'admin') {
+            this.activatedRoute.data.subscribe(resolveData => {
+                this.purchaseFormData = resolveData.data.res;
+            });
+            setTimeout(() => {
+                this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.purchaseFormData);
+                this.datasource.paginator = this.paginator;
+            }, 500);
+        }
+        else {
+            this.getHospitalForSalesRep();
+        }
         /** getting the salesrep names **/
         this.getSalesRepNames();
         /** filtered options for autocomplete **/
         this.filteredOptions = this.myControl.valueChanges
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["map"])(value => this._filter(value)));
-        this.headerFlag = this.activatedRoute.snapshot.url[0].path;
-        console.log("->", this.headerFlag);
+        /** choosing the salesrep id for salesrep users **/
         if (this.headerFlag == 'admin')
-            this.viewTable = "purchasecomparison_view_admin";
+            this.salesrep_id = undefined;
         else
-            this.viewTable = "purchasecomparison_view_rep";
+            this.salesrep_id = this.id;
     }
     /** filtered options for autocomplete**/
     _filter(value) {
@@ -17302,9 +17382,8 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
     }
     /** quote view **/
     viewQuote(index) {
-        console.log("index", index);
         let data = {
-            'source': '"purchasecomparison_view_data',
+            'source': 'purchasecomparison_view_rep',
             'token': this.cookieService.get('jwtToken'),
             'condition': { '_id': index }
         };
@@ -17312,6 +17391,12 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
             let result = response.res;
             this.openDialog(result[0].items);
         });
+    }
+    /** send email modal**/
+    sendMailModal(index) {
+        console.log('clicked');
+        console.log("vhck", index);
+        this.openMailDialog("A");
     }
     /** Modal function **/
     openDialog(x) {
@@ -17322,13 +17407,21 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
         this.dialogRef.afterClosed().subscribe(result => {
         });
     }
-    /** searching data**/
+    openMailDialog(x) {
+        this.dialogRef = this.dialog.open(sendMailModal, {
+            panelClass: 'comparisonModal',
+            data: { msg: x }
+        });
+        this.dialogRef.afterClosed().subscribe(result => {
+        });
+    }
+    /** searching hospital**/
     search_hospital(event) {
-        console.log("search value", event.target.value);
         let data = {
             'source': 'purchasecomparison_view_admin',
             'condition': {
-                'hospital_name_regex': event.target.value
+                'hospital_name_regex': event.target.value,
+                'salesrep_id_object': this.salesrep_id
             },
             'token': this.cookieService.get('jwtToken')
         };
@@ -17340,17 +17433,16 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
     }
     /** search draft **/
     search_draft(event) {
-        console.log(event.value);
         let data = {
             'source': 'purchasecomparison_view_admin',
             'condition': {
-                'is_draft': parseInt(event.value)
+                'is_draft': parseInt(event.value),
+                'salesrep_id_object': this.salesrep_id
             },
             'token': this.cookieService.get('jwtToken')
         };
         this.http.httpViaPost('datalist', data).subscribe(response => {
             let result = response.res;
-            console.log(result);
             this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](result);
             this.datasource.paginator = this.paginator;
         });
@@ -17365,26 +17457,61 @@ let ListingPurchaseComparisonComponent = class ListingPurchaseComparisonComponen
         this.http.httpViaPost('datalist', data).subscribe(response => {
             let result = response.res;
             for (let i = 0; i < result.length; i++) {
-                this.options[i] = result[i].firstname + " " + result[i].lastname;
+                this.options[i] = result[i].user_full_name;
             }
-            console.log(this.options);
         });
     }
     /** searching by salesrep **/
     search_salesrep(event) {
-        // console.log("-------",event.target.value);
-        // let data: any = {
-        //   'source': 'purchasecomparison_view_admin',
-        //   'condition': {
-        //     'hospital_name_regex': event.target.value
-        //   },
-        //   'token': this.cookieService.get('jwtToken')
-        // }
-        // this.http.httpViaPost('datalist', data).subscribe(response => {
-        //   let result = response.res;
-        //   this.datasource = new MatTableDataSource(result);
-        //   this.datasource.paginator = this.paginator;
-        // });
+        let data = {
+            'source': 'purchasecomparison_view_admin',
+            'condition': {
+                'salesrep_full_name_regex': event.target.value
+            },
+            'token': this.cookieService.get('jwtToken')
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            let result = response.res;
+            this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](result);
+            this.datasource.paginator = this.paginator;
+        });
+    }
+    /** salesrep hospital data **/
+    getHospitalForSalesRep() {
+        let data = {
+            source: 'purchasecomparison_view_admin',
+            condition: {
+                'salesrep_id_object': this.id
+            },
+            token: this.cookieService.get('jwtToken')
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            this.purchaseFormData = response.res;
+            setTimeout(() => {
+                this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.purchaseFormData);
+                this.datasource.paginator = this.paginator;
+            }, 500);
+        });
+    }
+    /** search by date **/
+    search_by_date(event) {
+        let startDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.startDate).format('x');
+        console.log("Start Date", startDate);
+        let endDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.endDate).format('x');
+        console.log("End Date", endDate);
+        let data = {
+            'source': 'purchasecomparison_view_admin',
+            'condition': {
+                'date': { $lte: parseInt(startDate), $gte: parseInt(endDate) },
+                'salesrep_id_object': this.salesrep_id
+            },
+            'token': this.cookieService.get('jwtToken')
+        };
+        this.http.httpViaPost('datalist', data).subscribe(response => {
+            let result = response.res;
+            this.datasource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](result);
+            this.datasource.paginator = this.paginator;
+        });
     }
 };
 ListingPurchaseComparisonComponent.ctorParameters = () => [
@@ -17395,7 +17522,7 @@ ListingPurchaseComparisonComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], { static: true })
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], { static: false })
 ], ListingPurchaseComparisonComponent.prototype, "paginator", void 0);
 ListingPurchaseComparisonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -17405,7 +17532,7 @@ ListingPurchaseComparisonComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
     })
 ], ListingPurchaseComparisonComponent);
 
-// ============================================MODAL COMPONENT===========================================
+// ============================================PRICE COMPARISON MODAL COMPONENT=========================
 let quoteModal = class quoteModal {
     constructor(dialogRef, data) {
         this.dialogRef = dialogRef;
@@ -17429,6 +17556,30 @@ quoteModal = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 ], quoteModal);
 
 // ======================================================================================================
+// ============================================SEND MAIL MODAL COMPONENT=========================
+let sendMailModal = class sendMailModal {
+    constructor(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    onNoClick() {
+        this.dialogRef.close();
+    }
+};
+sendMailModal.ctorParameters = () => [
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialogRef"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MAT_DIALOG_DATA"],] }] }
+];
+sendMailModal = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-modal',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sendMailModal.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/sendMailModal.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./listing-purchase-comparison.component.css */ "./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.css")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MAT_DIALOG_DATA"]))
+], sendMailModal);
+
+// =================================================================================================
 
 
 /***/ }),
@@ -17556,7 +17707,7 @@ let AddEditBlogsComponent = class AddEditBlogsComponent {
         this.action = "add";
         this.listURL = "/manage-websites/addblogcategory/list";
         this.configData = {
-            baseUrl: "http://3.15.236.141:5005/",
+            baseUrl: "https://fileupload.influxhostserver.com/",
             endpoint: "uploads",
             size: "51200",
             format: ["jpg", "jpeg", "png"],
@@ -17565,7 +17716,7 @@ let AddEditBlogsComponent = class AddEditBlogsComponent {
             prefix: "blogs-image_"
         };
         this.configFileData = {
-            baseUrl: "http://3.15.236.141:5005/",
+            baseUrl: "https://fileupload.influxhostserver.com/",
             endpoint: "uploads",
             size: "51200",
             format: ["pdf", "doc", "docx", "docxx"],
@@ -17829,7 +17980,7 @@ let AddEditTeamComponent = class AddEditTeamComponent {
         this.listPageRoute = "manage-websites/team/list";
         this.getdataEndpoint = "datalist";
         this.configData = {
-            baseUrl: "http://3.15.236.141:5005/",
+            baseUrl: "https://fileupload.influxhostserver.com/",
             endpoint: "uploads",
             size: "51200",
             format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'],
@@ -19302,80 +19453,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/admin/footer/footer.component */ "./src/app/Components/admin/footer/footer.component.ts");
 /* harmony import */ var _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/admin/left-nav/left-nav.component */ "./src/app/Components/admin/left-nav/left-nav.component.ts");
 /* harmony import */ var ngx_ckeditor__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-ckeditor */ "./node_modules/ngx-ckeditor/fesm2015/ngx-ckeditor.js");
-/* harmony import */ var _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Components/admin/admin-management/add-edit-admin/add-edit-admin.component */ "./src/app/Components/admin/admin-management/add-edit-admin/add-edit-admin.component.ts");
-/* harmony import */ var _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/admin/admin-management/listing-admin/listing-admin.component */ "./src/app/Components/admin/admin-management/listing-admin/listing-admin.component.ts");
-/* harmony import */ var _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component.ts");
-/* harmony import */ var _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component.ts");
-/* harmony import */ var _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component */ "./src/app/Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component.ts");
-/* harmony import */ var _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component */ "./src/app/Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component.ts");
-/* harmony import */ var blog__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! blog */ "./dist/blog/fesm2015/blog.js");
-/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component.ts");
-/* harmony import */ var team__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! team */ "./dist/team/fesm2015/team.js");
-/* harmony import */ var _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component */ "./src/app/Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team/listing-team.component */ "./src/app/Components/managewebsites/teammanagement/listing-team/listing-team.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component */ "./src/app/Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/listing-brand/listing-brand.component */ "./src/app/Components/inventory/manageinventory/brand/listing-brand/listing-brand.component.ts");
-/* harmony import */ var _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component */ "./src/app/Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component.ts");
-/* harmony import */ var _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./Components/inventory/inventorylist/listing-inventory/listing-inventory.component */ "./src/app/Components/inventory/inventorylist/listing-inventory/listing-inventory.component.ts");
-/* harmony import */ var _services_loader_service__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./services/loader.service */ "./src/app/services/loader.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./Class/common/loader.interceptor */ "./src/app/Class/common/loader.interceptor.ts");
-/* harmony import */ var _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./Components/common/http-loader/http-loader.component */ "./src/app/Components/common/http-loader/http-loader.component.ts");
-/* harmony import */ var _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./Components/common/accounts/accounts.component */ "./src/app/Components/common/accounts/accounts.component.ts");
-/* harmony import */ var _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./Components/common/dialog-box/dialog-box.component */ "./src/app/Components/common/dialog-box/dialog-box.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./Components/frontend/home-page/home-page.component */ "./src/app/Components/frontend/home-page/home-page.component.ts");
-/* harmony import */ var _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./Components/frontend/buy-from-us/buy-from-us.component */ "./src/app/Components/frontend/buy-from-us/buy-from-us.component.ts");
-/* harmony import */ var _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./Components/frontend/manufacturar-direct/manufacturar-direct.component */ "./src/app/Components/frontend/manufacturar-direct/manufacturar-direct.component.ts");
-/* harmony import */ var _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./Components/frontend/medical-partners/medical-partners.component */ "./src/app/Components/frontend/medical-partners/medical-partners.component.ts");
-/* harmony import */ var _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./Components/frontend/contact-us/contact-us.component */ "./src/app/Components/frontend/contact-us/contact-us.component.ts");
-/* harmony import */ var _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./Components/frontend/team-page/team-page.component */ "./src/app/Components/frontend/team-page/team-page.component.ts");
-/* harmony import */ var _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./Components/frontend/blog/blog.component */ "./src/app/Components/frontend/blog/blog.component.ts");
-/* harmony import */ var _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./Components/frontend/blog-details/blog-details.component */ "./src/app/Components/frontend/blog-details/blog-details.component.ts");
-/* harmony import */ var _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./Components/frontend/inventory/inventory.component */ "./src/app/Components/frontend/inventory/inventory.component.ts");
-/* harmony import */ var _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./Components/frontend/inventory-details/inventory-details.component */ "./src/app/Components/frontend/inventory-details/inventory-details.component.ts");
-/* harmony import */ var _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./Components/frontend/about-us-front/about-us-front.component */ "./src/app/Components/frontend/about-us-front/about-us-front.component.ts");
-/* harmony import */ var _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./Components/frontend/logins/sales-rep-login/sales-rep-login.component */ "./src/app/Components/frontend/logins/sales-rep-login/sales-rep-login.component.ts");
-/* harmony import */ var _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./Components/backend/hospital/my-details-hospital/my-details-hospital.component */ "./src/app/Components/backend/hospital/my-details-hospital/my-details-hospital.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-change-password/hospital-change-password.component */ "./src/app/Components/backend/hospital/hospital-change-password/hospital-change-password.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component */ "./src/app/Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component */ "./src/app/Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component.ts");
-/* harmony import */ var _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./Components/backend/hospital/details-inventory/details-inventory.component */ "./src/app/Components/backend/hospital/details-inventory/details-inventory.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component */ "./src/app/Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component */ "./src/app/Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component.ts");
-/* harmony import */ var _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./Components/backend/hospital/details-quotes/details-quotes.component */ "./src/app/Components/backend/hospital/details-quotes/details-quotes.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./Components/backend/sales-rep/my-details/my-details.component */ "./src/app/Components/backend/sales-rep/my-details/my-details.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component */ "./src/app/Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component */ "./src/app/Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component */ "./src/app/Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./Components/backend/sales-rep/edit-inventory/edit-inventory.component */ "./src/app/Components/backend/sales-rep/edit-inventory/edit-inventory.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./Components/backend/sales-rep/details-inventory/details-inventory.component */ "./src/app/Components/backend/sales-rep/details-inventory/details-inventory.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component */ "./src/app/Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-sales/salesrep-sales.component */ "./src/app/Components/backend/sales-rep/salesrep-sales/salesrep-sales.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./Components/backend/sales-rep/manage-hospital/manage-hospital.component */ "./src/app/Components/backend/sales-rep/manage-hospital/manage-hospital.component.ts");
-/* harmony import */ var _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./Components/frontend/frontend-footer/frontend-footer.component */ "./src/app/Components/frontend/frontend-footer/frontend-footer.component.ts");
-/* harmony import */ var _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./Components/frontend/frontend-header/frontend-header.component */ "./src/app/Components/frontend/frontend-header/frontend-header.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./Components/backend/sales-rep/myaccount/myaccount.component */ "./src/app/Components/backend/sales-rep/myaccount/myaccount.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./Components/backend/sales-rep/left-nav-sales/left-nav-sales.component */ "./src/app/Components/backend/sales-rep/left-nav-sales/left-nav-sales.component.ts");
-/* harmony import */ var _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./Components/frontend/logins/hospital-login/hospital-login.component */ "./src/app/Components/frontend/logins/hospital-login/hospital-login.component.ts");
-/* harmony import */ var _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./Components/common/upload-dialog-box/upload-dialog-box.component */ "./src/app/Components/common/upload-dialog-box/upload-dialog-box.component.ts");
-/* harmony import */ var _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./Components/frontend/logins/login/login.component */ "./src/app/Components/frontend/logins/login/login.component.ts");
-/* harmony import */ var contactus__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! contactus */ "./dist/contactus/fesm2015/contactus.js");
-/* harmony import */ var _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component.ts");
-/* harmony import */ var _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component.ts");
-/* harmony import */ var _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./Components/miscellaneous/contactus-listing/contactus-listing.component */ "./src/app/Components/miscellaneous/contactus-listing/contactus-listing.component.ts");
-/* harmony import */ var _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/add-edit-language/add-edit-language.component */ "./src/app/Components/miscellaneous/language-container/add-edit-language/add-edit-language.component.ts");
-/* harmony import */ var _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/listing-language/listing-language.component */ "./src/app/Components/miscellaneous/language-container/listing-language/listing-language.component.ts");
-/* harmony import */ var _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component.ts");
-/* harmony import */ var _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.ts");
-/* harmony import */ var _ngx_meta_core__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! @ngx-meta/core */ "./node_modules/@ngx-meta/core/fesm2015/ngx-meta-core.js");
+/* harmony import */ var ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-daterangepicker-material */ "./node_modules/ngx-daterangepicker-material/fesm2015/ngx-daterangepicker-material.js");
+/* harmony import */ var _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/admin/admin-management/add-edit-admin/add-edit-admin.component */ "./src/app/Components/admin/admin-management/add-edit-admin/add-edit-admin.component.ts");
+/* harmony import */ var _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/admin/admin-management/listing-admin/listing-admin.component */ "./src/app/Components/admin/admin-management/listing-admin/listing-admin.component.ts");
+/* harmony import */ var _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component.ts");
+/* harmony import */ var _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component.ts");
+/* harmony import */ var _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component */ "./src/app/Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component.ts");
+/* harmony import */ var _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component */ "./src/app/Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component.ts");
+/* harmony import */ var blog__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! blog */ "./dist/blog/fesm2015/blog.js");
+/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component.ts");
+/* harmony import */ var team__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! team */ "./dist/team/fesm2015/team.js");
+/* harmony import */ var _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component */ "./src/app/Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team/listing-team.component */ "./src/app/Components/managewebsites/teammanagement/listing-team/listing-team.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component */ "./src/app/Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/listing-brand/listing-brand.component */ "./src/app/Components/inventory/manageinventory/brand/listing-brand/listing-brand.component.ts");
+/* harmony import */ var _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component */ "./src/app/Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component.ts");
+/* harmony import */ var _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./Components/inventory/inventorylist/listing-inventory/listing-inventory.component */ "./src/app/Components/inventory/inventorylist/listing-inventory/listing-inventory.component.ts");
+/* harmony import */ var _services_loader_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/loader.service */ "./src/app/services/loader.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./Class/common/loader.interceptor */ "./src/app/Class/common/loader.interceptor.ts");
+/* harmony import */ var _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./Components/common/http-loader/http-loader.component */ "./src/app/Components/common/http-loader/http-loader.component.ts");
+/* harmony import */ var _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./Components/common/accounts/accounts.component */ "./src/app/Components/common/accounts/accounts.component.ts");
+/* harmony import */ var _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./Components/common/dialog-box/dialog-box.component */ "./src/app/Components/common/dialog-box/dialog-box.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./Components/frontend/home-page/home-page.component */ "./src/app/Components/frontend/home-page/home-page.component.ts");
+/* harmony import */ var _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./Components/frontend/buy-from-us/buy-from-us.component */ "./src/app/Components/frontend/buy-from-us/buy-from-us.component.ts");
+/* harmony import */ var _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./Components/frontend/manufacturar-direct/manufacturar-direct.component */ "./src/app/Components/frontend/manufacturar-direct/manufacturar-direct.component.ts");
+/* harmony import */ var _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./Components/frontend/medical-partners/medical-partners.component */ "./src/app/Components/frontend/medical-partners/medical-partners.component.ts");
+/* harmony import */ var _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./Components/frontend/contact-us/contact-us.component */ "./src/app/Components/frontend/contact-us/contact-us.component.ts");
+/* harmony import */ var _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./Components/frontend/team-page/team-page.component */ "./src/app/Components/frontend/team-page/team-page.component.ts");
+/* harmony import */ var _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./Components/frontend/blog/blog.component */ "./src/app/Components/frontend/blog/blog.component.ts");
+/* harmony import */ var _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./Components/frontend/blog-details/blog-details.component */ "./src/app/Components/frontend/blog-details/blog-details.component.ts");
+/* harmony import */ var _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./Components/frontend/inventory/inventory.component */ "./src/app/Components/frontend/inventory/inventory.component.ts");
+/* harmony import */ var _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./Components/frontend/inventory-details/inventory-details.component */ "./src/app/Components/frontend/inventory-details/inventory-details.component.ts");
+/* harmony import */ var _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./Components/frontend/about-us-front/about-us-front.component */ "./src/app/Components/frontend/about-us-front/about-us-front.component.ts");
+/* harmony import */ var _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./Components/frontend/logins/sales-rep-login/sales-rep-login.component */ "./src/app/Components/frontend/logins/sales-rep-login/sales-rep-login.component.ts");
+/* harmony import */ var _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./Components/backend/hospital/my-details-hospital/my-details-hospital.component */ "./src/app/Components/backend/hospital/my-details-hospital/my-details-hospital.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-change-password/hospital-change-password.component */ "./src/app/Components/backend/hospital/hospital-change-password/hospital-change-password.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component */ "./src/app/Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component */ "./src/app/Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component.ts");
+/* harmony import */ var _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./Components/backend/hospital/details-inventory/details-inventory.component */ "./src/app/Components/backend/hospital/details-inventory/details-inventory.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component */ "./src/app/Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component */ "./src/app/Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component.ts");
+/* harmony import */ var _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./Components/backend/hospital/details-quotes/details-quotes.component */ "./src/app/Components/backend/hospital/details-quotes/details-quotes.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./Components/backend/sales-rep/my-details/my-details.component */ "./src/app/Components/backend/sales-rep/my-details/my-details.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component */ "./src/app/Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component */ "./src/app/Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component */ "./src/app/Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./Components/backend/sales-rep/edit-inventory/edit-inventory.component */ "./src/app/Components/backend/sales-rep/edit-inventory/edit-inventory.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./Components/backend/sales-rep/details-inventory/details-inventory.component */ "./src/app/Components/backend/sales-rep/details-inventory/details-inventory.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component */ "./src/app/Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-sales/salesrep-sales.component */ "./src/app/Components/backend/sales-rep/salesrep-sales/salesrep-sales.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./Components/backend/sales-rep/manage-hospital/manage-hospital.component */ "./src/app/Components/backend/sales-rep/manage-hospital/manage-hospital.component.ts");
+/* harmony import */ var _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./Components/frontend/frontend-footer/frontend-footer.component */ "./src/app/Components/frontend/frontend-footer/frontend-footer.component.ts");
+/* harmony import */ var _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./Components/frontend/frontend-header/frontend-header.component */ "./src/app/Components/frontend/frontend-header/frontend-header.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./Components/backend/sales-rep/myaccount/myaccount.component */ "./src/app/Components/backend/sales-rep/myaccount/myaccount.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./Components/backend/sales-rep/left-nav-sales/left-nav-sales.component */ "./src/app/Components/backend/sales-rep/left-nav-sales/left-nav-sales.component.ts");
+/* harmony import */ var _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./Components/frontend/logins/hospital-login/hospital-login.component */ "./src/app/Components/frontend/logins/hospital-login/hospital-login.component.ts");
+/* harmony import */ var _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./Components/common/upload-dialog-box/upload-dialog-box.component */ "./src/app/Components/common/upload-dialog-box/upload-dialog-box.component.ts");
+/* harmony import */ var _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./Components/frontend/logins/login/login.component */ "./src/app/Components/frontend/logins/login/login.component.ts");
+/* harmony import */ var contactus__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! contactus */ "./dist/contactus/fesm2015/contactus.js");
+/* harmony import */ var ngx_moment__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ngx-moment */ "./node_modules/ngx-moment/fesm2015/ngx-moment.js");
+/* harmony import */ var _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component.ts");
+/* harmony import */ var _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component.ts");
+/* harmony import */ var _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./Components/miscellaneous/contactus-listing/contactus-listing.component */ "./src/app/Components/miscellaneous/contactus-listing/contactus-listing.component.ts");
+/* harmony import */ var _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/add-edit-language/add-edit-language.component */ "./src/app/Components/miscellaneous/language-container/add-edit-language/add-edit-language.component.ts");
+/* harmony import */ var _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/listing-language/listing-language.component */ "./src/app/Components/miscellaneous/language-container/listing-language/listing-language.component.ts");
+/* harmony import */ var _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component.ts");
+/* harmony import */ var _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.ts");
+/* harmony import */ var _ngx_meta_core__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! @ngx-meta/core */ "./node_modules/@ngx-meta/core/fesm2015/ngx-meta-core.js");
+
 
 
 
@@ -19473,6 +19627,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // Pricemarkup
 
 
@@ -19491,8 +19646,8 @@ let AppModule = class AppModule {
     }
 };
 AppModule.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClient"] },
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_50__["MatIconRegistry"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClient"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_51__["MatIconRegistry"] }
 ];
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
@@ -19502,87 +19657,87 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _Components_auth_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_14__["ResetPasswordComponent"],
             _Components_auth_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_15__["ForgotPasswordComponent"],
             _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_16__["DashboardAdminComponent"],
-            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["AddEditAdminComponent"],
-            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["Modal"],
-            _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_23__["ListingAdminComponent"],
-            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["AddEditMedicalpartnersComponent"],
-            _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_24__["ListingMedicalpartnersComponent"],
-            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["Modal2"],
-            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["AddEditSalesrepComponent"],
-            _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_26__["ListingSalesrepComponent"],
-            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["Modal3"],
+            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["AddEditAdminComponent"],
+            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["Modal"],
+            _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_24__["ListingAdminComponent"],
+            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["AddEditMedicalpartnersComponent"],
+            _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["ListingMedicalpartnersComponent"],
+            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["Modal2"],
+            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["AddEditSalesrepComponent"],
+            _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["ListingSalesrepComponent"],
+            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["Modal3"],
             _Components_admin_adminheader_adminheader_component__WEBPACK_IMPORTED_MODULE_18__["AdminheaderComponent"],
             _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__["FooterComponent"],
             _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__["LeftNavComponent"],
-            _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_29__["AddEditBlogsComponent"],
-            _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_30__["ListingBlogsComponent"],
-            _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_31__["AddEditBlogcatComponent"],
-            _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_32__["ListingBlogcatComponent"],
-            _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_34__["AddEditTeamComponent"],
-            _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_35__["ListingTeamComponent"],
-            _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_36__["ListingTeamCatComponent"],
-            _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_37__["AddeditTeamCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__["AddEditInventoryCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["ListingInventoryCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__["Modal4"],
-            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_40__["AddEditBrandComponent"],
-            _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_41__["ListingBrandComponent"],
-            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_40__["Modal5"],
-            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["Modal6"],
-            _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_42__["AddEditInventoryComponent"],
-            _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_43__["ListingInventoryComponent"],
-            _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_47__["HttpLoaderComponent"],
-            _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_48__["AccountsComponent"],
-            _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_49__["DialogBoxComponent"],
+            _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_30__["AddEditBlogsComponent"],
+            _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_31__["ListingBlogsComponent"],
+            _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_32__["AddEditBlogcatComponent"],
+            _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_33__["ListingBlogcatComponent"],
+            _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_35__["AddEditTeamComponent"],
+            _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_36__["ListingTeamComponent"],
+            _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_37__["ListingTeamCatComponent"],
+            _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_38__["AddeditTeamCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["AddEditInventoryCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_40__["ListingInventoryCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["Modal4"],
+            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["AddEditBrandComponent"],
+            _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_42__["ListingBrandComponent"],
+            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["Modal5"],
+            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["Modal6"],
+            _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_43__["AddEditInventoryComponent"],
+            _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_44__["ListingInventoryComponent"],
+            _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_48__["HttpLoaderComponent"],
+            _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_49__["AccountsComponent"],
+            _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__["DialogBoxComponent"],
             // front end
-            _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_51__["HomePageComponent"],
-            _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_52__["BuyFromUsComponent"],
-            _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_53__["ManufacturarDirectComponent"],
-            _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_54__["MedicalPartnersComponent"],
-            _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_55__["ContactUsComponent"],
-            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_56__["TeamPageComponent"],
-            _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_57__["BlogComponentFrontEnd"],
-            _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_58__["BlogDetailsComponent"],
-            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_59__["InventoryComponent"],
-            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_60__["InventoryDetailsComponent"],
-            _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_61__["AboutUsFrontComponent"],
-            _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_62__["SalesRepLoginComponent"],
-            _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_63__["MyDetailsHospitalComponent"],
-            _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_64__["HospitalChangePasswordComponent"],
-            _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_65__["HospitalMySalesrepComponent"],
-            _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_66__["HospitalInventoryAddedComponent"],
-            _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_67__["DetailsHospitalInventoryComponent"],
-            _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_68__["HospitalAddInventoryComponent"],
-            _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_69__["HospitalViewQuotesComponent"],
-            _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_70__["DetailsQuotesComponent"],
-            _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_71__["MyDetailsComponent"],
-            _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_72__["SalesrepChangePasswordComponent"],
-            _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_73__["SalesrepHospitalComponent"],
-            _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_74__["SalesrepInventoryAddedComponent"],
-            _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_75__["EditInventoryComponent"],
-            _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_76__["DetailsInventoryComponent"],
-            _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_77__["SalesrepViewQuotesComponent"],
-            _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_78__["SalesrepSalesComponent"],
-            _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_79__["ManageHospitalComponent"],
-            _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_80__["FrontendFooterComponent"],
-            _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_81__["FrontendHeaderComponent"],
-            _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_82__["MyaccountComponent"],
+            _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_52__["HomePageComponent"],
+            _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_53__["BuyFromUsComponent"],
+            _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_54__["ManufacturarDirectComponent"],
+            _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_55__["MedicalPartnersComponent"],
+            _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_56__["ContactUsComponent"],
+            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamPageComponent"],
+            _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_58__["BlogComponentFrontEnd"],
+            _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_59__["BlogDetailsComponent"],
+            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__["InventoryComponent"],
+            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__["InventoryDetailsComponent"],
+            _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_62__["AboutUsFrontComponent"],
+            _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_63__["SalesRepLoginComponent"],
+            _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_64__["MyDetailsHospitalComponent"],
+            _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_65__["HospitalChangePasswordComponent"],
+            _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_66__["HospitalMySalesrepComponent"],
+            _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_67__["HospitalInventoryAddedComponent"],
+            _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_68__["DetailsHospitalInventoryComponent"],
+            _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_69__["HospitalAddInventoryComponent"],
+            _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_70__["HospitalViewQuotesComponent"],
+            _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_71__["DetailsQuotesComponent"],
+            _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_72__["MyDetailsComponent"],
+            _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_73__["SalesrepChangePasswordComponent"],
+            _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_74__["SalesrepHospitalComponent"],
+            _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_75__["SalesrepInventoryAddedComponent"],
+            _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_76__["EditInventoryComponent"],
+            _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_77__["DetailsInventoryComponent"],
+            _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_78__["SalesrepViewQuotesComponent"],
+            _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_79__["SalesrepSalesComponent"],
+            _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_80__["ManageHospitalComponent"],
+            _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_81__["FrontendFooterComponent"],
+            _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_82__["FrontendHeaderComponent"],
+            _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_83__["MyaccountComponent"],
             _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__["LeftNavComponent"],
-            _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_83__["LeftNavSalesComponent"],
-            _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_84__["HospitalLoginComponent"],
-            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_85__["UploadDialogBoxComponent"],
-            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_85__["DialogContentExampleDialog"],
+            _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_84__["LeftNavSalesComponent"],
+            _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_85__["HospitalLoginComponent"],
+            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__["UploadDialogBoxComponent"],
+            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__["DialogContentExampleDialog"],
             _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-            _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_86__["LoginAdminComponent"],
-            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_56__["TeamDetails"],
-            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["AddEditPriceMarkupManagementComponent"],
-            _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_89__["ListingPriceMarkupManagementComponent"],
-            _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_90__["ContactusListingComponent"],
-            _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_91__["AddEditLanguageComponent"],
-            _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_92__["ListingLanguageComponent"],
-            _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_93__["AddEditPurchaseComparisonComponent"],
-            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["ListingPurchaseComparisonComponent"],
-            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["quoteModal"]
+            _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_87__["LoginAdminComponent"],
+            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamDetails"],
+            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["AddEditPriceMarkupManagementComponent"],
+            _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_91__["ListingPriceMarkupManagementComponent"],
+            _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_92__["ContactusListingComponent"],
+            _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_93__["AddEditLanguageComponent"],
+            _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_94__["ListingLanguageComponent"],
+            _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_95__["AddEditPurchaseComparisonComponent"],
+            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["ListingPurchaseComparisonComponent"],
+            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["quoteModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["sendMailModal"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -19594,21 +19749,23 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
             listing_angular7__WEBPACK_IMPORTED_MODULE_9__["ListingModule"],
             file_upload__WEBPACK_IMPORTED_MODULE_10__["FileUploadModule"],
-            blog__WEBPACK_IMPORTED_MODULE_28__["BlogModule"],
+            blog__WEBPACK_IMPORTED_MODULE_29__["BlogModule"],
             ngx_ckeditor__WEBPACK_IMPORTED_MODULE_21__["CKEditorModule"],
-            team__WEBPACK_IMPORTED_MODULE_33__["TeamModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClientModule"],
-            contactus__WEBPACK_IMPORTED_MODULE_87__["ContactusModule"],
+            team__WEBPACK_IMPORTED_MODULE_34__["TeamModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"],
+            contactus__WEBPACK_IMPORTED_MODULE_88__["ContactusModule"],
             _angular_common__WEBPACK_IMPORTED_MODULE_17__["CommonModule"],
+            ngx_moment__WEBPACK_IMPORTED_MODULE_89__["MomentModule"],
             ngx_clipboard__WEBPACK_IMPORTED_MODULE_11__["ClipboardModule"],
-            _ngx_meta_core__WEBPACK_IMPORTED_MODULE_95__["MetaModule"].forRoot(),
+            ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_22__["NgxDaterangepickerMd"].forRoot(),
+            _ngx_meta_core__WEBPACK_IMPORTED_MODULE_97__["MetaModule"].forRoot(),
         ],
         providers: [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
-            _services_loader_service__WEBPACK_IMPORTED_MODULE_44__["LoaderService"],
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HTTP_INTERCEPTORS"], useClass: _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_46__["LoaderInterceptor"], multi: true }],
+            _services_loader_service__WEBPACK_IMPORTED_MODULE_45__["LoaderService"],
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HTTP_INTERCEPTORS"], useClass: _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_47__["LoaderInterceptor"], multi: true }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["NO_ERRORS_SCHEMA"]],
-        entryComponents: [_Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["quoteModal"], _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_40__["Modal5"], _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__["Modal4"], _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["Modal"], _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["Modal2"], _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["Modal3"], _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["Modal6"], _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_49__["DialogBoxComponent"], _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_56__["TeamDetails"]]
+        entryComponents: [_Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["sendMailModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["quoteModal"], _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["Modal5"], _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["Modal4"], _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["Modal"], _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["Modal2"], _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["Modal3"], _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["Modal6"], _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__["DialogBoxComponent"], _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamDetails"]]
     })
 ], AppModule);
 

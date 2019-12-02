@@ -48,30 +48,12 @@
                       </button>
                     </mat-form-field>
                   </mat-list-item>
-                  <span class="size_wrapper">
-                    <mat-list-item> <label>Size : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Size" formControlName="size_sr">
-                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                    <mat-list-item> <label>Color : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Color" formControlName="color_sr">
-                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
-                          (click)="color=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                  </span>
+                 
 
                   <mat-list-item> <label>Description: </label>
                     <mat-form-field class="example-form-field">
                       <textarea matInput type="text" placeholder="Enter Description"
-                        formControlname="description_sr"></textarea>
+                        formControlName="description_sr"></textarea>
                       <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear"
                         (click)="description=''">
                         <mat-icon>close</mat-icon>
@@ -99,25 +81,7 @@
                       </button>
                     </mat-form-field>
                   </mat-list-item>
-                  <span class="size_wrapper">
-                    <mat-list-item> <label>Size : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Size" formControlname="size_md">
-                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                    <mat-list-item> <label>Color : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Color" formControlname="color_sr">
-                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
-                          (click)="color=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                  </span>
+                 
                   <mat-list-item> <label>Description: </label>
                     <mat-form-field class="example-form-field">
                       <textarea matInput type="text" placeholder="Enter Description"
@@ -171,7 +135,7 @@
 
 <!-- rep section  -->
 <div *ngIf="headerFlag=='salesrep'"> 
-  <app-frontend-header></app-frontend-header>
+  <app-myaccount>
 
   <h1>Purchase Comparison Report</h1>
   <h3>Welcome {{salesRepName}}</h3>
@@ -223,30 +187,12 @@
                       </button>
                     </mat-form-field>
                   </mat-list-item>
-                  <span class="size_wrapper">
-                    <mat-list-item> <label>Size : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Size" formControlName="size_sr">
-                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                    <mat-list-item> <label>Color : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Color" formControlName="color_sr">
-                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
-                          (click)="color=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                  </span>
+                 
 
                   <mat-list-item> <label>Description: </label>
                     <mat-form-field class="example-form-field">
                       <textarea matInput type="text" placeholder="Enter Description"
-                        formControlname="description_sr"></textarea>
+                        formControlName="description_sr"></textarea>
                       <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear"
                         (click)="description=''">
                         <mat-icon>close</mat-icon>
@@ -274,25 +220,7 @@
                       </button>
                     </mat-form-field>
                   </mat-list-item>
-                  <span class="size_wrapper">
-                    <mat-list-item> <label>Size : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Size" formControlname="size_md">
-                        <button mat-button *ngIf="size" matSuffix mat-icon-button aria-label="Clear" (click)="size=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                    <mat-list-item> <label>Color : </label>
-                      <mat-form-field class="example-form-field">
-                        <input matInput type="text" placeholder="Enter Color" formControlname="color_sr">
-                        <button mat-button *ngIf="color" matSuffix mat-icon-button aria-label="Clear"
-                          (click)="color=''">
-                          <mat-icon>close</mat-icon>
-                        </button>
-                      </mat-form-field>
-                    </mat-list-item>
-                  </span>
+              
                   <mat-list-item> <label>Description: </label>
                     <mat-form-field class="example-form-field">
                       <textarea matInput type="text" placeholder="Enter Description"
@@ -332,5 +260,5 @@
 
     <button mat-button color="primary" (click)="setDraft()">Save As Draft</button>
   </mat-toolbar>
-  <app-frontend-footer *ngIf="headerFlag=='salesrep'"></app-frontend-footer>
+</app-myaccount>
 </div>
