@@ -244,16 +244,20 @@ openDialog(x: any): void {
         "token": this.cookieService.get('jwtToken')
 
       };
-     
+      /**delete password when id not null */
+      if(postData.data.id){
+        //console.log("with ID");
+        delete postData.data.password;
+      }else{
+        //console.log("withOut ID");
+      }
+        //console.log(postData);
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-
         if (response.status == "success") {
           this.openDialog(this.successMessage);
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
-
-
           this.router.navigateByUrl(this.linkTo);
         } else {
           alert("Some error occurred. Please try again.");
