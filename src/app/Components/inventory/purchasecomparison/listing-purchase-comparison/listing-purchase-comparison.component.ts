@@ -117,12 +117,18 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     }
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
-      this.openDialog(result[0].items)
-
+      this.openDialog(result[0].items);
     });
-
   }
 
+
+  /** send email modal**/
+  sendMailModal(index:any){
+    console.log('clicked');
+    console.log("vhck",index);
+    this.openMailDialog("A");
+
+  }
 
   /** Modal function **/
   openDialog(x: any): void {
@@ -133,6 +139,15 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
     this.dialogRef.afterClosed().subscribe(result => {
 
+    });
+  }
+
+  openMailDialog(x: any): void {
+    this.dialogRef = this.dialog.open(sendMailModal, {
+      panelClass: 'comparisonModal',
+      data: { msg: x }
+    });
+    this.dialogRef.afterClosed().subscribe(result => {
     });
   }
 
@@ -250,13 +265,32 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 }
 
 
-// ============================================MODAL COMPONENT===========================================
+// ============================================PRICE COMPARISON MODAL COMPONENT=========================
 @Component({
   selector: 'app-modal',
   templateUrl: 'quoteModal.html',
   styleUrls: ['./listing-purchase-comparison.component.css']
 })
 export class quoteModal {
+
+  constructor(
+    public dialogRef: MatDialogRef<quoteModal>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+// ======================================================================================================
+
+
+// ============================================SEND MAIL MODAL COMPONENT=========================
+@Component({
+  selector: 'app-modal',
+  templateUrl: 'sendMailModal.html',
+  styleUrls: ['./listing-purchase-comparison.component.css']
+})
+export class sendMailModal {
 
   constructor(
     public dialogRef: MatDialogRef<quoteModal>,

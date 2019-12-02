@@ -134,7 +134,7 @@ import { ListingLanguageComponent } from './Components/miscellaneous/language-co
 
 //purchase comparison
 import { AddEditPurchaseComparisonComponent } from './Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
-import { ListingPurchaseComparisonComponent ,quoteModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 import { MetaModule } from '@ngx-meta/core';
 
 
@@ -235,7 +235,7 @@ import { MetaModule } from '@ngx-meta/core';
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
-    quoteModal
+    quoteModal,sendMailModal
 
 
   ],
@@ -265,7 +265,7 @@ import { MetaModule } from '@ngx-meta/core';
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [quoteModal,Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [sendMailModal,quoteModal,Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
