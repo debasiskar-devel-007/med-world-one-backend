@@ -27,8 +27,8 @@ export class FrontendHeaderComponent implements OnInit {
   // }
 
   constructor(private cookieService: CookieService, public router: Router) {
-    this.headerFlag = this.cookieService.get('loginFlag');
-    if(this.cookieService.get('jwtToken')!=null && this.cookieService.get('jwtToken')!=''){
+    // this.headerFlag = this.cookieService.get('loginFlag');
+    if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.type=this.user_details.type;
       console.log(this.user_details.type);
