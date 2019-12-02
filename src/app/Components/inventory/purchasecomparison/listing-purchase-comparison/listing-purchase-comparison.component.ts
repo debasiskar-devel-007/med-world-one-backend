@@ -242,14 +242,14 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   /** search by date **/
   search_by_date(event: any) {
-    let startDate = moment(event.startDate).format('x');
+    let startDate = moment(event.startDate).format('MM-DD-YYYY');
     console.log("Start Date", startDate);
-    let endDate = moment(event.endDate).format('x');
+    let endDate = moment(event.endDate).format('MM-DD-YYYY');
     console.log("End Date", endDate);
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        // 'date_added': { $lte: parseInt(endDate), $gte: parseInt(startDate) },
+        'date_added': { $lte: parseInt(endDate), $gte: parseInt(startDate) },
         'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')

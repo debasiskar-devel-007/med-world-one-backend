@@ -135,7 +135,7 @@
 
 <!-- rep section  -->
 <div *ngIf="headerFlag=='salesrep'"> 
-  <app-frontend-header></app-frontend-header>
+  <app-myaccount>
 
   <h1>Purchase Comparison Report</h1>
   <h3>Welcome {{salesRepName}}</h3>
@@ -260,5 +260,5 @@
 
     <button mat-button color="primary" (click)="setDraft()">Save As Draft</button>
   </mat-toolbar>
-  <app-frontend-footer *ngIf="headerFlag=='salesrep'"></app-frontend-footer>
+</app-myaccount>
 </div>
