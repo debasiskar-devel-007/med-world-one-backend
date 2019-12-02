@@ -24,8 +24,12 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public btn_text: any;
   public tmp_value: any;
   public reportName: string;
-  public user_data:any;
-  public id:any;
+  public user_data: any;
+  public id: any;
+  public role:any;
+  public headerFlag:any;
+  public salerep_id:any;
+  public salesRepName:any;
 
 
 
@@ -33,7 +37,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
     public formBuilder: FormBuilder, private router: Router, public activatedRoute: ActivatedRoute,
-    private matSnackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -51,14 +55,26 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
     this.id = this.user_data.id;
-  
-   
-
+    this.role = this.user_data;
+    this.salesRepName = this.user_data.firstname + ' ' +this.user_data.lastname;
   }
 
   ngOnInit() {
+
+    /** getting the header flag **/
+    this.headerFlag = this.activatedRoute.snapshot.url[0].path;
+
+    if(this.headerFlag == 'salesrep')
+    this.salerep_id = this.id;
+    else
+    this.salerep_id = undefined;
+
+
     /** getting the hospital name **/
-    this.getHospitalName();
+    this.getHospitalNames();
+
+
+    
 
     /** generate form call **/
     this.generateForm();
@@ -82,12 +98,15 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     }
   }
 
-  /** getting t he hospital names **/
-  getHospitalName() {
+  /** getting the hospital names for admin **/
+  getHospitalNames() {
     let data: any = {
       'source': 'users_view',
       'token': this.cookieService.get('jwtToken'),
-      'condition': { 'type': 'hospital' }
+      'condition': {
+        'type': 'hospital',
+        'salesrepselect_object': this.salerep_id
+      }
     }
 
     this.http.httpViaPost('datalist', data).subscribe((response) => {
@@ -95,6 +114,12 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       this.hospital_name_array = result;
     });
   }
+
+ 
+
+
+
+
 
   /** generate form  **/
   generateForm() {
@@ -135,12 +160,11 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   /** takeName **/
   takeName(event: any) {
     this.tmp_value = event.value;
-    console.log("----------------HN", this.tmp_value);
   }
 
   /** taking the report name **/
   takereport_name(event: any) {
-    console.log("+++++++++++", event);
+    this.reportName=event.target.value;
   }
 
   /** set draft **/
@@ -151,11 +175,10 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   /** submit function **/
   onSubmit() {
 
-    console.log('Report NAme', this.reportName);
     this.purchaseForm.value.hospital_id = this.tmp_value;
     this.purchaseForm.value.report_name = this.reportName;
     this.purchaseForm.value.user_id = this.id;
-    console.log("All values", this.purchaseForm.value);
+    
 
     if (this.purchaseForm.invalid) {
       return;
@@ -168,20 +191,27 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         "source": 'purchasecomparison',
         "data": Object.assign(this.purchaseForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["hospital_id","user_id"],
+        "sourceobj": ["hospital_id", "user_id"],
 
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-          // this.openDialog(this.successMessage);
-          // setTimeout(() => {
-          //   this.dialogRef.close();
-          // }, 2000);
+          let action: any = "Ok";
+           this.snackBar.open('Report Added!!!', action, {
+             duration: 1000,
+           });
 
+           setTimeout(() => {
+            if(this.headerFlag=='admin')
+            this.router.navigateByUrl('/admin/inventory/purchase-comparison/list');
+            else
+            this.router.navigateByUrl('/salesrep/purchase-comparison/list');
+           }, 1000);
+           
 
-          // this.router.navigateByUrl('inventory/inventory-list/list');;
+ 
         } else {
           alert("Some error occurred. Please try again.");
         }

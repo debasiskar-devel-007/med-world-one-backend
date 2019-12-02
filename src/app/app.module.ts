@@ -18,8 +18,8 @@ import { CommonModule } from '@angular/common';
 import { AdminheaderComponent } from './Components/admin/adminheader/adminheader.component';
 import { FooterComponent } from './Components/admin/footer/footer.component';
 import { LeftNavComponent } from './Components/admin/left-nav/left-nav.component';
-
 import { CKEditorModule } from 'ngx-ckeditor';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 
 //Admin Management
@@ -117,6 +117,8 @@ import { HospitalLoginComponent } from './Components/frontend/logins/hospital-lo
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
 import { ContactusModule } from 'contactus';
+import { MomentModule } from 'ngx-moment';
+
 
 // Pricemarkup
 import { AddEditPriceMarkupManagementComponent, Modal6} from './Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
@@ -253,7 +255,9 @@ import { MetaModule } from '@ngx-meta/core';
     HttpClientModule,
     ContactusModule,
     CommonModule,
+    MomentModule,
     ClipboardModule,
+    NgxDaterangepickerMd.forRoot(),
     MetaModule.forRoot(),
   ],
   providers: [CookieService,

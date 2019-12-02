@@ -7,6 +7,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { Moment } from 'moment';
+import * as moment from 'moment';
+
+
 
 export interface DialogData {
   msg: string;
@@ -30,30 +35,53 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = [];
   filteredOptions: Observable<string[]>;
-  sales_rep_array:any=[];
-  userData:any;
-  role:any;
-  headerFlag:string;
-  viewTable:string;
+  sales_rep_array: any = [];
+  userData: any;
+  role: any;
+  headerFlag: string;
+  id: any;
+  selected: { startDate: Moment, endDate: Moment };
+  salesrep_id: any;
+
+
 
 
   /** View child **/
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
 
   constructor(private http: HttpServiceService, private cookieService: CookieService,
     private router: Router, public activatedRoute: ActivatedRoute, public dialog: MatDialog) {
     this.user_cookie = cookieService.get('jwtToken');
+    let allData: any = {};
+    allData = cookieService.getAll()
+    this.userData = JSON.parse(allData.user_details);
+    this.id = this.userData._id;
+
   }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(resolveData => {
-      this.purchaseFormData = resolveData.data.res;
-      // console.log("----------",this.purchaseFormData);
-    });
-    this.datasource = new MatTableDataSource(this.purchaseFormData);
-    this.datasource.paginator = this.paginator;
-    console.log("DATALIST", this.datasource);
+
+    /** getting the header flag **/
+    this.headerFlag = this.activatedRoute.snapshot.url[0].path;
+
+    /** getting data for listing **/
+    if (this.headerFlag == 'admin') {
+      this.activatedRoute.data.subscribe(resolveData => {
+        this.purchaseFormData = resolveData.data.res;
+      });
+
+      setTimeout(() => {
+        this.datasource = new MatTableDataSource(this.purchaseFormData);
+        this.datasource.paginator = this.paginator;
+      }, 500);
+    }
+    else {
+      this.getHospitalForSalesRep();
+    }
+
+
+
 
     /** getting the salesrep names **/
     this.getSalesRepNames();
@@ -67,35 +95,30 @@ export class ListingPurchaseComparisonComponent implements OnInit {
         map(value => this._filter(value))
       );
 
-  
-      this.headerFlag = this.activatedRoute.snapshot.url[0].path;
-      console.log("->",this.headerFlag);
-     
-      if(this.headerFlag=='admin')
-        this.viewTable ="purchasecomparison_view_admin";
-        else
-        this.viewTable="purchasecomparison_view_rep"
-
+    /** choosing the salesrep id for salesrep users **/
+    if (this.headerFlag == 'admin')
+      this.salesrep_id = undefined;
+    else
+      this.salesrep_id = this.id;
   }
 
   /** filtered options for autocomplete**/
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   /** quote view **/
   viewQuote(index: any) {
-    console.log("index", index);
     let data: any = {
-      'source': '"purchasecomparison_view_data',
+      'source': 'purchasecomparison_view_rep',
       'token': this.cookieService.get('jwtToken'),
       'condition': { '_id': index }
     }
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
-      this.openDialog(result[0].items);
+      this.openDialog(result[0].items)
+
     });
 
   }
@@ -114,13 +137,13 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   }
 
 
-  /** searching data**/
+  /** searching hospital**/
   search_hospital(event: any) {
-    console.log("search value", event.target.value)
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        'hospital_name_regex': event.target.value
+        'hospital_name_regex': event.target.value,
+        'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')
     }
@@ -134,18 +157,18 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   /** search draft **/
   search_draft(event: any) {
-    console.log(event.value);
 
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        'is_draft': parseInt(event.value)
+        'is_draft': parseInt(event.value),
+        'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')
     }
+
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
-      console.log(result);
       this.datasource = new MatTableDataSource(result);
       this.datasource.paginator = this.paginator;
     });
@@ -162,30 +185,66 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
       for (let i = 0; i < result.length; i++) {
-        this.options[i] = result[i].firstname + " " + result[i].lastname;
+        this.options[i] = result[i].user_full_name;
       }
-
-
-      console.log(this.options);
     });
   }
 
   /** searching by salesrep **/
   search_salesrep(event: any) {
-    // console.log("-------",event.target.value);
-    // let data: any = {
-    //   'source': 'purchasecomparison_view_admin',
-    //   'condition': {
-    //     'hospital_name_regex': event.target.value
-    //   },
-    //   'token': this.cookieService.get('jwtToken')
-    // }
-    // this.http.httpViaPost('datalist', data).subscribe(response => {
-    //   let result = response.res;
-    //   this.datasource = new MatTableDataSource(result);
-    //   this.datasource.paginator = this.paginator;
-    // });
+    let data: any = {
+      'source': 'purchasecomparison_view_admin',
+      'condition': {
+        'salesrep_full_name_regex': event.target.value
+      },
+      'token': this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      this.datasource = new MatTableDataSource(result);
+      this.datasource.paginator = this.paginator;
+    });
+  }
 
+  /** salesrep hospital data **/
+  getHospitalForSalesRep() {
+    let data: any = {
+      source: 'purchasecomparison_view_admin',
+      condition: {
+        'salesrep_id_object': this.id
+      },
+      token: this.cookieService.get('jwtToken')
+    }
+
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      this.purchaseFormData = response.res;
+      setTimeout(() => {
+        this.datasource = new MatTableDataSource(this.purchaseFormData);
+        this.datasource.paginator = this.paginator;
+      }, 500);
+    });
+  }
+
+
+  /** search by date **/
+  search_by_date(event: any) {
+    let startDate = moment(event.startDate).format('x');
+    console.log("Start Date", startDate);
+    let endDate = moment(event.endDate).format('x');
+    console.log("End Date", endDate);
+    let data: any = {
+      'source': 'purchasecomparison_view_admin',
+      'condition': {
+        'date': { $lte: parseInt(startDate), $gte: parseInt(endDate) },
+        'salesrep_id_object': this.salesrep_id
+      },
+      'token': this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      this.datasource = new MatTableDataSource(result);
+      this.datasource.paginator = this.paginator;
+    });
   }
 
 }
