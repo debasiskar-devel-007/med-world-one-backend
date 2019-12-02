@@ -9,7 +9,35 @@
     </mat-toolbar>
 
     <!-- item wrapper -->
-    <mat-card-content class="hospital_items">
+    <mat-card-content class="hospital_items" *ngFor="let hospital of hospitalDetails; index as i;">
+      <mat-card-content class="hospital_left">
+        <img src="../../../../../assets/images/hospitalDemoimage.jpg">
+      </mat-card-content>
+      <mat-card-content class="hospital_right">
+        <mat-card-title class="title">{{hospital.hospitalname}}</mat-card-title>
+
+        <mat-list class="item_list">
+          <mat-list-item> <span> Contact Person </span>:&nbsp;{{hospital.contactperson}}</mat-list-item>
+          <mat-list-item> <span> Phone(s) </span>:&nbsp;{{hospital.contactphones}}</mat-list-item>
+          <mat-list-item> <span> Email(s)</span>:&nbsp;{{hospital.email}}</mat-list-item>
+          <mat-list-item> <span> City</span>:&nbsp;{{hospital.city}}</mat-list-item>
+          <mat-list-item> <span> State</span>:&nbsp;{{hospital.state}}</mat-list-item>
+          <mat-list-item> <span> Zip</span>:&nbsp;{{hospital.zip}}</mat-list-item>
+          <mat-list-item> <span> Speciality</span>:&nbsp;{{hospital.speciality}}</mat-list-item>
+        </mat-list>
+        <mat-list class="item_list">
+          <mat-list-item> <span> No of Doctors </span>:&nbsp; lorem khuro </mat-list-item>
+          <mat-list-item> <span> No of Beds </span>:&nbsp; 95825668 </mat-list-item>
+          <mat-list-item> <span> No of Staffs </span>:&nbsp; email@email.com </mat-list-item>
+          <mat-list-item> <span> Inventory Listed </span>:&nbsp; USa </mat-list-item>
+          <mat-list-item> <span> nventory Quoted </span>:&nbsp; 250 </mat-list-item>
+          <mat-list-item> <span> Inventory Purchased </span>:&nbsp; Pepper Melting </mat-list-item>
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card-content>
+
+    <!-- <mat-card-content class="hospital_items">
       <mat-card-content class="hospital_left">
         <img src="../../../../../assets/images/hospitalDemoimage.jpg">
       </mat-card-content>
@@ -68,38 +96,8 @@
 
 
       </mat-card-content>
-    </mat-card-content>
-    <mat-card-content class="hospital_items">
-      <mat-card-content class="hospital_left">
-        <img src="../../../../../assets/images/hospitalDemoimage.jpg">
-      </mat-card-content>
-      <mat-card-content class="hospital_right">
-        <mat-card-title class="title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur enim corporis
-          cumque, dolor, aliquid provident.</mat-card-title>
-
-        <mat-list class="item_list">
-          <mat-list-item> <span> Contact Person </span>:&nbsp; lorem khuro </mat-list-item>
-          <mat-list-item> <span> Phone(s) </span>:&nbsp; 95825668 </mat-list-item>
-          <mat-list-item> <span> Email(s)</span>:&nbsp; email@email.com </mat-list-item>
-          <mat-list-item> <span> City</span>:&nbsp; kolkata </mat-list-item>
-          <mat-list-item> <span> State</span>:&nbsp; USa </mat-list-item>
-          <mat-list-item> <span> Zip</span>:&nbsp; 250 </mat-list-item>
-          <mat-list-item> <span> Speciality</span>:&nbsp; Pepper Melting </mat-list-item>
-        </mat-list>
-        <mat-list class="item_list">
-          <mat-list-item> <span> No of Doctors </span>:&nbsp; lorem khuro </mat-list-item>
-          <mat-list-item> <span> No of Beds </span>:&nbsp; 95825668 </mat-list-item>
-          <mat-list-item> <span> No of Staffs </span>:&nbsp; email@email.com </mat-list-item>
-          <mat-list-item> <span> Inventory Listed </span>:&nbsp; USa </mat-list-item>
-          <mat-list-item> <span> nventory Quoted </span>:&nbsp; 250 </mat-list-item>
-          <mat-list-item> <span> Inventory Purchased </span>:&nbsp; Pepper Melting </mat-list-item>
-        </mat-list>
-
-
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-paginator class="mat_paginator" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content> -->
+    <!-- <mat-paginator class="mat_paginator" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
 
 
 
