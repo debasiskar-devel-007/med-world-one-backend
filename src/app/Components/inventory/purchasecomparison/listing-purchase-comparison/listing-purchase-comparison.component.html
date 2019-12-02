@@ -100,7 +100,7 @@
                 <td mat-cell *matCellDef="let element">
                     <div>
                         <mat-icon class="clickable" (click)="viewQuote(element._id)">remove_red_eye</mat-icon>
-                        <mat-icon class="clickable">send</mat-icon>
+                        <mat-icon class="clickable" (click)="sendMailModal(element._id)">send</mat-icon>
                     </div>
                 </td>
             </ng-container>

@@ -20,7 +20,7 @@ export class AddEditBlogsComponent implements OnInit {
 
 
   public configData: any = {
-    baseUrl: "http://3.15.236.141:5005/",
+    baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
     format: ["jpg", "jpeg", "png"], // use all small font
@@ -30,7 +30,7 @@ export class AddEditBlogsComponent implements OnInit {
   }
 
   public configFileData: any = {
-    baseUrl: "http://3.15.236.141:5005/",
+    baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
     format: ["pdf", "doc", "docx","docxx"], // use all small font

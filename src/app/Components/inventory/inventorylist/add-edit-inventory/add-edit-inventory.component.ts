@@ -51,7 +51,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   //image upload 
   public configData: any = {
-    baseUrl: "http://3.15.236.141:5005/",
+    baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
     format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'], // use all small font
