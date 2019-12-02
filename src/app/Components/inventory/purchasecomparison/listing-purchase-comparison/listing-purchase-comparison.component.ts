@@ -7,6 +7,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { Moment } from 'moment';
+import * as moment from 'moment';
+
+
 
 export interface DialogData {
   msg: string;
@@ -34,8 +39,11 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   userData: any;
   role: any;
   headerFlag: string;
-  viewTable: string;
   id: any;
+  selected: { startDate: Moment, endDate: Moment };
+  salesrep_id: any;
+
+
 
 
   /** View child **/
@@ -75,7 +83,6 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
 
 
-
     /** getting the salesrep names **/
     this.getSalesRepNames();
 
@@ -88,11 +95,11 @@ export class ListingPurchaseComparisonComponent implements OnInit {
         map(value => this._filter(value))
       );
 
+    /** choosing the salesrep id for salesrep users **/
     if (this.headerFlag == 'admin')
-      this.viewTable = "purchasecomparison_view_admin";
+      this.salesrep_id = undefined;
     else
-      this.viewTable = "purchasecomparison_view_rep"
-
+      this.salesrep_id = this.id;
   }
 
   /** filtered options for autocomplete**/
@@ -130,12 +137,13 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   }
 
 
-  /** searching data**/
+  /** searching hospital**/
   search_hospital(event: any) {
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        'hospital_name_regex': event.target.value
+        'hospital_name_regex': event.target.value,
+        'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')
     }
@@ -149,13 +157,16 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   /** search draft **/
   search_draft(event: any) {
+
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        'is_draft': parseInt(event.value)
+        'is_draft': parseInt(event.value),
+        'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')
     }
+
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
       this.datasource = new MatTableDataSource(result);
@@ -174,27 +185,25 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     this.http.httpViaPost('datalist', data).subscribe(response => {
       let result = response.res;
       for (let i = 0; i < result.length; i++) {
-        this.options[i] = result[i].firstname + " " + result[i].lastname;
+        this.options[i] = result[i].user_full_name;
       }
     });
   }
 
   /** searching by salesrep **/
   search_salesrep(event: any) {
-    // console.log("-------",event.target.value);
-    // let data: any = {
-    //   'source': 'purchasecomparison_view_admin',
-    //   'condition': {
-    //     'hospital_name_regex': event.target.value
-    //   },
-    //   'token': this.cookieService.get('jwtToken')
-    // }
-    // this.http.httpViaPost('datalist', data).subscribe(response => {
-    //   let result = response.res;
-    //   this.datasource = new MatTableDataSource(result);
-    //   this.datasource.paginator = this.paginator;
-    // });
-
+    let data: any = {
+      'source': 'purchasecomparison_view_admin',
+      'condition': {
+        'salesrep_full_name_regex': event.target.value
+      },
+      'token': this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      this.datasource = new MatTableDataSource(result);
+      this.datasource.paginator = this.paginator;
+    });
   }
 
   /** salesrep hospital data **/
@@ -202,7 +211,6 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     let data: any = {
       source: 'purchasecomparison_view_admin',
       condition: {
-        // 'type':'hospital',
         'salesrep_id_object': this.id
       },
       token: this.cookieService.get('jwtToken')
@@ -214,6 +222,28 @@ export class ListingPurchaseComparisonComponent implements OnInit {
         this.datasource = new MatTableDataSource(this.purchaseFormData);
         this.datasource.paginator = this.paginator;
       }, 500);
+    });
+  }
+
+
+  /** search by date **/
+  search_by_date(event: any) {
+    let startDate = moment(event.startDate).format('x');
+    console.log("Start Date", startDate);
+    let endDate = moment(event.endDate).format('x');
+    console.log("End Date", endDate);
+    let data: any = {
+      'source': 'purchasecomparison_view_admin',
+      'condition': {
+        'date': { $lte: parseInt(startDate), $gte: parseInt(endDate) },
+        'salesrep_id_object': this.salesrep_id
+      },
+      'token': this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      this.datasource = new MatTableDataSource(result);
+      this.datasource.paginator = this.paginator;
     });
   }
 

@@ -41,18 +41,15 @@
             </mat-form-field>
 
 
+            <!-- search by date  -->
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <span matPrefix>
+                    <mat-icon>search</mat-icon>
+                </span>
+                <input matInput type="text" ngxDaterangepickerMd [(ngModel)]="selected" 
+                    placeholder="search by date range" (ngModelChange)="search_by_date($event)"/>                    
             </mat-form-field>
-            <!--           
-          <mat-form-field>
-            <input matInput placeholder="Choose a date" [satDatepicker]="picker" [value]="date">
-            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
-            <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
-        </mat-form-field> -->
-
+            
 
 
             <button mat-button class="action_button" type="button"
@@ -150,32 +147,16 @@
                 </mat-select>
             </mat-form-field>
 
-            <!-- search by sales rep  -->
-            <mat-form-field>
-                <input type="text" placeholder="search by salesrep" aria-label="Number" matInput
-                    [formControl]="myControl" [matAutocomplete]="auto" (keyup)="search_salesrep($event)">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{option}}
-                    </mat-option>
-                </mat-autocomplete>
+
+
+        <!-- search by date  -->
+        <mat-form-field>
                 <span matPrefix>
                     <mat-icon>search</mat-icon>
                 </span>
+                <input matInput type="text" ngxDaterangepickerMd [(ngModel)]="selected" 
+                    placeholder="search by date range" (ngModelChange)="search_by_date($event)"/>                    
             </mat-form-field>
-
-
-            <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <!--           
-              <mat-form-field>
-                <input matInput placeholder="Choose a date" [satDatepicker]="picker" [value]="date">
-                <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
-                <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
-            </mat-form-field> -->
 
 
 
