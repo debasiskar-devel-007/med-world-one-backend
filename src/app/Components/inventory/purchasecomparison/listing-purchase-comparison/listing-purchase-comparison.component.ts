@@ -42,6 +42,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   id: any;
   selected: { startDate: Moment, endDate: Moment };
   salesrep_id: any;
+  salesrep_name:string;
 
 
 
@@ -57,7 +58,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData._id;
-
+    this.salesrep_name = this.userData.firstname +' '+ this.userData.lastname;
   }
 
   ngOnInit() {
@@ -124,8 +125,6 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   /** send email modal**/
   sendMailModal(index:any){
-    console.log('clicked');
-    console.log("vhck",index);
     this.openMailDialog("A");
 
   }
@@ -243,14 +242,14 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
   /** search by date **/
   search_by_date(event: any) {
-    let startDate = moment(event.startDate).format('x');
+    let startDate = moment(event.startDate).format('MM-DD-YYYY');
     console.log("Start Date", startDate);
-    let endDate = moment(event.endDate).format('x');
+    let endDate = moment(event.endDate).format('MM-DD-YYYY');
     console.log("End Date", endDate);
     let data: any = {
       'source': 'purchasecomparison_view_admin',
       'condition': {
-        'date': { $lte: parseInt(startDate), $gte: parseInt(endDate) },
+        'date_added': { $lte: parseInt(endDate), $gte: parseInt(startDate) },
         'salesrep_id_object': this.salesrep_id
       },
       'token': this.cookieService.get('jwtToken')
