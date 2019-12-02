@@ -44,6 +44,14 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.data.res[0];
+          console.log('default Data',this.defaultData);
+          this.hospital_name_array._id = this.defaultData.hospital_id;
+          console.log('hospital array',this.hospital_name_array);
+          this.generateForm();
+          this.reportName=this.defaultData.report_name;
+          this.setDefaultValue(this.defaultData);
+        
+          
         });
       }
       else
@@ -96,6 +104,16 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         // this.setDefaultValue(this.defaultData);        
         break;
     }
+  }
+
+
+  setDefaultValue(defaultValue) {
+    console.log(this.defaultData);
+    this.purchaseForm.patchValue({
+      report_name:this.defaultData.report_name,
+      
+
+    })
   }
 
   /** getting the hospital names for admin **/

@@ -45,12 +45,12 @@ export class FrontendHeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log("logout");
     this.cookieService.deleteAll();
-    
+    this.cookieService.deleteAll('/');
     setTimeout(() => {
+      window.location.href='/';
       this.router.navigateByUrl('/home');
-    }, 500);
+    }, 1000);
   }
 
 }

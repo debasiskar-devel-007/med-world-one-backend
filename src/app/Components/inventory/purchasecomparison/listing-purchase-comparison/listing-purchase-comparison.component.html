@@ -101,6 +101,7 @@
                     <div>
                         <mat-icon class="clickable" (click)="viewQuote(element._id)">remove_red_eye</mat-icon>
                         <mat-icon class="clickable" (click)="sendMailModal(element._id)">send</mat-icon>
+                        <mat-icon class="clickable" [routerLink]="['/admin/inventory/purchase-comparison/edit/', element._id]" *ngIf="element.is_draft == 1">edit</mat-icon>
                     </div>
                 </td>
             </ng-container>
