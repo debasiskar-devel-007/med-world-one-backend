@@ -78,7 +78,7 @@ export class SalesrepChangePasswordComponent implements OnInit {
              
             }
             else{
-              this.message="Could not change password!Please try again later!!!"
+              this.message="Current Password does not match!!!"
               this.snackBar.open(this.message, "OK", {
                 duration: 1500
               });   

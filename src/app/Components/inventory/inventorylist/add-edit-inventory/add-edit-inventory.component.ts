@@ -60,9 +60,9 @@ export class AddEditInventoryComponent implements OnInit {
     prefix: "inventory_picture_"
   }
 
-  constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
-    private http: HttpServiceService, private router: Router,
-    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+  constructor(public formBuilder: FormBuilder, public cookieService: CookieService,
+    public http: HttpServiceService, public router: Router,
+    public activatedRoute: ActivatedRoute, public dialog: MatDialog) {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -236,7 +236,7 @@ export class AddEditInventoryComponent implements OnInit {
           // }, 2000);
 
 
-          this.router.navigateByUrl('inventory/inventory-list/list');;
+          this.router.navigateByUrl('inventory/inventory-list/list');
         } else {
           alert("Some error occurred. Please try again.");
         }

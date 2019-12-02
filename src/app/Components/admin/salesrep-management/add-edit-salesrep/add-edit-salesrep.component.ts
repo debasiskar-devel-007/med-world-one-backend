@@ -96,7 +96,7 @@ export class AddEditSalesrepComponent implements OnInit {
   // ================generateForm===================
   generateForm() {
     this.salesRepForm = this.formBuilder.group({
-      firstname: ['',[Validators.required,nameValidator]],
+      firstname: ['',[Validators.required]],
       lastname:[],
       email: ['',[Validators.required,Validators.required,Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['',Validators.required],
@@ -244,6 +244,7 @@ openDialog(x: any): void {
         "token": this.cookieService.get('jwtToken')
 
       };
+  
       /**delete password when id not null */
       if(postData.data.id){
         //console.log("with ID");

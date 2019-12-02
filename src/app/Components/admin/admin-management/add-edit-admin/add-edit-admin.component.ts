@@ -138,8 +138,8 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
-      firstname: ["", [Validators.required, nameValidator]],
-      lastname: ["", [Validators.required, nameValidator]],
+      firstname: ["", [Validators.required]],
+      lastname: ["", [Validators.required]],
       phone: ["", [Validators.required, phoneValidator]],
       email: ["", [Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['', Validators.required],
