@@ -136,6 +136,7 @@ import { ListingLanguageComponent } from './Components/miscellaneous/language-co
 import { AddEditPurchaseComparisonComponent } from './Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 import { MetaModule } from '@ngx-meta/core';
+import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactinfo/addcontactinfo.component';
 
 
 
@@ -235,7 +236,7 @@ import { MetaModule } from '@ngx-meta/core';
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
-    quoteModal,sendMailModal
+    quoteModal,sendMailModal, AddcontactinfoComponent
 
 
   ],

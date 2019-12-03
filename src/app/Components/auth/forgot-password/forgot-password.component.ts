@@ -31,7 +31,9 @@ export class ForgotPasswordComponent implements OnInit {
 
   public domainUrl: any = this.httpServiceService.resetPassword+'reset-password';
 
-  constructor(public httpServiceService:HttpServiceService) {}
+  constructor(public httpServiceService:HttpServiceService) {
+    console.log(this.domainUrl);
+  }
 
   ngOnInit() {
   }

@@ -36,7 +36,7 @@ export class DialogBoxComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
-    this.Type = this.user_data.Type;
+    this.Type = this.user_data.type;
     console.log("+++++++++++++++++++++Type", this.Type);
     if (this.Type == 'admin')
       this.adminflag = 1;
