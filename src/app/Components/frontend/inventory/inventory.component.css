@@ -7,21 +7,19 @@
 .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .ab_action_button { width: 290px; background: #111214; font-family: "RobotoMedium"; font-size: 30px; color: #fff; text-transform: uppercase;
   padding: 7px; border-radius: 0; text-align:center }
 
-.sh_view_inv_blok2{ width: 1665px; margin: 0px auto; text-align: center; margin-bottom: 30px; }
+.sh_view_inv_blok2{ width: 1665px; margin: 50px auto; text-align: center; margin-bottom: 30px; }
 .sh_view_inv_blok2 .sh_view_inv_blok2_inner{ padding: 0 60px; margin-bottom: 25px; }
 .sh_view_inv_blok2 .sh_view_inv_blok2_inner .top_header{ font-size: 42px; text-transform: uppercase; font-family: "MontserratSemibold"; color: #282828; margin-bottom: 16px; }
 .sh_view_inv_blok2 .sh_view_inv_blok2_inner .top_subheader{ font-size: 24px; text-transform: uppercase; font-family: "RobotoMedium"; color: #282828; line-height: 28px;}
 .sh_view_inv_blok2 .sh_view_inv_blok2_inner .description{ font-size: 18px;   font-family: "RobotoMedium"; color: #282828; }
-.sh_view_inv_blok2 .sh_search_wrapper { background: #137ed7; padding: 16px; display: flex; justify-content: space-between; align-items: center; margin: 0;}
-.sh_view_inv_blok2 .sh_search_wrapper .switch_btn { display: flex; justify-content: center; align-items: center; width: 390px; margin-bottom: 0; }
-.sh_view_inv_blok2 .sh_search_wrapper .switch_btn button{ width: 196px; font-family: "HelveticaRegular"; text-transform: capitalize; font-size: 18px; border-radius: 0; padding: 6px; }
-.sh_view_inv_blok2 .sh_search_wrapper .switch_btn button:nth-child(1){ background: #fff; }
-.sh_view_inv_blok2 .sh_search_wrapper .switch_btn button:nth-child(2){ background: #002950; color: #fff; }
-.sh_view_inv_blok2 .sh_search_wrapper .searchfilter{ background: #000; width: 800px; padding: 5px; display: flex; justify-content: space-between; align-items: center; }
+.sh_view_inv_blok2 .sh_search_wrapper { background: #011f3c; padding: 16px; display: flex; justify-content: space-between; align-items: center; margin: 0;}
+.sh_view_inv_blok2 .sh_search_wrapper .switch_btn { display: flex; justify-content: flex-start; align-items: center; width: 390px; margin-bottom: 0; }
+.sh_view_inv_blok2 .sh_search_wrapper .switch_btn h2{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; text-transform: uppercase; }
+.sh_view_inv_blok2 .sh_search_wrapper .searchfilter{ background: #1c67b6;  padding: 5px; display: flex; justify-content: space-between; align-items: center; }
 .sh_view_inv_blok2 .sh_search_wrapper .searchfilter .filter_wrapper button{ background: #fff; margin: 0 4px; border-radius: 0; min-width: auto; height: auto; line-height: initial;}
 .sh_view_inv_blok2 .sh_search_wrapper .searchfilter .filter_wrapper button .mat-icon{ transform: rotate(90deg); }
 .search_bar { width: 600px; display: flex; justify-content: space-between; align-items: center; }
-.search_bar .searchpannel{ width: 100%; padding: 12px 10px; box-sizing: border-box; border: none; }
+.search_bar .searchpannel{ width: 100%; padding: 12px 10px; box-sizing: border-box; border: none;  background: #fff; text-align: left; }
 .search_bar .search_button{ background: #ea240f; color: #fff; border-radius: 0; margin-left: 5px; width: 100px; padding: 3px; }
 
 .sh_inventory_content { display: flex; justify-content: space-between; flex-wrap: wrap; }
@@ -44,6 +42,15 @@
 .sh_inventory_content .sh_inventory_content_item .action_buttons .quotes button:last-child{ margin-left: 8px;}
 .sh_inventory_content .sh_inventory_content_item .view_more{ background: #111214; width: 170px; font-family: "HelveticaRegular"; border-radius: 0; font-size: 18px; color: #fff; }
 
+/* new modification */
+.cataLog_wrapper { display: flex; justify-content: space-between;}
+.cataLog_wrapper .categoyPart { min-width: 270px; border: 1px solid #d5d5d5;  box-sizing: border-box; margin: 7px 0; margin-right: 15px; text-align: left; }
+.cataLog_wrapper .categoyPart .categoryAll input { font-size: 18px; font-family: "AvenirMedium"; width: 100%; padding: 16px; box-sizing: border-box; border-top: 0; border-right: 0;
+  border-left: 0; color: #434343;}
+.cataLog_wrapper .categoyPart .categoryAll input:focus { outline: none;  }
+.cataLog_wrapper .cat_list { padding:0 16px;}
+.cataLog_wrapper .categoyPart .cat_list a{ font-size: 18px; font-family: "AvenirMedium"; width: 100%; padding: 16px; box-sizing: border-box; border-top: 0; border-right: 0;
+  border-left: 0; color: #434343;}
 
 @media screen and (max-width: 1760px){
   .sh_view_inv_blok2 { width: 90%; margin: 0px auto;}
