@@ -32,6 +32,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public salerep_id: any;
   public salesRepName: any;
   public message: string;
+  public hospitalNameModel: any;
 
 
 
@@ -47,7 +48,6 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.data.res[0];
           this.hospital_name_array._id = this.defaultData.hospital_id;
-          console.log('hospital array', this.hospital_name_array);
           this.generateForm();
           this.reportName = this.defaultData.report_name;
         });
@@ -102,21 +102,20 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         this.btn_text = "UPDATE";
         this.message = "Report Updated!!!";
         this.setDefaultValue(this.defaultData);
+        this.hospitalNameModel = this.defaultData.hospital_id;
         break;
     }
   }
 
   /** setting the default data **/
   setDefaultValue(defaultValue) {
-    console.log("default Data", defaultValue);
     this.purchaseForm.patchValue({
       is_draft: defaultValue.is_draft,
       user_id: defaultValue.user_id,
       report_name: defaultValue.report_name,
       hospital_id: defaultValue.hospital_id
     });
-    // this.hospital_name_array=null;
-    // this.hospital_name_array =[];
+  
     for (let i = 0; i < this.defaultData.items.length; i++) {
       if (this.defaultData.items[i] != null) {
         this.addItemwithdata(this.defaultData.items[i]);
@@ -141,7 +140,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       let result = response.res;
       this.hospital_name_array = result;
     });
-    console.log('Hospital names', this.hospital_name_array);
+
   }
 
 
@@ -164,9 +163,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
   /**  Form Array **/
   createItem(item_array: any): FormGroup {
-    console.log("items_array", item_array);
     if (item_array != null) {
-      console.log('in create item from builder block with data ');
       return this.formBuilder.group({
         productname_sr: [item_array.productname_sr],
         price_sr: [item_array.price_sr],
@@ -210,15 +207,9 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     this.tmp_value = event.value;
   }
 
-  /** taking the report name **/
-  takereport_name(event: any) {
-    this.reportName = event.target.value;
-  }
-
   /** set draft **/
   setDraft() {
     this.purchaseForm.value.is_draft = 1;
-
 
 
     this.purchaseForm.value.hospital_id = this.tmp_value;
@@ -255,6 +246,10 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       alert("Some error occurred. Please try again.");
     });
   }
+
+
+
+
 
   /** submit function **/
   onSubmit() {

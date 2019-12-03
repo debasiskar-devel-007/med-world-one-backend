@@ -42,7 +42,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   id: any;
   selected: { startDate: Moment, endDate: Moment };
   salesrep_id: any;
-  salesrep_name:string;
+  salesrep_name: string;
 
 
 
@@ -58,7 +58,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData._id;
-    this.salesrep_name = this.userData.firstname +' '+ this.userData.lastname;
+    this.salesrep_name = this.userData.firstname + ' ' + this.userData.lastname;
   }
 
   ngOnInit() {
@@ -124,8 +124,16 @@ export class ListingPurchaseComparisonComponent implements OnInit {
 
 
   /** send email modal**/
-  sendMailModal(index:any){
-    this.openMailDialog("A");
+  sendMailModal(index: any) {
+    let data: any = {
+      'source': 'purchasecomparison_view_rep',
+      'token': this.cookieService.get('jwtToken'),
+      'condition': { '_id': index }
+    }
+    this.http.httpViaPost('datalist', data).subscribe(response => {
+      let result = response.res;
+      this.openMailDialog(result[0].items);
+    });
 
   }
 
@@ -246,19 +254,22 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     console.log("Start Date", startDate);
     let endDate = moment(event.endDate).format('MM-DD-YYYY');
     console.log("End Date", endDate);
-    let data: any = {
-      'source': 'purchasecomparison_view_admin',
-      'condition': {
-        'date_added': { $lte: parseInt(endDate), $gte: parseInt(startDate) },
-        'salesrep_id_object': this.salesrep_id
-      },
-      'token': this.cookieService.get('jwtToken')
+    if (startDate != "Invalid date") {
+      let data: any = {
+        'source': 'purchasecomparison_view_admin',
+        'condition': {
+          'date_added': { $lte: endDate, $gte: startDate },
+          'salesrep_id_object': this.salesrep_id
+        },
+        'token': this.cookieService.get('jwtToken')
+      }
+
+      this.http.httpViaPost('datalist', data).subscribe(response => {
+        let result = response.res;
+        this.datasource = new MatTableDataSource(result);
+        this.datasource.paginator = this.paginator;
+      });
     }
-    this.http.httpViaPost('datalist', data).subscribe(response => {
-      let result = response.res;
-      this.datasource = new MatTableDataSource(result);
-      this.datasource.paginator = this.paginator;
-    });
   }
 
 }
