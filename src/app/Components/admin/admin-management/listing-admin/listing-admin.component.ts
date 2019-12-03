@@ -33,6 +33,7 @@ export class ListingAdminComponent implements OnInit {
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "user_view";
+  detail_header: any = ['_id', 'type', 'password'];
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],
