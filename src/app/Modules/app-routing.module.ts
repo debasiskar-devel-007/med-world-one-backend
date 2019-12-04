@@ -58,7 +58,7 @@ import { SalesrepViewQuotesComponent } from '../Components/backend/sales-rep/sal
 import { SalesrepSalesComponent } from '../Components/backend/sales-rep/salesrep-sales/salesrep-sales.component';
 import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-hospital/manage-hospital.component';
 import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
-import { BlogComponent } from 'blog/blog';
+// import { BlogComponent } from 'blog-lib-influxiq';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
 import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
@@ -504,8 +504,12 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
-  { path: 'blog', component: BlogComponentFrontEnd },
+
+  { path: 'blog', component: BlogComponentFrontEnd},
+
+
   { path: 'blog-details', component: BlogDetailsComponent },
+
   { path: 'inventory', component: InventoryComponent },
   { path: 'inventory-details', component: InventoryDetailsComponent },
   { path: 'about-us', component: AboutUsFrontComponent },
