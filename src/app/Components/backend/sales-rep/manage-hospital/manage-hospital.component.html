@@ -17,9 +17,17 @@
                 <mat-card-content class="forms large_view">
                     <mat-label class="mydetails_ac_lebel">Hospital Name</mat-label>
                     <mat-form-field>
-                        <input matInput formControlName="hospital_name">
+                        <input matInput formControlName="hospitalname">
                     </mat-form-field>
                 </mat-card-content>
+
+                <mat-card-content class="forms large_view">
+                    <mat-label class="mydetails_ac_lebel">Email</mat-label>
+                    <mat-form-field>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+                </mat-card-content>
+
                 <mat-card-content class="file_uploader">
                     <mat-label class="mydetails_ac_lebel">image</mat-label>
 
@@ -28,11 +36,9 @@
                             <img src="../../../../../assets/images/change_passlock_icon.png">
                         </mat-card-content>
 
-                        <input type="file" #trigger hidden>
+                        <lib-file-upload [config]="configData"></lib-file-upload><br>
+                        <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
 
-                        <button class="change_image" mat-button (click)="trigger.click()">Select file<i
-                                class="fa fa-upload" aria-hidden="true"></i>
-                        </button>
                     </mat-card-content>
                 </mat-card-content>
 
@@ -40,21 +46,37 @@
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">Contact Person</mat-label>
                         <mat-form-field>
-                            <input matInput formControlName="contact_person">
+                            <input matInput formControlName="contactperson">
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">Phone(s) </mat-label>
                         <mat-form-field>
-                            <input matInput>
+                            <input matInput formControlName="contactphones" (keyup)="collect_phones($event)">
                         </mat-form-field>
+                        <div>
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
+                                    <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
+                                </mat-chip>
+
+                            </mat-chip-list>
+                        </div>
+
                     </mat-card-content>
                     <mat-card-content class="forms">
-                        <mat-label class="mydetails_ac_lebel">EMAIL(s)</mat-label>
+                        <mat-label class="mydetails_ac_lebel">EMAIL(s) </mat-label>
                         <mat-form-field>
-                            <mat-label>Contact Email(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each Entry</mat-label>
-                    <input matInput formControlName="contact_emails" (keyup)="collect_email($event)">
+                            <input matInput formControlName="contactemails" (keyup)="collect_email($event)">
                         </mat-form-field>
+                        <div>
+                            <mat-chip-list>
+                                <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
+                                    <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
+                                </mat-chip>
+
+                            </mat-chip-list>
+                        </div>
                     </mat-card-content>
 
                 </span>
@@ -102,27 +124,27 @@
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Doctors </mat-label>
                         <mat-form-field>
-                            <input matInput type="number" formControlName="no_of_docs">
+                            <input matInput type="number" formControlName="noofdoctors">
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Beds </mat-label>
                         <mat-form-field>
-                            <input matInput  type="number" formConrolName="no_of_beds">
+                            <input matInput type="number" formControlName="noofbeds">
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content class="forms">
                         <mat-label class="mydetails_ac_lebel">No of Staffs </mat-label>
                         <mat-form-field>
-                            <input matInput  type="number" formControlName="no_of_staffs">
+                            <input matInput type="number" formControlName="noofstaffs">
                         </mat-form-field>
                     </mat-card-content>
 
                 </span>
 
                 <mat-toolbar class="button_action">
-                    <button mat-button>update</button>
-                    <button mat-button>cancel</button>
+                    <button type="button" mat-button (click)="onSubmit()">{{ btn_text }}</button>
+                    <button type="button" mat-button>cancel</button>
                 </mat-toolbar>
 
 

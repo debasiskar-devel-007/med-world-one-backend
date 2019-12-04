@@ -190,6 +190,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgtype = defaultValue.mpimage.type;
+    console.log("images full path",this.fullImgPath);
   }
   // ======================================================================================
 
