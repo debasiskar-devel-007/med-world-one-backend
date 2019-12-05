@@ -143,7 +143,7 @@
     <span>Select Hospitals </span>
     <mat-form-field>
       <mat-label>Hospital Name</mat-label>
-      <mat-select matNativeControl (selectionChange)="takeName($event)">
+      <mat-select matNativeControl (selectionChange)="takeName($event)"  [(ngModel)]="hospitalNameModel">
         <mat-option value="{{ item._id }}" *ngFor="let item of hospital_name_array;let i = index;">
           {{ item.hospitalname }}</mat-option>
       </mat-select>

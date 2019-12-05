@@ -349,10 +349,10 @@ const routes: Routes = [
     resolve: { inventoryCatList: ResolveService },
     data: {
       requestcondition: {
-        source: '',
+        source: 'category_view',
         condition: {}
       },
-      endpoint: 'inventorybrand'
+      endpoint: 'datalist'
     },
   },
   {
@@ -472,7 +472,6 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
 
   { path: 'account-settings', component: AccountsComponent },
 
-  // front end routing
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
@@ -659,7 +658,21 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'salesrep/my-added-inventory/details', component: DetailsInventoryComponent },
   { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent },
   { path: 'salesrep/my-sales', component: SalesrepSalesComponent },
+
+  /** Salesrep hospital management **/
   { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent },
+  {
+    path: 'salesrep/hospital/manage-hospital/edit/:_id',
+    component: ManageHospitalComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        'source': 'users_view',
+        'condition': { 'type':'hospital'}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
 
 
