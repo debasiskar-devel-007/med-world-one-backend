@@ -509,7 +509,18 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'blog', component: BlogComponentFrontEnd},
 
 
-  { path: 'blog-details', component: BlogDetailsComponent },
+  { path: 'blog-details/:_id', component: BlogDetailsComponent,
+    resolve: {
+      blogCatList: ResolveService
+    },
+    data:
+    {
+      requestcondition:
+      {
+        source: 'blogs_view', condition: {}
+      }, endpoint: 'datalistwithouttoken'
+    } 
+  },
 
   { path: 'inventory', component: InventoryComponent },
   { path: 'inventory-details', component: InventoryDetailsComponent },

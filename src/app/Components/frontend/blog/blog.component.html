@@ -1,101 +1,120 @@
 <app-frontend-header></app-frontend-header>
 
 <mat-card-content class="sh_buyfrmus_topblock">
-    <mat-card-content class="sh_buyfrmus_content_wrapper">
-        <h2 class="header">blog</h2>
-        <p class="paragraph">
-            You can always continue to learn new information, methods and other developments taking place in the
-            Healthcare industry, and blogs, articles, and medical journals happen to be the best source from where you
-            can gather such information, or so we have found.
+  <mat-card-content class="sh_buyfrmus_content_wrapper">
+    <h2 class="header">blog</h2>
+    <p class="paragraph">
+      You can always continue to learn new information, methods and other
+      developments taking place in the Healthcare industry, and blogs, articles,
+      and medical journals happen to be the best source from where you can
+      gather such information, or so we have found.
+    </p>
 
-        </p>
-
-        <button mat-button class="manufac_action_btn" routerLink="/inventory"> view inventory</button>
-    </mat-card-content>
+    <button mat-button class="manufac_action_btn" routerLink="/inventory">
+      view inventory
+    </button>
+  </mat-card-content>
 </mat-card-content>
 <!-- end one -->
 
 <mat-card-content class="sh_blog_content_wrapper">
-    <mat-card-content class="sh_blog_content">
-        <mat-card-title class="title">What’s Happening in the industry</mat-card-title>
-        <!-- <mat-card-title class="subtitle">Lorem Ipsum is simply </mat-card-title> -->
-        <p class="desc">The Healthcare and Medical Industry is an ever-changing one, with new developments,
-            technological advancements and innovations, and new findings taking place every minute. Stay posted with the
-            latest blogs and articles about everything happening in every area of the industry, which are written by
-            talented, knowledgable and experienced members of our team. We also include the most popular articles and
-            blogs circulating the internet in our collection in order to provide our members with the latest information
-            about everything happening in the industry.</p>
-    </mat-card-content>
+  <mat-card-content class="sh_blog_content">
+    <mat-card-title class="title">What’s Happening in the industry</mat-card-title>
+    <!-- <mat-card-title class="subtitle">Lorem Ipsum is simply </mat-card-title> -->
+    <p class="desc">
+      The Healthcare and Medical Industry is an ever-changing one, with new
+      developments, technological advancements and innovations, and new findings
+      taking place every minute. Stay posted with the latest blogs and articles
+      about everything happening in every area of the industry, which are
+      written by talented, knowledgable and experienced members of our team. We
+      also include the most popular articles and blogs circulating the internet
+      in our collection in order to provide our members with the latest
+      information about everything happening in the industry.
+    </p>
+  </mat-card-content>
 
-    <mat-card-content class="sh_blog_content_bottom">
-        <mat-card-content class="sh_blog_content_left">
-            <!-- loop blogs  -->
-            <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i=index">
+  <mat-card-content class="sh_blog_content_bottom">
+    <mat-card-content class="sh_blog_content_left">
+      <!-- loop blogs  -->
+      <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
+        <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
+          <img src="{{ blog.blogs_image }}" />
+        </mat-card-content>
 
-                <mat-card-content class="image_wrapper">
-                    <img src="{{blog.blogs_image}}">
-                </mat-card-content>
+        <mat-card-content class="content_wrapper">
+          <mat-card-title class="blog_inner_title" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
 
-                <mat-card-content class="content_wrapper">
-                    <mat-card-title class="blog_inner_title">{{blog.blogtitle}}</mat-card-title>
+          <p class="truncate" class="inner_blog_desc">
+            <span [innerHtml]="blog.description"></span>
+          </p>
 
-                    <p class="inner_blog_desc">
-                       <span [innerHtml]="blog.description_html"></span>
-                    </p>
+          <mat-toolbar class="bottom_social">
+            <a (click)="blogdetail(blog._id)"> read more</a>
 
-                    <mat-toolbar class="bottom_social">
-                        <a routerLink="/blog-details">read more</a>
-                        <span class="social_report">
-                            <p>Author Name: <span class="author"> {{blog.author}}</span></p>
-                            <p class="date">{{blog.date}}</p>
-                            <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
+            <!-- <a routerLink="/blog-details">read more</a> -->
+            <span class="social_report">
+              <p>
+                Author Name: <span class="author"> {{ blog.author }}</span>
+              </p>
+              <p class="date">{{ blog.date }}</p>
+              <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
                             <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
                                 </span></p> -->
-                        </span>
+            </span>
 
-                        <span class="social_wrapper">
-                            <!-- <a mat-button ><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <span class="social_wrapper">
+              <!-- <a mat-button ><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a mat-button><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a mat-button><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
                             <a mat-button><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                             <a mat-button><i class="fa fa-comment" aria-hidden="true"></i></a>
                             <a mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></a> -->
 
-                             <button class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{blog._id}}" target="_blank">
-                                <i class="fa fa-facebook" aria-hidden="true"></i>
-                              </button>
-                              <button class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{blog._id}}" target="_blank">
-                                <i class="fa fa-twitter" aria-hidden="true"></i>
-                              </button>
-                              <button class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{blog._id}}" target="_blank">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                              </button>
-                              <button class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{blog._id}}" target="_blank">
-                                <i class="fa fa-linkedin" aria-hidden="true"></i>
-                              </button>
-                            
-                              <button class="mat-button" (click)="copyText('https://dev.mdstockinternational.com/blog%2F?affid='+blog._id)">
-                                <i class="fa fa-share-alt" aria-hidden="true"></i>
-                              </button>
+              <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
 
-
-                        </span>
-                    </mat-toolbar>
-                </mat-card-content>
-            </mat-card-content>
-            <!-- loopend blogs  -->
-            
+              <a class="mat-button" (click)="
+                  copyText(
+                    'https://dev.mdstockinternational.com/blog%2F?affid=' +
+                      blog._id
+                  )
+                ">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </a>
+            </span>
+          </mat-toolbar>
         </mat-card-content>
+      </mat-card-content>
+      <!-- loopend blogs  -->
+    </mat-card-content>
 
-        <mat-card-content class="sh_blog_content_right">
-            <mat-card-content class="searchbar">
-                <input type="text" placeholder="Search Blogs">
-                <button mat-button>Go</button>
-            </mat-card-content>
+    <mat-card-content class="sh_blog_content_right">
+      <mat-card-content class="searchbar">
+        <input type="text" placeholder="Search Blogs" />
+        <button mat-button>Go</button>
+      </mat-card-content>
 
-            <mat-card-content class="other_blog_posts">
-                <h2>category {{blogcategorycount}}</h2>
-                <!-- <mat-accordion>
+      <mat-card-content class="other_blog_posts">
+        <h2>category ({{ blogcategorycount }})</h2>
+        <!-- <mat-accordion>
                     <mat-expansion-panel class="other_blog_expansion">
                         <mat-expansion-panel-header>
                             <mat-panel-title class="panel_title">
@@ -164,33 +183,39 @@
                     </mat-expansion-panel>
                 </mat-accordion> -->
 
-                <mat-tree [dataSource]="blogCategoryDataSource" [treeControl]="nestedTreeControl" class="example-tree">            
-                    <mat-tree-node *matTreeNodeDef="let item" matTreeNodePadding>
-                        <li class="mat-tree-node">
-                            <button mat-icon-button disabled></button>
-                            {{item.blogtitle}}
-                        </li>               
-                    </mat-tree-node>
-                    <mat-tree-node *matTreeNodeDef="let item;when: hasNestedChild">
-                        <li>
-                            <div class="mat-tree-node">
-                                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + item.blogtitle">
-                                    <mat-icon class="mat-icon-rtl-mirror">
-                                        {{nestedTreeControl.isExpanded(item) ? 'expand_more' : 'chevron_right'}}
-                                    </mat-icon>
-                                </button>
-                                {{item.blogtitle}} ({{item.blogcount}})
-                            </div>
-                            <ul [class.example-tree-invisible]="!nestedTreeControl.isExpanded(item)">
-                                <ng-container matTreeNodeOutlet></ng-container>
-                            </ul>
-                        </li>
-                    </mat-tree-node>
-                  </mat-tree>
+        <mat-tree [dataSource]="blogCategoryDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+          <mat-tree-node *matTreeNodeDef="let item" matTreeNodePadding>
+            <li class="mat-tree-node">
+              <button mat-icon-button disabled></button>
+              {{ item.blogtitle }}
+            </li>
+          </mat-tree-node>
+          <mat-tree-node *matTreeNodeDef="let item; when: hasNestedChild">
+            <li>
+              <div class="mat-tree-node">
+                <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + item.blogtitle">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{
+                      nestedTreeControl.isExpanded(item)
+                        ? "expand_more"
+                        : "chevron_right"
+                    }}
+                  </mat-icon>
+                </button>
+                {{ item.blogtitle }} ({{ item.blogCount }})
+              </div>
+              <ul *ngFor="let blog of blogListing; let i = index" [class.example-tree-invisible]="
+                  !nestedTreeControl.isExpanded(item)
+                ">
+                <ng-container matTreeNodeOutlet>
+                </ng-container>
+              </ul>
+            </li>
+          </mat-tree-node>
+        </mat-tree>
+      </mat-card-content>
 
-            </mat-card-content>
-
-            <!-- <mat-card-content class="other_blog_posts">
+      <!-- <mat-card-content class="other_blog_posts">
                 <h2>other blog posts</h2>
 
                 <mat-list class="other_listed_items">
@@ -212,9 +237,8 @@
 
 
             </mat-card-content> -->
-        </mat-card-content>
     </mat-card-content>
+  </mat-card-content>
 </mat-card-content>
-
 
 <app-frontend-footer></app-frontend-footer>

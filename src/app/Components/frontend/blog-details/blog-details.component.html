@@ -34,76 +34,51 @@
             <mat-card-content class="blog_container">
 
                 <mat-card-content class="image_wrapper">
-                    <img src="https://images.pexels.com/photos/356054/pexels-photo-356054.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt="image is only for demo purpose">
+                    <img [src]="blog[0].blogs_image" alt="image is only for demo purpose">
                 </mat-card-content>
 
                 <mat-card-content class="content_wrapper">
-                    <mat-card-title class="blog_inner_title">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </mat-card-title>
+                    <mat-card-title class="blog_inner_title"> {{ blog[0].blogtitle }} </mat-card-title>
 
                     <p class="inner_blog_desc">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos iste non repudiandae libero, cum
-                        sint voluptate! Sunt quisquam sit corrupti, officiis placeat, eos similique nemo quae laboriosam
-                        iusto earum, quam esse rerum? Doloribus, beatae expedita assumenda blanditiis ex praesentium
-                        soluta odit, harum similique mollitia adipisci! Natus, nihil? Reiciendis repellat magni rerum
-                        dolores sed, corporis voluptatem, soluta dolorem quos reprehenderit officia et quaerat nihil
-                        aperiam ullam facere voluptatum libero tempora sapiente nostrum? Labore error eius temporibus
-                        vero ratione velit, quis libero, facere totam alias adipisci, ab nostrum? Odio quia aut
-                        blanditiis fuga deleniti qui laborum aperiam repudiandae tenetur sit alias mollitia, molestiae
-                        aliquid culpa laboriosam rerum, tempora corporis esse quasi commodi sed? Facere cumque assumenda
-                        aliquam quidem, voluptatem blanditiis minima ab quasi sapiente! Reprehenderit sint quia atque
-                        quos, sit, ipsum explicabo quod ab repudiandae id deleniti praesentium accusantium voluptatem
-                        eligendi numquam, dolores esse earum aperiam quaerat. Magni, consequatur. Quos a sed blanditiis,
-                        ut facere qui corporis, non dignissimos maxime tempora distinctio praesentium. Aperiam cum quam
-                        doloremque cumque tenetur eius reiciendis culpa assumenda, omnis praesentium incidunt. Illum
-                        autem labore quia eligendi velit consequatur dolor possimus, eius odio provident enim itaque
-                        praesentium aliquid? Ducimus ut, reprehenderit earum reiciendis amet esse fugit inventore?
-                        Placeat mollitia a magni unde, itaque explicabo officiis non officia voluptates minima! Nobis,
-                        molestiae tempora pariatur eaque hic nesciunt quidem incidunt nisi dignissimos beatae sint rerum
-                        ipsa numquam quibusdam corporis? Fugiat, tempore libero cumque culpa qui quam vero accusamus
-                        illo rem praesentium et minus vitae velit excepturi iure enim. Saepe porro labore asperiores
-                        eveniet alias, optio laborum, amet, quaerat at magni nam quae numquam fugit! Distinctio officia
-                        minus facere corporis praesentium delectus, officiis reiciendis illo amet. Maiores tempora
-                        explicabo minus, autem, eaque adipisci pariatur, quibusdam eveniet accusantium quo alias! Qui
-                        natus expedita vel delectus deserunt sunt amet cum fuga repellendus incidunt enim eum ea sequi
-                        dignissimos quos dolor aspernatur temporibus architecto nihil, vitae dicta aliquid libero sit?
-                        Explicabo dolorem ea assumenda aliquid iure eius eveniet! Cupiditate, quasi sed. Voluptatem
-                        molestias facilis deleniti earum illum eius quas magni quod ad ut porro, numquam quasi natus
-                        architecto aliquid optio fugit, totam laudantium? Soluta, quisquam doloremque. Aliquam
-                        accusantium suscipit expedita et, fuga maiores earum! Dolor, nobis asperiores? Deserunt
-                        exercitationem maiores, illum ex consequatur pariatur omnis? Explicabo nesciunt officiis
-                        adipisci magni distinctio rerum dicta dolore dolorum ex, inventore soluta itaque, libero, quos
-                        ipsa eligendi nemo ea necessitatibus. Suscipit, eaque iure? Fugit quidem assumenda repudiandae
-                        et vitae quasi est, iusto tempore quam mollitia non? Non magni ipsa tenetur quaerat architecto
-                        voluptatibus, neque vero, sapiente eaque harum ex. Modi, accusantium deleniti possimus mollitia
-                        facilis hic incidunt aut. Iusto nihil unde laudantium quos quia ullam commodi, fuga consectetur
-                        repellendus incidunt quis libero illum veniam pariatur nulla laboriosam ea iste minima sapiente
-                        optio? Animi natus hic reprehenderit placeat excepturi. Expedita deserunt quidem minus neque id
-                        rerum eaque sequi voluptates tenetur nihil. Accusamus fugit quia beatae numquam. Inventore odit
-                        quaerat autem dolorum fugiat possimus quas provident eos, est iure laboriosam ratione, obcaecati
-                        impedit explicabo odio amet a veniam blanditiis laborum.
+                        <span [innerHtml]="blog[0].description_html"></span>
                     </p>
 
 
                     <mat-toolbar class="bottom_social">
                         <!-- <a routerLink="">read more</a> -->
                         <span class="social_report">
-                            <p>Author Name: <span class="author"> tony</span></p>
-                            <p class="date">july 15 2019</p>
-                            <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
+                            <span>Author Name: <span class="author"> {{ blog[0].author }} </span> </span>
+                            <p class="date"> {{ blog[0].date }} </p>
+                            <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
                             <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
-                                </span></p>
+                                </span></p> -->
                         </span>
 
                         <span class="social_wrapper">
-                            <button mat-button><i class="fa fa-facebook" aria-hidden="true"></i></button>
+                            <!-- <button mat-button><i class="fa fa-facebook" aria-hidden="true"></i></button>
                             <button mat-button><i class="fa fa-twitter" aria-hidden="true"></i></button>
                             <button mat-button><i class="fa fa-pinterest-p" aria-hidden="true"></i></button>
                             <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i></button>
                             <button mat-button><i class="fa fa-comment" aria-hidden="true"></i></button>
-                            <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+                            <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button> -->
+
+                            <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-details%2F{{blog[0]._id}}" target="_blank">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                              </a>
+                              <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-details%2F{{blog[0]._id}}" target="_blank">
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                              </a>
+                              <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-details%2F{{blog[0]._id}}" target="_blank">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                              </a>
+                              <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-details%2F{{blog[0]._id}}" target="_blank">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                              </a>
+                            
+                              <a class="mat-button" (click)="copyText('https://dev.mdstockinternational.com/blog-details%2F?affid='+blog[0]._id)">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                              </a>
                         </span>
                     </mat-toolbar>
                 </mat-card-content>
@@ -111,71 +86,228 @@
             <!-- loopend blogs  -->
 
 
+           
+
+
 
         </mat-card-content>
+
         <mat-card-content class="sh_blog_content_right">
-            <mat-card-content class="searchbar">
-                <input type="text" placeholder="Search Blogs">
-                <button mat-button>Go</button>
+                <mat-card-content class="searchbar">
+                    <input type="text" placeholder="Search Blogs">
+                    <button mat-button>Go</button>
+                </mat-card-content>
+    
+                <mat-card-content class="other_blog_posts">
+                    <h2>category ({{ blogcategorycount }})</h2>
+    
+                    <!-- <mat-list class="other_listed_items">
+    
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+                        <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
+                            beatae velit sit sed! </mat-list-item>
+    
+                    </mat-list> -->
+    
+                    <mat-tree [dataSource]="blogCategoryDataSource" [treeControl]="nestedTreeControl" class="example-tree">
+
+                            <mat-tree-node *matTreeNodeDef="let item" matTreeNodeToggle>
+                              <li class="mat-tree-node">
+                                <button mat-icon-button disabled></button>
+                                {{ item.blogtitle }}
+                              </li>
+                            </mat-tree-node>
+
+                            <mat-tree-node *matTreeNodeDef="let item; when: hasNestedChild">
+                              <li>
+                                <div class="mat-tree-node">
+                                  <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'toggle ' + item.blogtitle">
+                                    <mat-icon class="mat-icon-rtl-mirror">
+                                      {{nestedTreeControl.isExpanded(item) ? "expand_more" : "chevron_right"}}
+                                    </mat-icon>
+                                  </button>
+                                  {{ item.blogtitle }} ({{ item.blogcount }})
+                                </div>
+                                <ul [class.example-tree-invisible]="
+                                    !nestedTreeControl.isExpanded(item)
+                                  ">
+                                  <ng-container matTreeNodeOutlet></ng-container>
+                                </ul>
+                              </li>
+                            </mat-tree-node>
+                    </mat-tree>
+    
+    
+                </mat-card-content>
+               
             </mat-card-content>
 
-            <mat-card-content class="other_blog_posts">
-                <h2>other blog posts</h2>
-
-                <mat-list class="other_listed_items">
-
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-
-                </mat-list>
-
-
-
-
-            </mat-card-content>
-            <mat-card-content class="other_blog_posts">
-                <h2>other blog posts</h2>
-
-                <mat-list class="other_listed_items">
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-                    <mat-list-item> Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt dolor blanditiis,
-                        beatae velit sit sed! </mat-list-item>
-
-                </mat-list>
-
-
-
-
-            </mat-card-content>
-        </mat-card-content>
     </mat-card-content>
+
+     <!-- loop most viewed blogs  -->
+     <mat-card-content class="bottomdetaillistsbox mostviewedblogs">
+            <h2>Most Viewed Blogs</h2>
+            <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
+                    <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
+                      <img src="{{ blog.blogs_image }}" />
+                    </mat-card-content>
+            
+                    <mat-card-content class="content_wrapper">
+                      <mat-card-title class="blog_inner_title" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
+            
+                      <p class="truncate" class="inner_blog_desc">
+                        <span [innerHtml]="blog.description"></span>
+                      </p>
+                      <span class="linkdetail">
+                        <a (click)="blogdetail(blog._id)"> read more</a>
+                      </span>
+                      <mat-toolbar class="bottom_social">
+                       
+            
+                        <!-- <a routerLink="/blog-details">read more</a> -->
+                        <span class="social_report">
+                          <p>
+                            Author Name: <span class="author"> {{ blog.author }}</span>
+                          </p>
+                          <p class="date">{{ blog.date }}</p>
+                          <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
+                                        <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
+                                            </span></p> -->
+                        </span>
+            
+                        <span class="social_wrapper">
+                        
+            
+                          <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                          </a>
+            
+                          <a class="mat-button" (click)="
+                              copyText(
+                                'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
+                                  blog._id
+                              )
+                            ">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                      </mat-toolbar>
+                    </mat-card-content>
+            </mat-card-content>
+    </mat-card-content>
+    
+    <!-- loop most viewed blogs  -->
+
+
+    <!-- loop most viewed blogs  -->
+    <mat-card-content class="bottomdetaillistsbox youmighalsolike">
+            <h2>YOU MIGHT ALSO LIKE</h2>
+            <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
+                    <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
+                      <img src="{{ blog.blogs_image }}" />
+                    </mat-card-content>
+            
+                    <mat-card-content class="content_wrapper">
+                      <mat-card-title class="blog_inner_title" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
+            
+                      <p class="truncate" class="inner_blog_desc">
+                        <span [innerHtml]="blog.description"></span>
+                      </p>
+                      <span class="linkdetail">
+                        <a (click)="blogdetail(blog._id)"> read more</a>
+                      </span>
+                      <mat-toolbar class="bottom_social">
+                       
+            
+                        <!-- <a routerLink="/blog-details">read more</a> -->
+                        <span class="social_report">
+                          <p>
+                            Author Name: <span class="author"> {{ blog.author }}</span>
+                          </p>
+                          <p class="date">{{ blog.date }}</p>
+                          <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
+                                        <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
+                                            </span></p> -->
+                        </span>
+            
+                        <span class="social_wrapper">
+                        
+            
+                          <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                          </a>
+                          <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                              blog._id
+                            }}" target="_blank">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                          </a>
+            
+                          <a class="mat-button" (click)="
+                              copyText(
+                                'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
+                                  blog._id
+                              )
+                            ">
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                          </a>
+                        </span>
+                      </mat-toolbar>
+                    </mat-card-content>
+            </mat-card-content>
+    </mat-card-content>
+    
+    <!-- loop most viewed blogs  -->
+
 </mat-card-content>
 
 
