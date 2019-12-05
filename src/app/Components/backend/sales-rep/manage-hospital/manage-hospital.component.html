@@ -32,10 +32,7 @@
                     <mat-label class="mydetails_ac_lebel">image</mat-label>
 
                     <mat-card-content class="inner_wrapper">
-                        <mat-card-content class="upoader">
-                            <img src="../../../../../assets/images/change_passlock_icon.png">
-                        </mat-card-content>
-
+                       
                         <lib-file-upload [config]="configData"></lib-file-upload><br>
                         <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
 

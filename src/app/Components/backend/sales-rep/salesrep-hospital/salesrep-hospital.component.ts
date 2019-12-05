@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../../services/http-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-salesrep-hospital',
   templateUrl: './salesrep-hospital.component.html',
@@ -14,7 +15,8 @@ export class SalesrepHospitalComponent implements OnInit {
   public fullImagePath:any=[];
   // "https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/medpartner_picture_-jhonny-1574754693840.png";
 
-  constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService) {
+  constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService ,
+    private router : Router) {
     this.userData = JSON.parse(this.cookieService.get('user_details'));
 
     let data = {
@@ -37,6 +39,11 @@ export class SalesrepHospitalComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  /** managing the hospital **/
+  toManageHospital(id){
+     this.router.navigateByUrl('/salesrep/hospital/manage-hospital/edit/'+id);
   }
 
 }

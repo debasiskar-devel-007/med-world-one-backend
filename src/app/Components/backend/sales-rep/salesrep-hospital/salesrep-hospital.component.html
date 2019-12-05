@@ -9,7 +9,8 @@
     </mat-toolbar>
 
     <!-- item wrapper -->
-    <mat-card-content class="hospital_items" *ngFor="let hospital of hospitalDetails; let img of fullImagePath;index as i;">
+    <mat-card-content class="hospital_items"  
+    *ngFor="let hospital of hospitalDetails; let img of fullImagePath;index as i;" (click)="toManageHospital(hospital._id)">
       <mat-card-content class="hospital_left">
         <img [src]="">
       </mat-card-content>

@@ -10,7 +10,7 @@
 .my_details_wrapper .button_wrapper .manage_button{  width: 190px; border-radius: 0; text-transform: capitalize; background: #111214; color: #fff; font-family: "RobotoMedium"; font-size: 18px; padding: 5px;
   margin-left: auto;}
 
-.hospital_items { display: flex; justify-content: space-between; padding: 20px; border: 1px solid #ddd; background: #fff; margin: 5px 16px 16px; }
+.hospital_items {cursor: pointer; display: flex; justify-content: space-between; padding: 20px; border: 1px solid #ddd; background: #fff; margin: 5px 16px 16px; }
 .hospital_items .hospital_left { width: 370px; margin-bottom: 0; padding: 5px; border: 1px solid #ddd; text-align: center; box-sizing: border-box; display: flex; }
 .hospital_items .hospital_left img{ max-width: 100%;}
 .hospital_items .hospital_right  { padding-left: 20px; width: 100%; box-sizing: border-box; }
