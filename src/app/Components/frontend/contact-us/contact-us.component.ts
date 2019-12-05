@@ -1,30 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+  public contactLocationActive:any;
   public collect_email_array: any = [];
   public collect_phone_array: any = [];
   public contactusForm: FormGroup;
-  public api_url:any =this.httpServiceService.baseUrl;
-  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder, public cookieService: CookieService, public httpServiceService: HttpServiceService) {
-    
-    const link = this.api_url + 'temptoken';
-    this.httpClient.post(link, {}).subscribe(res => {
-    let result: any = res;
-    this.cookieService.set('jwtToken', result.token);
+  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute) {
 
-  });
-
-    this.contactusForm = this.formBuilder.group({
+     this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: [''],
       phone: [''],
@@ -34,6 +26,10 @@ export class ContactUsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.contactLocationActive=resolveData.activeContact.res;
+        // console.log(resolveData.activeContact.res);
+      });
   }
   collect_email(event: any) {
     if (event.keyCode == 32) {

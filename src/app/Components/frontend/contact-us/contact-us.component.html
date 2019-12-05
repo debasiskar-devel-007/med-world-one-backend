@@ -27,7 +27,7 @@
       surpass international standards.
     </p>
   </mat-card-content>
-  <mat-card-content class="sh_hp_wrapper">
+  <mat-card-content class="sh_hp_wrapper" *ngFor="let item of contactLocationActive">
 
     <mat-card-content class="content_wrapper">
 
@@ -39,23 +39,22 @@
 
         <mat-card-content class="address1">
           <span>
-            <h2>Headquarters</h2>
-            <p>124 simply Lorem Ipsum is simply dummy text of the printing and typesetting industry.dummy AD
-              text of the RD</p>
+            <h2>{{item.name}}</h2>
+            <p>{{item.address}}</p>
           </span>
           <span>
             <h2>Email</h2>
-            <p>simply Lorem @gmail.com / 1234simply Lorem @gmail.com </p>
+            <p>{{item.email}}</p>
           </span>
           <span>
             <h2>Phone / Fax</h2>
-            <p>+0 123 abcd (+0 123 456 7890)<br>
-              Fax: +1 0000 00000</p>
+            <p>{{item.phone}}<br>
+              </p>
           </span>
           <span>
-            <h2>Phone / Fax</h2>
-            <p>+0 123 abcd <br>
-              (+0 123 456 7890)</p>
+            <h2>State / City</h2>
+            <p>{{item.state}}<br>
+              {{item.city}}</p>
           </span>
         </mat-card-content>
         <mat-card-content class="address2">

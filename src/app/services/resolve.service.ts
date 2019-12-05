@@ -43,7 +43,7 @@ export class ResolveService implements Resolve<any> {
 
         return resolve(returnData);
       } else {
-        console.log("-------------");
+        // console.log("-------------");
         this._apiService.ResolveViaPost(route.data.requestcondition, route.data.endpoint).subscribe(api_object => {
           if (api_object) {
             return resolve(api_object);

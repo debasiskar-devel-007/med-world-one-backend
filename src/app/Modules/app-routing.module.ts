@@ -479,7 +479,8 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent },
+  { path: 'contactus', component: ContactUsComponent,resolve:{activeContact:ResolveService},
+  data:{requestcondition:{source:'contactus_view_active',condition:{}},endpoint:'datalist'}},
   {
     path: 'our-team',
     component: TeamPageComponent,
