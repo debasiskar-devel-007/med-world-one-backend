@@ -1,55 +1,555 @@
 <app-adminheader>
-    <mat-card class="main_wrapper">
+    <mat-card class="admindashboardmainwrapper" >
+        <span class="dashboardcontainer"> 
+         <mat-card *ngIf="type=='admin'" class="admindashboard_content">          
+            <mat-card class="main_wrapper">
+                <mat-list>
+                    <mat-list-item>
+                        <span class="blockwrapper1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboardicon1.png">
+                            </span>
+                        </span>
+                        <span class="blockwrapper2">
+                            <h2>96+</h2>
+                            <p>Global Medical Partners</p>
+                        </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span class="blockwrapper1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboardicon2.png">
+                            </span>
+                        </span>
+                        <span class="blockwrapper2">
+                            <h2>185+</h2>
+                            <p>Sales Rep</p>
+                        </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span class="blockwrapper1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboardicon3.png">
+                            </span>
+                        </span>
+                        <span class="blockwrapper2">
+                            <h2>150+</h2>
+                            <p>Wholesale Inventory</p>
+                        </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span class="blockwrapper1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboardicon4.png">
+                            </span>
+                        </span>
+                        <span class="blockwrapper2">
+                            <h2>241+</h2>
+                            <p>Medical Partner Inventory</p>
+                        </span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card>
+            <mat-card class="blocktablemainwrapper">
+                <span class="searchmainwrapper">
+                    <mat-card-content>Recently Added Quotes</mat-card-content>
+                    <span class="searchwrapper">
+                        <form class="example-form">
+                            <mat-form-field>
+                                <input matInput type="search" placeholder="search" class="search-input">
+                                <button matbutton><i class="material-icons">search</i></button>
+                            </mat-form-field>
+                            <mat-form-field>
+                                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                        </form>
+                    </span>
+                </span>
 
-        <mat-card-content class="top_banner">
-            <mat-card-content class="top_banner_content">
-                <mat-card-title class="top_banner_title">welcome to <span> MD STOCK</span></mat-card-title>
-                <p class="top_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </mat-card-content>
-        </mat-card-content>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
 
-        <mat-card-content class="bred_cram_wrapper">
-            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/dashboard-admin'"> Dashboard </a>
-        </mat-card-content>
-        <!-- bred -->
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
 
-        <mat-card-content class="admin_counter">
-            <mat-card-content class="counter_item one">
-                <mat-card-content class="counter_inner_bg bg_one">
-                    <mat-card-content class="counter_number">
-                        <h1 class="total_number">105</h1>
-                        <p class="type_user">hospital</p>
-                    </mat-card-content>
-                    <mat-card-content class="counter_button">
-                        <button mat-button>view all</button>
-                    </mat-card-content>
-                </mat-card-content>
-            </mat-card-content>
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Weight </th>
+                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
 
-            <mat-card-content class="counter_item two">
-                    <mat-card-content class="counter_inner_bg bg_two">
-                        <mat-card-content class="counter_number">
-                            <h1 class="total_number">105</h1>
-                            <p class="type_user">hospital</p>
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <span class="buttonwrapper right">
+                    <button mat-button class="bluebtn">View All</button>
+                </span>
+            </mat-card>
+            <mat-card class="blocktablemainwrapper blocktablemainwrapper2">
+                <span class="searchmainwrapper">
+                    <span class="searchmainwrapper">
+                        <mat-card-content>Recently Added Medical Partners</mat-card-content>
+                    </span>
+                </span>
+                <mat-list class="block2content">
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img1.png">
+                            </span>
+                            
                         </mat-card-content>
-                        <mat-card-content class="counter_button">
-                            <button mat-button>view all</button>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
                         </mat-card-content>
-                    </mat-card-content>
-                </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                        </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img2.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img3.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img4.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img5.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img6.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                </mat-list>
+                <span class="buttonwrapper right">
+                    <button mat-button class="bluebtn" routerLink="/admin/medicalpartners-management/list">View Detail</button>
+                </span>
+            </mat-card>
+            <mat-card class="blocktablemainwrapper">
+                <span class="searchmainwrapper">
+                    <mat-card-content>Recently Added Quotes</mat-card-content>
+                    <span class="searchwrapper">
+                        <form class="example-form">
+                            <mat-form-field>
+                                <input matInput type="search" placeholder="search" class="search-input">
+                                <button matbutton><i class="material-icons">search</i></button>
+                            </mat-form-field>
+                            <mat-form-field>
+                                <input matInput type="search" placeholder="Search by Date Range" class="search-input">
+                                <button matbutton><i class="material-icons">email</i></button>
+                            </mat-form-field>
+                        </form>
+                    </span>
+                </span>
 
-                <mat-card-content class="counter_item three">
-                        <mat-card-content class="counter_inner_bg bg_three">
-                            <mat-card-content class="counter_number">
-                                <h1 class="total_number">105</h1>
-                                <p class="type_user">hospital</p>
-                            </mat-card-content>
-                            <mat-card-content class="counter_button">
-                                <button mat-button>view all</button>
-                            </mat-card-content>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Weight </th>
+                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <span class="buttonwrapper right">
+                    <button mat-button class="bluebtn">View All</button>
+                </span>
+            </mat-card>
+         </mat-card> 
+
+         <mat-card *ngIf="type=='salesrep'" class="rapdashboard_content">
+            <span class="table_mainwrapper">
+                <mat-card class="blocktablemainwrapper col-1-2">
+                        <span class="searchmainwrapper">
+                            <mat-card-content>Recently Added Purchase Quotes</mat-card-content>                            
+                        </span>
+        
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            <ng-container matColumnDef="position">
+                                <th mat-header-cell *matHeaderCellDef> Date Added </th>
+                                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                            </ng-container>
+        
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Quote ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+        
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="weight">
+                                <th mat-header-cell *matHeaderCellDef> Medical Partner </th>
+                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                            </ng-container>
+        
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="symbol">
+                                <th mat-header-cell *matHeaderCellDef> Status </th>
+                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                            </ng-container>
+        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+        
+                        <span class="buttonwrapper right">
+                            <button mat-button class="bluebtn">View All</button>
+                        </span>
+                </mat-card>
+                <mat-card class="blocktablemainwrapper col-1-2">
+                        <span class="searchmainwrapper">
+                            <mat-card-content>Recently Added Inventory Listing Quotes</mat-card-content>                            
+                        </span>
+        
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            <ng-container matColumnDef="position">
+                                <th mat-header-cell *matHeaderCellDef> Date Added </th>
+                                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                            </ng-container>
+        
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Quote ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+        
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="weight">
+                                <th mat-header-cell *matHeaderCellDef> Medical Partner </th>
+                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                            </ng-container>
+        
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="symbol">
+                                <th mat-header-cell *matHeaderCellDef> Status </th>
+                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                            </ng-container>
+        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+        
+                        <span class="buttonwrapper right">
+                            <button mat-button class="bluebtn">View All</button>
+                        </span>
+                </mat-card>
+                <mat-card class="blocktablemainwrapper col-1-1">
+                        <span class="searchmainwrapper">
+                            <mat-card-content>Recently Added Purchase Comparison Quotes</mat-card-content>                            
+                        </span>
+        
+                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                            <ng-container matColumnDef="position">
+                                <th mat-header-cell *matHeaderCellDef> Date Added </th>
+                                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                            </ng-container>
+        
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Quote ID </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+        
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="weight">
+                                <th mat-header-cell *matHeaderCellDef> Medical Partner </th>
+                                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                            </ng-container>
+        
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="symbol">
+                                <th mat-header-cell *matHeaderCellDef> Status </th>
+                                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                            </ng-container>
+        
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+        
+                        <span class="buttonwrapper right">
+                            <button mat-button class="bluebtn">View All</button>
+                        </span>
+                </mat-card>
+            </span>
+               <mat-card class="blocktablemainwrapper blocktablemainwrapper2">
+                <span class="searchmainwrapper">
+                    <span class="searchmainwrapper">
+                        <mat-card-content>Recently Added Medical Partners</mat-card-content>
+                    </span>
+                </span>
+                <mat-list class="block2content">
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img1.png">
+                            </span>
+                            
                         </mat-card-content>
-                    </mat-card-content>
-        </mat-card-content>
- 
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                        </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img2.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img3.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img4.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img5.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-card-content class="col col1">
+                            <span class="imgwrapper">
+                                <img src="../../../../assets/images/admindashboard_img6.png">
+                            </span>
+                            
+                        </mat-card-content>
+                        <mat-card-content class="col col2">
+                            <h3>Lorem Ipsum is simply dummy text</h3>
+                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
+                            <p><span>City :</span> Dummy Text, </p>
+                            <p><span>State :</span> Of the, </p>
+                            <p><span>Zip Code :</span> 0000000 </p>
+                            <p><span>Contact Person :</span> Lorem Ipsum </p>
+                            <p><span>Email :</span> Lorem@gmail.com </p>
+                            <p><span>Phone Number :</span> 0123456789 </p>
+                        </mat-card-content>
+                        <span class="buttonwrapper center">
+                                <button mat-button class="bluebtn">View Detail</button>
+                            </span>
+                    </mat-list-item>
+                </mat-list>
+                <span class="buttonwrapper right">
+                    <button mat-button class="bluebtn" routerLink="/admin/medicalpartners-management/list">View Detail</button>
+                </span>
+            </mat-card>
+         </mat-card>
+        </span>
+        
     </mat-card>
+
 </app-adminheader>

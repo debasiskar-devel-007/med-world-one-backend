@@ -1,10 +1,14 @@
 /* header css */
 
+.adminnavbar, .repdashboardnavbar{padding: 0; background: none; border-radius: 0;}
+
+.topbar{display: block; width: 100%; background-color: #1a1d26; padding: 10px 0; }
+.topbar .mat-card-content{font-family: "HelveticaRegular"; font-size: 12px; color: #fff;    margin: 0; text-align: right; }
 .techdashboard_header .logo_wrapper{ max-width: 170px; display: block; cursor: pointer; background: #fff; }
 .techdashboard_header .logo_wrapper:focus{ outline: none; border: none; }
 .techdashboard_header .logo_wrapper img{ max-width: 100%; vertical-align: middle; }
 .techdashboard_header .logo_wrapper button{ color: #fff; background: transparent; margin-left: 10px;}
-.techdashboard_header{ position: fixed; top:0;  z-index: 1; height: auto;  justify-content: space-between; padding: 0px; padding-right: 40px; box-sizing: border-box; background: #00294f; box-shadow: 1px 1px 0px 0px #716f6f;}
+.techdashboard_header{ top:0;  z-index: 1; height: auto;  justify-content: space-between;padding: 25px 0; box-sizing: border-box; background: #00294f; box-shadow: 1px 1px 0px 0px #716f6f;}
 .techdashboard_header .quotation { margin-bottom: 0px;}
 .techdashboard_header .quotation { margin-bottom: 0px;}
 .techdashboard_header .quotation  .mat-nav-list i:nth-child(1){ color: #fff; margin: 5px;}
@@ -16,7 +20,19 @@
 .techdashboard_header   .quotation .mat-list-base{ display: flex; padding-top: 0;}
 
 .active{ color: #ffffff!important; background: #0bc6fd;}
-.techdashboard_header  .quotation .mat-nav-list .mat-list-item { margin: 0 1px; color: #fff; position: relative; height: auto; font-size: 15px; display: inline-flex;}
+.active:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 20px solid #00294f;
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translate(-50%, 0);z-index: 9;
+}
+.techdashboard_header  .quotation .mat-nav-list .mat-list-item {font-family: "HelveticaRegular";  margin: 0 1px; color: #fff; position: relative; height: auto; font-size: 15px; display: inline-flex; width: auto;}
 .techdashboard_header  .quotation .mat-nav-list .sehedule_link{ margin-left: 400px; border: 1px solid #6fdaef; border-radius: 5px;}
 .mat-action-list .mat-list-item:focus, .mat-action-list .mat-list-item:hover, .mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover { background: #0bc6fd; color: #fff; }
 /*End header css */
@@ -25,17 +41,40 @@
 .home_button{ position: absolute; left: 270px; color: #fff;}
 /* dashboard left */
 
-.inner_wrapper{ width: 100%; height: 100%; display: flex; justify-content: space-between; margin-top: 63px; }
+ .inner_wrapper{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* .inner_wrapper{
+   width: 100%; height: 100%; display: flex; justify-content: space-between; margin-top: 63px; 
+  } */
+
 .inner_wrapper .leftpannel{ width: 80px; background: #4a595c; height: 100%; }
 .inner_wrapper .leftpannel .mat-nav-list .mat-list-item{ border-top: 2px solid #29383b; color: #fff; }
 .inner_wrapper .leftpannel .mat-nav-list .mat-list-item:nth-child(1){ border-top: 0px; }
-.inner_wrapper .rightpannel{width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  overflow-y: auto;
-  padding-right: 16px;}
+.inner_wrapper .rightpannel{
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+}
 /* dashboard end */
 
+.topblock2{display: block;padding: 20px 0;}
+.topblock2subwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;margin: 0;
+}
+.menubtnwrapper{
+  display: flex;
+  align-items: center
+}
+.menubtnwrapper button{height: 23px;}
+.menubtnwrapper .username{padding-right: 5px;}
+.logo_wrapper .mat-flat-button.mat-button-base{display: none;}
 
 @media screen and (max-width: 1500px){
   .techdashboard_header  .quotation p { font-size: 22px; }
@@ -48,7 +87,6 @@
 
 @media screen and (max-width: 1400px){
 .techdashboard_header  .quotation p { font-size: 20px; text-align: center; line-height: 22px; white-space: normal; }
-.techdashboard_header  { padding: 0; padding-right: 20px; }
 }
 
 @media screen and (max-width: 1366px){

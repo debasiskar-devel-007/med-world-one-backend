@@ -1,41 +1,52 @@
-<app-myaccount>
+<app-adminheader>
+    <span class="dashboardcontainer"> 
   <mat-card-content class="my_details_wrapper">
     <mat-toolbar class="header_part">
       <h2>My Hospitals </h2>
       <p> Hospital Information </p>
     </mat-toolbar>
     <mat-toolbar class="button_wrapper">
-      <button mat-button class="manage_button" routerLink="/salesrep/hospital/manage-hospital">manage hospital</button>
+      <button mat-button class="manage_button" routerLink="/salesrep/hospital/manage-hospital">Add hospital</button>
     </mat-toolbar>
 
     <!-- item wrapper -->
+    <span class="hospitallistmainwrapper">
     <mat-card-content class="hospital_items" *ngFor="let hospital of hospitalDetails; index as i;">
       <mat-card-content class="hospital_left">
         <img src="../../../../../assets/images/hospitalDemoimage.jpg">
       </mat-card-content>
+      
       <mat-card-content class="hospital_right">
         <mat-card-title class="title">{{hospital.hospitalname}}</mat-card-title>
 
         <mat-list class="item_list">
-          <mat-list-item> <span> Contact Person </span>:&nbsp;{{hospital.contactperson}}</mat-list-item>
-          <mat-list-item> <span> Phone(s) </span>:&nbsp;{{hospital.contactphones}}</mat-list-item>
-          <mat-list-item> <span> Email(s)</span>:&nbsp;{{hospital.email}}</mat-list-item>
-          <mat-list-item> <span> City</span>:&nbsp;{{hospital.city}}</mat-list-item>
-          <mat-list-item> <span> State</span>:&nbsp;{{hospital.state}}</mat-list-item>
-          <mat-list-item> <span> Zip</span>:&nbsp;{{hospital.zip}}</mat-list-item>
-          <mat-list-item> <span> Speciality</span>:&nbsp;{{hospital.speciality}}</mat-list-item>
+          <mat-list-item> <span> Date Added :</span>&nbsp;{{hospital.date}}</mat-list-item>
+          <mat-list-item> <span> Contact Person :</span>&nbsp;{{hospital.contactperson}}</mat-list-item>
+          <mat-list-item> <span> Phone(s) :</span>&nbsp;{{hospital.contactphones}}</mat-list-item>
+          <mat-list-item> <span> Email(s) :</span>&nbsp;{{hospital.email}}</mat-list-item>
+          <mat-list-item> <span> Address :</span>&nbsp;{{hospital.address}}</mat-list-item>
+          <mat-list-item> <span> State :</span>&nbsp;{{hospital.state}}</mat-list-item>
+          <mat-list-item> <span> City :</span>&nbsp;{{hospital.city}}</mat-list-item>
+          <mat-list-item> <span> Zip :</span>&nbsp;{{hospital.zip}}</mat-list-item>
+          <!-- <mat-list-item> <span> Speciality</span>:&nbsp;{{hospital.speciality}}</mat-list-item> -->
+          <span class="buttonwrapper">
+              <button mat-button class="btnblue">View Detailes</button>
+              <button mat-button class="btnred">View Quotes</button>
+             </span>
         </mat-list>
-        <mat-list class="item_list">
+        <!-- <mat-list class="item_list">
           <mat-list-item> <span> No of Doctors </span>:&nbsp; lorem khuro </mat-list-item>
           <mat-list-item> <span> No of Beds </span>:&nbsp; 95825668 </mat-list-item>
           <mat-list-item> <span> No of Staffs </span>:&nbsp; email@email.com </mat-list-item>
           <mat-list-item> <span> Inventory Listed </span>:&nbsp; USa </mat-list-item>
           <mat-list-item> <span> nventory Quoted </span>:&nbsp; 250 </mat-list-item>
           <mat-list-item> <span> Inventory Purchased </span>:&nbsp; Pepper Melting </mat-list-item>
-        </mat-list>
-
+        </mat-list> -->
+       
       </mat-card-content>
+      
     </mat-card-content>
+  </span>
 
     <!-- <mat-card-content class="hospital_items">
       <mat-card-content class="hospital_left">
@@ -102,5 +113,6 @@
 
 
   </mat-card-content>
-</app-myaccount>
+  </span>
+</app-adminheader>
 

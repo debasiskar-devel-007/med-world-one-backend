@@ -1,5 +1,5 @@
 .my_details_wrapper{
-  background: #f5f5f5; border: 1px solid #dddd; padding-bottom: 20px;
+  background: #f5f5f5; border: 1px solid #dddd; padding-bottom: 20px;    margin-top: 30px;
 }
 .my_details_wrapper .header_part{ display: block; height: auto; background: url("../../../../../assets/images/mydetails_hospitalicon.png") no-repeat 98%;  background-size: 70px;
   padding-right: 50px; border-bottom: 1px solid #d6d2d2; padding: 16px;
@@ -10,19 +10,63 @@
 .my_details_wrapper .button_wrapper .manage_button{  width: 190px; border-radius: 0; text-transform: capitalize; background: #111214; color: #fff; font-family: "RobotoMedium"; font-size: 18px; padding: 5px;
   margin-left: auto;}
 
-.hospital_items { display: flex; justify-content: space-between; padding: 20px; border: 1px solid #ddd; background: #fff; margin: 5px 16px 16px; }
-.hospital_items .hospital_left { width: 370px; margin-bottom: 0; padding: 5px; border: 1px solid #ddd; text-align: center; box-sizing: border-box; display: flex; }
-.hospital_items .hospital_left img{ max-width: 100%;}
+.hospital_items { display: flex; justify-content: space-between; padding: 20px; border: 1px solid #ddd; background: #fff; margin: 5px; }
+.hospital_items .hospital_left {
+  width: 378px;
+  margin-bottom: 0;
+  padding: 5px;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+}
+.hospital_items .hospital_left img{ 
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+
+}
 .hospital_items .hospital_right  { padding-left: 20px; width: 100%; box-sizing: border-box; }
 .hospital_items .hospital_right .title { font-size: 20px; font-family: "HelveticaBold"; color: #137fdb; text-transform: uppercase;}
-.hospital_items .hospital_right .item_list{ width: 50%; display: inline-block; box-sizing: border-box;}
+.hospital_items .hospital_right .item_list{ width: 100%; display: inline-block; box-sizing: border-box;}
 .hospital_items .hospital_right .item_list:last-child{ border-left: 2px solid #ddd; padding-left: 16px;}
-.hospital_items .hospital_right .item_list .mat-list-item { height: auto; font-size: 14px; font-family: "HelveticaBold"; color: #30373d; text-transform: uppercase;padding: 7px 0; word-break: break-word;}
 
-.hospital_items .hospital_right .item_list .mat-list-item span { min-width: 190px; height: auto; align-items: inherit; }
+.hospital_items .hospital_right .item_list .mat-list-item {
+   height: auto; font-size: 14px;
+    font-family: "Helvetica"; 
+    color: #30373d; text-transform: uppercase;
+    padding: 5px 0; 
+    word-break: break-word;
+  }
+.hospital_items .hospital_right .item_list .mat-list-item span{font-family: "HelveticaBold"; }
+.hospital_items .hospital_right .item_list .mat-list-item span {
+  min-width: auto;
+  height: auto;
+  align-items: inherit;
+  margin-right: 10px;
+}
 .hospital_items .hospital_right .item_list .mat-list-base .mat-list-item .mat-list-item-content { padding: 0; }
 .my_details_wrapper .mat_paginator{ background: #105d9f; color: #fff; display: flex; justify-content: center; align-items: center; margin: 0 16px; }
 
+
+.hospitallistmainwrapper{
+  display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.hospitallistmainwrapper .hospital_items{
+  width: 45.5%;
+    position: relative;
+}
+.buttonwrapper {
+  display: inline-block;
+    width: 100%;
+    margin-left: -5px;padding-top: 10px;
+}
+.btnblue{background: #09c5fb; color: #fff; border-radius: 0;margin: 0 5px;}
+.btnred{background: red; color: #fff; border-radius: 0; margin: 0 5px;}
 
 @media screen and (max-width: 1500px){
   .hospital_items .hospital_right .title { font-size: 18px; }

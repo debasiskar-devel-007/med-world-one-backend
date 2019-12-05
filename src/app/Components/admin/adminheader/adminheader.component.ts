@@ -10,9 +10,11 @@ import { CookieService } from 'ngx-cookie-service';
 export class AdminheaderComponent implements OnInit {
 
   public indexUrl: string;
-  public user_data : any;
+  // public user_data : any;
   public user_name : any;
+  public userData : any;
   user_cookie : any;
+  public type : string;
   constructor(public router: Router , private cookieService : CookieService) {
     // let url = this.router.url;
     // console.log('step 1: ', url);
@@ -20,22 +22,36 @@ export class AdminheaderComponent implements OnInit {
     // console.log('step 2: ', d);
     // this.indexUrl = d[1];
     // console.log('step 3: ', this.indexUrl);
+    // let allData: any = {};
+    // allData = cookieService.getAll()
+    // this.user_data = JSON.parse(allData.user_details);
+    
+    // this.user_cookie = cookieService.get('jwtToken');
+    // //console.log("ADMIN HEADER PAGE");
+    // if(this.user_data.type==='admin')
+    // {
+    // console.log('admin');
+    // this.user_name=this.user_data.firstname + ' ' + this.user_data.lastname;
+    // }
+    // else if (this.user_data.type==='salesrep')
+    // console.log('salesrep');
+    // else
+    // console.log('hospital');
     let allData: any = {};
     allData = cookieService.getAll()
-    this.user_data = JSON.parse(allData.user_details);
-    
-    this.user_cookie = cookieService.get('jwtToken');
-    //console.log("ADMIN HEADER PAGE");
-    if(this.user_data.type==='admin')
+    this.userData = JSON.parse(allData.user_details);
+   
+    this.type=this.userData.type
+    console.log("type",this.type);
+    if(this.userData.type==='admin')
     {
     console.log('admin');
-    this.user_name=this.user_data.firstname + ' ' + this.user_data.lastname;
+    this.user_name=this.userData.firstname + ' ' + this.userData.lastname;
     }
-    else if (this.user_data.type==='salesrep')
+    else if (this.userData.type==='salesrep')
     console.log('salesrep');
     else
     console.log('hospital');
-
   }
 
   ngOnInit() {
