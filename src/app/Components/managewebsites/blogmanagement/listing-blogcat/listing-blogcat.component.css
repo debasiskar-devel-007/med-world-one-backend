@@ -40,3 +40,8 @@
 .brand_group .tabs_wrapper{ 
     margin-top: 16px;
 }
+
+
+.tablewrapper table tr td.mat-cell, .tablewrapper table tr td.mat-footer-cell, .tablewrapper table th.mat-header-cell {
+    padding: 5px !important;
+}

@@ -186,89 +186,52 @@
     </mat-card-content>
 
     <mat-card-content class="blog_item_wrapper">
-      <mat-card-content class="blog_item">
-        <mat-card-content class="image_Wrapper">
-          <img src="assets/images/blog_image1.jpg">
-        </mat-card-content>
-        <mat-card-title class="blog_item_header">Lorem Ipsum Simply</mat-card-title>
-        <mat-card-subtitle class="blog_item_subheader">july 15/2019</mat-card-subtitle>
-        <p class="blog_item_paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi nemo
-          eligendi hic quas ipsam obcaecati asperiores iusto? Consequuntur quia exercitationem nesciunt excepturi, iure
-          qui unde consequatur sunt minus atque optio impedit placeat nam corporis fuga a hic quo, quisquam magni quae
-          culpa nemo numquam. Cum doloribus distinctio qui officia?</p><a class="readmore">read more</a>
+        <mat-card-content class="blog_item" *ngFor="let blog of blogListing | slice:0:indexval ; let i=index">
+            <mat-card-content class="image_Wrapper" (click)="blogdetail(blog._id)">
+              <img src="{{ blog.blogs_image }}">
+            </mat-card-content>
+            <mat-card-title class="blog_item_header" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
+            <mat-card-subtitle class="blog_item_subheader">{{ blog.date }}</mat-card-subtitle>
+            <p class="blog_item_paragraph"> 
+                <span [innerHtml]="blog.description"></span>
+            </p>
+            <a class="readmore" (click)="blogdetail(blog._id)">read more</a>
+    
+            <mat-card-content class="social_wrapper">
+                <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fhome%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fhome%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fhome%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fhome%2F{{
+                  blog._id
+                }}" target="_blank">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
 
-        <mat-card-content class="social_wrapper">
-          <button mat-button> <i class="fa fa-facebook" aria-hidden="true"></i> </button>
-          <button mat-button> <i class="fa fa-twitter" aria-hidden="true"></i></button>
-          <button mat-button> <i class="fa fa-pinterest-p" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-envelope-o" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-        </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="blog_item">
-        <mat-card-content class="image_Wrapper">
-          <img src="assets/images/blog_image2.jpg">
-        </mat-card-content>
-        <mat-card-title class="blog_item_header">Lorem Ipsum Simply</mat-card-title>
-        <mat-card-subtitle class="blog_item_subheader">july 15/2019</mat-card-subtitle>
-        <p class="blog_item_paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi nemo
-            eligendi hic quas ipsam obcaecati asperiores iusto? Consequuntur quia exercitationem nesciunt excepturi, iure
-            qui unde consequatur sunt minus atque optio impedit placeat nam corporis fuga a hic quo, quisquam magni quae
-            culpa nemo numquam. Cum doloribus distinctio qui officia?</p><a class="readmore">read more</a>
-
-        <mat-card-content class="social_wrapper">
-          <button mat-button> <i class="fa fa-facebook" aria-hidden="true"></i> </button>
-          <button mat-button> <i class="fa fa-twitter" aria-hidden="true"></i></button>
-          <button mat-button> <i class="fa fa-pinterest-p" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-envelope-o" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-        </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="blog_item">
-        <mat-card-content class="image_Wrapper">
-          <img src="assets/images/blog_image3.jpg">
-        </mat-card-content>
-        <mat-card-title class="blog_item_header">Lorem Ipsum Simply</mat-card-title>
-        <mat-card-subtitle class="blog_item_subheader">july 15/2019</mat-card-subtitle>
-        <p class="blog_item_paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi nemo
-            eligendi hic quas ipsam obcaecati asperiores iusto? Consequuntur quia exercitationem nesciunt excepturi, iure
-            qui unde consequatur sunt minus atque optio impedit placeat nam corporis fuga a hic quo, quisquam magni quae
-            culpa nemo numquam. Cum doloribus distinctio qui officia?</p><a class="readmore">read more</a>
-
-        <mat-card-content class="social_wrapper">
-          <button mat-button> <i class="fa fa-facebook" aria-hidden="true"></i> </button>
-          <button mat-button> <i class="fa fa-twitter" aria-hidden="true"></i></button>
-          <button mat-button> <i class="fa fa-pinterest-p" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-envelope-o" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-        </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="blog_item">
-        <mat-card-content class="image_Wrapper">
-          <img src="assets/images/blog_image4.jpg">
-        </mat-card-content>
-        <mat-card-title class="blog_item_header">Lorem Ipsum Simply</mat-card-title>
-        <mat-card-subtitle class="blog_item_subheader">july 15/2019</mat-card-subtitle>
-        <p class="blog_item_paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi nemo
-          eligendi hic quas ipsam obcaecati asperiores iusto? Consequuntur quia exercitationem nesciunt excepturi, iure
-          qui unde consequatur sunt minus atque optio impedit placeat nam corporis fuga a hic quo, quisquam magni quae
-          culpa nemo numquam. Cum doloribus distinctio qui officia?<a class="readmore">read more</a></p>
-
-        <mat-card-content class="social_wrapper">
-          <button mat-button> <i class="fa fa-facebook" aria-hidden="true"></i> </button>
-          <button mat-button> <i class="fa fa-twitter" aria-hidden="true"></i></button>
-          <button mat-button> <i class="fa fa-pinterest-p" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-envelope-o" aria-hidden="true"></i> </button>
-          <button mat-button><i class="fa fa-share-alt" aria-hidden="true"></i></button>
-        </mat-card-content>
-      </mat-card-content>
+              <a class="mat-button" (click)="
+                  copyText(
+                    'https://dev.mdstockinternational.com/home%2F?affid=' +
+                      blog._id
+                  )
+                ">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </a>
+            </mat-card-content>
+          </mat-card-content>
     </mat-card-content>
     <mat-toolbar class="viewall_wrapper">
-      <button mat-button class="blogview_all">view all</button>
+      <button mat-button class="blogview_all" routerLink="/blog">view all</button>
     </mat-toolbar>
 
   </mat-card-content>
