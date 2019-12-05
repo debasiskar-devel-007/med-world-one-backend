@@ -20,3 +20,6 @@
     font-family: "HelveticaBold";
     margin: 0;
 }
+.tablewrapper table tr td.mat-cell, .tablewrapper table tr td.mat-footer-cell, .tablewrapper table th.mat-header-cell {
+    padding: 5px !important;
+}

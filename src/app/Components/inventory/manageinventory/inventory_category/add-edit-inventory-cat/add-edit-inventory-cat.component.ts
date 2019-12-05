@@ -1,12 +1,17 @@
-import { Component, OnInit ,Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { map, startWith } from 'rxjs/operators';
 export interface DialogData {
   msg: string;
 }
+
+
+
 
 
 @Component({
@@ -16,24 +21,27 @@ export interface DialogData {
 })
 export class AddEditInventoryCatComponent implements OnInit {
 
- 
 
   // ====================declarations==================
-  header_txt: any = "Add an inventory header";
-  btn_text: any = "SUBMIT";
-  header_text:any="Add";
-  inventoryCategoryForm: FormGroup;
-  condition: any;
-  parentcat_array:any = [];
-  action:any;
-  successMessage:any="Submitted Successfully!!!"
-  defaultData:any;
-  dialogRef:any;
+  public header_txt: string = "Add an inventory header";
+  public btn_text: string = "SUBMIT";
+  public inventoryCategoryForm: FormGroup;
+  public condition: any;
+  public parentcat_array: any = [];
+  public action: any;
+  public successMessage: any = "Submitted Successfully!!!"
+  public defaultData: any;
+  public dialogRef: any;
+  public options: any = [];
+  public brand_id_list:any = [];
+  public filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
+  public brand_array: any = [];
   // ==================================================
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
-    private http: HttpServiceService,private router : Router, 
-    private activatedRoute: ActivatedRoute,public dialog: MatDialog) {
-   
+    private http: HttpServiceService, private router: Router,
+    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+
 
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
@@ -49,28 +57,19 @@ export class AddEditInventoryCatComponent implements OnInit {
   }
 
   ngOnInit() {
-     //generating the form
-     this.generateForm();
+    //generating the form
+    this.generateForm();
 
-     //getting the parent category
-     this.getParentCategory();
- 
-  }
+    //getting the parent category
+    this.getParentCategory();
 
-
-  // ===========Form Generation=========
-  generateForm() {
-    this.inventoryCategoryForm = this.formBuilder.group({
-      category_name: [],
-      parent_category: [],
-      description: [],
-      priority: [],
-      status: []
-    });
+    /** getting the brands **/
+    this.getBrands();
 
 
-     // Case 
-     switch (this.action) {
+
+    // Case 
+    switch (this.action) {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
@@ -78,44 +77,78 @@ export class AddEditInventoryCatComponent implements OnInit {
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.header_text="Edit"
-        this.successMessage = "One row updated";
-        this.setDefaultValue(this.defaultData);            
+        this.header_txt = "Edit"
+        this.successMessage = "One row updated!!!";
+        this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Inventory Category";
+        console.log("jj",this.options.length);
         break;
     }
+
+    setTimeout(() => { 
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+
+    }, 1000);
+
+    
+  }
+  private _filter(value: any): any[] {    
+    const filterValue = value.toLowerCase(); 
+    return this.options.filter(option => option.brand_name.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+
+  /** Form Generation function **/
+  generateForm() {
+    this.inventoryCategoryForm = this.formBuilder.group({
+      category_name: [],
+      parent_category: [],
+      description: [],
+      priority: [],
+      status: [],
+      brand_id: []
+    });
+
+
+
   }
   // =====================================
 
 
 
 
-// =========================================MODAL functions==========================================
-openDialog(x: any): void {
-  this.dialogRef = this.dialog.open(Modal4, {
-    width: '250px',
-    data: { msg: x }
-  });
+  // =========================================MODAL functions==========================================
+  openDialog(x: any): void {
+    this.dialogRef = this.dialog.open(Modal4, {
+      width: '250px',
+      data: { msg: x }
+    });
 
-  this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe(result => {
 
-  });
-}
-// =====================================================================================================
+    });
+  }
+  // =====================================================================================================
 
 
-   // ===================================Setting the default Value========================
- setDefaultValue(defaultValue) {
-  this.inventoryCategoryForm.patchValue({
-    category_name:defaultValue.category_name,
-    parent_category:defaultValue.parent_category,
-    description:defaultValue.description,
-    priority:defaultValue.priority,
-    status:defaultValue.status
-  })
- }
- // ======================================================================================
- 
+  // ===================================Setting the default Value========================
+  setDefaultValue(defaultValue) {
+    this.inventoryCategoryForm.patchValue({
+      category_name: defaultValue.category_name,
+      parent_category: defaultValue.parent_category,
+      description: defaultValue.description,
+      priority: defaultValue.priority,
+      status: defaultValue.status,
+    })
+    this.brand_id_list = defaultValue.brand_id;
+    
+  }
+  // ======================================================================================
+
 
   //getting the parent category
   getParentCategory() {
@@ -125,21 +158,65 @@ openDialog(x: any): void {
       'token': this.cookieService.get('jwtToken'),
       "sourceobj": ["parent_category"],
     };
-    this.http.httpViaPost("datalist",data).subscribe(response => {
+    this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response;
       this.parentcat_array = result.res;
     });
   }
 
+  /** getting the brands **/
+  getBrands() {
+    var data: any;
+    data = {
+      'source': 'brands',
+      'token': this.cookieService.get('jwtToken'),
+    };
+    this.http.httpViaPost("datalist", data).subscribe(response => {
+      let result: any;
+      result = response.res;
+      console.log("brand", response);
+      for (let i = 0; i < result.length; i++) {
+        this.options.push({ 'brand_name': result[i].brand_name, 'brand_id': result[i]._id });
+      }
+    });
+    console.log("options", this.options); 
+  }
 
+ 
+
+  collect_brands_onclick(event: any) {
+   if (event.keyCode == 32 || event.keyCode == 13) {
+      this.brand_id_list.push(String(event.target.value));
+      console.log("event",event.target.value);
+      this.inventoryCategoryForm.controls['brand_id'].patchValue("");
+      console.log("options",this.options);
+      
+
+      for(let i = 0 ; i<this.options.length;i++)
+      {
+        if(this.options[i].brand_id == event.target.value)
+        this.brand_array.push(this.options[i].brand_name);
+      }
+   }
+  }
+
+  /** clear brands  **/
+  clearBrand(index) {
+    this.brand_array.splice(index, 1);
+  }
 
   // =======================SUBMIT==========================
   onSubmit() {
+
+      console.log("ids",this.brand_array);
+    
     if (this.inventoryCategoryForm.invalid) {
       return;
     }
     else {
+
+      this.inventoryCategoryForm.value.brand_id = this.brand_id_list;
 
       //status
       if (this.inventoryCategoryForm.value.status) {
@@ -166,11 +243,11 @@ openDialog(x: any): void {
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-         
-            this.openDialog(this.successMessage);
-            setTimeout(() => {
-              this.dialogRef.close();
-            }, 2000);
+
+          this.openDialog(this.successMessage);
+          setTimeout(() => {
+            this.dialogRef.close();
+          }, 2000);
 
 
           this.router.navigateByUrl('inventory/manage-inventory/inventory-category/list');
@@ -180,14 +257,14 @@ openDialog(x: any): void {
       }, (error) => {
         alert("Some error occurred. Please try again.");
       });
-    }
+    } 
   }
   // =======================================================
 }
 
 
 
-  // ============================================MODAL COMPONENT===========================================
+// ============================================MODAL COMPONENT===========================================
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal4.html',

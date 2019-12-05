@@ -69,6 +69,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.mpList.res[0];
+          console.log(this.defaultData);
         });
       }
       else
@@ -167,6 +168,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
+    
     this.medicalPartnerForm.patchValue({
       hospitalname: defaultValue.hospitalname,
       salesrepselect: defaultValue.salesrepselect,
@@ -190,6 +192,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgtype = defaultValue.mpimage.type;
+    console.log("images full path",this.fullImgPath);
   }
   // ======================================================================================
 
