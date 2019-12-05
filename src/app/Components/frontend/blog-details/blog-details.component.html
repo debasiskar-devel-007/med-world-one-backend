@@ -168,69 +168,60 @@
      <!-- loop most viewed blogs  -->
      <mat-card-content class="bottomdetaillistsbox mostviewedblogs">
             <h2>Most Viewed Blogs</h2>
-            <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
-                    <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
-                      <img src="{{ blog.blogs_image }}" />
-                    </mat-card-content>
-            
-                    <mat-card-content class="content_wrapper">
-                      <mat-card-title class="blog_inner_title" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
-            
-                      <p class="truncate" class="inner_blog_desc">
-                        <span [innerHtml]="blog.description"></span>
+            <mat-card-content class="home_blogsection">
+                <mat-card-content class="home_content_wrapper">                  
+              
+                  <mat-card-content class="blog_item_wrapper">
+                    <mat-card-content class="blog_item" *ngFor="let blog of blogListing | slice:0:indexval ; let i=index">
+                      <mat-card-content class="image_Wrapper" (click)="blogdetail(blog._id)">
+                        <img src="{{ blog.blogs_image }}">
+                      </mat-card-content>
+                      <mat-card-title class="blog_item_header" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
+                      <mat-card-subtitle class="blog_item_subheader">{{ blog.date }}</mat-card-subtitle>
+                      <p class="blog_item_paragraph"> 
+                          <span [innerHtml]="blog.description"></span>
                       </p>
-                      <span class="linkdetail">
-                        <a (click)="blogdetail(blog._id)"> read more</a>
-                      </span>
-                      <mat-toolbar class="bottom_social">
-                       
-            
-                        <!-- <a routerLink="/blog-details">read more</a> -->
-                        <span class="social_report">
-                          <p>
-                            Author Name: <span class="author"> {{ blog.author }}</span>
-                          </p>
-                          <p class="date">{{ blog.date }}</p>
-                          <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
-                                        <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
-                                            </span></p> -->
-                        </span>
-            
-                        <span class="social_wrapper">
-                        
-            
+                      <a class="readmore" (click)="blogdetail(blog._id)">read more</a>
+              
+                      <mat-card-content class="social_wrapper">
                           <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                          </a>
-            
-                          <a class="mat-button" (click)="
-                              copyText(
-                                'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
-                                  blog._id
-                              )
-                            ">
-                            <i class="fa fa-share-alt" aria-hidden="true"></i>
-                          </a>
-                        </span>
-                      </mat-toolbar>
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+          
+                        <a class="mat-button" (click)="
+                            copyText(
+                              'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
+                                blog._id
+                            )
+                          ">
+                          <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </a>
+                      </mat-card-content>
                     </mat-card-content>
+                  
+                  </mat-card-content>
+                  <mat-toolbar class="viewall_wrapper">
+                    <button mat-button class="blogview_all">view all</button>
+                  </mat-toolbar>
+              
+                </mat-card-content>
             </mat-card-content>
     </mat-card-content>
     
@@ -240,69 +231,60 @@
     <!-- loop most viewed blogs  -->
     <mat-card-content class="bottomdetaillistsbox youmighalsolike">
             <h2>YOU MIGHT ALSO LIKE</h2>
-            <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
-                    <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
-                      <img src="{{ blog.blogs_image }}" />
-                    </mat-card-content>
-            
-                    <mat-card-content class="content_wrapper">
-                      <mat-card-title class="blog_inner_title" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
-            
-                      <p class="truncate" class="inner_blog_desc">
-                        <span [innerHtml]="blog.description"></span>
+            <mat-card-content class="home_blogsection">
+                <mat-card-content class="home_content_wrapper">                  
+              
+                  <mat-card-content class="blog_item_wrapper">
+                    <mat-card-content class="blog_item" *ngFor="let blog of blogListing | slice:0:indexval ; let i=index">
+                      <mat-card-content class="image_Wrapper" (click)="blogdetail(blog._id)">
+                        <img src="{{ blog.blogs_image }}">
+                      </mat-card-content>
+                      <mat-card-title class="blog_item_header" (click)="blogdetail(blog._id)">{{ blog.blogtitle }}</mat-card-title>
+                      <mat-card-subtitle class="blog_item_subheader">{{ blog.date }}</mat-card-subtitle>
+                      <p class="blog_item_paragraph"> 
+                          <span [innerHtml]="blog.description"></span>
                       </p>
-                      <span class="linkdetail">
-                        <a (click)="blogdetail(blog._id)"> read more</a>
-                      </span>
-                      <mat-toolbar class="bottom_social">
-                       
-            
-                        <!-- <a routerLink="/blog-details">read more</a> -->
-                        <span class="social_report">
-                          <p>
-                            Author Name: <span class="author"> {{ blog.author }}</span>
-                          </p>
-                          <p class="date">{{ blog.date }}</p>
-                          <!-- <p> <i class="fa fa-thumbs-up" aria-hidden="true"></i><span class="values"> 12</span></p>
-                                        <p><i class="fa fa-comment" aria-hidden="true"></i> <span class="values">&nbsp;6 comment
-                                            </span></p> -->
-                        </span>
-            
-                        <span class="social_wrapper">
-                        
-            
+                      <a class="readmore" (click)="blogdetail(blog._id)">read more</a>
+              
+                      <mat-card-content class="social_wrapper">
                           <a class="mat-button" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                          </a>
-                          <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
-                              blog._id
-                            }}" target="_blank">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                          </a>
-            
-                          <a class="mat-button" (click)="
-                              copyText(
-                                'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
-                                  blog._id
-                              )
-                            ">
-                            <i class="fa fa-share-alt" aria-hidden="true"></i>
-                          </a>
-                        </span>
-                      </mat-toolbar>
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a class="mat-button" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdev.mdstockinternational.com%2Fblog-detail%2F{{
+                            blog._id
+                          }}" target="_blank">
+                          <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+          
+                        <a class="mat-button" (click)="
+                            copyText(
+                              'https://dev.mdstockinternational.com/blog-detail%2F?affid=' +
+                                blog._id
+                            )
+                          ">
+                          <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </a>
+                      </mat-card-content>
                     </mat-card-content>
+                  
+                  </mat-card-content>
+                  <mat-toolbar class="viewall_wrapper">
+                    <button mat-button class="blogview_all">view all</button>
+                  </mat-toolbar>
+              
+                </mat-card-content>
             </mat-card-content>
     </mat-card-content>
     

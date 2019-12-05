@@ -21,7 +21,7 @@ export class FileNode{
 export class BlogComponentFrontEnd implements OnInit {
   
   public p_id: any;
-  public indexval:any; 
+  public indexval:any;
   public data:any;
   public blogListing: any = [];  
   public blogcategorycount:any;

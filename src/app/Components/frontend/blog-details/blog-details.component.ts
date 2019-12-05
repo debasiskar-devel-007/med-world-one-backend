@@ -29,7 +29,8 @@ export class BlogDetailsComponent implements OnInit {
   public resc: any = [];
   public blogCount: any =[];
   public blogListing: any = [];    
-  public blogtitle: any;
+  public blogtitle: any;  
+  public indexval:any=4;
 
     /*------------TREE NESTEDDATA-----*/
 
