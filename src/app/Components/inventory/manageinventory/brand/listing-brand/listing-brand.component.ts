@@ -15,7 +15,7 @@ export class ListingBrandComponent implements OnInit {
  // ===============================Declarations=========================
  public brandData: any = [];
  public detail_skip_array: any = ["_id"];
- public brandData_skip: any = ["_id","description_html","description","created_at"];
+ public brandData_skip: any = ["_id","description_html","description","created_at","brand"];
  public brandData_modify_header: any = {"brand name":"Brand Name",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
 public tableName: any = 'brands';

@@ -53,7 +53,7 @@ import { ListingBlogcatComponent } from './Components/managewebsites/blogmanagem
 
 
 //Team
-import { TeamModule } from 'team';
+// import { TeamModule } from 'team';
 import { AddEditTeamComponent } from './Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component';
 import { ListingTeamComponent } from './Components/managewebsites/teammanagement/listing-team/listing-team.component';
 import { ListingTeamCatComponent } from './Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component';
@@ -256,7 +256,7 @@ import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactin
     FileUploadModule,
     BlogModule,
     CKEditorModule,
-    TeamModule,
+    // TeamModule,
     HttpClientModule,
     ContactusModule,
     CommonModule,

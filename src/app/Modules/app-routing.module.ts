@@ -411,7 +411,7 @@ const routes: Routes = [
     resolve: { inventoryList: ResolveService },
     data: {
       requestcondition: {
-        source: 'inventories_view',
+        source: 'inventories_list_view',
         condition: {}
       },
       endpoint: 'datalist'

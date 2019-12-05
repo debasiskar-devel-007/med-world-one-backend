@@ -27,7 +27,7 @@
                 <mat-form-field>
                 <mat-label class="label">Select Source</mat-label>
 
-                <mat-select matNativeControl formControlName="inventory_category">
+                <mat-select matNativeControl formControlName="source" [(value)]="selected">
                     <mat-option value="0">Select Source</mat-option>
                     <mat-option value="mckesson">McKesson Inventory</mat-option>
                     <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
@@ -51,14 +51,14 @@
                 </mat-form-field><br>
 
 
-                <!-- Brand mat-selection -->
+                <!-- Brand selection -->
                 <mat-form-field>
 
                     <mat-label class="label">Select Brand</mat-label>
 
                     <mat-select matNativeControl formControlName="brand_name">
                         <mat-option value="0">Select Brand</mat-option>
-                        <mat-option value="{{ item._id }}" *ngFor="let item of brand_name_array">{{ item }}
+                        <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field><br>
@@ -134,17 +134,19 @@
                     
 
                     <!-- DYNAMIC FORM ATTRIBUTE  -->
-                    <div class="dynamic_attributes" formArrayName="dynamic_items"
-                        *ngFor="let item of inventoryForm.get('dynamic_items').controls; let i = index;">
-                        <div [formGroupName]="i">
-                            <mat-form-field>
-                                <input matInput placeholder="Enter Attribute Name" (focusout)="makeAttr($event)">
-                            </mat-form-field>
-                            <mat-form-field>
-                                <input matInput placeholder="Enter Value" (focusout)="makeValue($event)">
-                            </mat-form-field>
+                    
+                        <div formArrayName="items"
+                          *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
+                          <div [formGroupName]="i">
+                              <mat-form-field>
+                            <input matInput formControlName="label_name" placeholder="Enter A Label">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="label_value" placeholder="Value For Label">
+                        </mat-form-field>
+                          </div>
                         </div>
-                    </div>
+                      
 
               
                 <br>
