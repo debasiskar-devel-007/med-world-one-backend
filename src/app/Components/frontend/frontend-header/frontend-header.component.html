@@ -1,5 +1,17 @@
 <mat-card class="front_main">
+  <mat-toolbar class="top_toolbar">
+    <span class="wrapper">
+      <mat-nav-list class="top_toolbar_navigation">
 
+        <a   [routerLink]="'/cart'">
+          <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+        </a>
+        <a *ngIf="type == ''" [routerLink]="'/login'">Login</a>
+        <a href="https://dev-hospital-signup.mdstockinternational.com" *ngIf="type == ''">Register</a>
+
+      </mat-nav-list>
+    </span>
+  </mat-toolbar>
   <mat-toolbar class="frontend_nav">
 
     <mat-card-content class="logo_wrapper" routerLink="/home">
@@ -9,7 +21,7 @@
     <button class="toggle_button" mat-button (click)="mobileView()">
       <i class="material-icons"> menu </i>
     </button>
-    <mat-nav-list class="listing_container"  [ngClass]="status ? 'hide' : 'show'" >
+    <mat-nav-list class="listing_container" [ngClass]="status ? 'hide' : 'show'">
       <a mat-list-item [routerLink]="'/home'" routerLinkActive="active"> Home </a>
       <a mat-list-item [routerLink]="'/buy-from-us'" routerLinkActive="active"> Buy From Us </a>
       <a mat-list-item [routerLink]="'/inventory'" routerLinkActive="active"> Inventory </a>
@@ -19,8 +31,9 @@
       <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
-      <a mat-list-item class="login" *ngIf="type == ''" [routerLink]="'/login'">Login</a>
-      <a mat-list-item href="https://dev-hospital-signup.mdstockinternational.com" class="signup" *ngIf="type == ''">Signup</a>
+      <!-- <a mat-list-item class="login" *ngIf="type == ''" [routerLink]="'/login'">Login</a> -->
+      <!-- <a mat-list-item href="https://dev-hospital-signup.mdstockinternational.com" class="signup"
+        *ngIf="type == ''">Signup</a> -->
       <a mat-list-item class="signup" *ngIf="type != ''" (click)="logout();">Logout</a>
       <mat-card-content class="a_pro" *ngIf="type != ''">
         <span class="profile">
@@ -43,8 +56,8 @@
               class="fa fa-comments" aria-hidden="true"></i> view quotes</button>
           <button mat-menu-item [routerLink]="'/salesrep/my-sales'" routerLinkActive="active"> <i
               class="fa fa-bar-chart" aria-hidden="true"></i> my sales</button>
-              <button mat-menu-item [routerLink]="'/salesrep/purchase-comparison/list'" routerLinkActive="active"> <i
-                class="fa fa-list-alt" aria-hidden="true"></i> Price Comparison Report</button>
+          <button mat-menu-item [routerLink]="'/salesrep/purchase-comparison/list'" routerLinkActive="active"> <i
+              class="fa fa-list-alt" aria-hidden="true"></i> Price Comparison Report</button>
         </ng-container>
 
         <ng-container *ngIf="type == 'hospital'">
@@ -72,13 +85,15 @@
       </mat-menu> -->
     </mat-nav-list>
 
-    <button mat-button [matMenuTriggerFor]="menu" class="language_container">English <i class="material-icons">
+    <!-- Language container OFF NOW -->
+
+    <!-- <button mat-button [matMenuTriggerFor]="menu" class="language_container">English <i class="material-icons">
         keyboard_arrow_down </i></button>
     <mat-menu #menu="matMenu" class="language_container1">
       <button mat-menu-item>Chinese</button>
       <button mat-menu-item>Portuguese</button>
       <button mat-menu-item>Spanish</button>
-    </mat-menu>
+    </mat-menu> -->
   </mat-toolbar>
 
 </mat-card>

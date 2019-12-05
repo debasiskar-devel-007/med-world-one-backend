@@ -32,3 +32,35 @@ padding-bottom: 5px; background: #0062b7; padding: 10px; box-sizing: border-box;
     background: #1962b7; color: #fff; width: 130px; border-radius: 0; padding: 4px;}
 .dialogContainer .sendMail .body{ min-height: 120px;}
 .label_class{ color: #1962b7; font-size: 18px; font-family: "HelveticaRegular"; margin-bottom: 5px; display: block; }
+
+/* new table */
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers th,
+#customers td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers td {
+    font-size: 14px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #001d39;
+    color: #fff;
+    font-size: 16px;
+}

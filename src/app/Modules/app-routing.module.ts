@@ -69,6 +69,7 @@ import { ListingLanguageComponent } from '../Components/miscellaneous/language-c
 import { AddEditPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontactinfo/addcontactinfo.component';
+import { QuotesCartComponent } from '../components/frontend/quotes-cart/quotes-cart.component';
 
 
 
@@ -471,6 +472,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
+  {path: 'cart', component: QuotesCartComponent},
 
   // front end routing
   // front end routing
@@ -511,7 +513,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'inventory-details', component: InventoryDetailsComponent },
   { path: 'about-us', component: AboutUsFrontComponent },
   { path: 'salesrep-login', component: SalesRepLoginComponent },
-  
+
   // _____________________language container_____________________
   { path: 'admin-dashboard/language/add', component: AddEditLanguageComponent },
   {

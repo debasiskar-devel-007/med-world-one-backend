@@ -1,4 +1,4 @@
-
+/*
 * {
   box-sizing: border-box;
 }
@@ -15,7 +15,6 @@ img {
   vertical-align: middle;
 }
 
-/* Slideshow container */
 
 .slideshow-container {
   max-width: 100%;
@@ -24,7 +23,7 @@ img {
   max-height: 91.8vh;
 }
 .mySlides img{ height: 91.8vh;}
-/* Caption text */
+
 
 .text {
   color: #f2f2f2;
@@ -36,7 +35,7 @@ img {
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
+
 
 .numbertext {
   color: #f2f2f2;
@@ -46,7 +45,7 @@ img {
   top: 0;
 }
 
-/* The dots/bullets/indicators */
+
 
 .dot {
   height: 20px;
@@ -62,7 +61,7 @@ img {
   background-color: #ccc;
 }
 
-/* Fading animation */
+
 
 .fade {
   -webkit-animation-name: fade;
@@ -103,7 +102,7 @@ img {
   bottom: 40px;
 }
 
-/* custom css */
+
 
 .mySlides {
   position: relative;
@@ -153,8 +152,6 @@ img {
   width: 100%;
 }
 
-/* end slider */
-
 .h_part2 {
   width: 1700px;
   margin: 0 auto;
@@ -185,7 +182,6 @@ img {
   width: 100%;
   display: flex;
   justify-content: center;
-  /* flex-wrap: wrap; */
   margin-top: 50px;
 }
 
@@ -249,9 +245,6 @@ img {
   right: 20px;}
 .h_part2 .h_part2_content_wrapper .inner_items .icons { max-width: 100%; }
 
-/* .h_part2 .h2_parthospital_wrapper {
-  background: linear-gradient(40deg, #d8f5f9, #f6fbff, #ffffff, transparent);
-} */
 
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content {
   display: flex;
@@ -470,4 +463,55 @@ text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
   padding: 16px;
   padding-bottom: 70px;
 }
-}
+} */
+
+
+
+
+.container { width: 1460px; margin: 0 auto;}
+.home_wrapper { margin-bottom: 0px; }
+.home_wrapper .home_top{ background: url('../../../../assets/images/homePageTopbanner.jpg') no-repeat center; background-size: cover; margin-bottom: 0;}
+.home_wrapper .home_top .content_wrapper{ width: 750px; text-align: center; display: block;  padding: 150px 0; }
+.home_wrapper .home_top .top_head{ font-size: 36px; text-transform: uppercase; color: #fff; font-family: "AvenirBlack";}
+.home_wrapper .home_top .top_title{ font-size: 24px;  color: #000; font-family: "AvenirBook";  background: url("../../../../assets/images/border_png.png") no-repeat center bottom; padding-bottom: 16px;}
+.home_wrapper .home_top .icon_wrapper{ display: flex; align-items: center; justify-content: space-evenly; width: 380px; margin: auto; margin-bottom: 50px }
+.home_wrapper .home_bottom{ background: url('../../../../assets/images/homePageTopbanner2.jpg') no-repeat center; background-size: cover; margin-bottom: 0; padding: 26px; }
+.home_wrapper .home_bottom .bottom_content{ width: 1200px; margin: 30px auto; text-align: center;}
+.home_wrapper .home_bottom .bottom_content .bottom_h{ font-family: "AvenirBlack"; color: #fff; text-transform: uppercase; font-size: 48px;}
+.home_wrapper .home_bottom .bottom_content .para{ font-family: "AvenirBook"; font-size: 18px; color: #fff;}
+.home_wrapper .home_bottom .bottom_content .sub_h{ font-family: "AvenirBlack"; font-size: 24px; color: #fff; text-transform: uppercase; }
+.home_wrapper .home_bottom .main_content{ background: linear-gradient(180deg, #001c38, #002244); display: flex; position: relative; padding: 0 50px; margin-bottom: 0;padding-bottom: 40px; margin-top: -100px; }
+.home_wrapper .home_bottom .main_content .main_content_items { text-align: center;  margin: 0; margin-top: -60px;  }
+.home_wrapper .home_bottom .main_content:before{  content: ''; background: url('../../../../assets/images/HomeBeforeImage.png') no-repeat; position: absolute; height: 100%; width: 40px;
+  left: -38px; background-size: contain; }
+.home_wrapper .home_bottom .main_content:after{  content: '';  background: url('../../../../assets/images/HomeBeforeImage2.png') no-repeat; position: absolute; height: 100%; width: 40px;
+    right: -40px; background-size: contain;}
+.home_wrapper .home_bottom .main_content .image_wrapper{ border: 20px solid #013265; display: block; margin: 25px; }
+.home_wrapper .home_bottom .main_content .short_desc{  font-family: "AvenirBook"; font-size: 18px; color: #fff; padding: 0 16px; margin: 0; margin-bottom: 10px; }
+.home_wrapper .home_bottom .main_content .link{ font-family: "AvenirBlack"; font-size: 18px; color: #fff; text-transform: capitalize; text-decoration: none; }
+.home_wrapper .home_bottom .main_content .image_wrapper img{ max-width: 100%; border: 2px solid #fff; box-sizing: border-box; width: 100%; }
+.homeGetaQuote{ background: url("../../../../assets/images/getAquoteBanner.png") no-repeat center center; background-size: cover; margin-bottom: 0;}
+.homeGetaQuote .quoteText{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; margin-bottom: 0; padding: 0 50px 0 0;}
+.homeGetaQuote .quoteText span{ font-family: "AvenirBlack"; }
+.homeGetaQuote .Quotecontainer{ width: 1480px; margin: 0 auto; display: flex; display: flex; align-items: center; padding: 30px 0; }
+.homeGetaQuote .Quotecontainer .freeReportButton{ min-width: 280px; background: transparent; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; border: 2px solid #fff;
+  padding: 3px; font-size: 24px; }
+
+  /* product section */
+
+  .popularProduct{ background: #dce5ea; margin-bottom: 0; padding: 30px 0 40px; }
+  .popularProduct .product_container{ width: 1460px; margin: 0 auto;}
+  .popularProduct .product_container .product_title{ color: #002346; font-family: "AvenirBlack"; text-transform: capitalize; font-size: 48px; text-align: center; }
+  .popularProduct .product_container .product_item_wrapper{ display: flex; justify-content: center; flex-wrap: wrap; }
+  .popularProduct .product_container .product_item_wrapper .product_item{  background: #fff; padding:10px;  width: 22.8%; margin: .5%; }
+  .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+1){ margin-left: 0; }
+  .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+4){ margin-right: 0; }
+
+  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper{ width: 100%; margin-bottom: 5px; min-height: 215px; justify-content: center;
+   display: flex; align-items: stretch;}
+  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper img{ max-width: 100%; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_name { font-size: 18px; font-family: "AvenirBlack"; text-transform: uppercase; color: #09bbfe; margin-bottom: 0; }
+
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_desc { color: #002751; font-family: "AvenirMedium"; font-size: 18px; margin: 5px 0 15px; line-height: 20px; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action{ background: none; justify-content: space-between; height: auto; padding: 0; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action button{ background: #0a4788; font-size: 14px; font-family: "AvenirMedium"; text-transform: capitalize; border-radius: 0; color:#fff; }
