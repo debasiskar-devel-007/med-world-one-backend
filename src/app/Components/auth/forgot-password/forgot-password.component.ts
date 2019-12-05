@@ -29,7 +29,7 @@ export class ForgotPasswordComponent implements OnInit {
   };
   public buttonName: any = 'Reset Password';
 
-  public domainUrl: any = this.httpServiceService.resetPassword+'reset-password';
+  public domainUrl: any = 'https://dev.mdstockinternational.com/reset-password';
 
   constructor(public httpServiceService:HttpServiceService) {
     console.log(this.domainUrl);

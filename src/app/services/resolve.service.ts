@@ -17,7 +17,7 @@ export class ResolveService implements Resolve<any> {
   constructor(private _apiService: HttpServiceService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
-
+    
     /* will come into play while editing otherwise no effect */
     let requestData: any = route.data.requestcondition;
     requestData.condition = Object.assign(requestData.condition, route.params);
@@ -43,7 +43,7 @@ export class ResolveService implements Resolve<any> {
 
         return resolve(returnData);
       } else {
-        console.log("-------------");
+        // console.log("-------------");
         this._apiService.ResolveViaPost(route.data.requestcondition, route.data.endpoint).subscribe(api_object => {
           if (api_object) {
             return resolve(api_object);

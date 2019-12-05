@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   public routerStatus: any;
 
   constructor(public httpServiceService:HttpServiceService) {
-    console.log(this.httpServiceService.resetPassword);
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {

@@ -75,11 +75,20 @@ public search_settingsBrand: any =
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       console.log(resolveData.inventoryCatList.data)
-      this.inventoryCategoryData = resolveData.inventoryCatList.res;
-      this.brandData = resolveData.brandList.res;
-      console.log("brand",this.brandData)
+      this.inventoryCategoryData = resolveData.inventoryCatList.res;     
     });  
-           
+
+          this.getBrands(); 
+  }
+
+  getBrands(){
+    let data : any = {
+      source:'brands_view',
+      token:this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist',data).subscribe((response)=>{
+          this.brandData = response.res;
+    });
   }
 
    

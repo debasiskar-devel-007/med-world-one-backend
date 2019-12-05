@@ -479,7 +479,14 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent },
+  { path: 'contactus', component: ContactUsComponent,resolve: { activeContact: ResolveService },
+  data: {
+    requestcondition: {
+      source: 'contactus_view_active',
+      condition: {}
+    },
+    endpoint: 'datalist'
+  },},
   {
     path: 'our-team',
     component: TeamPageComponent,
@@ -508,7 +515,18 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'blog', component: BlogComponentFrontEnd},
 
 
-  { path: 'blog-details', component: BlogDetailsComponent },
+  { path: 'blog-details/:_id', component: BlogDetailsComponent,
+    resolve: {
+      blogCatList: ResolveService
+    },
+    data:
+    {
+      requestcondition:
+      {
+        source: 'blogs_view', condition: {}
+      }, endpoint: 'datalistwithouttoken'
+    } 
+  },
 
   { path: 'inventory', component: InventoryComponent },
   { path: 'inventory-details', component: InventoryDetailsComponent },

@@ -3,7 +3,8 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
-import { LoginModule } from 'login';
+// import { LoginModule } from 'login';
+import { LoginModule } from 'login-lib-influxiq'; // login library
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
