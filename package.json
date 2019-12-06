@@ -30,7 +30,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "listing": "0.0.1",
-    "listing-angular7": "0.0.96",
+    "listing-angular7": "0.0.97",
     "login-lib-influxiq": "0.0.7",
     "moment": "^2.24.0",
     "ngx-ckeditor": "^8.0.0",
