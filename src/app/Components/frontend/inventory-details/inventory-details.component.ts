@@ -20,7 +20,6 @@ public dynamic_attributes1:any=[];
       },
     };
       this.httpServiceService.httpViaPost('datalist', data).subscribe((result:any) => {
-        console.log(result.res[0]);
         this.inventoryDetails=result.res[0];
          this.dynamic_attributes=result.res[0].dynamic_attributes;
          console.log('this.dynamic_attributes',this.dynamic_attributes);
