@@ -11,7 +11,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>96+</h2>
+                            <h2>{{ count_dashboard.hospitalcount }}+</h2>
                             <p>Global Medical Partners</p>
                         </span>
                     </mat-list-item>
@@ -22,7 +22,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>185+</h2>
+                            <h2>{{ count_dashboard.salesrepcount }}+</h2>
                             <p>Sales Rep</p>
                         </span>
                     </mat-list-item>
@@ -33,7 +33,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>150+</h2>
+                            <h2>{{ count_dashboard.mckessoncount }}+</h2>
                             <p>Wholesale Inventory</p>
                         </span>
                     </mat-list-item>
@@ -44,7 +44,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>241+</h2>
+                            <h2>{{count_dashboard.otherscount}}+</h2>
                             <p>Medical Partner Inventory</p>
                         </span>
                     </mat-list-item>
@@ -120,9 +120,9 @@
                             <p><span>City :</span> {{ hospital.city }}</p>
                             <p><span>State :</span> {{ hospital.state }} </p>
                             <p><span>Zip Code :</span> {{ hospital.zip }} </p>
-                            <p><span>Contact Person :</span> {{ hospital.contactphones }} </p>
+                            <p><span>Contact Person :</span> {{ hospital.contactperson }} </p>
                             <p><span>Email :</span>{{ hospital.email }}</p>
-                            <p><span>Phone Number :</span> {{ hospital.hospitalname }}</p>
+                            <p><span>Phone Number :</span> {{ hospital.contactphones }}</p>
                             <p><span>Sales Rep :</span> {{ hospital.salesrepname }} </p>
                         </mat-card-content>
                         <span class="buttonwrapper center">

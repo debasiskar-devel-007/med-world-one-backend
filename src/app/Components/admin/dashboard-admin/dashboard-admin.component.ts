@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -36,8 +36,10 @@ export class DashboardAdminComponent implements OnInit {
   public type: string;
   public hospitalDetails: any = [];
   public fullImagePath: any = [];
+  public count_dashboard : any;
 
-  constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService) {
+  constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
+    public activatedRoute : ActivatedRoute) {
 
     /**fetching the cookie details **/
     let allData: any = {};
@@ -45,28 +47,59 @@ export class DashboardAdminComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.type = this.userData.type
 
-    let data = {
-      "source": "users_view",
-      'condition': {
-        'type': 'hospital'
-      }
+
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.hospitalDetails = resolveData;
+      console.log('--AAAA---------',this.hospitalDetails);
+    });
+
+    let data = {     
+      "condition":{
+        "hospitaltype":{
+          "type":"hospital"
+        },
+        "salesreptype":{
+          "type":"salesrep"
+        },
+        "mckessontype":{
+          "source_name":"mckesson"
+        }
+      }    
     }
 
-    this.http.httpViaPost('datalist', data).subscribe((response: any) => {
-      this.hospitalDetails = response.res;
-      console.log("->", this.hospitalDetails);
-      for (let i = 0; i < this.hospitalDetails.length; i++) {
-        this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/' +
-          this.hospitalDetails[i].images;
-      }
+    // this.http.httpViaPost('admindashboradcount', data).subscribe((response: any) => {
+    //   this.hospitalDetails = response.res;
+    //   console.log("->", this.hospitalDetails);
+    //   // for (let i = 0; i < this.hospitalDetails.length; i++) {
+    //   //   this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/' +
+    //   //     this.hospitalDetails[i].images;
+    //   // }
+    // });
+    // console.log("hospital", this.hospitalDetails);
+
+
+    /** getting the count **/
+    this.http.httpViaPost('admindashboradcount', data).subscribe((response: any) => {
+      this.count_dashboard = response;
+      console.log("->", this.count_dashboard);     
     });
-    console.log("hospital", this.hospitalDetails);
   }
 
   ngOnInit() {
+    this.getHospitals();
   }
 
   toHospitalList(index:any){
       this.router.navigateByUrl('admin/hospital/view_details/'+index)
+  }
+
+
+  getHospitals(){
+  
+      this.http.httpViaPost('hospitaldata', undefined).subscribe((response: any) => {
+        this.hospitalDetails = response.res;
+        console.log("=>>", this.hospitalDetails);     
+      });
+    
   }
 }
