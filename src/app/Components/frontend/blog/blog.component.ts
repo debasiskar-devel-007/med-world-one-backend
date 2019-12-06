@@ -53,7 +53,7 @@ export class BlogComponentFrontEnd implements OnInit {
     this.httpservice.postDataWithoutToken("datalistwithouttoken", data).subscribe((result: any)=>{
       //console.log(result.res);
       this.blogListing = result.res;
-      //console.log('>>>>>>>>>>>>>>>>>>>>>>>>>', this.blogListing);
+      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>', this.blogListing);
     });
 
      /*------------End Blog List-----*/
