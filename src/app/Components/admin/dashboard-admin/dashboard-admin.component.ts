@@ -66,5 +66,7 @@ export class DashboardAdminComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  toHospitalList(index:any){
+      this.router.navigateByUrl('admin/hospital/view_details/'+index)
+  }
 }

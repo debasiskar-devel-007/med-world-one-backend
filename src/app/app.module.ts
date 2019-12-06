@@ -7,7 +7,7 @@ import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
-// import { FileUploadModule } from 'file-upload';
+import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -135,9 +135,13 @@ import { ListingLanguageComponent } from './Components/miscellaneous/language-co
 //purchase comparison
 import { AddEditPurchaseComparisonComponent } from './Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
+
 import { MetaModule } from '@ngx-meta/core';
 import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactinfo/addcontactinfo.component';
 import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-cart.component';
+
+// admin dashboard hospital view details
+import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 
 
 
@@ -237,7 +241,7 @@ import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-ca
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent
 
 
   ],
@@ -250,7 +254,7 @@ import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-ca
     FormsModule,
     ReactiveFormsModule,
     ListingModule,
-    // FileUploadModule,
+    FileUploadModule,
     // BlogModule,
     CKEditorModule,
     // TeamModule,

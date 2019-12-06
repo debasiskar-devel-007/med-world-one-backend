@@ -545,3 +545,9 @@ text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
   .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_desc { color: #002751; font-family: "AvenirMedium"; font-size: 18px; margin: 5px 0 15px; line-height: 20px; }
   .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action{ background: none; justify-content: space-between; height: auto; padding: 0; }
   .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action button{ background: #0a4788; font-size: 14px; font-family: "AvenirMedium"; text-transform: capitalize; border-radius: 0; color:#fff; }
+
+  .globalMedical_partner{ background: #ffffff; margin: 0; padding: 16px 0; }
+  .globalMedical_partner .partner_wrapper{  width: 1460px; margin: 0 auto;  }
+  .globalMedical_partner .partner_wrapper .top_content{  width: 1060px; margin: 0 auto; text-align: center;  }
+  .globalMedical_partner .partner_wrapper .top_content .content_header{  color: #fff; font-size: 48px; color: #002346; font-family: "AvenirBlack"; text-transform: uppercase; }
+  .globalMedical_partner .partner_wrapper .top_content .partner_top_desc{  color: #fff; font-size: 48px; color: #002346; font-family: "AvenirBlack"; text-transform: uppercase; }

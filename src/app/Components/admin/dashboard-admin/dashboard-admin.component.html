@@ -110,7 +110,7 @@
                     <mat-list-item  *ngFor="let hospital of hospitalDetails;let i = index;">
                         <mat-card-content class="col col1">
                             <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img1.png">
+                                <img [src]=hospital.images>
                             </span>
                             
                         </mat-card-content>
@@ -126,12 +126,12 @@
                             <p><span>Sales Rep :</span> {{ hospital.salesrepname }} </p>
                         </mat-card-content>
                         <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
+                                <button mat-button class="bluebtn" (click)="toHospitalList(hospital._id)">View Detail</button>
                         </span>
                     </mat-list-item>
                 </mat-list>
                 <span class="buttonwrapper right">
-                    <button mat-button class="bluebtn" routerLink="/admin/medicalpartners-management/list">View Detail</button>
+                    <button mat-button class="bluebtn" type="button" >View Detail</button>
                 </span>
             </mat-card>
             <mat-card class="blocktablemainwrapper">
