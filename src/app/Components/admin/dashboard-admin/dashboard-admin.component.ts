@@ -36,7 +36,7 @@ export class DashboardAdminComponent implements OnInit {
   public type: string;
   public hospitalDetails: any = [];
   public fullImagePath: any = [];
-
+  public salesRepHospital: any = [];
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService) {
 
     /**fetching the cookie details **/
@@ -52,6 +52,7 @@ export class DashboardAdminComponent implements OnInit {
       }
     }
 
+
     this.http.httpViaPost('datalist', data).subscribe((response: any) => {
       this.hospitalDetails = response.res;
       console.log("->", this.hospitalDetails);
@@ -61,12 +62,30 @@ export class DashboardAdminComponent implements OnInit {
       }
     });
     console.log("hospital", this.hospitalDetails);
+
+  this.getHospitalsSalesRep();
+   
   }
 
   ngOnInit() {
   }
 
-  toHospitalList(index:any){
-      this.router.navigateByUrl('admin/hospital/view_details/'+index)
+  toHospitalList(index: any) {
+    this.router.navigateByUrl('admin/hospital/view_details/' + index)
+  }
+
+  /** getting hospitals for salesrep **/
+  getHospitalsSalesRep() {
+    let data: any = {
+      source: 'users_view',
+      condition: {
+        'type': 'hospital',
+        "salesrepselect_object": this.userData._id
+      }
+    }
+    this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+      this.hospitalDetails = response.res;
+      console.log("=>", this.hospitalDetails);
+    });
   }
 }

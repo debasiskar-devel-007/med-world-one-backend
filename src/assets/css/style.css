@@ -567,6 +567,15 @@ tr td br{ display: none; }
     border-left: 1px solid #2c3439;
     padding-left: 5px;
 }
+.viewcontainer .col-1-2 .mat-list-item-content{padding: 0 !important;height: 100% !important;}
+
+.formmainwrapper .file_uploader .inner_wrapper .imageupload .uploadfilecontainer {
+  height: 100%;
+  width: 100%;
+}
+.formmainwrapper .my_details_wrapper .mydetails_form_wrapper .forms .mat-form-field .mat-form-field-flex {
+  background:none;padding: 0 0px!important;
+}
 
 /* ----------------- list view css end -------------------- */
 
