@@ -1,19 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpServiceService } from '../../../services/http-service.service';
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
+public inventoryCatagoryList:any;
+public categoryList:any = [];
+  constructor(public activatedRoute:ActivatedRoute,public router:Router,public httpServiceService: HttpServiceService) {
+    let data: any = {
+      "source": "category_view",
+      "condition": {},
+    };
+      this.httpServiceService.httpViaPost('datalist', data).subscribe(res => {
+        this.categoryList=res.res;
+        //console.log(res.res);
+      })
+
+   }
 
 
-  constructor() { }
-  categoryList = ['Ambulatory Equipment', 'Apparel',' Appliances (Durable Goods)', 'Body Pressure Relief and Positioning', 'Clinical Laboratory', 'Diagnostic Instruments and Supplies', 'Drainage and Suction', 'Furnishings', 'Gloves', 'Housekeeping',' I.V. Therapy', 'Implants', 'Incontinence', 'Indicators and Signage', 'Instruments', ' Needles and Syringes', 'Nurse+"s"+ Station and Office', 'Supplies', 'Nutritionals and Feeding', 'Supplies'
-  ,'Office Supplies', 'Orthopedic', 'Ostomy' ];
   ngOnInit() {
-  
-
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.inventoryCatagoryList=resolveData.inventoryList.res;
+       // console.log(resolveData.inventoryList.res);
+      });
   }
- 
+ /**view details page with respective id */
+  viewDetails(val:any){
+     this.router.navigateByUrl('/inventory-details/' +val);
+  }
 }

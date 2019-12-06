@@ -70,7 +70,7 @@
         <input type="text" placeholder="All Categories">
       </span>
       <mat-card-content class="cat_list">
-        <a mat-list-item active *ngFor="let category of categoryList">{{category}}</a>
+        <a mat-list-item active *ngFor="let category of categoryList">{{category.categoryname}}</a>
       </mat-card-content>
 
 
@@ -79,31 +79,32 @@
 
     <mat-card-content class="sh_inventory_content">
       <!-- Loop start -->
-      <mat-card-content class="sh_inventory_content_item">
+
+      <mat-card-content class="sh_inventory_content_item" *ngFor="let list of inventoryCatagoryList">
         <mat-card-content class="inner_top_wrapper">
           <mat-card-content class="image_wrapper">
-            <img src="../../../../assets/images/invItemimage1.jpg">
+            <img src="{{list.image}}">
           </mat-card-content>
           <mat-card-content class="content_wrapper">
-            <h1>Lorem Ipsum is simply</h1>
+            <h1>{{list.inventory_name}}</h1>
             <mat-card-content class="content_w">
               <h3>Brand: </h3>
-              <p>Lorem Ipsum</p>
+              <p>{{list.brand_name}}</p>
             </mat-card-content>
             <mat-card-content class="content_w">
               <h3>Description: </h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout.</p>
+              <p>{{list.description}}</p>
             </mat-card-content>
           </mat-card-content>
         </mat-card-content>
         <mat-toolbar class="action_buttons">
           <button mat-button>Add to Quote List</button>
-          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+          <button mat-button class="view_more" (click)="viewDetails(list._id)">View Details</button>
         </mat-toolbar>
       </mat-card-content>
+
       <!-- loop end  -->
-      <mat-card-content class="sh_inventory_content_item">
+      <!-- <mat-card-content class="sh_inventory_content_item">
         <mat-card-content class="inner_top_wrapper">
           <mat-card-content class="image_wrapper">
             <img src="../../../../assets/images/invItemimage2.jpg">
@@ -171,8 +172,8 @@
           <button mat-button>Add to Quote List</button>
           <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
         </mat-toolbar>
-      </mat-card-content>
-      <mat-card-content class="sh_inventory_content_item">
+      </mat-card-content> -->
+      <!-- <mat-card-content class="sh_inventory_content_item">
         <mat-card-content class="inner_top_wrapper">
           <mat-card-content class="image_wrapper">
             <img src="../../../../assets/images/invItemimage1.jpg">
@@ -194,8 +195,8 @@
           <button mat-button>Add to Quote List</button>
           <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
         </mat-toolbar>
-      </mat-card-content>
-      <mat-card-content class="sh_inventory_content_item">
+      </mat-card-content> -->
+      <!-- <mat-card-content class="sh_inventory_content_item">
         <mat-card-content class="inner_top_wrapper">
           <mat-card-content class="image_wrapper">
             <img src="../../../../assets/images/invItemimage2.jpg">
@@ -217,9 +218,9 @@
           <button mat-button>Add to Quote List</button>
           <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
         </mat-toolbar>
-      </mat-card-content>
+      </mat-card-content> -->
 
-      <mat-card-content class="sh_inventory_content_item">
+      <!-- <mat-card-content class="sh_inventory_content_item">
           <mat-card-content class="inner_top_wrapper">
             <mat-card-content class="image_wrapper">
               <img src="../../../../assets/images/invItemimage2.jpg">
@@ -241,9 +242,9 @@
             <button mat-button>Add to Quote List</button>
             <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
           </mat-toolbar>
-        </mat-card-content>
+        </mat-card-content> -->
 
-        <mat-card-content class="sh_inventory_content_item">
+        <!-- <mat-card-content class="sh_inventory_content_item">
             <mat-card-content class="inner_top_wrapper">
               <mat-card-content class="image_wrapper">
                 <img src="../../../../assets/images/invItemimage2.jpg">
@@ -265,7 +266,7 @@
               <button mat-button>Add to Quote List</button>
               <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
             </mat-toolbar>
-          </mat-card-content>
+          </mat-card-content> -->
 
 
 

@@ -15,8 +15,10 @@ export class AuthguardService implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     let getToken = this.cookie.get('jwtToken');
+    let user=this.cookie.get('user_details');
 
-    if (getToken) {
+    if (getToken !=null && user !=null && user != '') {
+      console.log("authguard");
       return true;
     } else {
       this._router.navigate(['/login']);
