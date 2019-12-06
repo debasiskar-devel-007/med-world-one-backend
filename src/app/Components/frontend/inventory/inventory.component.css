@@ -23,7 +23,7 @@
 .search_bar .seperate{ margin: 0 8px; padding: 13px; }
 .search_bar .search_button{ background: #ea240f; color: #fff; border-radius: 0; width: 270px; padding: 3px; font-size: 18px; font-family: "HelveticaRegular"; }
 
-.sh_inventory_content { display: flex; justify-content: center; flex-wrap: wrap; align-items: flex-start; width: 100%; }
+.sh_inventory_content { display: flex; justify-content: center; flex-wrap: wrap; width: 100%; }
 .sh_inventory_content .sh_inventory_content_item { background:#f5f5f5; border: 1px solid #eaeaea; padding: 16px; box-sizing: border-box; margin-bottom: 0; width: 32.5%;
   margin: .5%; }
   .sh_inventory_content .sh_inventory_content_item:nth-child(3n+1){ margin-left: 0;}
@@ -31,14 +31,26 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper {width: 70%; padding-left: 10px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w { text-align: left; margin-bottom: 5px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w h3{ font-size: 14px; font-family: "AvenirMedium"; text-transform: uppercase; color: #1f2122; margin: 0; }
-.sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w p{ color: #030404; font-family: "AvenirLight"; font-size: 14px; margin: 0; margin-top: 0px;  }
+.sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w p{     color: #030404;
+  font-family: "AvenirLight";
+  font-size: 14px;
+  margin: 0;
+  margin-top: 0px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px;
+  max-height: 32px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; }
 
 .sh_inventory_content .sh_inventory_content_item .content_wrapper h1{ font-size: 18px; font-family: "AvenirLight"; color: #002950; text-transform: uppercase; text-align: left;  margin-bottom: 5px;}
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table{width: 100%; text-align: left; color: #30373d; font-size: 14px; font-family: "HelveticaRegular";}
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr { line-height: 20px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr th{  color: #30373d; font-size: 14px; font-weight: normal; width: 100px;}
 
-.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between;}
+.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between; min-height: 150px; }
 .sh_inventory_content .inner_top_wrapper .image_wrapper{ width: 140px; margin-bottom: 0; align-items: center; justify-content: center; display: flex; background: #fff; padding: 4px;
   box-shadow: 0px 0px 3px 0px #afafaf; box-sizing: border-box; }
 .sh_inventory_content  .inner_top_wrapper .image_wrapper img{ max-width: 100%; }
