@@ -1,4 +1,5 @@
 <app-adminheader>
+          <span class="dashboardcontainer">
      <mat-card class="main_wrapper">
           <mat-card-content class="bred_cram_wrapper">
                <a mat-list-item routerLinkActive="active" routerLink="/dashboard-admin"> Dashboard </a>
@@ -16,6 +17,7 @@
 
 
                     <!-- First Name  -->
+                    <span class="col-1-2">
                     <mat-form-field>
                          <mat-label>First Name</mat-label>
                          <input matInput placeholder="Adam" formControlName="firstname" (blur)="inputBlur('firstname')">
@@ -25,9 +27,10 @@
                               *ngIf="!adminForm.controls['firstname'].valid && !adminForm.controls['firstname'].errors.required">
                               Name is not valid</mat-error>
                     </mat-form-field>
-                    <br>
+               </span>
 
                     <!-- Last Name  -->
+                    <span class="col-1-2">
                     <mat-form-field>
                          <mat-label>Last Name</mat-label>
                          <input matInput placeholder="Stewart" formControlName="lastname"
@@ -39,10 +42,11 @@
                               *ngIf="!adminForm.controls['lastname'].valid && !adminForm.controls['lastname'].errors.required">
                               Name is not valid</mat-error>
                     </mat-form-field>
-                    <br>
+               </span>
 
 
                     <!-- Phone  -->
+                    <span class="col-1-2">
                     <mat-form-field>
                          <mat-label>Phone</mat-label>
                          <input matInput placeholder="9874122558" formControlName="phone" (blur)="inputBlur('phone')">
@@ -53,11 +57,12 @@
                               *ngIf="!adminForm.controls['phone'].valid && !adminForm.controls['phone'].errors.required">
                               Phone must be only 10 digit integers</mat-error>
                     </mat-form-field>
-                    <br>
+                    </span>
 
 
 
                     <!-- Email  -->
+                    <span class="col-1-2">
                     <mat-form-field>
                          <mat-label>Email </mat-label>
                          <input matInput placeholder="adam123@gmail.com" [readonly]="flag==true?true:false"
@@ -70,11 +75,12 @@
                               Email
                               is not valid</mat-error>
                     </mat-form-field>
-                    <br>
+                    </span>
 
 
 
                     <!-- Password  -->
+                    <span class="col-1-2">
                     <mat-form-field *ngIf="action=='add'">
                          <mat-label>Password</mat-label>
                          <input matInput type="password" placeholder="***********" formControlName="password"
@@ -82,12 +88,13 @@
                          <mat-error *ngIf="adminForm.controls['password']?.touched || adminForm.controls['password'].errors
             && adminForm.controls['password'].errors.required">Password is required.</mat-error>
                     </mat-form-field>
-                    <br>
+                    </span>
 
 
 
 
                     <!-- Confirm Password  -->
+                    <span class="col-1-2">
                     <mat-form-field *ngIf="action=='add'">
                          <mat-label>Confirm Password</mat-label>
                          <input matInput type="password" placeholder="***********" formControlName="confirmpassword"
@@ -95,12 +102,13 @@
                          <mat-error *ngIf="adminForm.controls['confirmpassword']?.touched || adminForm.controls['confirmpassword'].errors
             && adminForm.controls['confirmpassword'].errors.required">Password do not match</mat-error>
                     </mat-form-field>
-                    <br>
+                    </span>
 
 
 
 
                     <!-- Status -->
+                    
                     <mat-label>Status</mat-label><br>
                     <mat-checkbox formControlName="status">Active</mat-checkbox><br>
 
@@ -115,4 +123,5 @@
                </form>
           </mat-card-content>
      </mat-card>
+     </span>
 </app-adminheader>

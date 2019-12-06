@@ -42,11 +42,7 @@
     <mat-card-content class="searchfilter">
       <span class="search_bar">
         <mat-select class="searchpannel" placeholder="Search By Brand">
-          <mat-option value="option">Brand 1</mat-option>
-          <mat-option value="option">Brand 2</mat-option>
-          <mat-option value="option">Brand 3</mat-option>
-          <mat-option value="option">Brand 4</mat-option>
-          <mat-option value="option">Brand 5</mat-option>
+          <mat-option *ngFor="let category of categoryList" value="{{category.brand[0].brand_id}}">{{category.brand[0].brand_name}}</mat-option>
         </mat-select>
 
         <input type="text" class="searchpannel seperate" placeholder="Search..">

@@ -14,8 +14,10 @@ public categoryList:any = [];
       "source": "category_view",
       "condition": {},
     };
-      this.httpServiceService.httpViaPost('datalist', data).subscribe(res => {
-        this.categoryList=res.res;
+      this.httpServiceService.httpViaPost('datalist', data).subscribe((res:any) => {
+        var result:any;
+        result=res.res;
+        this.categoryList=result;
         //console.log(res.res);
       })
 
@@ -28,6 +30,7 @@ public categoryList:any = [];
        // console.log(resolveData.inventoryList.res);
       });
   }
+
  /**view details page with respective id */
   viewDetails(val:any){
      this.router.navigateByUrl('/inventory-details/' +val);

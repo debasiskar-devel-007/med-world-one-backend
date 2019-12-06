@@ -32,13 +32,9 @@ export class SalesrepHospitalComponent implements OnInit {
       for (let i = 0; i < this.hospitalDetails.length; i++) {
         this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/' +
           this.hospitalDetails[i].images;
-        
-
       }
-      // this.fullImagePath = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'+this.hospitalDetails.images;
-
     })
-    console.log("image path", this.hospitalDetails)
+
   }
 
   ngOnInit() {
