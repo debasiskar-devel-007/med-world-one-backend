@@ -39,559 +39,242 @@
 
       <h2>product catalog</h2>
     </mat-card-content>
-    <mat-card-content class="searchfilter"> 
-      <span class="search_bar">  
-            <mat-select class="searchpannel" placeholder="Search By Brand">
-              <mat-option value="option">Brand 1</mat-option> 
-              <mat-option value="option">Brand 2</mat-option> 
-              <mat-option value="option">Brand 3</mat-option> 
-              <mat-option value="option">Brand 4</mat-option> 
-              <mat-option value="option">Brand 5</mat-option> 
-            </mat-select> 
+    <mat-card-content class="searchfilter">
+      <span class="search_bar">
+        <mat-select class="searchpannel" placeholder="Search By Brand">
+          <mat-option value="option">Brand 1</mat-option>
+          <mat-option value="option">Brand 2</mat-option>
+          <mat-option value="option">Brand 3</mat-option>
+          <mat-option value="option">Brand 4</mat-option>
+          <mat-option value="option">Brand 5</mat-option>
+        </mat-select>
+
+        <input type="text" class="searchpannel seperate" placeholder="Search..">
+
         <button mat-button class="search_button"> Search</button>
       </span>
 
       <!-- <mat-form-field>
         <input matInput placeholder="Amount" type="number" class="example-right-align">
         <button mat-icon-button matPrefix>$&nbsp;</button >
-         
+
       </mat-form-field> -->
     </mat-card-content>
   </mat-card-content>
- 
+
 
   <mat-card-content class="cataLog_wrapper">
 
-<mat-card-content class="categoyPart">
- <span class="categoryAll">
-   <input type="text" placeholder="All Categories" >
- </span>
- <mat-card-content class="cat_list">
- <a mat-list-item active *ngFor="let category of categoryList">{{category}}</a>
-</mat-card-content>
-
-</mat-card-content>
-
-<mat-card-content class="sh_inventory_content">
-  <!-- Loop start -->
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage1.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition :</th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller :</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
+    <mat-card-content class="categoyPart">
+      <span class="categoryAll">
+        <input type="text" placeholder="All Categories">
       </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
+      <mat-card-content class="cat_list">
+        <a mat-list-item active *ngFor="let category of categoryList">{{category}}</a>
+      </mat-card-content>
+
+
+
+    </mat-card-content>
+
+    <mat-card-content class="sh_inventory_content">
+      <!-- Loop start -->
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage1.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <!-- loop end  -->
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage2.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage3.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage4.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage1.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage2.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+
+      <mat-card-content class="sh_inventory_content_item">
+          <mat-card-content class="inner_top_wrapper">
+            <mat-card-content class="image_wrapper">
+              <img src="../../../../assets/images/invItemimage2.jpg">
+            </mat-card-content>
+            <mat-card-content class="content_wrapper">
+              <h1>Lorem Ipsum is simply</h1>
+              <mat-card-content class="content_w">
+                <h3>Brand: </h3>
+                <p>Lorem Ipsum</p>
+              </mat-card-content>
+              <mat-card-content class="content_w">
+                <h3>Description: </h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout.</p>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card-content>
+          <mat-toolbar class="action_buttons">
+            <button mat-button>Add to Quote List</button>
+            <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+          </mat-toolbar>
+        </mat-card-content>
+
+        <mat-card-content class="sh_inventory_content_item">
+            <mat-card-content class="inner_top_wrapper">
+              <mat-card-content class="image_wrapper">
+                <img src="../../../../assets/images/invItemimage2.jpg">
+              </mat-card-content>
+              <mat-card-content class="content_wrapper">
+                <h1>Lorem Ipsum is simply</h1>
+                <mat-card-content class="content_w">
+                  <h3>Brand: </h3>
+                  <p>Lorem Ipsum</p>
+                </mat-card-content>
+                <mat-card-content class="content_w">
+                  <h3>Description: </h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout.</p>
+                </mat-card-content>
+              </mat-card-content>
+            </mat-card-content>
+            <mat-toolbar class="action_buttons">
+              <button mat-button>Add to Quote List</button>
+              <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+            </mat-toolbar>
+          </mat-card-content>
+
+
+
+
+
+
+
+    </mat-card-content>
   </mat-card-content>
-  <!-- loop end  -->
-
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage2.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage3.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage4.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text </h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply dummy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage5.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage6.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content> 
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage7.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage8.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text</h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply d u mmy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content> 
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage9.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text </h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply dummy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content> 
-  <mat-card-content class="sh_inventory_content_item">
-    <mat-card-content class="inner_top_wrapper">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage10.jpg">
-      </mat-card-content>
-      <mat-card-content class="content_wrapper">
-        <h1>Lorem Ipsum is simply dummy text </h1>
-        <table>
-          <tr>
-            <th>Band :</th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Model : </th>
-            <td>Lorem ipsum dolor sit amet.</td>
-          </tr>
-          <tr>
-            <th>Category :</th>
-            <td>Desktop displays Lorem Ipsum is simply</td>
-          </tr>
-          <tr>
-            <th>Condition </th>
-            <td>New</td>
-          </tr>
-          <tr>
-            <th>Shipping from : </th>
-            <td>Usa</td>
-          </tr>
-          <tr>
-            <th>Seller</th>
-            <td> Lorem Ipsum is simply dummy</td>
-          </tr>
-        </table>
-        <span class="rating_star">
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-          <i class="material-icons"> star</i>
-        </span>
-
-      </mat-card-content>
-    </mat-card-content>
-    <mat-toolbar class="action_buttons">
-      <span class="quotes">
-        <button mat-button>Add to Quote List</button>
-        <button mat-button>Get Quote</button>
-      </span>
-      <button mat-button class="view_more" routerLink="/inventory-details">View More</button>
-    </mat-toolbar>
-  </mat-card-content>
-
-</mat-card-content>
-
-  </mat-card-content>
-
 
 </mat-card-content>
 

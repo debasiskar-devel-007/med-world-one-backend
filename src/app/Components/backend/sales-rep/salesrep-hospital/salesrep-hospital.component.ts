@@ -11,12 +11,12 @@ export class SalesrepHospitalComponent implements OnInit {
 
   /** declarations **/
   public userData: any;
-  public hospitalDetails: any;
-  public fullImagePath:any=[];
+  public hospitalDetails: any = [];
+  public fullImagePath: any = [];
   // "https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/medpartner_picture_-jhonny-1574754693840.png";
 
-  constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService ,
-    private router : Router) {
+  constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService,
+    private router: Router) {
     this.userData = JSON.parse(this.cookieService.get('user_details'));
 
     let data = {
@@ -28,22 +28,21 @@ export class SalesrepHospitalComponent implements OnInit {
     this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
 
       this.hospitalDetails = response.res;
-      console.log("->",this.hospitalDetails);
-      for(let i = 0;i<this.hospitalDetails.length;i++){
-        this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'+this.hospitalDetails[i].images
-        console.log("image path",this.fullImagePath[i])
+      console.log("->", this.hospitalDetails);
+      for (let i = 0; i < this.hospitalDetails.length; i++) {
+        this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/' +
+          this.hospitalDetails[i].images;
       }
-      // this.fullImagePath = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/'+this.hospitalDetails.images;
-     
     })
+
   }
 
   ngOnInit() {
   }
 
   /** managing the hospital **/
-  toManageHospital(id){
-     this.router.navigateByUrl('/salesrep/hospital/manage-hospital/edit/'+id);
+  toManageHospital(id) {
+    this.router.navigateByUrl('/salesrep/hospital/manage-hospital/edit/' + id);
   }
 
 }

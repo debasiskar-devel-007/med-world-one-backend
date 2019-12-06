@@ -40,7 +40,7 @@
 
   .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social{flex-wrap: wrap; border-top: 1px solid #d2d2d2; background: transparent; height: auto; align-items: initial; padding: 0; display: flex; justify-content: space-between; padding-top: 10px; }
 
-    .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social a{ color: #ed230d; font-size: 16px; font-family: "HelveticaRegular"; text-decoration: none; text-transform: capitalize;}
+    .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social a{cursor: pointer; color: #ed230d; font-size: 16px; font-family: "HelveticaRegular"; text-decoration: none; text-transform: capitalize;}
     .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report p{display: inline; font-size: 16px; margin: 0 16px;
       font-family: "HelveticaRegular";}
       .sh_blog_content_wrapper .sh_blog_content_bottom .sh_blog_content_left .blog_container .bottom_social .social_report p i{ color: #0185b7;}
