@@ -102,6 +102,21 @@ body {
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'AvenirRoman';
+  src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2'),
+      url('../fonts/AvenirLTStd-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirBook';
+  src: url('../fonts/AvenirLTStd-Book.woff2') format('woff2'),
+      url('../fonts/AvenirLTStd-Book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
   /* font end */
 
