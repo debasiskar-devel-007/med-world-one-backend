@@ -10,10 +10,10 @@
       </mat-toolbar>
 
       <!-- item wrapper -->
-      <div>
-      <span class="hospitallistmainwrapper" *ngFor="let hospital of hospitalDetails;let i = index;let fp of fullImagePath;">
-        <ng-container *ngFor="">
-        <mat-card-content class="hospital_items" 
+
+      <span class="hospitallistmainwrapper">
+
+        <mat-card-content class="hospital_items" *ngFor="let hospital of hospitalDetails;let i = index;"
           (click)="toManageHospital(hospital._id)">
 
           <mat-card-content class="hospital_left">
@@ -50,9 +50,9 @@
           </mat-card-content>
 
         </mat-card-content>
-        </ng-container>
+
       </span>
-      </div>
+
 
       <!-- <mat-card-content class="hospital_items">
       <mat-card-content class="hospital_left">

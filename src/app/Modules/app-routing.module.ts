@@ -69,7 +69,8 @@ import { ListingLanguageComponent } from '../Components/miscellaneous/language-c
 import { AddEditPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component';
 import { ListingPurchaseComparisonComponent } from '../Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontactinfo/addcontactinfo.component';
-import { QuotesCartComponent } from '../components/frontend/quotes-cart/quotes-cart.component';
+import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
+import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 
 
 
@@ -682,6 +683,20 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
+
+  // ___________________Admin Dashboard Hospital View Details_________________
+  {
+    path: 'admin/hospital/view_details/:_id',
+    component: AdminDashboardHospitalViewdetailsComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        'source': 'users_view',
+        'condition': { 'type':'hospital'}
+      },
+      endpoint: 'datalist'
+    },
+  }
 
 
 
