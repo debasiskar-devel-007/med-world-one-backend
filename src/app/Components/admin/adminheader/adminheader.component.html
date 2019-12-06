@@ -145,9 +145,9 @@
                             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
                             <a mat-list-item routerLinkActive="active" routerLink="/salesrep/my-hospital">Medical Partners</a>
                             <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="Quotes"> Quotes <i class="material-icons">keyboard_arrow_down</i></a>                            
-                            <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/addblogcategory/list">Reports</a>
+                            <a mat-list-item routerLinkActive="active" >Reports</a>
                             <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/addblogcategory/list">Inventory</a>
-                            <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/addblogcategory/list">Quote Cart</a>
+                            <a mat-list-item routerLinkActive="active" >Quote Cart</a>
         
                             <!-- <a mat-list-item [matMenuTriggerFor]="userManagement">Manage Inventory <i class="material-icons">keyboard_arrow_down</i></a>
                             <a mat-list-item [matMenuTriggerFor]="Quotesmanage">Manage Quotes <i class="material-icons">keyboard_arrow_down</i></a>
@@ -182,11 +182,11 @@
         
                             <!-- -------- Manage Quotes list ---------- -->
         
-                            <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
+                            <!-- <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
                                 <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Purchase Quotes</button>
                                 <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory Listing Quotes</button>
                                 <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Purchase Comparison Quotes</button>
-                            </mat-menu>
+                            </mat-menu> -->
         
                         </mat-nav-list>
                     </span>
