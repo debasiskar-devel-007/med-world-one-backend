@@ -107,137 +107,27 @@
                     </span>
                 </span>
                 <mat-list class="block2content">
-                    <mat-list-item>
+                    <mat-list-item  *ngFor="let hospital of hospitalDetails;let i = index;">
                         <mat-card-content class="col col1">
                             <span class="imgwrapper">
                                 <img src="../../../../assets/images/admindashboard_img1.png">
                             </span>
                             
                         </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
+                        <mat-card-content class="col col2" >
+                            <h3>{{ hospital.hospitalname}}</h3>
+                            <p><span>Address :</span>{{ hospital.address }} </p>
+                            <p><span>City :</span> {{ hospital.city }}</p>
+                            <p><span>State :</span> {{ hospital.state }} </p>
+                            <p><span>Zip Code :</span> {{ hospital.zip }} </p>
+                            <p><span>Contact Person :</span> {{ hospital.contactphones }} </p>
+                            <p><span>Email :</span>{{ hospital.email }}</p>
+                            <p><span>Phone Number :</span> {{ hospital.hospitalname }}</p>
+                            <p><span>Sales Rep :</span> {{ hospital.salesrepname }} </p>
                         </mat-card-content>
                         <span class="buttonwrapper center">
                                 <button mat-button class="bluebtn">View Detail</button>
                         </span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <mat-card-content class="col col1">
-                            <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img2.png">
-                            </span>
-                            
-                        </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
-                        </mat-card-content>
-                        <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
-                            </span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <mat-card-content class="col col1">
-                            <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img3.png">
-                            </span>
-                            
-                        </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
-                        </mat-card-content>
-                        <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
-                            </span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <mat-card-content class="col col1">
-                            <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img4.png">
-                            </span>
-                            
-                        </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
-                        </mat-card-content>
-                        <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
-                            </span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <mat-card-content class="col col1">
-                            <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img5.png">
-                            </span>
-                            
-                        </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
-                        </mat-card-content>
-                        <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
-                            </span>
-                    </mat-list-item>
-                    <mat-list-item>
-                        <mat-card-content class="col col1">
-                            <span class="imgwrapper">
-                                <img src="../../../../assets/images/admindashboard_img6.png">
-                            </span>
-                            
-                        </mat-card-content>
-                        <mat-card-content class="col col2">
-                            <h3>Lorem Ipsum is simply dummy text</h3>
-                            <p><span>Address :</span> Lorem Ipsum is simply 526, </p>
-                            <p><span>City :</span> Dummy Text, </p>
-                            <p><span>State :</span> Of the, </p>
-                            <p><span>Zip Code :</span> 0000000 </p>
-                            <p><span>Contact Person :</span> Lorem Ipsum </p>
-                            <p><span>Email :</span> Lorem@gmail.com </p>
-                            <p><span>Phone Number :</span> 0123456789 </p>
-                            <p><span>Sales Rep :</span> Lorem Ipsum is simply </p>
-                        </mat-card-content>
-                        <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
-                            </span>
                     </mat-list-item>
                 </mat-list>
                 <span class="buttonwrapper right">

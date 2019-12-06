@@ -3,13 +3,11 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
-// import { LoginModule } from 'login';
-import { LoginModule } from 'login-lib-influxiq'; // login library
+import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
-// import { FileUploadModule } from 'file-upload-lib-influxiq';
-import { FileUploadModule } from 'file-upload-lib-influxiq';
+// import { FileUploadModule } from 'file-upload';
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -44,7 +42,6 @@ import { AddEditSalesrepComponent, Modal3 } from './Components/admin/salesrep-ma
 
 //Blogs
 // import { BlogModule, BlogComponent } from 'blog';
-import { BlogModule } from 'blog-lib-influxiq';
 import { AddEditBlogsComponent } from './Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component';
 import { ListingBlogsComponent } from './Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component';
 
@@ -140,8 +137,7 @@ import { AddEditPurchaseComparisonComponent } from './Components/inventory/purch
 import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component';
 import { MetaModule } from '@ngx-meta/core';
 import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactinfo/addcontactinfo.component';
-
-
+import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-cart.component';
 
 
 
@@ -241,7 +237,7 @@ import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactin
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
-    quoteModal,sendMailModal, AddcontactinfoComponent
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent
 
 
   ],
@@ -254,8 +250,8 @@ import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactin
     FormsModule,
     ReactiveFormsModule,
     ListingModule,
-    FileUploadModule,
-    BlogModule,
+    // FileUploadModule,
+    // BlogModule,
     CKEditorModule,
     // TeamModule,
     HttpClientModule,
