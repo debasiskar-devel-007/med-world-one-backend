@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Router, ActivatedRoute } from '@angular/router';
 import {MatChipInputEvent} from '@angular/material';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -22,8 +23,9 @@ export class ContactUsComponent implements OnInit {
   public collect_email_array: any = [];
   public collect_phone_array: any = [];
   public contactusForm: FormGroup;
-  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute) {
 
+  constructor(public cookieService:CookieService, public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute) {
+    
      this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['',Validators.required],

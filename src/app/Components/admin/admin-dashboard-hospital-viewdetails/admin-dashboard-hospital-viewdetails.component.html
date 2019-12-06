@@ -1,18 +1,30 @@
-<ul>
-    <li>{{ hospitalDetailData.hospitalname }}</li>
-    <li>{{ hospitalDetailData.address }}</li>
-    <li>{{ hospitalDetailData.state }}</li>
-    <li>{{ hospitalDetailData.city }}</li>
-    <li>{{ hospitalDetailData.contactperson }}</li>
-    <li>{{ hospitalDetailData.date }}</li>
-    <li>{{ hospitalDetailData.email }}</li>
-    <li>{{ hospitalDetailData.salesrepname }}</li>
-    <li>{{ hospitalDetailData.speciality }}</li>
-    <!-- <li>{{ status }}</li> -->
-    <li>{{ hospitalDetailData.zip }}</li>
-    <!-- <li>{{ hospitalDetailData.hospitalname }}</li>
-    <li>{{ hospitalDetailData.hospitalname }}</li> -->
-    <img [src]="hospitalDetailData.images" alt="hospital image" width="1000" height="1000">
-
- 
-</ul>
+<app-adminheader>
+    <span class="viewmainwrapper">
+        <span class="dashboardcontainer">
+            <mat-list class="viewcontainer">
+                <mat-list-item class="col-1-2"> 
+                    <span class="imgwrapper">
+                        <img [src]="hospitalDetailData.images" alt="hospital image" >
+                    </span>
+                </mat-list-item>
+                <mat-list-item class="col-1-2">  
+                    <span class="textwrapper">
+                        <h3>{{ hospitalDetailData.hospitalname }}</h3>
+                        <p><span>date :</span> {{ hospitalDetailData.date }}</p>
+                        <p><span>Email :</span> {{ hospitalDetailData.email }}</p>
+                        <p><span>Phone :</span> {{ hospitalDetailData.contactphones }}</p>
+                        <p><span>contact person :</span> {{ hospitalDetailData.contactperson }}</p>
+                        <p><span>Address :</span> {{ hospitalDetailData.address }}</p>
+                        <p><span>state :</span> {{ hospitalDetailData.state }}</p>
+                        <p><span>city :</span> {{ hospitalDetailData.city }}</p>
+                        <p><span>Zip Code :</span> {{ hospitalDetailData.zip }}</p>
+                        <p><span>salesrep name</span> {{ hospitalDetailData.salesrepname }}</p>                        
+                        <!-- <p><span>speciapty :</span> {{ hospitalDetailData.speciapty }}</p> -->
+                        
+                    </span>
+                </mat-list-item>
+                <span class="border"></span>
+            </mat-list>
+        </span>
+    </span>
+</app-adminheader>

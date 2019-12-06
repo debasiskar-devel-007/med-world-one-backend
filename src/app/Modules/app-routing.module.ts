@@ -5,6 +5,7 @@ import { LoginComponent } from '../Components/auth/login/login.component';
 import { ResetPasswordComponent } from '../Components/auth/reset-password/reset-password.component';
 import { DashboardAdminComponent } from '../Components/admin/dashboard-admin/dashboard-admin.component';
 import { AuthguardService } from '../services/authguard.service';
+import {AuthService } from '../services/auth.service';
 import { AddEditAdminComponent } from '../Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from '../Components/admin/admin-management/listing-admin/listing-admin.component';
 import { ResolveService } from '../services/resolve.service';
@@ -77,7 +78,7 @@ import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent,canActivate: [AuthService]},
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
@@ -90,6 +91,7 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
+
   { path: 'dashboard-admin', component: DashboardAdminComponent },
   // {
   //   path: 'dashboard-admin',
@@ -117,8 +119,6 @@ const routes: Routes = [
   { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
   //SalesRep Dashboard
   { path: 'dashboard-salesrep', component: DashboardAdminComponent },
-
-
 
 
 
@@ -159,7 +159,7 @@ const routes: Routes = [
 
 
   //____________MANAGE MEDICAL PARTNERS_____________
-  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent },
+  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent,canActivate: [AuthguardService]},
   {
     path: 'admin/medicalpartners-management/list',
     component: ListingMedicalpartnersComponent,
@@ -355,7 +355,7 @@ const routes: Routes = [
   // =========================================================
 
 
-  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent },
+  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent,canActivate: [AuthguardService] },
 
   {
     path: 'inventory/manage-inventory/inventory-category/list',
@@ -445,13 +445,11 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-  //_______________Admin Contact us Listing_____________//
-  {
-    path: 'admin-dashboard/contact', component: ContactusListingComponent, resolve: { contactlist: ResolveService },
-    data: { requestcondition: { source: 'contactus_view', condition: {} }, endpoint: 'datalist' },
-  },
-  // add admin contact info
-  { path: 'admin-dashboard/addcontactinfo', component: AddcontactinfoComponent },
+//_______________Admin Contact us Listing_____________//
+{path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
+data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},canActivate: [AuthguardService]},
+// add admin contact info
+ {path:'admin-dashboard/addcontactinfo',component:AddcontactinfoComponent,canActivate: [AuthguardService]},
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -492,7 +490,7 @@ const routes: Routes = [
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent,canActivate: [AuthguardService]},
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
@@ -548,10 +546,14 @@ const routes: Routes = [
       }, endpoint: 'datalistwithouttoken'
     }
   },
+  // Forntend inventory list
+  { path: 'inventory', component: InventoryComponent,  resolve: { inventoryList: ResolveService },
+  data: { requestcondition: { source: 'inventories_view',condition: {}},endpoint: 'datalist'}, },
 
-  { path: 'inventory', component: InventoryComponent },
-  { path: 'inventory-details', component: InventoryDetailsComponent },
+  { path: 'inventory-details/:id', component: InventoryDetailsComponent },
+
   { path: 'about-us', component: AboutUsFrontComponent },
+
   { path: 'salesrep-login', component: SalesRepLoginComponent },
 
   // _____________________language container_____________________
