@@ -17,7 +17,7 @@
           (click)="toManageHospital(hospital._id)">
 
           <mat-card-content class="hospital_left">
-            <img ng-src="{{fullImagePath}}">
+            <img [src]="hospital.images">
           </mat-card-content>
 
           <mat-card-content class="hospital_right">

@@ -50,10 +50,13 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
-    format: ["jpg", "jpeg", "png"], // use all small font
-    type: "med_partner_img",
+    format: ["jpg", "jpeg","png"], // use all small font
+    type: "inventory-file",
     path: "files",
-    prefix: "medpartner_picture_"
+    prefix: "_inventory-file",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "crmfiles.influxhostserver"
   }
 
   //  ====================================================================
@@ -69,7 +72,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.mpList.res[0];
-          console.log(this.defaultData);
         });
       }
       else
@@ -100,7 +102,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
-        this.linkTo = "/admin/medicalpartners-management/list"
         break;
       case 'edit':
         /* Button text */
@@ -113,10 +114,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         }, 2000);
         this.header_txt = "Edit Medical Partner's Information"
         this.img_flag = true;
-        if (this.role == 'admin')
-          this.linkTo = "/admin/medicalpartners-management/list";
-        else
-          this.linkTo = "/dashboard-admin";
         break;
     }
   }
@@ -153,10 +150,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       state: [],
       city: [],
       zip: [],
-      speciality: [],
-      noofdoctors: [],
-      noofbeds: [],
-      noofstaffs: [],
       status: [],
       mpimage: [],
       type: ['hospital'],
@@ -177,22 +170,19 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       password: defaultValue.password,
       address: defaultValue.address,
       zip: defaultValue.zip,
-      speciality: defaultValue.speciality,
       state: defaultValue.state,
       city: defaultValue.city,
-      noofdoctors: defaultValue.noofdoctors,
-      noofbeds: defaultValue.noofbeds,
-      noofstaffs: defaultValue.noofstaffs,
       status: defaultValue.status,
       mpimage: defaultValue.mpimage
     })
+   
     this.collect_email_array = defaultValue.contactemails;
     this.collect_phone_array = defaultValue.contactphones;
 
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgtype = defaultValue.mpimage.type;
-    console.log("images full path",this.fullImgPath);
+    console.log("fullImgPath",this.fullImgPath);
   }
   // ======================================================================================
 
@@ -250,7 +240,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-
+     
     //  File Upload Works 
     if (this.configData.files) {
 
@@ -264,6 +254,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         };
     } else {
       this.medicalPartnerForm.value.mpimage = false;
+      if( this.action == 'edit')
+      this.medicalPartnerForm.value.mpimage = this.defaultData.mpimage;
     }
 
 
@@ -272,6 +264,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     }
     else {
 
+
+      console.log(this.medicalPartnerForm.value);
       //status
       if (this.medicalPartnerForm.value.status) {
         this.medicalPartnerForm.value.status = parseInt("1");
@@ -297,12 +291,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       };
 
       if(postData.data.id){
-        //console.log("with ID");
          delete postData.data.password;
-      }else{
-        //console.log("withOut ID");
       }
-        //console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         if (response.status == "success") {
@@ -310,7 +300,10 @@ export class AddEditMedicalpartnersComponent implements OnInit {
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
-          this.router.navigateByUrl(this.linkTo);
+         
+          setTimeout(() => {
+            this.router.navigateByUrl('/admin/medicalpartners-management/list');
+          }, 2000);
         } else {
           alert("Some error occurred. Please try again.");
         }
@@ -371,10 +364,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     }
 
     this.http.httpViaPost('datalist',data).subscribe(response=>{
-       this.salesNameArray = response.res;
-      console.log("sales response",response.res);
+       this.salesNameArray = response.res;      
     });
-    console.log("sales name",this.salesNameArray);
+   
   }
 
 }

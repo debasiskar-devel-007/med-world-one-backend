@@ -219,8 +219,8 @@ export class AddEditInventoryComponent implements OnInit {
       let postData: any = {
         "source": 'inventories',
         "data": Object.assign(this.inventoryForm.value, this.condition),
-        "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["brand_name", "inventory_category","source"],
+        // "token": this.cookieService.get('jwtToken'),
+        "sourceobj": ["brand_name", "inventory_category"],
 
       };
 

@@ -42,11 +42,11 @@ export class LoginComponent implements OnInit {
         },
         {
           "type": "salesrep",
-          "routerNav": "dashboard-admin"
+          "routerNav": "dashboard-salesrep"
         },
         {
           "type": "hospital",
-          "routerNav" : "dashboard-admin"
+          "routerNav" : "dashboard-medical-partner"
         }
       ]
     }
