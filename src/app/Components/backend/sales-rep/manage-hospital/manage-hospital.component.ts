@@ -23,7 +23,7 @@ export class ManageHospitalComponent implements OnInit {
   public id: any;
   public btn_text: string = "SUBMIT";
   public condition: any;
-  public message: string = "Hospital Added!!!";
+  public message: string;
   public salesrepname: string;
   public ErrCode: boolean;
   public action:string;
@@ -71,15 +71,20 @@ export class ManageHospitalComponent implements OnInit {
         /* Button text */
         this.btn_text = "SUBMIT";
         //Generating the form on ngOnInit
-        this.generateForm();     
+        this.generateForm();   
+        this.message = "Hospital Added!!!"  
         break;
       case 'edit':
         /* Button text */
-        this.btn_text = "UPDATE";       
+        this.btn_text = "UPDATE";     
+        this.message = "Hospital Information Updated";  
         //Generating the form on ngOnInit
         this.generateForm();
         this.setDefaultValue(this.defaultData);
-      
+        console.log("statename",this.defaultData.state);
+        setTimeout(() => {
+          this.getCityByName(this.defaultData.state);
+        }, 2000);      
         break;
     }
 
@@ -93,8 +98,17 @@ export class ManageHospitalComponent implements OnInit {
     this.manageHospitalForm.patchValue({
      hospitalname:defaultValue.hospitalname,
      email:defaultValue.email,
-
-    })
+     contactperson:defaultValue.contactperson,
+     zip:defaultValue.zip,
+     noofbeds:defaultValue.noofbeds,
+     noofdoctors:defaultValue.noofdoctors,
+     noofstaffs:defaultValue.noofstaffs,
+     speciality:defaultValue.speciality,
+     city:defaultValue.city,
+     state:defaultValue.state
+    })    
+    this.collect_phone_array = this.defaultData.contactemails;
+    this.collect_email_array = this.defaultData.contactphones;
   }
 
   /** configuration for image **/

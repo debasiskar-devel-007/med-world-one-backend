@@ -7,7 +7,7 @@ import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
-import { FileUploadModule } from 'file-upload';
+// import { FileUploadModule } from 'file-upload';
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -51,7 +51,7 @@ import { ListingBlogcatComponent } from './Components/managewebsites/blogmanagem
 
 
 //Team
-import { TeamModule } from 'team';
+// import { TeamModule } from 'team';
 import { AddEditTeamComponent } from './Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component';
 import { ListingTeamComponent } from './Components/managewebsites/teammanagement/listing-team/listing-team.component';
 import { ListingTeamCatComponent } from './Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component';
@@ -250,10 +250,10 @@ import { QuotesCartComponent } from './components/frontend/quotes-cart/quotes-ca
     FormsModule,
     ReactiveFormsModule,
     ListingModule,
-    FileUploadModule,
+    // FileUploadModule,
     // BlogModule,
     CKEditorModule,
-    TeamModule,
+    // TeamModule,
     HttpClientModule,
     ContactusModule,
     CommonModule,

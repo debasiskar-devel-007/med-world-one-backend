@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { environment } from '../../../../../../environments/environment';
+import { resolve } from 'url';
 
 
 @Component({
@@ -74,13 +75,20 @@ public search_settingsBrand: any =
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       console.log(resolveData.inventoryCatList.data)
-      this.inventoryCategoryData = resolveData.inventoryCatList.res;
-      // this.inventoryCategoryData = resolveData.inventoryCatList.data.res;
-      // console.log("INVEnTOR CATEGORY",this.inventoryCategoryData);
-      // this.brandData = resolveData.inventoryCatList.data.brands;
-      console.log(this.inventoryCategoryData)
+      this.inventoryCategoryData = resolveData.inventoryCatList.res;     
     });  
-           
+
+          this.getBrands(); 
+  }
+
+  getBrands(){
+    let data : any = {
+      source:'brands_view',
+      token:this.cookieService.get('jwtToken')
+    }
+    this.http.httpViaPost('datalist',data).subscribe((response)=>{
+          this.brandData = response.res;
+    });
   }
 
    
