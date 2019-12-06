@@ -58,7 +58,7 @@ import { SalesrepViewQuotesComponent } from '../Components/backend/sales-rep/sal
 import { SalesrepSalesComponent } from '../Components/backend/sales-rep/salesrep-sales/salesrep-sales.component';
 import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-hospital/manage-hospital.component';
 import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
-import { BlogComponent } from 'blog/blog';
+// import { BlogComponent } from 'blog-lib-influxiq';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
 import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
@@ -350,10 +350,10 @@ const routes: Routes = [
     resolve: { inventoryCatList: ResolveService },
     data: {
       requestcondition: {
-        source: '',
+        source: 'category_view',
         condition: {}
       },
-      endpoint: 'inventorybrand'
+      endpoint: 'datalist'
     },
   },
   {
@@ -475,14 +475,20 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   {path: 'cart', component: QuotesCartComponent},
 
   // front end routing
-  // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent },
+  { path: 'contactus', component: ContactUsComponent,resolve: { activeContact: ResolveService },
+  data: {
+    requestcondition: {
+      source: 'contactus_view_active',
+      condition: {}
+    },
+    endpoint: 'datalist'
+  },},
   {
     path: 'our-team',
     component: TeamPageComponent,
@@ -507,8 +513,23 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
-  { path: 'blog', component: BlogComponentFrontEnd },
-  { path: 'blog-details', component: BlogDetailsComponent },
+
+  { path: 'blog', component: BlogComponentFrontEnd},
+
+
+  { path: 'blog-details/:_id', component: BlogDetailsComponent,
+    resolve: {
+      blogCatList: ResolveService
+    },
+    data:
+    {
+      requestcondition:
+      {
+        source: 'blogs_view', condition: {}
+      }, endpoint: 'datalistwithouttoken'
+    } 
+  },
+
   { path: 'inventory', component: InventoryComponent },
   { path: 'inventory-details', component: InventoryDetailsComponent },
   { path: 'about-us', component: AboutUsFrontComponent },
@@ -646,7 +667,21 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'salesrep/my-added-inventory/details', component: DetailsInventoryComponent },
   { path: 'salesrep/view-quotes', component: SalesrepViewQuotesComponent },
   { path: 'salesrep/my-sales', component: SalesrepSalesComponent },
+
+  /** Salesrep hospital management **/
   { path: 'salesrep/hospital/manage-hospital', component: ManageHospitalComponent },
+  {
+    path: 'salesrep/hospital/manage-hospital/edit/:_id',
+    component: ManageHospitalComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        'source': 'users_view',
+        'condition': { 'type':'hospital'}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
 
 

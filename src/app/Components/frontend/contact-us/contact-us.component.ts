@@ -1,55 +1,64 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import {MatChipInputEvent} from '@angular/material';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css']
 })
 export class ContactUsComponent implements OnInit {
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  public contactLocationActive:any;
   public collect_email_array: any = [];
   public collect_phone_array: any = [];
   public contactusForm: FormGroup;
-  public api_url:any =this.httpServiceService.baseUrl;
-  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder, public cookieService: CookieService, public httpServiceService: HttpServiceService) {
-    
-    const link = this.api_url + 'temptoken';
-    this.httpClient.post(link, {}).subscribe(res => {
-    let result: any = res;
-    this.cookieService.set('jwtToken', result.token);
+  constructor(public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute) {
 
-  });
-
-    this.contactusForm = this.formBuilder.group({
+     this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: [''],
-      phone: [''],
+      email: ['',Validators.required],
+      phone: ['',Validators.required],
       address: ['', Validators.required],
       message: ['', Validators.required]
     })
   }
 
   ngOnInit() {
-  }
-  collect_email(event: any) {
-    if (event.keyCode == 32) {
-      this.collect_email_array.push(event.target.value);
-      this.contactusForm.controls['email'].patchValue("");
-      return;
-    }
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.contactLocationActive=resolveData.activeContact.res;
+        // console.log(resolveData.activeContact.res);
+      });
   }
 
-  //collecting mass phones
-  collect_phones(event: any) {
-    if (event.keyCode == 32) {
-      this.collect_phone_array.push(event.target.value);
-      this.contactusForm.controls['phone'].patchValue("");
-      return;
-    }
+
+  //keyUp event for email
+  collect_email(event: MatChipInputEvent):void{
+    const input=event.input;
+    const value = event.value;
+      this.collect_email_array.push(value);
+      if(input){
+        input.value='';
+      }
+  }
+
+  //keyUp event for Phone
+  collect_phones(event: MatChipInputEvent) {
+    const input=event.input;
+    const value = event.value;
+      this.collect_phone_array.push(value);
+      if(input){
+        input.value='';
+      }  
   }
 
   //delete mass email

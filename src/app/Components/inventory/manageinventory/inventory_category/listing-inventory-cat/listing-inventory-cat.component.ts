@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { environment } from '../../../../../../environments/environment';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class ListingInventoryCatComponent implements OnInit {
  deleteEndpoint: any = "deletesingledata";
  searchingEndpoint: any = "datalist";
  editUrl: any = 'inventory/manage-inventory/inventory-category/edit';
- apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+
+apiUrl:any = environment.API_URL;
  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
  public search_settings: any =
    {
@@ -44,7 +46,7 @@ UpdateEndpointBrand: any = "addorupdatedata";
 public deleteEndpointBrand: any = "deletesingledata";
 searchingEndpointBrand: any = "datalist";
 editUrlBrand: any = 'inventory/manage-inventory/brand/edit';
-apiUrlBrand: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+apiUrlBrand: any =  environment.API_URL;
 statusBrand: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
 public search_settingsBrand: any =
   {
@@ -66,32 +68,21 @@ public search_settingsBrand: any =
   constructor(private http: HttpServiceService, private cookieService: CookieService,
     private router: Router, public activatedRoute: ActivatedRoute) {
     this.user_cookie = cookieService.get('jwtToken');
-    console.log("tokennnnnnnnnnn",this.user_cookie);
-    // this.getBrandList();
+    
   }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       console.log(resolveData.inventoryCatList.data)
-      this.inventoryCategoryData = resolveData.inventoryCatList.data.inventory;
-      this.brandData = resolveData.inventoryCatList.data.brands;
-      // console.log(this.inventoryCategoryData)
+      this.inventoryCategoryData = resolveData.inventoryCatList.res;
+      // this.inventoryCategoryData = resolveData.inventoryCatList.data.res;
+      // console.log("INVEnTOR CATEGORY",this.inventoryCategoryData);
+      // this.brandData = resolveData.inventoryCatList.data.brands;
+      console.log(this.inventoryCategoryData)
     });  
            
   }
 
-    //getting the brand list
-    //  getBrandList()
-    //  {
-    //         var data :any;
-    //         data={ 'source':'brands_view','token': this.cookieService.get('jwtToken') };
-
-    //         this.http.httpViaPost('datalist',data).subscribe(res=>{
-    //           let brandData:any;
-    //           brandData=res.res
-    //                 console.log("+++++++++++++++++",brandData);
-    //         });
- 
-    //  }
+   
 
 }

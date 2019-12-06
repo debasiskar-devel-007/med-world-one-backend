@@ -2,7 +2,7 @@
    <mat-card-content-title class="Title">PURCHASE COMPARISON REPORT</mat-card-content-title>
 
    <mat-card-content class="dialog_table">
-      <table>
+      <!-- <table>
          <tr>
             <th>
                <p>Hospital previous quotes</p>
@@ -37,7 +37,7 @@
                </p>
             </td>
          </tr>
-      </table>
+      </table> -->
 
       <table id="customers">
             <thead>
@@ -49,40 +49,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+               <tr *ngFor="let item of data.msg">
                     <td>1</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, exercitationem laborum.
-                    </td>
-                    <td>$220</td>
-                    <td>$200</td>
+                    <td>{{ item.productname_sr }}</td>
+                    <td>{{item.price_sr }}</td>
+                    <td> {{item.price_md }}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur
-                    </td>
-                    <td>$1520</td>
-                    <td>$1500</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate.
-                    </td>
-                    <td>$50</td>
-                    <td>$45</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Lorem ipsum, dolor sit amet.
-                    </td>
-                    <td>$500</td>
-                    <td>$495</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Lorem ipsdf.</td>
-                    <td>$40</td>
-                    <td>$37</td>
-                </tr>
+                
             </tbody>
 
             <tfoot>

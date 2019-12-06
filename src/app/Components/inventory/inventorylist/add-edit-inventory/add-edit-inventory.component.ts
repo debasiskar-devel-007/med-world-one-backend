@@ -42,6 +42,7 @@ export class AddEditInventoryComponent implements OnInit {
   public a_value: string;
   public temp_array: any = [];
   public dynamic_items: FormArray;
+  public active_hospital_list:any=[];
 
 
 
@@ -82,11 +83,12 @@ export class AddEditInventoryComponent implements OnInit {
   ngOnInit() {
 
 
-    //getting the brand name
-    this.getBrandName();
 
     //getting the inventory category
     this.getInventoryCategory();
+
+    /** getting the active hospitals **/
+    this.getActiveHospital();
 
     // Case 
     switch (this.action) {
@@ -113,19 +115,15 @@ export class AddEditInventoryComponent implements OnInit {
       inventory_name: [],
       brand_name: [],
       inventory_category: [],
-      model: [],
+      sku: [],
       description: [],
       condition: ['New',],
       yom: [],
       availabiity: [],
       instock: [],
+      quantity:[],
       status: [],
-      inventory_image: [],
-      sku: [],
-      manufacturer: [],
-      application: [],
-      unspsc: [],
-      latexfreeindicator: [],
+      inventory_image: [],     
       dynamic_items: new FormArray([])
     });
   }
@@ -137,24 +135,16 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
-    console.log("defaultValue", defaultValue);
     this.inventoryForm.patchValue({
       inventory_name: defaultValue.inventory_name,
       brand_name: defaultValue.brand_name,
       inventory_category: defaultValue.inventory_category,
-      model: defaultValue.model,
+      sku: defaultValue.sku,
       description: defaultValue.description,
       condition: defaultValue.condition,
-      availabiity: defaultValue.availabiity,
-      instock: defaultValue.instock,
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
-      sku: defaultValue.sku,
-      manufacturer: defaultValue.manufacturer,
-      application: defaultValue.application,
-      unspsc: defaultValue.unspsc,
-      latexfreeindicator: defaultValue.latexfreeindicator,
-
+      quantity:defaultValue.quantity    
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
@@ -254,16 +244,19 @@ export class AddEditInventoryComponent implements OnInit {
 
   //getting the brand name
 
-  getBrandName() {
+  getBrandName(index:any) {
     var data: any;
     data = {
-      'source': 'brands',
-      'token': this.cookieService.get('jwtToken')
+      'source': 'category_view',
+      'token': this.cookieService.get('jwtToken'),
+       condition:{
+         _id_object:index
+       }
     };
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
-      result = response;
-      this.brand_name_array = result.res;
+      result = response.res;
+      this.brand_name_array = result[0].brand_name;
     });
   }
 
@@ -289,6 +282,25 @@ export class AddEditInventoryComponent implements OnInit {
     });
   }
 
+  /** get active hospital list **/
+  getActiveHospital(){
+    var data: any;
+    data = {
+      'source': 'users_view',
+      'token': this.cookieService.get('jwtToken'),
+      'condition':{
+            'type':'hospital',
+            status:1
+      }
+    };
+    this.http.httpViaPost("datalist", data).subscribe(response => {
+      let result: any;
+      result = response.res;
+      this.active_hospital_list = result
+      // console.log('active hospitals',result);
+    
+    });
+  }
 
   /** adding dynamic fields **/
   createItem2(): FormGroup {
@@ -306,7 +318,7 @@ export class AddEditInventoryComponent implements OnInit {
 
 
   addItem(): void {
-    console.log("i", this.i_count);
+   
     this.dynamic_items = this.inventoryForm.get('dynamic_items') as FormArray;
 
 

@@ -285,22 +285,28 @@ img {
 .home_blogsection .home_content_wrapper {width: 1700px; margin: 0 auto;}
 .home_blogsection .home_content_wrapper .header_group { text-align: center; padding: 0 70px;}
 .home_blogsection .home_content_wrapper .header_group .blog_paragraph { font-size: 16px; font-family: "RobotoMedium"; color: #383838; line-height: 26px;}
-.home_blogsection .blog_item_wrapper { display: flex; justify-content: center; }
+.home_blogsection .blog_item_wrapper { display: flex; justify-content: center;    flex-wrap: wrap;     align-items: stretch;}
 .home_blogsection .home_content_wrapper .blog_item { background: #fff; width: 24%; padding: 22px; margin: 0 .5%; box-sizing: border-box; }
-.home_blogsection .home_content_wrapper .blog_item .image_Wrapper { max-height: 226px; margin-bottom: 28px; background-color: #dfe8ee; }
-.home_blogsection .home_content_wrapper .blog_item .image_Wrapper img { max-width: 100%; }
-.home_blogsection .home_content_wrapper .blog_item .blog_item_header { font-family: "HelveticaBold"; color: #2674c2; margin-bottom: 20px;}
+.home_blogsection .home_content_wrapper .blog_item .image_Wrapper { max-height: 226px; height: 226px; margin-bottom: 28px; background-color: #dfe8ee; }
+.home_blogsection .home_content_wrapper .blog_item .image_Wrapper img {height: 100% !important;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100% !important;
+  width: auto;
+  height: auto; }
+.home_blogsection .home_content_wrapper .blog_item .blog_item_header { font-family: "HelveticaBold"; color: #2674c2; margin-bottom: 20px;max-height: 125px;
+  height: 100%;}
 .home_blogsection .home_content_wrapper .blog_item .blog_item_subheader { font-family: "HelveticaRegular"; color: #181818; border-bottom: 1px solid #c9c9c9; text-transform: uppercase; font-size: 14px; padding-bottom: 10px; }
-.home_blogsection .home_content_wrapper .blog_item .blog_item_paragraph{ font-family: "HelveticaRegular"; color:#888888; font-size: 16px; line-height: 26px; display: inline; }
+.home_blogsection .home_content_wrapper .blog_item .blog_item_paragraph{ font-family: "HelveticaRegular"; color:#888888; font-size: 16px; line-height: 26px; display: inline; overflow: hidden;  text-overflow: ellipsis;display: -webkit-box; line-height: 25px; height:170px;  -webkit-line-clamp: 5;}
 .home_blogsection .home_content_wrapper .blog_item  .readmore{ color: #cf1818; text-transform: capitalize; cursor: pointer;}
 .home_blogsection .home_content_wrapper .blog_item .social_wrapper { display: flex; justify-content: flex-end; margin-top: 16px;}
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button{ min-width: 0; border-radius: 0; padding: 0 12px; }
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(1){ background: #4e71a8; color: #fff;}
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(2){ background: #1cb7eb; color: #fff; }
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(3){ background: #ca3737; color: #fff;}
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(4){ background: #1686b0; color: #fff;}
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(5){ background: #6e7678; color: #fff; }
-.home_blogsection .home_content_wrapper .blog_item .social_wrapper button:nth-child(6){ background: #95d03a; color: #fff; }
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a{ min-width: 0; border-radius: 0; padding: 0 12px; }
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(1){ background: #4e71a8; color: #fff;}
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(2){ background: #1cb7eb; color: #fff; }
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(3){ background: #ca3737; color: #fff;}
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(4){ background: #1686b0; color: #fff;}
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(5){ background: #6e7678; color: #fff; }
+.home_blogsection .home_content_wrapper .blog_item .social_wrapper a:nth-child(6){ background: #95d03a; color: #fff; }
 .home_blogsection .home_content_wrapper .viewall_wrapper{ background: transparent; justify-content: center; margin-top: 50px;}
 .home_blogsection .home_content_wrapper .viewall_wrapper .blogview_all{background: #111214;  font-family: "RobotoMedium"; color: #e2f2ff; border-radius: 0;
 text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
@@ -309,6 +315,22 @@ text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_subheader { font-family: "MontserratSemibold"; font-size: 30px; line-height: 32px; text-transform: uppercase; color: #282828; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_paragraph{ font-family: "RobotoRegular"; font-size: 16px; line-height: 32px;       color: #383838;}
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 .inner_content_wrapper .h2_parthospital_action_button {  background: #111214; font-family: "RobotoMedium"; font-size: 26px; text-transform: uppercase; color: #fff; border-radius: 0; padding: 4px 15px;}
+
+
+.truncate{overflow: ellipsis;text-overflow: -o-ellipsis-lastline; display: -webkit-box; line-height: normal; max-height: 108px; -webkit-line-clamp: 5;}
+.truncateopen{overflow: inherit !important; min-height:178px; height: 100% !important; height: auto !important; text-overflow: inherit !important; -webkit-line-clamp: inherit !important; }
+.truncateopen p{ height: auto !important;    overflow: inherit; min-height: auto !important;
+  text-overflow: inherit;
+  display: inherit;
+  line-height: 24px;
+  height: auto !important;
+  -webkit-line-clamp: inherit !important;}
+  .truncate.truncateopen{
+    max-height: inherit !important;
+  }
+  .truncate.truncateopen p{height: auto !important;}
+
+
 
 @media screen and (max-width: 1800px){
 .h_part2 { width: 90%; margin: 0 auto;}
@@ -373,6 +395,14 @@ text-transform: uppercase; font-size: 26px; padding: 6px 40px; }
 }
 
 @media screen and (max-width: 1360px){
+  .home_blogsection .home_content_wrapper .blog_item .blog_item_header {
+    font-family: "HelveticaBold";
+    color: #2674c2;
+    margin-bottom: 20px;
+    max-height: 90px;
+    height: 100%;
+    font-size: 18px;
+}
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content { padding-left: 615px; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content .inner_content_wrapper .h2_parthospital_subheader { line-height: 28px; }
 .h_part2 .h2_parthospital_wrapper .h2_parthospital_content2 { padding-right: 595px; }

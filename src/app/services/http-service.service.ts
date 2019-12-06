@@ -73,6 +73,20 @@ export class HttpServiceService {
 }
 
 
+
+ postDataWithoutToken(endpoint:any, data:any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    //console.log('endpoint');
+    //console.log(endpoint);
+    var result = this.http.post(this.baseUrl+endpoint, JSON.stringify(data), httpOptions).pipe(map(res => res));
+    return result;
+  }
+
+
 }
 
 

@@ -3,7 +3,7 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
-import { LoginModule } from 'login';
+import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
@@ -41,7 +41,7 @@ import { AddEditSalesrepComponent, Modal3 } from './Components/admin/salesrep-ma
 
 
 //Blogs
-import { BlogModule, BlogComponent } from 'blog';
+// import { BlogModule, BlogComponent } from 'blog';
 import { AddEditBlogsComponent } from './Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component';
 import { ListingBlogsComponent } from './Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component';
 
@@ -251,7 +251,7 @@ import { QuotesCartComponent } from './components/frontend/quotes-cart/quotes-ca
     ReactiveFormsModule,
     ListingModule,
     FileUploadModule,
-    BlogModule,
+    // BlogModule,
     CKEditorModule,
     TeamModule,
     HttpClientModule,

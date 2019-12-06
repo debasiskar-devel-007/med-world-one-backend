@@ -1,3 +1,6 @@
+
+
+
 .clickable{ cursor: pointer; } 
 .purchaseComparison table{ width: 100%;}
 .searchBar{ justify-content: space-between; height: auto;}
@@ -13,18 +16,11 @@ padding: 50px; padding-right: 45%; }
 .brand_group .tabs_wrapper{ margin-top: 16px; }
    
 .dialogContainer{ width: 800px; background: #f7f7f7; border: 1px solid #fff; padding: 0; }
-.dialogContainer table{ width: 100%; border: none; border-spacing: 0;}
+/* .dialogContainer table{ width: 100%; border: none; border-spacing: 0;} */
 .dialogContainer .Title{ color: #fff; font-size: 30px; font-family: "RobotoBold"; display: block; text-align: center; margin-bottom: 20px;  
 padding-bottom: 5px; background: #0062b7; padding: 10px; box-sizing: border-box; box-shadow: 0px 3px 3px 0px #adadad; }
-.dialogContainer .dialog_table{ padding: 4px 16px; background: #3199ff;}
-.dialogContainer .dialog_table  table { border-collapse: collapse; }
-.dialogContainer .dialog_table  table, .dialogContainer .dialog_table table th, .dialog_table table td { border-collapse: separate;
-    border-spacing: 0 15px; }
-.dialogContainer .dialog_table table th{ background: #ccfff1; font-size: 20px; text-transform: capitalize; font-family: "RobotoBold"; font-weight: normal; color: #228267; line-height: 10px;}
-
-.dialog_table table td {width: 50%; box-sizing: border-box; }
-.dialog_table table td p{ background: #d6d6d6; padding: 10px; margin: 5px 0; color: #000; font-size: 16px; font-family: "HelveticaRegular"; }
-.dialog_table table td p:nth-child(odd){ background: #fff; }
+ 
+ 
 .dialogContainer .sendMail { padding: 16px;}
 .dialogContainer .sendMail .mat-form-field{ width: 100%;}
 .dialogContainer .sendMail .button_wrapper{ padding: 0; justify-content: flex-end; }
@@ -32,7 +28,7 @@ padding-bottom: 5px; background: #0062b7; padding: 10px; box-sizing: border-box;
     background: #1962b7; color: #fff; width: 130px; border-radius: 0; padding: 4px;}
 .dialogContainer .sendMail .body{ min-height: 120px;}
 .label_class{ color: #1962b7; font-size: 18px; font-family: "HelveticaRegular"; margin-bottom: 5px; display: block; }
-
+.dialog_table { padding: 30px; }
 /* new table */
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

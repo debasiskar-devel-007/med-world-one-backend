@@ -19,12 +19,12 @@
       "dom"
     ],
     "paths" :{
-      "login": [                   //login library
-        "dist/login"
-      ],
-      "login/*": [
-        "dist/login/*"
-      ],
+      // "login": [                   //login library
+      //   "dist/login"
+      // ],
+      // "login/*": [
+      //   "dist/login/*"
+      // ],
       "lib-listing": [
         "dist/listing"
       ],
@@ -61,8 +61,6 @@
       "contactus/*": [
         "dist/contactus/*"
       ]
-
-
 
     }
   },

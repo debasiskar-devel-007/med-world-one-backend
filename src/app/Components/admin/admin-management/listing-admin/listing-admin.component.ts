@@ -30,9 +30,10 @@ export class ListingAdminComponent implements OnInit {
   user_cookie: any;
   searchingEndpoint: any = "datalist";
   editUrl: any = 'admin-management/edit';
-  apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
+  apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "user_view";
+  detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],

@@ -14,16 +14,6 @@
 
     <mat-tab-group class="brand_group">
 
-        <!-- Contact Info -->
-        <mat-tab label="CONTACT INFO">
-            <mat-card>
-                    <button class="singleButton" mat-raised-button [routerLink]="['/admin-dashboard/addcontactinfo']">
-                        <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Contact Info</button>
-                <mat-card-title class="inventory_title">sourav</mat-card-title>
-            </mat-card>
-        </mat-tab>
-
-
         <!-- Contact Request tab -->
         <mat-tab label="CONTACT REQUESTS">
             <mat-card class="main_wrapper">
@@ -33,14 +23,51 @@
                 </mat-toolbar>
                 <!-- Listing goes here  -->
                 <lib-listing class="contactus_misc" *ngIf="contactData != null && contactData.length>0"
-                    [datasource]="contactData" [skip]="contactData_skip"
-                    [modify_header_array]="contactData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
-                    [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"
-                    [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
-                    [date_search_endpoint]="searchingEndpoint" [date_search_source]="view"
-                    [search_settings]="search_settings" [detail_datatype]="image_detail_datatype"
+                    [datasource]="contactData" 
+                    [skip]="contactData_skip"
+                    [modify_header_array]="contactData_modify_header"
+                     [sourcedata]="tableName"
+                      [apiurl]="apiUrl"
+                    [editroute]="editUrl" 
+                    [jwttoken]="user_cookie"
+                     [statusarr]="status"
+                    [updateendpoint]="UpdateEndpoint"
+                     [deleteendpoint]="deleteEndpoint"
+                    [date_search_endpoint]="searchingEndpoint" 
+                    [date_search_source]="view"
+                    [search_settings]="search_settings" 
+                    [detail_datatype]="image_detail_datatype"
                     [detail_skip_array]="detail_skip_array">
                 </lib-listing>
+            </mat-card>
+        </mat-tab>
+
+        <!-- Contact Info -->
+        <mat-tab label="CONTACT INFO">
+            <mat-card>
+                        <mat-toolbar class="content_header_wrapper">
+                            <mat-card-title class="toolbar_header">Contact Info list </mat-card-title>
+                            <button class="singleButton" mat-raised-button [routerLink]="['/admin-dashboard/addcontactinfo']">
+                                <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Contact Info</button>
+                        </mat-toolbar>
+                        <!-- Listing goes here  -->
+                        <lib-listing *ngIf="contactInfoData != null && contactInfoData.length>0"
+                            [datasource]="contactInfoData"
+                             [skip]="contactInfoData_skip"
+                            [modify_header_array]="contactInfoData_modify_header"
+                             [sourcedata]="tableNam" 
+                             [apiurl]="apiUrll"
+                            [editroute]="edtUrl" 
+                            [jwttoken]="user_cookie" 
+                            [statusarr]="statuss"
+                            [updateendpoint]="UpdateEndpnt"
+                             [deleteendpoint]="deleteEndpnt"
+                            [date_search_endpoint]="searchingEndpnt" 
+                            [date_search_source]="vieww"
+                            [search_settings]="search_settingss"
+                             [detail_datatype]="image_detail_datatype"
+                            [detail_skip_array]="contactInfoData_skip_array">
+                        </lib-listing>
             </mat-card>
         </mat-tab>
 
