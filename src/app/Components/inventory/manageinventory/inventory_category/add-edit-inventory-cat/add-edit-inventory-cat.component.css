@@ -39,3 +39,6 @@
 .from_wrapper .button_wrapper button:nth-child(1) { margin-left:0px;}
 .from_wrapper .button_wrapper button:nth-last-child(1) { margin-right: 0px; }
 .from_wrapper form .label{ color: #4e4141;  margin-right: 5px;  font-family: "HelveticaBold";}
+.clickable{
+    cursor: pointer;
+}

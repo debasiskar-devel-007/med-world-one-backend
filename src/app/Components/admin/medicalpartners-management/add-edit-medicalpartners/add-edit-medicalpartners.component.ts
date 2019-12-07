@@ -182,7 +182,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     this.fullImgPath = defaultValue.mpimage.basepath + defaultValue.mpimage.image;
     this.imgName = defaultValue.mpimage.name;
     this.imgtype = defaultValue.mpimage.type;
-    console.log("fullImgPath",this.fullImgPath);
   }
   // ======================================================================================
 
@@ -264,8 +263,6 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     }
     else {
 
-
-      console.log(this.medicalPartnerForm.value);
       //status
       if (this.medicalPartnerForm.value.status) {
         this.medicalPartnerForm.value.status = parseInt("1");

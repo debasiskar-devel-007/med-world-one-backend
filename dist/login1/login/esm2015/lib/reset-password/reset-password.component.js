@@ -32,7 +32,7 @@ export class ResetPasswordComponent {
          */
         params => {
             this.accesscode = params['token'];
-            console.log(this.accesscode);
+            // console.log(this.accesscode);
         }));
         this.resetPasswordForm = this.fb.group({
             // password: ['',  Validators.compose([Validators.required, Validators.minLength(4)])],

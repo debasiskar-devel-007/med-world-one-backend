@@ -21,11 +21,6 @@ export class AdminDashboardHospitalViewdetailsComponent implements OnInit {
         });
       }
     });
-    // console.log(this.hospitalDetailData.status);
-  //   if(this.hospitalDetailData.status==0)
-  //   this.status = "Active";
-  //   else
-  //   this.status = "Inactive";
    }
 
   ngOnInit() {

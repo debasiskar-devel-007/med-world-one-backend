@@ -177,7 +177,7 @@ export class AddEditInventoryComponent implements OnInit {
       data[item[loop].label_name] = item[loop].label_value;
       this.inventoryForm.value.dynamic_attributes.push(data);
     }
-    console.log(this.inventoryForm.value);
+   
 
     // Image File Upload Works 
     if (this.configData.files) {
@@ -263,7 +263,6 @@ export class AddEditInventoryComponent implements OnInit {
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response.res;
-     console.log("result",result[0].brand);
      this.brand_name_array = result[0].brand;
     });
   }
