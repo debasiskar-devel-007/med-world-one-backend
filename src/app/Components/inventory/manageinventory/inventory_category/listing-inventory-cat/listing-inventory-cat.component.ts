@@ -74,7 +74,6 @@ public search_settingsBrand: any =
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      console.log(resolveData.inventoryCatList.data)
       this.inventoryCategoryData = resolveData.inventoryCatList.res;     
     });  
 

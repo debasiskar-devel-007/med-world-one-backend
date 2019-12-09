@@ -23,7 +23,7 @@ public collect_phone_array: any = [];
        allData = cookieService.getAll()
        let user_data = JSON.parse(allData.user_details);
       this.adminid={admin_id:user_data._id}
-      //console.log(this.adminid);
+      
 
     this.allStateCityData();
 
@@ -50,12 +50,10 @@ public collect_phone_array: any = [];
    allStateCityData() {
     this.http.getSiteSettingData("./assets/data-set/state.json").subscribe(response => {
       this.states = response;
-     // console.log(this.states);
     });
 
     this.http.getSiteSettingData("./assets/data-set/usa-cities.json").subscribe(response => {
       this.allCities = response;
-      //console.log(this.allCities);
     });
   }
 
@@ -104,10 +102,9 @@ public collect_phone_array: any = [];
     "token": this.cookieService.get('jwtToken'),
     "sourceobj": ["admin_id"],
   };
-  // console.log(this.contactInfo.value);
-  // console.log(postData);
+ 
   this.http.httpViaPost('addorupdatedata', postData).subscribe(res => {
-    //console.log(res);
+
     if (res.status == "success") {
       this._snackBar.open('Contact Info add successfully', '', {
         duration: 2000,
@@ -123,7 +120,6 @@ public collect_phone_array: any = [];
 
 /**blur function */
   inputUntouch(form: any, val: any) {
-    //console.log('on blur .....');
     form.controls[val].markAsUntouched();
   }
 }

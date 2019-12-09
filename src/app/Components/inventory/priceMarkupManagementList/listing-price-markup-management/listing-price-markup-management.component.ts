@@ -40,13 +40,10 @@ public search_settings: any =
     private router: Router, public activatedRoute: ActivatedRoute) { 
     this.user_cookie = cookieService.get('jwtToken');
     this.apiUrl = http.baseUrl;
-
-    console.log("tokennnnnnnnnnn",this.user_cookie);
   }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      console.log('>>>>>>>>>>>',resolveData.priceMarkupList.res)
       this.priceMarkupData=resolveData.priceMarkupList.res;
   })
 

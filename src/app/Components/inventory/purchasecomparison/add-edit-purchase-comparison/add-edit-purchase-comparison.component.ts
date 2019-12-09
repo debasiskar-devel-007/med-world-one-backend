@@ -253,7 +253,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
   /** submit function **/
   onSubmit() {
-
+    this.purchaseForm.value.is_draft = null;
     this.purchaseForm.value.hospital_id = this.tmp_value;
     this.purchaseForm.value.report_name = this.reportName;
     this.purchaseForm.value.user_id = this.id;

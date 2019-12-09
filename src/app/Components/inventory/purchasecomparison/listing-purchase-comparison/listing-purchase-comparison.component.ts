@@ -251,9 +251,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   /** search by date **/
   search_by_date(event: any) {
     let startDate = moment(event.startDate).format('MM-DD-YYYY');
-    console.log("Start Date", startDate);
     let endDate = moment(event.endDate).format('MM-DD-YYYY');
-    console.log("End Date", endDate);
     if (startDate != "Invalid date") {
       let data: any = {
         'source': 'purchasecomparison_view_admin',

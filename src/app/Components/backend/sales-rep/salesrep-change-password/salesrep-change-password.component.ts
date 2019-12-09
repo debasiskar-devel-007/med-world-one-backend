@@ -27,7 +27,6 @@ export class SalesrepChangePasswordComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
-    console.log("id->",this.id);
    }
 
   ngOnInit() {

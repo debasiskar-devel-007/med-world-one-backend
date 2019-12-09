@@ -294,7 +294,7 @@ export class ApiService {
      * @return {?}
      */
     addData(requestdata) {
-        console.log('in adddata apiservice');
+        // console.log('in adddata apiservice');
         /** @type {?} */
         const httpOptions = {
             headers: new HttpHeaders({
@@ -379,7 +379,7 @@ export class ApiService {
      * @return {?}
      */
     addLogin(requestdata) {
-        console.log('in addLogin apiservice');
+        // console.log('in addLogin apiservice');
         /** @type {?} */
         const httpOptions = {
             headers: new HttpHeaders({
@@ -403,7 +403,7 @@ export class ApiService {
      * @return {?}
      */
     forgetPassword(requestdata) {
-        console.log('in forgetPassword apiservice');
+        // console.log('in forgetPassword apiservice');
         /** @type {?} */
         const httpOptions = {
             headers: new HttpHeaders({

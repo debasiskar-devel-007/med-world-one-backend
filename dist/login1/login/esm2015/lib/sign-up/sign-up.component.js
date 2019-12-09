@@ -104,7 +104,7 @@ export class SignUpComponent {
      */
     set addEndpoint(addEndpointVal) {
         this.addEndpointValue = addEndpointVal;
-        console.log(this.addEndpointValue);
+        // console.log(this.addEndpointValue);
     }
     /**
      * @param {?} routeingUrlval
@@ -158,13 +158,13 @@ export class SignUpComponent {
             /** @type {?} */
             let allData = this.signUpForm.value;
             allData.type = this.typevalue;
-            console.log(allData);
+            // console.log(allData);
             /** @type {?} */
             let data = {
                 'data': allData,
                 "source": this.addEndpointValue.source
             };
-            console.log(data);
+            // console.log(data);
             this.apiService.addData(data).subscribe((/**
              * @param {?} response
              * @return {?}
@@ -173,7 +173,7 @@ export class SignUpComponent {
                 /** @type {?} */
                 let result = {};
                 result = response;
-                console.log(result);
+                // console.log(result);
                 if (result.status == "success") {
                     /** @type {?} */
                     const dialogRef = this.dialog.open(successModalComponent, {
@@ -296,7 +296,7 @@ export class successModalComponent {
     constructor(dialogRef, data) {
         this.dialogRef = dialogRef;
         this.data = data;
-        console.log(data);
+        // console.log(data);
     }
     /**
      * @return {?}
