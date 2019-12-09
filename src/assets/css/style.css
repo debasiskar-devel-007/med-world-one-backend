@@ -95,7 +95,7 @@ body {
 }
 
 @font-face {
-    font-family: 'Avenir LT Std';
+    font-family: 'AvenirLTStd';
     src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2'),
         url('../fonts/AvenirLTStd-Roman.woff') format('woff');
     font-weight: normal;
@@ -117,6 +117,7 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
 
   /* font end */
 
@@ -577,6 +578,121 @@ tr td br{ display: none; }
   background:none;padding: 0 0px!important;
 }
 
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none !important;} 
+.inputstyle .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  transform: inherit;
+    top: -8px;
+}
+.inputstyle .mat-form-field-label.ng-star-inserted.mat-empty.mat-form-field-empty{
+  display: block !important;
+    transition: none;
+    transform: inherit !important;
+    margin-top: 0;
+    padding: initial;
+    top: -8px;
+    left: 0;
+}
+.inputstyle .mat-form-field-label-wrapper{
+  overflow: inherit;
+}
+.inputstyle  .mat-form-field-infix input, .inputstyle  .mat-form-field-infix mat-select{
+  height: 35px;
+    border: 1px solid #ddd;
+    padding: 0 1%;
+    width: 98%;
+}
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-infix{
+  padding: 5px 0;
+  border: 0;
+  margin: 0 0;
+  margin-top: 20px;
+  position: relative;padding-bottom: 15px;  
+}
+
+.col-1-1{width: 99%;padding: 0 .5%;display: inline-block;}
+.col-1-2{width: 49%; padding: 0 .5%;display: inline-block;}
+.col-1-3{width: 32.3%; padding: 0 .5%;display: inline-block;}
+.col-1-4{width: 24%;padding: 0 .5%;display: inline-block;}
+.formstylemainwrapper .mat-list-item{height: auto !important;}
+.formstylemainwrapper .formbody{
+  border: 1px solid #d6d6d6;
+  padding: 20px 15px !important;
+  width: inherit !important;
+}
+.formstylemainwrapper .mat-list-item .mat-list-item-content{ padding: 0 !important;}
+.formstylemainwrapper .mat-list-item form{ width: 100%;}
+
+.inputstyle.from_wrapper{border-radius: 5px;}
+
+.formtitle{
+  font-family: 'AvenirLight';
+  font-size: 24px !important;
+  padding-bottom: 25px;
+  width: 100%;
+  border-bottom: 1px solid #566075;
+  margin-bottom: 25px !important;
+}
+.inputstyle .mat-form-field{display: block !important;}
+.inputstyle mat-label{
+  font-family: 'AvenirMedium' !important;
+    font-size: 16px !important;
+    color: #535353 !important
+}
+.inputstyle a{color: #0fa6d2;cursor: pointer}
+.cpass{
+  text-transform: uppercase;
+  text-decoration: underline;
+  top: -8px;
+  display: block;
+  position: relative;
+  line-height: 21px;
+}
+.inputstyle .mat-checkbox-checkmark {
+  fill: #ffffff;
+  background: #0fce26;
+  height: 6px;
+  width: 6px !important;
+  border-radius: 50%;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
+.inputstyle .mat-checkbox-checkmark-path {
+  stroke: #ffffff00!important;
+  height: 2px;
+  width: 2px;
+  background: white;
+  display: inline-block;
+  stroke-width: 2px !important;
+  stroke-dasharray: 2px !important;
+}
+.inputstyle .mat-checkbox-checked.mat-accent .mat-checkbox-background, .inputstyle .mat-checkbox-background{
+  background-color: #ffffff;
+    border: 2px solid #bababa;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+.inputstyle .mat-checkbox-checked .mat-checkbox-checkmark{opacity: 0;}
+.inputstyle .mat-checkbox-inner-container{
+  height: 20px;
+}
+.inputstyle .mat-checkbox-frame{display: none;}
+.checktitle{display: block;}
+.checkwrapper{display: inline-block; padding-right: 10px;padding-top: 5px;}
+.checkwrapper .mat-checkbox-label{text-transform: uppercase;}
+.formfooter .button_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  width: 100%;
+}
+.button_wrapper button{min-width: 145px; color: #fff; text-transform: uppercase; font-size: 18px;font-family: 'AvenirMedium' !important; text-align: center;text-shadow: 0 2px 0 rgba(0,0,0,.30);}
+.bluebutton{background-color: #013265 !important;}
+.skybutton{background-color: #09c5fb !important;}
 /* ----------------- list view css end -------------------- */
 
 

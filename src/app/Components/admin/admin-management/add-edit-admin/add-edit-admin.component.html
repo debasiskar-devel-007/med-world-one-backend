@@ -1,127 +1,195 @@
 <app-adminheader>
-          <span class="dashboardcontainer">
-     <mat-card class="main_wrapper">
-          <mat-card-content class="bred_cram_wrapper">
+     <span class="dashboardcontainer">
+          <mat-card class="main_wrapper">
+               <!-- <mat-card-content class="bred_cram_wrapper">
                <a mat-list-item routerLinkActive="active" routerLink="/dashboard-admin"> Dashboard </a>
                <a mat-list-item routerLinkActive="active" routerLink="/admin-management/list">manage admin list </a>
                <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/admin-management/add'">
                     add
                </a>
-          </mat-card-content>
+          </mat-card-content> -->
 
 
-          <mat-card-content class="from_wrapper">
-               <h1 class="form_header">{{ header_txt }}</h1>
-               <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+               <mat-card-content class="from_wrapper inputstyle">
+                    <mat-list class="formstylemainwrapper">
+                         <mat-list-item class="formheader">
+                              <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
+                         </mat-list-item>
+                         <mat-list-item class="formbody">
+                              <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+                                   <span class="col-1-4">
+                                        <mat-form-field>
+                                             <mat-label>User Id</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+                                   <span class="col-1-4">
+                                        <mat-form-field>
+                                             <mat-label>Date Added</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+                                   <!-- First Name  -->
+                                   <span class="col-1-4">
+                                        <mat-form-field>
+                                             <mat-label>First Name</mat-label>
+                                             <input matInput placeholder="Adam" formControlName="firstname"
+                                                  (blur)="inputBlur('firstname')">
+                                             <mat-error *ngIf="!adminForm.controls['firstname'].valid
+                              && adminForm.controls['firstname'].errors.required">First Name is required.</mat-error>
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['firstname'].valid && !adminForm.controls['firstname'].errors.required">
+                                                  Name is not valid</mat-error>
+                                        </mat-form-field>
+                                   </span>
+                                   <!-- Last Name  -->
+                                   <span class="col-1-4">
+                                        <mat-form-field>
+                                             <mat-label>Last Name</mat-label>
+                                             <input matInput placeholder="Stewart" formControlName="lastname"
+                                                  (blur)="inputBlur('lastname')">
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['lastname'].valid && adminForm.controls['lastname'].errors.required">
+                                                  Last Name is required.</mat-error>
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['lastname'].valid && !adminForm.controls['lastname'].errors.required">
+                                                  Name is not valid</mat-error>
+                                        </mat-form-field>
+                                   </span>
+                                   <!-- Email  -->
+                                   <span class="col-1-2">
+                                        <mat-form-field>
+                                             <mat-label>Email Address</mat-label>
+                                             <input matInput placeholder="adam123@gmail.com"
+                                                  [readonly]="flag==true?true:false" formControlName="email"
+                                                  (blur)="inputBlur('email')">
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['email'].valid && adminForm.controls['email'].errors.required">
+                                                  Email is required.</mat-error>
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['email'].valid && !adminForm.controls['email'].errors.required">
+                                                  Email
+                                                  is not valid</mat-error>
+                                        </mat-form-field>
+                                   </span>
+                                   <!-- Phone  -->
+                                   <span class="col-1-2">
+                                        <mat-form-field>
+                                             <mat-label>Contact Number</mat-label>
+                                             <input matInput placeholder="9874122558" formControlName="phone"
+                                                  (blur)="inputBlur('phone')">
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['phone'].valid && adminForm.controls['phone'].errors.required">
+                                                  Phone is required.</mat-error>
+                                             <mat-error
+                                                  *ngIf="!adminForm.controls['phone'].valid && !adminForm.controls['phone'].errors.required">
+                                                  Phone must be only 10 digit integers</mat-error>
+                                        </mat-form-field>
+                                   </span>
+
+                                   <!-- Password  -->
+                                   <!-- <span class="col-1-2">
+                                                       <mat-form-field *ngIf="action=='add'">
+                                                            <mat-label>Password</mat-label>
+                                                            <input matInput type="password" placeholder="***********" formControlName="password"
+                                                                 (blur)="inputBlur('password')">
+                                                            <mat-error *ngIf="adminForm.controls['password']?.touched || adminForm.controls['password'].errors
+                                     && adminForm.controls['password'].errors.required">Password is required.</mat-error>
+                                                       </mat-form-field>
+                                                  </span> -->
+
+                                   <span class="col-1-2">
+                                        <mat-form-field>
+                                             <mat-label>Password</mat-label>
+                                             <input matInput type="password">
+                                             <mat-error>Password is required.</mat-error>
+                                        </mat-form-field>
+                                   </span>
+
+                                   <!-- contact No  -->
+                                   <span class="col-1-2">
+                                        <a class="cpass" (click)="change_password()" *ngIf="action!='add'"
+                                             color="accent">Change password</a>
+                                   </span>
+                                   <span class="col-1-1">
+                                        <mat-form-field>
+                                             <mat-label>Address</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+                                   <span class="col-1-3">
+                                        <mat-form-field>
+                                             <mat-label>City</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+                                   <span class="col-1-3">
+                                        <mat-form-field>
+                                             <mat-label>State</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+                                   <span class="col-1-3">
+                                        <mat-form-field>
+                                             <mat-label>Zip</mat-label>
+                                             <input matInput placeholder="">
+                                             <mat-error>First Name is required.</mat-error>
+                                             <!-- <mat-error>Name is not valid</mat-error> -->
+                                        </mat-form-field>
+                                   </span>
+
+                                   <!-- Confirm Password  -->
+                                   <!-- <span class="col-1-2">
+                                        <mat-form-field *ngIf="action=='add'">
+                                             <mat-label>Confirm Password</mat-label>
+                                             <input matInput type="password" placeholder="***********"
+                                                  formControlName="confirmpassword"
+                                                  (blur)="inputBlur('confirmpassword')">
+                                             <mat-error *ngIf="adminForm.controls['confirmpassword']?.touched || adminForm.controls['confirmpassword'].errors
+                                && adminForm.controls['confirmpassword'].errors.required">Password do not match
+                                             </mat-error>
+                                        </mat-form-field>
+                                   </span> -->
 
 
 
-                    <!-- First Name  -->
-                    <span class="col-1-2">
-                    <mat-form-field>
-                         <mat-label>First Name</mat-label>
-                         <input matInput placeholder="Adam" formControlName="firstname" (blur)="inputBlur('firstname')">
-                         <mat-error *ngIf="!adminForm.controls['firstname'].valid
-          && adminForm.controls['firstname'].errors.required">First Name is required.</mat-error>
-                         <mat-error
-                              *ngIf="!adminForm.controls['firstname'].valid && !adminForm.controls['firstname'].errors.required">
-                              Name is not valid</mat-error>
-                    </mat-form-field>
-               </span>
 
-                    <!-- Last Name  -->
-                    <span class="col-1-2">
-                    <mat-form-field>
-                         <mat-label>Last Name</mat-label>
-                         <input matInput placeholder="Stewart" formControlName="lastname"
-                              (blur)="inputBlur('lastname')">
-                         <mat-error
-                              *ngIf="!adminForm.controls['lastname'].valid && adminForm.controls['lastname'].errors.required">
-                              Last Name is required.</mat-error>
-                         <mat-error
-                              *ngIf="!adminForm.controls['lastname'].valid && !adminForm.controls['lastname'].errors.required">
-                              Name is not valid</mat-error>
-                    </mat-form-field>
-               </span>
+                                   <!-- Status -->
+                                   <span class="col-1-1">
+                                        <mat-label class="checktitle">Status</mat-label>
+                                        <span class="checkwrapper">                                             
+                                             <mat-checkbox formControlName="status">Active</mat-checkbox>
+                                        </span>
+                                        <span class="checkwrapper">
+                                             <mat-checkbox>Blocked</mat-checkbox>
+                                        </span>
+                                   </span>
+
+                                   <!-- Buttons  -->
+
+                              </form>
+                         </mat-list-item>
+                         <mat-list-item class="formfooter">
+                              <span class="button_wrapper">
+                                   <button mat-flat-button type="reset" class="bluebutton" >RESET</button>
+                                   <button mat-flat-button type="submit"  class="skybutton">{{btn_text}} </button>
+                                   <!-- <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'" color="accent">CHANGE PASSWORD</button> -->
+                              </span>
+                         </mat-list-item>
+                    </mat-list>
 
 
-                    <!-- Phone  -->
-                    <span class="col-1-2">
-                    <mat-form-field>
-                         <mat-label>Phone</mat-label>
-                         <input matInput placeholder="9874122558" formControlName="phone" (blur)="inputBlur('phone')">
-                         <mat-error
-                              *ngIf="!adminForm.controls['phone'].valid && adminForm.controls['phone'].errors.required">
-                              Phone is required.</mat-error>
-                         <mat-error
-                              *ngIf="!adminForm.controls['phone'].valid && !adminForm.controls['phone'].errors.required">
-                              Phone must be only 10 digit integers</mat-error>
-                    </mat-form-field>
-                    </span>
-
-
-
-                    <!-- Email  -->
-                    <span class="col-1-2">
-                    <mat-form-field>
-                         <mat-label>Email </mat-label>
-                         <input matInput placeholder="adam123@gmail.com" [readonly]="flag==true?true:false"
-                              formControlName="email" (blur)="inputBlur('email')">
-                         <mat-error
-                              *ngIf="!adminForm.controls['email'].valid && adminForm.controls['email'].errors.required">
-                              Email is required.</mat-error>
-                         <mat-error
-                              *ngIf="!adminForm.controls['email'].valid && !adminForm.controls['email'].errors.required">
-                              Email
-                              is not valid</mat-error>
-                    </mat-form-field>
-                    </span>
-
-
-
-                    <!-- Password  -->
-                    <span class="col-1-2">
-                    <mat-form-field *ngIf="action=='add'">
-                         <mat-label>Password</mat-label>
-                         <input matInput type="password" placeholder="***********" formControlName="password"
-                              (blur)="inputBlur('password')">
-                         <mat-error *ngIf="adminForm.controls['password']?.touched || adminForm.controls['password'].errors
-            && adminForm.controls['password'].errors.required">Password is required.</mat-error>
-                    </mat-form-field>
-                    </span>
-
-
-
-
-                    <!-- Confirm Password  -->
-                    <span class="col-1-2">
-                    <mat-form-field *ngIf="action=='add'">
-                         <mat-label>Confirm Password</mat-label>
-                         <input matInput type="password" placeholder="***********" formControlName="confirmpassword"
-                              (blur)="inputBlur('confirmpassword')">
-                         <mat-error *ngIf="adminForm.controls['confirmpassword']?.touched || adminForm.controls['confirmpassword'].errors
-            && adminForm.controls['confirmpassword'].errors.required">Password do not match</mat-error>
-                    </mat-form-field>
-                    </span>
-
-
-
-
-                    <!-- Status -->
-                    
-                    <mat-label>Status</mat-label><br>
-                    <mat-checkbox formControlName="status">Active</mat-checkbox><br>
-
-
-                    <!-- Buttons  -->
-                    <span class="button_wrapper">
-                         <button mat-flat-button type="reset" color="warn">RESET</button>
-                         <button mat-flat-button type="submit" color="primary">{{btn_text}} </button>
-                         <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'"
-                              color="accent">CHANGE PASSWORD</button>
-                    </span>
-               </form>
-          </mat-card-content>
-     </mat-card>
+               </mat-card-content>
+          </mat-card>
      </span>
 </app-adminheader>
