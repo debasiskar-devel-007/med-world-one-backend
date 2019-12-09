@@ -725,9 +725,9 @@ tr td br{ display: none; }
   border-color: #757575;
 }
 .inputstyle .checkradiowrapper mat-radio-button{margin-right: 10px;margin-top: 7px;}
+/* .m_emailwrapper{display: flex;} */
 
-
-
+.inputstyle .uploadfilecontainer{width: 100% !important;}
 
 
 
