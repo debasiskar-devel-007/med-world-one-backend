@@ -72,6 +72,7 @@ import { ListingPurchaseComparisonComponent } from '../Components/inventory/purc
 import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontactinfo/addcontactinfo.component';
 import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
 import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
+import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
 
 
 
@@ -91,30 +92,7 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
-
   { path: 'dashboard-admin', component: DashboardAdminComponent },
-  // {
-  //   path: 'dashboard-admin',
-  //   component: DashboardAdminComponent,
-  //   resolve: { data: ResolveService },
-  //   data: {
-  //     requestcondition: {
-       
-  //       "condition":{
-  //         "hospitaltype":{
-  //           "type":"hospital"
-  //         },
-  //         "salesreptype":{
-  //           "type":"salesrep"
-  //         },
-  //         "mckessontype":{
-  //           "source_name":"mckesson"
-  //         }
-  //       }   
-  //     },
-  //     endpoint: 'admindashboradcount'
-  //   },
-  // },
   //Medical Dashboard 
   { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
   //SalesRep Dashboard
@@ -127,6 +105,9 @@ const routes: Routes = [
   // =====================================================
 
   // _______________MANAGE ADMIN____________
+  /**admin my account */
+  { path: 'admin/myaccount', component:AdminDetailsComponent,canActivate: [AuthguardService]},
+
   { path: 'admin-management/add', component: AddEditAdminComponent },
   {
     path: 'admin-management/list',

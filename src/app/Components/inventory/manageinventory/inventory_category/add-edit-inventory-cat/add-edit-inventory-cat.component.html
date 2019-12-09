@@ -16,13 +16,16 @@
 
         <!-- Category name  -->
         <mat-form-field>
-          <input matInput placeholder="Category name" formControlName="category_name">
+          <input matInput placeholder="Category name" formControlName="category_name"
+            (blur)="inputBlur('category_name')">
+          <mat-error *ngIf="!inventoryCategoryForm.controls['category_name'].valid
+          && inventoryCategoryForm.controls['category_name'].errors.required">Category Name is required.</mat-error>
         </mat-form-field><br>
 
         <!-- Parent Category  -->
         <mat-form-field>
           <mat-label>Parent Category</mat-label>
-          <mat-select matNativeControl formControlName="parent_category" >
+          <mat-select matNativeControl formControlName="parent_category">
             <mat-option value="0">Select a category</mat-option>
             <mat-option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.category_name }}
             </mat-option>
@@ -32,34 +35,40 @@
 
         <!-- Select Brand -->
         <mat-form-field class="example-full-width">
-          <input type="text" placeholder="Select Brands" aria-label="Number" matInput [formControl]="myControl" 
-          [matAutocomplete]="auto" formControlName="brand_id" (keyup)="collect_brands($event)"> 
+          <input type="text" placeholder="Select Brands" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto" formControlName="brand_id" (keyup)="collect_brands($event)"
+            (blur)="inputBlur('brand_id')">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async"  
-            (click)="collect_brands_onclick(option.brand_id)"
-            [value]="option.brand_id" [id]="option.brand_id">
+            <mat-option *ngFor="let option of filteredOptions | async" (click)="collect_brands_onclick(option.brand_id)"
+              [value]="option.brand_id" [id]="option.brand_id">
               {{option.brand_name}}
             </mat-option>
           </mat-autocomplete>
+          <mat-error *ngIf="errCode==true">Brand is required.</mat-error>
         </mat-form-field>
         <div>
           <mat-chip-list>
-              <mat-chip *ngFor="let ba of brand_array;let i = index">{{ ba }}
-                  <mat-icon matSuffix class="clickable" (click)="clearBrand(i,ba)">clear</mat-icon>
-              </mat-chip>
+            <mat-chip *ngFor="let ba of brand_array;let i = index">{{ ba }}
+              <mat-icon matSuffix class="clickable" (click)="clearBrand(i,ba)">clear</mat-icon>
+            </mat-chip>
           </mat-chip-list>
-      </div>
+        </div>
 
 
         <!-- Description  -->
         <mat-form-field>
-          <textarea matInput placeholder="Description" formControlName="description"></textarea>
+          <textarea matInput placeholder="Description" formControlName="description" rows="5"
+            (blur)="inputBlur('description')"></textarea>
+          <mat-error *ngIf="!inventoryCategoryForm.controls['description'].valid
+          && inventoryCategoryForm.controls['description'].errors.required">Description is required.</mat-error>
         </mat-form-field><br>
 
 
         <!-- Priority -->
         <mat-form-field>
-          <input matInput placeholder="Priority" formControlName="priority">
+          <input matInput placeholder="Priority" formControlName="priority" (blur)="inputBlur('priority')">
+          <mat-error *ngIf="!inventoryCategoryForm.controls['priority'].valid
+          && inventoryCategoryForm.controls['priority'].errors.required">Priority is required.</mat-error>
         </mat-form-field><br>
 
         <!-- Status  -->

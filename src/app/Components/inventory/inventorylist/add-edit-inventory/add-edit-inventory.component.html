@@ -18,34 +18,23 @@
                 <!-- Inventory Name  -->
                 <mat-form-field>
                     <mat-label class="label">Name</mat-label>
-                    <input matInput formControlName="inventory_name">
+                    <input matInput formControlName="inventory_name" (blur)="inputBlur('inventory_name')">
+                    <mat-error *ngIf="!inventoryForm.controls['inventory_name'].valid
+                    && inventoryForm.controls['inventory_name'].errors.required">Inventory Name is required.
+                    </mat-error>
                 </mat-form-field><br>
 
-               
+
 
                 <!-- source  -->
                 <mat-form-field>
-                <mat-label class="label">Select Source</mat-label>
+                    <mat-label class="label">Select Source</mat-label>
 
-                <mat-select matNativeControl formControlName="source" [(value)]="selected">
-                    <mat-option value="0">Select Source</mat-option>
-                    <mat-option value="mckesson">McKesson Inventory</mat-option>
-                    <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
-                        {{ item.hospitalname }}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field><br>
-
-
-                <!-- Inventory Category mat-selection  -->
-                <mat-form-field>
-
-                    <mat-label class="label">Select Category</mat-label>
-
-                    <mat-select matNativeControl formControlName="inventory_category">
-                        <mat-option value="0">Select Category</mat-option>
-                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array" (click)="getBrandName(item._id )">
-                            {{ item.category_name }}
+                    <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
+                        <mat-option value="0">Select Source</mat-option>
+                        <mat-option value="mckesson">McKesson Inventory</mat-option>
+                        <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
+                            {{ item.hospitalname }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field><br>
@@ -56,46 +45,70 @@
 
                     <mat-label class="label">Select Brand</mat-label>
 
-                    <mat-select matNativeControl formControlName="brand_name">
+                    <mat-select matNativeControl formControlName="brand_name" required>
                         <mat-option value="0">Select Brand</mat-option>
-                        <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">{{ item.brand_name }}
+                        <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
+                            {{ item.brand_name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field><br>
+
+
+                <!-- Inventory Category mat-selection  -->
+                <mat-form-field>
+
+                    <mat-label class="label">Select Category</mat-label>
+
+                    <mat-select matNativeControl formControlName="inventory_category" required>
+                        <mat-option value="0">Select Category</mat-option>
+                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
+                            (click)="getBrandName(item._id )">
+                            {{ item.category_name }}
                         </mat-option>
                     </mat-select>
                 </mat-form-field><br>
 
 
 
-        
+
 
                 <!-- SKU -->
 
 
                 <mat-form-field>
                     <mat-label class="label">SKU</mat-label>
-                    <input matInput formControlName="sku">
+                    <input matInput formControlName="sku" (blur)="inputBlur('sku')">
+                    <mat-error *ngIf="!inventoryForm.controls['sku'].valid
+                    && inventoryForm.controls['sku'].errors.required">SKU# is required.</mat-error>
                 </mat-form-field><br>
 
-                 <!-- Quantity -->
 
+                <!-- Quantity -->
 
-                 <mat-form-field>
+                <mat-form-field>
                     <mat-label class="label">Quantity</mat-label>
-                    <input matInput formControlName="quantity" type="quantity">
+                    <input matInput formControlName="quantity" type="quantity" (blur)="inputBlur('quantity')">
+                    <mat-error *ngIf="!inventoryForm.controls['quantity'].valid
+                    && inventoryForm.controls['quantity'].errors.required">Quantity is required.</mat-error>
                 </mat-form-field><br>
 
 
                 <!-- Description  -->
                 <mat-form-field>
                     <mat-label class="label">Description</mat-label>
-                    <textarea matInput formControlName="description"></textarea>
+                    <textarea matInput formControlName="description" rows="5"
+                        (blur)="inputBlur('description')"></textarea>
+                    <mat-error *ngIf="!inventoryForm.controls['description'].valid
+                    && inventoryForm.controls['description'].errors.required">Description is required.</mat-error>
                 </mat-form-field><br>
 
 
 
                 <!-- image upload -->
-                <h3>Inventory Image :</h3>
+                <h3>Image :</h3>
                 <lib-file-upload [config]="configData"></lib-file-upload><br>
                 <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
+                <mat-error *ngIf="imageErrCode==true">Please add an image.</mat-error>
 
                 <!-- Card view for Image  -->
                 <mat-card-content class="files-view" *ngIf="img_flag==true">
@@ -127,28 +140,28 @@
                 </mat-form-field>
                 <br>
 
-                
 
-               
 
-                    
 
-                    <!-- DYNAMIC FORM ATTRIBUTE  -->
-                    
-                        <div formArrayName="items"
-                          *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
-                          <div [formGroupName]="i">
-                              <mat-form-field>
+
+
+
+                <!-- DYNAMIC FORM ATTRIBUTE  -->
+
+                <div formArrayName="items" class="dynamic_attributes"
+                    *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
+                    <div [formGroupName]="i">
+                        <mat-form-field>
                             <input matInput formControlName="label_name" placeholder="Enter A Label">
                         </mat-form-field>
                         <mat-form-field>
                             <input matInput formControlName="label_value" placeholder="Value For Label">
                         </mat-form-field>
-                          </div>
-                        </div>
-                      
+                    </div>
+                </div>
 
-              
+
+
                 <br>
                 <button mat-flat-button type="button" (click)="addItem()" color="accent">
                     <mat-icon>add</mat-icon> Add More Specification

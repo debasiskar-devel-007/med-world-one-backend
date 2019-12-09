@@ -142,7 +142,7 @@ import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-ca
 
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
-import { AdminDetailsComponent } from './Components/admin/admin-details/admin-details.component';
+import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
 
 
 

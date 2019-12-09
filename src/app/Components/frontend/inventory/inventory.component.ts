@@ -7,7 +7,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  public inventoryCatagoryList: any;
+  public inventoryCatagoryList: any={};
   public categoryList: any = [];
   public brandList: any = [];
   constructor(public activatedRoute: ActivatedRoute, public router: Router, public httpServiceService: HttpServiceService) { }
@@ -33,8 +33,8 @@ export class InventoryComponent implements OnInit {
   searchCatagory(catId: any) {
     console.log("search Catagory ID" + '   ' + catId);
     let postData = {
-      "source": "inventories_list_view",
-      condition: { "_id_object": catId }
+      "source": "inventory_category_view",
+      condition: { "parent_object": catId }
     };
     this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res) })
   }
@@ -49,7 +49,7 @@ export class InventoryComponent implements OnInit {
     };
     this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
        this.inventoryCatagoryList = res.res;
-      //console.log(res);
+      // console.log(res);
     })
   }
 

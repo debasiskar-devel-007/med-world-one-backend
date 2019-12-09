@@ -1,39 +1,37 @@
+<app-adminheader>
+    <h3>{{ header_txt }}</h3>
+    <form [formGroup]="brandForm" autocomplete="off">
 
-        <app-adminheader>
-                <h3>{{ header_txt }}</h3>
-                <form [formGroup]="brandForm" autocomplete="off">
-            
-                    <!-- Brand name  -->
-                    <mat-form-field>
-                        <input matInput placeholder="Brand name" formControlName="brand_name">
-                    </mat-form-field><br>
-            
-                    <!-- Parent Category  -->
-                    <mat-form-field>
-                        <mat-label>Parent Category</mat-label>
-                        <select matNativeControl formControlName="parent_category" >
-                            <option value="0" >Select a category</option>
-                            <option value="{{ item._id }}" *ngFor="let item of parentcat_array">{{ item.brand_name }}</option>
-                        </select>
-                    </mat-form-field><br>
-            
-                    <!-- Description  -->
-                    <mat-form-field>
-                        <textarea matInput placeholder="Description" formControlName="description"></textarea>
-                    </mat-form-field><br>
-            
-                    <!-- Priority -->
-                    <mat-form-field>
-                        <input matInput placeholder="Priority" formControlName="priority">
-                    </mat-form-field><br>
-            
-                    <!-- Status  -->
-                    <mat-label>Status</mat-label><br>
-                    <mat-checkbox formControlName="status">Active</mat-checkbox><br>
-            
-            
-                    <!-- Buttons  -->
-                    <button mat-flat-button type="reset">RESET</button>
-                    <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
-                </form>
-            </app-adminheader>
+        <!-- Brand name  -->
+        <mat-form-field>
+            <input matInput placeholder="Brand name" formControlName="brand_name" (blur)="inputBlur('brand_name')">
+            <mat-error *ngIf="!brandForm.controls['brand_name'].valid
+                        && brandForm.controls['brand_name'].errors.required">Brand Name is required.</mat-error>
+        </mat-form-field><br>
+
+
+        <!-- Description  -->
+        <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="description" rows="5"
+                (blur)="inputBlur('description')"></textarea>
+            <mat-error *ngIf="!brandForm.controls['description'].valid
+                        && brandForm.controls['description'].errors.required">Description is required.</mat-error>
+        </mat-form-field><br>
+
+        <!-- Priority -->
+        <mat-form-field>
+            <input matInput placeholder="Priority" formControlName="priority" (blur)="inputBlur('priority')">
+            <mat-error *ngIf="!brandForm.controls['priority'].valid
+                        && brandForm.controls['priority'].errors.required">Priority is required.</mat-error>
+        </mat-form-field><br>
+
+        <!-- Status  -->
+        <mat-label>Status</mat-label><br>
+        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+        <!-- Buttons  -->
+        <button mat-flat-button type="reset">RESET</button>
+        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
+    </form>
+</app-adminheader>

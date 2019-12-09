@@ -109,6 +109,7 @@ export class DashboardAdminComponent implements OnInit {
       this.salesrep_count = this.count_dashboard.salesrepcount;
       this.inventory_count = this.count_dashboard.mckessoncount;
       this.medicalpartner_count = this.count_dashboard.otherscount;
+      console.log(this.count_dashboard.mckessoncount);
     });
   }
 }
