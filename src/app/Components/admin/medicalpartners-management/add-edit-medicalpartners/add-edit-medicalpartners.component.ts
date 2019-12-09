@@ -140,6 +140,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     this.medicalPartnerForm = this.formBuilder.group({
       hospitalname: [],
       salesrepselect:[],
+      salesrepname:[],
       contactperson: [],
       email: [],
       contactemails: [],

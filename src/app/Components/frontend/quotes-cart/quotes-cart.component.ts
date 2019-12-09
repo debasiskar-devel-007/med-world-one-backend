@@ -12,9 +12,9 @@ export class QuotesCartComponent implements OnInit {
   ngOnInit() {
   }
   plus(){
-    console.log("plus hit", )
+   
   }
   minus(){
-    console.log("minus hit", )
+   
   }
 }

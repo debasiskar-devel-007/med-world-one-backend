@@ -18,8 +18,8 @@ export class ListingInventoryCatComponent implements OnInit {
  // ===============================Declarations for category=========================
  inventoryCategoryData: any = [];
  public detail_skip_array_cat:any=["_id"];
- inventoryCategoryData_skip: any = ["_id","description_html","description","created_at"];
- inventoryCategoryData_modify_header: any = {"category name":"Category Name",
+ inventoryCategoryData_skip: any = ["_id","description_html","description","created_at","priority","brand_count"];
+ inventoryCategoryData_modify_header: any = {"category name":"Category",
 "parent category":"Parent Category","priority":"Priority","status":"Status"};
  tableName: any = 'inventory_category';
  UpdateEndpoint: any = "addorupdatedata";

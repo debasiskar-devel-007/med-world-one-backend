@@ -12,10 +12,19 @@
             </span>
             <mat-card-content class="profile_section">
                 <mat-menu #appMenu="matMenu">
-                    <button mat-menu-item routerLink="/account-settings">
-                        <mat-icon>account_circle</mat-icon> Account
-                    </button>
-                    <button mat-menu-item>
+                        <ng-container *ngIf="type=='salesrep'">
+                                <button mat-menu-item [routerLink]="['/salesrep/my-details']">
+                                    <mat-icon>account_circle</mat-icon> Account
+                                </button>
+                        </ng-container>
+
+                        <ng-container *ngIf="type=='admin'">
+                                <button mat-menu-item [routerLink]="['/admin/myaccount']">
+                                    <mat-icon>account_circle</mat-icon> Account
+                                </button>
+                        </ng-container>
+
+                      <button mat-menu-item>
                         <mat-icon>build</mat-icon> Settings
                     </button>
 

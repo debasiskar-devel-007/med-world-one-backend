@@ -20,15 +20,15 @@ public dynamic_attributes1:any=[];
       },
     };
       this.httpServiceService.httpViaPost('datalist', data).subscribe((result:any) => {
-        console.log(result.res[0]);
+       
         this.inventoryDetails=result.res[0];
          this.dynamic_attributes=result.res[0].dynamic_attributes;
-         console.log('this.dynamic_attributes',this.dynamic_attributes);
+       
          
          let dynamic_attributes1=[];
-         console.log(dynamic_attributes1);
+        
          for (let i in this.dynamic_attributes) {
-          console.log(i);
+
           this.dynamic_attributes1.push({key:Object.keys(this.dynamic_attributes[i])[0],value:Object.values(this.dynamic_attributes[i])[0]})
           //this.dynamic_attributes1.push((this.dynamic_attributes[i]))
         }
@@ -40,9 +40,9 @@ public dynamic_attributes1:any=[];
   }
 
   getdata(val:any,i:any){
-    console.log('val',val,i);
+  
     for(let b in val){
-      console.log('in loop',b,val[b]);
+    
     }
   }
 

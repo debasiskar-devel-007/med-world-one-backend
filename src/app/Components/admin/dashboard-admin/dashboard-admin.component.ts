@@ -42,6 +42,7 @@ export class DashboardAdminComponent implements OnInit {
   public salesrep_count:string;
   public inventory_count:string;
   public medicalpartner_count:string;
+  dataSourceSalesRep:any;
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -82,8 +83,10 @@ export class DashboardAdminComponent implements OnInit {
 
 
   getHospitals() { 
-    this.http.httpViaPost('hospitaldata', undefined).subscribe((response: any) => {
-      this.hospitalDetails = response.res;
+    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
+      console.log("asdas",response.salesrep);
+      this.hospitalDetails = response.hospital;
+      this.dataSourceSalesRep = response.salesrep
     });
   }
 
@@ -98,7 +101,7 @@ export class DashboardAdminComponent implements OnInit {
           "type": "salesrep"
         },
         "mckessontype": {
-          "source_name": "mckesson"
+          "source": "mckesson"
         }
       }
     }
@@ -109,6 +112,7 @@ export class DashboardAdminComponent implements OnInit {
       this.salesrep_count = this.count_dashboard.salesrepcount;
       this.inventory_count = this.count_dashboard.mckessoncount;
       this.medicalpartner_count = this.count_dashboard.otherscount;
+      console.log(this.count_dashboard.mckessoncount);
     });
   }
 }

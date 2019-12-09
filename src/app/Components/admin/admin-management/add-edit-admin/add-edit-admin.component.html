@@ -33,7 +33,7 @@
 
                                    <!-- date added -->
                                    <span class="col-1-4">
-                                        <mat-form-field *ngIf="action=='edit'">
+                                        <mat-form-field >
                                              <input matInput placeholder="Date Added" formControlName="date_added">
                                         </mat-form-field>
 
@@ -102,7 +102,7 @@
                                         </mat-form-field>
                                    </span>
 
-                                   <span class="col-1-2">
+                                   <span class="col-1-2" *ngIf="action=='edit'">
                                         <mat-form-field>
                                              <mat-label>Password</mat-label>
                                              <input matInput type="password">
@@ -115,9 +115,8 @@
 
                                    <!-- contact No  -->
 
-                                   <span class="col-1-2">
-
-                                        <a class="cpass" (click)="change_password()" *ngIf="action!='add'"
+                                   <span class="col-1-2" *ngIf="action!='add'">
+                                        <a class="cpass" (click)="change_password()"
                                              color="accent">Change password</a>
 
                                    </span>
