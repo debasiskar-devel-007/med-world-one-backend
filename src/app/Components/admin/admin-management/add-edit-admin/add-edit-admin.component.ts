@@ -66,6 +66,10 @@ export class AddEditAdminComponent implements OnInit {
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
     this.role = this.user_data.type;
+
+    if(this.action == 'add')
+    this.date = moment(this.myDate).format('MM/DD/YYYY');
+    console.log(this.date);
   }
 
 
@@ -96,7 +100,7 @@ export class AddEditAdminComponent implements OnInit {
         /* Button text */
         this.btn_text = "SUBMIT";
         this.myDate = new Date();
-        console.log(this.myDate);
+        
         break;
       case 'edit':
         /* Button text */

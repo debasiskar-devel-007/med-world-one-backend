@@ -1,159 +1,173 @@
 <app-adminheader>
-
-    <mat-card class="main_wrapper">
-        <mat-card-content class="bred_cram_wrapper">
+        <span class="dashboardcontainer">
+    <mat-card class="main_wrapper inputstyle">
+        <!-- <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active"> Dashboard </a>
             <a mat-list-item routerLinkActive="active" [routerLink]="'/admin/medicalpartners-management/list'">Medical
                 Partner List </a>
             <a mat-list-item routerLinkActive="active activebread"
                 [routerLink]="'/admin/medicalpartners-management/add'"> add
             </a>
-        </mat-card-content>
-
+        </mat-card-content> -->
 
         <mat-card-content class="from_wrapper">
-            <h1 class="form_header">{{ header_txt }}</h1>
+            <mat-list class="formstylemainwrapper">
 
-            <form [formGroup]="medicalPartnerForm" autocomplete="off">
+                <mat-list-item class="formheader">
+                        <!-- <h1 class="form_header">{{ header_txt }}</h1> -->
+                        <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
+                </mat-list-item>
+                <mat-list-item class="formbody">
+                        <form [formGroup]="medicalPartnerForm" autocomplete="off">
 
-
-
-                <!-- Name  -->
-                <mat-form-field>
-                    <mat-label>Hospital Name</mat-label>
-                    <input matInput formControlName="hospitalname">
-                </mat-form-field><br>
-
-
-                 <!-- Sales rep  -->
-                 <mat-form-field appearance="fill">
-                    <mat-label>Select Sales Representative</mat-label>
-                    <mat-select formControlName="salesrepselect">                       
-                        <mat-option *ngFor="let sale of salesNameArray;" value="{{ sale._id }}">{{ sale.user_full_name }}</mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-
-                <!-- Contact Person  -->
-                <mat-form-field>
-                    <mat-label>Contact Person</mat-label>
-                    <input matInput formControlName="contactperson">
-                </mat-form-field><br>
-
-                <!-- Primary Email -->
-                <mat-form-field>
-                    <mat-label>Primary Email</mat-label>
-                    <input [readonly]="flag==true?true:false" matInput formControlName="email">
-                </mat-form-field><br>
-
-                <!-- Contact Email  -->
-                <mat-form-field>
-                    <mat-label>Contact Email(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each Entry</mat-label>
-                    <input matInput formControlName="contactemails" (keyup)="collect_email($event)">
-                </mat-form-field><br>
-                <div>
-                    <mat-chip-list>
-                        <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
-                            <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
-                        </mat-chip>
-
-                    </mat-chip-list>
-                </div>
-
-                <!-- Contact Phones  -->
-                <mat-form-field>
-                    <mat-label>Contact Phones(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each Entry</mat-label>
-                    <input matInput formControlName="contactphones" (keyup)="collect_phones($event)">
-                </mat-form-field><br>
-                <div>
-                    <mat-chip-list>
-                        <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
-                            <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
-                        </mat-chip>
-
-                    </mat-chip-list>
-                </div>
-
-
-                <!-- Password  -->
-                <mat-form-field *ngIf="action=='add'">
-                    <mat-label>Password</mat-label>
-                    <input matInput type="password" formControlName="password">
-                </mat-form-field><br>
-
-
-                <!-- Confirm Password  -->
-                <mat-form-field *ngIf="action=='add'">
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput type="password" formControlName="confirmpassword">
-                </mat-form-field><br>
-
-                <!-- Address  -->
-                <mat-form-field>
-                    <mat-label>Address</mat-label>
-                    <input matInput formControlName="address">
-                </mat-form-field><br>
-
-                <!-- State  -->
-                <mat-form-field appearance="fill">
-                    <mat-label>State</mat-label>
-                    <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
-                        <mat-option [value]=0>Select a category</mat-option>
-                        <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}</mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-                <!-- City  -->
-
-                <mat-form-field appearance="fill">
-                    <mat-label>City</mat-label>
-                    <mat-select formControlName="city">
-                        <mat-option [value]=0>Select a category</mat-option>
-                        <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-                <!-- Zip  -->
-                <mat-form-field>
-                    <mat-label>Zip</mat-label>
-                    <input matInput formControlName="zip">
-                </mat-form-field><br>
-
+                                <!-- Name  -->
+                                <mat-form-field>
+                                    <mat-label>Hospital Name</mat-label>
+                                    <input matInput formControlName="hospitalname">
+                                </mat-form-field><br>
             
-
-                <!-- Status -->
-                <mat-label>Status:</mat-label><br>
-                <mat-checkbox formControlName="status">Active</mat-checkbox><br>
-
-
-                <!-- Medical Parner's Image  -->
-                <h1>Medical Parner's Image</h1>*Just add a single image
-                <lib-file-upload [config]="configData"></lib-file-upload><br>
-                <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
-
-
-                <!-- Card view for Image  -->
-                <mat-card-content class="files-view" *ngIf="img_flag==true">
-                    <mat-card class="example-card">
-                        <img mat-card-image [src]="fullImgPath">
-                        <mat-card-title>{{ imgName }}</mat-card-title>
-                        <mat-card-subtitle>{{ imgType }}</mat-card-subtitle>
-                        <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
-
-                    </mat-card>
-                </mat-card-content>
-
-
-
-                <!-- Buttons  -->
-                <span class="button_wrapper">
-                <button mat-flat-button type="reset" color="warn">RESET</button>
-                <button mat-flat-button type="button" (click)="onSubmit()" color="primary">{{btn_text}} </button>
-                <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'">CHANGE
-                    PASSWORD</button>
-                  </span>
-            </form>
+            
+                                <!-- Sales rep  -->
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Select Sales Representative</mat-label>
+                                    <mat-select formControlName="salesrepselect">
+                                        <mat-option *ngFor="let sale of salesNameArray;" value="{{ sale._id }}">
+                                            {{ sale.user_full_name }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field><br>
+            
+            
+                                <!-- Contact Person  -->
+                                <mat-form-field>
+                                    <mat-label>Contact Person</mat-label>
+                                    <input matInput formControlName="contactperson">
+                                </mat-form-field><br>
+            
+                                <!-- Primary Email -->
+                                <mat-form-field>
+                                    <mat-label>Primary Email</mat-label>
+                                    <input [readonly]="flag==true?true:false" matInput formControlName="email">
+                                </mat-form-field><br>
+            
+                                <!-- Contact Email  -->
+                                <mat-form-field>
+                                    <mat-label>Contact Email(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each Entry
+                                    </mat-label>
+                                    <input matInput formControlName="contactemails" (keyup)="collect_email($event)">
+                                </mat-form-field><br>
+                                <div>
+                                    <mat-chip-list>
+                                        <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
+                                            <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
+                                        </mat-chip>
+            
+                                    </mat-chip-list>
+                                </div>
+            
+                                <!-- Contact Phones  -->
+                                <mat-form-field>
+                                    <mat-label>Contact Phones(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each Entry
+                                    </mat-label>
+                                    <input matInput formControlName="contactphones" (keyup)="collect_phones($event)">
+                                </mat-form-field><br>
+                                <div>
+                                    <mat-chip-list>
+                                        <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
+                                            <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear</mat-icon>
+                                        </mat-chip>
+            
+                                    </mat-chip-list>
+                                </div>
+            
+            
+                                <!-- Password  -->
+                                <mat-form-field *ngIf="action=='add'">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput type="password" formControlName="password">
+                                </mat-form-field><br>
+            
+            
+                                <!-- Confirm Password  -->
+                                <mat-form-field *ngIf="action=='add'">
+                                    <mat-label>Confirm Password</mat-label>
+                                    <input matInput type="password" formControlName="confirmpassword">
+                                </mat-form-field><br>
+            
+                                <!-- Address  -->
+                                <mat-form-field>
+                                    <mat-label>Address</mat-label>
+                                    <input matInput formControlName="address">
+                                </mat-form-field><br>
+            
+                                <!-- State  -->
+                                <mat-form-field appearance="fill">
+                                    <mat-label>State</mat-label>
+                                    <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                                        <mat-option [value]=0>Select a category</mat-option>
+                                        <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field><br>
+            
+                                <!-- City  -->
+            
+                                <mat-form-field appearance="fill">
+                                    <mat-label>City</mat-label>
+                                    <mat-select formControlName="city">
+                                        <mat-option [value]=0>Select a category</mat-option>
+                                        <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field><br>
+            
+                                <!-- Zip  -->
+                                <mat-form-field>
+                                    <mat-label>Zip</mat-label>
+                                    <input matInput formControlName="zip">
+                                </mat-form-field><br>
+            
+            
+            
+                                <!-- Status -->
+                                <mat-label>Status:</mat-label><br>
+                                <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+            
+            
+                                <!-- Medical Parner's Image  -->
+                                <h1>Medical Parner's Image</h1>*Just add a single image
+                                <lib-file-upload [config]="configData"></lib-file-upload><br>
+                                <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
+            
+            
+                                <!-- Card view for Image  -->
+                                <mat-card-content class="files-view" *ngIf="img_flag==true">
+                                    <mat-card class="example-card">
+                                        <img mat-card-image [src]="fullImgPath">
+                                        <mat-card-title>{{ imgName }}</mat-card-title>
+                                        <mat-card-subtitle>{{ imgType }}</mat-card-subtitle>
+                                        <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
+            
+                                    </mat-card>
+                                </mat-card-content>
+            
+            
+            
+                                <!-- Buttons  -->
+                                <span class="button_wrapper">
+                                    
+                                    <!-- <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'">CHANGE PASSWORD</button> -->
+                                </span>
+                            </form>
+                </mat-list-item>
+                <mat-list-item class="formfooter">
+                        <span class="button_wrapper">
+                                <button mat-flat-button type="reset" color="warn">RESET</button>
+                                <button mat-flat-button type="button" (click)="onSubmit()" color="primary">{{btn_text}}</button>
+                        </span>
+                </mat-list-item>
+               
+                </mat-list>
 
         </mat-card-content>
     </mat-card>
+</span>
 </app-adminheader>

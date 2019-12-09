@@ -42,6 +42,7 @@ export class DashboardAdminComponent implements OnInit {
   public salesrep_count:string;
   public inventory_count:string;
   public medicalpartner_count:string;
+  dataSourceSalesRep:any;
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -83,8 +84,9 @@ export class DashboardAdminComponent implements OnInit {
 
   getHospitals() { 
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
-      console.log("asdas",response.hospital);
+      console.log("asdas",response.salesrep);
       this.hospitalDetails = response.hospital;
+      this.dataSourceSalesRep = response.salesrep
     });
   }
 
