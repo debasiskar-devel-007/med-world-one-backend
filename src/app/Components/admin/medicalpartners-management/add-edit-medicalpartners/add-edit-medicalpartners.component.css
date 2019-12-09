@@ -1,4 +1,4 @@
-.files-view{ width: 300px; margin: 0px auto; position: relative;}
+.files-view{ width: 100%; margin: 0px auto; position: relative;}
 
 .files-view .closecard{ background: rgba(0, 0, 0, 0.3);
     background: rgba(0, 0, 0, 0.3);
@@ -16,7 +16,7 @@
     box-sizing: border-box; cursor: pointer;}
     .files-view .closecard i{ background: transparent; font-size: 18px;}
 
-    .from_wrapper{     width: 700px;
+    .from_wrapper{width: 100%;
         margin: 60px auto;
         background: #fff;
         box-sizing: border-box;
