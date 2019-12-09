@@ -294,7 +294,7 @@ export class ApiService {
      * @return {?}
      */
     addData(requestdata) {
-        console.log('in adddata apiservice');
+        // console.log('in adddata apiservice');
         /** @type {?} */
         const httpOptions = {
             headers: new HttpHeaders({
@@ -302,7 +302,7 @@ export class ApiService {
                 'Authorization': this.accesstoken //hard code written access-token(temp)
             })
         };
-        console.log('httpoptions', httpOptions, this.serverUrl, requestdata);
+        // console.log('httpoptions', httpOptions, this.serverUrl, requestdata);
         /** @type {?} */
         var result = this._http.post(this.serverUrl + this.addendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map((/**
          * @param {?} res

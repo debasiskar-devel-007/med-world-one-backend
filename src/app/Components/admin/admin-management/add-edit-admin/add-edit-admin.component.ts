@@ -209,12 +209,8 @@ export class AddEditAdminComponent implements OnInit {
       
       /**delete password when id not null */
       if(postData.data.id){
-          //console.log("with ID");
           delete postData.data.password;
-        }else{
-          //console.log("withOut ID");
         }
-          //console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         if (response.status == "success") {
@@ -224,10 +220,10 @@ export class AddEditAdminComponent implements OnInit {
           }, 2000);
           this.router.navigateByUrl(this.linkTo);
         } else {
-          // alert("Some error occurred. Please try again.");
+          alert("Some error occurred. Please try again.");
         }
       }, (error) => {
-        // alert("Some error occurred. Please try again.");
+        alert("Some error occurred. Please try again.");
       });
     }
   }

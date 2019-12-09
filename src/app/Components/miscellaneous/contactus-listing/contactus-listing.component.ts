@@ -59,7 +59,6 @@ public search_settingss: any = {
   constructor(public activatedRoute: ActivatedRoute,public httpServiceService:HttpServiceService,public cookieService:CookieService) {
     let postData={"source":"contactus_view_admin","condition": {},}
     this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
-      console.log(res.res);
       this.contactInfoData=res.res;
     })
     this.user_cookie=cookieService.get('jwtToken');
@@ -68,7 +67,6 @@ public search_settingss: any = {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
     this.contactData = resolveData.contactlist.res;
-      //console.log(resolveData.contactlist.res);
     });
 
 

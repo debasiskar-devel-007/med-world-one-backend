@@ -4,7 +4,7 @@
 
 
   <mat-card-content class="sh_inventory_content">
-    <mat-card-title class="title_details">SKU #911727</mat-card-title>
+    <mat-card-title class="title_details">SKU# {{inventoryDetails.sku}}</mat-card-title>
     <mat-card-content class="breadcum">
       <a routerLink="routeName">product catalog ></a>
       <a routerLink="routeName">Respiratory ></a>
@@ -14,45 +14,59 @@
     </mat-card-content>
 
 
-    <!-- Loop start -->
-    <mat-card-content class="sh_inventory_content_item">
-      <mat-card-title class="productName">sku Nebulizer Kit Small Volume 10 mL Adult Mouthpiece</mat-card-title>
+    
+     <mat-card-content class="sh_inventory_content_item">
+      <mat-card-title class="productName">{{inventoryDetails.inventory_name}}</mat-card-title>
 
       <mat-card-content class="inner_top_wrapper">
         <mat-card-content class="image_wrapper">
-          <img src="../../../../assets/images/invItemimage1.jpg">
+          <img src="{{inventoryDetails.image}}">
         </mat-card-content>
         <mat-card-content class="content_wrapper">
           <mat-card-title class="productSpec">Product Specifications</mat-card-title>
           <table class="dataTable">
             <tr>
-              <th>SKU #</th>
-              <td> 911727</td>
+              <th>SKU#</th>
+              <td>{{inventoryDetails.sku}}</td>
             </tr>
             <tr>
               <th>Brand/Manufacturer</th>
-              <td> Lorem Ipsum</td>
+              <td>{{inventoryDetails.brand}}</td>
             </tr>
+
             <tr>
               <th>Product Description </th>
-              <td class="para"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. </td>
+              <td class="para">{{inventoryDetails.description}}</td>
             </tr>
+
+            <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0">
+            <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+                <th>{{dynamic.key}} </th>
+                <td class="para">{{dynamic.value}}</td>
+            </tr>
+
+          </ng-container>
+
           </table>
           <mat-toolbar class="action_buttons">
 
-            <mat-card-content class="sizes">
-              <h3 class="text">different sizes/type of the brand</h3>
+           
+
+            <!-- <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0">
+            <mat-card-content class="sizes" *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+               <h3  class="text" *ngFor="let dv of dynamic ;let i1=index; ">{{dv}}{{i1}} 00 </h3>
+              <h3  class="text">{{dynamic.key}}:{{dynamic.value}} .. {{getdata(dynamic,i)}} </h3>
               <span class="button_wrapper">
                 <button mat-button>small</button>
                 <button mat-button>medium</button>
                 <button mat-button>large</button>
               </span>
             </mat-card-content>
+            </ng-container> -->
+
             <span class="quotes">
               <span class="quantity">
-                qty <button mat-button>-</button> <span class="box">1</span> <button mat-button>+</button>
+                qty <button mat-button>-</button> <span class="box">{{inventoryDetails.quantity}}</span> <button mat-button>+</button>
               </span>
               <button mat-button class="addToQuote">Add to Quote</button>
             </span>
@@ -61,7 +75,7 @@
         </mat-card-content>
       </mat-card-content>
 
-    </mat-card-content>
+    </mat-card-content> 
 
     <span class="nb"> Actual Product May Vary. See Product Specifications for more detailed information.</span>
   </mat-card-content>

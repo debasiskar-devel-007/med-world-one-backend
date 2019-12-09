@@ -83,10 +83,9 @@
 
                     <!-- Resource manager list -->
                     <mat-menu #userManagement="matMenu" class="admin_submenu">
-                        <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Category & Brand</button>
-                        <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory List</button>
-                        <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup Management List</button>
-                        <button mat-menu-item routerLink="/admin/inventory/purchase-comparison/list">Price Comparison Report</button>
+                        <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Manage Category</button>
+                        <button mat-menu-item routerLink="/inventory/inventory-list/list">Manage Inventory</button>
+                        <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup</button>
                     </mat-menu>
 
                     <!-- -------- Manage Quotes list ---------- -->
@@ -94,7 +93,7 @@
                     <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
                         <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Purchase Quotes</button>
                         <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory Listing Quotes</button>
-                        <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Purchase Comparison Quotes</button>
+                        <button mat-menu-item routerLink="/admin/inventory/purchase-comparison/list">Purchase Comparison Quotes</button>
                     </mat-menu>
 
                 </mat-nav-list>

@@ -53,7 +53,7 @@ export class AddEditInventoryCatComponent implements OnInit {
       }
       else
         this.action = "add";
-    });
+    });    
   }
 
   ngOnInit() {
@@ -81,9 +81,22 @@ export class AddEditInventoryCatComponent implements OnInit {
         this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Inventory Category";
-        console.log("jj",this.options.length);
         break;
     }
+
+    /** setting the brands edit **/
+    setTimeout(() => {     
+      for(let j=0;j<=this.brand_id_list.length;j++)      
+      {
+        for(let i = 0 ; i<this.options.length;i++)
+        {
+          if(this.brand_id_list[j]==this.options[i].brand_id)
+          this.brand_array.push(this.options[i].brand_name);
+        }
+      }
+    }, 1000);
+   
+
 
     setTimeout(() => { 
       this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -146,6 +159,7 @@ export class AddEditInventoryCatComponent implements OnInit {
     })
     this.brand_id_list = defaultValue.brand_id;
     
+    
   }
   // ======================================================================================
 
@@ -175,42 +189,55 @@ export class AddEditInventoryCatComponent implements OnInit {
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response.res;
-      console.log("brand", response);
       for (let i = 0; i < result.length; i++) {
         this.options.push({ 'brand_name': result[i].brand_name, 'brand_id': result[i]._id });
       }
     });
-    console.log("options", this.options); 
   }
 
  
-
-  collect_brands_onclick(event: any) {
-   if (event.keyCode == 32 || event.keyCode == 13) {
+/**  collecting brnads on key up **/
+  collect_brands(event: any) {
+   if (event.keyCode == 13) {
       this.brand_id_list.push(String(event.target.value));
-      console.log("event",event.target.value);
       this.inventoryCategoryForm.controls['brand_id'].patchValue("");
-      console.log("options",this.options);
-      
-
+   
+   }  
       for(let i = 0 ; i<this.options.length;i++)
       {
         if(this.options[i].brand_id == event.target.value)
         this.brand_array.push(this.options[i].brand_name);
-      }
-   }
+      }   
+  }
+
+
+  /** collecting brands on click **/
+  collect_brands_onclick(brand_id_click:any){  
+    this.brand_id_list.push(String(brand_id_click));
+      this.inventoryCategoryForm.controls['brand_id'].patchValue("");
+      for(let i = 0 ; i<this.options.length;i++)
+      {
+        if(this.options[i].brand_id == brand_id_click)
+        this.brand_array.push(this.options[i].brand_name);
+      } 
   }
 
   /** clear brands  **/
-  clearBrand(index) {
+  clearBrand(index,brandnames) {
     this.brand_array.splice(index, 1);
+ for(let i=0;i<this.options.length;i++)
+ {
+      if(brandnames == this.options[i].brand_name)
+      {
+        this.brand_id_list.splice(this.options[i].brand_id,1);
+      }
+ }
   }
 
   // =======================SUBMIT==========================
   onSubmit() {
 
-      console.log("ids",this.brand_array);
-    
+   
     if (this.inventoryCategoryForm.invalid) {
       return;
     }

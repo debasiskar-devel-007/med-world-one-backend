@@ -33,9 +33,11 @@
         <!-- Select Brand -->
         <mat-form-field class="example-full-width">
           <input type="text" placeholder="Select Brands" aria-label="Number" matInput [formControl]="myControl" 
-          [matAutocomplete]="auto" formControlName="brand_id" (keyup)="collect_brands_onclick($event)"> 
+          [matAutocomplete]="auto" formControlName="brand_id" (keyup)="collect_brands($event)"> 
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async"   [value]="option.brand_id">
+            <mat-option *ngFor="let option of filteredOptions | async"  
+            (click)="collect_brands_onclick(option.brand_id)"
+            [value]="option.brand_id" [id]="option.brand_id">
               {{option.brand_name}}
             </mat-option>
           </mat-autocomplete>
@@ -43,7 +45,7 @@
         <div>
           <mat-chip-list>
               <mat-chip *ngFor="let ba of brand_array;let i = index">{{ ba }}
-                  <mat-icon matSuffix class="clickable" (click)="clearBrand(i)">clear</mat-icon>
+                  <mat-icon matSuffix class="clickable" (click)="clearBrand(i,ba)">clear</mat-icon>
               </mat-chip>
           </mat-chip-list>
       </div>
