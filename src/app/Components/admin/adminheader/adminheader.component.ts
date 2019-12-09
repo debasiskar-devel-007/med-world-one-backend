@@ -29,8 +29,10 @@ export class AdminheaderComponent implements OnInit {
         this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
         break;
       case "salesrep":
+          this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
         break;
       case "hospital":
+          this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
         break;
     }
   }

@@ -668,10 +668,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent },
 
 
-  {
-    path: 'salesrep/my-details',
-    component: MyDetailsComponent,
-    resolve: { data: ResolveService },
+  {path: 'salesrep/my-details',component: MyDetailsComponent,resolve: { data: ResolveService },
     data: {
       requestcondition: {
         source: 'users_view',
@@ -679,7 +676,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       },
       endpoint: 'datalist'
     },
-
+    canActivate: [AuthguardService]
   },
   { path: 'salesrep/change-password', component: SalesrepChangePasswordComponent },
   { path: 'salesrep/my-hospital', component: SalesrepHospitalComponent },

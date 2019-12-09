@@ -42,7 +42,8 @@
     <mat-card-content class="searchfilter">
       <span class="search_bar">
         <mat-select class="searchpannel" placeholder="Search By Brand">
-          <mat-option *ngFor="let brand of brandList" (click)="searchBrand(brand._id)" value="{{brand.brand_id}}">{{brand.brand_name}}</mat-option>
+          <mat-option *ngFor="let brand of brandList" (click)="searchBrand(brand._id)" value="{{brand.brand_id}}">
+            {{brand.brand_name}}</mat-option>
         </mat-select>
 
         <input type="text" #srch class="searchpannel seperate" placeholder="Search..">
@@ -66,7 +67,8 @@
         <input type="text" placeholder="All Categories">
       </span>
       <mat-card-content class="cat_list">
-        <a mat-list-item active (click)="searchCatagory(category._id)" *ngFor="let category of categoryList">{{category.category_name}}</a>
+        <a mat-list-item active (click)="searchCatagory(category._id)"
+          *ngFor="let category of categoryList">{{category.category_name}}</a>
       </mat-card-content>
 
 
@@ -240,7 +242,7 @@
           </mat-toolbar>
         </mat-card-content> -->
 
-        <!-- <mat-card-content class="sh_inventory_content_item">
+      <!-- <mat-card-content class="sh_inventory_content_item">
             <mat-card-content class="inner_top_wrapper">
               <mat-card-content class="image_wrapper">
                 <img src="../../../../assets/images/invItemimage2.jpg">
