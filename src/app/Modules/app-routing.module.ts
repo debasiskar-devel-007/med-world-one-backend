@@ -91,30 +91,7 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
-
   { path: 'dashboard-admin', component: DashboardAdminComponent },
-  // {
-  //   path: 'dashboard-admin',
-  //   component: DashboardAdminComponent,
-  //   resolve: { data: ResolveService },
-  //   data: {
-  //     requestcondition: {
-       
-  //       "condition":{
-  //         "hospitaltype":{
-  //           "type":"hospital"
-  //         },
-  //         "salesreptype":{
-  //           "type":"salesrep"
-  //         },
-  //         "mckessontype":{
-  //           "source_name":"mckesson"
-  //         }
-  //       }   
-  //     },
-  //     endpoint: 'admindashboradcount'
-  //   },
-  // },
   //Medical Dashboard 
   { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
   //SalesRep Dashboard

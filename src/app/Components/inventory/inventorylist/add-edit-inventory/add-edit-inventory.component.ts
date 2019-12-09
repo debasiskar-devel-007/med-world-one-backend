@@ -43,6 +43,7 @@ export class AddEditInventoryComponent implements OnInit {
   public temp_array: any = [];
   public items: FormArray;
   public active_hospital_list: any = [];
+  public imageErrCode: boolean = false;
 
 
 
@@ -55,7 +56,7 @@ export class AddEditInventoryComponent implements OnInit {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
-    format: ["jpg", "jpeg","png"], // use all small font
+    format: ["jpg", "jpeg", "png"], // use all small font
     type: "inventory-file",
     path: "files",
     prefix: "_inventory-file",
@@ -115,19 +116,20 @@ export class AddEditInventoryComponent implements OnInit {
   // =====================generate form=====================
   generateForm() {
     this.inventoryForm = this.formBuilder.group({
-      inventory_name: [],
+      inventory_name: ['', [Validators.required]],
+      source: [],
       brand_name: [],
       inventory_category: [],
-      sku: [],
-      description: [],
+      sku: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      inventory_image: [],
       condition: ['New',],
       yom: [],
-      quantity: [],
-      status: [],
-      inventory_image: [],
       items: new FormArray([]),
-      dynamic_attributes:[],
-      source:[]
+      dynamic_attributes: [],
+      status: [],
+
     });
   }
   // =======================================================
@@ -148,7 +150,7 @@ export class AddEditInventoryComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
-      source:this.defaultData.source
+      source: this.defaultData.source
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
@@ -164,20 +166,27 @@ export class AddEditInventoryComponent implements OnInit {
   // ===================================================================================
 
 
+
+  /** blur function **/
+  inputBlur(val: any) {
+    this.inventoryForm.controls[val].markAsUntouched();
+  }
+
   // ======================submit form=======================
   onSubmit() {
 
-
-    // this.dynamic_items.push(this.createItem());
-
+    /** marking as untouched **/
+    for (let x in this.inventoryForm.controls) {
+      this.inventoryForm.controls[x].markAsTouched();
+    }
     var item: any = this.inventoryForm.value.items
     this.inventoryForm.value.dynamic_attributes = [];
-    for(let loop = 0; loop < item.length; loop++) {
+    for (let loop = 0; loop < item.length; loop++) {
       var data: any = {};
       data[item[loop].label_name] = item[loop].label_value;
       this.inventoryForm.value.dynamic_attributes.push(data);
     }
-   
+
 
     // Image File Upload Works 
     if (this.configData.files) {
@@ -192,8 +201,9 @@ export class AddEditInventoryComponent implements OnInit {
         };
     } else {
       this.inventoryForm.value.inventory_image = false;
-      if(this.action=='edit')
-      this.inventoryForm.value.inventory_image = this.defaultData.inventory_image;
+      this.imageErrCode = true;
+      if (this.action == 'edit')
+        this.inventoryForm.value.inventory_image = this.defaultData.inventory_image;
     }
 
     if (this.inventoryForm.invalid) {
@@ -263,7 +273,7 @@ export class AddEditInventoryComponent implements OnInit {
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response.res;
-     this.brand_name_array = result[0].brand;
+      this.brand_name_array = result[0].brand;
     });
   }
 
@@ -303,26 +313,26 @@ export class AddEditInventoryComponent implements OnInit {
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response.res;
-      this.active_hospital_list = result   
+      this.active_hospital_list = result
     });
   }
 
- 
+
   createItem(item_array: any): FormGroup {
     if (item_array != null) {
       return this.formBuilder.group({
-        label_name : [item_array.label_name],
-        label_value :[item_array.label_value]
+        label_name: [item_array.label_name],
+        label_value: [item_array.label_value]
       });
     }
     if (item_array == null) {
       return this.formBuilder.group({
-        label_name : '',
-        label_value : ''
+        label_name: '',
+        label_value: ''
       });
     }
   }
-  
+
   addItem(): void {
     this.items = this.inventoryForm.get('items') as FormArray;
     this.items.push(this.createItem(null));

@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { matchpwd, nameValidator, phoneValidator } from '../../../common/validators'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import * as moment from 'moment';
 export interface DialogData {
   msg: string;
 }
@@ -21,18 +22,21 @@ export class AddEditAdminComponent implements OnInit {
 
 
   // ==========================declaration=====================
-  btn_text: any = "SUBMIT";
-  adminForm: FormGroup;
-  condition: any;
-  action: any = "add"
-  defaultData: any;
-  successMessage: any = "Submitted Successfully!!!";
-  dialogRef: any;
-  header_txt: any = "Add an admin"
-  flag: boolean = false;
-  linkTo: any;
-  user_data: any;
-  role: any;
+  public btn_text: any = "SUBMIT";
+  public adminForm: FormGroup;
+  public condition: any;
+  public action: any = "add"
+  public defaultData: any;
+  public successMessage: any = "Submitted Successfully!!!";
+  public dialogRef: any;
+  public header_txt: any = "Add an admin"
+  public flag: boolean = false;
+  public user_data: any;
+  public role: any;
+  public allCities: any;
+  public cities: any;
+  public states: any;
+  public date: any;
   // ==========================================================
 
 
@@ -45,7 +49,12 @@ export class AddEditAdminComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.adminList.res[0];
+          this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
         });
+        /** getting the state  **/
+        setTimeout(() => {
+          this.getCityByName(this.defaultData.state);
+        }, 500);
       }
       else
         this.action = "add";
@@ -66,6 +75,14 @@ export class AddEditAdminComponent implements OnInit {
   ngOnInit() {
 
 
+    //Generating the form on ngOnInit
+    this.generateForm();
+
+    //getting the cities
+    this.allStateCityData();
+
+
+
 
 
 
@@ -77,21 +94,14 @@ export class AddEditAdminComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
-        //Generating the form on ngOnInit
-        this.generateForm();
-        this.linkTo = "/admin-management/list";
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
         this.successMessage = "One row updated!!!";
-        //Generating the form on ngOnInit
-        this.generateForm();
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Admin Information";
         this.flag = true;
-        if (this.role == 'admin')
-          this.linkTo = "/dashboard-admin";
         break;
     }
 
@@ -118,13 +128,17 @@ export class AddEditAdminComponent implements OnInit {
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
     this.adminForm.patchValue({
+
       firstname: defaultValue.firstname,
       lastname: defaultValue.lastname,
       email: defaultValue.email,
       password: defaultValue.password,
       phone: defaultValue.phone,
+      address: defaultValue.address,
+      state: defaultValue.state,
+      city: defaultValue.city,
+      zip: defaultValue.zip,
       status: defaultValue.status
-
     })
   }
   // ======================================================================================
@@ -138,12 +152,18 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
+      user_id: [],
+      date_added: [{ value: this.date, disabled: true }],
       firstname: ["", [Validators.required]],
       lastname: ["", [Validators.required]],
       phone: ["", [Validators.required, phoneValidator]],
       email: ["", [Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)]],
       password: ['', Validators.required],
       confirmpassword: [''],
+      address: [],
+      state: [],
+      city: [],
+      zip: [],
       status: [],
       type: ['admin']
     });
@@ -181,10 +201,33 @@ export class AddEditAdminComponent implements OnInit {
     });
   }
 
+  /**for getting all states & cities function start here**/
+  allStateCityData() {
+    this.http.getSiteSettingData("./assets/data-set/state.json").subscribe(response => {
+      this.states = response;
+    });
 
+    this.http.getSiteSettingData("./assets/data-set/city.json").subscribe(response => {
+      this.allCities = response;
+    });
+  }
+
+  /**for getting all states & cities  function end here**/
+  getCity(event) {
+    var val = event;
+    this.cities = this.allCities[val];
+  }
+
+  /** For edit city state purpose **/
+  getCityByName(stateName) {
+    this.cities = this.allCities[stateName];
+  }
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-   if (this.adminForm.invalid) {
+
+
+
+    if (this.adminForm.invalid) {
       return;
     }
     else {
@@ -206,11 +249,11 @@ export class AddEditAdminComponent implements OnInit {
         "token": this.cookieService.get('jwtToken')
 
       };
-      
+
       /**delete password when id not null */
-      if(postData.data.id){
-          delete postData.data.password;
-        }
+      if (postData.data.id) {
+        delete postData.data.password;
+      }
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         if (response.status == "success") {
@@ -218,7 +261,7 @@ export class AddEditAdminComponent implements OnInit {
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
-          this.router.navigateByUrl(this.linkTo);
+          this.router.navigateByUrl('/admin-management/list');
         } else {
           alert("Some error occurred. Please try again.");
         }
