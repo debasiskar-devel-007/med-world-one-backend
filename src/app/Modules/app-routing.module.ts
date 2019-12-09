@@ -548,7 +548,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   },
   // Forntend inventory list
   { path: 'inventory', component: InventoryComponent,  resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: 'inventories_view',condition: {}},endpoint: 'datalist'}, },
+  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, },
 
   { path: 'inventory-details/:id', component: InventoryDetailsComponent },
 
