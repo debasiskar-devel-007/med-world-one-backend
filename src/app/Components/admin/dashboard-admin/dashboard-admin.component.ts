@@ -82,9 +82,9 @@ export class DashboardAdminComponent implements OnInit {
 
 
   getHospitals() { 
-    this.http.httpViaPost('hospitaldata', undefined).subscribe((response: any) => {
-      this.hospitalDetails = response.res;
-      console.log(this.hospitalDetails);
+    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
+      console.log("asdas",response.hospital);
+      this.hospitalDetails = response.hospital;
     });
   }
 
