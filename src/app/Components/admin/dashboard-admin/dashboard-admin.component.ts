@@ -84,6 +84,7 @@ export class DashboardAdminComponent implements OnInit {
   getHospitals() { 
     this.http.httpViaPost('hospitaldata', undefined).subscribe((response: any) => {
       this.hospitalDetails = response.res;
+      console.log(this.hospitalDetails);
     });
   }
 
@@ -98,7 +99,7 @@ export class DashboardAdminComponent implements OnInit {
           "type": "salesrep"
         },
         "mckessontype": {
-          "source_name": "mckesson"
+          "source": "mckesson"
         }
       }
     }

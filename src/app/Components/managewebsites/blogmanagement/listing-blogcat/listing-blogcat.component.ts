@@ -79,9 +79,7 @@ public search_settings: any = {
       this.http.httpViaPost('datalist',data).subscribe((res)=>{
         let result:any;
         result=res;
-        this.bloglist=result.res;
-        console.log('>>>>>>>>>>>>>>>',this.bloglist)
-
+        this.bloglist=result.res;    
       })
 
   }

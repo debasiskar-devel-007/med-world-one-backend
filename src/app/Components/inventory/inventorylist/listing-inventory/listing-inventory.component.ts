@@ -14,11 +14,13 @@ export class ListingInventoryComponent implements OnInit {
   user_cookie: any = '';
   // ===============================Declarations=========================
   inventoryListData: any = [];
-  inventoryListData_skip: any = ["_id", "description_html", "description", "created_at", "inventory_image", 'image','source'];
+  inventoryListData_skip: any = ["_id", "description_html", "description", "created_at",
+   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search'];
   detail_skip_array: any = ["_id"]
   inventoryListData_modify_header: any = {
     "brand name": "Brand Name",
-    "parent category": "Parent Category", "priority": "Priority", "status": "Status"
+    "parent category": "Parent Category", "priority": "Priority", "status": "Status",
+    "inventoy name":"source",'sku':'sku #','name':'Source','inventory name':'Name'
   };
   tableName: any = 'inventories';
   UpdateEndpoint: any = "addorupdatedata";

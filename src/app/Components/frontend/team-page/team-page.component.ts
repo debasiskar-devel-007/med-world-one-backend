@@ -14,15 +14,15 @@ export class TeamPageComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.data.forEach(data => {
-      console.log(data);
+     
       let result: any = data.teamList.res;
       this.teamList = result;
-      console.log("dataaaaaaaa", this.teamList);
+   
     })
 
   }
   openDialog(val: any) {
-    console.log(val)
+  
 
     const dialogRef = this.dialog.open(TeamDetails, {
       data: val,
@@ -30,7 +30,7 @@ export class TeamPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+     
     });
   }
 }
@@ -41,6 +41,6 @@ export class TeamPageComponent implements OnInit {
 })
 export class TeamDetails {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
-    console.log(data)
+    
   }
 }

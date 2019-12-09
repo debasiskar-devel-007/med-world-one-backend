@@ -15,12 +15,11 @@ export class ListingPriceMarkupManagementComponent implements OnInit {
 
   // ===============================Declarations for price markup=========================
 public priceMarkupData: any = [];
-priceMarkupData_skip: any = ["_id","description_html","description","created_at"];
+priceMarkupData_skip: any = ["_id","description_html","description","created_at","notes"];
 public detail_skip_array:any=["_id"];
 priceMarkupData_modify_header: any = {
-  "setValue":"Percentage (%)",
-  "notes":"Notes",
-  "country":"Country Name",
+  "setValue":"Percentage Mark Up(%)",
+  "country":"Country",
   "date_added":"Date"
 };
 public tableName: any = "priceMarkup";
