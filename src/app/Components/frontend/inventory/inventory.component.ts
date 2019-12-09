@@ -35,4 +35,10 @@ public categoryList:any = [];
   viewDetails(val:any){
      this.router.navigateByUrl('/inventory-details/' +val);
   }
+
+  /**search Catagory Function */
+  searchCatagory(catId:any){
+    console.log("search Catagory ID"+'   '+catId);
+  }
+
 }
