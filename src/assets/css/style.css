@@ -599,19 +599,27 @@ tr td br{ display: none; }
   height: 35px;
     border: 1px solid #ddd;
     padding: 0 1%;
-    width: 98%;
+    width: 98%;background: #fff;
 }
 .inputstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0;
 }
-.inputstyle .mat-form-field-appearance-legacy .mat-form-field-infix{
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-infix, .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix{
   padding: 5px 0;
   border: 0;
   margin: 0 0;
   margin-top: 20px;
   position: relative;padding-bottom: 15px;  
 }
-
+.inputstyle .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{
+  background: none;
+    position: relative;
+    top: -10px;
+}
+.inputstyle .mat-form-field-underline{display: none;}
+.inputstyle .mat-form-field-wrapper {
+  position: relative;padding-bottom: 0;
+}
 .col-1-1{width: 99%;padding: 0 .5%;display: inline-block;}
 .col-1-2{width: 49%; padding: 0 .5%;display: inline-block;}
 .col-1-3{width: 32.3%; padding: 0 .5%;display: inline-block;}
@@ -641,7 +649,7 @@ tr td br{ display: none; }
     font-size: 16px !important;
     color: #535353 !important
 }
-.inputstyle a{color: #0fa6d2;cursor: pointer}
+.inputstyle a{color: #0fa6d2;cursor: pointer;width: fit-content;}
 .cpass{
   text-transform: uppercase;
   text-decoration: underline;
@@ -693,6 +701,38 @@ tr td br{ display: none; }
 .button_wrapper button{min-width: 145px; color: #fff; text-transform: uppercase; font-size: 18px;font-family: 'AvenirMedium' !important; text-align: center;text-shadow: 0 2px 0 rgba(0,0,0,.30);}
 .bluebutton{background-color: #013265 !important;}
 .skybutton{background-color: #09c5fb !important;}
+.inputstyle .mat-form-field-appearance-fill .mat-form-field-flex{padding: 0;}
+/* .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+  background: none;
+  border: 0;
+} */
+.inputstyle .mat-select-trigger{
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.inputstyle .mat-form-field-appearance-fill .mat-form-field-underline::before{display: none;}
+.inputstyle .mat-select-value{overflow: inherit;}
+.checkradiotitle{display: block;}
+.inputstyle .mat-radio-button.mat-accent .mat-radio-inner-circle{background-color: #0fce26;}
+
+.inputstyle .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #757575;
+}
+.inputstyle .checkradiowrapper mat-radio-button{margin-right: 10px;margin-top: 7px;}
+
+
+
+
+
+
+
+
 /* ----------------- list view css end -------------------- */
 
 
