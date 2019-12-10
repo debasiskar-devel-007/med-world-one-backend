@@ -25,7 +25,7 @@ export class DashboardAdminComponent implements OnInit {
 
   /** declarations **/
   public userData: any;
-  displayedColumns: string[] = ['position','firstname','lastname','email','phone','state','city'];
+  displayedColumns: string[] = ['date','firstname','lastname','email','phone','state','city'];
   public dataSource:any;
   public type: string;
   public hospitalDetails: any = [];
@@ -81,7 +81,8 @@ export class DashboardAdminComponent implements OnInit {
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {     
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
-      console.log("asdas",this.dataSource);
+      console.log("hospital name recently",this.hospitalDetails);
+      console.log("salesrep name recently",this.dataSource)
     });
   }
 
@@ -107,7 +108,7 @@ export class DashboardAdminComponent implements OnInit {
       this.salesrep_count = this.count_dashboard.salesrepcount;
       this.inventory_count = this.count_dashboard.mckessoncount;
       this.medicalpartner_count = this.count_dashboard.otherscount;
-      console.log(this.count_dashboard.mckessoncount);
+      //console.log(this.count_dashboard.mckessoncount);
     });
   }
 }

@@ -32,7 +32,7 @@
     "install": "^0.13.0",
     "listing": "0.0.1",
     "listing-angular7": "0.0.98",
-    "login-lib-influxiq": "0.0.7",
+    "login-lib-influxiq": "0.0.9",
     "moment": "^2.24.0",
     "ngx-ckeditor": "^8.0.0",
     "ngx-clipboard": "^12.3.0",

@@ -88,8 +88,8 @@ import { ContactUsComponent } from './Components/frontend/contact-us/contact-us.
 import { TeamPageComponent, TeamDetails } from './Components/frontend/team-page/team-page.component';
 import { BlogComponentFrontEnd } from './Components/frontend/blog/blog.component';
 import { BlogDetailsComponent } from './Components/frontend/blog-details/blog-details.component';
-import { InventoryComponent } from './Components/frontend/inventory/inventory.component';
-import { InventoryDetailsComponent } from './Components/frontend/inventory-details/inventory-details.component';
+import { InventoryComponent,Dialoglogin } from './Components/frontend/inventory/inventory.component';
+import { InventoryDetailsComponent,Dialogloginn } from './Components/frontend/inventory-details/inventory-details.component';
 import { AboutUsFrontComponent } from './Components/frontend/about-us-front/about-us-front.component';
 import { SalesRepLoginComponent } from './Components/frontend/logins/sales-rep-login/sales-rep-login.component';
 import { MyDetailsHospitalComponent } from './Components/backend/hospital/my-details-hospital/my-details-hospital.component';
@@ -242,6 +242,8 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
+    Dialoglogin,
+    Dialogloginn,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent
 
 
@@ -272,7 +274,7 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [sendMailModal,quoteModal,Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

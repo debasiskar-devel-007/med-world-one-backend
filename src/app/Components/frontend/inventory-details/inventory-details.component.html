@@ -55,7 +55,7 @@
             <!-- <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0">
             <mat-card-content class="sizes" *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
                <h3  class="text" *ngFor="let dv of dynamic ;let i1=index; ">{{dv}}{{i1}} 00 </h3>
-              <h3  class="text">{{dynamic.key}}:{{dynamic.value}} .. {{getdata(dynamic,i)}} </h3>
+              <h3  class="text">{{dynamic.key}}:{{dynamic.value}} .. </h3>
               <span class="button_wrapper">
                 <button mat-button>small</button>
                 <button mat-button>medium</button>
@@ -66,9 +66,9 @@
 
             <span class="quotes">
               <span class="quantity">
-                qty <button mat-button>-</button> <span class="box">{{inventoryDetails.quantity}}</span> <button mat-button>+</button>
+                qty <button mat-button (click)="removeItem()">-</button> <span class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
               </span>
-              <button mat-button class="addToQuote">Add to Quote</button>
+              <button mat-button (click)="addQuote(inventoryDetails._id)" class="addToQuote">Add to Quote</button>
             </span>
 
           </mat-toolbar>

@@ -79,6 +79,12 @@ import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-d
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/:id', component: LoginComponent },
+  { path: 'login/:id/:token', component: LoginComponent },
+
+
+
   { path: 'home', component: HomePageComponent,canActivate: [AuthService]},
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
@@ -87,7 +93,7 @@ const routes: Routes = [
   { path: 'medical-partners', component: MedicalPartnersComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
@@ -625,7 +631,8 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   // ==================================================================================
 
   // admin frontend
-  { path: 'login', component: LoginAdminComponent },
+  // { path: 'login', component: LoginAdminComponent },
+  // { path: 'login/:id', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },
   {
     path: 'hospital/my-details',
