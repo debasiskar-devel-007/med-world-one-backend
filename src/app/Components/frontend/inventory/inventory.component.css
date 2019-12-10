@@ -172,5 +172,5 @@
 }
 @media screen and (max-width:1199px){
 .cataLog_wrapper { position: relative; }
-.cataLog_wrapper .categoyPart { min-width: 230px; position: absolute; z-index: 999; top: 0; background: #fff; height: 100%;}
+
 }

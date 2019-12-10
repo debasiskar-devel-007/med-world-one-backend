@@ -130,6 +130,7 @@
   .popularProduct .product_container .product_item_wrapper .product_item { width: 46%; }
     .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+1) { margin-left: 0.5%; }
     .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+4) { margin-right: 0.5%; }
+    .bottom_content .new_w_items .sec_inner .con_para { font-size: 22px; }
   }
 
   @media screen and (max-width: 1040px){
