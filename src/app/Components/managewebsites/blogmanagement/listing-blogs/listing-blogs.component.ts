@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment.dev';
 
 @Component({
   selector: 'app-listing-blogs',
@@ -30,7 +30,7 @@ export class ListingBlogsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      this.blogListConfig.datasource = resolveData.blogsList.res;
+      this.blogListConfig = resolveData.blogsList.res;
       this.blogListConfig.jwtToken = this.cookieService.get('jwtToken');
     });
   }
