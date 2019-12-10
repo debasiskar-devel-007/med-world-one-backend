@@ -37,7 +37,7 @@ export class ListingAdminComponent implements OnInit {
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By full name...", field: 'fullname' }],
+      textsearch: [{ label: "Search By Name", field: 'fullname' }],
       datesearch: [{ startdatelabel: "Start Date", enddatelabel: "End Date", submit: "Search By Date", field: "date" }],   // this is use for  date search 
     };
   // ====================================================================
