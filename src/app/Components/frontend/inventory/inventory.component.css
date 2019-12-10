@@ -31,18 +31,8 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper {width: 70%; padding-left: 10px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w { text-align: left; margin-bottom: 5px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w h3{ font-size: 14px; font-family: "AvenirMedium"; text-transform: uppercase; color: #1f2122; margin: 0; }
-.sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w p{     color: #030404;
-  font-family: "AvenirLight";
-  font-size: 14px;
-  margin: 0;
-  margin-top: 0px;
-  word-break: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  line-height: 16px;
-  max-height: 32px;
-  -webkit-line-clamp: 3;
+.sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w p{ color: #030404; font-family: "AvenirLight"; font-size: 14px;
+  margin: 0; margin-top: 0px; word-break: break-word; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 16px; max-height: 32px;  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; }
 
 .sh_inventory_content .sh_inventory_content_item .content_wrapper h1{ font-size: 18px; font-family: "AvenirLight"; color: #002950; text-transform: uppercase; text-align: left;  margin-bottom: 5px;}
@@ -181,13 +171,6 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper h1 { font-size: 16px; }
 }
 @media screen and (max-width:1199px){
-  .cataLog_wrapper { position: relative; }
-.cataLog_wrapper .categoyPart {
-  min-width: 230px;
-  position: absolute;
-  z-index: 999;
-  top: 0;
-  background: white;
-  height: 100%;
-}
+.cataLog_wrapper { position: relative; }
+
 }

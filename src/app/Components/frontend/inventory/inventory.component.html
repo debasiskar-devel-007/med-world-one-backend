@@ -46,9 +46,9 @@
             {{brand.brand_name}}</mat-option>
         </mat-select>
 
-        <input type="text" #srch class="searchpannel seperate" placeholder="Search..">
+        <input type="text" #srch class="searchpannel seperate">
 
-        <button (click)="search(srch.value)" class="search_button"> Search</button>
+        <button mat-button (click)="search(srch.value)" class="search_button"> Search</button>
       </span>
 
       <!-- <mat-form-field>
