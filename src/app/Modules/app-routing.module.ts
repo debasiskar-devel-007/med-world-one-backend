@@ -98,11 +98,11 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
-  { path: 'dashboard-admin', component: DashboardAdminComponent },
+  { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
   //Medical Dashboard 
-  { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService] },
   //SalesRep Dashboard
-  { path: 'dashboard-salesrep', component: DashboardAdminComponent },
+  { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
 
 
 

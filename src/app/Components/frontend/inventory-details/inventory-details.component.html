@@ -66,7 +66,7 @@
 
             <span class="quotes">
               <span class="quantity">
-                qty <button mat-button (click)="removeItem()">-</button> <span class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
+                qty <button mat-button *ngIf="amount!=1" (click)="removeItem()">-</button> <span class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
               </span>
               <button mat-button (click)="addQuote(inventoryDetails._id)" class="addToQuote">Add to Quote</button>
             </span>

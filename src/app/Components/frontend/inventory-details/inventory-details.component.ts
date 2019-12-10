@@ -64,6 +64,7 @@ export class InventoryDetailsComponent implements OnInit {
         },
         "sourceobj": ["user_id", "inventory"],
       };
+      //console.log(postData);
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
         console.log(res);
       })
@@ -79,11 +80,11 @@ export class InventoryDetailsComponent implements OnInit {
   /**add and delete quentity */
   addToqty(){
     this.amount=this.amount+1;
-    console.log(this.amount)
+    // console.log(this.amount)
   }
   removeItem(){
     this.amount=this.amount-1;
-    console.log(this.amount)
+    // console.log(this.amount)
    }
 
   /*******************Open Login Modal ********************************/
