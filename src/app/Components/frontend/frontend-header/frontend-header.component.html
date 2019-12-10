@@ -36,9 +36,9 @@
         *ngIf="type == ''">Signup</a> -->
       <a mat-list-item class="signup" *ngIf="type != ''" (click)="logout();">Logout</a>
       <mat-card-content class="a_pro" *ngIf="type != ''">
-        <span class="profile">
+        <!-- <span class="profile">
           <img src="https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg">
-        </span>
+        </span> -->
         <i class="material-icons" [matMenuTriggerFor]="repmenu"> more_vert </i>
       </mat-card-content>
 

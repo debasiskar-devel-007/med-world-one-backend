@@ -31,7 +31,7 @@ export class FrontendHeaderComponent implements OnInit {
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.type=this.user_details.type;
-      console.log(this.user_details.type);
+     // console.log(this.user_details.type);
       }
   }
 
@@ -45,7 +45,7 @@ export class FrontendHeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log("sourav logout");
+    // console.log("sourav logout");
     this.cookieService.deleteAll();
     this.cookieService.deleteAll('/');
     setTimeout(() => {

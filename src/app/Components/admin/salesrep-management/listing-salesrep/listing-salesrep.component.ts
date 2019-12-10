@@ -56,6 +56,7 @@ export class ListingSalesrepComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.salesData = resolveData.salesRepList.res;
+      console.log(this.salesData);
     });
   }
 

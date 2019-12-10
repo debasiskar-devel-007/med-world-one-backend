@@ -2,20 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
 
 
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-//   { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-//   { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-//   { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-//   { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-//   { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-//   { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-//   { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-//   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-//   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-// ];
+const ELEMENT_DATA: PeriodicElement[] = [
+  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+];
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
@@ -25,7 +31,9 @@ export class DashboardAdminComponent implements OnInit {
 
   /** declarations **/
   public userData: any;
-  displayedColumns: string[] = ['position','firstname','lastname','email','phone','state','city'];
+  displayedColumns: string[] = ['date','firstname','lastname','email','phone','state','city'];
+  displayedColumn: string[] = ['position','name','weight','symbol'];
+  dataSourcee = ELEMENT_DATA;
   public dataSource:any;
   public type: string;
   public hospitalDetails: any = [];
@@ -36,8 +44,8 @@ export class DashboardAdminComponent implements OnInit {
   public salesrep_count:string;
   public inventory_count:string;
   public medicalpartner_count:string;
- 
-  
+  public purcehseComparisionQuote:any=[];
+  public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status']
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -73,6 +81,21 @@ export class DashboardAdminComponent implements OnInit {
     }
     this.http.httpViaPost('datalist', data).subscribe((response: any) => {
       this.hospitalDetails = response.res;
+
+    });
+
+    let dta: any = {
+      source: 'purchasecomparison_view_admin',
+      condition: {
+        'salesrep_id_object': this.userData._id
+      },
+      token: this.cookieService.get('jwtToken')
+    }
+  
+    this.http.httpViaPost('datalist', dta).subscribe(response => {
+      this.purcehseComparisionQuote = response.res;
+      //console.log(this.purcehseComparisionQuote);
+      
     });
   }
 
@@ -81,7 +104,8 @@ export class DashboardAdminComponent implements OnInit {
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {     
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
-      console.log("asdas",this.dataSource);
+      // console.log("hospital name recently",this.hospitalDetails);
+      // console.log("salesrep name recently",this.dataSource)
     });
   }
 
@@ -107,7 +131,9 @@ export class DashboardAdminComponent implements OnInit {
       this.salesrep_count = this.count_dashboard.salesrepcount;
       this.inventory_count = this.count_dashboard.mckessoncount;
       this.medicalpartner_count = this.count_dashboard.otherscount;
-      console.log(this.count_dashboard.mckessoncount);
+      //console.log(this.count_dashboard.mckessoncount);
     });
   }
+
+ 
 }
