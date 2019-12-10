@@ -32,9 +32,9 @@ export class ListingSalesrepComponent implements OnInit {
   detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =
     {
-      selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
+      // selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
       textsearch: [{ label: "Search By name", field: 'name' },
-      { label: "Search By state", field: 'state' },
+      // { label: "Search By state", field: 'state' },
       { label: "Search By email", field: 'email' }],
       datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };

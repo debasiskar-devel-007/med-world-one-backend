@@ -39,7 +39,8 @@ export class ListingMedicalpartnersComponent implements OnInit {
       selectsearch: [{ label: 'status...', field: 'status', values: this.status }],
       textsearch: [{ label: "hospital name", field: 'hospitalname' },
       { label: "state", field: 'state' },
-      { label: "speciality", field: 'speciality' }],
+      // { label: "speciality", field: 'speciality' }
+    ],
       datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };
   // ====================================================================
