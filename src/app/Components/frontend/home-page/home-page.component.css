@@ -12,14 +12,15 @@
 .home_wrapper .home_bottom .bottom_content .para{ font-family: "AvenirBook"; font-size: 18px; color: #fff;}
 .home_wrapper .home_bottom .bottom_content .sub_h{ font-family: "AvenirBlack"; font-size: 24px; color: #fff; text-transform: uppercase; }
 .home_wrapper .home_bottom .main_content{ background: linear-gradient(180deg, #001c38, #002244); display: flex; position: relative; padding: 0 50px; margin-bottom: 0;padding-bottom: 40px; margin-top: -100px; }
-.home_wrapper .home_bottom .main_content .main_content_items { text-align: center;  margin: 0; margin-top: -60px;  }
+.home_wrapper .home_bottom .main_content .main_content_items { text-align: center;  margin: 0; margin-top: -60px; width: 34%;  }
 .home_wrapper .home_bottom .main_content:after{  content: '';  background: url('../../../../assets/images/HomeBeforeImage2.png') no-repeat; position: absolute; height: 100%; width: 40px;
   right: -40px; background-size: contain;}
 .home_wrapper .home_bottom .main_content:before{  content: ''; background: url('../../../../assets/images/HomeBeforeImage.png') no-repeat; position: absolute; height: 100%; width: 40px;
   left: -38px; background-size: contain; }
 
-.home_wrapper .home_bottom .main_content .image_wrapper{ border: 20px solid #013265; display: block; margin: 25px; }
+.home_wrapper .home_bottom .main_content .image_wrapper{ border: 20px solid #013265; display: block; margin: 10px; }
 .home_wrapper .home_bottom .main_content .short_desc{  font-family: "AvenirBook"; font-size: 18px; color: #fff; padding: 0 16px; margin: 0; margin-bottom: 10px; }
+.home_wrapper .home_bottom .main_content .short_desc span{ font-family: "AvenirBlack"; font-size: 18px; color: #fff; text-transform: capitalize; text-decoration: none; }
 .home_wrapper .home_bottom .main_content .link{ font-family: "AvenirBlack"; font-size: 18px; color: #fff; text-transform: capitalize; text-decoration: none; }
 .home_wrapper .home_bottom .main_content .image_wrapper img{ max-width: 100%; border: 2px solid #fff; box-sizing: border-box; width: 100%; }
 .homeGetaQuote{ background: url("../../../../assets/images/getAquoteBanner.png") no-repeat center center; background-size: cover; margin-bottom: 0;}
@@ -82,14 +83,14 @@
  .bottom_content .new_w_items .sec_inner { margin-bottom: 0; height: 100%;}
  .bottom_content .new_w_items .sec_inner .content_part { padding: 16px;}
  .action_button { text-align: center; }
- .action_button .globeMedPartner{ color: #fff; font-size: 20px; font-family: "AvenirMedium"; text-transform: uppercase; background: #0a4788;  border-radius: 0; padding: 5px 25px; }
+ .action_button .globeMedPartner{ white-space: normal; word-break: break-word; color: #fff; font-size: 20px; font-family: "AvenirMedium"; text-transform: uppercase; background: #0a4788;  border-radius: 0; padding: 5px 25px; }
 
  .medicalPartnerToo  .content_part  { padding: 0!important; width: 100%; display: flex; justify-content: center; align-items: center; height: 100%; }
  .medicalPartnerToo .content_part img { width: 100%;  }
  .medicalPartnerToo .content_part .manufac_action { color: #fff; font-size: 20px; font-family: "AvenirMedium"; text-transform: uppercase; background: #0a4788; border-radius: 0;
   padding: 5px 5px; width: 250px; }
 
- 
+
 
   @media screen and (max-width: 1600px){
     .container { width: 90%; margin: 0 auto; }
@@ -101,7 +102,7 @@
     .bottom_content .new_w_items .sec_inner .consubTitle { font-size: 22px;  }
     .bottom_content .new_w_items .sec_inner .con_para { font-size: 18px; }
   }
-  
+
   @media screen and (max-width: 1530px){
     .popularProduct .product_container .product_item_wrapper .product_item { width: 22.5%; }
   }
@@ -115,7 +116,79 @@
   .home_wrapper .home_bottom .main_content .main_content_items { padding-bottom: 20px; }
   .globalMedical_partner .partner_wrapper .top_content { width: 90%; }
   }
+  @media screen and (max-width: 1266px){
+    .popularProduct .product_container .product_item_wrapper .product_item { width: 22%; }
+  }
   @media screen and (max-width: 1199px){
   .home_wrapper .home_top .content_wrapper { width: 100%; }
+  .homeGetaQuote .quoteText { font-size: 22px; padding: 0 20px 0 0; }
+  .popularProduct .product_container .product_item_wrapper .product_item { width: 22%; }
+  .home_wrapper  .home_bottom  .main_content  .short_desc br { display: none; }
+  .bottom_content  .new_wrapper { display: flex; flex-wrap: wrap; padding: 0; }
+  .medicalPartnerToo  .content_part  .manufac_action  { margin-top: 30px; }
+  .medicalPartnerToo  .content_part  .manufac_action:first-child  { margin-bottom: 30px; }
+  .popularProduct .product_container .product_item_wrapper .product_item { width: 46%; }
+    .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+1) { margin-left: 0.5%; }
+    .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+4) { margin-right: 0.5%; }
   }
 
+  @media screen and (max-width: 1040px){
+
+        .homeGetaQuote .quoteText { font-size: 20px; padding: 0 10px 0 0; line-height: 24px; }
+    .homeGetaQuote .Quotecontainer .freeReportButton { min-width: 240px;font-size: 22px; }
+    .globalMedical_partner .partner_wrapper .top_content{ width: 100%; }
+    .medicalPartnerToo .content_part .manufac_action { font-size: 18px; width: 190px; }
+
+
+    }
+    @media screen and (max-width: 991px){
+      .bottom_content .new_w_items:nth-child(1) .inner_wrapper::before{ display: none; }
+      .bottom_content .new_w_items:nth-child(1) .inner_wrapper::after {display: none;}
+      .bottom_content .new_w_items:nth-child(2) .inner_wrapper::before{ display: none; }
+      .bottom_content .new_w_items:nth-child(2) .inner_wrapper::after {display: none;}
+      .bottom_content .new_w_items:nth-child(3) .inner_wrapper::before{ display: none; }
+      .bottom_content .new_w_items:nth-child(3) .inner_wrapper::after {display: none;}
+    }
+    @media screen and (max-width: 776px){
+      .home_wrapper  .home_bottom  .main_content  .short_desc  { padding: 0 3px; }
+  }
+    @media screen and (max-width: 768px){
+    .popularProduct .product_container .product_item_wrapper .product_item { width: 100%; margin: 0; margin-bottom: 25px; }
+    .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper { margin-bottom: 20px; }
+    .popularProduct .product_container .product_item_wrapper .product_item .product_content { text-align: center; }
+    .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action { justify-content: center; }
+    .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action button { margin: 0 5px; }
+    }
+    @media screen and (max-width: 700px){
+      .medicalPartnerToo  .content_part  .manufac_action  { font-size: 16px; width: 160px; padding: 0; }
+    }
+    @media screen and (max-width: 668px){
+      .home_wrapper .home_bottom .main_content {  display: flex; margin-top: -80px; flex-wrap: wrap; }
+      .home_wrapper .home_bottom .main_content:before,
+      .home_wrapper .home_bottom .main_content:after{ display: none;}
+      .homeGetaQuote .Quotecontainer { display: flex; align-items: center; padding: 0; flex-direction: column; text-align: center;  }
+      .home_wrapper .home_bottom .main_content .main_content_items { padding-bottom: 70px; width: 100%; }
+      .home_wrapper .home_bottom .main_content .main_content_items:last-child { padding-bottom: 20px; }
+      .homeGetaQuote { padding: 20px; }
+      .homeGetaQuote .quoteText{ padding: 0; margin-bottom: 16px; }
+      .home_wrapper .home_bottom .bottom_content .bottom_h { font-size: 36px; line-height: 40px; }
+      .globalMedical_partner .partner_wrapper .top_content .content_header { font-size: 36px; line-height: 40px; }
+    }
+
+    @media screen and (max-width: 640px){
+      .globalMedical_partner .partner_wrapper .top_content .content_header { font-size: 32px; line-height: 40px; }
+    }
+    @media screen and (max-width: 480px){
+      .popularProduct  .product_container  .product_title  { font-size: 38px; margin-bottom: 20px; }
+      .popularProduct { padding: 16px 0 40px; }
+    }
+    @media screen and (max-width: 420px){
+      .home_wrapper  .home_bottom  .bottom_content .bottom_h { font-size: 24px; line-height: 28px; }
+      .home_wrapper  .home_top  .icon_wrapper  { width: auto; }
+      .container { width: 100%; margin: 0 auto; }
+      .home_wrapper  .home_top  .top_head { font-size: 28px; }
+    }
+    @media screen and (max-width: 360px){
+    .globalMedical_partner  .partner_wrapper  .top_content  .content_header  { font-size: 20px; line-height: 26px; }
+    .action_button  .globeMedPartner  { font-size: 14px; }
+}

@@ -233,13 +233,17 @@
     display: block;
   }
 }
+@media screen and (max-width: 480px) {
+.frontend_nav  .logo_wrapper  { display: block; align-items: center; justify-content: flex-start; margin: 12px 0; width: 260px; }
+.frontend_nav { display: flex;  }
+.toggle_button { top: 30px; }
+
+}
 @media screen and (max-width: 420px) {
 .frontend_nav .logo_wrapper { width: 300px; }
 .frontend_nav { width: 95%; align-items: baseline; }
-.toggle_button { top: 40px; }
 }
 
 @media screen and (max-width: 390px){
   .frontend_nav .logo_wrapper { width: 250px; }
-  .toggle_button { top: 25px; }
 }
