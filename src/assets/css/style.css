@@ -757,10 +757,12 @@ tr td br{ display: none; }
 }
 .listingnewstyle .content_header_wrapper {
   background: none!important;
-  padding-bottom: 25px;
+  padding-bottom: 0;
   width: 100%;
   border-bottom: 1px solid #566075;
-  margin-bottom: 25px !important;
+  margin-bottom: 15px !important;
+  padding-left: 0;
+  padding-right: 0;
 }
 .listingnewstyle .container .mat-card{
   padding: 0; 
@@ -776,15 +778,24 @@ tr td br{ display: none; }
 .listingnewstyle tr.mat-row:nth-child(even) {
   background: #ffffff;
 }
+.listingnewstyle .mat-paginator .mat-select-value-text{color: #fff;}
+.listingnewstyle .mat-paginator .mat-select-arrow{color: #fff;}
 .listingnewstyle .mat-paginator {
   background: #566075!important;
   color: #fff!important;
 }
-.listingnewstyle .mat-paginator-container{justify-content: center;}
+.listingnewstyle .mat-paginator .mat-paginator-range-label {
+  margin: 0 5px 0 5px;font-family: 'AvenirLight';
+}
 
+.listingnewstyle .mat-paginator-container{justify-content: center;align-items: center;}
+.listingnewstyle .mat-paginator-page-size-select{margin: 0px 4px 0 4px;}
 .listingnewstyle tr.mat-header-row {
   background: #566075;
 }
+/* .listingnewstyle .mat-paginator-outer-container {
+  padding: 12px 0;
+} */
 
 .listingnewstyle .mat-sort-header-button, .listingnewstyle th.mat-header-cell:last-of-type{
   font-family: 'AvenirRoman';
@@ -808,7 +819,7 @@ tr td br{ display: none; }
 
 .listingnewstyle td.mat-cell:last-of-type{padding-right: 0px;text-align: right;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-form-field-infix{
-  background: white;border-radius: 0;
+  background: white;border-radius: 0; border-top: 0;
 }
 .listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix{
   width: 262px;
@@ -824,7 +835,8 @@ tr td br{ display: none; }
   margin: 0 !important;
   border-radius: 0;
   background-color: #369ff3;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-family: 'AvenirMedium' !important;
 }
 .listingnewstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0;
@@ -836,18 +848,67 @@ tr td br{ display: none; }
   padding: 0 1%;
   transition: none !important;
   transform: inherit !important;
+  text-transform: capitalize;
+  font-family: 'AvenirMedium' !important;
 }
+.listingnewstyle .mat-paginator-page-size{font-family: 'AvenirLight' !important; text-transform: capitalize;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-form-field-label.ng-tns-c12-2.ng-star-inserted{display: none !important;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-select-trigger{height: 100%;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-form-field-label.ng-tns-c12-3.ng-star-inserted{display: none !important;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none !important;}
 .listingnewstyle mat-toolbar-row.searchbar .mat-select-value{vertical-align: middle;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-prefix{
+  position: absolute;
+    right: 0;
+    top: 50% !important;
+    z-index: 9;
+    transform: translate(0%, -50%);
+    border-left: 1px solid #00294f;
+    padding-left: 5px;
+}
+.listingnewstyle .content_header_wrapper .singleButton{
+  min-width: 102px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'AvenirMedium' !important;
+  text-align: center;
+  text-shadow: 0 2px 0 rgba(0,0,0,.30);
+  background: #369ff3;
+  text-align: center;
+}
 
+.medicalpartnerlistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
+  width: 184px;
+}
 
-
-
-
+.listingnewstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
+.medicalpartnerlistingnewstyle.listingnewstyle .mat-form-field-suffix {
+  white-space: nowrap;
+  flex: none;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+}
+.medicalpartnerlistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-infix input{height: 25px; }
+/* .medicalpartnerlistingnewstyle.listingnewstyle .mat-paginator-container{justify-content: center;align-items: stretch;} */
+.medicalpartnerlistingnewstyle.listingnewstyle .mat-paginator .mat-form-field-appearance-legacy .mat-form-field-infix{border: 0;}
 /* .listingnewstyle .ng-star-inserted{display: inline-block;text-align: right;width: 100%;} */
+
+
+.salesreplistingnewstyle.listingnewstyle .mat-paginator .mat-form-field-appearance-legacy .mat-form-field-infix{border: 0;}
+
+.listingnewstyle .mat-form-field-prefix, .mat-form-field-suffix {
+  position: absolute !important;
+  right: 0;
+  top: 4px;
+}
+
+
+.salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
+  width: 233px;
+}
+
 
 /* ----------------- list view css end -------------------- */
 

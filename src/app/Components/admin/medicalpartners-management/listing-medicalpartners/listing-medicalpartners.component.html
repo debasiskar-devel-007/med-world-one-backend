@@ -1,21 +1,21 @@
 <app-adminheader>
+    <span class="listingnewstyle medicalpartnerlistingnewstyle">
+        <span class="dashboardcontainer">
 
   <mat-card class="main_wrapper">
-    <mat-card-content class="inventory_banner">
+    <!-- <mat-card-content class="inventory_banner">
       <mat-card-title class="inventory_title">MEDICAL PARTNERS LIST</mat-card-title>
       <p class="inventory_para">We make premium quality used medical equipment available, from Hospitals that are
         looking to replace them, to other hospitals that need them.</p>
-    </mat-card-content>
-    <mat-card-content class="bred_cram_wrapper">
+    </mat-card-content> -->
+    <!-- <mat-card-content class="bred_cram_wrapper">
       <a mat-list-item routerLink="/dashboard-admin"> Dashboard </a>
       <a mat-list-item routerLinkActive="activebread" [routerLink]="'/admin/medicalpartners-management/list'">Medical
         Partner List </a>
-    </mat-card-content>
+    </mat-card-content> -->
     <mat-toolbar class="content_header_wrapper">
-      <mat-card-title class="toolbar_header">MEDICAL PARTNERS LIST</mat-card-title>
-      <button class="singleButton" mat-raised-button [routerLink]="['/admin/medicalpartners-management/add']">
-        <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Medical Partners
-      </button>
+      <mat-card-title class="toolbar_header">medical partners list</mat-card-title>
+      <button class="singleButton" mat-raised-button [routerLink]="['/admin/medicalpartners-management/add']">Add </button>
     </mat-toolbar>
 
     <!-- Listing goes here  -->
@@ -29,4 +29,6 @@
     <h2 *ngIf="mpData.length == 0">No record found.</h2>
     <!-- Listing ends here  -->
   </mat-card>
+  </span>
+  </span>
 </app-adminheader>
