@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../../environments/environment.dev';
 import {HttpServiceService} from '../../../../services/http-service.service'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -12,7 +12,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class ListingBlogcatComponent implements OnInit {
 
-public baseUrl:any=environment.API_URL;
+  public baseUrl:any=environment.API_URL;
 
   //Listing for blog category//
   public blogListConfig:any = {
@@ -60,14 +60,32 @@ public search_settings: any = {
 
 
 
-  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService,public http:HttpServiceService) { }
+  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService,public http:HttpServiceService) {
+
+
+   }
 
   ngOnInit() {
+    
     this.activatedRoute.data.subscribe(resolveData => {
       this.blogListConfig.datasource = resolveData.blogCatList.res;
       this.blogListConfig.jwtToken = this.cookieService.get('jwtToken');      
     });
 
+    //   //blog data from datalist //
+
+    //  let data:any;
+    //  data={
+    //    'source':'blogs_view',
+    //    'token': this.cookieService.get('jwtToken') 
+    //  };
+    //    this.http.httpViaPost('datalist',data).subscribe((res)=>{
+    //      let result:any;
+    //      result=res;
+    //      this.bloglist=result.res;    
+    //    })
+       
+    //blog data from datalist //
 
     //blog data from datalist //
 
@@ -79,9 +97,12 @@ public search_settings: any = {
       this.http.httpViaPost('datalist',data).subscribe((res)=>{
         let result:any;
         result=res;
-        this.bloglist=result.res;    
+        this.bloglist=result.res;
+        console.log('>>>>>>>>>>>>>>>',this.bloglist)
+
       })
 
+  
   }
 
 }
