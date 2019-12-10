@@ -92,6 +92,7 @@ export class InventoryDetailsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(Dialogloginn, {
       width: '550px',
+      disableClose: true 
     });
 
     dialogRef.afterClosed().subscribe(result => {

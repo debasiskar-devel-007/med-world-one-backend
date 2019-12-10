@@ -115,6 +115,7 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
 openDialog(): void {
   const dialogRef = this.dialog.open(Dialoglogin, {
     width: '550px',
+    disableClose: true 
   });
 
   dialogRef.afterClosed().subscribe(result => {
