@@ -44,8 +44,8 @@ export class DashboardAdminComponent implements OnInit {
   public salesrep_count:string;
   public inventory_count:string;
   public medicalpartner_count:string;
- 
-  
+  public purcehseComparisionQuote:any=[];
+  public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status']
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -81,6 +81,21 @@ export class DashboardAdminComponent implements OnInit {
     }
     this.http.httpViaPost('datalist', data).subscribe((response: any) => {
       this.hospitalDetails = response.res;
+
+    });
+
+    let dta: any = {
+      source: 'purchasecomparison_view_admin',
+      condition: {
+        'salesrep_id_object': this.userData._id
+      },
+      token: this.cookieService.get('jwtToken')
+    }
+  
+    this.http.httpViaPost('datalist', dta).subscribe(response => {
+      this.purcehseComparisionQuote = response.res;
+      //console.log(this.purcehseComparisionQuote);
+      
     });
   }
 
@@ -89,8 +104,8 @@ export class DashboardAdminComponent implements OnInit {
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {     
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
-      console.log("hospital name recently",this.hospitalDetails);
-      console.log("salesrep name recently",this.dataSource)
+      // console.log("hospital name recently",this.hospitalDetails);
+      // console.log("salesrep name recently",this.dataSource)
     });
   }
 
@@ -119,4 +134,6 @@ export class DashboardAdminComponent implements OnInit {
       //console.log(this.count_dashboard.mckessoncount);
     });
   }
+
+ 
 }

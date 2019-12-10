@@ -17,6 +17,7 @@ export class InventoryDetailsComponent implements OnInit {
   public dynamic_attributes1: any = [];
   public user_id: any;
   public amount:number=1;
+  public isDesable:boolean=false;
   constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog) {
     let url: any = {};
     url = this.activatedRoute.snapshot.params.id;
