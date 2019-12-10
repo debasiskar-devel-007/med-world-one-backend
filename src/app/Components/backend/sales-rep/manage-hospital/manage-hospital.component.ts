@@ -51,7 +51,6 @@ export class ManageHospitalComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData.id;
     this.salesrepname = this.userData.firstname + ' ' + this.userData.lastname;
-    console.log(this.salesrepname);
   }
 
   ngOnInit() {
@@ -81,7 +80,6 @@ export class ManageHospitalComponent implements OnInit {
         //Generating the form on ngOnInit
         this.generateForm();
         this.setDefaultValue(this.defaultData);
-        console.log("statename",this.defaultData.state);
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
         }, 2000);      
@@ -94,16 +92,11 @@ export class ManageHospitalComponent implements OnInit {
 
   /** setting the default data **/
   setDefaultValue(defaultValue) {
-    console.log(defaultValue);
     this.manageHospitalForm.patchValue({
      hospitalname:defaultValue.hospitalname,
      email:defaultValue.email,
      contactperson:defaultValue.contactperson,
      zip:defaultValue.zip,
-     noofbeds:defaultValue.noofbeds,
-     noofdoctors:defaultValue.noofdoctors,
-     noofstaffs:defaultValue.noofstaffs,
-     speciality:defaultValue.speciality,
      city:defaultValue.city,
      state:defaultValue.state
     })    
@@ -116,10 +109,13 @@ export class ManageHospitalComponent implements OnInit {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
-    format: ["jpg", "jpeg", "png"], // use all small font
-    type: "med_partner_img",
+    format: ["jpg", "jpeg","png"], // use all small font
+    type: "inventory-file",
     path: "files",
-    prefix: "medpartner_picture_"
+    prefix: "_inventory-file",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "crmfiles.influxhostserver"
   }
 
 
@@ -132,10 +128,6 @@ export class ManageHospitalComponent implements OnInit {
       state: [],
       city: [],
       zip: [],
-      speciality: [],
-      noofdoctors: [],
-      noofbeds: [],
-      noofstaffs: [],
       type: ['hospital'],
       contactemails: [],
       contactphones: [],

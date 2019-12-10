@@ -1,0 +1,133 @@
+<app-adminheader>
+    <span class="dashboardcontainer">
+        <mat-card class="main_wrapper">
+
+            <mat-card-content class="from_wrapper inputstyle">
+
+                <mat-list class="formstylemainwrapper">
+
+                    <form autocomplete="off" [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+
+
+                        <!-- First Name  -->
+                        <span class="col-1-4">
+                            <mat-form-field>
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="Adam" formControlName="firstname"
+                                    (blur)="inputBlur('firstname')">
+                                <mat-error
+                                    *ngIf="!adminForm.controls['firstname'].valid && adminForm.controls['firstname'].errors.required">
+                                    First Name is required.</mat-error>
+                                <mat-error
+                                    *ngIf="!adminForm.controls['firstname'].valid && !adminForm.controls['firstname'].errors.required">
+                                    Name is not valid</mat-error>
+                            </mat-form-field>
+                        </span>
+
+                        <!-- Last Name  -->
+                        <span class="col-1-4">
+                            <mat-form-field>
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="Stewart" formControlName="lastname"
+                                    (blur)="inputBlur('lastname')">
+                                <mat-error
+                                    *ngIf="!adminForm.controls['lastname'].valid && adminForm.controls['lastname'].errors.required">
+                                    Last Name is required.</mat-error>
+                                <mat-error
+                                    *ngIf="!adminForm.controls['lastname'].valid && !adminForm.controls['lastname'].errors.required">
+                                    Name is not valid</mat-error>
+                            </mat-form-field>
+                        </span>
+
+
+
+                        <!-- Email  -->
+                        <span class="col-1-2">
+                            <mat-form-field>
+                                <mat-label>Email </mat-label>
+                                <input matInput placeholder="adam123@gmail.com" [readonly]="flag==true?true:false"
+                                    formControlName="email" (blur)="inputBlur('email')">
+                                <mat-error
+                                    *ngIf="!adminForm.controls['email'].valid && adminForm.controls['email'].errors.required">
+                                    Email is required.</mat-error>
+                                <mat-error
+                                    *ngIf="!adminForm.controls['email'].valid && !adminForm.controls['email'].errors.required">
+                                    Email
+                                    is not valid</mat-error>
+                            </mat-form-field>
+                        </span>
+
+
+                        <!-- Phone  -->
+                        <span class="col-1-2">
+                            <mat-form-field>
+                                <mat-label>Contact Number</mat-label>
+                                <input matInput placeholder="9874122558" formControlName="phone"
+                                    (blur)="inputBlur('phone')">
+                                <mat-error
+                                    *ngIf="!adminForm.controls['phone'].valid && adminForm.controls['phone'].errors.required">
+                                    Phone is required.</mat-error>
+                                <mat-error
+                                    *ngIf="!adminForm.controls['phone'].valid && !adminForm.controls['phone'].errors.required">
+                                    Phone must be only 10 digit integers</mat-error>
+                            </mat-form-field>
+                        </span>
+
+                        <!-- contact No  -->
+
+
+                        <!-- Address  -->
+                        <mat-form-field>
+                            <input matInput placeholder="Address" formControlName="address">
+                        </mat-form-field>
+
+
+
+                        <!-- State  -->
+
+                        <mat-card-content class="forms">
+                            <mat-label class="mydetails_ac_lebel">STATE</mat-label>
+                            <mat-form-field class="parent_cat" appearance="fill">
+
+                                <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                                    <!-- <mat-option [value]=0>Select a category</mat-option> -->
+                                    <mat-option *ngFor="let state of states;" value="{{ state.name }}">
+                                        {{ state.name }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-card-content>
+
+
+
+                        <!-- City  -->
+
+                        <mat-card-content class="forms">
+                            <mat-label class="mydetails_ac_lebel">CITY</mat-label>
+                            <mat-form-field>
+                                <mat-select formControlName="city">
+                                    <!-- <mat-option value=0 class="mydetails_ac_lebel">Select a city</mat-option> -->
+                                    <mat-option *ngFor="let city of cities;" value="{{city}}">{{city}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-card-content>
+
+
+
+
+                        <!-- ZIP  -->
+                        <mat-form-field>
+                            <input matInput placeholder="ZIP" formControlName="zip">
+                        </mat-form-field>
+
+                        <button mat-flat-button type="submit" class="skybutton">Update</button>
+
+                    </form>
+                </mat-list>
+            </mat-card-content>
+
+
+        </mat-card>
+    </span>
+</app-adminheader>

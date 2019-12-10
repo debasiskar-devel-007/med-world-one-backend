@@ -17,7 +17,6 @@ export class AuthService implements CanActivate {
     let getToken = this.cookie.get('jwtToken');
     let user=this.cookie.get('user_details');
     if (getToken !=null &&  user == '') {
-      console.log("auth authguard");
       return true;
     } else {
       this._router.navigate(['/dashboard-admin']);

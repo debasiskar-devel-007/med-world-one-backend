@@ -72,6 +72,7 @@ import { ListingPurchaseComparisonComponent } from '../Components/inventory/purc
 import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontactinfo/addcontactinfo.component';
 import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
 import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
+import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
 
 
 
@@ -91,21 +92,11 @@ const routes: Routes = [
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
-  {
-    path: 'dashboard-admin',
-    component: DashboardAdminComponent,
-     canActivate: [AuthguardService],
-    // resolve :{techDashboardData :ResolveService},
-    // data: {
-    //   requestcondition: {
-    //     source: 'll',
-    //     condition: {}
-    //   },
-    //   endpoint: 'datalist'
-    // },
-  },
-
-
+  { path: 'dashboard-admin', component: DashboardAdminComponent },
+  //Medical Dashboard 
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
+  //SalesRep Dashboard
+  { path: 'dashboard-salesrep', component: DashboardAdminComponent },
 
 
 
@@ -114,6 +105,9 @@ const routes: Routes = [
   // =====================================================
 
   // _______________MANAGE ADMIN____________
+  /**admin my account */
+  { path: 'admin/myaccount', component:AdminDetailsComponent,canActivate: [AuthguardService]},
+
   { path: 'admin-management/add', component: AddEditAdminComponent },
   {
     path: 'admin-management/list',
@@ -122,8 +116,8 @@ const routes: Routes = [
     resolve: { adminList: ResolveService },
     data: {
       requestcondition: {
-        source: 'users_view',
-        condition: { 'type': 'admin' }
+        source: 'users_view_admin',
+        condition: {  }
       },
       endpoint: 'datalist'
     },
@@ -154,8 +148,8 @@ const routes: Routes = [
     resolve: { mpList: ResolveService },
     data: {
       requestcondition: {
-        source: 'users_view',
-        condition: { 'type': 'hospital' }
+        source: 'users_view_hospital',
+        condition: {  }
       },
       endpoint: 'datalist'
     },
@@ -184,8 +178,8 @@ const routes: Routes = [
     resolve: { salesRepList: ResolveService },
     data: {
       requestcondition: {
-        source: 'users_view',
-        condition: { 'type': 'salesrep' }
+        source: 'users_view_salesrep',
+        condition: {  }
       },
       endpoint: 'datalist'
     },
@@ -473,7 +467,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
-  {path: 'cart', component: QuotesCartComponent},
+  { path: 'cart', component: QuotesCartComponent },
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -482,21 +476,11 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  { path: 'contactus', component: ContactUsComponent,resolve: { activeContact: ResolveService },
-  data: {
-    requestcondition: {
-      source: 'contactus_view_active',
-      condition: {}
-    },
-    endpoint: 'datalist'
-  },},
   {
-    path: 'our-team',
-    component: TeamPageComponent,
-    resolve: { teamList: ResolveService },
+    path: 'contactus', component: ContactUsComponent, resolve: { activeContact: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'contactus_view_active',
         condition: {}
       },
       endpoint: 'datalist'
@@ -514,11 +498,24 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
+  {
+    path: 'our-team',
+    component: TeamPageComponent,
+    resolve: { teamList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'Team_management_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
-  { path: 'blog', component: BlogComponentFrontEnd},
+  { path: 'blog', component: BlogComponentFrontEnd },
 
 
-  { path: 'blog-details/:_id', component: BlogDetailsComponent,
+  {
+    path: 'blog-details/:_id', component: BlogDetailsComponent,
     resolve: {
       blogCatList: ResolveService
     },
@@ -528,11 +525,11 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       {
         source: 'blogs_view', condition: {}
       }, endpoint: 'datalistwithouttoken'
-    } 
+    }
   },
   // Forntend inventory list
   { path: 'inventory', component: InventoryComponent,  resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: 'inventories_view',condition: {}},endpoint: 'datalist'}, },
+  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, },
 
   { path: 'inventory-details/:id', component: InventoryDetailsComponent },
 
@@ -593,7 +590,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
-// ________________________salesrep  purchase comparison___________________________
+  // ________________________salesrep  purchase comparison___________________________
   { path: 'salesrep/purchase-comparison/add', component: AddEditPurchaseComparisonComponent },
   {
     path: 'salesrep/purchase-comparison/list',
@@ -652,10 +649,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent },
 
 
-  {
-    path: 'salesrep/my-details',
-    component: MyDetailsComponent,
-    resolve: { data: ResolveService },
+  {path: 'salesrep/my-details',component: MyDetailsComponent,resolve: { data: ResolveService },
     data: {
       requestcondition: {
         source: 'users_view',
@@ -663,7 +657,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       },
       endpoint: 'datalist'
     },
-
+    canActivate: [AuthguardService]
   },
   { path: 'salesrep/change-password', component: SalesrepChangePasswordComponent },
   { path: 'salesrep/my-hospital', component: SalesrepHospitalComponent },
@@ -682,7 +676,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     data: {
       requestcondition: {
         'source': 'users_view',
-        'condition': { 'type':'hospital'}
+        'condition': { 'type': 'hospital' }
       },
       endpoint: 'datalist'
     },
@@ -696,7 +690,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     data: {
       requestcondition: {
         'source': 'users_view',
-        'condition': { 'type':'hospital'}
+        'condition': { 'type': 'hospital' }
       },
       endpoint: 'datalist'
     },

@@ -32,7 +32,7 @@ export class ListingAdminComponent implements OnInit {
   editUrl: any = 'admin-management/edit';
   apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
-  view: any = "user_view";
+  view: any = "users_view";
   detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =
     {

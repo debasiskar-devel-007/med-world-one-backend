@@ -11,7 +11,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>96+</h2>
+                            <h2>{{ hospital_count }}+</h2>
                             <p>Global Medical Partners</p>
                         </span>
                     </mat-list-item>
@@ -22,7 +22,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>185+</h2>
+                            <h2>{{ salesrep_count }}+</h2>
                             <p>Sales Rep</p>
                         </span>
                     </mat-list-item>
@@ -33,7 +33,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>150+</h2>
+                            <h2>{{ inventory_count }}+</h2>
                             <p>Wholesale Inventory</p>
                         </span>
                     </mat-list-item>
@@ -44,7 +44,7 @@
                             </span>
                         </span>
                         <span class="blockwrapper2">
-                            <h2>241+</h2>
+                            <h2>{{medicalpartner_count}}+</h2>
                             <p>Medical Partner Inventory</p>
                         </span>
                     </mat-list-item>
@@ -68,33 +68,16 @@
                     </span>
                 </span>
 
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                     <ng-container matColumnDef="position">
                         <th mat-header-cell *matHeaderCellDef> No. </th>
                         <td mat-cell *matCellDef="let element"> {{element.position}} </td>
                     </ng-container>
 
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <th mat-header-cell *matHeaderCellDef> Weight </th>
-                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                    </ng-container>
-
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-
+                
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
+                </table> -->
 
                 <span class="buttonwrapper right">
                     <button mat-button class="bluebtn">View All</button>
@@ -136,7 +119,7 @@
             </mat-card>
             <mat-card class="blocktablemainwrapper">
                 <span class="searchmainwrapper">
-                    <mat-card-content>Recently Added Quotes</mat-card-content>
+                    <mat-card-content>Recently Added Sales Rep</mat-card-content>
                     <span class="searchwrapper">
                         <form class="example-form">
                             <mat-form-field>
@@ -154,27 +137,41 @@
                 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
                     <ng-container matColumnDef="position">
                         <th mat-header-cell *matHeaderCellDef> No. </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                        <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
                     </ng-container>
 
                     <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    <ng-container matColumnDef="firstname">
+                        <th mat-header-cell *matHeaderCellDef> First Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
                     </ng-container>
 
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <th mat-header-cell *matHeaderCellDef> Weight </th>
-                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    <ng-container matColumnDef="lastname">
+                        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
                     </ng-container>
 
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                     </ng-container>
 
+                    <ng-container matColumnDef="phone">
+                        <th mat-header-cell *matHeaderCellDef> Phone </th>
+                        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="state">
+                        <th mat-header-cell *matHeaderCellDef> State </th>
+                        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="city">
+                        <th mat-header-cell *matHeaderCellDef> City </th>
+                        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+                    </ng-container>
+
+                   
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
@@ -185,6 +182,19 @@
             </mat-card>
          </mat-card> 
 
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- -------------------------------salesrep------------------------- -->
          <mat-card *ngIf="type=='salesrep'" class="rapdashboard_content">
             <span class="table_mainwrapper">
                 <mat-card class="blocktablemainwrapper col-1-2">
@@ -324,7 +334,7 @@
                             <p><span>Phone Number :</span> {{hospital.contactphones}} </p>
                         </mat-card-content>
                         <span class="buttonwrapper center">
-                                <button mat-button class="bluebtn">View Detail</button>
+                                <button mat-button class="bluebtn" (click)="toHospitalList(hospital._id)">View Detail</button>
                         </span>
                     </mat-list-item>
                     

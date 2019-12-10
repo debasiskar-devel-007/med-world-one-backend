@@ -1,4 +1,4 @@
-import { Component, OnInit ,Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -22,16 +22,15 @@ export class AddEditBrandComponent implements OnInit {
   btn_text: any = "SUBMIT";
   brandForm: FormGroup;
   condition: any;
-  parentcat_array:any = [];
-  action:any;
-  successMessage:any="Submitted Successfully!!!"
-  defaultData:any;
-  dialogRef:any;
+  action: any;
+  successMessage: any = "Submitted Successfully!!!"
+  defaultData: any;
+  dialogRef: any;
   // ==================================================
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
-    private http: HttpServiceService,private router : Router, 
-    private activatedRoute: ActivatedRoute,public dialog: MatDialog) {
-   
+    private http: HttpServiceService, private router: Router,
+    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+
 
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
@@ -47,28 +46,25 @@ export class AddEditBrandComponent implements OnInit {
   }
 
   ngOnInit() {
-     //generating the form
-     this.generateForm();
+    //generating the form
+    this.generateForm();
 
-     //getting the parent category
-     this.getParentCategory();
- 
+
   }
 
 
   // ===========Form Generation=========
   generateForm() {
     this.brandForm = this.formBuilder.group({
-      brand_name: [],
-      parent_category: [],
-      description: [],
-      priority: [],
+      brand_name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      priority: ['', [Validators.required]],
       status: []
     });
 
 
-     // Case 
-     switch (this.action) {
+    // Case 
+    switch (this.action) {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
@@ -77,7 +73,7 @@ export class AddEditBrandComponent implements OnInit {
         /* Button text */
         this.btn_text = "UPDATE";
         this.successMessage = "One row updated";
-        this.setDefaultValue(this.defaultData);            
+        this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Brand Information";
         break;
     }
@@ -87,51 +83,50 @@ export class AddEditBrandComponent implements OnInit {
 
 
 
-// =========================================MODAL functions==========================================
-openDialog(x: any): void {
-  this.dialogRef = this.dialog.open(Modal5, {
-    width: '250px',
-    data: { msg: x }
-  });
+  // =========================================MODAL functions==========================================
+  openDialog(x: any): void {
+    this.dialogRef = this.dialog.open(Modal5, {
+      width: '250px',
+      data: { msg: x }
+    });
 
-  this.dialogRef.afterClosed().subscribe(result => {
+    this.dialogRef.afterClosed().subscribe(result => {
 
-  });
-}
-// =====================================================================================================
-
-
-   // ===================================Setting the default Value========================
- setDefaultValue(defaultValue) {
-  this.brandForm.patchValue({
-    brand_name:defaultValue.brand_name,
-    parent_category:defaultValue.parent_category,
-    description:defaultValue.description,
-    priority:defaultValue.priority,
-    status:defaultValue.status
-  })
- }
- // ======================================================================================
- 
-
-  //getting the parent category
-  getParentCategory() {
-    var data: any;
-    data = {
-      'source': 'brands',
-      'token': this.cookieService.get('jwtToken')
-    };
-    this.http.httpViaPost("datalist",data).subscribe(response => {
-      let result: any;
-      result = response;
-      this.parentcat_array = result.res;
     });
   }
+  // =====================================================================================================
 
+
+  // ===================================Setting the default Value========================
+  setDefaultValue(defaultValue) {
+    this.brandForm.patchValue({
+      brand_name: defaultValue.brand_name,
+      description: defaultValue.description,
+      priority: defaultValue.priority,
+      status: defaultValue.status
+    })
+  }
+  // ======================================================================================
+
+
+
+
+  /** blur function **/
+  inputBlur(val: any) {
+    this.brandForm.controls[val].markAsUntouched();
+  }
 
 
   // =======================SUBMIT==========================
   onSubmit() {
+
+
+    /** marking as untouched **/
+    for (let x in this.brandForm.controls) {
+      this.brandForm.controls[x].markAsTouched();
+    }
+
+
     if (this.brandForm.invalid) {
       return;
     }
@@ -156,17 +151,16 @@ openDialog(x: any): void {
         "source": 'brands',
         "data": Object.assign(this.brandForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["parent_category"]
       };
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
         if (response.status == "success") {
-         
-            this.openDialog(this.successMessage);
-            setTimeout(() => {
-              this.dialogRef.close();
-            }, 2000);
+
+          this.openDialog(this.successMessage);
+          setTimeout(() => {
+            this.dialogRef.close();
+          }, 2000);
 
 
           this.router.navigateByUrl('inventory/manage-inventory/inventory-category/list');;
@@ -183,7 +177,7 @@ openDialog(x: any): void {
 
 
 
-  // ============================================MODAL COMPONENT===========================================
+// ============================================MODAL COMPONENT===========================================
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal5.html',

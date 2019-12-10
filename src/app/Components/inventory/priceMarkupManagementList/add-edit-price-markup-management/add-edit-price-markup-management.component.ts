@@ -63,7 +63,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
     this.http.httpViaPost('datalist ', data).subscribe((response: any) => {
 
       this.countryList = response.res;
-      console.log('+++++>>>>>>', this.countryList);
+   
       this.generateForm();
     })
 
@@ -77,9 +77,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
     };
 
     this.http.httpViaPost('datalist ', postdata).subscribe((response: any) => {
-
       this.priceMarkupData = response.res;
-      console.log('-------------->>>>>>', this.priceMarkupData)
     })
 
 
@@ -92,13 +90,11 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
 
   public checkuniquecountry(country: string) {
     return (group: FormGroup): { [key: string]: any } => {
-      console.log('grp', group);
       let countrycontrol = group.controls['country'];
 
       if (countrycontrol.value == null || countrycontrol.value.length < 4) {
 
         countrycontrol.setErrors({ 'incorrect': true });
-        console.log('true');
         return {
           countrycontrol: true
         };
@@ -109,7 +105,6 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
         if (this.priceMarkupData[b]._id == countrycontrol.value) {
 
           countrycontrol.setErrors({ 'incorrect': true });
-          console.log('true');
           return {
             countrycontrol: true
           };
@@ -169,7 +164,6 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
   //set default value
 
   setDefaultValue(defaultValue:any) {
-    console.log('in setDefaultValue ',defaultValue);
     this.priceMarkupForm.patchValue({
       country: defaultValue.country,
       setValue: defaultValue.setValue,
@@ -184,11 +178,9 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
       this.priceMarkupForm.controls[x].markAsTouched();
     }
 
-    //flagval=1;
-    console.log(this.priceMarkupForm.controls['country'].value);
+   
     // for(var x in this.countryList._id){
     for (let y in this.priceMarkupData) {
-      console.log('ccc', this.priceMarkupData[y].country);
       if (this.priceMarkupData[y].country == this.priceMarkupForm.controls['country'].value) {
         if(this.action=='add') flagval = 1;
         //alert(55);
@@ -200,7 +192,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
 
 
     if (this.priceMarkupForm.valid && flagval == 0) {
-      console.log(this.priceMarkupForm.value)
+     
 
 
       //start process for add or update
@@ -214,7 +206,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         let result: any;
         result = response;
-        console.log('>>>>>>', result)
+        
 
         if (result.status == "success") {
 
@@ -235,7 +227,6 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
   }
   //blur for validation
   inputBlur(val: any) {
-    console.log(val)
     this.priceMarkupForm.controls[val].markAsUntouched();
   }
 

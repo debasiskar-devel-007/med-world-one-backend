@@ -18,7 +18,6 @@ export class AuthguardService implements CanActivate {
     let user=this.cookie.get('user_details');
 
     if (getToken !=null && user !=null && user != '') {
-      console.log("authguard");
       return true;
     } else {
       this._router.navigate(['/login']);

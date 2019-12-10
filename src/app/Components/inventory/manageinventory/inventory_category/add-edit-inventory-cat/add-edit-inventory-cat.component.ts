@@ -33,10 +33,11 @@ export class AddEditInventoryCatComponent implements OnInit {
   public defaultData: any;
   public dialogRef: any;
   public options: any = [];
-  public brand_id_list:any = [];
+  public brand_id_list: any = [];
   public filteredOptions: Observable<string[]>;
   myControl = new FormControl();
   public brand_array: any = [];
+  public errCode: boolean = false;
   // ==================================================
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
     private http: HttpServiceService, private router: Router,
@@ -81,11 +82,22 @@ export class AddEditInventoryCatComponent implements OnInit {
         this.successMessage = "One row updated!!!";
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Inventory Category";
-        console.log("jj",this.options.length);
         break;
     }
 
-    setTimeout(() => { 
+    /** setting the brands edit **/
+    setTimeout(() => {
+      for (let j = 0; j <= this.brand_id_list.length; j++) {
+        for (let i = 0; i < this.options.length; i++) {
+          if (this.brand_id_list[j] == this.options[i].brand_id)
+            this.brand_array.push(this.options[i].brand_name);
+        }
+      }
+    }, 1000);
+
+
+
+    setTimeout(() => {
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
         map(value => this._filter(value))
@@ -93,10 +105,10 @@ export class AddEditInventoryCatComponent implements OnInit {
 
     }, 1000);
 
-    
+
   }
-  private _filter(value: any): any[] {    
-    const filterValue = value.toLowerCase(); 
+  private _filter(value: any): any[] {
+    const filterValue = value.toLowerCase();
     return this.options.filter(option => option.brand_name.toLowerCase().indexOf(filterValue) === 0);
   }
 
@@ -105,12 +117,12 @@ export class AddEditInventoryCatComponent implements OnInit {
   /** Form Generation function **/
   generateForm() {
     this.inventoryCategoryForm = this.formBuilder.group({
-      category_name: [],
+      category_name: ['', [Validators.required]],
       parent_category: [],
-      description: [],
-      priority: [],
+      description: ['', [Validators.required]],
+      priority: ['', [Validators.required]],
       status: [],
-      brand_id: []
+      brand_id: ['', [Validators.required]]
     });
 
 
@@ -145,7 +157,8 @@ export class AddEditInventoryCatComponent implements OnInit {
       status: defaultValue.status,
     })
     this.brand_id_list = defaultValue.brand_id;
-    
+
+
   }
   // ======================================================================================
 
@@ -175,42 +188,64 @@ export class AddEditInventoryCatComponent implements OnInit {
     this.http.httpViaPost("datalist", data).subscribe(response => {
       let result: any;
       result = response.res;
-      console.log("brand", response);
       for (let i = 0; i < result.length; i++) {
         this.options.push({ 'brand_name': result[i].brand_name, 'brand_id': result[i]._id });
       }
     });
-    console.log("options", this.options); 
   }
 
- 
 
-  collect_brands_onclick(event: any) {
-   if (event.keyCode == 32 || event.keyCode == 13) {
+  /**  collecting brnads on key up **/
+  collect_brands(event: any) {
+    if (event.keyCode == 13) {
       this.brand_id_list.push(String(event.target.value));
-      console.log("event",event.target.value);
       this.inventoryCategoryForm.controls['brand_id'].patchValue("");
-      console.log("options",this.options);
-      
 
-      for(let i = 0 ; i<this.options.length;i++)
-      {
-        if(this.options[i].brand_id == event.target.value)
+    }
+    for (let i = 0; i < this.options.length; i++) {
+      if (this.options[i].brand_id == event.target.value)
         this.brand_array.push(this.options[i].brand_name);
-      }
-   }
+    }
+  }
+
+
+  /** collecting brands on click **/
+  collect_brands_onclick(brand_id_click: any) {
+    this.brand_id_list.push(String(brand_id_click));
+    this.inventoryCategoryForm.controls['brand_id'].patchValue("");
+    for (let i = 0; i < this.options.length; i++) {
+      if (this.options[i].brand_id == brand_id_click)
+        this.brand_array.push(this.options[i].brand_name);
+    }
   }
 
   /** clear brands  **/
-  clearBrand(index) {
+  clearBrand(index, brandnames) {
     this.brand_array.splice(index, 1);
+    for (let i = 0; i < this.options.length; i++) {
+      if (brandnames == this.options[i].brand_name) {
+        this.brand_id_list.splice(this.options[i].brand_id, 1);
+      }
+    }
+  }
+
+  /** blur function **/
+  inputBlur(val: any) {
+    this.inventoryCategoryForm.controls[val].markAsUntouched();
   }
 
   // =======================SUBMIT==========================
   onSubmit() {
 
-      console.log("ids",this.brand_array);
-    
+    /** marking as untouched **/
+    for (let x in this.inventoryCategoryForm.controls) {
+      this.inventoryCategoryForm.controls[x].markAsTouched();
+    }
+
+    /** validation for brands **/
+    if (this.brand_array.length == 0)
+      this.errCode = true;
+
     if (this.inventoryCategoryForm.invalid) {
       return;
     }
@@ -257,7 +292,7 @@ export class AddEditInventoryCatComponent implements OnInit {
       }, (error) => {
         alert("Some error occurred. Please try again.");
       });
-    } 
+    }
   }
   // =======================================================
 }

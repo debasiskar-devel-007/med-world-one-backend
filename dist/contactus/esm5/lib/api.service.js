@@ -371,7 +371,7 @@ var ApiService = /** @class */ (function () {
      * @return {?}
      */
     function (requestdata) {
-        console.log('in adddata apiservice');
+        // console.log('in adddata apiservice');
         /** @type {?} */
         var httpOptions = {
             headers: new HttpHeaders({
@@ -379,7 +379,7 @@ var ApiService = /** @class */ (function () {
                 'Authorization': this.accesstoken //hard code written access-token(temp)
             })
         };
-        console.log('httpoptions', httpOptions, this.serverUrl, requestdata);
+        // console.log('httpoptions', httpOptions, this.serverUrl, requestdata);
         /** @type {?} */
         var result = this._http.post(this.serverUrl + this.addendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map((/**
          * @param {?} res

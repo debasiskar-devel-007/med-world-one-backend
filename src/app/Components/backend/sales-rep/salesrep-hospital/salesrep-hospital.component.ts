@@ -28,7 +28,6 @@ export class SalesrepHospitalComponent implements OnInit {
     this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
 
       this.hospitalDetails = response.res;
-      console.log("->", this.hospitalDetails);
       for (let i = 0; i < this.hospitalDetails.length; i++) {
         this.fullImagePath[i] = 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/files/' +
           this.hospitalDetails[i].images;
