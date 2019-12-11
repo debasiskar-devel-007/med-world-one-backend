@@ -7,7 +7,7 @@
     padding: 0 !important;
     box-shadow: none;
     margin: 0 !important;
-    overflow: hidden;padding: 40px 0px !important;   
+    overflow: hidden;padding: 40px 0px !important;
 }
 .main_wrapper{padding: 0; margin: 0;background: none; display: block;padding-bottom: 35px !important;}
 .main_wrapper .mat-list .mat-list-item{
@@ -45,25 +45,29 @@
 .blockwrapper2 p{margin: 0;font-family: "HelveticaRegular"; font-size: 22px; color: #566074;}
 
 .searchmainwrapper {
-    border-bottom: 1px solid #566075;
-    padding: 0;
-    padding-bottom: 0;
-    display: flex;
-    justify-content: space-between;width: 100%;
+    border-bottom: 1px solid #566075; padding: 0; padding-bottom: 16px; display: flex; justify-content: space-between;width: 100%; align-items: center; margin-bottom: 6px;
 }
 
 .searchmainwrapper .mat-card-content{
-    margin: 0;font-family: "HelveticaRegular"; font-size: 24px;padding-bottom: 5px;
+  margin: 0;
+  font-family: "AvenirLight";
+  font-size: 24px;
+  color: #535353;
+  text-transform: uppercase;
 }
 
 .searchmainwrapper .mat-form-field{padding:0 4px;}
 .searchmainwrapper .mat-form-field .mat-form-field-wrapper{padding-bottom: 0;}
-.blocktablemainwrapper .mat-table{width: 100%;box-shadow: none;margin-top: 10px;}
-.buttonwrapper {display: inline-block; width: 100%;padding-top: 20px;}
+.blocktablemainwrapper .mat-table{width: 100%;box-shadow: none; }
+.buttonwrapper {display: inline-block; width: 100%; padding-top: 16px;}
 .right{text-align: right;}
 .center{text-align: center;}
-.bluebtn{background: #09c5fb; color: #fff; border-radius: 0;}
+.bluebtn{ background: #09c5fb; color: #fff; border-radius: 0; text-transform: uppercase; font-size: 16px; font-family: "AvenirRoman";  }
 .blocktablemainwrapper {margin-bottom: 30px;}
+.blocktablemainwrapper .table_wrapper{ border: 1px solid #d6d6d6;padding: 8px; margin-bottom: 0; }
+.blocktablemainwrapper .table_wrapper table .acction_button button{ background: #09c5fb; padding: 4px; line-height: inherit; margin: 0; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; }
+
+
 
 .block2content{display: flex; justify-content: center; flex-wrap: wrap; margin: 0 -7px;}
 .block2content .mat-list-item{width: 31%; height: auto; padding: 7px;border: 1px solid #d6d6d6;margin: 7px;}
@@ -72,10 +76,10 @@
 .block2content .mat-list-item .col1 .buttonwrapper {padding-top: 7px;}
 .block2content .mat-list-item .col{margin: 0; position: relative;}
 .block2content .mat-list-item .col2{padding-left:12px;}
-.block2content .mat-list-item .col2 h3{font-size: 18px; text-transform: uppercase;font-family: "HelveticaRegular"; margin: 0;padding-bottom: 10px;}
-.block2content .mat-list-item .col2 p{font-size: 14px;font-family: "HelveticaRegular"; margin: 0;padding-bottom: 10px;}
+.block2content .mat-list-item .col2 h3{font-size: 18px; text-transform: uppercase;font-family: "AvenirMedium"; margin: 0;padding-bottom: 10px;}
+.block2content .mat-list-item .col2 p{font-size: 14px;font-family: "AvenirMedium"; margin: 0;padding-bottom: 5px;}
 .block2content .mat-list-item .col2 p:nth-last-child(1){padding: 0;}
-.block2content .mat-list-item .col2 p span{font-weight: bold;}
+.block2content .mat-list-item .col2 p span{ font-family: "AvenirBlack";}
 .blocktablemainwrapper2 .buttonwrapper{padding-top: 12px;}
 
 
@@ -83,8 +87,6 @@
 .block2content .mat-list-item .buttonwrapper .bluebtn{width: 100%;}
 
 .admindashboard_content, .rapdashboard_content {padding: 0; background: none;box-shadow: none;}
-
-
 
 .table_mainwrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
 .table_mainwrapper .col-1-2{width: 47%;}
@@ -94,6 +96,22 @@
     height: 81%;
     display: inline-flex;
 }
+.rapdashboard_content .Welcome_banner {
+   /* background: linear-gradient(24deg, #185fad, #2b88da); */
+   padding: 70px 566px 70px 80px;
+   /* background: linear-gradient(45deg, #1960af, transparent), url("../../../../assets/images/salesrepBanner.png") no-repeat right #5f9ea0; */
+   background: linear-gradient(34deg, #1a63b2 56%, transparent 20%), url("../../../../assets/images/salesrepBanner.png") no-repeat right #f0220b;
+   background-size: contain;
+}
+.rapdashboard_content .Welcome_banner h2 {  color: #fff;
+  text-transform: uppercase;
+  font-size: 42px;
+  font-family: "AvenirBlack";
+  margin-bottom: 10px;}
+.rapdashboard_content .Welcome_banner p{ color: #fff;
+  font-size: 24px;
+  font-family: "AvenirMedium";
+  line-height: 30px; }
 
   @media only screen and (max-width: 1540px) {
     .block2content .mat-list-item {
