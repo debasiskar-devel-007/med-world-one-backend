@@ -473,7 +473,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
-  { path: 'cart', component: QuotesCartComponent },
+  { path: 'cart', component: QuotesCartComponent,canActivate: [AuthguardService]},
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },

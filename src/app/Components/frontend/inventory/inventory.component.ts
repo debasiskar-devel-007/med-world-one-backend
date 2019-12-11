@@ -18,7 +18,9 @@ export class InventoryComponent implements OnInit {
   public categoryList: any = [];
   public brandList: any = [];
   public user_id:any;
-  public inventoryUserId:any;
+  public inventoryUserId:any='';
+  public flag:number;
+  public flg:number=0;
   constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, 
     public router: Router, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {this.qouteDetails() }
 
@@ -84,44 +86,69 @@ export class InventoryComponent implements OnInit {
 addQuote(invenId: any){
   
 if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
+  if(this.flag!=0){
   /**check inventory already exsities in cart or not */
-  for (let i in this.inventoryUserId) {
-    // console.log(this.inventoryUserId[i].inventory);
-   if(this.inventoryUserId[i].inventory.indexOf(invenId)>-1)
-   {
-     //console.log("inventory id match");
-     this._snackBar.open('This Inventory Already in your Cart','', {
-      duration: 1000,
-    });
-   }
-   }
-
-  // if(this.inventoryUserId==invenId){
-  //   console.log("already exites");
-
-  // }
-  // else
-  // {
-//   let user=JSON.parse(this.cookieService.get('user_details'));
-//   this.user_id=user._id;
-//    //console.log("user_id"+' '+this.user_id);
-//   // console.log("inventory_id"+' '+invenId);
-//   // console.log("quantity"+' '+1);
-
-//     let postData={ "source": "quote",
-//   "data": {
-//     "inventory":invenId,
-//     "user_id":this.user_id,
-//     "quantity":1,
-//   },
-//   "sourceobj":["user_id","inventory"],
-// };
-//  this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
-//   console.log(res);
+          for (let i in this.inventoryUserId) {
   
-//  })
-//}
-}else{
+            // console.log(this.inventoryUserId[i].inventory);
+  
+               if(this.inventoryUserId[i].inventory.indexOf(invenId)>-1)
+              {
+                //console.log("inventory id match");
+                this._snackBar.open('This Inventory Already in your Cart','', {
+                  duration: 1000,
+                });
+                this.flg=1;
+              }
+            }
+               if(this.flg==0){
+                  let user=JSON.parse(this.cookieService.get('user_details'));
+                  this.user_id=user._id;
+                   //console.log("user_id"+' '+this.user_id);
+                  // console.log("inventory_id"+' '+invenId);
+                  // console.log("quantity"+' '+1);
+
+                    let postData={ "source": "quote",
+                  "data": {
+                    "inventory":invenId,
+                    "user_id":this.user_id,
+                    "quantity":1,
+                  },
+                  "sourceobj":["user_id","inventory"],
+                };
+                 this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
+                  console.log(res);
+                  
+                 })
+               }
+  
+
+  }
+  else
+  {
+    console.log("first entry");
+      let user=JSON.parse(this.cookieService.get('user_details'));
+                  this.user_id=user._id;
+                   //console.log("user_id"+' '+this.user_id);
+                  // console.log("inventory_id"+' '+invenId);
+                  // console.log("quantity"+' '+1);
+
+                    let postData={ "source": "quote",
+                  "data": {
+                    "inventory":invenId,
+                    "user_id":this.user_id,
+                    "quantity":1,
+                  },
+                  "sourceobj":["user_id","inventory"],
+                };
+                 this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
+                  console.log(res);
+                  
+                 })
+  }
+}
+else
+{
   // console.log("Please Log IN");
   this.openDialog();
   //  this.router.navigateByUrl('/login'+this.router.url);
@@ -139,8 +166,9 @@ qouteDetails(){
     "user_id_object":user._id
   },};
   this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
-    // console.log(res);
+     console.log(res);
     this.inventoryUserId=res.res;
+    this.flag=res.resc;
      //console.log(this.inventoryUserId);
    })
   }
