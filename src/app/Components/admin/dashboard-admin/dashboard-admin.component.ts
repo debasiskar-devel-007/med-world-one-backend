@@ -56,10 +56,10 @@ export class DashboardAdminComponent implements OnInit {
   public medicalpartner_count:string;
   public purcehseComparisionQuote:any=[];
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status']
+  public recentlyAdded:any=[];
 
-
-  displayed: string[] = ['date', 'medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
-  recentlyAdded = Recent_DATA;
+  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action'];
+  // recentlyAdded = Recent_DATA;
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -120,6 +120,12 @@ export class DashboardAdminComponent implements OnInit {
       this.dataSource = response.salesrep;
       // console.log("hospital name recently",this.hospitalDetails);
       // console.log("salesrep name recently",this.dataSource)
+    });
+      /**quote details for admin */
+      let postData={"source": "quote-details_view"};
+    this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
+      this.recentlyAdded=response.res;
+     // console.log(response.res);
     });
   }
 
