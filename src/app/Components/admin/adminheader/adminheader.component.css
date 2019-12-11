@@ -47,7 +47,7 @@
     display: block;
 }
 /* .inner_wrapper{
-   width: 100%; height: 100%; display: flex; justify-content: space-between; margin-top: 63px; 
+   width: 100%; height: 100%; display: flex; justify-content: space-between; margin-top: 63px;
   } */
 
 .inner_wrapper .leftpannel{ width: 80px; background: #4a595c; height: 100%; }
@@ -108,7 +108,7 @@
 .table_structure .mat-list-item .title_a { font-size: 22px; }
 .content_wrapper .itemsection p{ width: 100%; font-size: 22px; }
 .techdashboard_header  { height: auto; flex-direction: column; }
-.inner_wrapper  { margin-top: 135px; }
+
 .inner_wrapper .rightpannel { padding-right: 0;}
 
 }
