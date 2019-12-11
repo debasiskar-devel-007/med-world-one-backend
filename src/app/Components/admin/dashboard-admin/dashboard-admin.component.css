@@ -113,6 +113,11 @@
   font-family: "AvenirMedium";
   line-height: 30px; }
 
+.repDetails fieldset{  border:1px solid #0bc6fd; }
+.repDetails .rep_avbbre{  color: #0bc6fd; font-family: "AvenirMedium"; font-size: 28px; text-transform: uppercase; }
+.repDetails .listu .mat-list-item{ color: #4c5569; font-family: "AvenirLight"; font-size: 22px; }
+.repDetails .listu .mat-list-item span{ font-family: "AvenirMedium"; }
+
   @media only screen and (max-width: 1540px) {
     .block2content .mat-list-item {
         width: 47%;}
