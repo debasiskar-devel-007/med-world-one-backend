@@ -22,12 +22,22 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
   { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
+const Recent_DATA = [
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Completed'},
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Pending Review'},
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Completed'},
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Pending Review'},
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Completed'},
+  {date: '01/10/2019', medical_partner: 'test partner', sales_rep: 'test', quoted_by: 'Hospital', status: 'Pending Review'},
+
+];
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
   styleUrls: ['./dashboard-admin.component.css']
 })
 export class DashboardAdminComponent implements OnInit {
+
 
   /** declarations **/
   public userData: any;
@@ -46,6 +56,10 @@ export class DashboardAdminComponent implements OnInit {
   public medicalpartner_count:string;
   public purcehseComparisionQuote:any=[];
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status']
+
+
+  displayed: string[] = ['date', 'medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
+  recentlyAdded = Recent_DATA;
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
@@ -91,17 +105,17 @@ export class DashboardAdminComponent implements OnInit {
       },
       token: this.cookieService.get('jwtToken')
     }
-  
+
     this.http.httpViaPost('datalist', dta).subscribe(response => {
       this.purcehseComparisionQuote = response.res;
       //console.log(this.purcehseComparisionQuote);
-      
+
     });
   }
 
 
-  getHospitals() { 
-    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {     
+  getHospitals() {
+    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
       // console.log("hospital name recently",this.hospitalDetails);
@@ -135,5 +149,5 @@ export class DashboardAdminComponent implements OnInit {
     });
   }
 
- 
+
 }

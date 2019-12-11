@@ -67,8 +67,8 @@ body {
   }
 
   /* new avenir font */
- 
- 
+
+
 
 @font-face {
     font-family: 'AvenirMedium';
@@ -239,29 +239,26 @@ body {
 
 /* table structure */
 
-tr.mat-header-row { background: #465157; }
+tr.mat-header-row { background: #566075; }
 .mat-sort-header-button {  color: #fff!important; text-transform: uppercase; }
-th.mat-header-cell { color: #ffffff; text-transform: uppercase; }
+th.mat-header-cell { color: #ffffff; text-transform: uppercase;  font-family: "AvenirRoman"; font-size: 16px; }
 tr td br{ display: none; }
-  tr.mat-row:nth-child(even) {
-  background: #dde2e5;
-}
+/* tr.mat-row:nth-child(even) { background: #dde2e5; } */
+td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .mat-paginator {
   background: #105d9f!important;
   color: #fff!important; }
-  .mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled]{
+.mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled]{
     color: #fff!important;
-  }
+}
   /* hiding icon from price markup table */
-  .priceMark .searchdiv:last-child,
-  .priceMark .cursor:last-child,
-  .priceMark .cursor:nth-of-type(3){ display: none;}
+.priceMark .searchdiv:last-child,
+.priceMark .cursor:last-child,
+.priceMark .cursor:nth-of-type(3){ display: none;}
 
-  /* end table */
+/* end table */
 
-
-
-  .mat-paginator-page-size-select {
+.mat-paginator-page-size-select {
 
     /* background: #fff; */
     color: #fff;
@@ -276,10 +273,7 @@ tr td br{ display: none; }
 
 
   /* front end css */
-  html, body {
-    height: 100%;
-    overflow-y: overlay;
-  }
+
 
   @font-face {
     font-family: 'RobotoMedium';
@@ -507,7 +501,7 @@ tr td br{ display: none; }
 .comparisonModal { overflow: auto; }
 .comparisonModal .mat-dialog-container{ padding: 0; }
 
-
+.searchmainwrapper .mat-form-field .mat-form-field-wrapper { padding-bottom: 0; }
 
 
 
@@ -532,7 +526,7 @@ tr td br{ display: none; }
     border-radius: 5px;
 }
 .searchwrapper .mat-form-field-infix input{height: 35px;}
-.searchwrapper .mat-form-field-flex .mat-datepicker-toggle{position: absolute;right: 7px;top: -15px;}
+.searchwrapper .mat-form-field-flex .mat-datepicker-toggle{position: absolute;right: 7px;top: 2px;}
 .searchwrapper .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
 .mat-form-field-label.ng-star-inserted.mat-empty.mat-form-field-empty{display: block !important;}
 .searchwrapper .mat-form-field-label.ng-star-inserted{display: none !important;}
@@ -578,7 +572,7 @@ tr td br{ display: none; }
   background:none;padding: 0 0px!important;
 }
 
-.inputstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none !important;} 
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none !important;}
 .inputstyle .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
   transform: inherit;
     top: -8px;
@@ -614,7 +608,7 @@ tr td br{ display: none; }
   border: 0;
   margin: 0 0;
   margin-top: 20px;
-  position: relative;padding-bottom: 15px;  
+  position: relative;padding-bottom: 15px;
 }
 .inputstyle .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{
   background: none;
@@ -758,7 +752,7 @@ tr td br{ display: none; }
 }
 .listingnewstyle .content_header_wrapper .toolbar_header{
   font-family: 'AvenirLight';
-  font-size: 24px !important; 
+  font-size: 24px !important;
   text-transform: capitalize;
   color: #535353;
 }
@@ -772,7 +766,7 @@ tr td br{ display: none; }
   padding-right: 0;
 }
 .listingnewstyle .container .mat-card{
-  padding: 0; 
+  padding: 0;
   box-shadow: none;
   padding: 7px;
   border: 1px solid #d6d6d6;
