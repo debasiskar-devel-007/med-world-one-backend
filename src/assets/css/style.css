@@ -898,7 +898,11 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   top: 4px;
 }
 
-
+.listingnewstyle .aslist_view .mat-form-field-flex .mat-datepicker-toggle {
+  position: inherit;
+  right: inherit;
+  top: inherit;
+}
 .salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
   width: 233px;
 }
