@@ -16,7 +16,7 @@
     box-sizing: border-box; cursor: pointer;}
     .files-view .closecard i{ background: transparent; font-size: 18px;}
 
-    .from_wrapper{     width: 700px;
+    .from_wrapper{     width: 100%;
         margin: 60px auto;
         background: #fff;
         box-sizing: border-box;
@@ -34,7 +34,7 @@
         text-transform: uppercase;
     }
     .from_wrapper .mat-form-field{ width: 100%;}
-    .from_wrapper .button_wrapper  { display: flex; justify-content:center; margin-top: 30px;}
+    .from_wrapper .button_wrapper  { display: flex; justify-content:flex-end; margin-top: 15px;}
     .from_wrapper .button_wrapper button { margin: 0 10px; width: 210px; border-radius: 0;  padding: 5px;}
     .from_wrapper .button_wrapper button:nth-child(1) { margin-left:0px;}
     .from_wrapper .button_wrapper button:nth-last-child(1) { margin-right: 0px; }
