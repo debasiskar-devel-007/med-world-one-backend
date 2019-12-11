@@ -18,7 +18,9 @@ export class InventoryComponent implements OnInit {
   public categoryList: any = [];
   public brandList: any = [];
   public user_id:any;
-  constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, public router: Router, public httpServiceService: HttpServiceService) { }
+  public inventoryUserId:any;
+  constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, 
+    public router: Router, public httpServiceService: HttpServiceService) {this.qouteDetails() }
 
 
   ngOnInit() {
@@ -80,10 +82,17 @@ export class InventoryComponent implements OnInit {
 
 /*****Add addQuote function ******/
 addQuote(invenId: any){
+  
 if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
+  if(this.inventoryUserId==invenId){
+    console.log("already exites");
+
+  }
+  else
+  {
   let user=JSON.parse(this.cookieService.get('user_details'));
   this.user_id=user._id;
-  // console.log("user_id"+' '+this.user_id);
+   //console.log("user_id"+' '+this.user_id);
   // console.log("inventory_id"+' '+invenId);
   // console.log("quantity"+' '+1);
 
@@ -97,8 +106,9 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
 };
  this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
   console.log(res);
+  
  })
- 
+}
 }else{
   // console.log("Please Log IN");
   this.openDialog();
@@ -109,6 +119,20 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
 }
 
 
+/**fetch user inventory details */
+qouteDetails(){
+  if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
+    let user=JSON.parse(this.cookieService.get('user_details'));
+  let postData={ "source": "quote", "condition":{
+    "user_id_object":user._id
+  },};
+  this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
+    // console.log(res);
+    this.inventoryUserId=res.res[0].inventory;
+    // console.log(this.inventoryUserId);
+   })
+  }
+}
 
 
 /*******************Open Login Modal ********************************/
