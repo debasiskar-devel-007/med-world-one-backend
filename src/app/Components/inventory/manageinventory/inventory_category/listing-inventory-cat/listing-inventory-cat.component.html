@@ -1,6 +1,8 @@
 <app-adminheader>
+        <span class="listingnewstyle">    
+          <span class="dashboardcontainer">
     <mat-card class="main_wrapper">
-        <mat-card-content class="inventory_banner">
+        <!-- <mat-card-content class="inventory_banner">
             <mat-card-title class="inventory_title">Inventory Category</mat-card-title>
             <p class="inventory_para">Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment
                 Needs</p>
@@ -11,7 +13,7 @@
                 routerLink="/inventory/manage-inventory/inventory-category/list">Inventory Category & Brand list</a>
 
 
-        </mat-card-content>
+        </mat-card-content> -->
         <!-- Add Admin Button  -->
         <!-- <mat-toolbar class="buttonsetToolbar">
             <button class="singleButton" mat-raised-button
@@ -29,9 +31,7 @@
                 <mat-card-content class="tabs_wrapper">
                     <mat-toolbar class="content_header_wrapper">
                         <mat-card-title class="toolbar_header">inventory Category list </mat-card-title>
-                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/inventory-category/add']">
-                            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Category
-                        </button>
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/inventory-category/add']"> Add </button>
                     </mat-toolbar>
 
 
@@ -64,9 +64,7 @@
                 <mat-card-content class="tabs_wrapper">
                     <mat-toolbar class="content_header_wrapper">
                         <mat-card-title class="toolbar_header">inventory Brand list </mat-card-title>
-                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/brand/add']">
-                            <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Brand
-                        </button>
+                        <button class="singleButton" mat-raised-button [routerLink]="['/inventory/manage-inventory/brand/add']"> Add </button>
                     </mat-toolbar>
 
                      <!-- Listing goes here  -->
@@ -107,4 +105,6 @@
 
 
     </mat-card>
+    </span>
+    </span>
 </app-adminheader>

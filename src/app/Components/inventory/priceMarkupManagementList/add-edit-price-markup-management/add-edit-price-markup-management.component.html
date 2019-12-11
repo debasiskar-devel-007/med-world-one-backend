@@ -1,51 +1,63 @@
 <app-adminheader>
+        <span class="dashboardcontainer">
 
     <mat-card class="main_wrapper">
-        <mat-card-content class="bred_cram_wrapper">
+        <!-- <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'" > Dashboard </a>
             <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/price-markup-management-list/list'"> price Markup Management List </a>
             <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/price-markup-management-list/add">{{name_txt}} </a>
-        </mat-card-content>
+        </mat-card-content> -->
 
 
-        <mat-card-content class="from_wrapper">
+        <mat-card-content class="from_wrapper inputstyle">
+                <mat-list class="formstylemainwrapper">
+       
+                        <mat-list-item class="formheader"> <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title></mat-list-item>
+                        <mat-list-item class="formbody">
+                                <form [formGroup]="priceMarkupForm" autocomplete="off">
+                                        <!--  Country name  -->
+                                        <mat-form-field >
+                                            <mat-label class="label">Select Country*</mat-label>
+                                            <mat-select matNativeControl  formControlName="country" (blur)="inputBlur('country')" >
+                                                <mat-option value="0">Default</mat-option>
+                                                <mat-option value="{{country._id}}" *ngFor="let country of countryList" >{{country.name}}
+                                                </mat-option>
+                                                </mat-select>
+                                            
+                                                <mat-error
+                                                *ngIf="!priceMarkupForm.controls['country'].valid && priceMarkupForm.controls['country'].errors.required && priceMarkupForm.controls['country'].touched ">
+                                                country field can not be blank</mat-error>
+                        
+                                        </mat-form-field><br>
+                                        <!-- set value field  -->
+                                        <mat-form-field>
+                                            <input matInput type="number" (blur)="inputBlur('setValue')" placeholder="Set Value*" 
+                                                formControlName="setValue">
+                                                <mat-error
+                                                *ngIf="!priceMarkupForm.controls['setValue'].valid && priceMarkupForm.controls['setValue'].errors.required && priceMarkupForm.controls['setValue'].touched " >
+                                                setvalue field can not be blank</mat-error>
+                                        </mat-form-field><br>
+                        
+                                        <mat-form-field>
+                                            <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
+                                        </mat-form-field><br>
+                                       
+                                    </form>
+                        </mat-list-item>
+                        <mat-list-item class="formfooter">
+                                <span class="button_wrapper">
+                                        <button mat-raised-button color="warn" type="reset">RESET</button> &nbsp;
+                                        <button mat-raised-button color="primary" type="button" (click)="onSubmit()">{{btn_text}}
+                                        </button>
+                                    </span>
+                        </mat-list-item>
+                        </mat-list>
 
-            <p class="form_header">{{header_txt}}</p>
-            <form [formGroup]="priceMarkupForm" autocomplete="off">
-                <!--  Country name  -->
-                <mat-form-field >
-                    <mat-label class="label">Select Country*</mat-label>
-                    <mat-select matNativeControl  formControlName="country" (blur)="inputBlur('country')" >
-                        <mat-option value="0">Default</mat-option>
-                        <mat-option value="{{country._id}}" *ngFor="let country of countryList" >{{country.name}}
-                        </mat-option>
-                        </mat-select>
-                    
-                        <mat-error
-                        *ngIf="!priceMarkupForm.controls['country'].valid && priceMarkupForm.controls['country'].errors.required && priceMarkupForm.controls['country'].touched ">
-                        country field can not be blank</mat-error>
-
-                </mat-form-field><br>
-                <!-- set value field  -->
-                <mat-form-field>
-                    <input matInput type="number" (blur)="inputBlur('setValue')" placeholder="Set Value*" 
-                        formControlName="setValue">
-                        <mat-error
-                        *ngIf="!priceMarkupForm.controls['setValue'].valid && priceMarkupForm.controls['setValue'].errors.required && priceMarkupForm.controls['setValue'].touched " >
-                        setvalue field can not be blank</mat-error>
-                </mat-form-field><br>
-
-                <mat-form-field>
-                    <textarea matInput placeholder="Notes" formControlName="notes"></textarea>
-                </mat-form-field><br>
-                <span class="button_wrapper">
-                    <button mat-raised-button color="warn" type="reset">RESET</button> &nbsp;
-                    <button mat-raised-button color="primary" type="button" (click)="onSubmit()">{{btn_text}}
-                    </button>
-                </span>
-            </form>
+            <!-- <p class="form_header">{{header_txt}}</p> -->
+           
         </mat-card-content>
 
     </mat-card>
+    </span>
 
 </app-adminheader>

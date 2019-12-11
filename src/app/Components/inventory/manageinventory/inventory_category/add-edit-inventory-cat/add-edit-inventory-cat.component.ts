@@ -23,7 +23,7 @@ export class AddEditInventoryCatComponent implements OnInit {
 
 
   // ====================declarations==================
-  public header_txt: string = "Add an inventory header";
+  public header_txt: string;
   public btn_text: string = "SUBMIT";
   public inventoryCategoryForm: FormGroup;
   public condition: any;
@@ -74,6 +74,7 @@ export class AddEditInventoryCatComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+        this.header_txt = "Add an inventory Category";
         break;
       case 'edit':
         /* Button text */

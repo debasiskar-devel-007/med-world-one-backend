@@ -601,6 +601,11 @@ tr td br{ display: none; }
     padding: 0 1%;
     width: 98%;background: #fff;
 }
+.inputstyle  .mat-form-field-infix textarea{
+  border: 1px solid #ddd;
+  width: 99%;
+  padding: .5%;
+}
 .inputstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0;
 }
@@ -616,6 +621,7 @@ tr td br{ display: none; }
     position: relative;
     top: -10px;
 }
+.inputstyle .mat-radio-button{margin-right: 10px;}
 .inputstyle .mat-form-field-underline{display: none;}
 .inputstyle .mat-form-field-wrapper {
   position: relative;padding-bottom: 0;
@@ -645,7 +651,7 @@ tr td br{ display: none; }
   text-transform: capitalize;
 }
 .inputstyle .mat-form-field{display: block !important;}
-.inputstyle mat-label{
+.inputstyle mat-label, .inputstyle .mat-form-field-label {
   font-family: 'AvenirMedium' !important;
     font-size: 16px !important;
     color: #535353 !important
@@ -729,6 +735,7 @@ tr td br{ display: none; }
 /* .m_emailwrapper{display: flex;} */
 
 .inputstyle .uploadfilecontainer{width: 100% !important;}
+.inputstyle .pb-20{padding-bottom: 20px;}
 
 
 
