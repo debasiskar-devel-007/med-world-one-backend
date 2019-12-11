@@ -1,75 +1,51 @@
 <app-adminheader>
-    <mat-card-content class="inventory_banner">
-        <mat-card-title class="inventory_title">Contact us listing</mat-card-title>
-        <p class="inventory_para">Expansive Contact Listing For An One-Stop-Shop For All Your Hospital Equipment
-            Needs</p>
-    </mat-card-content>
+    <span class="listingnewstyle">
+        <span class="dashboardcontainer">
 
-    <mat-card-content class="bred_cram_wrapper">
-        <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
-        <a mat-list-item routerLinkActive="active activebread" routerLink="/admin-dashboard/contact">
-            contact us list </a>
 
-    </mat-card-content>
+            <mat-tab-group class="brand_group">
 
-    <mat-tab-group class="brand_group">
+                <!-- Contact Request tab -->
+                <mat-tab label="CONTACT REQUESTS">
+                    <mat-card class="">
+                        <!-- Add Brand Button  -->
+                        <mat-toolbar class="content_header_wrapper">
+                            <mat-card-title class="toolbar_header">Contact us list </mat-card-title>
+                        </mat-toolbar>
+                        <!-- Listing goes here  -->
+                        <lib-listing class="contactus_misc" *ngIf="contactData != null && contactData.length>0"
+                            [datasource]="contactData" [skip]="contactData_skip"
+                            [modify_header_array]="contactData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
+                            [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"
+                            [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
+                            [date_search_endpoint]="searchingEndpoint" [date_search_source]="view"
+                            [search_settings]="search_settings" [detail_datatype]="image_detail_datatype"
+                            [detail_skip_array]="detail_skip_array">
+                        </lib-listing>
+                    </mat-card>
+                </mat-tab>
 
-        <!-- Contact Request tab -->
-        <mat-tab label="CONTACT REQUESTS">
-            <mat-card class="main_wrapper">
-                <!-- Add Brand Button  -->
-                <mat-toolbar class="content_header_wrapper">
-                    <mat-card-title class="toolbar_header">Contact us list </mat-card-title>
-                </mat-toolbar>
-                <!-- Listing goes here  -->
-                <lib-listing class="contactus_misc" *ngIf="contactData != null && contactData.length>0"
-                    [datasource]="contactData" 
-                    [skip]="contactData_skip"
-                    [modify_header_array]="contactData_modify_header"
-                     [sourcedata]="tableName"
-                      [apiurl]="apiUrl"
-                    [editroute]="editUrl" 
-                    [jwttoken]="user_cookie"
-                     [statusarr]="status"
-                    [updateendpoint]="UpdateEndpoint"
-                     [deleteendpoint]="deleteEndpoint"
-                    [date_search_endpoint]="searchingEndpoint" 
-                    [date_search_source]="view"
-                    [search_settings]="search_settings" 
-                    [detail_datatype]="image_detail_datatype"
-                    [detail_skip_array]="detail_skip_array">
-                </lib-listing>
-            </mat-card>
-        </mat-tab>
-
-        <!-- Contact Info -->
-        <mat-tab label="CONTACT INFO">
-            <mat-card>
+                <!-- Contact Info -->
+                <mat-tab label="CONTACT INFO">
+                    <mat-card>
                         <mat-toolbar class="content_header_wrapper">
                             <mat-card-title class="toolbar_header">Contact Info list </mat-card-title>
-                            <button class="singleButton" mat-raised-button [routerLink]="['/admin-dashboard/addcontactinfo']">
-                                <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Contact Info</button>
+                            <button class="singleButton" mat-raised-button [routerLink]="['/admin-dashboard/addcontactinfo']"> Add </button>
                         </mat-toolbar>
                         <!-- Listing goes here  -->
                         <lib-listing *ngIf="contactInfoData != null && contactInfoData.length>0"
-                            [datasource]="contactInfoData"
-                             [skip]="contactInfoData_skip"
-                            [modify_header_array]="contactInfoData_modify_header"
-                             [sourcedata]="tableNam" 
-                             [apiurl]="apiUrll"
-                            [editroute]="edtUrl" 
-                            [jwttoken]="user_cookie" 
-                            [statusarr]="statuss"
-                            [updateendpoint]="UpdateEndpnt"
-                             [deleteendpoint]="deleteEndpnt"
-                            [date_search_endpoint]="searchingEndpnt" 
-                            [date_search_source]="vieww"
-                            [search_settings]="search_settingss"
-                             [detail_datatype]="image_detail_datatype"
+                            [datasource]="contactInfoData" [skip]="contactInfoData_skip"
+                            [modify_header_array]="contactInfoData_modify_header" [sourcedata]="tableNam"
+                            [apiurl]="apiUrll" [editroute]="edtUrl" [jwttoken]="user_cookie" [statusarr]="statuss"
+                            [updateendpoint]="UpdateEndpnt" [deleteendpoint]="deleteEndpnt"
+                            [date_search_endpoint]="searchingEndpnt" [date_search_source]="vieww"
+                            [search_settings]="search_settingss" [detail_datatype]="image_detail_datatype"
                             [detail_skip_array]="contactInfoData_skip_array">
                         </lib-listing>
-            </mat-card>
-        </mat-tab>
+                    </mat-card>
+                </mat-tab>
 
-    </mat-tab-group>
+            </mat-tab-group>
+        </span>
+    </span>
 </app-adminheader>

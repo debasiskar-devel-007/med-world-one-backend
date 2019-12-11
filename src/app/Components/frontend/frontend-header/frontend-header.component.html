@@ -3,7 +3,7 @@
     <span class="wrapper">
       <mat-nav-list class="top_toolbar_navigation">
 
-        <a   [routerLink]="'/cart'">
+        <a  *ngIf="type != ''" [routerLink]="'/cart'">
           <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
         </a>
         <a *ngIf="type == ''" [routerLink]="'/login'">Login</a>

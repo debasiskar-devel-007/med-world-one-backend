@@ -1,37 +1,65 @@
 <app-adminheader>
-    <h3>{{ header_txt }}</h3>
-    <form [formGroup]="brandForm" autocomplete="off">
+    <span class="dashboardcontainer">
+        <mat-card class="main_wrapper">
+            <mat-card-content class="from_wrapper inputstyle">
+                <mat-list class="formstylemainwrapper">
 
-        <!-- Brand name  -->
-        <mat-form-field>
-            <input matInput placeholder="Brand name" formControlName="brand_name" (blur)="inputBlur('brand_name')">
-            <mat-error *ngIf="!brandForm.controls['brand_name'].valid
-                        && brandForm.controls['brand_name'].errors.required">Brand Name is required.</mat-error>
-        </mat-form-field><br>
+                    <mat-list-item class="formheader">
+                        <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
+                    </mat-list-item>
+                    <mat-list-item class="formbody">
+                        <form [formGroup]="brandForm" autocomplete="off">
 
-
-        <!-- Description  -->
-        <mat-form-field>
-            <textarea matInput placeholder="Description" formControlName="description" rows="5"
-                (blur)="inputBlur('description')"></textarea>
-            <mat-error *ngIf="!brandForm.controls['description'].valid
-                        && brandForm.controls['description'].errors.required">Description is required.</mat-error>
-        </mat-form-field><br>
-
-        <!-- Priority -->
-        <mat-form-field>
-            <input matInput placeholder="Priority" formControlName="priority" (blur)="inputBlur('priority')">
-            <mat-error *ngIf="!brandForm.controls['priority'].valid
-                        && brandForm.controls['priority'].errors.required">Priority is required.</mat-error>
-        </mat-form-field><br>
-
-        <!-- Status  -->
-        <mat-label>Status</mat-label><br>
-        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                            <!-- Brand name  -->
+                            <mat-form-field>
+                                <input matInput placeholder="Brand name" formControlName="brand_name"
+                                    (blur)="inputBlur('brand_name')">
+                                <mat-error
+                                    *ngIf="!brandForm.controls['brand_name'].valid
+                                                                        && brandForm.controls['brand_name'].errors.required">
+                                    Brand Name is required.</mat-error>
+                            </mat-form-field><br>
 
 
-        <!-- Buttons  -->
-        <button mat-flat-button type="reset">RESET</button>
-        <button mat-flat-button type="button" (click)="onSubmit()">{{btn_text}} </button>
-    </form>
+                            <!-- Description  -->
+                            <mat-form-field>
+                                <textarea matInput placeholder="Description" formControlName="description" rows="5"
+                                    (blur)="inputBlur('description')"></textarea>
+                                <mat-error
+                                    *ngIf="!brandForm.controls['description'].valid
+                                                                        && brandForm.controls['description'].errors.required">
+                                    Description is required.</mat-error>
+                            </mat-form-field><br>
+
+                            <!-- Priority -->
+                            <mat-form-field>
+                                <input matInput placeholder="Priority" formControlName="priority"
+                                    (blur)="inputBlur('priority')">
+                                <mat-error
+                                    *ngIf="!brandForm.controls['priority'].valid
+                                                                        && brandForm.controls['priority'].errors.required">
+                                    Priority is required.</mat-error>
+                            </mat-form-field><br>
+
+                            <!-- Status  -->
+                            <mat-label>Status</mat-label><br>
+                            <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+
+
+                            <!-- Buttons  -->
+
+                        </form>
+                    </mat-list-item>
+                    <mat-list-item class="formfooter">
+                        <span class="button_wrapper"> 
+                            <button mat-flat-button type="reset" class="bluebutton">RESET</button>
+                            <button mat-flat-button type="button" (click)="onSubmit()" class="skybutton">{{btn_text}} </button>
+                        </span>
+                    </mat-list-item>
+                    </mat-list>
+                    <!-- <h3>{{ header_txt }}</h3> -->
+
+            </mat-card-content>
+        </mat-card>
+    </span>
 </app-adminheader>
