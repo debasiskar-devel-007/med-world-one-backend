@@ -122,8 +122,13 @@
     .blockwrapper2 {padding-left: 15px;}
     .blockwrapper2 h2{font-size: 43px;}
     .blockwrapper2 p{font-size: 18px;}
-  }
 
+    .rapdashboard_content .Welcome_banner  {
+      padding: 70px 487px 70px 40px;
+      background: linear-gradient(44deg, #1a63b2 60%, transparent 20%), url('../../../../assets/images/salesrepBanner.png') no-repeat 110% #F02218;
+      background-size: contain;
+  }
+  }
   @media screen and (max-width: 1090px){
     .block2content .mat-list-item {
         width: 46%;
