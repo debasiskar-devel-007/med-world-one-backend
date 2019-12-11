@@ -21,8 +21,8 @@ export class ListingAdminComponent implements OnInit {
   adminData: any = [];
   adminData_skip: any = ["_id", "password", "type", "salesrepname"];
   adminData_modify_header: any = {
-    "user full name": "Full Name", "status": "Status", "email": "Email",
-    "phone": "Phone", "date": "Date"
+    "firstname": "Full Name", "status": "Status", "email": "Email Address",
+    "phone": "Contact Number", "date": "Date","lastname":"Last Name","user id":"User ID"
   };
   tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
@@ -31,7 +31,7 @@ export class ListingAdminComponent implements OnInit {
   searchingEndpoint: any = "datalist";
   editUrl: any = 'admin-management/edit';
   apiUrl: any = this.http.baseUrl;
-  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
   view: any = "users_view";
   detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =

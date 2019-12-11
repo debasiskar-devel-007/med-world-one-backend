@@ -19,13 +19,17 @@
                         </ng-container>
 
                         <ng-container *ngIf="type=='admin'">
-                                <button mat-menu-item [routerLink]="['/admin/myaccount']">
+                                <button mat-menu-item [routerLink]="['/salesrep/my-details']">
                                     <mat-icon>account_circle</mat-icon> Account
                                 </button>
                         </ng-container>
 
-                      <button mat-menu-item>
-                        <mat-icon>build</mat-icon> Settings
+                      <button mat-menu-item *ngIf="type=='salesrep'" [routerLink]="['/salesrep/change-password']">
+                        <mat-icon>build</mat-icon> Change Password
+                    </button>
+
+                    <button mat-menu-item *ngIf="type=='hospital'" [routerLink]="['/hospital/change-password']">
+                        <mat-icon>build</mat-icon> Change Password
                     </button>
 
                     <button mat-menu-item (click)="logout()">

@@ -682,7 +682,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        'source': 'users_view',
+        'source': 'users',
         'condition': { 'type': 'hospital' }
       },
       endpoint: 'datalist'
