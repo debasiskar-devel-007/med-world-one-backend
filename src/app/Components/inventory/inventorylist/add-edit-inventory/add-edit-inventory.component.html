@@ -28,7 +28,7 @@
 
                 <!-- source  -->
                 <mat-form-field>
-                    <mat-label class="label">Select Source</mat-label>
+                    <mat-label class="label">Source</mat-label>
 
                     <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
                         <mat-option value="0">Select Source</mat-option>
@@ -43,7 +43,7 @@
                 <!-- Brand selection -->
                 <mat-form-field>
 
-                    <mat-label class="label">Select Brand</mat-label>
+                    <mat-label class="label">Brand</mat-label>
 
                     <mat-select matNativeControl formControlName="brand_name" required>
                         <mat-option value="0">Select Brand</mat-option>
@@ -57,7 +57,7 @@
                 <!-- Inventory Category mat-selection  -->
                 <mat-form-field>
 
-                    <mat-label class="label">Select Category</mat-label>
+                    <mat-label class="label">Category</mat-label>
 
                     <mat-select matNativeControl formControlName="inventory_category" required>
                         <mat-option value="0">Select Category</mat-option>
@@ -76,7 +76,7 @@
 
 
                 <mat-form-field>
-                    <mat-label class="label">SKU</mat-label>
+                    <mat-label class="label">SKU #</mat-label>
                     <input matInput formControlName="sku" (blur)="inputBlur('sku')">
                     <mat-error *ngIf="!inventoryForm.controls['sku'].valid
                     && inventoryForm.controls['sku'].errors.required">SKU# is required.</mat-error>

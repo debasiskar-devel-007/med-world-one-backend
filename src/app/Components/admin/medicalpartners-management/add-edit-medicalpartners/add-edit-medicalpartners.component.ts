@@ -5,6 +5,8 @@ import { DialogBoxComponent } from '../../../common/dialog-box/dialog-box.compon
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import * as moment from 'moment';
+
 export interface DialogData {
   msg: string;
 }
@@ -18,29 +20,31 @@ export interface DialogData {
 export class AddEditMedicalpartnersComponent implements OnInit {
 
   // =====================Declarations==================
-  btn_text: any = "SUBMIT";
-  medicalPartnerForm: FormGroup;
-  condition: any;
-  action: any = "add"
-  defaultData: any;
-  successMessage: any = "Submitted Successfully!!!";
-  dialogRef: any;
-  header_txt: any = "Add a Medical Partner"
-  collect_email_array: any = [];
-  collect_phone_array: any = [];
-  ErrCode: boolean;
-  states: any;
-  cities: any;
-  allCities: any;
-  fullImgPath: any;
-  imgName: any;
-  imgtype: any;
-  img_flag: boolean = false;
-  flag: boolean = false;
-  linkTo: any;
-  user_data: any;
-  role: any;
-  salesNameArray:any=[];
+  public btn_text: any = "SUBMIT";
+  public medicalPartnerForm: FormGroup;
+  public condition: any;
+  public action: any = "add"
+  public defaultData: any;
+  public successMessage: any = "Submitted Successfully!!!";
+  public dialogRef: any;
+  public header_txt: any = "Add a Medical Partner"
+  public collect_email_array: any = [];
+  public collect_phone_array: any = [];
+  public ErrCode: boolean;
+  public states: any;
+  public cities: any;
+  public allCities: any;
+  public fullImgPath: any;
+  public imgName: any;
+  public imgtype: any;
+  public img_flag: boolean = false;
+  public flag: boolean = false;
+  public linkTo: any;
+  public user_data: any;
+  public role: any;
+  public salesNameArray:any=[];
+  public date:any;
+  public myDate:any;
   // ===================================================
 
 
@@ -72,6 +76,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.mpList.res[0];
+          this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
         });
       }
       else
@@ -83,6 +88,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     allData = cookieService.getAll()
     this.user_data = JSON.parse(allData.user_details);
     this.role = this.user_data.type;
+
+    if(this.action == 'add')
+    this.date = moment(this.myDate).format('MM/DD/YYYY');
   }
 
 
@@ -102,12 +110,21 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+        /** generating the current date **/
+        this.myDate = new Date();
+          /** generating the user id **/
+          this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+            this.medicalPartnerForm.patchValue({ user_id: response.userID });
+          });
+  
+          //Generating the form on ngOnInit
+          this.generateForm();
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
         this.flag = true;
-        this.successMessage = "One row updated!!!";
+        this.successMessage = "Medical Partner Record Updated!!!";
         this.setDefaultValue(this.defaultData);
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
@@ -138,6 +155,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   // =========================Form Generations==============
   generateForm() {
     this.medicalPartnerForm = this.formBuilder.group({
+      user_id: [{ value: "", disabled: true }],
+      date_added: [{ value: this.date, disabled: true }],
       hospitalname: [],
       salesrepselect:[],
       salesrepname:[],
@@ -151,7 +170,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       state: [],
       city: [],
       zip: [],
-      status: [],
+      status: [1,],
       mpimage: [],
       type: ['hospital'],
     });
@@ -162,8 +181,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
-    
+    console.log(defaultValue);
     this.medicalPartnerForm.patchValue({
+      user_id:defaultValue.user_id,
       hospitalname: defaultValue.hospitalname,
       salesrepselect: defaultValue.salesrepselect,
       contactperson: defaultValue.contactperson,
@@ -241,6 +261,8 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
      
+
+    
     //  File Upload Works 
     if (this.configData.files) {
 
