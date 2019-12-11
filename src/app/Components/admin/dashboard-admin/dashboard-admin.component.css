@@ -7,7 +7,7 @@
     padding: 0 !important;
     box-shadow: none;
     margin: 0 !important;
-    overflow: hidden;padding: 40px 0px !important;   
+    overflow: hidden;padding: 40px 0px !important;
 }
 .main_wrapper{padding: 0; margin: 0;background: none; display: block;padding-bottom: 35px !important;}
 .main_wrapper .mat-list .mat-list-item{
@@ -84,8 +84,6 @@
 
 .admindashboard_content, .rapdashboard_content {padding: 0; background: none;box-shadow: none;}
 
-
-
 .table_mainwrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
 .table_mainwrapper .col-1-2{width: 47%;}
 .table_mainwrapper .col-1-1{width: 100%;}
@@ -94,6 +92,21 @@
     height: 81%;
     display: inline-flex;
 }
+.rapdashboard_content .Welcome_banner {
+   /* background: linear-gradient(24deg, #185fad, #2b88da); */
+   padding: 70px 566px 70px 80px;
+   background: linear-gradient(45deg, #1960af, transparent), url("../../../../assets/images/salesrepBanner.png") no-repeat right #5f9ea0;
+   background-size: contain;
+}
+.rapdashboard_content .Welcome_banner h2 {  color: #fff;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-family: "AvenirBlack";
+  margin-bottom: 10px;}
+.rapdashboard_content .Welcome_banner p{ color: #fff;
+  font-size: 24px;
+  font-family: "AvenirMedium";
+  line-height: 30px; }
 
   @media only screen and (max-width: 1540px) {
     .block2content .mat-list-item {
