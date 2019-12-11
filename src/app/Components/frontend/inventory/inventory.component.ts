@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 export interface DialogData {
   
 }
@@ -18,7 +18,9 @@ export class InventoryComponent implements OnInit {
   public categoryList: any = [];
   public brandList: any = [];
   public user_id:any;
-  constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, public router: Router, public httpServiceService: HttpServiceService) { }
+  public inventoryUserId:any;
+  constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, 
+    public router: Router, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {this.qouteDetails() }
 
 
   ngOnInit() {
@@ -80,25 +82,45 @@ export class InventoryComponent implements OnInit {
 
 /*****Add addQuote function ******/
 addQuote(invenId: any){
+  
 if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
-  let user=JSON.parse(this.cookieService.get('user_details'));
-  this.user_id=user._id;
-  // console.log("user_id"+' '+this.user_id);
-  // console.log("inventory_id"+' '+invenId);
-  // console.log("quantity"+' '+1);
+  /**check inventory already exsities in cart or not */
+  for (let i in this.inventoryUserId) {
+    // console.log(this.inventoryUserId[i].inventory);
+   if(this.inventoryUserId[i].inventory.indexOf(invenId)>-1)
+   {
+     //console.log("inventory id match");
+     this._snackBar.open('This Inventory Already in your Cart','', {
+      duration: 1000,
+    });
+   }
+   }
 
-    let postData={ "source": "quote",
-  "data": {
-    "inventory":invenId,
-    "user_id":this.user_id,
-    "quantity":1,
-  },
-  "sourceobj":["user_id","inventory"],
-};
- this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
-  console.log(res);
- })
- 
+  // if(this.inventoryUserId==invenId){
+  //   console.log("already exites");
+
+  // }
+  // else
+  // {
+//   let user=JSON.parse(this.cookieService.get('user_details'));
+//   this.user_id=user._id;
+//    //console.log("user_id"+' '+this.user_id);
+//   // console.log("inventory_id"+' '+invenId);
+//   // console.log("quantity"+' '+1);
+
+//     let postData={ "source": "quote",
+//   "data": {
+//     "inventory":invenId,
+//     "user_id":this.user_id,
+//     "quantity":1,
+//   },
+//   "sourceobj":["user_id","inventory"],
+// };
+//  this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
+//   console.log(res);
+  
+//  })
+//}
 }else{
   // console.log("Please Log IN");
   this.openDialog();
@@ -109,12 +131,27 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
 }
 
 
+/**fetch user inventory details */
+qouteDetails(){
+  if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
+    let user=JSON.parse(this.cookieService.get('user_details'));
+  let postData={ "source": "quote", "condition":{
+    "user_id_object":user._id
+  },};
+  this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
+    // console.log(res);
+    this.inventoryUserId=res.res;
+     //console.log(this.inventoryUserId);
+   })
+  }
+}
 
 
 /*******************Open Login Modal ********************************/
 openDialog(): void {
   const dialogRef = this.dialog.open(Dialoglogin, {
     width: '550px',
+    disableClose: true 
   });
 
   dialogRef.afterClosed().subscribe(result => {
