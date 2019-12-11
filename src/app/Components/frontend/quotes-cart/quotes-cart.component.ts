@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quotes-cart',
   templateUrl: './quotes-cart.component.html',
@@ -15,9 +16,9 @@ export class QuotesCartComponent implements OnInit {
   public userType: any;
   public hospitalDetails: any = [];
   public hospitalId: any;
-  selectedValue: string;
-
-  constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {
+  public selectedValue: string;
+  public ids:any=[];
+  constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
@@ -63,7 +64,7 @@ export class QuotesCartComponent implements OnInit {
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
         this.inventoryDetailsByUserId = res.res;
         this.qouteCount = res.resc;
-        console.log(res);
+        //console.log(res);
 
       })
     }
@@ -92,15 +93,38 @@ export class QuotesCartComponent implements OnInit {
         "quoted_by": this.userId
         }
       };
-      //console.log(data);
+
+      for(let i in this.inventoryDetailsByUserId){
+          
+          this.ids.push(this.inventoryDetailsByUserId[i]._id);
+      }
+      //console.log(this.ids);
+
+      let deleteData={
+        "source": "quote",
+        "ids":this.ids
+      }
+      //console.log(deleteData);
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         console.log(response);
         if(response.status="success"){
-          this._snackBar.open('Your Quote Submitted Successfully','', {
-            duration: 2000,
-          });
+
+
+          this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+            if(response.status="success"){
+              this._snackBar.open('Your Quote Submitted Successfully','', {
+                duration: 3000,
+              });
+              this.router.navigateByUrl('/inventory');
+            }
+          })
+          
+
+
         }
       })
+
+
     }
 
   }

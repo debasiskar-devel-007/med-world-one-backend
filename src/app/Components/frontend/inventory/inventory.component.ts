@@ -166,7 +166,7 @@ qouteDetails(){
     "user_id_object":user._id
   },};
   this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
-     console.log(res);
+     //console.log(res);
     this.inventoryUserId=res.res;
     this.flag=res.resc;
      //console.log(this.inventoryUserId);
