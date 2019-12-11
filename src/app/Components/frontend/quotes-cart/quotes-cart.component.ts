@@ -17,7 +17,9 @@ export class QuotesCartComponent implements OnInit {
   public hospitalDetails: any = [];
   public hospitalId: any;
   public selectedValue: string;
+  public noteValue:any;
   public ids:any=[];
+  public notes:string;
   constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
@@ -75,14 +77,21 @@ export class QuotesCartComponent implements OnInit {
     //console.log(data);
   }
 
+  /**add notes */
+  onSearchChange(searchValue: string): void { 
+    this.notes=searchValue;
+    //console.log(this.notes);
+  }
 
   /**get quote function */
   getQuote() {
+    
     /**if sales */
     if (this.userType=='salesrep' && this.hospitalId == undefined) {
       this._snackBar.open('please select hospital','', {
         duration: 1000,
       });
+     
     } 
     else {
       let postData = {
@@ -90,15 +99,21 @@ export class QuotesCartComponent implements OnInit {
         "data":{
         "inventory_details": this.inventoryDetailsByUserId,
         "hospital_id": this.hospitalId,
-        "quoted_by": this.userId
-        }
+        "quoted_by": this.userId,
+         "notes":this.notes,
+        "status":0
+        },
+        "sourceobj":["hospital_id","quoted_by"]
       };
 
+      //console.log(postData);
       for(let i in this.inventoryDetailsByUserId){
           
           this.ids.push(this.inventoryDetailsByUserId[i]._id);
       }
       //console.log(this.ids);
+
+
 
       let deleteData={
         "source": "quote",
@@ -106,7 +121,7 @@ export class QuotesCartComponent implements OnInit {
       }
       //console.log(deleteData);
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-        console.log(response);
+        //console.log(response);
         if(response.status="success"){
 
 

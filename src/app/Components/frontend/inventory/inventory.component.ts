@@ -118,7 +118,9 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
                 };
                  this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
                   console.log(res);
-                  
+                  this._snackBar.open('This Inventory Add in your Cart','', {
+                    duration: 1000,
+                  });
                  })
                }
   
@@ -142,7 +144,9 @@ if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_de
                   "sourceobj":["user_id","inventory"],
                 };
                  this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
-                  console.log(res);
+                  this._snackBar.open('This Inventory Add in your Cart','', {
+                    duration: 1000,
+                  });
                   
                  })
   }
