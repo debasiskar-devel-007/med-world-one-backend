@@ -122,8 +122,8 @@ export class AddEditInventoryCatComponent implements OnInit {
       parent_category: [],
       description: ['', [Validators.required]],
       priority: ['', [Validators.required]],
-      status: [],
-      brand_id: ['', [Validators.required]]
+      status: [false],
+      brand_id: ['']
     });
 
 
@@ -237,15 +237,18 @@ export class AddEditInventoryCatComponent implements OnInit {
 
   // =======================SUBMIT==========================
   onSubmit() {
-
+console.log(this.inventoryCategoryForm.value);
     /** marking as untouched **/
     for (let x in this.inventoryCategoryForm.controls) {
       this.inventoryCategoryForm.controls[x].markAsTouched();
     }
 
     /** validation for brands **/
-    if (this.brand_array.length == 0)
+    if (this.brand_array.length == 0){
+      //console.log("this.errCode",this.errCode);
       this.errCode = true;
+      return false;
+    }
 
     if (this.inventoryCategoryForm.invalid) {
       return;

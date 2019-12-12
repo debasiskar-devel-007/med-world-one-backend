@@ -15,12 +15,12 @@ export class ListingInventoryComponent implements OnInit {
   // ===============================Declarations=========================
   inventoryListData: any = [];
   inventoryListData_skip: any = ["_id", "description_html", "description", "created_at",
-   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search'];
+   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search','price'];
   detail_skip_array: any = ["_id"]
   inventoryListData_modify_header: any = {
     "brand name": "Brand Name",
     "parent category": "Parent Category", "priority": "Priority", "status": "Status",
-    "inventoy name":"source",'sku':'sku #','name':'Source','inventory name':'Name'
+    "inventoy name":"source",'sku':'sku #','name':'Source','inventory name':'Name','wholesaleprice':"Whole Sale Price"
   };
   tableName: any = 'inventories';
   UpdateEndpoint: any = "addorupdatedata";
@@ -51,6 +51,7 @@ export class ListingInventoryComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.inventoryListData = resolveData.inventoryList.res;
+      console.log(this.inventoryListData);
     });
   }
 
