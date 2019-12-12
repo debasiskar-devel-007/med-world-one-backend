@@ -4,8 +4,8 @@
 .my_details_wrapper .header_part{ display: block; height: auto; background: url("../../../../../assets/images/mydetails_hospitalicon.png") no-repeat 98%;  background-size: 70px;
   padding-right: 50px; border-bottom: 1px solid #d6d2d2; padding: 16px;
 }
-.my_details_wrapper .header_part h2{ color: #1480db; font-family: "HelveticaBold"; text-transform: capitalize; font-size: 24px;}
-.my_details_wrapper .header_part p{ color: #393939; font-family: "HelveticaRegular"; text-transform: capitalize; font-size: 18px; margin: 0;}
+.my_details_wrapper .header_part h2{ color: #1480db; font-family: "AvenirBlack"; text-transform: capitalize; font-size: 24px;}
+.my_details_wrapper .header_part p{ color: #393939; font-family: "AvenirLight"; text-transform: capitalize; font-size: 18px; margin: 0;}
 
 .my_details_wrapper .button_wrapper .manage_button{  width: 190px; border-radius: 0; text-transform: capitalize; background: #111214; color: #fff; font-family: "RobotoMedium"; font-size: 18px; padding: 5px;
   margin-left: auto;}
@@ -20,7 +20,7 @@
   box-sizing: border-box;
   display: flex;
 }
-.hospital_items .hospital_left img{ 
+.hospital_items .hospital_left img{
   max-width: 100%;
   min-height: 100%;
   object-fit: cover;
@@ -33,9 +33,9 @@
 
 .hospital_items .hospital_right .item_list .mat-list-item {
    height: auto; font-size: 14px;
-    font-family: "Helvetica"; 
+    font-family: "Helvetica";
     color: #30373d; text-transform: uppercase;
-    padding: 5px 0; 
+    padding: 5px 0;
     word-break: break-word;
   }
 .hospital_items .hospital_right .item_list .mat-list-item span{font-family: "HelveticaBold"; }
