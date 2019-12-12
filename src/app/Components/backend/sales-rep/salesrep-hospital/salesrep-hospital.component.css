@@ -1,7 +1,7 @@
 .my_details_wrapper{
   background: #f5f5f5; border: 1px solid #dddd; padding-bottom: 20px;    margin-top: 30px;
 }
-.my_details_wrapper .header_part{ display: block; height: auto; background: url("../../../../../assets/images/mydetails_hospitalicon.png") no-repeat 98%;  background-size: 70px;
+.my_details_wrapper .header_part{ display: block; height: auto;
   padding-right: 50px; border-bottom: 1px solid #d6d2d2; padding: 16px;
 }
 .my_details_wrapper .header_part h2{ color: #1480db; font-family: "AvenirBlack"; text-transform: uppercase; font-size: 26px;}
@@ -15,7 +15,7 @@
   font-family: "AvenirMedium";
   font-size: 18px;
   padding: 3px;
-  margin-left: auto;  }
+  margin-left: auto; margin-bottom: 14px; }
 
   .hospitallistmainwrapper .hospital_items { display: flex; justify-content: space-between; padding: 16px; border: 1px solid #ddd; background: #fff; margin: 5px; width: 48.5%; position: relative; box-sizing: border-box; }
 .hospital_items .hospital_left {
@@ -55,21 +55,22 @@
 
 
 .shareLinkWrapper { border: 1px solid #1787e6; }
-.shareLinkWrapper .link_title{ color: #1480db; font-family: "HelveticaBold"; font-size: 24px; text-transform: capitalize; }
+.shareLinkWrapper .link_title{ color: #1480db; font-family: "AvenirMedium"; font-size: 20px; text-transform: capitalize; }
 .share_linkBar{ display: flex; justify-content: space-between; align-items: center; height: auto; background: #0673df; padding: 5px; margin-top: 5px; }
 
 
-.share_linkBar .share_LL{
-    background: #002950;
-    margin-bottom: 0;
-    padding: 5px 20px;
-    box-sizing: border-box;
-    text-align: center;
-    color: #fff;
-    font-size: 18px;
-    font-family: "HelveticaRegular";
-}
+.share_linkBar .share_LL{ background: #002950; margin-bottom: 0; padding: 5px 20px; box-sizing: border-box; text-align: center; color: #fff; font-size: 18px; font-family: "HelveticaRegular"; }
 
+.share_linkBar .copyLinkWrappr{ min-height: 32px; background: #fff; width: 100%; padding: 3px 5px; display: inline-flex; justify-content: flex-start; align-items: center; position: relative; margin: 0; padding-right: 67px;}
+.share_linkBar .copyLinkWrappr  button{ background: #ee210d; position: absolute; color: #fff; font-size: 22px; padding: 0; width: auto; border-radius: 0; right: 0; height: 100%;
+    }
+.share_linkBar .share_link{ line-height: 16px; font-size: 16px; font-family: "AvenirMedium"; word-break: break-all; white-space: normal; }
+.social_media_wrapper{ margin:0; border: 1px solid #fff; display: flex; width: 160px;}
+.social_media_wrapper a{ font-size: 18px; font-family: "MontserratBold"; color: #fff; border-radius: 0; min-width: 40px; padding: 2px 10px; box-sizing: border-box; }
+.social_media_wrapper a:nth-child(1){background: #3b5998;}
+.social_media_wrapper a:nth-child(2){background: #0e76a8;}
+.social_media_wrapper a:nth-child(3){background: #00acee;}
+.social_media_wrapper a:nth-child(4){background: #34526f;}
 
 
 @media screen and (max-width: 1500px){
