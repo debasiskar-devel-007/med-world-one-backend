@@ -45,3 +45,4 @@
 .tablewrapper table tr td.mat-cell, .tablewrapper table tr td.mat-footer-cell, .tablewrapper table th.mat-header-cell {
     padding: 5px !important;
 }
+.main_wrapper .tabs_wrapper mat-card{padding: 0; box-shadow: 0 !important;}
