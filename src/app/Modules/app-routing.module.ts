@@ -106,7 +106,8 @@ const routes: Routes = [
   //SalesRep Dashboard
   { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
 
-  { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
+   { path:'admin/quote-view/:id/:hospitalid', component:QuoteViewComponent,canActivate: [AuthguardService]},
+  // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
 
 
 

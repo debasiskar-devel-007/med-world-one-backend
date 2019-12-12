@@ -126,7 +126,7 @@ export class DashboardAdminComponent implements OnInit {
       let postData={"source": "quote-details_view"};
     this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
       this.recentlyAdded=response.res;
-      //console.log(response.res);
+      console.log(response.res);
     });
   }
 
@@ -157,8 +157,8 @@ export class DashboardAdminComponent implements OnInit {
   }
 
 /** quote details view*/
-viewQuoteDetails(quoteid:any){
-  this.router.navigateByUrl('/admin/quote-view/' + quoteid);
+viewQuoteDetails(quoteid:any,hospiid:any){
+  this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
 //console.log("quote details",quoteid);
 }
 
