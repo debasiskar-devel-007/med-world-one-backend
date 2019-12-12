@@ -1,11 +1,11 @@
-import { Component, OnInit,Inject} from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 export interface DialogData {
-  
+
 }
 
 @Component({
@@ -14,15 +14,15 @@ export interface DialogData {
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  public inventoryCatagoryList: any={};
+  public inventoryCatagoryList: any = {};
   public categoryList: any = [];
   public brandList: any = [];
-  public user_id:any;
-  public inventoryUserId:any='';
-  public flag:number;
-  public flg:number=0;
-  constructor(public dialog: MatDialog,public cookieService:CookieService,public activatedRoute: ActivatedRoute, 
-    public router: Router, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {this.qouteDetails() }
+  public user_id: any;
+  public inventoryUserId: any = '';
+  public flag: number;
+  public flg: number = 0;
+  constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
+    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar) { this.qouteDetails() }
 
 
   ngOnInit() {
@@ -57,10 +57,10 @@ export class InventoryComponent implements OnInit {
     // console.log("search brand ID" + '   ' + brandId);
     let postData = {
       "source": "inventories_list_view",
-      condition: { "brand_id_object":brandId}
+      condition: { "brand_id_object": brandId }
     };
     this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-       this.inventoryCatagoryList = res.res;
+      this.inventoryCatagoryList = res.res;
       // console.log(res);
     })
   }
@@ -82,114 +82,115 @@ export class InventoryComponent implements OnInit {
 
 
 
-/*****Add addQuote function ******/
-addQuote(invenId: any){
-  
-if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
-  if(this.flag!=0){
-  /**check inventory already exsities in cart or not */
-          for (let i in this.inventoryUserId) {
-  
-            // console.log(this.inventoryUserId[i].inventory);
-  
-               if(this.inventoryUserId[i].inventory.indexOf(invenId)>-1)
-              {
-                //console.log("inventory id match");
-                this._snackBar.open('This Inventory Already in your Cart','', {
-                  duration: 1000,
-                });
-                this.flg=1;
-              }
-            }
-               if(this.flg==0){
-                  let user=JSON.parse(this.cookieService.get('user_details'));
-                  this.user_id=user._id;
-                   //console.log("user_id"+' '+this.user_id);
-                  // console.log("inventory_id"+' '+invenId);
-                  // console.log("quantity"+' '+1);
+  /*****Add addQuote function ******/
+  addQuote(invenId: any) {
 
-                    let postData={ "source": "quote",
-                  "data": {
-                    "inventory":invenId,
-                    "user_id":this.user_id,
-                    "quantity":1,
-                  },
-                  "sourceobj":["user_id","inventory"],
-                };
-                 this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
-                  console.log(res);
-                  this._snackBar.open('This Inventory Add in your Cart','', {
-                    duration: 1000,
-                  });
-                 })
-               }
-  
+    if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
+      if (this.flag != 0) {
+        /**check inventory already exsities in cart or not */
+        for (let i in this.inventoryUserId) {
+
+          // console.log(this.inventoryUserId[i].inventory);
+
+          if (this.inventoryUserId[i].inventory.indexOf(invenId) > -1) {
+            //console.log("inventory id match");
+            this._snackBar.open('This Inventory Already in your Cart', '', {
+              duration: 1000,
+            });
+            this.flg = 1;
+          }
+        }
+        if (this.flg == 0) {
+          let user = JSON.parse(this.cookieService.get('user_details'));
+          this.user_id = user._id;
+          //console.log("user_id"+' '+this.user_id);
+          // console.log("inventory_id"+' '+invenId);
+          // console.log("quantity"+' '+1);
+
+          let postData = {
+            "source": "quote",
+            "data": {
+              "inventory": invenId,
+              "user_id": this.user_id,
+              "quantity": 1,
+            },
+            "sourceobj": ["user_id", "inventory"],
+          };
+          this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
+            console.log(res);
+            this._snackBar.open('This Inventory Add in your Cart', '', {
+              duration: 1000,
+            });
+          })
+        }
+
+
+      }
+      else {
+        console.log("first entry");
+        let user = JSON.parse(this.cookieService.get('user_details'));
+        this.user_id = user._id;
+        //console.log("user_id"+' '+this.user_id);
+        // console.log("inventory_id"+' '+invenId);
+        // console.log("quantity"+' '+1);
+
+        let postData = {
+          "source": "quote",
+          "data": {
+            "inventory": invenId,
+            "user_id": this.user_id,
+            "quantity": 1,
+          },
+          "sourceobj": ["user_id", "inventory"],
+        };
+        this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
+          this._snackBar.open('This Inventory Add in your Cart', '', {
+            duration: 1000,
+          });
+
+        })
+      }
+    }
+    else {
+      // console.log("Please Log IN");
+      this.openDialog();
+      //  this.router.navigateByUrl('/login'+this.router.url);
+      //  console.log('/login'+this.router.url)
+    }
 
   }
-  else
-  {
-    console.log("first entry");
-      let user=JSON.parse(this.cookieService.get('user_details'));
-                  this.user_id=user._id;
-                   //console.log("user_id"+' '+this.user_id);
-                  // console.log("inventory_id"+' '+invenId);
-                  // console.log("quantity"+' '+1);
 
-                    let postData={ "source": "quote",
-                  "data": {
-                    "inventory":invenId,
-                    "user_id":this.user_id,
-                    "quantity":1,
-                  },
-                  "sourceobj":["user_id","inventory"],
-                };
-                 this.httpServiceService.httpViaPost('addorupdatedata',postData).subscribe((res:any)=>{
-                  this._snackBar.open('This Inventory Add in your Cart','', {
-                    duration: 1000,
-                  });
-                  
-                 })
+
+  /**fetch user inventory details */
+  qouteDetails() {
+    if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
+      let user = JSON.parse(this.cookieService.get('user_details'));
+      let postData = {
+        "source": "quote", "condition": {
+          "user_id_object": user._id
+        },
+      };
+      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
+        //console.log(res);
+        this.inventoryUserId = res.res;
+        this.flag = res.resc;
+        //console.log(this.inventoryUserId);
+      })
+    }
   }
-}
-else
-{
-  // console.log("Please Log IN");
-  this.openDialog();
-  //  this.router.navigateByUrl('/login'+this.router.url);
-  //  console.log('/login'+this.router.url)
-}
-
-}
 
 
-/**fetch user inventory details */
-qouteDetails(){
-  if(this.cookieService.get('user_details')!='' && this.cookieService.get('user_details')!=null &&  this.cookieService.get('user_details')!= undefined ){
-    let user=JSON.parse(this.cookieService.get('user_details'));
-  let postData={ "source": "quote", "condition":{
-    "user_id_object":user._id
-  },};
-  this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
-     //console.log(res);
-    this.inventoryUserId=res.res;
-    this.flag=res.resc;
-     //console.log(this.inventoryUserId);
-   })
+  /*******************Open Login Modal ********************************/
+  openDialog(): void {
+    const dialogRef = this.dialog.open(Dialoglogin, {
+      panelClass: 'Login_confirm',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
-}
-
-
-/*******************Open Login Modal ********************************/
-openDialog(): void {
-  const dialogRef = this.dialog.open(Dialoglogin, {
-    width: '550px',
-    disableClose: true 
-  });
-
-  dialogRef.afterClosed().subscribe(result => {
-  });
-}
-/***************************************************** */
+  /***************************************************** */
 
 
 }
@@ -198,19 +199,20 @@ openDialog(): void {
 @Component({
   selector: 'Dialoglogin',
   templateUrl: 'login.html',
+  styleUrls: ['./inventory.component.css']
 })
 export class Dialoglogin {
 
   constructor(
-    public dialogRef: MatDialogRef<Dialoglogin>,public router: Router,
-    @Inject(MAT_DIALOG_DATA)public DialogData) {}
+    public dialogRef: MatDialogRef<Dialoglogin>, public router: Router,
+    @Inject(MAT_DIALOG_DATA) public DialogData) { }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  acceptToLoginPage(){
-    this.router.navigateByUrl('/login'+this.router.url);
+  acceptToLoginPage() {
+    this.router.navigateByUrl('/login' + this.router.url);
     this.onNoClick();
   }
 

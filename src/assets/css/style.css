@@ -947,6 +947,15 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
   width: 233px;
 }
+
+
+/* inventory login modal css */
+.Login_confirm{ width: 600px;}
+.Login_confirm .mat-dialog-container{ background: #f2f9ff;
+  border: 4px solid #40a2f5;  padding: 0;}
+
+
+  .listing_tab th.mat-header-cell{ width: 10%;}
 /*-------------- modal css start ---------------- */
 .changepassword.cdk-overlay-pane{width: 33% !important;}
 .changepassword .mat-dialog-container{

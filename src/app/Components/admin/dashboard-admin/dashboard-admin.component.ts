@@ -126,7 +126,7 @@ export class DashboardAdminComponent implements OnInit {
       let postData={"source": "quote-details_view"};
     this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
       this.recentlyAdded=response.res;
-      console.log(response.res);
+      //console.log(response.res);
     });
   }
 
