@@ -32,12 +32,15 @@
                     <mat-label class="label">Source</mat-label>
 
                     <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
-                        <mat-option value="0">Select Source</mat-option>
+                        <mat-option value="">Select Source</mat-option>
                         <mat-option value="mckesson">McKesson Inventory</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
                             {{ item.hospitalname }}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="!inventoryForm.controls['source'].valid
+                    && inventoryForm.controls['source'].errors.required">Source Name is required.
+                    </mat-error>
                 </mat-form-field><br>
 
 
@@ -48,12 +51,15 @@
                     <mat-label class="label">Category</mat-label>
 
                     <mat-select matNativeControl formControlName="inventory_category" required>
-                        <mat-option value="0">Select Category</mat-option>
+                        <mat-option value="">Select Category</mat-option>
                         <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
                             (click)="getBrandName(item._id )">
                             {{ item.category_name }}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="!inventoryForm.controls['inventory_category'].valid
+                    && inventoryForm.controls['inventory_category'].errors.required">Category Name is required.
+                    </mat-error>
                 </mat-form-field><br>
 
 
@@ -65,11 +71,14 @@
                     <mat-label class="label">Brand</mat-label>
 
                     <mat-select matNativeControl formControlName="brand_name" required>
-                        <mat-option value="0">Select Brand</mat-option>
+                        <mat-option value="">Select Brand</mat-option>
                         <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
                             {{ item.brand_name }}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="!inventoryForm.controls['brand_name'].valid
+                    && inventoryForm.controls['brand_name'].errors.required">Brand Name is required.
+                    </mat-error>
                 </mat-form-field><br>
 
 

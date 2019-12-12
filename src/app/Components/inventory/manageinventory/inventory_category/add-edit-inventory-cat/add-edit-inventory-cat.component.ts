@@ -119,7 +119,7 @@ export class AddEditInventoryCatComponent implements OnInit {
   generateForm() {
     this.inventoryCategoryForm = this.formBuilder.group({
       category_name: ['', [Validators.required]],
-      parent_category: [],
+      parent_category: [""],
       description: ['', [Validators.required]],
       priority: ['', [Validators.required]],
       status: [false],

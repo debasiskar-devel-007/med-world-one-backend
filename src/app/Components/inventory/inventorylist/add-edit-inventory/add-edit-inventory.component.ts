@@ -117,9 +117,9 @@ export class AddEditInventoryComponent implements OnInit {
   generateForm() {
     this.inventoryForm = this.formBuilder.group({
       inventory_name: ['', [Validators.required]],
-      source: [],
-      brand_name: [],
-      inventory_category: [],
+      source: ["",[Validators.required]],
+      brand_name: ["",[Validators.required]],
+      inventory_category: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
       wholesaleprice:['',Validators.required],
