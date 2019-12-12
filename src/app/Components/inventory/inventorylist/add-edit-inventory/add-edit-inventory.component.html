@@ -41,6 +41,24 @@
                 </mat-form-field><br>
 
 
+
+                   <!-- Inventory Category mat-selection  -->
+                   <mat-form-field>
+
+                    <mat-label class="label">Category</mat-label>
+
+                    <mat-select matNativeControl formControlName="inventory_category" required>
+                        <mat-option value="0">Select Category</mat-option>
+                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
+                            (click)="getBrandName(item._id )">
+                            {{ item.category_name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field><br>
+
+
+
+
                 <!-- Brand selection -->
                 <mat-form-field>
 
@@ -55,20 +73,7 @@
                 </mat-form-field><br>
 
 
-                <!-- Inventory Category mat-selection  -->
-                <mat-form-field>
-
-                    <mat-label class="label">Category</mat-label>
-
-                    <mat-select matNativeControl formControlName="inventory_category" required>
-                        <mat-option value="0">Select Category</mat-option>
-                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
-                            (click)="getBrandName(item._id )">
-                            {{ item.category_name }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
+             
 
 
 

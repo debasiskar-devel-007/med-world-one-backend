@@ -15,7 +15,7 @@ export class ListingInventoryComponent implements OnInit {
   // ===============================Declarations=========================
   inventoryListData: any = [];
   inventoryListData_skip: any = ["_id", "description_html", "description", "created_at",
-   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search','price'];
+   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search','price','brand_id'];
   detail_skip_array: any = ["_id"]
   inventoryListData_modify_header: any = {
     "brand name": "Brand Name",
@@ -51,7 +51,7 @@ export class ListingInventoryComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.inventoryListData = resolveData.inventoryList.res;
-      console.log(this.inventoryListData);
+      //console.log(this.inventoryListData);
     });
   }
 

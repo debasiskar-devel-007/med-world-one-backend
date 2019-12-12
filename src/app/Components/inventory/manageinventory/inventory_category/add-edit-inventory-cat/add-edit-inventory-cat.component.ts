@@ -237,7 +237,7 @@ export class AddEditInventoryCatComponent implements OnInit {
 
   // =======================SUBMIT==========================
   onSubmit() {
-console.log(this.inventoryCategoryForm.value);
+//console.log(this.inventoryCategoryForm.value);
     /** marking as untouched **/
     for (let x in this.inventoryCategoryForm.controls) {
       this.inventoryCategoryForm.controls[x].markAsTouched();

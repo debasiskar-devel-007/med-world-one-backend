@@ -264,6 +264,7 @@ export class AddEditInventoryComponent implements OnInit {
   //getting the brand name
 
   getBrandName(index: any) {
+    //console.log(index);
     var data: any;
     data = {
       'source': 'category_view',
@@ -273,9 +274,10 @@ export class AddEditInventoryComponent implements OnInit {
       }
     };
     this.http.httpViaPost("datalist", data).subscribe(response => {
+      //console.log("getBrandName response",response);
       let result: any;
       result = response.res;
-      this.brand_name_array = result[0].brand;
+      this.brand_name_array = result[0].brand_data;
     });
   }
 

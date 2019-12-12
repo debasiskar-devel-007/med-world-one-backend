@@ -73,6 +73,7 @@ import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontacti
 import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
 import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
+import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 
 
 
@@ -468,6 +469,20 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     }
 
   },
+
+
+           /*Manage Quotes */
+
+    {path:'admin/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+
+    }},
 
 
   // ________________________ACCOUNT SETTINGS______________________
