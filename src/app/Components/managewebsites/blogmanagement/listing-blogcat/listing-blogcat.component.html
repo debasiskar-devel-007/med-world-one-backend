@@ -1,7 +1,8 @@
-
-    <app-adminheader>
+<app-adminheader>
+    <span class="listingnewstyle">
+        <span class="dashboardcontainer">
             <mat-card class="main_wrapper">
-                <mat-card-content class="inventory_banner">
+                <!-- <mat-card-content class="inventory_banner">
                     <mat-card-title class="inventory_title">Manage Blog</mat-card-title>
                     <p class="inventory_para">Expansive Blog Listing For An One-Stop-Shop For All Your Hospital Equipment
                         Needs</p>
@@ -11,76 +12,63 @@
                     <a mat-list-item routerLinkActive="active activebread" routerLink="/manage-websites/addblogcategory/list">Manage Blog</a>
         
         
-                </mat-card-content>
-                
+                </mat-card-content> -->
+
                 <!-- tab section for category -->
                 <mat-tab-group class="brand_group">
                     <mat-tab label="Category">
-        
-        
                         <mat-card-content class="tabs_wrapper">
                             <mat-toolbar class="content_header_wrapper">
                                 <mat-card-title class="toolbar_header">Category List</mat-card-title>
-                                <button class="singleButton" mat-raised-button [routerLink]="['/manage-websites/addblogcategory/add']">
-                                    <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Category
-                                </button>
+                                <button class="singleButton" mat-raised-button
+                                    [routerLink]="['/manage-websites/addblogcategory/add']"> Add </button>
                             </mat-toolbar>
-    
+
                             <!-- Listing goes here  -->
 
-                            <lib-Blog [config]="blogListConfig"></lib-Blog>  
+                            <lib-Blog [config]="blogListConfig"></lib-Blog>
 
                             <!-- Listing ends here  -->
-      
+
                         </mat-card-content>
                     </mat-tab>
-        
-        
-                     <!-- tab section for brand -->
-        
+
+
+                    <!-- tab section for brand -->
+
                     <mat-tab label="Blog">
                         <mat-card-content class="tabs_wrapper">
                             <mat-toolbar class="content_header_wrapper">
                                 <mat-card-title class="toolbar_header">Blog list </mat-card-title>
-                                <button class="singleButton" mat-raised-button [routerLink]="['/manage-websites/addblogs/add']">
-                                    <mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Blog
-                                </button>
+                                <button class="singleButton" mat-raised-button
+                                    [routerLink]="['/manage-websites/addblogs/add']"> Add </button>
                             </mat-toolbar>
-        
-                             <!-- Listing goes here  -->
-                            <!-- to listing library -->
-       
-                            
-                            <lib-listing *ngIf="bloglist != null && bloglist.length>0"
-                                [datasource]="bloglist"
-                                [skip]="bloglist_skip" 
-                                [modify_header_array]="bloglist_modify_header"
-                                [sourcedata]="tableName" 
-                                [apiurl]="apiUrl"
-                                [editroute]="editUrl"
-                                [jwttoken]="user_cookie"
-                                [statusarr]="status" 
-                                [updateendpoint]="UpdateEndpoint" 
-                                [deleteendpoint]="deleteEndpoint"
-                                [search_settings]="search_settings"
-                                [detail_datatype]="image_detail_datatype"
-                                [detail_skip_array]="detail_skip_array"
-                                                          
 
-                                >
+                            <!-- Listing goes here  -->
+                            <!-- to listing library -->
+
+
+                            <lib-listing *ngIf="bloglist != null && bloglist.length>0" [datasource]="bloglist"
+                                [skip]="bloglist_skip" [modify_header_array]="bloglist_modify_header"
+                                [sourcedata]="tableName" [apiurl]="apiUrl" [editroute]="editUrl"
+                                [jwttoken]="user_cookie" [statusarr]="status" [updateendpoint]="UpdateEndpoint"
+                                [deleteendpoint]="deleteEndpoint" [search_settings]="search_settings"
+                                [detail_datatype]="image_detail_datatype" [detail_skip_array]="detail_skip_array">
                             </lib-listing>
-                            
+
                             <!-- Listing ends here  -->
-        
-        
+
+
                         </mat-card-content>
-        
+
                     </mat-tab>
-                    
+
                 </mat-tab-group>
-            
-                
+
+
                 <!--end  tab section -->
-       
+
             </mat-card>
-        </app-adminheader>
+        </span>
+    </span>
+</app-adminheader>
