@@ -2,8 +2,26 @@
   <span class="dashboardcontainer">
     <mat-card-content class="my_details_wrapper">
       <mat-toolbar class="header_part">
-        <h2>My Hospitals</h2>
-        <p> Hospital Information </p>
+        <h2>My Hospitals</h2>   
+             <!-- SHARE LINK FOR HOSPITAL SIGN UP -->
+        <mat-toolbar class="share_linkBar">
+          <mat-card-content class="share_LL">SHARE LINK FOR HOSPITAL SIGN UP</mat-card-content>
+          <span class="copyLinkWrappr">
+              <mat-label class="share_link">{{sharelink}}</mat-label>
+              <button mat-button type="button" (click)="copytoclipboard()"><i class="fa fa-clipboard"
+                      aria-hidden="true"></i>
+              </button>
+          </span>
+
+          <mat-card-content class="social_media_wrapper">
+              <a target="_blank" href="https://www.facebook.com/sharer.php?u=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+              <a target="_blank" href="https://twitter.com/intent/tweet?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a target="_blank" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+          </mat-card-content>
+          </mat-toolbar>
+           <!-- end -->
+
       </mat-toolbar>
       <mat-toolbar class="button_wrapper">
         <button mat-button class="manage_button" routerLink="/salesrep/hospital/manage-hospital">Add hospital</button>

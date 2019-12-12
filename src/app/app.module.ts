@@ -144,6 +144,10 @@ import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-ca
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
+import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/quote-view.component';
+
+//admin dashboard view purchase quote
+import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 
 
 
@@ -245,7 +249,8 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     ListingPurchaseComparisonComponent,
     Dialoglogin,
     Dialogloginn,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, PurchaseQuotesListingComponent
 
 
   ],

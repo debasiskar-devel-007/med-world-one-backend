@@ -1,0 +1,123 @@
+<app-adminheader>
+
+  <mat-card class="quote_cart_wrapper">
+    <mat-card-content class="top_logo_wrapper">
+      <span class="top_wr1">
+        <mat-card-content class="inner_items">
+          <img src="../../../../../assets/images/logo.png">
+        </mat-card-content>
+
+        <mat-card-content class="inner_items_top">
+          <mat-list class="details">
+            <mat-list-item><span>Date</span></mat-list-item>
+            <mat-list-item><span>Quote ID</span></mat-list-item>
+            <mat-list-item>1175 American Pacific Dr Ste# F
+              Henderson, NV 89074
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </span>
+      <mat-card-content class="inner_items_top_bottom">
+        <mat-card-content class="rep_wrapper">
+          <mat-card-title class="header">rep</mat-card-title>
+
+          <p><span>rep name : </span>Lorem ipsum dolor sit amet </p>
+
+        </mat-card-content>
+        <mat-card-content class="rep_wrapper">
+          <mat-card-title class="header">client</mat-card-title>
+
+          <p><span>HOSPITAL NAME :</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            voluptates.</p>
+          <p><span>HOSPITAL Address : </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate,
+            voluptates.</p>
+
+        </mat-card-content>
+      </mat-card-content>
+
+    </mat-card-content>
+    <!-- end of top -->
+
+    <mat-card-content class="quote_table_wrapper">
+      <table mat-table [dataSource]="viewData" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="sku">
+          <th mat-header-cell *matHeaderCellDef> sku# </th>
+          <td mat-cell *matCellDef="let element"> {{element.sku}} </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef> category </th>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="brand">
+          <th mat-header-cell *matHeaderCellDef> brand </th>
+          <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="qty">
+          <th mat-header-cell *matHeaderCellDef> qty </th>
+          <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="price" >
+          <th mat-header-cell *matHeaderCellDef> price </th>
+          <td mat-cell *matCellDef="let element">
+            <span class="text_with_span">
+              <textarea name='awesome' type="number" value="20" placeholder="2500"></textarea>
+              <span class="action_button">
+                <button mat-button>edit</button>
+                <button mat-button>revert</button>
+              </span>
+            </span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef> Total </td>
+          <td mat-footer-cell *matFooterCellDef> $5265354 </td>
+          <td mat-footer-cell *matFooterCellDef> $5265354 test </td>
+        </ng-container>
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="wholesale">
+          <th mat-header-cell *matHeaderCellDef> wholesale </th>
+          <td mat-cell *matCellDef="let element"> {{element.wholesale}} </td>
+          <td mat-footer-cell *matFooterCellDef> $5265354 </td>
+          <td mat-footer-cell *matFooterCellDef> $5265354 </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="viewQuoteHeader"></tr>
+        <tr mat-row *matRowDef="let row; columns: viewQuoteHeader;"></tr>
+        <tr mat-footer-row *matFooterRowDef="viewQuoteHeader;"></tr>
+      </table>
+
+
+
+      <mat-card-content class="bottom_action">
+        <button mat-button>Save</button>
+        <button mat-button>Download</button>
+      </mat-card-content>
+    </mat-card-content>
+  </mat-card>
+
+
+</app-adminheader>

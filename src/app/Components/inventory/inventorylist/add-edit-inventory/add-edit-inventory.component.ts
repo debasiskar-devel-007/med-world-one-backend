@@ -122,6 +122,7 @@ export class AddEditInventoryComponent implements OnInit {
       inventory_category: [],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
+      wholesaleprice:['',Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
       condition: ['New',],
@@ -150,6 +151,7 @@ export class AddEditInventoryComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
+      wholesaleprice:defaultValue.wholesaleprice,
       source: this.defaultData.source
 
     })
@@ -174,7 +176,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ======================submit form=======================
   onSubmit() {
-
+    
     /** marking as untouched **/
     for (let x in this.inventoryForm.controls) {
       this.inventoryForm.controls[x].markAsTouched();
@@ -262,6 +264,7 @@ export class AddEditInventoryComponent implements OnInit {
   //getting the brand name
 
   getBrandName(index: any) {
+    //console.log(index);
     var data: any;
     data = {
       'source': 'category_view',
@@ -271,9 +274,10 @@ export class AddEditInventoryComponent implements OnInit {
       }
     };
     this.http.httpViaPost("datalist", data).subscribe(response => {
+      //console.log("getBrandName response",response);
       let result: any;
       result = response.res;
-      this.brand_name_array = result[0].brand;
+      this.brand_name_array = result[0].brand_data;
     });
   }
 

@@ -1,2 +1,5 @@
-.footer_wrapper{ background: #000; align-items: center; justify-content: center;}
-.footer_wrapper a{ color:#c7cfd6; font-size: 14px; }
+.footer_wrapper{ background: #c9d1d6; align-items: center; justify-content: center; height: auto; flex-direction: column; padding: 10px 0;}
+.footer_wrapper .privacy_wrapper{ margin-bottom: 0; display: flex;}
+.footer_wrapper .privacy_wrapper a{ color:#666666; font-size: 14px; font-family: "AvenirLight"; text-transform: capitalize; margin-right: 5px; position: relative;}
+.footer_wrapper .privacy_wrapper a:after{ content:''; height: 10px; width:2px; background:gray; position: absolute;}
+.footer_wrapper p{ color:#666666; font-size: 14px; font-family: "AvenirLight"; margin: 0; line-height: 18px;}
