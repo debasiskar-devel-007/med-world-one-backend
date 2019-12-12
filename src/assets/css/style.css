@@ -731,17 +731,52 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .inputstyle .pb-20{padding-bottom: 20px;}
 
 
+.blogaddeditwrapper .inputstyle .mat-form-field{
+  background: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
 
 
+.blogaddeditwrapper .inputstyle .ck.ck-editor__main>.ck-editor__editable {
+  border-color: var(--ck-color-base-border);
+  min-height: 160px;
+  margin-bottom: 20px;
+}
 
 
+.blogaddeditwrapper .inputstyle .mat-toolbar.mat-primary h2{
+  font-family: 'AvenirLight';
+  font-size: 24px !important;
+  padding-bottom: 15px;
+  width: 100%;
+  border-bottom: 1px solid #566075;
+  margin-bottom: 25px !important;
+  text-transform: capitalize;
+}
+.blogaddeditwrapper .inputstyle .mat-toolbar.mat-primary {
+  background: #ffffff;
+  color: #000;    padding: 0;
+}
 
-
-
-
-
-
-
+.blogaddeditwrapper .inputstyle .formspan .example-container {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  padding: 0 !important;
+  margin-bottom: 0;
+  background: none;
+}
+.blogaddeditwrapper .inputstyle .formspan {
+  background-color: #ffffff;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  border: 0;
+  z-index: 9;
+}
+.blogaddeditwrapper .inputstyle .mat-checkbox{display: block;}
 
 .listingnewstyle{display: block; background-color: #edf1f4; width: 100%; overflow: hidden;padding: 50px 0;}
 .listingnewstyle .main_wrapper{
@@ -913,6 +948,18 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   width: 233px;
 }
 
+
+/* inventory login modal css */
+.Login_confirm{ width: 600px;}
+.Login_confirm .mat-dialog-container{ background: #f2f9ff;
+  border: 4px solid #40a2f5;  padding: 0;}
+
+
+
+/*-------------- modal css start ---------------- */
+.changepassword .cdk-overlay-pane{width: 33% !important;}
+.changepassword .mat-dialog-container{border: 7px solid #1a8eec;}
+/*-------------- modal css end ---------------- */
 
 /* ----------------- list view css end -------------------- */
 

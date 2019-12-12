@@ -44,6 +44,33 @@
 .buttonwrapper { display: inline-block; width: 100%; margin-left: -5px;padding-top: 10px;}
 .buttonwrapper .btnblue{ background: #09c5fb; color: #fff; border-radius: 0; margin: 0; font-size: 18px; font-family: "AvenirLight";}
 .buttonwrapper .btnblue:last-child{ background: #00294f; margin-left: 5px;}
+.hospitallistmainwrapper{
+  display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+
+
+.shareLinkWrapper { border: 1px solid #1787e6; }
+.shareLinkWrapper .link_title{ color: #1480db; font-family: "HelveticaBold"; font-size: 24px; text-transform: capitalize; }
+.share_linkBar{ display: flex; justify-content: space-between; align-items: center; height: auto; background: #0673df; padding: 5px; margin-top: 5px; }
+
+
+.share_linkBar .share_LL{
+    background: #002950;
+    margin-bottom: 0;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-family: "HelveticaRegular";
+}
+
+
 
 @media screen and (max-width: 1500px){
   .hospital_items .hospital_right .title { font-size: 18px; }

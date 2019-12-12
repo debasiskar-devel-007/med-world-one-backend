@@ -11,7 +11,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
 
     // ===============================Declarations=========================
     purchaseQListData: any = [];
-    purchaseQListData_skip: any = ["_id","inventory_details","salesrepid","hospital_id"];
+    purchaseQListData_skip: any = ["_id","inventory_details","salesrepid","hospital_id","copy_status"];
     detail_skip_array: any = ["_id","inventory_details","salesrepid","hospital_id"]
     purchaseQListData_modify_header: any = {};
     tableName: any = 'quote-details';
@@ -31,7 +31,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.purchaseQListData=resolveData.purchasequotelist.res;
-      console.log(resolveData.purchasequotelist.res);
+     // console.log(resolveData.purchasequotelist.res);
     });
   }
 

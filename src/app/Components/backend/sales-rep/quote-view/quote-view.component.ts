@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
 const Data = [
   { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
   { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
@@ -15,7 +15,9 @@ const Data = [
 })
 export class QuoteViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activatedRoute:ActivatedRoute) { 
+    console.log(this.activatedRoute.snapshot.params.id);
+  }
 
   ngOnInit() {
   }

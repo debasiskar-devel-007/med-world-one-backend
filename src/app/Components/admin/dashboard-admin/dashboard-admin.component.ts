@@ -55,10 +55,10 @@ export class DashboardAdminComponent implements OnInit {
   public inventory_count:string;
   public medicalpartner_count:string;
   public purcehseComparisionQuote:any=[];
-  public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status']
+  public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
-  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action'];
+  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action','sales_rep'];
   // recentlyAdded = Recent_DATA;
 
 
@@ -69,7 +69,7 @@ export class DashboardAdminComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
-    this.type = this.userData.type
+    this.type = this.userData.type;
   }
 
   ngOnInit() {
@@ -86,6 +86,7 @@ export class DashboardAdminComponent implements OnInit {
 
   /** getting hospitals for salesrep **/
   getHospitalsSalesRep() {
+
     let data: any = {
       source: 'users_view',
       condition: {
@@ -125,7 +126,7 @@ export class DashboardAdminComponent implements OnInit {
       let postData={"source": "quote-details_view"};
     this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
       this.recentlyAdded=response.res;
-     // console.log(response.res);
+      console.log(response.res);
     });
   }
 
@@ -155,5 +156,10 @@ export class DashboardAdminComponent implements OnInit {
     });
   }
 
+/** quote details view*/
+viewQuoteDetails(quoteid:any){
+  this.router.navigateByUrl('/admin/quote-view/' + quoteid);
+//console.log("quote details",quoteid);
+}
 
 }

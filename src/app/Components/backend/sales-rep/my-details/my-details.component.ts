@@ -27,11 +27,11 @@ export class MyDetailsComponent implements OnInit {
   allCities: any;
   cities: any;
   message: string = "Account Details Updated Successfully!!";
-  sharelink:any;
+  public sharelink:any;
 
 
   constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder, public http: HttpServiceService, private snackBar: MatSnackBar,
+    private formBuilder: FormBuilder, public http: HttpServiceService, public snackBar: MatSnackBar,
     public router: Router,public clipboardService:ClipboardService,public readonly meta: MetaService,public readonly Title:Title) {
       this.meta.setTitle('MD Stock International - Your Medical Partner');
       this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
