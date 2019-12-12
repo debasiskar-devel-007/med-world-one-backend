@@ -1,206 +1,213 @@
 <app-adminheader>
+    <span class="inputstyle ">
         <span class="dashboardcontainer">
-    <mat-card class="main_wrapper">
-        <mat-card-content class="bred_cram_wrapper">
+            <mat-card class="main_wrapper">
+                <!-- <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
             <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/inventory-list/list'"> inventory-list
             </a>
             <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/inventory-list/add'"> add
             </a>
-        </mat-card-content>
+        </mat-card-content> -->
 
 
-        <mat-card-content class="from_wrapper">
+                <mat-card-content class="from_wrapper">
+                    <mat-list class="formstylemainwrapper">
+                        <mat-list-item class="formheader">
+                                <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
+                        </mat-list-item>
+                        <mat-list-item class="formbody">
+                                <form autocomplete="off" [formGroup]="inventoryForm">
+                                        <span class="col-1-1" >
+                                        <!-- Inventory Name  -->
+                                        <mat-form-field>
+                                            <mat-label class="label">Name</mat-label>
+                                            <input matInput formControlName="inventory_name" (blur)="inputBlur('inventory_name')">
+                                            <mat-error *ngIf="!inventoryForm.controls['inventory_name'].valid
+                                    && inventoryForm.controls['inventory_name'].errors.required">Inventory Name is required.
+                                            </mat-error>
+                                        </mat-form-field>
+                                        </span>
+                                        <span class="col-1-3">
+                                             <!-- source  -->
+                                        <mat-form-field>
+                                                <mat-label class="label">Source</mat-label>
+                    
+                                                <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
+                                                    <mat-option value="0">Select Source</mat-option>
+                                                    <mat-option value="mckesson">McKesson Inventory</mat-option>
+                                                    <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
+                                                        {{ item.hospitalname }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </span>
+                                        <span class="col-1-3">
+                                            <!-- Inventory Category mat-selection  -->
+                                        <mat-form-field>
+                
+                                                <mat-label class="label">Category</mat-label>
+                    
+                                                <mat-select matNativeControl formControlName="inventory_category" required>
+                                                    <mat-option value="0">Select Category</mat-option>
+                                                    <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
+                                                        (click)="getBrandName(item._id )">
+                                                        {{ item.category_name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </span>
+                                        <span class="col-1-3">
+                                            <!-- Brand selection -->
+                                        <mat-form-field>
+                
+                                                <mat-label class="label">Brand</mat-label>
+                    
+                                                <mat-select matNativeControl formControlName="brand_name" required>
+                                                    <mat-option value="0">Select Brand</mat-option>
+                                                    <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
+                                                        {{ item.brand_name }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </span>
+                                        <span class="col-1-1">
+                
+                                        <!-- SKU -->
+                
+                
+                                        <mat-form-field>
+                                            <mat-label class="label">SKU #</mat-label>
+                                            <input matInput formControlName="sku" (blur)="inputBlur('sku')">
+                                            <mat-error *ngIf="!inventoryForm.controls['sku'].valid
+                                    && inventoryForm.controls['sku'].errors.required">SKU# is required.</mat-error>
+                                        </mat-form-field><br>
+                                    </span>
+                                    <span class="col-1-1">
+                                        <!-- Quantity -->
+                                                        
+                                        <mat-form-field>
+                                                <mat-label class="label">Quantity</mat-label>
+                                                <input matInput formControlName="quantity" type="quantity" (blur)="inputBlur('quantity')">
+                                                <mat-error *ngIf="!inventoryForm.controls['quantity'].valid
+                                        && inventoryForm.controls['quantity'].errors.required">Quantity is required.</mat-error>
+                                            </mat-form-field>
+                                    </span>
+                
+                                       
+                                    <span class="col-1-1">
+                                        <!-- wholesale price -->
+                
+                                        <mat-form-field>
+                                            <mat-label class="label">wholesale price</mat-label>
+                                            <input matInput formControlName="wholesaleprice" type="number"
+                                                ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.11" (blur)="inputBlur('quantity')">
+                                            <span matPrefix></span>
+                                            <mat-error *ngIf="!inventoryForm.controls['wholesaleprice'].valid
+                                    && inventoryForm.controls['wholesaleprice'].errors.required">Wholesale price is required.
+                                            </mat-error>
+                                        </mat-form-field>
+                                        </span>
+                                        <span class="col-1-1">
+                                        <!-- Description  -->
+                                        <mat-form-field>
+                                            <mat-label class="label">Description</mat-label>
+                                            <textarea matInput formControlName="description" rows="5"
+                                                (blur)="inputBlur('description')"></textarea>
+                                            <mat-error *ngIf="!inventoryForm.controls['description'].valid
+                                    && inventoryForm.controls['description'].errors.required">Description is required.</mat-error>
+                                        </mat-form-field>
+                                        </span>
+                                        <span class="col-1-1">
+                
+                                        <!-- image upload -->
+                                        <h3>Image :</h3>
+                                        <lib-file-upload [config]="configData"></lib-file-upload><br>
+                                        <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
+                                        <mat-error *ngIf="imageErrCode==true">Please add an image.</mat-error>
+                                        </span>
+                                        <span class="col-1-1">
+                
+                                        <!-- Card view for Image  -->
+                                        <mat-card-content class="files-view" *ngIf="img_flag==true">
+                                            <mat-card class="example-card">
+                                                <img mat-card-image [src]="fullImagePath">
+                                                <mat-card-title>{{ imageName }}</mat-card-title>
+                                                <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
+                                                <span class="closecard" (click)="clear_image()"><i
+                                                        class="material-icons">clear</i></span>
+                
+                                            </mat-card>
+                                        </mat-card-content>
+                
+                </span>
+                <span class="col-1-1">
+                
+                                        <!-- Condition -->
+                                        <mat-label class="label">Condition:</mat-label>
+                                        <mat-radio-group formControlName="condition">
+                                            <mat-radio-button value="New" (click)="yom_flag=false"> New</mat-radio-button>
+                                            <mat-radio-button value="Used" (click)="yom_flag=true">Used</mat-radio-button>
+                                        </mat-radio-group>
+                </span>
+                <span class="col-1-1">
+                
+                                        <!-- Year of manufacture -->
+                
+                                        <mat-form-field *ngIf="yom_flag==true">
+                                            <mat-label class="label">Year of manufacture</mat-label>
+                                            <input matInput type="number" formControlName="yom">
+                                        </mat-form-field>
+                                        </span>
+                                        
+                                        <!-- DYNAMIC FORM ATTRIBUTE  -->
+                
+                                        <div formArrayName="items" class="dynamic_attributes"
+                                            *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
+                                            <div [formGroupName]="i">
+                                                <mat-form-field>
+                                                    <input matInput formControlName="label_name" placeholder="Enter A Label">
+                                                </mat-form-field>
+                                                <mat-form-field>
+                                                    <input matInput formControlName="label_value" placeholder="Value For Label">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                
+                
+                
+                                       
+                                        <button mat-flat-button type="button" (click)="addItem()" color="accent">
+                                            <mat-icon>add</mat-icon> Add More Specification
+                                        </button><br><br>
+                                        <!-- Status -->
+                
+                                        <mat-label class="label">Status</mat-label><br>
+                                        <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                
+                
+                                        <span class="button_wrapper">
+                                            <!-- Dynamic form fields  -->
+                                            <button mat-flat-button type="button" (click)="create_field()" color="primary"> &nbsp; Add
+                                                field
+                                            </button>
+                
+                                            <!-- Buttons  -->
+                
+                                            <button mat-flat-button type="reset" color="warn">RESET</button>
+                                            <button mat-flat-button type="button" (click)="onSubmit()" color="accent">{{btn_text}}
+                                            </button>
+                                        </span>
+                                    </form>
+                        </mat-list-item>
+                        <mat-list-item class="formfooter"></mat-list-item>
+                    </mat-list>
 
-            <h1 class="form_header">{{ header_txt }}</h1>
-            <form autocomplete="off" [formGroup]="inventoryForm">
-
-
-                <!-- Inventory Name  -->
-                <mat-form-field>
-                    <mat-label class="label">Name</mat-label>
-                    <input matInput formControlName="inventory_name" (blur)="inputBlur('inventory_name')">
-                    <mat-error *ngIf="!inventoryForm.controls['inventory_name'].valid
-                    && inventoryForm.controls['inventory_name'].errors.required">Inventory Name is required.
-                    </mat-error>
-                </mat-form-field><br>
-
-
-
-                <!-- source  -->
-                <mat-form-field>
-                    <mat-label class="label">Source</mat-label>
-
-                    <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
-                        <mat-option value="0">Select Source</mat-option>
-                        <mat-option value="mckesson">McKesson Inventory</mat-option>
-                        <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
-                            {{ item.hospitalname }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-
-
-                   <!-- Inventory Category mat-selection  -->
-                   <mat-form-field>
-
-                    <mat-label class="label">Category</mat-label>
-
-                    <mat-select matNativeControl formControlName="inventory_category" required>
-                        <mat-option value="0">Select Category</mat-option>
-                        <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
-                            (click)="getBrandName(item._id )">
-                            {{ item.category_name }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-
-
-
-                <!-- Brand selection -->
-                <mat-form-field>
-
-                    <mat-label class="label">Brand</mat-label>
-
-                    <mat-select matNativeControl formControlName="brand_name" required>
-                        <mat-option value="0">Select Brand</mat-option>
-                        <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
-                            {{ item.brand_name }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field><br>
-
-
-             
-
-
-
-
-                <!-- SKU -->
-
-
-                <mat-form-field>
-                    <mat-label class="label">SKU #</mat-label>
-                    <input matInput formControlName="sku" (blur)="inputBlur('sku')">
-                    <mat-error *ngIf="!inventoryForm.controls['sku'].valid
-                    && inventoryForm.controls['sku'].errors.required">SKU# is required.</mat-error>
-                </mat-form-field><br>
-
-
-                <!-- Quantity -->
-
-                <mat-form-field>
-                    <mat-label class="label">Quantity</mat-label>
-                    <input matInput formControlName="quantity" type="quantity" (blur)="inputBlur('quantity')">
-                    <mat-error *ngIf="!inventoryForm.controls['quantity'].valid
-                    && inventoryForm.controls['quantity'].errors.required">Quantity is required.</mat-error>
-                </mat-form-field><br>
-
-                 <!-- wholesale price -->
-
-                 <mat-form-field>
-                    <mat-label class="label">wholesale price</mat-label>
-                    <input matInput formControlName="wholesaleprice" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.11" (blur)="inputBlur('quantity')">
-                    <span matPrefix>$&nbsp;</span>
-                    <mat-error *ngIf="!inventoryForm.controls['wholesaleprice'].valid
-                    && inventoryForm.controls['wholesaleprice'].errors.required">Wholesale price is required.</mat-error>
-                </mat-form-field><br>
-
-
-                <!-- Description  -->
-                <mat-form-field>
-                    <mat-label class="label">Description</mat-label>
-                    <textarea matInput formControlName="description" rows="5"
-                        (blur)="inputBlur('description')"></textarea>
-                    <mat-error *ngIf="!inventoryForm.controls['description'].valid
-                    && inventoryForm.controls['description'].errors.required">Description is required.</mat-error>
-                </mat-form-field><br>
-
-
-
-                <!-- image upload -->
-                <h3>Image :</h3>
-                <lib-file-upload [config]="configData"></lib-file-upload><br>
-                <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
-                <mat-error *ngIf="imageErrCode==true">Please add an image.</mat-error>
-
-                <!-- Card view for Image  -->
-                <mat-card-content class="files-view" *ngIf="img_flag==true">
-                    <mat-card class="example-card">
-                        <img mat-card-image [src]="fullImagePath">
-                        <mat-card-title>{{ imageName }}</mat-card-title>
-                        <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
-                        <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
-
-                    </mat-card>
+                    <!-- <h1 class="form_header">{{ header_txt }}</h1> -->
+                   
                 </mat-card-content>
 
-
-
-                <!-- Condition -->
-                <mat-label class="label">Condition:</mat-label>
-                <mat-radio-group formControlName="condition">
-                    <mat-radio-button value="New" (click)="yom_flag=false"> New</mat-radio-button>
-                    <mat-radio-button value="Used" (click)="yom_flag=true">Used</mat-radio-button>
-                </mat-radio-group><br>
-
-
-
-                <!-- Year of manufacture -->
-
-                <mat-form-field *ngIf="yom_flag==true">
-                    <mat-label class="label">Year of manufacture</mat-label>
-                    <input matInput type="number" formControlName="yom">
-                </mat-form-field>
-                <br>
-
-
-
-
-
-
-
-                <!-- DYNAMIC FORM ATTRIBUTE  -->
-
-                <div formArrayName="items" class="dynamic_attributes"
-                    *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
-                    <div [formGroupName]="i">
-                        <mat-form-field>
-                            <input matInput formControlName="label_name" placeholder="Enter A Label">
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput formControlName="label_value" placeholder="Value For Label">
-                        </mat-form-field>
-                    </div>
-                </div>
-
-
-
-                <br>
-                <button mat-flat-button type="button" (click)="addItem()" color="accent">
-                    <mat-icon>add</mat-icon> Add More Specification
-                </button><br><br>
-                <!-- Status -->
-
-                <mat-label class="label">Status</mat-label><br>
-                <mat-checkbox formControlName="status">Active</mat-checkbox><br>
-
-
-                <span class="button_wrapper">
-                    <!-- Dynamic form fields  -->
-                    <button mat-flat-button type="button" (click)="create_field()" color="primary"> &nbsp; Add field
-                    </button>
-
-                    <!-- Buttons  -->
-
-                    <button mat-flat-button type="reset" color="warn">RESET</button>
-                    <button mat-flat-button type="button" (click)="onSubmit()" color="accent">{{btn_text}} </button>
-                </span>
-            </form>
-        </mat-card-content>
-
-    </mat-card>
+            </mat-card>
+        </span>
     </span>
 </app-adminheader>
