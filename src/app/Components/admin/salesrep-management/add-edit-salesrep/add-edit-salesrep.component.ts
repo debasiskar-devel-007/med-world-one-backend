@@ -204,6 +204,7 @@ export class AddEditSalesrepComponent implements OnInit {
   change_password() {
     let data: any = {
       width: '250px',
+      panelClass:'changepassword',
       data: {
         header: "Change Password",
         message: "Record Saved Successfully",
