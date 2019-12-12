@@ -86,6 +86,7 @@ export class DashboardAdminComponent implements OnInit {
 
   /** getting hospitals for salesrep **/
   getHospitalsSalesRep() {
+
     let data: any = {
       source: 'users_view',
       condition: {

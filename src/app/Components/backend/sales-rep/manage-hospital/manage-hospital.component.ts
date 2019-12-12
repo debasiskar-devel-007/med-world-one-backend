@@ -5,7 +5,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material'
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
-
+import { ClipboardService } from 'ngx-clipboard';
+import { MetaService } from '@ngx-meta/core';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-manage-hospital',
   templateUrl: './manage-hospital.component.html',
@@ -32,10 +34,26 @@ export class ManageHospitalComponent implements OnInit {
   public myDate: any;
   public date: any;
   public useridval: any = null;
-
+  public sharelink:any;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService, public snackBar: MatSnackBar, public router: Router,
-    public activatedRoute: ActivatedRoute) {
+    public activatedRoute: ActivatedRoute,public clipboardService:ClipboardService,public readonly meta: MetaService,
+    public readonly Title:Title) {
+
+      this.meta.setTitle('MD Stock International - Your Medical Partner');
+      this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('og:title', 'MD Stock International - Your Medical Partner');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:url', 'https://dev.mdstockinternational.com/');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+      this.meta.setTag('og:keywords','');
+     
+      this.meta.setTag('twitter:description', 'MD-stock-international');
+      this.meta.setTag('twitter:title', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('twitter:card', 'summary');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+
+
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -57,7 +75,7 @@ export class ManageHospitalComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData.id;
     this.salesrepname = this.userData.firstname + ' ' + this.userData.lastname;
-
+    this.sharelink='https://dev-hospital-signup.mdstockinternational.com/'+this.userData._id;
     /** fetching the current date **/
     if (this.action == 'add')
       this.date = moment(this.myDate).format('MM/DD/YYYY');
@@ -302,4 +320,13 @@ export class ManageHospitalComponent implements OnInit {
     }
   }
 
+
+   /**Copy clipborad function */
+   copytoclipboard(){
+    this.clipboardService.copyFromContent(this.sharelink);
+   this.snackBar.open('Link Copy','', {
+      duration: 500
+    });
+    
+  }
 }
