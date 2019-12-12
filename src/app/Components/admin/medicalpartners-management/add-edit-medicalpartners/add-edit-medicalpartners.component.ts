@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validator } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { DialogBoxComponent } from '../../../common/dialog-box/dialog-box.component';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -45,6 +45,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   public salesNameArray:any=[];
   public date:any;
   public myDate:any;
+  public countryList:any=[];
   // ===================================================
 
 
@@ -95,6 +96,17 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
 
   ngOnInit() {
+
+    //country list
+    let data: any = {
+      "source": 'country',
+      "token": this.cookieService.get('jwtToken')
+    };
+
+    this.http.httpViaPost('datalist ', data).subscribe((response: any) => {
+      // console.log(response);
+       this.countryList = response.res;
+    })
     //generating the form here
     this.generateForm();
 
@@ -170,6 +182,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       state: [],
       city: [],
       zip: [],
+      country:['',Validators.required],
       status: [1,],
       mpimage: [],
       type: ['hospital'],
@@ -194,6 +207,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       state: defaultValue.state,
       city: defaultValue.city,
       status: defaultValue.status,
+      country:defaultValue.country,
       mpimage: defaultValue.mpimage
     })
    
@@ -260,7 +274,11 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
-     
+
+    
+    for (let x in this.medicalPartnerForm.controls) {
+      this.medicalPartnerForm.controls[x].markAsTouched();
+    }
 
     
     //  File Upload Works 
@@ -306,7 +324,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
         "source": 'users',
         "data": Object.assign(this.medicalPartnerForm.value, this.condition),
         "token": this.cookieService.get('jwtToken'),
-        "sourceobj":["salesrepselect"]
+        "sourceobj":["salesrepselect","country"]
 
       };
 

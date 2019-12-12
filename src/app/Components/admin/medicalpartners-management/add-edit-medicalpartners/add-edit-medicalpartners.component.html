@@ -149,6 +149,19 @@
 
 
 
+                             <!-- Country  -->
+                             <span class="col-1-1">
+                                    <mat-form-field>
+                                        <mat-select formControlName="country" (blur)="inputBlur('country')">
+                                            <mat-option value=''>Select a country</mat-option>
+                                                <mat-option value="{{country._id}}" *ngFor="let country of countryList" >{{country.name}}
+                                            </mat-option>                                                      
+                                        </mat-select>
+                                    <mat-error   *ngIf="!medicalPartnerForm.controls['country'].valid && medicalPartnerForm.controls['country'].errors.required && medicalPartnerForm.controls['country'].touched">
+                                                        Country field can not be blank</mat-error>  
+                                    </mat-form-field>
+                                </span>
+
                             <!-- contact No  -->
 
                             <span class="col-1-2" *ngIf="action!='add'">
