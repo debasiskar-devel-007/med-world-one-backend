@@ -73,6 +73,7 @@ import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontacti
 import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
 import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
+import { QuoteViewComponent } from '../Components/backend/sales-rep/quote-view/quote-view.component';
 import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 
 
@@ -94,16 +95,18 @@ const routes: Routes = [
   { path: 'medical-partners', component: MedicalPartnersComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  
+
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
   { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
-  //Medical Dashboard 
+  //Medical Dashboard
   { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService] },
   //SalesRep Dashboard
   { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+
+  { path:'quote-view', component:QuoteViewComponent},
 
 
 
