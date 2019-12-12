@@ -955,7 +955,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   border: 4px solid #40a2f5;  padding: 0;}
 
 
-
+  .listing_tab th.mat-header-cell{ width: 10%;}
 /*-------------- modal css start ---------------- */
 .changepassword .cdk-overlay-pane{width: 33% !important;}
 .changepassword .mat-dialog-container{border: 7px solid #1a8eec;}
