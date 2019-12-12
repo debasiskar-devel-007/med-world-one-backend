@@ -60,9 +60,14 @@
 .cataLog_wrapper .categoyPart .cat_list a{ font-size: 18px; font-family: "AvenirMedium"; width: 100%; padding: 10px 12px; box-sizing: border-box; border-top: 0; border-right: 0;
   border-left: 0; color: #434343; display: inherit;}
 
-.modal_wrapper { width: 100%; }
-.modal_wrapper .modal_para{ background: linear-gradient(45deg, #052f5d, #04f7f9);
-  min-height: 170px; padding: 20px;}
+.modal_wrapper { width: 100%; margin-bottom:0;}
+.modal_wrapper .modal_para{ background: linear-gradient(0deg, #052f5d, #04f7f9); min-height: 170px; padding: 20px; margin-bottom:0;}
+.modal_wrapper .modal_para .icon{ width: 150px; height: 150px; border-radius: 50%; display: flex; overflow: hidden; margin: auto; }
+.modal_wrapper .modal_para .icon img{ max-width: 100%; object-fit: cover; object-position: center;}
+.modal_wrapper .modal_para h1{  font-family: 'AvenirMedium'; text-shadow: 1px 1px 1px #807b0f; font-size: 24px; text-transform: uppercase; text-align: center; color: #fff;}
+.modal_wrapper .login_button button{ background: #01274a; color: #fff; border-radius: 0; font-family: "AvenirMedium"; font-size: 20px; min-width: 140px; }
+.modal_wrapper .login_button button:last-child{ background: #13b3f3; margin-left: 10px;}
+.login_button{ display: flex; min-height: 120px; align-items: center; justify-content: center; background: #e6e6e6;}
 /*
 @media screen and (max-width: 1760px){
   .sh_view_inv_blok2 { width: 90%; margin: 0px auto;}
