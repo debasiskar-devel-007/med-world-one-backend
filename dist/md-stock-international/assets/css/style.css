@@ -67,8 +67,8 @@ body {
   }
 
   /* new avenir font */
- 
- 
+
+
 
 @font-face {
     font-family: 'AvenirMedium';
@@ -95,7 +95,7 @@ body {
 }
 
 @font-face {
-    font-family: 'Avenir LT Std';
+    font-family: 'AvenirLTStd';
     src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2'),
         url('../fonts/AvenirLTStd-Roman.woff') format('woff');
     font-weight: normal;
@@ -117,6 +117,7 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
 
   /* font end */
 
@@ -238,29 +239,26 @@ body {
 
 /* table structure */
 
-tr.mat-header-row { background: #465157; }
+tr.mat-header-row { background: #566075; }
 .mat-sort-header-button {  color: #fff!important; text-transform: uppercase; }
-th.mat-header-cell { color: #ffffff; text-transform: uppercase; }
+th.mat-header-cell { color: #ffffff; text-transform: uppercase;  font-family: "AvenirRoman"; font-size: 16px; }
 tr td br{ display: none; }
-  tr.mat-row:nth-child(even) {
-  background: #dde2e5;
-}
+/* tr.mat-row:nth-child(even) { background: #dde2e5; } */
+td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .mat-paginator {
   background: #105d9f!important;
   color: #fff!important; }
-  .mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled]{
+.mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled]{
     color: #fff!important;
-  }
+}
   /* hiding icon from price markup table */
-  .priceMark .searchdiv:last-child,
-  .priceMark .cursor:last-child,
-  .priceMark .cursor:nth-of-type(3){ display: none;}
+.priceMark .searchdiv:last-child,
+.priceMark .cursor:last-child,
+.priceMark .cursor:nth-of-type(3){ display: none;}
 
-  /* end table */
+/* end table */
 
-
-
-  .mat-paginator-page-size-select {
+.mat-paginator-page-size-select {
 
     /* background: #fff; */
     color: #fff;
@@ -275,10 +273,7 @@ tr td br{ display: none; }
 
 
   /* front end css */
-  html, body {
-    height: 100%;
-    overflow-y: overlay;
-  }
+
 
   @font-face {
     font-family: 'RobotoMedium';
@@ -506,7 +501,7 @@ tr td br{ display: none; }
 .comparisonModal { overflow: auto; }
 .comparisonModal .mat-dialog-container{ padding: 0; }
 
-
+.searchmainwrapper .mat-form-field .mat-form-field-wrapper { padding-bottom: 0; }
 
 
 
@@ -531,7 +526,7 @@ tr td br{ display: none; }
     border-radius: 5px;
 }
 .searchwrapper .mat-form-field-infix input{height: 35px;}
-.searchwrapper .mat-form-field-flex .mat-datepicker-toggle{position: absolute;right: 7px;top: -15px;}
+.searchwrapper .mat-form-field-flex .mat-datepicker-toggle{position: absolute;right: 7px;top: 2px;}
 .searchwrapper .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
 .mat-form-field-label.ng-star-inserted.mat-empty.mat-form-field-empty{display: block !important;}
 .searchwrapper .mat-form-field-label.ng-star-inserted{display: none !important;}
@@ -576,6 +571,349 @@ tr td br{ display: none; }
 .formmainwrapper .my_details_wrapper .mydetails_form_wrapper .forms .mat-form-field .mat-form-field-flex {
   background:none;padding: 0 0px!important;
 }
+
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none !important;}
+.inputstyle .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+  transform: inherit;
+    top: -8px;
+}
+.inputstyle .mat-form-field-label.ng-star-inserted.mat-empty.mat-form-field-empty{
+  display: block !important;
+    transition: none;
+    transform: inherit !important;
+    margin-top: 0;
+    padding: initial;
+    top: -8px;
+    left: 0;
+}
+.inputstyle .mat-form-field-label-wrapper{
+  overflow: inherit;
+}
+.inputstyle  .mat-form-field-infix input, .inputstyle  .mat-form-field-infix mat-select{
+  height: 35px;
+    border: 1px solid #ddd;
+    padding: 0 1%;
+    width: 98%;background: #fff;
+}
+.inputstyle  .mat-form-field-infix textarea{
+  border: 1px solid #ddd;
+  width: 99%;
+  padding: .5%;
+}
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+.inputstyle .mat-form-field-appearance-legacy .mat-form-field-infix, .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix{
+  padding: 5px 0;
+  border: 0;
+  margin: 0 0;
+  margin-top: 20px;
+  position: relative;padding-bottom: 15px;
+}
+.inputstyle .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{
+  background: none;
+    position: relative;
+    top: -10px;
+}
+.inputstyle .mat-radio-button{margin-right: 10px;}
+.inputstyle .mat-form-field-underline{display: none;}
+.inputstyle .mat-form-field-wrapper {
+  position: relative;padding-bottom: 0;
+}
+.col-1-1{width: 99%;padding: 0 .5%;display: inline-block;}
+.col-1-2{width: 49%; padding: 0 .5%;display: inline-block;}
+.col-1-3{width: 32.3%; padding: 0 .5%;display: inline-block;}
+.col-1-4{width: 24%;padding: 0 .5%;display: inline-block;}
+.formstylemainwrapper .mat-list-item{height: auto !important;}
+.formstylemainwrapper .formbody{
+  border: 1px solid #d6d6d6;
+  padding: 20px 15px !important;
+  width: inherit !important;
+}
+.formstylemainwrapper .mat-list-item .mat-list-item-content{ padding: 0 !important;}
+.formstylemainwrapper .mat-list-item form{ width: 100%;}
+
+.inputstyle.from_wrapper{border-radius: 5px;}
+
+.formtitle{
+  font-family: 'AvenirLight';
+  font-size: 24px !important;
+  padding-bottom: 25px;
+  width: 100%;
+  border-bottom: 1px solid #566075;
+  margin-bottom: 25px !important;
+  text-transform: capitalize;
+}
+.inputstyle .mat-form-field{display: block !important;}
+.inputstyle mat-label, .inputstyle .mat-form-field-label {
+  font-family: 'AvenirMedium' !important;
+    font-size: 16px !important;
+    color: #535353 !important
+}
+.inputstyle a{color: #0fa6d2;cursor: pointer;width: fit-content;}
+.cpass{
+  text-transform: uppercase;
+  text-decoration: underline;
+  top: -8px;
+  display: block;
+  position: relative;
+  line-height: 21px;
+}
+.inputstyle .mat-checkbox-checkmark {
+  fill: #ffffff;
+  background: #0fce26;
+  height: 6px;
+  width: 6px !important;
+  border-radius: 50%;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+}
+.inputstyle .mat-checkbox-checkmark-path {
+  stroke: #ffffff00!important;
+  height: 2px;
+  width: 2px;
+  background: white;
+  display: inline-block;
+  stroke-width: 2px !important;
+  stroke-dasharray: 2px !important;
+}
+.inputstyle .mat-checkbox-checked.mat-accent .mat-checkbox-background, .inputstyle .mat-checkbox-background{
+  background-color: #ffffff;
+    border: 2px solid #bababa;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+.inputstyle .mat-checkbox-checked .mat-checkbox-checkmark{opacity: 0;}
+.inputstyle .mat-checkbox-inner-container{
+  height: 20px;
+}
+.inputstyle .mat-checkbox-frame{display: none;}
+.checktitle{display: block;}
+.checkwrapper{display: inline-block; padding-right: 10px;padding-top: 5px;}
+.checkwrapper .mat-checkbox-label{text-transform: uppercase;}
+.formfooter .button_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  width: 100%;
+}
+.button_wrapper button{min-width: 145px; color: #fff; text-transform: uppercase; font-size: 18px;font-family: 'AvenirMedium' !important; text-align: center;text-shadow: 0 2px 0 rgba(0,0,0,.30);}
+.bluebutton{background-color: #013265 !important;}
+.skybutton{background-color: #09c5fb !important;}
+.inputstyle .mat-form-field-appearance-fill .mat-form-field-flex{padding: 0;}
+/* .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+  background: none;
+  border: 0;
+} */
+.inputstyle .mat-select-trigger{
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.inputstyle .mat-form-field-appearance-fill .mat-form-field-underline::before{display: none;}
+.inputstyle .mat-select-value{overflow: inherit;}
+.checkradiotitle{display: block;}
+.inputstyle .mat-radio-button.mat-accent .mat-radio-inner-circle{background-color: #0fce26;}
+
+.inputstyle .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #757575;
+}
+.inputstyle .checkradiowrapper mat-radio-button{margin-right: 10px;margin-top: 7px;}
+/* .m_emailwrapper{display: flex;} */
+
+.inputstyle .uploadfilecontainer{width: 100% !important;}
+.inputstyle .pb-20{padding-bottom: 20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.listingnewstyle{display: block; background-color: #edf1f4; width: 100%; overflow: hidden;padding: 50px 0;}
+.listingnewstyle .main_wrapper{
+  background: #fff;
+  box-shadow: 0px 1px 10px rgba(0,0,0,.30) !important;
+  padding: 20px !important;
+}
+.listingnewstyle .content_header_wrapper .toolbar_header{
+  font-family: 'AvenirLight';
+  font-size: 24px !important;
+  text-transform: capitalize;
+  color: #535353;
+}
+.listingnewstyle .content_header_wrapper {
+  background: none!important;
+  padding-bottom: 0;
+  width: 100%;
+  border-bottom: 1px solid #566075;
+  margin-bottom: 15px !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+.listingnewstyle .container .mat-card{
+  padding: 0;
+  box-shadow: none;
+  padding: 7px;
+  border: 1px solid #d6d6d6;
+  border-radius: 0;
+}
+.listingnewstyle table.mat-table{
+  box-shadow: none;
+}
+.listingnewstyle .container br{display: none;}
+.listingnewstyle tr.mat-row:nth-child(even) {
+  background: #ffffff;
+}
+.listingnewstyle .mat-paginator .mat-select-value-text{color: #fff;}
+.listingnewstyle .mat-paginator .mat-select-arrow{color: #fff;}
+.listingnewstyle .mat-paginator {
+  background: #566075!important;
+  color: #fff!important;
+}
+.listingnewstyle .mat-paginator .mat-paginator-range-label {
+  margin: 0 5px 0 5px;font-family: 'AvenirLight';
+}
+
+.listingnewstyle .mat-paginator-container{justify-content: center;align-items: center;}
+.listingnewstyle .mat-paginator-page-size-select{margin: 0px 4px 0 4px;}
+.listingnewstyle tr.mat-header-row {
+  background: #566075;
+}
+/* .listingnewstyle .mat-paginator-outer-container {
+  padding: 12px 0;
+} */
+
+.listingnewstyle .mat-sort-header-button, .listingnewstyle th.mat-header-cell:last-of-type{
+  font-family: 'AvenirRoman';
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.listingnewstyle .mat-table{
+  font-family: 'AvenirLight';
+  font-size: 14px;
+  color: #465157;
+}
+.listingnewstyle .ng-star-inserted .cursor{display: none;}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(1){display: inline-block;background: #00294f;padding: 5px;color: #fff;margin-right: 5px;}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(1):after{content: 'View Details';}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(1) i{display: none;}
+
+.listingnewstyle .ng-star-inserted .cursor:nth-child(2){display: inline-block;background: #f7452e;padding: 5px;color: #fff;margin-right: 5px;}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(2):after{content: 'Delete';}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(2) i{display: none;}
+
+.listingnewstyle td.mat-cell:last-of-type{padding-right: 0px;text-align: right;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-infix{
+  background: white;border-radius: 0; border-top: 0;
+}
+.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix{
+  width: 262px;
+}
+.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field{
+  margin-right: 5px;
+}
+.listingnewstyle mat-toolbar-row.searchbar {
+  background: #00294f;
+  padding: 13px;
+}
+.listingnewstyle mat-toolbar-row.searchbar .mat-raised-button.mat-primary{
+  margin: 0 !important;
+  border-radius: 0;
+  background-color: #369ff3;
+  text-transform: capitalize;
+  font-family: 'AvenirMedium' !important;
+}
+.listingnewstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-label.ng-star-inserted.mat-empty.mat-form-field-empty {
+  display: block !important;
+  width: 98%;
+  padding: 0 1%;
+  transition: none !important;
+  transform: inherit !important;
+  text-transform: capitalize;
+  font-family: 'AvenirMedium' !important;
+}
+.listingnewstyle .mat-paginator-page-size{font-family: 'AvenirLight' !important; text-transform: capitalize;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-label.ng-tns-c12-2.ng-star-inserted{display: none !important;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-select-trigger{height: 100%;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-label.ng-tns-c12-3.ng-star-inserted{display: none !important;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none !important;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-select-value{vertical-align: middle;}
+.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-prefix{
+  position: absolute;
+    right: 0;
+    top: 50% !important;
+    z-index: 9;
+    transform: translate(0%, -50%);
+    border-left: 1px solid #00294f;
+    padding-left: 5px;
+}
+.listingnewstyle .content_header_wrapper .singleButton{
+  min-width: 102px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: 'AvenirMedium' !important;
+  text-align: center;
+  text-shadow: 0 2px 0 rgba(0,0,0,.30);
+  background: #369ff3;
+  text-align: center;
+}
+
+.medicalpartnerlistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
+  width: 184px;
+}
+
+.listingnewstyle .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
+.medicalpartnerlistingnewstyle.listingnewstyle .mat-form-field-suffix {
+  white-space: nowrap;
+  flex: none;
+  position: absolute;
+  right: 3px;
+  top: 4px;
+}
+.medicalpartnerlistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .mat-form-field-infix input{height: 25px; }
+/* .medicalpartnerlistingnewstyle.listingnewstyle .mat-paginator-container{justify-content: center;align-items: stretch;} */
+.medicalpartnerlistingnewstyle.listingnewstyle .mat-paginator .mat-form-field-appearance-legacy .mat-form-field-infix{border: 0;}
+/* .listingnewstyle .ng-star-inserted{display: inline-block;text-align: right;width: 100%;} */
+
+
+.salesreplistingnewstyle.listingnewstyle .mat-paginator .mat-form-field-appearance-legacy .mat-form-field-infix{border: 0;}
+
+.listingnewstyle .mat-form-field-prefix, .mat-form-field-suffix {
+  position: absolute !important;
+  right: 0;
+  top: 4px;
+}
+
+.listingnewstyle .aslist_view .mat-form-field-flex .mat-datepicker-toggle {
+  position: inherit;
+  right: inherit;
+  top: inherit;
+}
+.salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
+  width: 233px;
+}
+
 
 /* ----------------- list view css end -------------------- */
 
