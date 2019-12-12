@@ -24,7 +24,7 @@
   font-family: "AvenirRoman";
   font-size: 20px; }
   .quote_table_wrapper .text_with_span { display: inline-flex; align-items: center;  }
-  .quote_table_wrapper .text_with_span textarea {border: none; resize: none;}
+  .quote_table_wrapper .text_with_span textarea {border: none; resize: none; text-align: center;}
   .quote_table_wrapper .text_with_span textarea:focus { outline: none;}
   .quote_table_wrapper .text_with_span .action_button { display: inline-flex; flex-direction: column;  }
   .quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: "AvenirMedium";  }
