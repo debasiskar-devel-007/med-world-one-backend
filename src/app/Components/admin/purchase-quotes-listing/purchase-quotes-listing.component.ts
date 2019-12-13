@@ -9,7 +9,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 })
 export class PurchaseQuotesListingComponent implements OnInit {
 
-  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action','sales_rep'];
+  displayed: string[] = ['date','Quote_ID', 'medical_partner','sales_rep', 'quoted_by', 'status', 'action'];
   public recentlyAdded:any=[];
     // ===============================Declarations=========================
     // purchaseQListData: any = [];

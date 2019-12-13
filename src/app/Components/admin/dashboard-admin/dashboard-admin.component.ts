@@ -58,7 +58,7 @@ export class DashboardAdminComponent implements OnInit {
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
-  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action','sales_rep'];
+  displayed: string[] = ['date', 'medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
 
 
