@@ -628,7 +628,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .formstylemainwrapper .formbody{
   border: 1px solid #d6d6d6;
   padding: 20px 15px !important;
-  width: inherit !important;
+  /* width: inherit !important; */
+  width: auto!important;
 }
 .formstylemainwrapper .mat-list-item .mat-list-item-content{ padding: 0 !important;}
 .formstylemainwrapper .mat-list-item form{ width: 100%;}

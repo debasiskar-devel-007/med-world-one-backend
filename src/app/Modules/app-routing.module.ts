@@ -75,6 +75,7 @@ import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/
 import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
 import { QuoteViewComponent } from '../Components/backend/sales-rep/quote-view/quote-view.component';
 import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
 
@@ -408,7 +409,7 @@ const routes: Routes = [
 
 
   //________________INVENTORY LIST_________________
-
+  { path: 'inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
   {

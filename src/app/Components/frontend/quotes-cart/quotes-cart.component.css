@@ -32,6 +32,7 @@ margin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }
 .button_wrapper .cart_action{ background: #0a4788; min-width: 200px; border-radius: 0; font-family: "AvenirMedium"; color: #fff; font-size: 20px; text-transform: uppercase; padding: 4px 0 2px;}
 
 .medical_partners .form-control{ height: 120px; }
+.cart_new_wrapper{ display: flex;}
 @media screen and (max-width: 1560px){
     .cart_wrapper { width: 90%; }
 }
