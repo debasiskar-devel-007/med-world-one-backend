@@ -59,10 +59,10 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr { line-height: 20px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr th{  color: #30373d; font-size: 14px; font-weight: normal; width: 100px;}
 
-.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between; min-height: 150px; }
+.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between; min-height: 135px; max-height: 135px; }
 .sh_inventory_content .inner_top_wrapper .image_wrapper{ width: 140px; margin-bottom: 0; align-items: center; justify-content: center; display: flex; background: #fff; padding: 4px;
   box-shadow: 0px 0px 3px 0px #afafaf; box-sizing: border-box; }
-.sh_inventory_content  .inner_top_wrapper .image_wrapper img{ max-width: 100%; }
+.sh_inventory_content  .inner_top_wrapper .image_wrapper img{ max-width: 100%; height: 100%; }
 .sh_inventory_content .sh_inventory_content_item .action_buttons{ justify-content: space-between; padding: 0; height: auto;}
 .sh_inventory_content .sh_inventory_content_item .action_buttons button{ background: #147fdb; width: 170px; font-family: "AvenirLight"; border-radius: 0; font-size: 18px; color: #fff; letter-spacing: -1px;}
 .sh_inventory_content .sh_inventory_content_item .action_buttons button:last-child{ background: #111214;}
