@@ -75,7 +75,7 @@
             <th mat-header-cell *matHeaderCellDef>action</th>
             <td mat-cell *matCellDef="let element">
               <button mat-button (click)="viewQuoteDetails(element._id,element.hospital_id)">view</button>
-              <button mat-button (click)="viewQuoteDetails(element._id,element.hospital_id)">email</button>
+              <button mat-button>email</button>
             </td>
           </ng-container>
            <tr mat-header-row *matHeaderRowDef="displayed"></tr>
