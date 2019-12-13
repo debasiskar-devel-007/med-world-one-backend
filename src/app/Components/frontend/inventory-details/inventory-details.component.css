@@ -30,3 +30,10 @@
   text-align: center; margin: 0;}
 .sh_inventory_content .sh_inventory_content_item .view_more{ background: #111214; width: 170px; font-family: "HelveticaRegular"; border-radius: 0; font-size: 18px; color: #fff; }
 .sh_inventory_content .nb{ width: 330px; display: inline-block; text-align: center; color: #434343; font-size: 14px; font-family: "AvenirMedium"; }
+.viewDetails{     background: none;
+  font-family: 'AvenirBlack';
+  font-size: 14px;
+  line-height: inherit;
+  padding: 5px 10px;
+  color: #000;
+  text-transform: capitalize;}

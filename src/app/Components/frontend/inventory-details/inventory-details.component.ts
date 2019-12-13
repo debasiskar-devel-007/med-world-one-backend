@@ -18,6 +18,21 @@ export class InventoryDetailsComponent implements OnInit {
   public user_id: any;
   public amount:number=1;
   public isDesable:boolean=false;
+
+  public show:boolean = false;
+  public buttonName:any = '+ see more details ';
+
+  viewDetails() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)
+      this.buttonName = "- see Less details ";
+    else
+      this.buttonName = "+ see more details ";
+  }
+
+
   constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog) {
     let url: any = {};
     url = this.activatedRoute.snapshot.params.id;
@@ -92,7 +107,7 @@ export class InventoryDetailsComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(Dialogloginn, {
       width: '550px',
-      disableClose: true 
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
