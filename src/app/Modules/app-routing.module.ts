@@ -412,6 +412,7 @@ const routes: Routes = [
 
   //________________INVENTORY LIST_________________
   { path: 'inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
+  { path: 'salesrep/inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
   {

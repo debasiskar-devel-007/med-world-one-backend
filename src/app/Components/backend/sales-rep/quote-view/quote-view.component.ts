@@ -22,8 +22,8 @@ public quotedetails:any=[];
 public quoteinfo:any={};
 public userId:any;
 public userType:any;
-public totalqty:any=0;
-public totalprice:any=0;
+public totalqty:number=0;
+public totalprice:number=0;
   constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) { 
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -47,9 +47,9 @@ public totalprice:any=0;
       for(let i in this.quotedetails){
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         
-        if(this.quotedetails[i].price==null)this.quotedetails[i].price=parseInt(parseInt(this.quotedetails[i].wholesaleprice)*(40/100))+parseInt(this.quotedetails[i].wholesaleprice);
-        this.totalqty=parseInt(parseInt(this.totalqty)+parseInt(this.quotedetails[i].quantity));
-        this.totalprice=parseInt(this.totalprice)+parseInt((this.quotedetails[i].price));
+        if(this.quotedetails[i].price==null)this.quotedetails[i].price=(parseInt(this.quotedetails[i].wholesaleprice)*(40/100))+parseInt(this.quotedetails[i].wholesaleprice);
+        this.totalqty=((this.totalqty)+parseInt(this.quotedetails[i].quantity));
+        this.totalprice=(this.totalprice)+parseInt((this.quotedetails[i].price));
       }
      }
     });
@@ -63,9 +63,9 @@ public totalprice:any=0;
     for(let i in this.quotedetails){
       if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
       
-      if(this.quotedetails[i].price==null)this.quotedetails[i].price=parseInt(parseInt(this.quotedetails[i].wholesaleprice)*(40/100))+parseInt(this.quotedetails[i].wholesaleprice);
-      this.totalqty=parseInt(parseInt(this.totalqty)+parseInt(this.quotedetails[i].quantity));
-      this.totalprice=parseInt(this.totalprice)+parseInt((this.quotedetails[i].price));
+      if(this.quotedetails[i].price==null)this.quotedetails[i].price=(parseInt(this.quotedetails[i].wholesaleprice)*(40/100))+parseInt(this.quotedetails[i].wholesaleprice);
+      this.totalqty=((this.totalqty)+parseInt(this.quotedetails[i].quantity));
+      this.totalprice=(this.totalprice)+parseInt((this.quotedetails[i].price));
     }
    }
   

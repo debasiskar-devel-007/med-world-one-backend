@@ -6,14 +6,14 @@
 .top_logo_wrapper .top_wr1 .inner_items {margin-bottom: 0;}
 .top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px;}
 .top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 10px; }
-.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; }
+.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 5px 0;}
 .top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }
-.top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49%; }
+.top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;
   padding: 10px; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper  .mat-list{ padding: 0; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper p{ font-family: "AvenirBook"; font-size: 18px; color: #535353; height: auto; word-break: break-word;
-  padding: 5px 0; display: flex; margin:0;}
+  padding: 5px 12px; display: flex; margin:0; width: auto;}
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper p span{  min-width: max-content; text-transform: uppercase; margin-right: 6px; }
 
 /* table */
