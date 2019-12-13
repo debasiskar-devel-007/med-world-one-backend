@@ -3,28 +3,27 @@
 <mat-card-content class="cart_wrapper">
   <mat-card-title class="cart_title">my quote ({{qouteCount}})</mat-card-title>
 
-  <mat-card-content *ngIf="userType=='salesrep'" class="medical_partners">
-    <form>
+  <mat-card-content *ngIf="userType=='salesrep'">
+<form>
       <mat-form-field>
-        <mat-label>Select Medical Partner</mat-label>
-        <mat-select [(ngModel)]="selectedValue" (selectionChange)="hospitalName($event.value)" name="id">
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">{{hospital.hospitalname}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
-    <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-  </mat-card-content>
+          <mat-label>Select an option</mat-label>
+          <mat-select [(ngModel)]="selectedValue" (selectionChange)="hospitalName($event.value)" name="id">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let hospital of hospitalDetails"  [value]="hospital._id">{{hospital.hospitalname}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        </form>
+        <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+    </mat-card-content>
 
-  <!-- hospital -->
+    <!-- hospital -->
 
-  <mat-card-content *ngIf="userType=='hospital'">
-    <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-  </mat-card-content>
+    <mat-card-content *ngIf="userType=='hospital'">
+            <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+    </mat-card-content>
 
   <mat-card-content class="cart_item_wrapper">
-
+   
     <mat-card-content class="cart_item" *ngFor="let item of inventoryDetailsByUserId;let i=index;">
       <mat-card-content class="image_wrapper">
         <img src="{{item.inventory_image}}">
@@ -268,7 +267,7 @@
     </mat-card-content> -->
   </mat-card-content>
 
-  <mat-card-content class="button_wrapper">
+  <mat-card-content class="button_wrapper" >
     <button class="cart_action" mat-button color="accent" (click)="getQuote()">get quote</button>
   </mat-card-content>
 </mat-card-content>
