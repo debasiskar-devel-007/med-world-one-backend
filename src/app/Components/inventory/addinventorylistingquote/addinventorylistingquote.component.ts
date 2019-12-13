@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -39,6 +39,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public imageErrCode: boolean = false;
   public userId:any;
   public userType:any;
+  public imageblockflag:boolean=false
+  //@HostListener('window:scroll')
    //image upload 
    public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
@@ -62,7 +64,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.userId = userData._id;
       this.userType = userData.type;
 
-      
+      this.imageblockflag=true;
 
       this.activatedRoute.params.subscribe(params => {
         if (params['_id'] != null) {
@@ -228,18 +230,25 @@ export class AddinventorylistingquoteComponent implements OnInit {
         "sourceobj": ["category_id", "brand_id","userid"],
 
       };
-      console.log(postData);
+      //console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-
+          console.log(response);
         if (response.status == "success") {
-          // this.openDialog(this.successMessage);
-          // setTimeout(() => {
-          //   this.dialogRef.close();
-          // }, 2000);
+            this.addinventorylistingquoteForm.reset();
+            //this.defaultData.inventory_image=null;
+           this.imageblockflag=false;
+           this.imageblockflag=true;
+
+            this.router.events.subscribe(() =>
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        );
 
 
-          this.router.navigateByUrl('inventory/inventory-list/list');
         } else {
           alert("Some error occurred. Please try again.");
         }
