@@ -148,6 +148,7 @@ import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/qu
 
 //admin dashboard view purchase quote
 import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
 
@@ -250,7 +251,7 @@ import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quot
     Dialoglogin,
     Dialogloginn,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, PurchaseQuotesListingComponent
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, PurchaseQuotesListingComponent, AddinventorylistingquoteComponent
 
 
   ],
