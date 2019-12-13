@@ -14,7 +14,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public brand_name_array: any = [];
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
-  public header_txt: any = "Add Inventory";
+  public header_txt: any = "Add Listing Inventory";
   public btn_text: any = "SUBMIT";
   public condition: any;
   public action: any;
@@ -98,13 +98,13 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // =====================generate form=====================
   generateForm() {
     this.addinventorylistingquoteForm = this.formBuilder.group({
-      inventory_name: ['', [Validators.required]],
+      product_name: ['', [Validators.required]],
       source: ["",[Validators.required]],
       brand_name: ["",[Validators.required]],
       inventory_category: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
-      wholesaleprice:['',Validators.required],
+      saleprice:['',Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
       condition: ['New',],
@@ -124,7 +124,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
     this.addinventorylistingquoteForm.patchValue({
-      inventory_name: defaultValue.inventory_name,
+      product_name: defaultValue.product_name,
       brand_name: defaultValue.brand_name,
       inventory_category: defaultValue.inventory_category,
       sku: defaultValue.sku,
@@ -133,7 +133,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
-      wholesaleprice:defaultValue.wholesaleprice,
+      saleprice:defaultValue.saleprice,
       source: this.defaultData.source
 
     })
@@ -329,8 +329,13 @@ export class AddinventorylistingquoteComponent implements OnInit {
     this.items.push(this.createItem(val));
   }
 
+/**plus */
+plus(){
 
+}
+minus(){
 
+}
   trackByFn(index) {
     return index;
   }

@@ -13,11 +13,11 @@
                                 <span class="col-1-1 pb-20">
                                     <!-- Inventory Name  -->
                                     <mat-form-field>
-                                        <mat-label class="label">Name</mat-label>
-                                        <input matInput formControlName="inventory_name"
-                                            (blur)="inputBlur('inventory_name')">
-                                        <mat-error *ngIf="!addinventorylistingquoteForm.controls['inventory_name'].valid	
-                        && addinventorylistingquoteForm.controls['inventory_name'].errors.required">Inventory Name is required.
+                                        <mat-label class="label">Product Name</mat-label>
+                                        <input matInput formControlName="product_name"
+                                            (blur)="inputBlur('product_name')">
+                                        <mat-error *ngIf="!addinventorylistingquoteForm.controls['product_name'].valid	
+                        && addinventorylistingquoteForm.controls['product_name'].errors.required">Inventory Name is required.
                                         </mat-error>
                                     </mat-form-field>
                                 </span>
@@ -104,13 +104,13 @@
                                     <!-- wholesale price -->
 
                                     <mat-form-field>
-                                        <mat-label class="label">wholesale price</mat-label>
-                                        <input matInput formControlName="wholesaleprice" type="number"
+                                        <mat-label class="label">Salle price</mat-label>
+                                        <input matInput formControlName="saleprice" type="number"
                                             ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.11"
-                                            (blur)="inputBlur('quantity')">
+                                            (blur)="inputBlur('saleprice')">
                                         <span matPrefix></span>
-                                        <mat-error *ngIf="!addinventorylistingquoteForm.controls['wholesaleprice'].valid	
-                                                && addinventorylistingquoteForm.controls['wholesaleprice'].errors.required">Wholesale
+                                        <mat-error *ngIf="!addinventorylistingquoteForm.controls['saleprice'].valid	
+                                                && addinventorylistingquoteForm.controls['saleprice'].errors.required">Wholesale
                                             price is required.</mat-error>
                                     </mat-form-field>
                                 </span>
@@ -173,10 +173,10 @@
                                     *ngFor="let item of addinventorylistingquoteForm.get('items').controls; let i = index;">
                                     <div [formGroupName]="i">
                                         <mat-form-field>
-                                            <input matInput formControlName="label_name" placeholder="Enter A Label">
+                                            <input matInput formControlName="label_name" placeholder="Attribute Name">
                                         </mat-form-field>
                                         <mat-form-field>
-                                            <input matInput formControlName="label_value" placeholder="Value For Label">
+                                            <input matInput formControlName="label_value" placeholder="Attribute Description">
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -185,8 +185,7 @@
 
 
                                 <button mat-flat-button type="button" (click)="addItem()" color="accent">
-                                    <mat-icon>add</mat-icon> Add More Specification
-                                </button><br><br>
+                                    <mat-icon>add</mat-icon>More Attributes             </button><br><br>
                                 <!-- Status -->
 
                                 <mat-label class="label">Status</mat-label><br>
@@ -201,17 +200,17 @@
                                     </button> -->
 
                                     <!-- Buttons  -->
+                                    <button mat-flat-button type="button" (click)="onSubmit()"
+                                        color="accent">Add To Listing Quote
+                                    </button>
 
                                     <button mat-flat-button type="reset" color="warn">RESET</button>
-                                    <button mat-flat-button type="button" (click)="onSubmit()"
-                                        color="accent">submit
-                                    </button>
+
+                                    <button mat-flat-button type="button" >Cancel</button>
                                 </span>
 
 
-                                <mat-card>
-                                    <mat-label>My Quote()</mat-label>
-                                </mat-card>
+                              
                             </form>
                         </mat-list-item>
                         <mat-list-item class="formfooter"></mat-list-item>
