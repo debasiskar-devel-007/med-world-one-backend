@@ -37,6 +37,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public items: FormArray;
   public active_hospital_list: any = [];
   public imageErrCode: boolean = false;
+  public userId:any;
+  public userType:any;
    //image upload 
    public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
@@ -55,16 +57,23 @@ export class AddinventorylistingquoteComponent implements OnInit {
     public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public dialog: MatDialog) { 
 
+
+      let userData = JSON.parse(this.cookieService.get('user_details'));
+      this.userId = userData._id;
+      this.userType = userData.type;
+
+      
+
       this.activatedRoute.params.subscribe(params => {
         if (params['_id'] != null) {
           this.action = "edit";
-          this.condition = { id: params._id };
+          this.condition = { user_id: params._id };
           this.activatedRoute.data.subscribe(resolveData => {
             this.defaultData = resolveData.inventoryList.res[0];
           });
         }
-        else
-          this.action = "add";
+        else this.action = "add";
+
       });
        //generating the form
     this.generateForm();
@@ -99,9 +108,9 @@ export class AddinventorylistingquoteComponent implements OnInit {
   generateForm() {
     this.addinventorylistingquoteForm = this.formBuilder.group({
       product_name: ['', [Validators.required]],
-      source: ["",[Validators.required]],
-      brand_name: ["",[Validators.required]],
-      inventory_category: ["",[Validators.required]],
+      source: [""],
+      brand_id: ["",[Validators.required]],
+      category_id: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
       saleprice:['',Validators.required],
@@ -125,8 +134,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   setDefaultValue(defaultValue) {
     this.addinventorylistingquoteForm.patchValue({
       product_name: defaultValue.product_name,
-      brand_name: defaultValue.brand_name,
-      inventory_category: defaultValue.inventory_category,
+      brand_id: defaultValue.brand_id,
+      category_id: defaultValue.category_id,
       sku: defaultValue.sku,
       description: defaultValue.description,
       condition: defaultValue.condition,
@@ -211,12 +220,15 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
       /* start process to submited data */
       let postData: any = {
-        "source": 'inventories',
-        "data": Object.assign(this.addinventorylistingquoteForm.value, this.condition),
-        // "token": this.cookieService.get('jwtToken'),
-        "sourceobj": ["brand_name", "inventory_category"],
+        "source": 'quote-listing',
+        "data":{
+          "userid":this.userId,
+          "inventory_details":this.addinventorylistingquoteForm.value
+        },
+        "sourceobj": ["category_id", "brand_id","userid"],
 
       };
+      console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
 
@@ -287,6 +299,25 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
   /** get active hospital list **/
   getActiveHospital() {
+
+    if(this.userType=='salesrep'){
+      var data: any;
+      data = {
+        'source': 'users_view',
+        'condition': {
+          'salesrepselect_object': this.userId
+        }
+          
+      };
+      this.http.httpViaPost("datalist", data).subscribe(response => {
+        console.log(response);
+        let result: any;
+        result = response.res;
+        this.active_hospital_list = result
+      });
+
+    }
+    else{
     var data: any;
     data = {
       'source': 'users_view',
@@ -301,6 +332,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       result = response.res;
       this.active_hospital_list = result
     });
+  }
   }
 
 
