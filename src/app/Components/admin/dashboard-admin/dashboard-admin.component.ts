@@ -112,6 +112,14 @@ export class DashboardAdminComponent implements OnInit {
       //console.log(this.purcehseComparisionQuote);
 
     });
+
+    //  /**quote details for admin */
+    //  let postData={"source": "quote-details_view"
+    
+    // };
+    //  this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
+    //    console.log(response.res);
+    //  });
   }
 
 

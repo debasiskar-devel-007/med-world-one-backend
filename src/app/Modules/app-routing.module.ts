@@ -485,8 +485,36 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
         condition: {}
       },
       endpoint: 'datalist'
+       
+    }},
+
+     /**manage purchase quote for salesref */
+     
+    {path:'salesrep/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: {'salesrepid_object':'user_id'}
+      },
+      endpoint: 'datalist'
 
     }},
+
+     /**manage purchase quote for Hospital */
+     
+     {path:'hospital/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+     resolve: { purchasequotelist: ResolveService },
+     data: {
+       requestcondition: {
+         source: 'quote-details_view',
+         condition: {'hospital_id_object':'user_id'}
+       },
+       endpoint: 'datalist'
+ 
+     }},
+
+    
 
 
   // ________________________ACCOUNT SETTINGS______________________

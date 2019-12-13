@@ -20,7 +20,6 @@ export class AdminheaderComponent implements OnInit {
     let allData: any = {};
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
-
     this.type = this.userData.type
 
 
@@ -32,7 +31,7 @@ export class AdminheaderComponent implements OnInit {
           this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
         break;
       case "hospital":
-          this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+          this.user_name = this.userData.hospitalname;
         break;
     }
   }

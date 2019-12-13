@@ -15,10 +15,10 @@ const Data = [
   styleUrls: ['./quote-view.component.css']
 })
 export class QuoteViewComponent implements OnInit {
-public quotedetails:any={};
+public quotedetails:any=[];
 public quoteinfo:any={};
   constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService) { 
-    console.log("Quote ID",this.activatedRoute.snapshot.params.id);
+    //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
 
     let postData:any={
