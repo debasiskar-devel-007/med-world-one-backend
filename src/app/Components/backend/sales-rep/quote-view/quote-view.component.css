@@ -38,3 +38,4 @@
 
 .quote_table_wrapper table td.mat-cell { color: #465157; font-family: "AvenirMedium"; }
 .quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px!important; }
+.hidecls{display: none !important;}
