@@ -14,6 +14,7 @@ export interface DialogData {
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
+  public type:string;
   public inventoryCatagoryList: any = {};
   public categoryList: any = [];
   public brandList: any = [];
@@ -165,6 +166,8 @@ export class InventoryComponent implements OnInit {
   qouteDetails() {
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       let user = JSON.parse(this.cookieService.get('user_details'));
+      this.type=user.type;
+       console.log(this.type);
       let postData = {
         "source": "quote", "condition": {
           "user_id_object": user._id
