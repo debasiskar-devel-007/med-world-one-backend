@@ -20,9 +20,9 @@
 .quote_table_wrapper{ margin-bottom: 0;}
 .quote_table_wrapper table{width: 100%; }
 .quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }
-.quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: "AvenirRoman"; font-size: 20px;}
+.quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: "AvenirRoman"; font-size: 18px;}
 .quote_table_wrapper .text_with_span { display: inline-flex; align-items: center;  }
-.quote_table_wrapper .text_with_span textarea {border: none; resize: none; text-align: center;}
+.quote_table_wrapper .text_with_span textarea {border: 1px solid #ddd; resize: none; text-align: center;}
 .quote_table_wrapper .text_with_span textarea:focus { outline: none;}
 .quote_table_wrapper .text_with_span .action_button { display: inline-flex; flex-direction: column;  }
 .quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: "AvenirMedium";  }
@@ -38,3 +38,6 @@
 
 .quote_table_wrapper table td.mat-cell { color: #465157; font-family: "AvenirMedium"; }
 .quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px!important; }
+.quote_table_wrapper table th:first-of-type{ width: 40%;}
+.quote_table_wrapper table th:last-of-type{ width: 15%;}
+.hidecls{display: none !important;}

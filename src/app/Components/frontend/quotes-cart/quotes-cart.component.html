@@ -3,6 +3,27 @@
 <mat-card-content class="cart_wrapper">
   <mat-card-title class="cart_title">my quote ({{qouteCount}})</mat-card-title>
 
+<<<<<<< HEAD
+  <mat-card-content *ngIf="userType=='salesrep'" class="medical_partners">
+    <form>
+      <mat-card-content class="top_quotesection new">
+        <label mat-label>Medical Partner : </label>
+        <mat-form-field>
+          <mat-label>Select Medical Partner</mat-label>
+          <mat-select [(ngModel)]="selectedValue" (selectionChange)="hospitalName($event.value)" name="id">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">{{hospital.hospitalname}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </form>
+    <mat-card-content class="top_quotesection">
+      <label mat-label>Notes :</label>
+      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+    </mat-card-content>
+  </mat-card-content>
+=======
   <mat-card-content *ngIf="userType=='salesrep'">
 <form>
       <mat-form-field>
@@ -15,12 +36,22 @@
         </form>
         <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
     </mat-card-content>
+>>>>>>> 103fa8a5ddfe1eba19bcaa0234e084b4f9d09cd6
 
     <!-- hospital -->
 
+<<<<<<< HEAD
+  <mat-card-content *ngIf="userType=='hospital'" class="medical_partners">
+    <mat-card-content class="top_quotesection">
+      <label mat-label>Notes :</label>
+      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+    </mat-card-content>
+  </mat-card-content>
+=======
     <mat-card-content *ngIf="userType=='hospital'">
             <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
     </mat-card-content>
+>>>>>>> 103fa8a5ddfe1eba19bcaa0234e084b4f9d09cd6
 
   <mat-card-content class="cart_item_wrapper">
    

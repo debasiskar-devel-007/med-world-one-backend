@@ -150,6 +150,7 @@ import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/qu
 import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 import { PurchaseComparisonSearchListComponent } from './Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inventory-details/admin-inventory-details.component';
+import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
 
@@ -252,8 +253,7 @@ import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inv
     Dialoglogin,
     Dialogloginn,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, PurchaseQuotesListingComponent, PurchaseComparisonSearchListComponent, AdminInventoryDetailsComponent
-
+    
 
   ],
   imports: [
