@@ -1,3 +1,21 @@
+.floating_button{ position: fixed;
+  top: 18%;
+  right: 10px;
+  background: #147fdb;
+  font-family: 'AvenirMedium';
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  min-width: inherit;}
+  .example-tooltip-red{ background: #147fdb;}
+
 .sh_buyfrmus_topblock { background: url("../../../../assets/images/inventoryTopBanner.jpg") no-repeat 100% center; background-size: cover;}
 .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px 800px 30px 6.5%;}
 .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper .header { font-family: "RobotoBold"; font-size: 90px; text-transform: uppercase; color: #fff; margin-bottom: 0; line-height: 75px;}
