@@ -23,11 +23,7 @@
 
 .my_details_wrapper .mydetails_form_wrapper .button_action button{ width:290px; font-family: "AvenirRoman"; font-size: 30px; text-transform: uppercase; padding: 8px;
   margin-left: 6px; color: #fff; border-radius: 0; }
-.my_details_wrapper .mydetails_form_wrapper .button_action {
-  justify-content: center;
-    margin-top: 20px;
-    background: none;
-}
+.my_details_wrapper .mydetails_form_wrapper .button_action { justify-content: center; margin-top: 20px; background: none;}
 .my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(1){ background: #137fda; margin-left: 0; }
 .my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(2){ background: #111214; }
 
@@ -44,10 +40,6 @@ width: 170px; padding: 3px; background: linear-gradient(180deg, #80d7ff, #0081de
 .my_details_wrapper .mydetails_form_wrapper  .file_uploader .inner_wrapper .change_image i{ color: #fff; margin-left: 10px; }
 .imageupload{width: 100%;}
 .formmainwrapper{ background-color: #ececec; display: block; padding: 0 16px 16px; margin: 20px 0;}
-
-
-
-
 
 .shareLinkWrapper { border: 1px solid #1787e6; }
 .shareLinkWrapper .link_title{ color: #1480db; font-family: "AvenirMedium"; font-size: 20px; text-transform: capitalize; }

@@ -87,18 +87,72 @@ export class QuotesCartComponent implements OnInit {
   getQuote() {
     
     /**if sales */
-    if (this.userType=='salesrep' && this.hospitalId == undefined) {
-      this._snackBar.open('please select hospital','', {
-        duration: 1000,
-      });
-     
-    } 
-    else {
+    if(this.userType=='salesrep'){
+
+      if (this.userType=='salesrep' && this.hospitalId == undefined) {
+        this._snackBar.open('please select hospital','', {
+          duration: 1000,
+        });
+       
+      } 
+      else {
+        let postData = {
+          "source": "quote-details",
+          "data":{
+          "inventory_details": this.inventoryDetailsByUserId,
+          "hospital_id": this.hospitalId,
+          "quoted_by": this.userId,
+           "notes":this.notes,
+          "status":0
+          },
+          "sourceobj":["hospital_id","quoted_by"]
+        };
+  
+        //console.log(postData);
+        for(let i in this.inventoryDetailsByUserId){
+            
+            this.ids.push(this.inventoryDetailsByUserId[i]._id);
+        }
+        //console.log(this.ids);
+  
+  
+  
+        let deleteData={
+          "source": "quote",
+          "ids":this.ids
+        }
+        //console.log(deleteData);
+        this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+          //console.log(response);
+          if(response.status="success"){
+  
+  
+            this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+              if(response.status="success"){
+                this._snackBar.open('Your Quote Submitted Successfully','', {
+                  duration: 3000,
+                });
+                this.router.navigateByUrl('/inventory');
+              }
+            })
+            
+  
+  
+          }
+        })
+  
+  
+      }
+    }
+
+    /**if hospital */
+    if(this.userType=='hospital'){
+       
       let postData = {
         "source": "quote-details",
         "data":{
         "inventory_details": this.inventoryDetailsByUserId,
-        "hospital_id": this.hospitalId,
+        "hospital_id": this.userId,
         "quoted_by": this.userId,
          "notes":this.notes,
         "status":0
@@ -106,7 +160,7 @@ export class QuotesCartComponent implements OnInit {
         "sourceobj":["hospital_id","quoted_by"]
       };
 
-      //console.log(postData);
+      console.log(postData);
       for(let i in this.inventoryDetailsByUserId){
           
           this.ids.push(this.inventoryDetailsByUserId[i]._id);
@@ -138,10 +192,7 @@ export class QuotesCartComponent implements OnInit {
 
         }
       })
-
-
     }
-
   }
 
 

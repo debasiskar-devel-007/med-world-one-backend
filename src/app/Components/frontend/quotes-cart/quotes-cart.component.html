@@ -16,6 +16,12 @@
         <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
     </mat-card-content>
 
+    <!-- hospital -->
+
+    <mat-card-content *ngIf="userType=='hospital'">
+            <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+    </mat-card-content>
+
   <mat-card-content class="cart_item_wrapper">
    
     <mat-card-content class="cart_item" *ngFor="let item of inventoryDetailsByUserId;let i=index;">

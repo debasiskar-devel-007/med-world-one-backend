@@ -21,8 +21,11 @@ export class ResolveService implements Resolve<any> {
     
     /* will come into play while editing otherwise no effect */
     let requestData: any = route.data.requestcondition;
-    var allData: any = this.cookies.getAll();
-    var userData = JSON.parse(allData.user_details);
+    if(this.cookies.get('user_details') !='' && this.cookies.get('user_details') !=null){
+      var allData: any = this.cookies.getAll();
+      var userData = JSON.parse(allData.user_details);
+    }
+    
     requestData.condition = Object.assign(requestData.condition, route.params);
     for(let d in requestData.condition){
       if(requestData.condition[d]=='user_id'){

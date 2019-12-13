@@ -58,7 +58,7 @@ export class DashboardAdminComponent implements OnInit {
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
-  displayed: string[] = ['date', 'medical_partner', 'quoted_by', 'status', 'action','sales_rep'];
+  displayed: string[] = ['date', 'quote_id','medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
 
 
@@ -112,14 +112,6 @@ export class DashboardAdminComponent implements OnInit {
       //console.log(this.purcehseComparisionQuote);
 
     });
-
-    //  /**quote details for admin */
-    //  let postData={"source": "quote-details_view"
-    
-    // };
-    //  this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
-    //    console.log(response.res);
-    //  });
   }
 
 
