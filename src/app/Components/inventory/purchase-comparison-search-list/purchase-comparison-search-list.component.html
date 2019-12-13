@@ -1,0 +1,331 @@
+<app-adminheader>
+  <!-- <app-frontend-header></app-frontend-header> -->
+  <!-- go to salesrep dashborad -->
+  <ng-container *ngIf="type=='salesrep'">
+    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
+      matTooltipClass="example-tooltip-red" routerLink="/dashboard-salesrep"><i class="material-icons">
+        dashboard
+      </i></button>
+  </ng-container>
+
+  <!-- go to hospital dashboard -->
+  <ng-container *ngIf="type=='hospital'">
+    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
+      matTooltipClass="example-tooltip-red" routerLink="/dashboard-medical-partner"><i class="material-icons">
+        dashboard
+      </i></button>
+  </ng-container>
+
+  <!-- go to admin dashboard -->
+  <ng-container *ngIf="type=='admin'">
+    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
+      matTooltipClass="example-tooltip-red" routerLink="/dashboard-admin"><i class="material-icons">
+        dashboard
+      </i></button>
+  </ng-container>
+
+
+  <!-- <mat-card-content class="sh<app-adminheader>_buyfrmus_topblock">
+  <mat-card-content class="sh_buyfrmus_content_wrapper">
+    <h2 class="header">inventory</h2>
+
+    <p class="paragraph"> Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment Needs </p>
+    <p class="sub_para">
+      Get access to a vast inventory of hundreds and thousands of premium medical equipment and supplies. Check out
+      multiple options and choose the best machinery that precisely fits the needs and requirements of your medical
+      facility. What’s more? You get absolutely the <span> BEST PRICES </span> for top-quality equipment — prices that
+      are extremely competitive, prices that would be impossible for you to get anywhere else in the industry!
+
+    </p>
+
+  </mat-card-content>
+</mat-card-content> -->
+  <!-- <mat-card-content class="images">
+    <img src="/assets/images/inventory1.jpg">
+</mat-card-content> -->
+
+  <mat-card-content class="sh_view_inv_blok2">
+    <!-- <mat-card-content class="sh_view_inv_blok2_inner">
+    <mat-card-title class="top_header">Find Your Medical Equipment Requirements Here </mat-card-title>
+    <mat-card-subtitle class="top_subheader">Use our inventory today to locate the best quality hospital equipment and
+      medical supplies based on your requirements, at prices unmatched anywhere else in the industry.
+    </mat-card-subtitle>
+    <p class="description">
+      Depending on what you are looking for, you are likely to find multiple options and equipment that match your
+      requirements. Whether you are looking for brand new equipment and supplies, or used machinery is what you need,
+      you are more than likely to find multiple items that match your search criteria. The expansive range of our
+      inventory is unmatched and unparalleled in the industry and has been so for more than a decade.
+    </p>
+  </mat-card-content> -->
+
+    <mat-card-content class="sh_search_wrapper">
+      <mat-card-content class="switch_btn">
+        <!-- <button mat-button>category view</button>
+      <button mat-button>brand view</button> -->
+
+        <h2>Search Inventory</h2>
+      </mat-card-content>
+      <mat-card-content class="searchfilter">
+        <span class="search_bar">
+
+          <!-- search by category  -->
+          <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch class="searchpannel seperate" placeholder="Search By Category"
+            (keyup)="searchByCategory($event)">
+            <mat-option *ngFor="let cat of inventory_category_list" value="{{cat._id}}" (click)="searchBrand(cat._id)">
+              {{cat.category_name}}</mat-option>
+          </mat-select>
+
+          <!-- search by brand -->
+          <mat-select class="searchpannel" [(ngModel)]="inventory_brand" placeholder="Search By Brand">
+            <mat-option *ngFor="let brand of brandList" value="{{brand.brand_id}}"
+            >
+              {{brand.brand_name}}</mat-option>
+          </mat-select>
+
+          <!-- serach by inventory  -->
+          <input type="text" #srch class="searchpannel  seperate" [(ngModel)]="inventory_name" placeholder="Search By Inventory"
+        >
+
+          <!-- search by sku  -->
+          <input type="text" #srch class="searchpannel sku_search" [(ngModel)]="inventory_sku" placeholder="Search by SKU#"
+            >
+
+          <button mat-button (click)="search()" class="search_button"> Search</button>
+        </span>
+
+        <!-- <mat-form-field>
+        <input matInput placeholder="Amount" type="number" class="example-right-align">
+        <button mat-icon-button matPrefix>$&nbsp;</button >
+
+      </mat-form-field> -->
+      </mat-card-content>
+    </mat-card-content>
+
+
+    <mat-card-content class="cataLog_wrapper">
+
+      <!-- <mat-card-content class="categoyPart">
+      <span class="categoryAll">
+        <input type="text" placeholder="All Categories">
+      </span>
+      <mat-card-content class="cat_list">
+        <a mat-list-item active (click)="searchCatagory(category._id)"
+          *ngFor="let category of categoryList">{{category.category_name}}</a>
+      </mat-card-content>
+
+
+
+    </mat-card-content> -->
+
+      <mat-card-content class="sh_inventory_content">
+        <!-- Loop start -->
+
+        <mat-card-content class="sh_inventory_content_item" *ngFor="let list of inventoryCatagoryList">
+          <mat-card-content class="inner_top_wrapper">
+            <mat-card-content class="image_wrapper">
+              <img src="{{list.image}}">
+            </mat-card-content>
+            <mat-card-content class="content_wrapper">
+              <h1>{{list.inventory_name}}</h1>
+              <mat-card-content class="content_w">
+                <h3>Brand: </h3>
+                <p>{{list.brand}}</p>
+              </mat-card-content>
+              <mat-card-content class="content_w">
+                <h3>Description: </h3>
+                <p>{{list.description}}</p>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card-content>
+          <mat-toolbar class="action_buttons">
+            <button mat-button (click)="addQuote(list,list._id)">Add to Quote List</button>
+            <button mat-button class="view_more" (click)="viewDetails(list._id)">View Details</button>
+          </mat-toolbar>
+        </mat-card-content>
+
+        <!-- loop end  -->
+        <!-- <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage2.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage3.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content>
+      <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage4.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content> -->
+        <!-- <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage1.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content> -->
+        <!-- <mat-card-content class="sh_inventory_content_item">
+        <mat-card-content class="inner_top_wrapper">
+          <mat-card-content class="image_wrapper">
+            <img src="../../../../assets/images/invItemimage2.jpg">
+          </mat-card-content>
+          <mat-card-content class="content_wrapper">
+            <h1>Lorem Ipsum is simply</h1>
+            <mat-card-content class="content_w">
+              <h3>Brand: </h3>
+              <p>Lorem Ipsum</p>
+            </mat-card-content>
+            <mat-card-content class="content_w">
+              <h3>Description: </h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout.</p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-card-content>
+        <mat-toolbar class="action_buttons">
+          <button mat-button>Add to Quote List</button>
+          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+        </mat-toolbar>
+      </mat-card-content> -->
+
+        <!-- <mat-card-content class="sh_inventory_content_item">
+          <mat-card-content class="inner_top_wrapper">
+            <mat-card-content class="image_wrapper">
+              <img src="../../../../assets/images/invItemimage2.jpg">
+            </mat-card-content>
+            <mat-card-content class="content_wrapper">
+              <h1>Lorem Ipsum is simply</h1>
+              <mat-card-content class="content_w">
+                <h3>Brand: </h3>
+                <p>Lorem Ipsum</p>
+              </mat-card-content>
+              <mat-card-content class="content_w">
+                <h3>Description: </h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                  looking at its layout.</p>
+              </mat-card-content>
+            </mat-card-content>
+          </mat-card-content>
+          <mat-toolbar class="action_buttons">
+            <button mat-button>Add to Quote List</button>
+            <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+          </mat-toolbar>
+        </mat-card-content> -->
+
+        <!-- <mat-card-content class="sh_inventory_content_item">
+            <mat-card-content class="inner_top_wrapper">
+              <mat-card-content class="image_wrapper">
+                <img src="../../../../assets/images/invItemimage2.jpg">
+              </mat-card-content>
+              <mat-card-content class="content_wrapper">
+                <h1>Lorem Ipsum is simply</h1>
+                <mat-card-content class="content_w">
+                  <h3>Brand: </h3>
+                  <p>Lorem Ipsum</p>
+                </mat-card-content>
+                <mat-card-content class="content_w">
+                  <h3>Description: </h3>
+                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout.</p>
+                </mat-card-content>
+              </mat-card-content>
+            </mat-card-content>
+            <mat-toolbar class="action_buttons">
+              <button mat-button>Add to Quote List</button>
+              <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
+            </mat-toolbar>
+          </mat-card-content> -->
+
+
+
+
+
+
+
+      </mat-card-content>
+    </mat-card-content>
+
+  </mat-card-content>
+
+
+
+
+  <!-- <mat-card-content class="images">
+  <img src="/assets/images/inventory2.jpg">
+</mat-card-content> -->
+
+
+  <!-- <app-frontend-footer></app-frontend-footer> -->
+</app-adminheader>
