@@ -113,10 +113,10 @@
   font-family: "AvenirMedium";
   line-height: 30px; }
 
-.repDetails fieldset{  border:1px solid #0bc6fd; }
-.repDetails .rep_avbbre{  color: #0bc6fd; font-family: "AvenirMedium"; font-size: 28px; text-transform: uppercase; }
-.repDetails .listu { padding: 0; }
-.repDetails .listu .mat-list-item{ color: #4c5569; font-family: "AvenirLight"; font-size: 22px; }
+.repDetails fieldset{  border: 1px solid #adafb1; background: #fff; }
+.repDetails .rep_avbbre{  color: #566075; font-family: "AvenirMedium"; font-size: 22px; text-transform: uppercase; background: #fff;}
+.repDetails .listu { padding: 0; display: flex; justify-content: space-between; }
+.repDetails .listu .mat-list-item{ color: #4c5569; font-family: "AvenirLight"; font-size: 20px; }
 .repDetails .listu .mat-list-item span{ font-family: "AvenirMedium"; }
 
   @media only screen and (max-width: 1540px) {
