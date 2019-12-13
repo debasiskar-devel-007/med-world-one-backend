@@ -40,10 +40,7 @@
 }
 .main_action{ justify-content: center; margin-top: 16px;}
 .main_action button{ min-width: 120px; padding: 10px;}
-.addlistingInventory_button_wrapper button{      margin: 0 10px;
-  min-width: 210px;
-  border-radius: 0;
-  padding: 5px 16px;}
+.addlistingInventory_button_wrapper button{  margin: 0 10px; min-width: 210px; border-radius: 0; padding: 5px 16px;}
 
   .addlistingInventory_button_wrapper { justify-content: flex-end; display: flex; }
   .addlistingInventory_button_wrapper button:first-child{ background: #3f51b5; }
