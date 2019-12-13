@@ -5,17 +5,17 @@
 
   <mat-card-content class="sh_inventory_content">
     <mat-card-title class="title_details">SKU# {{inventoryDetails.sku}}</mat-card-title>
-    <mat-card-content class="breadcum">
+    <!-- <mat-card-content class="breadcum">
       <a routerLink="routeName">product catalog ></a>
       <a routerLink="routeName">Respiratory ></a>
       <a routerLink="routeName">Humidifiers and Nebulizers ></a>
       <a routerLink="routeName">Nebulizers ></a>
       <a routerLink="routeName">Nebulizer Kit click to remove</a>
-    </mat-card-content>
+    </mat-card-content> -->
 
 
 
-     <mat-card-content class="sh_inventory_content_item">
+    <mat-card-content class="sh_inventory_content_item">
       <mat-card-title class="productName">{{inventoryDetails.inventory_name}}</mat-card-title>
 
       <mat-card-content class="inner_top_wrapper">
@@ -38,16 +38,19 @@
               <th>Product Description </th>
               <td class="para">{{inventoryDetails.description}}</td>
             </tr>
-              <span *ngIf="show">
-            <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
-            <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
-                <th>{{dynamic.key}} </th>
-                <td class="para">{{dynamic.value}}</td>
-            </tr>
+            <span *ngIf="show">
+              <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
+                <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+                  <th>{{dynamic.key}} </th>
+                  <td class="para">{{dynamic.value}}</td>
+                </tr>
 
-          </ng-container>
-        </span>
-          <tr><td colspan="2" align="right"><button class="viewDetails" mat-button (click)="viewDetails()"> {{buttonName}}</button></td></tr>
+              </ng-container>
+            </span>
+            <tr>
+              <td colspan="2" align="right"><button class="viewDetails" mat-button (click)="viewDetails()">
+                  {{buttonName}}</button></td>
+            </tr>
           </table>
           <mat-toolbar class="action_buttons">
 
@@ -67,7 +70,8 @@
 
             <span class="quotes">
               <span class="quantity">
-                qty <button mat-button *ngIf="amount!=1" (click)="removeItem()">-</button> <span class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
+                qty <button mat-button *ngIf="amount!=1" (click)="removeItem()">-</button> <span
+                  class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
               </span>
               <button mat-button (click)="addQuote(inventoryDetails._id)" class="addToQuote">Add to Quote</button>
             </span>
