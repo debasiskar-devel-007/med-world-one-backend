@@ -163,15 +163,18 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     DashboardAdminComponent,
     AddEditAdminComponent,
     Modal,
+    AdminInventoryDetailsComponent,
     ListingAdminComponent,
-
+    AddinventorylistingquoteComponent,
     AddEditMedicalpartnersComponent,
     ListingMedicalpartnersComponent,
     Modal2,
+    PurchaseComparisonSearchListComponent,
 
     AddEditSalesrepComponent,
     ListingSalesrepComponent,
     Modal3,
+    PurchaseQuotesListingComponent,
 
     AdminheaderComponent,
     FooterComponent,
@@ -253,7 +256,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     Dialoglogin,
     Dialogloginn,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
-    
+
 
   ],
   imports: [
