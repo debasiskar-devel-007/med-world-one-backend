@@ -979,6 +979,17 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .changepassword .mat-dialog-container{border: 7px solid #1a8eec;}
 /*-------------- modal css end ---------------- */
 
+/* quote cart css */
+.top_quotesection .mat-form-field-flex { display: inline-flex;
+  align-items: baseline;
+  box-sizing: border-box;
+  border: 1px solid #cecece;
+  background: #fff;
+  width: 280px;
+  padding: 0px 10px 6px;
+  border-radius: 2px;}
+.top_quotesection .mat-form-field-appearance-legacy .mat-form-field-underline { background-color: inherit; }
+/* end quote cart css */
 /* ----------------- list view css end -------------------- */
 
 
