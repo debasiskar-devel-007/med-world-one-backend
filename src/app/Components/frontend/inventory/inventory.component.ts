@@ -4,6 +4,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
 
 }
@@ -22,8 +23,30 @@ export class InventoryComponent implements OnInit {
   public inventoryUserId: any = '';
   public flag: number;
   public flg: number = 0;
+  public inventoryName:string;
+  public sku:any;
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
-    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar) { this.qouteDetails() }
+    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
+      
+      this.qouteDetails()
+    
+
+      this.meta.setTitle('MD Stock International - Inventory');
+      this.meta.setTag('og:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+      this.meta.setTag('twitter:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+
+      this.meta.setTag('og:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+      this.meta.setTag('twitter:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+
+      this.meta.setTag('og:title', 'MD Stock International - Inventory');
+      this.meta.setTag('twitter:title', 'MD Stock International - Inventory');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+    
+    
+    }
 
 
   ngOnInit() {
@@ -46,10 +69,11 @@ export class InventoryComponent implements OnInit {
   searchCatagory(catId: any) {
     console.log("search Catagory ID" + '   ' + catId);
     let postData = {
-      "source": "inventory_category_view",
-      condition: { "parent_object": catId }
+      "source": "inventories_list_view",
+      condition: { "category_id_object": catId }
     };
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res) })
+    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res)
+    this.inventoryCatagoryList=res.res })
   }
 
 
@@ -68,16 +92,20 @@ export class InventoryComponent implements OnInit {
 
 
   /**inventory search */
-  search(event: any) {
-    // console.log("search by Inventory name"+'   '+event.toLowerCase( ));
-    let postData = {
-      "source": "inventories_list_view",
-      condition: { "inventory_search_regex": event.toLowerCase() }
-    };
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-      this.inventoryCatagoryList = res.res;
-      //console.log(res)
-    })
+  search() {
+    console.log(this.inventoryName.toLowerCase( ));
+    console.log(this.sku);
+
+
+    // console.log("search by sku id"+'   '+event.toLowerCase( ));
+    // let postData = {
+    //   "source": "inventories_list_view",
+    //   condition: { "sku_regex": event.toLowerCase() }
+    // };
+    // this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
+    //   this.inventoryCatagoryList = res.res;
+    //   //console.log(res)
+    // })
   }
 
 

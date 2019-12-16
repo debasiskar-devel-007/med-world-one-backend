@@ -52,10 +52,10 @@
             {{brand.brand_name}}</mat-option>
         </mat-select>
 
-        <input type="text" #srch class="searchpannel seperate">
-        <input type="text" #srch class="searchpannel sku_search" placeholder="Search by SKU# ">
+        <input type="text" #srch class="searchpannel seperate" [(ngModel)]="inventoryName" placeholder="Search by InventoryName ">
+        <input type="text" #srch class="searchpannel sku_search" [(ngModel)]="sku" placeholder="Search by SKU# ">
 
-        <button mat-button (click)="search(srch.value)" class="search_button"> Search</button>
+        <button mat-button (click)="search()" class="search_button"> Search</button>
       </span>
 
       <!-- <mat-form-field>
@@ -75,7 +75,7 @@
       </span>
       <mat-card-content class="cat_list">
         <a mat-list-item active (click)="searchCatagory(category._id)"
-          *ngFor="let category of categoryList">{{category.category_name}}</a>
+          *ngFor="let category of categoryList">{{category.category}}</a>
       </mat-card-content>
 
 

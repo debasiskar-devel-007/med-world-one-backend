@@ -159,7 +159,7 @@
           <p class="product_desc">{{item.description}}</p>
 
           <mat-toolbar class="button_action">
-            <button mat-button> view details</button>
+            <button mat-button (click)="viewDetails(item._id)"> view details</button>
             <button mat-button> add to quote</button>
           </mat-toolbar>
         </mat-card-content>
