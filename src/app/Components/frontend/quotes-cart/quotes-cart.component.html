@@ -17,20 +17,10 @@
         </mat-form-field>
       </mat-card-content>
     </form>
-    <mat-card-content class="top_quotesection">
-      <label mat-label>Notes :</label>
-      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-    </mat-card-content>
+
   </mat-card-content>
 
-    <!-- hospital -->
 
-  <mat-card-content *ngIf="userType=='hospital'" class="medical_partners">
-    <mat-card-content class="top_quotesection">
-      <label mat-label>Notes :</label>
-      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-    </mat-card-content>
-  </mat-card-content>
 
   <mat-card-content class="cart_item_wrapper">
 
@@ -73,6 +63,9 @@
         </mat-toolbar>
       </mat-card-content>
     </mat-card-content>
+
+
+
     <!-- <mat-card-content class="cart_item">
       <mat-card-content class="image_wrapper">
         <img src="../../../../assets/images/invItemimage2.jpg">
@@ -275,9 +268,18 @@
         </mat-toolbar>
       </mat-card-content>
     </mat-card-content> -->
-  </mat-card-content>
 
-  <mat-card-content class="button_wrapper" >
+
+  </mat-card-content>
+  <!-- hospital -->
+
+  <mat-card-content class="medical_partners">
+    <mat-card-content class="top_quotesection">
+      <label mat-label>Notes :</label>
+      <textarea type="text" class="form-control" (input)="onSearchChange($event.target.value)"></textarea>
+    </mat-card-content>
+  </mat-card-content>
+  <mat-card-content class="button_wrapper">
     <button class="cart_action" mat-button color="accent" (click)="getQuote()">get quote</button>
   </mat-card-content>
 </mat-card-content>

@@ -7,7 +7,7 @@
   background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 27%, rgba(17, 18, 20, 1) 27%, rgba(17, 18, 20, 1) 100%);
   background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 26%, rgba(17, 18, 20, 1) 26%, rgba(17, 18, 20, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#111214', GradientType=1); */
-  background: url(../../../../assets/images/footerimage.png) no-repeat;
+  background: url("../../../../assets/images/footerimage.png") no-repeat;
   padding: 0;
   box-shadow: none!important;
   border-radius: 0!important;
@@ -15,14 +15,14 @@
 }
 
 .footer_wrapper {
-  width: 1670px;
+  width: 1460px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
 .footer_wrapper .logo_section {
-  width: 373px;
+  width: 340px;
   display: flex;
   margin-bottom: 0;
   position: relative;
@@ -57,22 +57,22 @@
 }
 
 .nav_wrapper .mat-card-title {
-  color: #cfdce5;
+  color: #cfdce5; font-family: 'AvenirBlack';
 }
 
 .nav_wrapper .listing_container {
   flex-direction: row;
   width: auto;
-  display: flex;
+  display: flex; padding: 0;
 }
 
 .nav_wrapper .listing_container a {
-  color: #fff;
+  color: #fff; font-family: 'AvenirLight';
 }
 
 .nav_wrapper .listing_container .inner_item {
   border-left: 1px solid #515151;
-  padding: 0 16px;
+  padding: 0 10px;
 }
 
 .social_wrapper {
@@ -86,7 +86,7 @@
 }
 
 .social_wrapper .social_header h3 {
-  font-family: 'RobotoMedium';
+  font-family: 'AvenirBlack';
   color: #fff;
   font-size: 20px;
   width: 200px;
@@ -110,7 +110,7 @@
 }
 
 .footer_wrapper .address h3 {
-  font-family: 'RobotoMedium';
+  font-family: 'AvenirMedium';
   color: #fff;
   font-size: 24px;
   font-weight: normal;
@@ -122,7 +122,7 @@
 
 .footer_wrapper .address p {
   color: #fff;
-  font-family: "RobotoRegular";
+  font-family: "AvenirLight";
   font-size: 20px;
   margin: 5px 0;
 }
@@ -134,14 +134,14 @@
 
 .footer_wrapper .address p a {
   color: #fff;
-  font-family: "RobotoRegular";
+  font-family: "AvenirLight";
   text-decoration: none;
 }
 
 
 .end_footer{ background: #000; padding: 16px; text-align: center;}
-.end_footer p{ color: #56595f; font-family: "RobotoRegular"; margin-bottom: 5px;}
-.end_footer p a{ color: #56595f; font-family: "RobotoRegular";}
+.end_footer p{ color: #56595f; font-family: "AvenirLight"; margin-bottom: 5px;}
+.end_footer p a{ color: #56595f; font-family: "AvenirLight";}
     @media screen and (max-width: 1800px) {
   .footer_w {
     background-position: 114%;
