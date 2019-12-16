@@ -250,7 +250,7 @@
       <!-- -------------------------------salesrep------------------------- -->
       <mat-card *ngIf="type=='salesrep'" class="rapdashboard_content">
         <mat-card-content class="Welcome_banner">
-          <h2>Welcome RepName</h2>
+          <h2>Welcome {{user_name}}</h2>
           <p>Set Up Discoveries With New Medical Facilities For Potential Partnerships, List, Buy & Sell Hospital
             Equipment And Supplies For Your Current Clients, And Get Incredible Commissions Along The Way!</p>
         </mat-card-content>
@@ -406,7 +406,7 @@
       <!-- -------------------------------salesrep------------------------- -->
       <mat-card *ngIf="type=='hospital'" class="rapdashboard_content">
         <mat-card-content class="Welcome_banner">
-          <h2>Welcome [Hospital Name]</h2>
+          <h2>Welcome {{user_name}}</h2>
           <p>Source Hospital Equipment And Supplies For Your Medical Facility, And Get Direct-To-Manufacturers Prices
             For Premium Quality Items. Also, List & Sell Current Unused Equipment At Best Prices!</p>
         </mat-card-content>

@@ -31,7 +31,7 @@ export class InventoryComponent implements OnInit {
     public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
       
       this.qouteDetails()
-    
+      this.getCategoryList();
 
       this.meta.setTitle('MD Stock International - Inventory');
       this.meta.setTag('og:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
@@ -56,9 +56,9 @@ export class InventoryComponent implements OnInit {
       this.inventoryCatagoryList = resolveData.inventoryList.inventory;
       this.categoryList = resolveData.inventoryList.category;
       this.brandList = resolveData.inventoryList.brands;
-        console.log(resolveData.inventoryList.category);
-      //console.log(resolveData.inventoryList.inventory);
-      console.log(resolveData.inventoryList.brands);
+        //console.log(resolveData.inventoryList.category);
+      console.log(resolveData.inventoryList.inventory);
+      //console.log(resolveData.inventoryList.brands);
     });
   }
 
@@ -67,7 +67,16 @@ export class InventoryComponent implements OnInit {
     this.router.navigateByUrl('/inventory-details/' + val);
   }
 
- 
+   /** category list **/
+   getCategoryList() {
+    var data: any = {
+      source: 'inventory_category_view_async'
+    }
+    this.httpServiceService.httpViaPost('datalist', data).subscribe((response:any) => {
+      this.categoryList = response.res;
+     // console.log(response);
+    });
+  }
 
 
   /**search Brand Function */
@@ -80,18 +89,17 @@ export class InventoryComponent implements OnInit {
       _id_object: cat_id
     }
   };
-  this.httpServiceService.httpViaPost("datalist", data).subscribe(response => {
-    let result: any;
-    result = response.res;
-    this.brandList = result[0].brand_data;
+  this.httpServiceService.httpViaPost("datalist", data).subscribe((response:any) => {
+    //console.log(response);
+    this.brandList =response.res[0].brand_data;
   });
   }
 
 
   /**inventory search */
   search() {
-    console.log(this.inventory_cat);
-    console.log(this.inventory_brand);
+    // console.log(this.inventory_cat);
+    // console.log(this.inventory_brand);
     let condition:any={};
      if(this.inventory_cat!=null && this.inventory_cat){
         condition.category_id_object=this.inventory_cat;
@@ -106,16 +114,17 @@ export class InventoryComponent implements OnInit {
       if(this.inventoryName!=null && this.inventoryName.length>0){
         condition.inventory_search_regex=this.inventoryName.toLowerCase()
       }
-      console.log(condition);
-    // console.log("search by sku id"+'   '+event.toLowerCase( ));
-    // let postData = {
-    //   "source": "inventories_list_view",
-    //   condition: { "sku_regex": event.toLowerCase() }
-    // };
-    // this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-    //   this.inventoryCatagoryList = res.res;
-    //   //console.log(res)
-    // })
+      
+      let postData ={
+        "source": "inventories_list_view_async",
+        'condition':condition
+      }
+      // console.log(postData);
+      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
+        this.inventoryCatagoryList = res.res;
+        console.log(res);
+      })
+
   }
 
 

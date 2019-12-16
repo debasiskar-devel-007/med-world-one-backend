@@ -24,9 +24,9 @@
 .home_wrapper .home_bottom .main_content .link{ font-family: "AvenirBlack"; font-size: 18px; color: #fff; text-transform: capitalize; text-decoration: none; }
 .home_wrapper .home_bottom .main_content .image_wrapper img{ max-width: 100%; border: 2px solid #fff; box-sizing: border-box; width: 100%; }
 .homeGetaQuote{ background: url("../../../../assets/images/getAquoteBanner.png") no-repeat center center; background-size: cover; margin-bottom: 0;}
-.homeGetaQuote .quoteText{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; margin-bottom: 0; padding: 0 50px 0 0;}
+.homeGetaQuote .quoteText{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; margin-bottom: 0; }
 .homeGetaQuote .quoteText span{ font-family: "AvenirBlack"; }
-.homeGetaQuote .Quotecontainer{ width: 1480px; margin: 0 auto; display: flex; align-items: center; padding: 30px 0; }
+.homeGetaQuote .Quotecontainer{ width: 1460px; margin: 0 auto; display: flex; align-items: center; padding: 30px 0; }
 .homeGetaQuote .Quotecontainer .freeReportButton{ min-width: 280px; background: transparent; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; border: 2px solid #fff;
   padding: 3px; font-size: 24px; }
 

@@ -55,6 +55,7 @@ export class DashboardAdminComponent implements OnInit {
   public inventory_count:string;
   public medicalpartner_count:string;
   public purcehseComparisionQuote:any=[];
+  public user_name:string;
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
@@ -70,6 +71,17 @@ export class DashboardAdminComponent implements OnInit {
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.type = this.userData.type;
+    switch (this.userData.type) {
+      case "admin":
+        // this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+        break;
+      case "salesrep":
+          this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+        break;
+      case "hospital":
+          this.user_name = this.userData.hospitalname;
+        break;
+    }
   }
 
   ngOnInit() {

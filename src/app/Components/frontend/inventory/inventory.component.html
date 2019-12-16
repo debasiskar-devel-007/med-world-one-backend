@@ -1,5 +1,5 @@
 <app-frontend-header></app-frontend-header>
- 
+
 
 <!-- <mat-card-content class="sh_buyfrmus_topblock">
   <mat-card-content class="sh_buyfrmus_content_wrapper">
@@ -43,6 +43,7 @@
     </mat-card-content>
     <mat-card-content class="searchfilter">
       <span class="search_bar">
+
         <!-- catagory -->
         <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch placeholder="Search By Categories">
           <mat-option  value=""> Select a Category</mat-option>
@@ -53,8 +54,7 @@
           <!-- search by brand -->
         <mat-select class="searchpannel" *ngIf="inventory_cat!=null && inventory_cat!='' " [(ngModel)]="inventory_brand" placeholder="Search By Brand">
           <mat-option  value=""> Select a Brand</mat-option>
-          <mat-option *ngFor="let brand of brandList" value="{{brand.brand_id}}">
-            {{brand.brand_name}}</mat-option>
+          <mat-option *ngFor="let brand of brandList" value="{{brand.brand_id}}">{{brand.brand_name}}</mat-option>
         </mat-select>
         <!-- serach by inventory  -->
         <input type="text" #srch class="searchpannel seperate" [(ngModel)]="inventoryName" placeholder="Search by InventoryName ">
