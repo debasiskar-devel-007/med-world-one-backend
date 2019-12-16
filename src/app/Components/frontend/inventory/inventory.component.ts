@@ -25,7 +25,8 @@ export class InventoryComponent implements OnInit {
   public flg: number = 0;
   public inventoryName:string;
   public sku:any;
-  public catagoryId:any;
+  public inventory_brand:any;
+  public inventory_cat:any;
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
     public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
       
@@ -55,9 +56,9 @@ export class InventoryComponent implements OnInit {
       this.inventoryCatagoryList = resolveData.inventoryList.inventory;
       this.categoryList = resolveData.inventoryList.category;
       this.brandList = resolveData.inventoryList.brands;
-      //  console.log(resolveData.inventoryList.category);
+        console.log(resolveData.inventoryList.category);
       //console.log(resolveData.inventoryList.inventory);
-      //  console.log(resolveData.inventoryList.brands);
+      console.log(resolveData.inventoryList.brands);
     });
   }
 
@@ -66,43 +67,37 @@ export class InventoryComponent implements OnInit {
     this.router.navigateByUrl('/inventory-details/' + val);
   }
 
-  /**search Catagory Function */
-  searchCatagory(catId: any) {
-    console.log("search Catagory ID" + '   ' + catId);
-    let postData = {
-      "source": "inventories_list_view",
-      condition: { "category_id_object": catId }
-    };
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res)
-    this.inventoryCatagoryList=res.res })
-  }
+ 
 
 
   /**search Brand Function */
-  searchBrand(brandId: any) {
-    // console.log("search brand ID" + '   ' + brandId);
-    let postData = {
-      "source": "inventories_list_view",
-      condition: { "brand_id_object": brandId }
-    };
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-      this.inventoryCatagoryList = res.res;
-      // console.log(res);
-    })
+ searchBrand(cat_id: any) {
+  var data: any;
+  data = {
+    'source': 'category_view',
+    'token': this.cookieService.get('jwtToken'),
+    condition: {
+      _id_object: cat_id
+    }
+  };
+  this.httpServiceService.httpViaPost("datalist", data).subscribe(response => {
+    let result: any;
+    result = response.res;
+    this.brandList = result[0].brand_data;
+  });
   }
 
 
   /**inventory search */
-  search(catID:any,brand:any) {
-    // console.log(this.inventoryName.toLowerCase( ));
-    console.log(catID);
-    console.log(brand);
+  search() {
+    console.log(this.inventory_cat);
+    console.log(this.inventory_brand);
     let condition:any={};
-      if(brand!=null && brand>0){
-        condition.brand_id_object=brand;
-      }
-      if(catID!=null && catID>0){
-        condition.category_id_object=catID;
+     if(this.inventory_cat!=null && this.inventory_cat){
+        condition.category_id_object=this.inventory_cat;
+     }
+      if(this.inventory_brand!=null && this.inventory_brand){
+          condition.brand_id_object=this.inventory_brand;
       }
       if(this.sku!=null && this.sku.length>0){
         condition.sku_regex=this.sku.toLowerCase();

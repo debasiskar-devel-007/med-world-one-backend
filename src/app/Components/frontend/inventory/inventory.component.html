@@ -44,17 +44,21 @@
     <mat-card-content class="searchfilter">
       <span class="search_bar">
         <!-- catagory -->
-        <mat-select class="searchpannel" placeholder="Search By Categories">
-          <mat-option *ngFor="let category of categoryList" (click)="search(category._id)" value="{{category._id}}">
-            {{category.category}}</mat-option>
+        <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch placeholder="Search By Categories">
+          <mat-option  value=""> Select a Category</mat-option>
+          <mat-option *ngFor="let category of categoryList" value="{{category._id}}" (click)="searchBrand(category._id)">
+            {{category.category_name}}</mat-option>
         </mat-select>
           &nbsp;
-        <mat-select class="searchpannel" placeholder="Search By Brand">
-          <mat-option *ngFor="let brand of brandList" (click)="search(brand._id)" value="{{brand.brand_id}}">
+          <!-- search by brand -->
+        <mat-select class="searchpannel" *ngIf="inventory_cat!=null && inventory_cat!='' " [(ngModel)]="inventory_brand" placeholder="Search By Brand">
+          <mat-option  value=""> Select a Brand</mat-option>
+          <mat-option *ngFor="let brand of brandList" value="{{brand.brand_id}}">
             {{brand.brand_name}}</mat-option>
         </mat-select>
-
+        <!-- serach by inventory  -->
         <input type="text" #srch class="searchpannel seperate" [(ngModel)]="inventoryName" placeholder="Search by InventoryName ">
+
         <input type="text" #srch class="searchpannel sku_search" [(ngModel)]="sku" placeholder="Search by SKU# ">
 
         <button mat-button (click)="search()" class="search_button"> Search</button>
