@@ -30,7 +30,7 @@ export class HomePageComponent implements OnInit {
 
  
    copyText(val:any){
-    console.log('copyText');
+    //console.log('copyText');
   }
 
 

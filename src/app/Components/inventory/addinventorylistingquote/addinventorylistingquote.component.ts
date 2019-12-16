@@ -40,6 +40,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public userId:any;
   public userType:any;
   public imageblockflag:boolean=false
+  public selected:any;
   //@HostListener('window:scroll')
    //image upload 
    public configData: any = {

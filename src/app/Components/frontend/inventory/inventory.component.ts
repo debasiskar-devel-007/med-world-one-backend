@@ -46,10 +46,11 @@ export class InventoryComponent implements OnInit {
   searchCatagory(catId: any) {
     console.log("search Catagory ID" + '   ' + catId);
     let postData = {
-      "source": "inventory_category_view",
-      condition: { "parent_object": catId }
+      "source": "inventories_list_view",
+      condition: { "category_id_object": catId }
     };
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res) })
+    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => { console.log(res)
+    this.inventoryCatagoryList=res.res })
   }
 
 
@@ -69,10 +70,10 @@ export class InventoryComponent implements OnInit {
 
   /**inventory search */
   search(event: any) {
-    // console.log("search by Inventory name"+'   '+event.toLowerCase( ));
+    // console.log("search by sku id"+'   '+event.toLowerCase( ));
     let postData = {
       "source": "inventories_list_view",
-      condition: { "inventory_search_regex": event.toLowerCase() }
+      condition: { "sku_regex": event.toLowerCase() }
     };
     this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
       this.inventoryCatagoryList = res.res;
