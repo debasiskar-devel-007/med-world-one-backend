@@ -1,5 +1,6 @@
 <mat-card class="front_main">
   <mat-toolbar class="top_toolbar">
+    
     <span class="wrapper">
       <mat-nav-list class="top_toolbar_navigation">
 
@@ -13,7 +14,31 @@
       </mat-nav-list>
     </span>
   </mat-toolbar>
+
+  
   <mat-toolbar class="frontend_nav">
+
+    <!-- go to salesrep dashborad -->
+<ng-container *ngIf="type=='salesrep'">
+  <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-salesrep"><i class="material-icons">
+      dashboard
+      </i></button>
+    </ng-container>
+  
+    <!-- go to hospital dashboard -->
+    <ng-container *ngIf="type=='hospital'">
+      <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-medical-partner"><i class="material-icons">
+          dashboard
+          </i></button>
+        </ng-container>
+  
+        <!-- go to admin dashboard -->
+    <ng-container *ngIf="type=='admin'">
+      <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-admin"><i class="material-icons">
+          dashboard
+          </i></button>
+        </ng-container>
+
 
     <mat-card-content class="logo_wrapper" routerLink="/home">
       <img src="assets/images/logo.png">

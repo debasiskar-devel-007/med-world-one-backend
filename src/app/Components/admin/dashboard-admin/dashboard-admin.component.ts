@@ -119,14 +119,9 @@ export class DashboardAdminComponent implements OnInit {
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
+      this.recentlyAdded=response.quotedetails;
       // console.log("hospital name recently",this.hospitalDetails);
       // console.log("salesrep name recently",this.dataSource)
-    });
-      /**quote details for admin */
-      let postData={"source": "quote-details_view"};
-    this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
-      this.recentlyAdded=response.res;
-      console.log(response.res);
     });
   }
 
