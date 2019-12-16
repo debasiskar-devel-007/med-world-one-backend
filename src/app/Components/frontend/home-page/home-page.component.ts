@@ -50,6 +50,10 @@ export class HomePageComponent implements OnInit {
     //console.log('copyText');
   }
 
+   /**view details page with respective id */
+   viewDetails(val: any) {
+    this.router.navigateByUrl('/inventory-details/' + val);
+  }
 
   
   //***********blog list view in blog detail************//
