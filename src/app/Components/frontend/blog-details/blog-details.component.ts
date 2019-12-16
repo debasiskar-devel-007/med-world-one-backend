@@ -5,6 +5,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { BehaviorSubject, of as observableOf } from 'rxjs';
+import { MetaService } from '@ngx-meta/core';
 
 export class FileNode{
   children: FileNode[];
@@ -40,8 +41,21 @@ export class BlogDetailsComponent implements OnInit {
   
     /*------------TREE NESTEDDATA-----*/
 
-  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService, public httpservice: HttpServiceService, private router: Router) { 
+  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService, public httpservice: HttpServiceService, private router: Router, private readonly meta: MetaService) { 
 
+
+    this.meta.setTitle('MD Stock International - Blogs Details');
+    this.meta.setTag('og:description', 'Check out the latest blogs and articles about everything that is happening in the Medical and Healthcare industry written by our team of experts and top professionals.');
+    this.meta.setTag('twitter:description', 'Check out the latest blogs and articles about everything that is happening in the Medical and Healthcare industry written by our team of experts and top professionals.');
+
+    this.meta.setTag('og:keyword', 'MD Stock International Blogs, Medical Blogs, Healthcare Blogs');
+    this.meta.setTag('twitter:keyword', 'MD Stock International Blogs, Medical Blogs, Healthcare Blogs');
+
+    this.meta.setTag('og:title', 'MD Stock International - Blogs Details');
+    this.meta.setTag('twitter:title', 'MD Stock International - Blogs Details');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+    this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
 
 
 

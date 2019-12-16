@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {MatChipInputEvent} from '@angular/material';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
@@ -24,8 +25,23 @@ export class ContactUsComponent implements OnInit {
   public collect_phone_array: any = [];
   public contactusForm: FormGroup;
 
-  constructor(public cookieService:CookieService, public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute) {
-    
+  constructor(public cookieService:CookieService, public httpClient:HttpClient,public _snackBar: MatSnackBar, public formBuilder: FormBuilder,public httpServiceService: HttpServiceService,public activatedRoute: ActivatedRoute, private readonly meta: MetaService) {
+
+    this.meta.setTitle('MD Stock International - Contact Us');
+    this.meta.setTag('og:description', 'At MD Stock International, we are always available to our clients and Partners, aiding them whenever they are in need. Contact Us TODAY and we will be happy to respond to your queries!');
+    this.meta.setTag('twitter:description', 'At MD Stock International, we are always available to our clients and Partners, aiding them whenever they are in need. Contact Us TODAY and we will be happy to respond to your queries!');
+
+    this.meta.setTag('og:keyword', 'MD Stock Internation Contact Us, Contact MD Stock International, MD Stock International Contact Info');
+    this.meta.setTag('twitter:keyword', 'MD Stock Internation Contact Us, Contact MD Stock International, MD Stock International Contact Info');
+
+    this.meta.setTag('og:title', 'MD Stock International - Contact Us');
+    this.meta.setTag('twitter:title', 'MD Stock International - Contact Us');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+    this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+
+
      this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['',Validators.required],

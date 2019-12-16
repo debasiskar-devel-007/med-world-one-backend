@@ -4,6 +4,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
 
 }
@@ -23,7 +24,27 @@ export class InventoryComponent implements OnInit {
   public flag: number;
   public flg: number = 0;
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
-    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar) { this.qouteDetails() }
+    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
+      
+      this.qouteDetails()
+    
+
+      this.meta.setTitle('MD Stock International - Inventory');
+      this.meta.setTag('og:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+      this.meta.setTag('twitter:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+
+      this.meta.setTag('og:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+      this.meta.setTag('twitter:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+
+      this.meta.setTag('og:title', 'MD Stock International - Inventory');
+      this.meta.setTag('twitter:title', 'MD Stock International - Inventory');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+    
+    
+    }
 
 
   ngOnInit() {

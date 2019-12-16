@@ -3,6 +3,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-quotes-cart',
   templateUrl: './quotes-cart.component.html',
@@ -20,7 +21,22 @@ export class QuotesCartComponent implements OnInit {
   public noteValue:any;
   public ids:any=[];
   public notes:string;
-  constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {
+  constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
+
+      this.meta.setTitle('MD Stock International - quotes cart');
+      this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('twitter:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+
+      this.meta.setTag('og:keyword', 'Medical Equipment $ Supplies Partner, Direct-to-Manufacturer Purchases, Top-Quality On-Demand Supplies, Buy & Sell Medical Equipment');
+      this.meta.setTag('twitter:keyword', 'Medical Equipment $ Supplies Partner, Direct-to-Manufacturer Purchases, Top-Quality On-Demand Supplies, Buy & Sell Medical Equipment');
+
+      this.meta.setTag('og:title', 'MD Stock International - quotes cart');
+      this.meta.setTag('twitter:title', 'MD Stock International - quotes cart');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
