@@ -25,6 +25,7 @@ export class InventoryComponent implements OnInit {
   public flg: number = 0;
   public inventoryName:string;
   public sku:any;
+  public catagoryId:any;
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
     public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
       
@@ -92,11 +93,25 @@ export class InventoryComponent implements OnInit {
 
 
   /**inventory search */
-  search() {
-    console.log(this.inventoryName.toLowerCase( ));
-    console.log(this.sku);
+  search(catID:any,brand:any) {
+    // console.log(this.inventoryName.toLowerCase( ));
+    console.log(catID);
+    console.log(brand);
+    let condition:any={};
+      if(brand!=null && brand>0){
+        condition.brand_id_object=brand;
+      }
+      if(catID!=null && catID>0){
+        condition.category_id_object=catID;
+      }
+      if(this.sku!=null && this.sku.length>0){
+        condition.sku_regex=this.sku.toLowerCase();
+      }
 
-
+      if(this.inventoryName!=null && this.inventoryName.length>0){
+        condition.inventory_search_regex=this.inventoryName.toLowerCase()
+      }
+      console.log(condition);
     // console.log("search by sku id"+'   '+event.toLowerCase( ));
     // let postData = {
     //   "source": "inventories_list_view",
