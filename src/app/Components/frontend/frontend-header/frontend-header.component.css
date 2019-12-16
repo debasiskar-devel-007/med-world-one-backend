@@ -235,7 +235,7 @@
 }
  .floating_button {
     position: fixed;
-    top: 15%;
+    top: 60px;
     right: 10px;
     background: #147fdb;
     color: #fff;
