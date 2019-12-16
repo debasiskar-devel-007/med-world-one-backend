@@ -1,0 +1,49 @@
+.dashboardcontainer .main_wrapper { margin: 20px 0; }
+.form_new_wrapper{ display: flex; justify-content: space-between;  align-items: flex-start; }
+.form_new_wrapper .items_content:first-child{width: 65%; margin-bottom: 0;}
+.form_new_wrapper .items_content:last-child{width: 34%; border: 1px solid #e4e3e4; padding: 5px;
+  box-sizing: border-box;}
+.form_new_wrapper .items_content .tab_item{ display: flex; justify-content: space-between;}
+.form_new_wrapper .items_content .tab_item .inner_image{  width: 30%; max-height: 140px;
+  margin-bottom: 0;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e8e6e6;
+  padding: 2px;}
+.form_new_wrapper .items_content .tab_item .inner_image img{ max-width: 100%; height: 100%; object-fit: cover;}
+.inner_content{ width: 70%; padding-left: 10px;}
+.inner_content table{ font-family: 'AvenirLight';
+  font-size: 14px;
+  color: #000;
+}
+.total_wrapper{ width: 100%; display: block; margin-bottom: 6px;  background: #f7f7f7;
+  border: 1px solid #ddd; padding: 10px;
+  box-sizing: border-box;}
+
+.action{ height: auto; background: transparent; justify-content: flex-end;
+  padding: 0;}
+.action button{    font-family: "AvenirMedium";
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #fff;
+  background: #00294f;
+  border-radius: 0;
+  line-height: initial;
+  padding: 6px 10px;}
+.action button:last-child{ background: #f7452e; margin-left: 10px;}
+.items_content .title{
+  background: #00294f;
+    color: #fff;
+    padding: 10px;
+    font-family: 'AvenirMedium';
+    font-size: 18px;
+}
+.main_action{ justify-content: center; margin-top: 16px;}
+.main_action button{ min-width: 120px; padding: 10px;}
+.addlistingInventory_button_wrapper button{  margin: 0 10px; min-width: 210px; border-radius: 0; padding: 5px 16px;}
+
+  .addlistingInventory_button_wrapper { justify-content: flex-end; display: flex; }
+  .addlistingInventory_button_wrapper button:first-child{ background: #3f51b5; }
+  .addlistingInventory_button_wrapper button:nth-child(2){ background: #f44336; }
+  .addlistingInventory_button_wrapper button:last-child{ background: #ff4081;  }
+  .more_attri { border-radius: 0;}

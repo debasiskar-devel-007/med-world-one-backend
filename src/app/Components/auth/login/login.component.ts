@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   public fullUrl: any = this.httpServiceService.baseUrl;  // server url
   public endpoint: any = "login";
   public buttonName:any= 'Login Button';
+  public defaultLoginUrl = '/login';
 
   loading: boolean;
  

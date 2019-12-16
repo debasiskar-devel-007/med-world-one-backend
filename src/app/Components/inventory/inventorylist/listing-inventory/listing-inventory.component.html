@@ -1,6 +1,8 @@
 <app-adminheader>
+        <span class="listingnewstyle salesreplistingnewstyle ">    
+        <span class="dashboardcontainer">
     <mat-card class="main_wrapper">
-        <mat-card-content class="inventory_banner">
+        <!-- <mat-card-content class="inventory_banner">
             <mat-card-title class="inventory_title">Inventory List</mat-card-title>
             <p class="inventory_para">Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment Needs</p>
         </mat-card-content>
@@ -9,16 +11,16 @@
             <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
             <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/inventory-list/list"> inventory list </a> 
          
-        </mat-card-content>
+        </mat-card-content> -->
         <!-- Add Brand Button  -->
         <mat-toolbar class="content_header_wrapper">
             <mat-card-title class="toolbar_header">inventory list </mat-card-title>
-            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']"><mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Inventory</button>
+            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/inventory-list/add']">Add</button>
         </mat-toolbar>
 
 
         <!-- Listing goes here  -->
-        <lib-listing *ngIf="inventoryListData != null && inventoryListData.length>0"
+        <lib-listing class="listing_tab" *ngIf="inventoryListData != null && inventoryListData.length>0"
             [datasource]="inventoryListData"
             [skip]="inventoryListData_skip" 
             [modify_header_array]="inventoryListData_modify_header"
@@ -39,4 +41,6 @@
         <h2 *ngIf="inventoryListData.length == 0">No record found.</h2>
         <!-- Listing ends here  -->
     </mat-card>
+    </span>
+    </span>
 </app-adminheader>

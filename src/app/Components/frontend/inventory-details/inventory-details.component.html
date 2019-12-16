@@ -5,22 +5,23 @@
 
   <mat-card-content class="sh_inventory_content">
     <mat-card-title class="title_details">SKU# {{inventoryDetails.sku}}</mat-card-title>
-    <mat-card-content class="breadcum">
+    <!-- <mat-card-content class="breadcum">
       <a routerLink="routeName">product catalog ></a>
       <a routerLink="routeName">Respiratory ></a>
       <a routerLink="routeName">Humidifiers and Nebulizers ></a>
       <a routerLink="routeName">Nebulizers ></a>
       <a routerLink="routeName">Nebulizer Kit click to remove</a>
-    </mat-card-content>
+    </mat-card-content> -->
 
 
-    
-     <mat-card-content class="sh_inventory_content_item">
+
+    <mat-card-content class="sh_inventory_content_item">
       <mat-card-title class="productName">{{inventoryDetails.inventory_name}}</mat-card-title>
 
       <mat-card-content class="inner_top_wrapper">
         <mat-card-content class="image_wrapper">
           <img src="{{inventoryDetails.image}}">
+          <span class="nb"> Actual Product May Vary. See Product Specifications for more detailed information.</span>
         </mat-card-content>
         <mat-card-content class="content_wrapper">
           <mat-card-title class="productSpec">Product Specifications</mat-card-title>
@@ -38,24 +39,28 @@
               <th>Product Description </th>
               <td class="para">{{inventoryDetails.description}}</td>
             </tr>
+            <span *ngIf="show">
+              <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
+                <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+                  <th>{{dynamic.key}} </th>
+                  <td class="para">{{dynamic.value}}</td>
+                </tr>
 
-            <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0">
-            <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
-                <th>{{dynamic.key}} </th>
-                <td class="para">{{dynamic.value}}</td>
+              </ng-container>
+            </span>
+            <tr>
+              <td  ><button class="viewDetails" mat-button (click)="viewDetails()">
+                  {{buttonName}}</button></td>
             </tr>
-
-          </ng-container>
-
           </table>
           <mat-toolbar class="action_buttons">
 
-           
+
 
             <!-- <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0">
             <mat-card-content class="sizes" *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
                <h3  class="text" *ngFor="let dv of dynamic ;let i1=index; ">{{dv}}{{i1}} 00 </h3>
-              <h3  class="text">{{dynamic.key}}:{{dynamic.value}} .. {{getdata(dynamic,i)}} </h3>
+              <h3  class="text">{{dynamic.key}}:{{dynamic.value}} .. </h3>
               <span class="button_wrapper">
                 <button mat-button>small</button>
                 <button mat-button>medium</button>
@@ -66,18 +71,19 @@
 
             <span class="quotes">
               <span class="quantity">
-                qty <button mat-button>-</button> <span class="box">{{inventoryDetails.quantity}}</span> <button mat-button>+</button>
+                qty <button mat-button *ngIf="amount!=1" (click)="removeItem()">-</button> <span
+                  class="box">{{amount}}</span> <button (click)="addToqty()" mat-button>+</button>
               </span>
-              <button mat-button class="addToQuote">Add to Quote</button>
+              <button mat-button (click)="addQuote(inventoryDetails._id)" class="addToQuote">Add to Quote</button>
             </span>
 
           </mat-toolbar>
         </mat-card-content>
       </mat-card-content>
 
-    </mat-card-content> 
+    </mat-card-content>
 
-    <span class="nb"> Actual Product May Vary. See Product Specifications for more detailed information.</span>
+
   </mat-card-content>
 </mat-card-content>
 

@@ -22,22 +22,23 @@
           <span class="image_wrapper">
             <img src="../../../../assets/images/home_main_item_image.png">
           </span>
-          <p class="short_desc">We carry over 100,000+ high-quality national medical supplies - </p>
-          <a routerLink="test" class="link">shop with us now </a>
+          <p class="short_desc">We carry over 100,000+ high-quality<br> national medical supplies - </p>
+          <a routerLink="/inventory" class="link">shop with us now </a>
         </mat-card-content>
         <mat-card-content class="main_content_items">
           <span class="image_wrapper">
             <img src="../../../../assets/images/home_main_item_image.png">
           </span>
-          <p class="short_desc">We carry over 100,000+ high-quality national medical supplies - </p>
-          <a routerLink="test" class="link">shop with us now </a>
+          <p class="short_desc">Wholesale medical supplies, lab<br> equipment, and post-acute care medical<br> supplies - <span> Your Hospital’s Purchase </span></p>
+          <a routerLink="/inventory" class="link">Order By Up To 50% Now </a>
         </mat-card-content>
         <mat-card-content class="main_content_items">
           <span class="image_wrapper">
             <img src="../../../../assets/images/home_main_item_image.png">
           </span>
-          <p class="short_desc">We carry over 100,000+ high-quality national medical supplies - </p>
-          <a routerLink="test" class="link">shop with us now </a>
+          <p class="short_desc">List and Sell Your New/Used Medical<br> and Diagnostic Supplies With Us - </p>
+
+          <a routerLink="/inventory" class="link"> Get A Quote Now </a>
         </mat-card-content>
       </mat-card-content>
 
@@ -80,12 +81,12 @@
     <mat-card-content class="partner_wrapper">
       <mat-card-content class="top_content">
         <mat-card-title class="content_header">Manufacturer Direct Pricing For Your Hospital </mat-card-title>
-        <p class="partner_top_desc"> Find the <span> quality wholesale pricing</span> for all your medical supplies, surgical supplies, laboratory chemicals, laboratory consumables, diagnostic equipment, dental consumables, microbiology, clinical chemistry, instruments, pharmaceuticals, and industrial products needs. 
+        <p class="partner_top_desc"> Find the <span> quality wholesale pricing</span> for all your medical supplies, surgical supplies, laboratory chemicals, laboratory consumables, diagnostic equipment, dental consumables, microbiology, clinical chemistry, instruments, pharmaceuticals, and industrial products needs.
         </p>
       </mat-card-content>
-  
+
       <mat-card-content class="bottom_content">
-       
+
         <mat-card-content class="new_wrapper bottom_newTop">
           <mat-card-content class="new_w_items">
             <mat-card-content class="sec_inner">
@@ -128,34 +129,34 @@
           <mat-card-content class="new_w_items">
             <mat-card-content class="sec_inner">
               <mat-card-content class="content_part">
-                  <button mat-button class="manufac_action" routerLink="/login">get a quote</button>
+                  <button mat-button class="manufac_action" routerLink="/inventory">get a quote</button>
               </mat-card-content>
             </mat-card-content>
           </mat-card-content>
         </mat-card-content>
-        
-  
+
+
       </mat-card-content>
     </mat-card-content>
   </mat-card-content>
-  
+
 
 <!-- product category -->
 <mat-card-content class="popularProduct">
   <mat-card-content class="product_container">
     <mat-card-title class="product_title">Popular products</mat-card-title>
 
-    <mat-card-content class="product_item_wrapper">
+    <mat-card-content class="product_item_wrapper" >
+     
       <!-- loop start -->
-      <mat-card-content class="product_item">
+      <mat-card-content class="product_item" *ngFor="let item of popularInventoryDetails">
         <mat-card-content class="productimage_wrapper">
-          <img src="../../../../assets/images/HomeproductListImage.jpg">
+          <img src="{{item.image}}">
         </mat-card-content>
 
         <mat-card-content class="product_content">
-          <mat-card-title class="product_name">Lorem, ipsum dolor.</mat-card-title>
-          <p class="product_desc"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aperiam, error
-            repellat ab accusantium quaerat.</p>
+          <mat-card-title class="product_name">{{item.inventory_name}}, {{item.brand}}</mat-card-title>
+          <p class="product_desc">{{item.description}}</p>
 
           <mat-toolbar class="button_action">
             <button mat-button> view details</button>
@@ -165,7 +166,7 @@
       </mat-card-content>
       <!-- loop end -->
 
-      <mat-card-content class="product_item">
+      <!-- <mat-card-content class="product_item">
         <mat-card-content class="productimage_wrapper">
           <img src="../../../../assets/images/HomeproductListImage2.jpg">
         </mat-card-content>
@@ -180,8 +181,8 @@
             <button mat-button> add to quote</button>
           </mat-toolbar>
         </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="product_item">
+      </mat-card-content> -->
+      <!-- <mat-card-content class="product_item">
         <mat-card-content class="productimage_wrapper">
           <img src="../../../../assets/images/HomeproductListImage3.jpg">
         </mat-card-content>
@@ -196,23 +197,8 @@
             <button mat-button> add to quote</button>
           </mat-toolbar>
         </mat-card-content>
-      </mat-card-content>
-      <mat-card-content class="product_item">
-        <mat-card-content class="productimage_wrapper">
-          <img src="../../../../assets/images/HomeproductListImage4.jpg">
-        </mat-card-content>
+      </mat-card-content> -->
 
-        <mat-card-content class="product_content">
-          <mat-card-title class="product_name">Lorem, ipsum dolor.</mat-card-title>
-          <p class="product_desc"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aperiam, error
-            repellat ab accusantium quaerat.</p>
-
-          <mat-toolbar class="button_action">
-            <button mat-button> view details</button>
-            <button mat-button> add to quote</button>
-          </mat-toolbar>
-        </mat-card-content>
-      </mat-card-content>
 
     </mat-card-content>
   </mat-card-content>
@@ -235,7 +221,7 @@
     </mat-card-content>
 
     <mat-card-content class="bottom_content">
-     
+
       <mat-card-content class="new_wrapper bottom_newTop">
         <mat-card-content class="new_w_items">
           <mat-card-content class="sec_inner">

@@ -3,8 +3,11 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material'
-import { Router,ActivatedRoute } from '@angular/router';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
+import { ClipboardService } from 'ngx-clipboard';
+import { MetaService } from '@ngx-meta/core';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-manage-hospital',
   templateUrl: './manage-hospital.component.html',
@@ -26,23 +29,44 @@ export class ManageHospitalComponent implements OnInit {
   public message: string;
   public salesrepname: string;
   public ErrCode: boolean;
-  public action:string;
-  public defaultData:any;
-
+  public action: string;
+  public defaultData: any;
+  public myDate: any;
+  public date: any;
+  public useridval: any = null;
+  public sharelink:any;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService, public snackBar: MatSnackBar, public router: Router,
-    public activatedRoute:ActivatedRoute) {
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition = { id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.data.res[0];
-          });
-        }
-        else
-          this.action = "add";
-      });
+    public activatedRoute: ActivatedRoute,public clipboardService:ClipboardService,public readonly meta: MetaService,
+    public readonly Title:Title) {
+
+      this.meta.setTitle('MD Stock International - Your Medical Partner');
+      this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('og:title', 'MD Stock International - Your Medical Partner');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:url', 'https://dev.mdstockinternational.com/');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+      this.meta.setTag('og:keywords','');
+     
+      this.meta.setTag('twitter:description', 'MD-stock-international');
+      this.meta.setTag('twitter:title', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('twitter:card', 'summary');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+
+
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.data.res[0];
+          this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
+
+        });
+      }
+      else
+        this.action = "add";
+    });
 
 
     /**  getting the sales rep information **/
@@ -51,9 +75,14 @@ export class ManageHospitalComponent implements OnInit {
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData.id;
     this.salesrepname = this.userData.firstname + ' ' + this.userData.lastname;
+    this.sharelink='https://dev-hospital-signup.mdstockinternational.com/'+this.userData._id;
+    /** fetching the current date **/
+    if (this.action == 'add')
+      this.date = moment(this.myDate).format('MM/DD/YYYY');
   }
 
   ngOnInit() {
+
 
     /** generating the form **/
     this.generateForm();
@@ -63,26 +92,51 @@ export class ManageHospitalComponent implements OnInit {
     this.allStateCityData();
 
 
-/** switch case **/
+    /** switch case **/
     switch (this.action) {
 
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
         //Generating the form on ngOnInit
-        this.generateForm();   
-        this.message = "Hospital Added!!!"  
+        this.generateForm();
+        /** generating the current date **/
+        this.myDate = new Date();
+        this.message = "Hospital Added!!!"
+
+
+
+        /** generating the user id **/
+        this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+          this.useridval = response.userID;
+
+          //Generating the form on ngOnInit
+          this.generateForm();
+
+          setTimeout(() => {
+            this.manageHospitalForm.controls['user_id'].disable();
+          }, 500);
+        });
+
         break;
       case 'edit':
         /* Button text */
-        this.btn_text = "UPDATE";     
-        this.message = "Hospital Information Updated";  
-        //Generating the form on ngOnInit
-        this.generateForm();
+        this.btn_text = "UPDATE";
+        this.message = "Hospital Information Updated";
+
+
+        // this.generateForm();
         this.setDefaultValue(this.defaultData);
+
         setTimeout(() => {
           this.getCityByName(this.defaultData.state);
-        }, 2000);      
+        }, 2000);
+  
+        
+
+        setTimeout(() => {
+          this.manageHospitalForm.controls['user_id'].disable();
+        }, 500);
         break;
     }
 
@@ -93,13 +147,15 @@ export class ManageHospitalComponent implements OnInit {
   /** setting the default data **/
   setDefaultValue(defaultValue) {
     this.manageHospitalForm.patchValue({
-     hospitalname:defaultValue.hospitalname,
-     email:defaultValue.email,
-     contactperson:defaultValue.contactperson,
-     zip:defaultValue.zip,
-     city:defaultValue.city,
-     state:defaultValue.state
-    })    
+      user_id: defaultValue.user_id,
+      date_added: defaultValue.date_added,
+      hospitalname: defaultValue.hospitalname,
+      email: defaultValue.email,
+      contactperson: defaultValue.contactperson,
+      zip: defaultValue.zip,
+      city: defaultValue.city,
+      state: defaultValue.state
+    })
     this.collect_phone_array = this.defaultData.contactemails;
     this.collect_email_array = this.defaultData.contactphones;
   }
@@ -109,7 +165,7 @@ export class ManageHospitalComponent implements OnInit {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
-    format: ["jpg", "jpeg","png"], // use all small font
+    format: ["jpg", "jpeg", "png"], // use all small font
     type: "inventory-file",
     path: "files",
     prefix: "_inventory-file",
@@ -123,11 +179,16 @@ export class ManageHospitalComponent implements OnInit {
   /** generating the form **/
   generateForm() {
     this.manageHospitalForm = this.formBuilder.group({
+      user_id: [this.useridval],
+      date_added: [{ value: this.date, disabled: true }],
       hospitalname: [],
       contactperson: [],
+      password: [],
+      confirmpassword: [],
       state: [],
       city: [],
       zip: [],
+      address: [],
       type: ['hospital'],
       contactemails: [],
       contactphones: [],
@@ -194,6 +255,12 @@ export class ManageHospitalComponent implements OnInit {
   /** --------------------------submit------------------------**/
   onSubmit() {
 
+    this.manageHospitalForm.value.user_id = this.manageHospitalForm.controls['user_id'].value;
+    this.manageHospitalForm.value.date_added = this.manageHospitalForm.controls['date_added'].value;
+
+
+    if (this.action == 'edit')
+      delete this.manageHospitalForm.value.confirmpassword;
 
     //  File Upload Works 
     if (this.configData.files) {
@@ -253,4 +320,13 @@ export class ManageHospitalComponent implements OnInit {
     }
   }
 
+
+   /**Copy clipborad function */
+   copytoclipboard(){
+    this.clipboardService.copyFromContent(this.sharelink);
+   this.snackBar.open('Link Copy','', {
+      duration: 500
+    });
+    
+  }
 }

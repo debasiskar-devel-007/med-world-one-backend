@@ -1,0 +1,10 @@
+.searchmainwrapper{ display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;}
+.header{
+  margin: 0;
+    font-family: "AvenirLight";
+    font-size: 24px;
+    color: #535353;
+    text-transform: uppercase; margin: 0;
+}
+.searchwrapper .mat-form-field-infix{ margin-left: 5px;}

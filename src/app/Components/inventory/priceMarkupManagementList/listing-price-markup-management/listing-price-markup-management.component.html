@@ -1,20 +1,22 @@
 <app-adminheader>
+        <span class="listingnewstyle">
+                <span class="dashboardcontainer">
     <mat-card class="main_wrapper">
-        <mat-card-content class="inventory_banner">
+        <!-- <mat-card-content class="inventory_banner">
             <mat-card-title class="inventory_title">Price Markup Management List</mat-card-title>
             <p class="inventory_para">Expansive Price Markup Management List</p>
-        </mat-card-content>
+        </mat-card-content> -->
 
-        <mat-card-content class="bred_cram_wrapper">
+        <!-- <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active activebread" routerLink="/dashboard-admin"> Dashboard </a>
             <a mat-list-item routerLinkActive="active activebread" routerLink="/inventory/price-markup-management-list/list">Price Markup Management List</a> 
          
-        </mat-card-content>
+        </mat-card-content> -->
         <!-- Add Brand Button  -->
         
         <mat-toolbar class="content_header_wrapper">
             <mat-card-title class="toolbar_header">Price Markup Management List</mat-card-title>
-            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/price-markup-management-list/add']"><mat-icon fontSet="fontawesome" fontIcon="fa-plus"></mat-icon>Add Price Markup</button>
+            <button class="singleButton" mat-raised-button [routerLink]="['/inventory/price-markup-management-list/add']">Add Price</button>
         </mat-toolbar>
 
         <!-- listing start -->
@@ -38,4 +40,6 @@
     </div>
         <!-- Listing ends here  -->
     </mat-card>
+    </span>
+    </span>
 </app-adminheader>

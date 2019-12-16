@@ -89,8 +89,8 @@ import { ContactUsComponent } from './Components/frontend/contact-us/contact-us.
 import { TeamPageComponent, TeamDetails } from './Components/frontend/team-page/team-page.component';
 import { BlogComponentFrontEnd } from './Components/frontend/blog/blog.component';
 import { BlogDetailsComponent } from './Components/frontend/blog-details/blog-details.component';
-import { InventoryComponent } from './Components/frontend/inventory/inventory.component';
-import { InventoryDetailsComponent } from './Components/frontend/inventory-details/inventory-details.component';
+import { InventoryComponent,Dialoglogin } from './Components/frontend/inventory/inventory.component';
+import { InventoryDetailsComponent,Dialogloginn } from './Components/frontend/inventory-details/inventory-details.component';
 import { AboutUsFrontComponent } from './Components/frontend/about-us-front/about-us-front.component';
 import { SalesRepLoginComponent } from './Components/frontend/logins/sales-rep-login/sales-rep-login.component';
 import { MyDetailsHospitalComponent } from './Components/backend/hospital/my-details-hospital/my-details-hospital.component';
@@ -144,6 +144,13 @@ import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-ca
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
+import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/quote-view.component';
+
+//admin dashboard view purchase quote
+import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { PurchaseComparisonSearchListComponent } from './Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
+import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inventory-details/admin-inventory-details.component';
+import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
 
@@ -156,15 +163,18 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     DashboardAdminComponent,
     AddEditAdminComponent,
     Modal,
+    AdminInventoryDetailsComponent,
     ListingAdminComponent,
-
+    AddinventorylistingquoteComponent,
     AddEditMedicalpartnersComponent,
     ListingMedicalpartnersComponent,
     Modal2,
+    PurchaseComparisonSearchListComponent,
 
     AddEditSalesrepComponent,
     ListingSalesrepComponent,
     Modal3,
+    PurchaseQuotesListingComponent,
 
     AdminheaderComponent,
     FooterComponent,
@@ -243,7 +253,9 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     ListingLanguageComponent,
     AddEditPurchaseComparisonComponent,
     ListingPurchaseComparisonComponent,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent
+    Dialoglogin,
+    Dialogloginn,
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
 
 
   ],
@@ -273,7 +285,7 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [sendMailModal,quoteModal,Modal5, Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

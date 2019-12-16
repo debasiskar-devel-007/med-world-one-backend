@@ -1,59 +1,59 @@
 <app-adminheader>
     <span class="dashboardcontainer">
-            <mat-card class="main_wrapper">
-                    <mat-card-content class="from_wrapper inputstyle">
-        <mat-list class="formstylemainwrapper">
+        <mat-card class="main_wrapper">
+            <mat-card-content class="from_wrapper inputstyle">
+                <mat-list class="formstylemainwrapper">
 
-            <mat-list-item class="formheader">
-                    <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
-            </mat-list-item>
-            <mat-list-item class="formbody">
-                    <form autocomplete="off" [formGroup]="salesRepForm">
+                    <mat-list-item class="formheader">
+                        <mat-card-title class="formtitle">{{ header_txt }}</mat-card-title>
+                    </mat-list-item>
+                    <mat-list-item class="formbody">
+                        <form autocomplete="off" [formGroup]="salesRepForm">
                             <span class="col-1-4">
-                                    <mat-form-field>
-                                         <mat-label>User Id</mat-label>
-                                         <input matInput type="text">
-                                    </mat-form-field>
-                               </span>
+                                <mat-form-field>
+                                    <mat-label>User Id</mat-label>
+                                    <input matInput type="text" formControlName="user_id">
+                                </mat-form-field>
+                            </span>
 
-                               <!-- date added -->
-                               <span class="col-1-4">
-                                    <mat-form-field >
-                                         <input matInput placeholder="Date Added" formControlName="date_added">
-                                    </mat-form-field>
+                            <!-- date added -->
+                            <span class="col-1-4">
+                                <mat-form-field>
+                                    <input matInput placeholder="Date Added" formControlName="date_added">
+                                </mat-form-field>
 
-                               </span>
+                            </span>
 
                             <!-- First Name  -->
                             <span class="col-1-4">
-                            <mat-form-field>
-                                <mat-label>First Name:</mat-label>
-                                <input matInput formControlName="firstname">
-    
-                            </mat-form-field>
-                        </span>
-    
+                                <mat-form-field>
+                                    <mat-label>First Name:</mat-label>
+                                    <input matInput formControlName="firstname">
+
+                                </mat-form-field>
+                            </span>
+
                             <!-- Last Name  -->
                             <span class="col-1-4">
-                            <mat-form-field>
-                                <mat-label>Last Name:</mat-label>
-                                <input matInput formControlName="lastname">
-    
-                            </mat-form-field>
-                        </span>
-    
-    
+                                <mat-form-field>
+                                    <mat-label>Last Name:</mat-label>
+                                    <input matInput formControlName="lastname">
+
+                                </mat-form-field>
+                            </span>
+
+
                             <!-- Email  -->
                             <span class="col-1-3">
-                            <mat-form-field>
-                                <mat-label>Email:</mat-label>
-                                <input matInput formControlName="email" [readonly]="flag==true?true:false">   
-    
-                            </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label>Email:</mat-label>
+                                    <input matInput formControlName="email" [readonly]="flag==true?true:false">
+
+                                </mat-form-field>
                             </span>
                             <span class="col-1-3">
                                 <!-- Phone  -->
-                            <mat-form-field>
+                                <mat-form-field>
                                     <mat-label>Phone:</mat-label>
                                     <input matInput formControlName="phone">
                                 </mat-form-field>
@@ -61,9 +61,9 @@
                             <span class="col-1-3">
                                 <!-- Fax  -->
                                 <mat-form-field>
-                                        <mat-label>Fax:</mat-label>
-                                        <input matInput formControlName="fax">
-                                    </mat-form-field>
+                                    <mat-label>Fax:</mat-label>
+                                    <input matInput formControlName="fax">
+                                </mat-form-field>
                             </span>
                             <span class="col-1-2" *ngIf="action=='edit'">
                                 <mat-form-field>
@@ -72,105 +72,118 @@
                                 </mat-form-field>
                             </span>
                             <span class="col-1-2" *ngIf="action=='edit'">
-                                <a class="cpass"  (click)="change_password()" *ngIf="action!='add'" color="accent">CHANGE PASSWORD</a>
+                                <a class="cpass" (click)="change_password()" *ngIf="action!='add'" color="accent">CHANGE
+                                    PASSWORD</a>
                             </span>
-    
-    
+
+
                             <!-- Password  -->
                             <span class="col-1-2">
-                            <mat-form-field *ngIf="action=='add'">
-                                <mat-label>Password:</mat-label>
-                                <input matInput type="password" formControlName="password">
-    
-                            </mat-form-field>
-                        </span>
-    
-    
+                                <mat-form-field *ngIf="action=='add'">
+                                    <mat-label>Password:</mat-label>
+                                    <input matInput type="password" formControlName="password">
+
+                                </mat-form-field>
+                            </span>
+
+
                             <!-- Confirm Password  -->
                             <span class="col-1-2">
-                            <mat-form-field *ngIf="action=='add'">
-                                <mat-label>Confirm Password:</mat-label>
-                                <input matInput type="password" formControlName="confirmpassword">
-    
-                            </mat-form-field>
-                        </span>
-    
-    
+                                <mat-form-field *ngIf="action=='add'">
+                                    <mat-label>Confirm Password:</mat-label>
+                                    <input matInput type="password" formControlName="confirmpassword">
+
+                                </mat-form-field>
+                            </span>
+
+
                             <!-- Address  -->
                             <span class="col-1-1">
-                            <mat-form-field>
-                                <mat-label>Address:</mat-label>
-                                <input matInput formControlName="address">
-    
-                            </mat-form-field>
-                        </span>
-    
-    
+                                <mat-form-field>
+                                    <mat-label>Address:</mat-label>
+                                    <input matInput formControlName="address">
+
+                                </mat-form-field>
+                            </span>
+
+
                             <!-- State  -->
                             <span class="col-1-3">
-                            <mat-form-field>
-                                <mat-label>State</mat-label>
-                                <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
-                                    <mat-option [value]=0>Select a category</mat-option>
-                                    <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </span>
-    
+                                <mat-form-field>
+                                    <mat-label>State</mat-label>
+                                    <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                                        <mat-option [value]=0>Select a category</mat-option>
+                                        <mat-option *ngFor="let state of states;" value="{{ state.name }}">
+                                            {{ state.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </span>
+
                             <!-- City  -->
-                            <span class="col-1-3">    
-                            <mat-form-field>
-                                <mat-label>City</mat-label>
-                                <mat-select formControlName="city">
-                                    <mat-option [value]=0>Select a category</mat-option>
-                                    <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </span>
-    
-    
-    
-    
+                            <span class="col-1-3">
+                                <mat-form-field>
+                                    <mat-label>City</mat-label>
+                                    <mat-select formControlName="city">
+                                        <mat-option [value]=0>Select a category</mat-option>
+                                        <mat-option *ngFor="let city of cities;" value="{{ city }}">{{ city }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </span>
+
+
+
+
                             <!-- ZIP  -->
-                            <span class="col-1-3"> 
-                            <mat-form-field>
-                                <mat-label>ZIP:</mat-label>
-                                <input matInput formControlName="zip">
-    
-                            </mat-form-field>
+                            <span class="col-1-3">
+                                <mat-form-field>
+                                    <mat-label>ZIP:</mat-label>
+                                    <input matInput formControlName="zip">
+
+                                </mat-form-field>
                             </span>
-    
-    
-                            
-    
-    
-    
-    
+
+
+
+
+
+
+
                             <!-- Status -->
-                            <span class="col-1-3"> 
-                            <mat-label>Status:</mat-label><br>
-                            <mat-checkbox formControlName="status">Active</mat-checkbox>
+                            <span class="col-1-3">
+                                <!-- Status -->
+                               
+                                <span class="col-1-1">
+                                    <span class="checkradiowrapper">
+                                        <mat-label class="checkradiotitle">Status</mat-label>
+                                        <mat-radio-group aria-label="Select an option" formControlName="status">
+                                            <mat-radio-button [value]=1>Active</mat-radio-button>
+                                            <mat-radio-button [value]=0>Blocked</mat-radio-button>
+                                        </mat-radio-group><br>
+                                    </span>
+                                </span>
                             </span>
-    
+
                             <!-- Buttons  -->
                             <span class="button_wrapper">
-                               
+
                                 <!-- <button mat-flat-button type="button" (click)="change_password()" *ngIf="action!='add'" color="accent">CHANGE PASSWORD</button> -->
                             </span>
                         </form>
-            </mat-list-item>
-            <mat-list-item class="formfooter">
-                    <span class="button_wrapper">
-                    <button mat-flat-button type="reset" class="bluebutton">RESET</button>
-                    <button mat-flat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">{{btn_text}}
-                    </button>
-                    </span>
-            </mat-list-item>
-            </mat-list>
-                    </mat-card-content>
-            
-                <!-- <mat-card-content class="bred_cram_wrapper">
+                    </mat-list-item>
+                    <mat-list-item class="formfooter">
+                        <span class="button_wrapper">
+                            <button mat-flat-button type="reset" class="bluebutton">RESET</button>
+                            <button mat-flat-button type="button" class="skybutton" (click)="onSubmit()"
+                                color="primary">{{btn_text}}
+                            </button>
+                        </span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+
+            <!-- <mat-card-content class="bred_cram_wrapper">
                     <a mat-list-item routerLinkActive="active" routerLink="/dashboard-admin"> Dashboard </a>
                     <a mat-list-item routerLinkActive="active" routerLink="/admin/salesrep-management/list"> SalesRep
                         list </a>
@@ -180,11 +193,11 @@
                 </mat-card-content> -->
 
 
-                <!-- <mat-card-content class="from_wrapper">
+            <!-- <mat-card-content class="from_wrapper">
 
                      <h1 class="form_header">{{ header_txt }}</h1> 
                     
                 </mat-card-content> -->
-            </mat-card>
+        </mat-card>
     </span>
 </app-adminheader>

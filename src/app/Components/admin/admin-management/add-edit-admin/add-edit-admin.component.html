@@ -27,7 +27,7 @@
                                    <span class="col-1-4">
                                         <mat-form-field>
                                              <mat-label>User Id</mat-label>
-                                             <input matInput type="text">
+                                             <input matInput type="text" formControlName="user_id">
                                         </mat-form-field>
                                    </span>
 
@@ -105,7 +105,7 @@
                                    <span class="col-1-2" *ngIf="action=='edit'">
                                         <mat-form-field>
                                              <mat-label>Password</mat-label>
-                                             <input matInput type="password">
+                                             <input matInput type="password" value="***************************">
                                              <mat-error>Password is required.</mat-error>
                                         </mat-form-field>
 
@@ -200,14 +200,14 @@
 
 
                                    <!-- Status -->
-                                   <span class="col-1-1">
+                                   <!-- <span class="col-1-1">
                                         <span class="checkradiowrapper" *ngIf="action=='add'">
                                              <mat-label class="checkradiotitle">Status</mat-label><br>
                                              <mat-checkbox formControlName="status">Active</mat-checkbox><br>
                                         </span>
-                                   </span>
+                                   </span> -->
                                    <span class="col-1-1">
-                                        <span class="checkradiowrapper" *ngIf="action=='edit'">
+                                        <span class="checkradiowrapper">
                                              <mat-label class="checkradiotitle">Status</mat-label>
                                              <mat-radio-group aria-label="Select an option" formControlName="status">
                                                   <mat-radio-button [value]=1>Active</mat-radio-button>
@@ -225,7 +225,7 @@
                          <mat-list-item class="formfooter">
                               <span class="button_wrapper">
                                    <button mat-flat-button type="reset" class="bluebutton">RESET</button>
-                                   <button mat-flat-button type="submit" class="skybutton">{{btn_text}} </button>
+                                   <button mat-flat-button type="submit" class="skybutton" (click)="onSubmit()">{{btn_text}} </button>
                               </span>
                          </mat-list-item>
 

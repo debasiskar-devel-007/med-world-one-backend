@@ -117,15 +117,17 @@ export class AddEditInventoryComponent implements OnInit {
   generateForm() {
     this.inventoryForm = this.formBuilder.group({
       inventory_name: ['', [Validators.required]],
-      source: [],
-      brand_name: [],
-      inventory_category: [],
+      source: ["",[Validators.required]],
+      brand_name: ["",[Validators.required]],
+      inventory_category: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
+      wholesaleprice:['',Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
       condition: ['New',],
       yom: [],
+      priority:['',Validators.required],
       items: new FormArray([]),
       dynamic_attributes: [],
       status: [],
@@ -150,7 +152,9 @@ export class AddEditInventoryComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
-      source: this.defaultData.source
+      wholesaleprice:defaultValue.wholesaleprice,
+      source: this.defaultData.source,
+      priority:this.defaultData.priority
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
@@ -174,7 +178,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ======================submit form=======================
   onSubmit() {
-
+    
     /** marking as untouched **/
     for (let x in this.inventoryForm.controls) {
       this.inventoryForm.controls[x].markAsTouched();
@@ -262,6 +266,7 @@ export class AddEditInventoryComponent implements OnInit {
   //getting the brand name
 
   getBrandName(index: any) {
+    //console.log(index);
     var data: any;
     data = {
       'source': 'category_view',
@@ -271,9 +276,10 @@ export class AddEditInventoryComponent implements OnInit {
       }
     };
     this.http.httpViaPost("datalist", data).subscribe(response => {
+      //console.log("getBrandName response",response);
       let result: any;
       result = response.res;
-      this.brand_name_array = result[0].brand;
+      this.brand_name_array = result[0].brand_data;
     });
   }
 

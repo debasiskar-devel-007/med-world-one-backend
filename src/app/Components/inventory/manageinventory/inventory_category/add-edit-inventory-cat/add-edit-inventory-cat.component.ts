@@ -23,7 +23,7 @@ export class AddEditInventoryCatComponent implements OnInit {
 
 
   // ====================declarations==================
-  public header_txt: string = "Add an inventory header";
+  public header_txt: string;
   public btn_text: string = "SUBMIT";
   public inventoryCategoryForm: FormGroup;
   public condition: any;
@@ -74,6 +74,7 @@ export class AddEditInventoryCatComponent implements OnInit {
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+        this.header_txt = "Add an inventory Category";
         break;
       case 'edit':
         /* Button text */
@@ -118,11 +119,11 @@ export class AddEditInventoryCatComponent implements OnInit {
   generateForm() {
     this.inventoryCategoryForm = this.formBuilder.group({
       category_name: ['', [Validators.required]],
-      parent_category: [],
+      parent_category: [""],
       description: ['', [Validators.required]],
       priority: ['', [Validators.required]],
-      status: [],
-      brand_id: ['', [Validators.required]]
+      status: [false],
+      brand_id: ['']
     });
 
 
@@ -236,15 +237,18 @@ export class AddEditInventoryCatComponent implements OnInit {
 
   // =======================SUBMIT==========================
   onSubmit() {
-
+//console.log(this.inventoryCategoryForm.value);
     /** marking as untouched **/
     for (let x in this.inventoryCategoryForm.controls) {
       this.inventoryCategoryForm.controls[x].markAsTouched();
     }
 
     /** validation for brands **/
-    if (this.brand_array.length == 0)
+    if (this.brand_array.length == 0){
+      //console.log("this.errCode",this.errCode);
       this.errCode = true;
+      return false;
+    }
 
     if (this.inventoryCategoryForm.invalid) {
       return;

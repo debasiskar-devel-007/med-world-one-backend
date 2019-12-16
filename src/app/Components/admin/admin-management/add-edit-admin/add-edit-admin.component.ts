@@ -7,6 +7,7 @@ import { matchpwd, nameValidator, phoneValidator } from '../../../common/validat
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import * as moment from 'moment';
+
 export interface DialogData {
   msg: string;
 }
@@ -37,13 +38,19 @@ export class AddEditAdminComponent implements OnInit {
   public cities: any;
   public states: any;
   public date: any;
-  public myDate : any;
+  public myDate: any;
+  public domainUrl: any = "{'domainUrl':'https://dev.mdstockinternational.com/reset-password'}";
   // ==========================================================
 
 
   constructor(private formBuilder: FormBuilder, public cookieService: CookieService,
-    private http: HttpServiceService, private router: Router, public activatedRoute: ActivatedRoute,
+    public http: HttpServiceService, private router: Router, public activatedRoute: ActivatedRoute,
     public dialog: MatDialog) {
+
+
+
+
+
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -52,10 +59,6 @@ export class AddEditAdminComponent implements OnInit {
           this.defaultData = resolveData.adminList.res[0];
           this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
         });
-        /** getting the state  **/
-        setTimeout(() => {
-          this.getCityByName(this.defaultData.state);
-        }, 500);
       }
       else
         this.action = "add";
@@ -67,9 +70,8 @@ export class AddEditAdminComponent implements OnInit {
     this.user_data = JSON.parse(allData.user_details);
     this.role = this.user_data.type;
 
-    if(this.action == 'add')
-    this.date = moment(this.myDate).format('MM/DD/YYYY');
-    console.log(this.date);
+    if (this.action == 'add')
+      this.date = moment(this.myDate).format('MM/DD/YYYY');
   }
 
 
@@ -79,36 +81,51 @@ export class AddEditAdminComponent implements OnInit {
 
   ngOnInit() {
 
-
-    //Generating the form on ngOnInit
-    this.generateForm();
-
-    //getting the cities
+    /** getting all states **/
     this.allStateCityData();
-
-
-
-
-
-
-
 
     // Case 
     switch (this.action) {
-
       case 'add':
         /* Button text */
         this.btn_text = "SUBMIT";
+
+        /** generating the current date  **/
         this.myDate = new Date();
-        
+
+        /** generating the user id **/
+        this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+          this.adminForm.patchValue({ user_id: response.userID });
+        });
+
+        //Generating the form on ngOnInit
+        this.generateForm();
+
+        setTimeout(() => {
+          //getting the cities
+          this.allStateCityData();
+        }, 300);
+
+
         break;
       case 'edit':
         /* Button text */
         this.btn_text = "UPDATE";
-        this.successMessage = "One row updated!!!";
+
+
+        /** getting the state  **/
+        setTimeout(() => {
+          this.getCityByName(this.defaultData.state);
+        }, 300);
+
+        /** generating the form **/
+        this.generateForm();
+        this.successMessage = "Admin Record Updated!!!";
         this.setDefaultValue(this.defaultData);
         this.header_txt = "Edit Admin Information";
         this.flag = true;
+
+
         break;
     }
 
@@ -135,7 +152,7 @@ export class AddEditAdminComponent implements OnInit {
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
     this.adminForm.patchValue({
-
+      user_id: defaultValue.user_id,
       firstname: defaultValue.firstname,
       lastname: defaultValue.lastname,
       email: defaultValue.email,
@@ -147,6 +164,7 @@ export class AddEditAdminComponent implements OnInit {
       zip: defaultValue.zip,
       status: defaultValue.status
     })
+
   }
   // ======================================================================================
 
@@ -159,7 +177,7 @@ export class AddEditAdminComponent implements OnInit {
   // ==============GENERATE FORM==================
   generateForm() {
     this.adminForm = this.formBuilder.group({
-      user_id: [],
+      user_id: [{ value: "", disabled: true }],
       date_added: [{ value: this.date, disabled: true }],
       firstname: ["", [Validators.required]],
       lastname: ["", [Validators.required]],
@@ -171,7 +189,7 @@ export class AddEditAdminComponent implements OnInit {
       state: [],
       city: [],
       zip: [],
-      status: [],
+      status: [1],
       type: ['admin']
     });
   }
@@ -182,6 +200,7 @@ export class AddEditAdminComponent implements OnInit {
   change_password() {
     let data: any = {
       width: '250px',
+      panelClass:'changepassword',
       data: {
         header: "Change Password",
         message: "Record Saved Successfully",
@@ -232,6 +251,7 @@ export class AddEditAdminComponent implements OnInit {
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
 
+    console.log(this.adminForm.value);
 
 
     if (this.adminForm.invalid) {
@@ -240,12 +260,14 @@ export class AddEditAdminComponent implements OnInit {
     else {
 
       //status
-      if (this.adminForm.value.status) {
+      console.log("++++++++++++", this.adminForm.value.status);
+      if (this.adminForm.value.status == true)
         this.adminForm.value.status = parseInt("1");
-      }
-      else {
+      else
         this.adminForm.value.status = parseInt("0");
-      }
+
+      console.log(this.adminForm.value);
+
 
       delete this.adminForm.value.confirmpassword;
 
@@ -254,8 +276,8 @@ export class AddEditAdminComponent implements OnInit {
         "source": 'users',
         "data": Object.assign(this.adminForm.value, this.condition),
         "token": this.cookieService.get('jwtToken')
-
       };
+
 
       /**delete password when id not null */
       if (postData.data.id) {

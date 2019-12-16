@@ -119,7 +119,7 @@ export class AddEditPriceMarkupManagementComponent implements OnInit {
   //form for price markup//
   generateForm() {
     this.priceMarkupForm = this.formBuilder.group({
-      country: ['', Validators.required],
+      country: ["0", Validators.required],
       setValue: ['', Validators.required],
       notes: []
 

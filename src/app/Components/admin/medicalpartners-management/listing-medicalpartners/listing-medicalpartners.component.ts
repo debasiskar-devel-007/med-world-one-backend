@@ -17,12 +17,11 @@ export class ListingMedicalpartnersComponent implements OnInit {
 
   // ===============================Declarations=========================
   mpData: any = [];
-  mpData_skip: any = ["_id", "password","contactphones","contactemails","address",
-  "noofdoctors","noofbeds","type","image","noofstaffs","fullname","images",'salesrepselect',"user_full_name"];
+  mpData_skip: any = ["_id", "password","contactemail","address","zip"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
-   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date",'email':'Primary Email',
-   "salesrepname":"SalesRep"
+   "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date Added",'email':'Email Address',
+   "salesrepname":"SalesRep","user id":"User ID","contactphones":"contact number"
   };
   tableName: any = 'users';
   UpdateEndpoint: any = "addorupdatedata";
@@ -31,7 +30,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
   searchingEndpoint: any = "datalist";
   editUrl: any = 'admin/medicalpartners-management/edit';
   apiUrl: any = this.http.baseUrl;
-  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+  status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
   view:any='user_view';
   detail_header: any = ['_id', 'type', 'password','status','salesrepselect','images'];
   public search_settings: any =
@@ -39,7 +38,8 @@ export class ListingMedicalpartnersComponent implements OnInit {
       selectsearch: [{ label: 'status...', field: 'status', values: this.status }],
       textsearch: [{ label: "hospital name", field: 'hospitalname' },
       { label: "state", field: 'state' },
-      { label: "speciality", field: 'speciality' }],
+      // { label: "speciality", field: 'speciality' }
+    ],
       datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };
   // ====================================================================

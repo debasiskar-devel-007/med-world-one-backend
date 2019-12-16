@@ -70,6 +70,7 @@ export class ListingPurchaseComparisonComponent implements OnInit {
     if (this.headerFlag == 'admin') {
       this.activatedRoute.data.subscribe(resolveData => {
         this.purchaseFormData = resolveData.data.res;
+       
       });
 
       setTimeout(() => {

@@ -73,13 +73,24 @@ import { AddcontactinfoComponent } from '../Components/miscellaneous/addcontacti
 import { QuotesCartComponent } from '../Components/frontend/quotes-cart/quotes-cart.component';
 import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
+import { QuoteViewComponent } from '../Components/backend/sales-rep/quote-view/quote-view.component';
+import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { PurchaseComparisonSearchListComponent } from '../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
+import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
+import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent,canActivate: [AuthService]},
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'login/:id', component: LoginComponent },
+  { path: 'login/:id/:token', component: LoginComponent },
+
+
+
+  { path: 'home', component: HomePageComponent},
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
@@ -87,16 +98,19 @@ const routes: Routes = [
   { path: 'medical-partners', component: MedicalPartnersComponent },
   // Auth Route
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   //Admin Dashboard
-  { path: 'dashboard-admin', component: DashboardAdminComponent },
-  //Medical Dashboard 
-  { path: 'dashboard-medical-partner', component: DashboardAdminComponent },
+  { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  //Medical Dashboard
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService]},
   //SalesRep Dashboard
-  { path: 'dashboard-salesrep', component: DashboardAdminComponent },
+  { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+
+   { path:'admin/quote-view/:id/:hospitalid', component:QuoteViewComponent,canActivate: [AuthguardService]},
+  // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
 
 
 
@@ -397,7 +411,8 @@ const routes: Routes = [
 
 
   //________________INVENTORY LIST_________________
-
+  { path: 'inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
+  { path: 'salesrep/inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
   {
@@ -426,6 +441,24 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
+
+  // _________________purchase comaprison search  list________________
+
+  
+  {
+     path: 'admin/inventory/purchase-comparison-search-list', 
+     component: PurchaseComparisonSearchListComponent,  
+     resolve: { inventoryList: ResolveService },
+  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, 
+  },
+  {
+    path: 'admin/inventory/inventory-details/:_id',
+    component: AdminInventoryDetailsComponent,  
+    resolve: { inventoryList: ResolveService },
+ data: { requestcondition: { source: 'inventories_list_view',condition: {}},endpoint: 'datalist'}, 
+  },
+
+
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
 data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},canActivate: [AuthguardService]},
@@ -464,10 +497,52 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   },
 
 
+           /*Manage Quotes */
+
+    {path:'admin/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+       
+    }},
+
+     /**manage purchase quote for salesref */
+     
+    {path:'salesrep/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: {'salesrepid_object':'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }},
+
+     /**manage purchase quote for Hospital */
+     
+     {path:'hospital/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+     resolve: { purchasequotelist: ResolveService },
+     data: {
+       requestcondition: {
+         source: 'quote-details_view',
+         condition: {'hospital_id_object':'user_id'}
+       },
+       endpoint: 'datalist'
+ 
+     }},
+
+    
+
+
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
-  { path: 'cart', component: QuotesCartComponent },
+  { path: 'cart', component: QuotesCartComponent,canActivate: [AuthguardService]},
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -625,7 +700,8 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   // ==================================================================================
 
   // admin frontend
-  { path: 'login', component: LoginAdminComponent },
+  // { path: 'login', component: LoginAdminComponent },
+  // { path: 'login/:id', component: LoginAdminComponent },
   { path: 'hospital-login', component: HospitalLoginComponent },
   {
     path: 'hospital/my-details',
@@ -675,7 +751,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     resolve: { data: ResolveService },
     data: {
       requestcondition: {
-        'source': 'users_view',
+        'source': 'users',
         'condition': { 'type': 'hospital' }
       },
       endpoint: 'datalist'

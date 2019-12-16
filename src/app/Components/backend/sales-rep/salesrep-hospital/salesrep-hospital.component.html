@@ -3,10 +3,62 @@
     <mat-card-content class="my_details_wrapper">
       <mat-toolbar class="header_part">
         <h2>My Hospitals</h2>
-        <p> Hospital Information </p>
+        <!-- SHARE LINK FOR HOSPITAL SIGN UP -->
+        <!-- <mat-toolbar class="share_linkBar">
+          <mat-card-content class="share_LL">SHARE LINK FOR HOSPITAL SIGN UP</mat-card-content>
+          <span class="copyLinkWrappr">
+            <mat-label class="share_link">{{sharelink}}</mat-label>
+            <button mat-button type="button" (click)="copytoclipboard()"><i class="fa fa-clipboard"
+                aria-hidden="true"></i>
+            </button>
+          </span>
+
+          <mat-card-content class="social_media_wrapper">
+            <a target="_blank"
+              href="https://www.facebook.com/sharer.php?u=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i
+                class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a target="_blank"
+              href="https://www.linkedin.com/sharing/share-offsite/?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i
+                class="fa fa-linkedin" aria-hidden="true"></i></a>
+            <a target="_blank"
+              href="https://twitter.com/intent/tweet?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i
+                class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a target="_blank"
+              href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i
+                class="fa fa-tumblr" aria-hidden="true"></i></a>
+          </mat-card-content>
+        </mat-toolbar> -->
+        <fieldset class="shareLinkWrapper">
+            <legend class="link_title">Share Link For hospital Sign up</legend>
+
+            <mat-toolbar class="share_linkBar">
+                <!-- <mat-card-content class="share_LL">SHARE LINK FOR HOSPITAL SIGN UP</mat-card-content> -->
+                <span class="copyLinkWrappr">
+                    <mat-label class="share_link">{{sharelink}}</mat-label>
+                    <button mat-button type="button" (click)="copytoclipboard()"><i class="fa fa-clipboard"
+                            aria-hidden="true"></i>
+                    </button>
+                </span>
+
+                <mat-card-content class="social_media_wrapper">
+                    <!-- <button mat-button><i class="fa fa-facebook" aria-hidden="true"></i></button>
+                    <button mat-button><i class="fa fa-linkedin" aria-hidden="true"></i></button>
+                    <button mat-button><i class="fa fa-twitter" aria-hidden="true"></i></button>
+                    <button mat-button><i class="fa fa-tumblr" aria-hidden="true"></i></button> -->
+
+                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://twitter.com/intent/tweet?url=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://www.tumblr.com/widgets/share/tool?shareSource=legacy&canonicalUrl=https://dev-hospital-signup.mdstockinternational.com{{id}}"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+                </mat-card-content>
+            </mat-toolbar>
+
+        </fieldset>
+        <!-- end -->
+
       </mat-toolbar>
-      <mat-toolbar class="button_wrapper">
-        <button mat-button class="manage_button" routerLink="/salesrep/hospital/manage-hospital">Add hospital</button>
+      <mat-toolbar class="manage_button">
+        <button mat-button class="manage_button" routerLink="/salesrep/hospital/manage-hospital">Add</button>
       </mat-toolbar>
 
       <!-- item wrapper -->
@@ -24,7 +76,7 @@
             <mat-card-title class="title">{{hospital.hospitalname}}</mat-card-title>
 
             <mat-list class="item_list">
-              <mat-list-item> <span> Date Added :</span>&nbsp;{{hospital.date}}</mat-list-item>
+              <mat-list-item> <span> Date Added :</span>&nbsp;{{hospital.date_added}}</mat-list-item>
               <mat-list-item> <span> Contact Person :</span>&nbsp;{{hospital.contactperson}}</mat-list-item>
               <mat-list-item> <span> Phone(s) :</span>&nbsp;{{hospital.contactphones}}</mat-list-item>
               <mat-list-item> <span> Email(s) :</span>&nbsp;{{hospital.email}}</mat-list-item>
@@ -35,7 +87,7 @@
               <!-- <mat-list-item> <span> Speciality</span>:&nbsp;{{hospital.speciality}}</mat-list-item> -->
               <span class="buttonwrapper">
                 <button mat-button class="btnblue">View Detailes</button>
-                <button mat-button class="btnred">View Quotes</button>
+                <button mat-button class="btnblue">View Quotes</button>
               </span>
             </mat-list>
             <!-- <mat-list class="item_list">
