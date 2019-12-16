@@ -1,118 +1,24 @@
-.front_main {
-  display: block;
-  border-radius: 0;
-  padding: 0;
-  background: #fff;
+.front_main { display: block; border-radius: 0; padding: 0; background: #fff; }
+.front_main:after { content: ''; position: absolute; border-bottom: 2px solid #d9d9d9; width: 100%; bottom: 54px; }
+.frontend_nav { position: relative; height: auto; padding: 0; display: flex; justify-content: space-between; width: 1460px; margin: 0 auto; background: transparent; min-height: 78px;
+  flex-direction: column; }
+.frontend_nav .logo_wrapper { cursor: pointer; display: flex; align-items: center; justify-content: flex-start; background: #fff; position: relative; margin: 16px; }
+.frontend_nav .logo_wrapper img { max-width: 100%; }
+.frontend_nav .logo_wrapper:focus { outline: none;}
+.frontend_nav .listing_container { display: flex; padding: 0; width: 100%;}
+.frontend_nav .listing_container .mat-list-item { color: #1e6cbb; height: auto; justify-content: center; font-family: "AvenirRoman"; text-transform: uppercase; font-size: 20px;
+  margin: 0 4px; padding: 10px 5px;}
+
+.frontend_nav .language_container { clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%); background: #111214; width: 200px; color: #d8d8d8; font-size: 16px; text-align: -webkit-center;
+position: absolute; bottom: -35px; z-index: 1; right: 0px; }
+.active { border-top: 2px solid #bab7b7; background: rgba(0, 0, 0, .05);}
+.login { color: #000!important; background: linear-gradient(40deg, #13b4fc, #017fe5); margin-left: 30px; border-radius: 2px;}
+.signup { color: #000!important; background: linear-gradient(40deg, #ffffff, #dcdcdc); border-radius: 2px; }
+
+.toggle_button { display: none; position: absolute; color: #fff; right: 0px; z-index: 9999; top: 60px; background: #001d39; border-radius: 0; padding: 0 10px; min-width: auto;
 }
 
-.front_main:after {
-  content: '';
-  position: absolute;
-  border-bottom: 2px solid #d9d9d9;
-  width: 100%;
-  bottom: 54px;
-}
-
-.frontend_nav {
-  position: relative;
-  height: auto;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  width: 1460px;
-  margin: 0 auto;
-  background: transparent;
-  min-height: 78px;
-  flex-direction: column;
-}
-
-.frontend_nav .logo_wrapper {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: #fff;
-  position: relative;
-  margin: 16px;
-}
-
-.frontend_nav .logo_wrapper img {
-  max-width: 100%;
-}
-
-.frontend_nav .logo_wrapper:focus {
-  outline: none;
-}
-
-.frontend_nav .listing_container {
-  display: flex;
-  padding: 0;
-  width: 100%;
-}
-
-.frontend_nav .listing_container .mat-list-item {
-  color: #1e6cbb;
-  height: auto;
-  justify-content: center;
-  font-family: "AvenirRoman";
-  text-transform: uppercase;
-  font-size: 20px;
-  margin: 0 4px;
-  padding: 10px 5px;
-}
-
-.frontend_nav .language_container {
-  clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%);
-  background: #111214;
-  width: 200px;
-  color: #d8d8d8;
-  font-size: 16px;
-  text-align: -webkit-center;
-  position: absolute;
-  bottom: -35px;
-  z-index: 1;
-  right: 0px;
-}
-
-.active {
-  border-top: 2px solid #bab7b7;
-  background: rgba(0, 0, 0, .05);
-}
-
-.login {
-  color: #000!important;
-  background: linear-gradient(40deg, #13b4fc, #017fe5);
-  margin-left: 30px;
-  border-radius: 2px;
-}
-
-.signup {
-  color: #000!important;
-  background: linear-gradient(40deg, #ffffff, #dcdcdc);
-  border-radius: 2px;
-}
-
-.toggle_button {
-  display: none;
-  position: absolute;
-  color: #fff;
-  right: 0px;
-  z-index: 9999;
-  top: 60px;
-  background: #001d39;
-  border-radius: 0;
-  padding: 0 10px;
-  min-width: auto;
-}
-
-.a_pro {
-  margin-bottom: 0;
-  margin-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+.a_pro { margin-bottom: 0; margin-left: 10px; display: flex; justify-content: center; align-items: center; }
 .a_pro i {
   color: #fff;
   cursor: pointer;
@@ -179,7 +85,19 @@
   margin: 0 auto;
   display: block; padding: 12px 0 10px
 }
-
+.floating_button {
+  position: fixed;
+  top: 60px;
+  right: 10px;
+  background: #ee220c;
+  color: #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.floating_button img{ max-width: 100%;}
 
 
 @media screen and (max-width: 1560px) {
@@ -233,19 +151,7 @@
     display: block;
   }
 }
- .floating_button {
-    position: fixed;
-    top: 60px;
-    right: 10px;
-    background: #147fdb;
-    color: #fff;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    padding: 12px;
-    box-sizing: border-box;
-}
-.floating_button img{ max-width: 100%;}
+
 
 @media screen and (max-width: 480px) {
 .frontend_nav  .logo_wrapper  { display: block; align-items: center; justify-content: flex-start; margin: 12px 0; width: 260px; }
