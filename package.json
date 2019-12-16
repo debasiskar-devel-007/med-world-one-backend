@@ -38,7 +38,6 @@
     "ngx-clipboard": "^12.3.0",
     "ngx-cookie-service": "^2.2.0",
     "ngx-daterangepicker-material": "^2.1.9",
-    "ngx-meta": "github:ngx-meta/core",
     "ngx-moment": "^3.5.0",
     "ngx-uploader": "^7.1.0",
     "npm": "^6.13.2",
