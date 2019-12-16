@@ -1,20 +1,4 @@
-.floating_button{ position: fixed;
-  top: 40%;
-  right: 10px;
-  background: #147fdb;
-  font-family: 'AvenirMedium';
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #fff;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  min-width: inherit;}
-  .example-tooltip-red{ background: #147fdb;}
+
 
 .sh_buyfrmus_topblock { background: url("../../../../assets/images/inventoryTopBanner.jpg") no-repeat 100% center; background-size: cover;}
 .sh_buyfrmus_topblock .sh_buyfrmus_content_wrapper { padding: 30px 800px 30px 6.5%;}
@@ -38,6 +22,7 @@
 .sh_view_inv_blok2 .sh_search_wrapper .searchfilter .filter_wrapper button .mat-icon{ transform: rotate(90deg); }
 .search_bar { display: flex; justify-content: space-between; align-items: center; }
 .search_bar .searchpannel{ width: 100%; padding: 12px 10px; box-sizing: border-box; border: none;  background: #fff; text-align: left; }
+.search_bar .searchpannel:first-child{ margin-right: 10px;}
 .search_bar .seperate{ margin: 0 8px; padding: 13px; }
 .search_bar .search_button{ background: #ea240f; color: #fff; border-radius: 0; width: 270px; padding: 2px; font-size: 18px; font-family: "HelveticaRegular"; margin-left: 8px;}
 
@@ -50,7 +35,7 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w { text-align: left; margin-bottom: 5px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w h3{ font-size: 14px; font-family: "AvenirMedium"; text-transform: uppercase; color: #1f2122; margin: 0; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper .content_w p{ color: #030404; font-family: "AvenirLight"; font-size: 14px;
-  margin: 0; margin-top: 0px; word-break: break-word; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 16px; max-height: 32px;  -webkit-line-clamp: 3;
+  margin: 0; margin-top: 0px; word-break: break-word; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 16px; max-height: 50px;  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; }
 
 .sh_inventory_content .sh_inventory_content_item .content_wrapper h1{ font-size: 18px; font-family: "AvenirLight"; color: #002950; text-transform: uppercase; text-align: left; margin-bottom: 5px;
@@ -59,7 +44,7 @@
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr { line-height: 20px; }
 .sh_inventory_content .sh_inventory_content_item .content_wrapper table tr th{  color: #30373d; font-size: 14px; font-weight: normal; width: 100px;}
 
-.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between; min-height: 135px; max-height: 135px; }
+.sh_inventory_content .inner_top_wrapper  { display: flex; justify-content: space-between; min-height: 150px; max-height: 150px; }
 .sh_inventory_content .inner_top_wrapper .image_wrapper{ width: 140px; margin-bottom: 0; align-items: center; justify-content: center; display: flex; background: #fff; padding: 4px;
   box-shadow: 0px 0px 3px 0px #afafaf; box-sizing: border-box; }
 .sh_inventory_content  .inner_top_wrapper .image_wrapper img{ max-width: 100%; height: 100%; }
@@ -70,7 +55,7 @@
 
 /* new modification */
 .cataLog_wrapper { display: flex; justify-content: space-between; align-items: flex-start;}
-.cataLog_wrapper .categoyPart { min-width: 270px; border: 1px solid #d5d5d5;  box-sizing: border-box; margin: 7px 0; margin-right: 15px; text-align: left; }
+.cataLog_wrapper .categoyPart { min-width: 270px; border: 1px solid #d5d5d5;  box-sizing: border-box; margin: 7px 0; margin-right: 15px; text-align: left; display: none;}
 .cataLog_wrapper .categoyPart .categoryAll input { font-size: 18px; font-family: "AvenirMedium"; width: 100%; padding: 16px; box-sizing: border-box; border-top: 0; border-right: 0;
   border-left: 0; color: #434343;}
 .cataLog_wrapper .categoyPart .categoryAll input:focus { outline: none;  }

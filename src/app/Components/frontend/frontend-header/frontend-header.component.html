@@ -1,10 +1,10 @@
 <mat-card class="front_main">
   <mat-toolbar class="top_toolbar">
-    
+
     <span class="wrapper">
       <mat-nav-list class="top_toolbar_navigation">
 
-        <a  *ngIf="type != ''" [routerLink]="'/cart'">
+        <a *ngIf="type != ''" [routerLink]="'/cart'">
           <!-- <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon> -->
           <mat-icon>shopping_cart</mat-icon>
         </a>
@@ -15,29 +15,32 @@
     </span>
   </mat-toolbar>
 
-  
+
   <mat-toolbar class="frontend_nav">
 
     <!-- go to salesrep dashborad -->
-<ng-container *ngIf="type=='salesrep'">
-  <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-salesrep"><i class="material-icons">
-      dashboard
-      </i></button>
+    <ng-container *ngIf="type=='salesrep'">
+
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-salesrep">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
     </ng-container>
-  
+
     <!-- go to hospital dashboard -->
     <ng-container *ngIf="type=='hospital'">
-      <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-medical-partner"><i class="material-icons">
-          dashboard
-          </i></button>
-        </ng-container>
-  
-        <!-- go to admin dashboard -->
+
+        <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-medical-partner">
+          <img src="../../../../assets/images/dashboard.png">
+        </a>
+
+    </ng-container>
+
+    <!-- go to admin dashboard -->
     <ng-container *ngIf="type=='admin'">
-      <button class="floating_button" mat-button  matTooltip="Go to Dashboard" matTooltipPosition="left"  matTooltipClass="example-tooltip-red" routerLink="/dashboard-admin"><i class="material-icons">
-          dashboard
-          </i></button>
-        </ng-container>
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-admin">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
+    </ng-container>
 
 
     <mat-card-content class="logo_wrapper" routerLink="/home">
