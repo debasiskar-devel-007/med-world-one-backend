@@ -85,7 +85,7 @@ export class InventoryComponent implements OnInit {
 
   /*****Add addQuote function ******/
   addQuote(invenId: any) {
-
+ console.log("inven id",invenId);
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       if (this.flag != 0) {
         /**check inventory already exsities in cart or not */

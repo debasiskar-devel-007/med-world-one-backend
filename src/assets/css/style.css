@@ -991,7 +991,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-underline { background-color: inherit; }
 /* end quote cart css */
 /* ----------------- list view css end -------------------- */
-
+.logo_wrapper{ cursor: pointer;}
+.logo_wrapper:focus{ outline: none;}
 
 @media screen and (max-width: 1560px) {
   .dashboardcontainer {width: 85%;}

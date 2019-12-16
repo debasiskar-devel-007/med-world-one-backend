@@ -75,6 +75,8 @@ import { AdminDashboardHospitalViewdetailsComponent } from '../Components/admin/
 import { AdminDetailsComponent } from '../Components/admin/admin-details/admin-details.component';
 import { QuoteViewComponent } from '../Components/backend/sales-rep/quote-view/quote-view.component';
 import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { PurchaseComparisonSearchListComponent } from '../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
+import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 
 
@@ -439,6 +441,24 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
+
+  // _________________purchase comaprison search  list________________
+
+  
+  {
+     path: 'admin/inventory/purchase-comparison-search-list', 
+     component: PurchaseComparisonSearchListComponent,  
+     resolve: { inventoryList: ResolveService },
+  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, 
+  },
+  {
+    path: 'admin/inventory/inventory-details/:_id',
+    component: AdminInventoryDetailsComponent,  
+    resolve: { inventoryList: ResolveService },
+ data: { requestcondition: { source: 'inventories_list_view',condition: {}},endpoint: 'datalist'}, 
+  },
+
+
 //_______________Admin Contact us Listing_____________//
 {path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
 data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},canActivate: [AuthguardService]},

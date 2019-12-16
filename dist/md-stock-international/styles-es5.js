@@ -332,9 +332,9 @@
           \************************************************************************************************************************************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            __webpack_require__(/*! E:\sourav\md-stock-international-development\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */ "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
-            __webpack_require__(/*! E:\sourav\md-stock-international-development\src\styles.css */ "./src/styles.css");
-            module.exports = __webpack_require__(/*! E:\sourav\md-stock-international-development\node_modules\font-awesome\css\font-awesome.css */ "./node_modules/font-awesome/css/font-awesome.css");
+            __webpack_require__(/*! /home/debasiskar/Documents/project/angular/md-stock-international-development/node_modules/@angular/material/prebuilt-themes/indigo-pink.css */ "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
+            __webpack_require__(/*! /home/debasiskar/Documents/project/angular/md-stock-international-development/src/styles.css */ "./src/styles.css");
+            module.exports = __webpack_require__(/*! /home/debasiskar/Documents/project/angular/md-stock-international-development/node_modules/font-awesome/css/font-awesome.css */ "./node_modules/font-awesome/css/font-awesome.css");
             /***/ 
         })
     }, [[3, "runtime"]]]);
