@@ -19,7 +19,7 @@ export class AuthService implements CanActivate {
     if (getToken !=null &&  user == '') {
       return true;
     } else {
-      this._router.navigate(['/dashboard-admin']);
+      // this._router.navigate(['/dashboard-admin']);
     }
   }
 }

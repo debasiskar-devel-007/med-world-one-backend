@@ -83,14 +83,14 @@ import { AddinventorylistingquoteComponent } from '../Components/inventory/addin
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
   { path: 'login/:id/:token', component: LoginComponent },
 
 
 
-  { path: 'home', component: HomePageComponent,canActivate: [AuthService]},
+  { path: 'home', component: HomePageComponent},
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
@@ -105,7 +105,7 @@ const routes: Routes = [
   //Admin Dashboard
   { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
   //Medical Dashboard
-  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService] },
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService]},
   //SalesRep Dashboard
   { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
 
