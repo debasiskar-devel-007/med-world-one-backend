@@ -33,7 +33,7 @@ export class SalesRepLoginComponent implements OnInit {
   doLogin() {
     this.cookieService.set( 'loginFlag', 'sales-rep' );
     this.loginFlag = this.cookieService.get('loginFlag');
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 
 }

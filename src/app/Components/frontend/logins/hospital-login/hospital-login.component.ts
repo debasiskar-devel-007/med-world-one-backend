@@ -36,7 +36,7 @@ export class HospitalLoginComponent implements OnInit {
   doLogin() {
     this.cookieService.set( 'loginFlag', 'hospital' );
     this.loginFlag = this.cookieService.get('loginFlag');
-    this.router.navigate(['/home']);
+    // this.router.navigate(['/home']);
   }
 
 }

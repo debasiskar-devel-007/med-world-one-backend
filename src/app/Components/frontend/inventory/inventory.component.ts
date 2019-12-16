@@ -31,7 +31,7 @@ export class InventoryComponent implements OnInit {
     public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
       
       this.qouteDetails()
-      this.getCategoryList();
+      //this.getCategoryList();
 
       this.meta.setTitle('MD Stock International - Inventory');
       this.meta.setTag('og:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
@@ -57,7 +57,7 @@ export class InventoryComponent implements OnInit {
       this.categoryList = resolveData.inventoryList.category;
       this.brandList = resolveData.inventoryList.brands;
         //console.log(resolveData.inventoryList.category);
-      console.log(resolveData.inventoryList.inventory);
+      //console.log(resolveData.inventoryList.inventory);
       //console.log(resolveData.inventoryList.brands);
     });
   }
@@ -68,15 +68,15 @@ export class InventoryComponent implements OnInit {
   }
 
    /** category list **/
-   getCategoryList() {
-    var data: any = {
-      source: 'inventory_category_view_async'
-    }
-    this.httpServiceService.httpViaPost('datalist', data).subscribe((response:any) => {
-      this.categoryList = response.res;
-     // console.log(response);
-    });
-  }
+  //  getCategoryList() {
+  //   var data: any = {
+  //     source: 'inventory_category_view_async'
+  //   }
+  //   this.httpServiceService.httpViaPost('datalist', data).subscribe((response:any) => {
+  //     this.categoryList = response.res;
+  //    // console.log(response);
+  //   });
+  // }
 
 
   /**search Brand Function */
@@ -117,7 +117,8 @@ export class InventoryComponent implements OnInit {
       
       let postData ={
         "source": "inventories_list_view_async",
-        'condition':condition
+        'condition':condition,
+        "limit":30
       }
       // console.log(postData);
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {

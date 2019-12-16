@@ -83,10 +83,10 @@ import { AddinventorylistingquoteComponent } from '../Components/inventory/addin
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
-  { path: 'login/:id/:token', component: LoginComponent },
+  // { path: 'login/:id/:token', component: LoginComponent },
 
 
 

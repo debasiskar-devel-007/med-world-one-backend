@@ -119,7 +119,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
   search(){
       
     let postData ={
-      "source": "inventories_list_view",
+      "source": "inventories_list_view_async",
       'condition':{
         'category_id_object':this.inventory_cat,
         'brand_id_object':this.inventory_brand,
