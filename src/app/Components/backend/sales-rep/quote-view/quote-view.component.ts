@@ -100,6 +100,7 @@ public notes:string;
         "inventory_details":this.quotedetails
       }
     }
+    //console.log(postData);
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       if(response.status="success"){
       this._snackBar.open('Data Updated','', {

@@ -110,7 +110,7 @@
               <input  name='awesome' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" type="number" (keyup)="calculatevalue()"  value="{{element.price}}"  placeholder="{{tax}}" />
             </span>
           </td>
-          <td mat-footer-cell *matFooterCellDef>Total Tax: {{totaltax}}</td>
+          <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>
           <!-- <td mat-footer-cell *matFooterCellDef> </td> -->
           </ng-container> 
 
