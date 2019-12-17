@@ -2,6 +2,7 @@
   <span class="listingnewstyle">
     <span class="dashboardcontainer">
       <mat-card class="main_wrapper">
+        
         <!-- Listing goes here  -->
         <!-- <lib-listing *ngIf="purchaseQListData != null && purchaseQListData.length>0"
                 [datasource]="purchaseQListData" [skip]="purchaseQListData_skip"
@@ -26,6 +27,7 @@
               </mat-form-field>
             </form>
           </span>
+          <button type="button" (click)="addPurchasequotes()">Add</button>
         </span>
         <table mat-table [dataSource]="recentlyAdded" class="mat-elevation-z8 purchase_quotes">
 

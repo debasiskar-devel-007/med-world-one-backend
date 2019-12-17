@@ -31,6 +31,19 @@ public notes:string;
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
+      let datasource:any='';
+      //console.log(this.activatedRoute.params);
+      //console.log(this.activatedRoute.snapshot.url[0].path,'1');
+      //console.log(this.activatedRoute.snapshot.url[1].path,'2');
+      //let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
+      //console.log('urlsegments',urlsegments);
+      if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
+        datasource='quoteviewasync';
+      }
+      if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+        datasource='purchasequoteviewasync';
+      }
+
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
@@ -40,7 +53,7 @@ public notes:string;
         "hospital_id":this.activatedRoute.snapshot.params.hospitalid,
         "id":this.activatedRoute.snapshot.params.id
     }
-    this.http.httpViaPost('quoteviewasync', postData).subscribe((response: any) => {
+    this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
      //console.log(response);
      if(response.status="success"){
       console.log("quotedetails",response.quotedetails[0].inventory_details);
@@ -84,17 +97,32 @@ public notes:string;
    }
   
   ngOnInit() {
+    
     if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','subtotalprice'];
+    if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+      this.viewQuoteHeader.push('purchaseprice');
+    }
   }
+  
+ 
   viewQuoteHeader: string[] = [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice','wholesale'];
   viewData = Data;
 
 /**update quote with price */
   save(){
+
+    let source:any='';
+
+    if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
+      source='quote-details';
+    }
+    if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+      source='purchase_comparison_quote-details';
+    }
     
     let postData={
 
-      "source":"quote-details",
+      "source":source,
       "data":{
         "id":this.activatedRoute.snapshot.params.id,
         "inventory_details":this.quotedetails
@@ -106,7 +134,13 @@ public notes:string;
       this._snackBar.open('Data Updated','', {
         duration: 2000,
       });
-      this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
+      if(this.router.routerState.snapshot.url=='/admin/quote-view'){
+        this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
+      }
+      if(this.router.routerState.snapshot.url=='/admin/quote-comparison-view'){
+        this.router.navigateByUrl('/admin/managequotes/purchasquotelisting/list');
+      }
+      
     }
     })
     

@@ -250,7 +250,10 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
       this.inventory_category_list = response.res;
     });
   }
-
+  goToCart(){
+    this.router.navigateByUrl('/admin/purchasecomparision/cart');
+  }
+  
 }
 
 

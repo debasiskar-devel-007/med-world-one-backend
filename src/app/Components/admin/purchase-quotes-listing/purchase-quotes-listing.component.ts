@@ -15,6 +15,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     
 
   constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
+    console.log(router.routerState.snapshot.url);
    }
 
   ngOnInit() {
@@ -25,7 +26,20 @@ export class PurchaseQuotesListingComponent implements OnInit {
   }
 /** quote details view*/
 viewQuoteDetails(quoteid:any,hospiid:any){
-  this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+  if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasequote/list'){
+    console.log("purchase Quote listing view route");
+    this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+  }
+  
+  if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasquotelisting/list'){
+    console.log("purchase Quote listing view route");
+    this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
+  }
+  //this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
 //console.log("quote details",quoteid);
+}
+
+addPurchasequotes(){
+  this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
 }
 }

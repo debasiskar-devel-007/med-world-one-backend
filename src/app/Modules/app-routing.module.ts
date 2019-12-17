@@ -5,7 +5,7 @@ import { LoginComponent } from '../Components/auth/login/login.component';
 import { ResetPasswordComponent } from '../Components/auth/reset-password/reset-password.component';
 import { DashboardAdminComponent } from '../Components/admin/dashboard-admin/dashboard-admin.component';
 import { AuthguardService } from '../services/authguard.service';
-import {AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { AddEditAdminComponent } from '../Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from '../Components/admin/admin-management/listing-admin/listing-admin.component';
 import { ResolveService } from '../services/resolve.service';
@@ -93,24 +93,25 @@ const routes: Routes = [
 
 
 
-  { path: 'home', component: HomePageComponent},
+  { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  
 
- 
+
+
 
   //Admin Dashboard
-  { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [AuthguardService] },
   //Medical Dashboard
-  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent, canActivate: [AuthguardService] },
   //SalesRep Dashboard
-  { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  { path: 'dashboard-salesrep', component: DashboardAdminComponent, canActivate: [AuthguardService] },
 
-   { path:'admin/quote-view/:id/:hospitalid', component:QuoteViewComponent,canActivate: [AuthguardService]},
+  { path: 'admin/quote-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+  { path: 'admin/quote-comparison-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
   // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
 
 
@@ -121,7 +122,7 @@ const routes: Routes = [
 
   // _______________MANAGE ADMIN____________
   /**admin my account */
-  { path: 'admin/myaccount', component:AdminDetailsComponent,canActivate: [AuthguardService]},
+  { path: 'admin/myaccount', component: AdminDetailsComponent, canActivate: [AuthguardService] },
 
   { path: 'admin-management/add', component: AddEditAdminComponent },
   {
@@ -132,7 +133,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_admin',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -155,7 +156,7 @@ const routes: Routes = [
 
 
   //____________MANAGE MEDICAL PARTNERS_____________
-  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent,canActivate: [AuthguardService]},
+  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent, canActivate: [AuthguardService] },
   {
     path: 'admin/medicalpartners-management/list',
     component: ListingMedicalpartnersComponent,
@@ -164,7 +165,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_hospital',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -194,7 +195,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_salesrep',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -351,7 +352,7 @@ const routes: Routes = [
   // =========================================================
 
 
-  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent,canActivate: [AuthguardService] },
+  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent, canActivate: [AuthguardService] },
 
   {
     path: 'inventory/manage-inventory/inventory-category/list',
@@ -412,8 +413,8 @@ const routes: Routes = [
 
 
   //________________INVENTORY LIST_________________
-  { path: 'inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
-  { path: 'salesrep/inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
+  { path: 'inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+  { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
   {
@@ -445,26 +446,28 @@ const routes: Routes = [
 
   // _________________purchase comaprison search  list________________
 
-  
+
   {
-     path: 'admin/inventory/purchase-comparison-search-list', 
-     component: PurchaseComparisonSearchListComponent,  
-     resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, 
+    path: 'admin/inventory/purchase-comparison-search-list',
+    component: PurchaseComparisonSearchListComponent,
+    resolve: { inventoryList: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' },
   },
   {
     path: 'admin/inventory/inventory-details/:_id',
-    component: AdminInventoryDetailsComponent,  
+    component: AdminInventoryDetailsComponent,
     resolve: { inventoryList: ResolveService },
- data: { requestcondition: { source: 'inventories_list_view',condition: {}},endpoint: 'datalist'}, 
+    data: { requestcondition: { source: 'inventories_list_view', condition: {} }, endpoint: 'datalist' },
   },
 
 
-//_______________Admin Contact us Listing_____________//
-{path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
-data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},canActivate: [AuthguardService]},
-// add admin contact info
- {path:'admin-dashboard/addcontactinfo',component:AddcontactinfoComponent,canActivate: [AuthguardService]},
+  //_______________Admin Contact us Listing_____________//
+  {
+    path: 'admin-dashboard/contact', component: ContactusListingComponent, resolve: { contactlist: ResolveService },
+    data: { requestcondition: { source: 'contactus_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthguardService]
+  },
+  // add admin contact info
+  { path: 'admin-dashboard/addcontactinfo', component: AddcontactinfoComponent, canActivate: [AuthguardService] },
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -498,9 +501,10 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   },
 
 
-           /*Manage Quotes */
+  /*Manage Quotes */
 
-    {path:'admin/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+  {
+    path: 'admin/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
@@ -508,46 +512,75 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
         condition: {}
       },
       endpoint: 'datalist'
-       
-    }},
 
-     /**manage purchase quote for salesref */
-     
-    {path:'salesrep/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    }
+  },
+
+  /**manage purchase quote for salesref */
+
+  {
+    path: 'salesrep/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
         source: 'quote-details_view',
-        condition: {'salesrepid_object':'user_id'}
+        condition: { 'salesrepid_object': 'user_id' }
       },
       endpoint: 'datalist'
 
-    }},
+    }
+  },
 
-     /**manage purchase quote for Hospital */
-     
-     {path:'hospital/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
-     resolve: { purchasequotelist: ResolveService },
-     data: {
-       requestcondition: {
-         source: 'quote-details_view',
-         condition: {'hospital_id_object':'user_id'}
-       },
-       endpoint: 'datalist'
- 
-     }},
+  /**manage purchase quote for Hospital */
 
-    
+  {
+    path: 'hospital/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: { 'hospital_id_object': 'user_id' }
+      },
+      endpoint: 'datalist'
 
+    }
+  },
 
+  // purchase Quote Listing for admin 
+  {
+    path: 'admin/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+
+  // purchase Quote Listing for salesrep
+  {
+    path: 'salesrep/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
-  { path: 'cart', component: QuotesCartComponent,canActivate: [AuthguardService]},
+  { path: 'cart', component: QuotesCartComponent, canActivate: [AuthguardService] },
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent,canActivate: [AuthguardService]},
+  { path: 'home', component: HomePageComponent, canActivate: [AuthguardService] },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
@@ -604,8 +637,10 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     }
   },
   // Forntend inventory list
-  { path: 'inventory', component: InventoryComponent,  resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, },
+  {
+    path: 'inventory', component: InventoryComponent, resolve: { inventoryList: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' },
+  },
 
   { path: 'inventory-details/:id', component: InventoryDetailsComponent },
 
@@ -654,7 +689,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
-  {path:'admin/purchasecomparision/cart',component:PurchasecomparisoncartComponent,canActivate: [AuthguardService]},
+  { path: 'admin/purchasecomparision/cart', component: PurchasecomparisoncartComponent, canActivate: [AuthguardService] },
   {
     path: 'admin/inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
@@ -727,7 +762,8 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent },
 
 
-  {path: 'salesrep/my-details',component: MyDetailsComponent,resolve: { data: ResolveService },
+  {
+    path: 'salesrep/my-details', component: MyDetailsComponent, resolve: { data: ResolveService },
     data: {
       requestcondition: {
         source: 'users_view',
