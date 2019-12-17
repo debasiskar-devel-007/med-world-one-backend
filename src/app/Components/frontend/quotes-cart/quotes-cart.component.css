@@ -35,8 +35,8 @@ margin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }
 .top_quotesection label { font-family: 'AvenirMedium'; font-size: 20px; min-width: 75px; margin: 5px;}
 .top_quotesection { margin-bottom: 0; display: flex; background: #51e3ea; }
 .new{ align-items: center;}
-
 .cart_new_wrapper{ display: flex;}
+
 @media screen and (max-width: 1560px){
     .cart_wrapper { width: 90%; }
 }

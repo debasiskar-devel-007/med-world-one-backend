@@ -27,7 +27,7 @@ public totaltax:number=0;
 public totalprice:number=0;
 public purchasemarkup:number=0;
 public notes:string;
-  constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) { 
+  constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
@@ -44,10 +44,11 @@ public notes:string;
         datasource='purchasequoteviewasync';
       }
 
+
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
-   
+
 
     let postData:any={
         "hospital_id":this.activatedRoute.snapshot.params.hospitalid,
@@ -65,7 +66,7 @@ public notes:string;
       for(let i in this.quotedetails){
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         //this.quotedetails[i].price=null;
-        
+
         if(this.quotedetails[i].price==null)this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
         if(this.quotedetails[i].subtotalprice==null)this.quotedetails[i].subtotalprice=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+(parseFloat(this.quotedetails[i].wholesaleprice))*this.quotedetails[i].quantity)+parseFloat(this.quotedetails[i].tax);
         if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
@@ -75,7 +76,7 @@ public notes:string;
       }
      }
     });
-    
+
   }
 
   calculatevalue(){
@@ -85,17 +86,17 @@ public notes:string;
     this.totaltax=0;
     for(let i in this.quotedetails){
       if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
-      
+
       if(this.quotedetails[i].price==null) this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
       this.quotedetails[i].subtotalprice=(this.quotedetails[i].price)*this.quotedetails[i].quantity+parseFloat(this.quotedetails[i].tax);
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
       this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
-      this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice)); 
+      this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
     }
    }
-  
+
   ngOnInit() {
     
     if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','subtotalprice'];
@@ -119,7 +120,7 @@ public notes:string;
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       source='purchase_comparison_quote-details';
     }
-    
+
     let postData={
 
       "source":source,
@@ -143,7 +144,7 @@ public notes:string;
       
     }
     })
-    
+
   }
 
 
