@@ -76,23 +76,11 @@ position: absolute; bottom: -35px; z-index: 1; right: 0px; }
   align-items: flex-end;
 }
 .front_main .top_toolbar .top_toolbar_navigation a  .mat-icon { font-size: 22px; }
-.front_main .top_toolbar .top_toolbar_navigation a:last-child {
-  border: none;
-}
-
-.wrapper {
-  width: 1460px;
-  margin: 0 auto;
-  display: block; padding: 12px 0 10px
-}
+.front_main .top_toolbar .top_toolbar_navigation a:last-child { border: none; }
+.wrapper { width: 1460px; margin: 0 auto; display: block; padding: 12px 0 10px; }
 .floating_button { position: fixed; top: 60px; right: 10px; background: #ee220c;
-  color: #fff;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  padding: 12px;
-  box-sizing: border-box;
-}
+  color: #fff; width: 70px; height: 70px; border-radius: 50%; padding: 12px; box-sizing: border-box; z-index: 1; }
+
 .floating_button img{ max-width: 100%;}
 
 
