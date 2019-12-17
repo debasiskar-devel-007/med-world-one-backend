@@ -87,6 +87,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
   // { path: 'login/:id/:token', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
 
 
@@ -96,11 +98,9 @@ const routes: Routes = [
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  // Auth Route
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  
 
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password/:token', component: ResetPasswordComponent },
+ 
 
   //Admin Dashboard
   { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
