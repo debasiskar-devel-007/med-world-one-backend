@@ -41,3 +41,4 @@
 .quote_table_wrapper table th:first-of-type{ width: 40%;}
 .quote_table_wrapper table th:last-of-type{ width: 15%;}
 .hidecls{display: none !important;}
+.quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
