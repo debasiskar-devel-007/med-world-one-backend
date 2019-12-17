@@ -1,6 +1,6 @@
 <app-adminheader>
 
-    <mat-card-content *ngIf="userType=='salesrep'" class="medical_partners">
+    <mat-card-content *ngIf="userType=='salesrep' || userType=='admin'" class="medical_partners">
         <form>
           <mat-card-content class="top_quotesection new">
             <label mat-label>Medical Partner : </label>
@@ -51,7 +51,7 @@
                       <a (click)="minus(i)"><i class="material-icons"> keyboard_arrow_down </i></a>
                     </span>
                   </span>
-    
+                  <span>Purchased Price</span><span><input type="number" step="any"[(ngModel)]="item.purchased_price"></span>
                   <button mat-button (click)="remove(item._id,i)" class="remove">Remove</button>
                 </span>
               </mat-card-content>

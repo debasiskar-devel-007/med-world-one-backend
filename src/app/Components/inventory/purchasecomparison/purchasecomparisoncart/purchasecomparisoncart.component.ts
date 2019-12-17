@@ -13,32 +13,59 @@ export class PurchasecomparisoncartComponent implements OnInit {
   public userId:any;
   public inventoryDetailsByUserId:any=[];
   public notes:any;
-  public ids:any;
+  public ids:any=[];
   public hospitalId:any;
   public selectedValue: string;
   public userType:any;
+  public hospitalDetails: any = [];
   constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,
     public readonly meta: MetaService) {
       let userData = JSON.parse(this.cookieService.get('user_details'));
       this.userId = userData._id;
       this.userType = userData.type;
-      //console.log(this.userId,this.userType);
-     
-        let data = {
-          "source": "purchase_comparison_quote_view",
-          "condition": {
-            "user_id_object": this.userId
-          }
+
+     if(this.userType=='admin'){
+      let data = {
+        "source": "users_view_hospital_withrepdetails"
+      }
+      this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
+        //console.log(response);
+        this.hospitalDetails=response.res;
+      });
+     }
+
+     if(this.userType=='salesrep'){
+      let data = {
+        "source": "users_view_hospital_withrepdetails",
+        "condition":{
+          "salesrepid_object":this.userId
         }
-        this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
-          this.inventoryDetailsByUserId = response.res;
-          console.log(response);
-        });
-      
+      }
+      this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
+        //console.log(response);
+        this.hospitalDetails=response.res;
+      });
+     }
+        
+        this.qouteDetails();
      }
 
   ngOnInit() {
   }
+  /**get quote details respect user id */
+  qouteDetails(){
+    let data = {
+      "source": "purchase_comparison_quote_view",
+      "condition": {
+        "user_id_object": this.userId
+      }
+    }
+    this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
+      this.inventoryDetailsByUserId = response.res;
+      //console.log(response);
+    });
+  }
+
 
   plus(i: any) {
     this.inventoryDetailsByUserId[i].quantity += 1;
@@ -75,9 +102,21 @@ export class PurchasecomparisoncartComponent implements OnInit {
     }
     /**get quote function */
     getQuote() {
-       
+
+          if (this.userType=='admin' && this.hospitalId == undefined) {
+          this._snackBar.open('please select hospital','', {
+            duration: 1000,
+          });
+         
+        } 
+        if (this.userType=='salesrep' && this.hospitalId == undefined) {
+          this._snackBar.open('please select hospital','', {
+            duration: 1000,
+          });
+         
+        } 
           let postData = {
-            "source": "quote-details",
+            "source": "purchase_comparison_quote-details",
             "data":{
             "inventory_details": this.inventoryDetailsByUserId,
             "hospital_id": this.hospitalId,
@@ -89,6 +128,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
           };
     
           //console.log(postData);
+          
           for(let i in this.inventoryDetailsByUserId){
               
               this.ids.push(this.inventoryDetailsByUserId[i]._id);
@@ -96,31 +136,27 @@ export class PurchasecomparisoncartComponent implements OnInit {
           //console.log(this.ids);
     
         
-          // let deleteData={
-          //   "source": "quote",
-          //   "ids":this.ids
-          // }
+          let deleteData={
+            "source": "purchase_comparison_quote",
+            "ids":this.ids
+          }
           //console.log(deleteData);
-          // this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-          //   //console.log(response);
-          //   if(response.status="success"){
+          this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+            //console.log(response);
+            if(response.status="success"){
     
-          //     // this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-          //     //   if(response.status="success"){
-          //     //     this._snackBar.open('Your Quote Submitted Successfully','', {
-          //     //       duration: 3000,
-          //     //     });
-          //     //     this.router.navigateByUrl('/inventory');
-          //     //   }
-          //     // })  
+              this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+                if(response.status="success"){
+                  this._snackBar.open('Your Quote Submitted Successfully','', {
+                    duration: 3000,
+                  });
+                  this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
+                }
+              })  
     
-          //   }
-          // })
-    
-  
-        
-    
-  
+            }
+          })
+     
 
     }
 }
