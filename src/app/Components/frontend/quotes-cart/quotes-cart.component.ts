@@ -60,11 +60,11 @@ export class QuotesCartComponent implements OnInit {
   ngOnInit() {
   }
 
-  plus(item: any, i: any) {
+  plus(i: any) {
     this.amount = this.amount + 1;
     this.inventoryDetailsByUserId[i].quantity += 1;
   }
-  minus(item: any, i: any) {
+  minus(i: any) {
     this.amount = this.amount - 1;
     if (this.inventoryDetailsByUserId[i].quantity > 1) this.inventoryDetailsByUserId[i].quantity -= 1;
   }

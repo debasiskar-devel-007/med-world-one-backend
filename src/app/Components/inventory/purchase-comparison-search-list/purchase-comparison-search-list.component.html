@@ -48,7 +48,7 @@
 
           <!-- search by category  -->
           <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch class="searchpannel seperate" placeholder="Search By Category"
-            (keyup)="searchByCategory($event)">
+            >
             <mat-option  value=""> Select a Category</mat-option>
             <mat-option *ngFor="let cat of inventory_category_list" value="{{cat._id}}" (click)="searchBrand(cat._id)">
               {{cat.category_name}}</mat-option>

@@ -107,7 +107,7 @@
           <th mat-header-cell *matHeaderCellDef> Tax </th>
           <td mat-cell *matCellDef="let element">
             <span class="text_with_span">
-              <input  name='awesome' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" type="number" (keyup)="calculatevalue()"  value="{{element.price}}"  placeholder="{{tax}}" />
+              <input  name='awesome' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" type="number" (keyup)="calculatevalue()"  value="{{element.price}}"  placeholder="" />
             </span>
           </td>
           <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>

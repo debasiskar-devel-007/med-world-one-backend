@@ -136,9 +136,9 @@
             <input matInput placeholder="Emails" formControlName="email" [matChipInputFor]="chipListt" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="collect_email($event)" 
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"  (blur)="inputUntouch(contactusForm,'email')">
 
-            <mat-error *ngIf="contactusForm.controls.email.errors && contactusForm.controls['name'].touched" class="errortext">Email
+            <mat-error *ngIf="contactusForm.controls.email.errors && contactusForm.controls['email'].touched" class="errortext">Email
               is required</mat-error>
-              <mat-error *ngIf="contactusForm.controls.email.errors && contactusForm.controls['name'].touched
+              <mat-error *ngIf="contactusForm.controls.email.errors && contactusForm.controls['email'].touched
                && contactusForm.controls.email.email" class="errortext">Email
                 is not valid</mat-error>
             </mat-chip-list>

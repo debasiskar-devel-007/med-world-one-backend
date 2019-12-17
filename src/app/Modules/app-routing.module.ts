@@ -78,6 +78,7 @@ import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quo
 import { PurchaseComparisonSearchListComponent } from '../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
+import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 
 
 
@@ -653,6 +654,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
+  {path:'admin/purchasecomparision/cart',component:PurchasecomparisoncartComponent,canActivate: [AuthguardService]},
   {
     path: 'admin/inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
