@@ -1,0 +1,82 @@
+<app-adminheader>
+
+    <mat-card-content *ngIf="userType=='salesrep' || userType=='admin'" class="medical_partners">
+        <form>
+          <mat-card-content class="top_quotesection new">
+            <label mat-label>Medical Partner : </label>
+            <mat-form-field>
+              <mat-label>Select Medical Partner</mat-label>
+              <mat-select [(ngModel)]="selectedValue" (selectionChange)="hospitalName($event.value)" name="id">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">{{hospital.hospitalname}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-content>
+        </form>
+    
+      </mat-card-content>
+
+    <mat-card-content class="cart_item_wrapper">
+    
+        <mat-card-content class="cart_item" *ngFor="let item of inventoryDetailsByUserId;let i=index;">
+          <mat-card-content class="image_wrapper">
+            <img src="{{item.image}}">
+          </mat-card-content>
+    
+          <mat-card-content class="cart_content">
+            <table class="cart_table">
+              <tr>
+                <th>SKU # :</th>
+                <td>{{item.sku}}</td>
+              </tr>
+              <tr>
+                <th>Product Name :</th>
+                <td>{{item.inventory_name}}</td>
+              </tr>
+              <tr>
+                <th>Manufacturer :</th>
+                <td>{{item.brand}}</td>
+              </tr>
+            </table>
+    
+            <mat-toolbar class="acctions">
+              <mat-card-content class="quantity">
+                <p>qty</p>
+                <span class="counter_wrapper">
+                  <span class="inner_box">
+                    <span class="boxes">{{item.quantity}}</span>
+                    <span class="counter">
+                      <a (click)="plus(i)"><i class="material-icons"> keyboard_arrow_up </i></a>
+                      <a (click)="minus(i)"><i class="material-icons"> keyboard_arrow_down </i></a>
+                    </span>
+                  </span>
+                  <span>Purchased Price</span><span><input type="number" step="any"[(ngModel)]="item.purchased_price"></span>
+                  <button mat-button (click)="remove(item._id,i)" class="remove">Remove</button>
+                </span>
+              </mat-card-content>
+            </mat-toolbar>
+          </mat-card-content>
+        </mat-card-content>
+    
+        
+        
+    </mat-card-content>    
+    
+    
+     
+    
+    
+ 
+    <mat-card-content class="medical_partners">
+        <mat-card-content class="top_quotesection">
+          <label mat-label>Notes :</label>
+          <textarea type="text" class="form-control" (input)="onSearchChange($event.target.value)"></textarea>
+        </mat-card-content>
+      </mat-card-content>
+      <mat-card-content class="button_wrapper">
+        <button class="cart_action" mat-button color="accent" (click)="getQuote()">get quote</button>
+      </mat-card-content>
+   
+</app-adminheader>
+

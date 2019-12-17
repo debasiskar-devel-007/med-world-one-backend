@@ -7,7 +7,6 @@ import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
-import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -52,7 +51,6 @@ import { ListingBlogcatComponent } from './Components/managewebsites/blogmanagem
 
 
 //Team
-import { TeamModule } from 'team';
 import { AddEditTeamComponent } from './Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component';
 import { ListingTeamComponent } from './Components/managewebsites/teammanagement/listing-team/listing-team.component';
 import { ListingTeamCatComponent } from './Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component';
@@ -151,7 +149,9 @@ import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quot
 import { PurchaseComparisonSearchListComponent } from './Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
-
+import { FileUploadModule } from 'file-upload-lib-influxiq';
+import { TeamModule } from 'team-lib-influxiq';
+import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 
 
 @NgModule({
@@ -255,7 +255,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     ListingPurchaseComparisonComponent,
     Dialoglogin,
     Dialogloginn,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent,
 
 
   ],

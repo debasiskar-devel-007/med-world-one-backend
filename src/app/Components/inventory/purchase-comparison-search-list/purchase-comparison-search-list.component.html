@@ -1,29 +1,7 @@
 <app-adminheader>
   <!-- <app-frontend-header></app-frontend-header> -->
   <!-- go to salesrep dashborad -->
-  <ng-container *ngIf="type=='salesrep'">
-    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
-      matTooltipClass="example-tooltip-red" routerLink="/dashboard-salesrep"><i class="material-icons">
-        dashboard
-      </i></button>
-  </ng-container>
-
-  <!-- go to hospital dashboard -->
-  <ng-container *ngIf="type=='hospital'">
-    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
-      matTooltipClass="example-tooltip-red" routerLink="/dashboard-medical-partner"><i class="material-icons">
-        dashboard
-      </i></button>
-  </ng-container>
-
-  <!-- go to admin dashboard -->
-  <ng-container *ngIf="type=='admin'">
-    <button class="floating_button" mat-button matTooltip="Go to Dashboard" matTooltipPosition="left"
-      matTooltipClass="example-tooltip-red" routerLink="/dashboard-admin"><i class="material-icons">
-        dashboard
-      </i></button>
-  </ng-container>
-
+  
 
   <!-- <mat-card-content class="sh<app-adminheader>_buyfrmus_topblock">
   <mat-card-content class="sh_buyfrmus_content_wrapper">
@@ -70,7 +48,7 @@
 
           <!-- search by category  -->
           <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch class="searchpannel seperate" placeholder="Search By Category"
-            (keyup)="searchByCategory($event)">
+            >
             <mat-option  value=""> Select a Category</mat-option>
             <mat-option *ngFor="let cat of inventory_category_list" value="{{cat._id}}" (click)="searchBrand(cat._id)">
               {{cat.category_name}}</mat-option>

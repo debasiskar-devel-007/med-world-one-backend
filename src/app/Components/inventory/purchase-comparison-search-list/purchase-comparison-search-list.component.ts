@@ -16,7 +16,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
   public categoryList: any = [];
   public brandList: any = [];
   public user_id: any;
-  public inventoryUserId: any = '';
+  public inventoryUserId: any = [];
   public flag: number;
   public inventory_category_list: any;
   public flg: number = 0;
@@ -31,8 +31,9 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
+    
       this.inventoryCatagoryList = resolveData.inventoryList.inventory;
-      this.categoryList = resolveData.inventoryList.category;
+      this.inventory_category_list = resolveData.inventoryList.category;
       // this.brandList = resolveData.inventoryList.brands;
       //  console.log(resolveData.inventoryList.category);
       //console.log(resolveData.inventoryList.inventory);
@@ -41,7 +42,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
 
 
     /** getting the categorylist **/
-    this.getCategoryList();
+    // this.getCategoryList();
   }
 
   /**view details page with respective id */
@@ -125,7 +126,8 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
         'brand_id_object':this.inventory_brand,
         'sku_regex':this.inventory_sku,
         'inventory_search_regex':this.inventory_name
-      }
+      },
+      "limit":30
     }
     this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
       this.inventoryCatagoryList = res.res;
@@ -137,15 +139,16 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
   /*****Add addQuote function ******/
   addQuote(list_inven: any , inven_id:any) {
 
- console.log("inven_id",inven_id)
+ console.log("inven_id",inven_id);
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       if (this.flag != 0) {
         /**check inventory already exsities in cart or not */
         for (let i in this.inventoryUserId) {
 
           // console.log(this.inventoryUserId[i].inventory);
-                 console.log(this.inventoryUserId[i].inventory);
-          if (this.inventoryUserId[i].inventory.indexOf(inven_id) > -1) {
+                 //console.log(this.inventoryUserId[i].inventory_details._id);
+
+          if (this.inventoryUserId[i].inventory_details._id.indexOf(inven_id) > -1) {
             //console.log("inventory id match");
             this._snackBar.open('This Inventory Is Already In Your Cart', '', {
               duration: 1000,
@@ -169,7 +172,9 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
             },
             "sourceobj": ["user_id", "inventory"],
           };
+          //console.log(postData);
           this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
+            //
             console.log(res);
             this._snackBar.open('Inventory Added To Your Cart', '', {
               duration: 1000,
@@ -188,7 +193,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
         // console.log("quantity"+' '+1);
 
         let postData = {
-          "source": "quote",
+          "source": "purchase_comparison_quote",
           "data": {
             "inventory_details": list_inven,
             "user_id": this.user_id,
@@ -221,7 +226,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
       this.type = user.type;
       
       let postData = {
-        "source": "quote", "condition": {
+        "source": "purchase_comparison_quote", "condition": {
           "user_id_object": user._id
         },
       };
@@ -229,7 +234,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
         //console.log(res);
         this.inventoryUserId = res.res;
         this.flag = res.resc;
-        //console.log(this.inventoryUserId);
+       //console.log(this.inventoryUserId);
       })
     }
   }

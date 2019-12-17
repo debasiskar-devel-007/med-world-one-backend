@@ -883,7 +883,10 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .listingnewstyle mat-toolbar-row.searchbar {
   background: #00294f;
   padding: 13px;
+  justify-content: space-between;
+  height: auto;
 }
+/* .listingnewstyle mat-toolbar-row.searchbar .material-icons{display: none;} */
 .listingnewstyle mat-toolbar-row.searchbar .mat-raised-button.mat-primary{
   margin: 0 !important;
   border-radius: 0;
@@ -994,6 +997,10 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .logo_wrapper{ cursor: pointer;}
 .logo_wrapper:focus{ outline: none;}
 
+@media screen and (max-width: 1620px) {
+.listingnewstyle mat-toolbar-row.searchbar {justify-content: center !important;flex-wrap: wrap;height: auto;}
+.listingnewstyle mat-toolbar-row.searchbar mat-form-field{margin:0 5px 5px 0;}
+}
 @media screen and (max-width: 1560px) {
   .dashboardcontainer {width: 85%;}
 }

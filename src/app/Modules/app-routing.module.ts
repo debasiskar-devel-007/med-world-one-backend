@@ -78,6 +78,7 @@ import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quo
 import { PurchaseComparisonSearchListComponent } from '../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
+import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 
 
 
@@ -87,6 +88,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
   // { path: 'login/:id/:token', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
 
 
@@ -96,11 +99,9 @@ const routes: Routes = [
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  // Auth Route
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  
 
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password/:token', component: ResetPasswordComponent },
+ 
 
   //Admin Dashboard
   { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
@@ -653,6 +654,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
+  {path:'admin/purchasecomparision/cart',component:PurchasecomparisoncartComponent,canActivate: [AuthguardService]},
   {
     path: 'admin/inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,

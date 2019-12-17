@@ -26,8 +26,9 @@ export class ListingLanguageComponent implements OnInit {
   editUrl: any = 'admin-dashboard/language/edit';
   apiUrl: any = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
-  
- 
+  view:any='';
+  image_detail_datatype:any='';
+  search_settings:any={};
  
   
  

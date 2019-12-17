@@ -18,7 +18,7 @@ export class SalesrepHospitalComponent implements OnInit {
   public hospitalDetails: any = [];
   public fullImagePath: any = [];
   public sharelink:any;
-  
+  public id:any;
   constructor(public cookieService: CookieService, public httpServiceService: HttpServiceService,
     private router: Router,public snackBar: MatSnackBar,public clipboardService:ClipboardService,public readonly meta: MetaService,
     public readonly Title:Title) {
@@ -38,7 +38,7 @@ export class SalesrepHospitalComponent implements OnInit {
     this.userData = JSON.parse(this.cookieService.get('user_details'));
        /*Getting the role*/
     this.sharelink='https://dev-hospital-signup.mdstockinternational.com/'+this.userData._id;
-
+      this.id=this.userData._id;
 
     let data = {
       "source": "users_view",

@@ -19,6 +19,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ======================declarations=================
   public brand_name_array: any = [];
+  public selected:any;
   public inventoryForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add Inventory";

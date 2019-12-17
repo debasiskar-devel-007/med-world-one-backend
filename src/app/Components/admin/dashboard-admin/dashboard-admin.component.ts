@@ -139,21 +139,8 @@ export class DashboardAdminComponent implements OnInit {
 
 
   getCount() {
-    let data = {
-      "condition": {
-        "hospitaltype": {
-          "type": "hospital"
-        },
-        "salesreptype": {
-          "type": "salesrep"
-        },
-        "mckessontype": {
-          "source": "mckesson"
-        }
-      }
-    }
     /** getting the count **/
-    this.http.httpViaPost('admindashboradcount', data).subscribe((response: any) => {
+    this.http.httpViaPost('admindashboradcount', undefined).subscribe((response: any) => {
       this.count_dashboard = response;
       this.hospital_count = this.count_dashboard.hospitalcount;
       this.salesrep_count = this.count_dashboard.salesrepcount;
