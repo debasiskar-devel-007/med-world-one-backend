@@ -142,7 +142,7 @@ import { QuotesCartComponent ,Dialoggetquote} from './Components/frontend/quotes
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
-import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/quote-view.component';
+import { QuoteViewComponent ,DialogOverviewExampleDialog} from './Components/backend/sales-rep/quote-view/quote-view.component';
 
 //admin dashboard view purchase quote
 import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
@@ -257,6 +257,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     Dialoglogin,
     Dialogloginn,
     Dialoggetquote,
+    DialogOverviewExampleDialog,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent,
 
 
@@ -287,7 +288,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

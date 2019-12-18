@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+export interface DialogData {
+  data: any;
+}
 const Data = [
   { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
   { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
@@ -27,7 +30,7 @@ public totaltax:number=0;
 public totalprice:number=0;
 public purchasemarkup:number=0;
 public notes:string;
-  constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
+  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
@@ -162,5 +165,43 @@ public notes:string;
 
   }
 
+
+  showDetails(ele:any){
+    console.log(ele);
+     
+      const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+       panelClass:'viewquoteModal',
+        data: {alldata: ele}
+       
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        
+      });
+    
+  }
+
+
+
+}
+
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog-overview-example-dialog.html',
+  styleUrls: ['./quote-view.component.css']
+})
+export class DialogOverviewExampleDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      console.log(data);
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 }

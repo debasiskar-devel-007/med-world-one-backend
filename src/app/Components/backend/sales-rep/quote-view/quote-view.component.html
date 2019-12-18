@@ -50,7 +50,7 @@
             </ng-container>
 
             <ng-container *ngIf="element.product_name!=null">  {{element.product_name}}  
-              <!-- <button>View Details</button> -->
+              <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef> Note :{{notes}} </td>
