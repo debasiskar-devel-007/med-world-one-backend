@@ -417,8 +417,11 @@ const routes: Routes = [
 
   //________________INVENTORY LIST_________________
 
-  //________________INVENTORY listing quote add
+  //________________INVENTORY listing quote add for admin
   { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+
+//________________INVENTORY listing quote add for salesrep--------------
+{ path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
 
   { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
@@ -430,8 +433,8 @@ const routes: Routes = [
     resolve: { inventoryList: ResolveService },
     data: {
       requestcondition: {
-        source: 'inventories_list_view',
-        condition: {}
+        source: 'temp_inventory_view_view',
+        condition: {},limit:700
       },
       endpoint: 'datalist'
     },
@@ -521,7 +524,7 @@ const routes: Routes = [
 
     }
   },
-    /*inventory Listing  Quotes */
+    /*inventory Listing  Quotes  for admin*/
   {
     path: 'admin/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
@@ -534,6 +537,34 @@ const routes: Routes = [
 
     }
   },
+   /*inventory Listing  Quotes  for salesrep*/
+  {
+    path: 'salesrep/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote_listing_details_view',
+        condition: {'user_id_object': 'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+  /*inventory Listing  Quotes  for hospital*/
+
+  {
+    path: 'hospital/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote_listing_details_view',
+        condition: {'user_id_object': 'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+
 
   /**manage purchase quote for salesref */
 

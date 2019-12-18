@@ -70,6 +70,8 @@ public notes:string;
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         //this.quotedetails[i].price=null;
 
+
+        
         if(this.quotedetails[i].price==null)this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
         if(this.quotedetails[i].subtotalprice==null)this.quotedetails[i].subtotalprice=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+(parseFloat(this.quotedetails[i].wholesaleprice))*this.quotedetails[i].quantity)+parseFloat(this.quotedetails[i].tax);
         if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
@@ -106,6 +108,9 @@ public notes:string;
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       this.viewQuoteHeader.push('purchaseprice');
     }
+    if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      this.viewQuoteHeader=[ 'name', 'sku', 'category', 'brand', 'qty', 'saleprice',];
+    }
   }
   
  
@@ -124,7 +129,7 @@ public notes:string;
       source='purchase_comparison_quote-details';
     }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      source='quote-listing_details';
+      source='quote_listing_details';
     }
     let postData={
 
@@ -150,7 +155,7 @@ public notes:string;
       }
       /**inventory listing quote */
       if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-        this.router.navigateByUrl('/admin/inventory/inventorylistingquote/list');
+        this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
       }
     }
     })

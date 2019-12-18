@@ -34,7 +34,8 @@
                         <mat-label class="label">Source</mat-label>
                         <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
                           <mat-option value="">Select Source</mat-option>
-                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list" (click)="gethospitalName(item.hospitalname,item._id)">
+                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list"
+                            (click)="gethospitalName(item.hospitalname,item._id)">
                             {{ item.hospitalname }}
                           </mat-option>
                         </mat-select>
@@ -51,7 +52,7 @@
                     <span class="col-1-3">
                       <!-- Inventory Category mat-selection  -->
                       <!-- Inventory Category mat-selection  -->
-                      <mat-form-field *ngIf="userType!='hospital'">
+                      <mat-form-field>
                         <mat-label class="label">Category</mat-label>
                         <mat-select matNativeControl formControlName="category_id" required>
                           <mat-option value="">Select Category</mat-option>
@@ -73,7 +74,8 @@
                         <mat-label class="label">Brand</mat-label>
                         <mat-select matNativeControl formControlName="brand_id" required>
                           <mat-option value="">Select Brand</mat-option>
-                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array" (click)="getbrandName(item.brand_name)">
+                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array"
+                            (click)="getbrandName(item.brand_name)">
                             {{ item.brand_name }}
                           </mat-option>
                         </mat-select>
@@ -200,8 +202,8 @@
                     </button><br><br>
                     <!-- Status -->
 
-                    <mat-label class="label">Status</mat-label><br>
-                    <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                    <!-- <mat-label class="label">Status</mat-label><br>
+                    <mat-checkbox formControlName="status" >Active</mat-checkbox><br> -->
 
 
                     <span class="button_wrapper addlistingInventory_button_wrapper">
@@ -226,7 +228,8 @@
                 </mat-list-item>
               </mat-card-content>
               <mat-card-content class="items_content">
-                <mat-card-title class="title" *ngIf="inventoryDetails.length>0">List Inventory Quote ({{inventoryDetails.length}})</mat-card-title>
+                <mat-card-title class="title" *ngIf="inventoryDetails.length>0">List Inventory Quote
+                  ({{inventoryDetails.length}})</mat-card-title>
                 <!-- loop here -->
                 <span class="total_wrapper" *ngFor="let item of inventoryDetails">
                   <mat-card-content class="tab_item">

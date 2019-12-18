@@ -8,7 +8,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
   styleUrls: ['./purchase-quotes-listing.component.css']
 })
 export class PurchaseQuotesListingComponent implements OnInit {
-
+ public flage:number=0;
   // displayed: string[] = ['date', 'medical_partner', 'sales_rep','quoted_by', 'status', 'action'];
   displayed: string[] = ['date','Quote_ID', 'medical_partner','sales_rep', 'quoted_by', 'status', 'action'];
   public recentlyAdded:any=[];
@@ -16,7 +16,9 @@ export class PurchaseQuotesListingComponent implements OnInit {
 
   constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
     //console.log(this.activatedRoute.snapshot.url[2].path);
-   
+    if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+      this.flage=1;
+    }
    }
 
   ngOnInit() {

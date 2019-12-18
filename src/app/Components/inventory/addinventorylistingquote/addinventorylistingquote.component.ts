@@ -16,7 +16,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public ids:any=[];
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
-  public header_txt: any = "Add Listing Inventory";
+  public header_txt: any = "Add New Listing Inventory Quote";
   public btn_text: any = "SUBMIT";
   public condition: any;
   public action: any;
@@ -129,7 +129,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       yom: [],
       items: new FormArray([]),
       dynamic_attributes: [],
-      status: [],
+      status: [true],
 
     });
   }
@@ -186,13 +186,24 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   /**Fetch inventory details */
   fetchAddedInventoryDetails(){
+    // console.log(this.condition.user_id);
     let postData={
-      "source": "quote-listing_view"
+      "source": "quote-listing_view",
+      "condition":{
+        "userid_object":this.userId
+      }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
         //console.log(response.res);
         this.inventoryDetails=response.res;
     })
+
+    // for quote id
+  //   this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+  //     console.log(response.userID);
+    
+  // })
+
   }
   // ======================submit form=======================
   onSubmit() {
@@ -343,6 +354,27 @@ export class AddinventorylistingquoteComponent implements OnInit {
   /** get active hospital list **/
   getActiveHospital() {
 
+    if(this.userType=='hospital'){
+      var data: any;
+      data = {
+        'source': 'users_view',
+        'condition': {
+          '_id_object': this.userId
+        }
+          
+      };
+
+
+      this.http.httpViaPost("datalist", data).subscribe(response => {
+        console.log(response);
+        let result: any;
+        result = response.res;
+        this.active_hospital_list = result
+      });
+
+    }
+
+
     if(this.userType=='salesrep'){
       var data: any;
       data = {
@@ -352,6 +384,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
         }
           
       };
+
+
       this.http.httpViaPost("datalist", data).subscribe(response => {
         console.log(response);
         let result: any;
@@ -360,7 +394,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
       });
 
     }
-    else{
+
+
+
+    if(this.userType=='admin'){
     var data: any;
     data = {
       'source': 'users_view',
@@ -449,7 +486,7 @@ minus(){
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
           if(response.status="success"){
-          this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+          // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
           }
         })
         

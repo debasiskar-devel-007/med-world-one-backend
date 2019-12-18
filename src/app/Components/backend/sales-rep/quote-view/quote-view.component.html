@@ -50,6 +50,7 @@
             </ng-container>
 
             <ng-container *ngIf="element.product_name!=null">  {{element.product_name}}  
+              <!-- <button>View Details</button> -->
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef> Note :{{notes}} </td>
@@ -110,6 +111,22 @@
           <td mat-cell *matCellDef="let element">
             <span class="text_with_span">
               <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.price" (keyup)="calculatevalue()"  value="{{element.price}}" placeholder="{{element.price}}" />
+              <span class="action_button">
+                <!-- <button mat-button>edit</button>
+                <button mat-button>revert</button> -->
+              </span>
+            </span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>
+          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->
+        </ng-container>
+
+        <ng-container matColumnDef="saleprice" >
+          <th mat-header-cell *matHeaderCellDef> Quoted price </th>
+          <td mat-cell *matCellDef="let element">
+            <span class="text_with_span">
+              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.saleprice" (keyup)="calculatevalue()"  value="{{element.price}}" placeholder="{{element.price}}" />
               <span class="action_button">
                 <!-- <button mat-button>edit</button>
                 <button mat-button>revert</button> -->
