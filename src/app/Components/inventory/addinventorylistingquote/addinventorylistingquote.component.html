@@ -174,7 +174,7 @@
 
                       <!-- Year of manufacture -->
 
-                      <mat-form-field *ngIf="yom_flag==true">
+                      <mat-form-field *ngIf="yom_flag==true" class="yearOfManu"> 
                         <mat-label class="label">Year of manufacture</mat-label>
                         <input matInput type="number" formControlName="yom">
                       </mat-form-field>
@@ -184,7 +184,7 @@
 
                     <div formArrayName="items" class="dynamic_attributes"
                       *ngFor="let item of addinventorylistingquoteForm.get('items').controls; let i = index;">
-                      <div [formGroupName]="i">
+                      <div [formGroupName]="i" class="repeatBg">
                         <mat-form-field>
                           <input matInput formControlName="label_name" placeholder="Attribute Name">
                         </mat-form-field>
