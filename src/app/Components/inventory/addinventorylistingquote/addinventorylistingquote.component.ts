@@ -283,7 +283,12 @@ export class AddinventorylistingquoteComponent implements OnInit {
             });
             //this.defaultData.inventory_image=null;
            this.imageblockflag=false;
-           this.imageblockflag=true;
+
+           setTimeout(()=>{    //<<<---    using ()=> syntax
+            this.imageblockflag=true;
+              }, 1000);
+          
+           
             this.inventoryDetails.push(postData.data.inventory_details);
             this.router.events.subscribe(() =>
             window.scrollTo({
