@@ -34,7 +34,7 @@
                         <mat-label class="label">Source</mat-label>
                         <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
                           <mat-option value="">Select Source</mat-option>
-                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
+                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list" (click)="gethospitalName(item.hospitalname,item._id)">
                             {{ item.hospitalname }}
                           </mat-option>
                         </mat-select>
@@ -56,7 +56,7 @@
                         <mat-select matNativeControl formControlName="category_id" required>
                           <mat-option value="">Select Category</mat-option>
                           <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
-                            (click)="getBrandName(item._id )">
+                            (click)="getBrandName(item._id )" (click)="getcatagoryName(item.category_name)">
                             {{ item.category_name }}
                           </mat-option>
                         </mat-select>
@@ -73,7 +73,7 @@
                         <mat-label class="label">Brand</mat-label>
                         <mat-select matNativeControl formControlName="brand_id" required>
                           <mat-option value="">Select Brand</mat-option>
-                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
+                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array" (click)="getbrandName(item.brand_name)">
                             {{ item.brand_name }}
                           </mat-option>
                         </mat-select>
@@ -114,7 +114,7 @@
                       <!-- wholesale price -->
 
                       <mat-form-field>
-                        <mat-label class="label">Salle price</mat-label>
+                        <mat-label class="label">Sell price</mat-label>
                         <input matInput formControlName="saleprice" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
                           step="0.11" (blur)="inputBlur('saleprice')">
                         <span matPrefix></span>
@@ -226,39 +226,39 @@
                 </mat-list-item>
               </mat-card-content>
               <mat-card-content class="items_content">
-                <mat-card-title class="title">List Inventory Quote (5)</mat-card-title>
+                <mat-card-title class="title" *ngIf="inventoryDetails.length>0">List Inventory Quote ({{inventoryDetails.length}})</mat-card-title>
                 <!-- loop here -->
-                <span class="total_wrapper">
+                <span class="total_wrapper" *ngFor="let item of inventoryDetails">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
-                      <img src="../../../../assets/images/home_main_item_image.png">
+                      <img src="{{item.inventory_image}}">
                     </mat-card-content>
                     <mat-card-content class="inner_content">
 
                       <table>
                         <tr>
                           <td>Product Name :</td>
-                          <td>Product Name</td>
+                          <td>{{item.product_name}}</td>
                         </tr>
                         <tr>
                           <td>Source/Manufacturer :</td>
-                          <td>Source/Manufacturer:</td>
+                          <td>{{item.hospitalname}}</td>
                         </tr>
                         <tr>
                           <td>Category : </td>
-                          <td>Product Name</td>
+                          <td>{{item.category}}</td>
                         </tr>
                         <tr>
                           <td>SKU# :</td>
-                          <td>TEst</td>
+                          <td>{{item.sku}}</td>
                         </tr>
                         <tr>
                           <td>Quantity :</td>
-                          <td>Product Name</td>
+                          <td>{{item.quantity}}</td>
                         </tr>
                         <tr>
                           <td>Sell Price :</td>
-                          <td>Product Name</td>
+                          <td>{{item.saleprice}}</td>
                         </tr>
                       </table>
 
@@ -275,7 +275,7 @@
                 </span>
                 <!-- end loop -->
 
-                <span class="total_wrapper">
+                <!-- <span class="total_wrapper">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
                       <img src="../../../../assets/images/home_main_item_image.png">
@@ -319,9 +319,9 @@
                     <button mat-button>view details</button>
                     <button mat-button>Delete</button>
                   </mat-toolbar>
-                </span>
+                </span> -->
 
-                <span class="total_wrapper">
+                <!-- <span class="total_wrapper">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
                       <img src="../../../../assets/images/home_main_item_image.png">
@@ -365,11 +365,11 @@
                     <button mat-button>view details</button>
                     <button mat-button>Delete</button>
                   </mat-toolbar>
-                </span>
+                </span> -->
 
 
                 <!-- footer action -->
-                <mat-toolbar class="action main_action">
+                <mat-toolbar class="action main_action" *ngIf="inventoryDetails.length>0">
                   <button mat-button>Save Quote</button>
                   <button mat-button>Submit Quote</button>
                 </mat-toolbar>

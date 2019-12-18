@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 @Component({
   selector: 'app-addinventorylistingquote',
@@ -12,6 +12,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
+  public hospital_id:any;
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add Listing Inventory";
@@ -41,6 +42,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public userType:any;
   public imageblockflag:boolean=false
   public selected:any;
+  public inventoryDetails:any=[];
+  public getcatagory:any;
+  public gettbrandname:any;
+  public hospitalName:any;
   //@HostListener('window:scroll')
    //image upload 
    public configData: any = {
@@ -58,7 +63,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService,
     public http: HttpServiceService, public router: Router,
-    public activatedRoute: ActivatedRoute, public dialog: MatDialog) { 
+    public activatedRoute: ActivatedRoute,public _snackBar: MatSnackBar) { 
 
 
       let userData = JSON.parse(this.cookieService.get('user_details'));
@@ -80,7 +85,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       });
        //generating the form
     this.generateForm();
-  
+    this.fetchAddedInventoryDetails();
   }
 
   ngOnInit() {
@@ -161,13 +166,33 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   // ===================================================================================
 
-
-
+  gethospitalName(data:any,id:any){
+   // console.log(data);
+    this.hospitalName=data;
+    this.hospital_id=id;
+  }
+  getcatagoryName(catname:any){
+    //console.log(catname);
+    this.getcatagory=catname;
+  }
+  getbrandName(brndname:any){
+    //console.log(brndname);
+    this.gettbrandname=brndname;
+  }
   /** blur function **/
   inputBlur(val: any) {
     this.addinventorylistingquoteForm.controls[val].markAsUntouched();
   }
-
+  /**Fetch inventory details */
+  fetchAddedInventoryDetails(){
+    let postData={
+      "source": "quote-listing_view"
+    }
+    this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
+        //console.log(response.res);
+        this.inventoryDetails=response.res;
+    })
+  }
   // ======================submit form=======================
   onSubmit() {
     
@@ -222,13 +247,17 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
       /* start process to submited data */
+      this.addinventorylistingquoteForm.value.brandname=this.gettbrandname;
+      this.addinventorylistingquoteForm.value.catagory=this.getcatagory;
+      this.addinventorylistingquoteForm.value.hospitalname=this.hospitalName;
       let postData: any = {
         "source": 'quote-listing',
         "data":{
           "userid":this.userId,
+          "hospital_id":this.hospital_id,
           "inventory_details":this.addinventorylistingquoteForm.value
         },
-        "sourceobj": ["category_id", "brand_id","userid"],
+        "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
 
       };
       //console.log(postData);
@@ -237,10 +266,13 @@ export class AddinventorylistingquoteComponent implements OnInit {
           console.log(response);
         if (response.status == "success") {
             this.addinventorylistingquoteForm.reset();
+            this._snackBar.open('Inventory Listing Added', '', {
+              duration: 2000,
+            });
             //this.defaultData.inventory_image=null;
            this.imageblockflag=false;
            this.imageblockflag=true;
-
+            this.inventoryDetails.push(postData.data);
             this.router.events.subscribe(() =>
             window.scrollTo({
                 top: 0,

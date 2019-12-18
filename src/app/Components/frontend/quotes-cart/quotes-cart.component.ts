@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+export interface DialogData {
+
+}
 @Component({
   selector: 'app-quotes-cart',
   templateUrl: './quotes-cart.component.html',
@@ -21,7 +25,7 @@ export class QuotesCartComponent implements OnInit {
   public noteValue:any;
   public ids:any=[];
   public notes:string;
-  constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
+  constructor(public router:Router,public dialog: MatDialog,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
 
       this.meta.setTitle('MD Stock International - quotes cart');
       this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
@@ -141,15 +145,10 @@ export class QuotesCartComponent implements OnInit {
         this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
           //console.log(response);
           if(response.status="success"){
-  
+              this.openDialog();
   
             this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-              if(response.status="success"){
-                this._snackBar.open('Your Quote Submitted Successfully','', {
-                  duration: 3000,
-                });
-                this.router.navigateByUrl('/inventory');
-              }
+              
             })
             
   
@@ -193,15 +192,10 @@ export class QuotesCartComponent implements OnInit {
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         //console.log(response);
         if(response.status="success"){
-
+          this.openDialog();
 
           this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-            if(response.status="success"){
-              this._snackBar.open('Your Quote Submitted Successfully','', {
-                duration: 3000,
-              });
-              this.router.navigateByUrl('/inventory');
-            }
+           
           })
           
 
@@ -226,4 +220,38 @@ export class QuotesCartComponent implements OnInit {
       })
   }
 
+  /*******************Open Susses Modal********************************/
+  openDialog(): void {
+    const dialogRef = this.dialog.open(Dialoggetquote, {
+      panelClass: 'Login_confirm',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  /***************************************************** */
+
+}
+
+/** susess Modal*/
+@Component({
+  selector: 'Dialoggetquote',
+  templateUrl: 'success.html',
+})
+export class Dialoggetquote {
+
+  constructor(
+    public dialogRef: MatDialogRef<Dialoggetquote>, public router: Router,
+    @Inject(MAT_DIALOG_DATA) public DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  goToinventoryPage(){
+    this.router.navigateByUrl('/inventory');
+  }
+  goTodashboardPage(){
+    this.router.navigateByUrl('/dashboard-admin');
+  }
 }

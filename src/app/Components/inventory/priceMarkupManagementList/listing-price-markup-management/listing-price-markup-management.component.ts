@@ -35,8 +35,8 @@ public search_settings: any =
 // ====================================================================
 
 
-  constructor(private http: HttpServiceService, private cookieService: CookieService,
-    private router: Router, public activatedRoute: ActivatedRoute) { 
+  constructor(public http: HttpServiceService, public cookieService: CookieService,
+    public router: Router, public activatedRoute: ActivatedRoute) { 
     this.user_cookie = cookieService.get('jwtToken');
     this.apiUrl = http.baseUrl;
   }

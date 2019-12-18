@@ -15,31 +15,47 @@ export class PurchaseQuotesListingComponent implements OnInit {
     
 
   constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
-    console.log(router.routerState.snapshot.url);
+    //console.log(this.activatedRoute.snapshot.url[2].path);
+   
    }
 
   ngOnInit() {
-    this.activatedRoute.data.subscribe(resolveData => {
+    if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+     this.displayed = ['date','Quote_ID', 'status', 'action'];
+    }
+        this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     console.log(resolveData.purchasequotelist.res);
+     //console.log(resolveData.purchasequotelist.res);
     });
   }
 /** quote details view*/
 viewQuoteDetails(quoteid:any,hospiid:any){
   if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasequote/list'){
-    console.log("purchase Quote listing view route");
+    //console.log("purchase Quote listing view route");
     this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
   }
   
   if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasquotelisting/list'){
-    console.log("purchase Quote listing view route");
+    //console.log("purchasquotelisting");
     this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
   }
-  //this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
-//console.log("quote details",quoteid);
+  if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+    //console.log("inventory-listing-view");
+    this.router.navigateByUrl('/admin/inventory-listing-view/' + quoteid+'/'+hospiid);
+   }
 }
 
 addPurchasequotes(){
-  this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
+  if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+    this.router.navigateByUrl('/admin/inventory/inventorylistingquote/add');
+  }
+
+  if(this.activatedRoute.snapshot.url[2].path=='purchasquotelisting'){
+    this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
+  }
+  if(this.activatedRoute.snapshot.url[2].path=='purchasequote'){
+    this.router.navigateByUrl('/inventory');
+  }
 }
+
 }

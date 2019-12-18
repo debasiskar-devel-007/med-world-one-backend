@@ -137,7 +137,7 @@ import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './C
 
 import { MetaModule } from '@ngx-meta/core';
 import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactinfo/addcontactinfo.component';
-import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-cart.component';
+import { QuotesCartComponent ,Dialoggetquote} from './Components/frontend/quotes-cart/quotes-cart.component';
 
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
@@ -152,6 +152,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
+
 
 
 @NgModule({
@@ -255,6 +256,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     ListingPurchaseComparisonComponent,
     Dialoglogin,
     Dialogloginn,
+    Dialoggetquote,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent,
 
 
@@ -285,7 +287,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

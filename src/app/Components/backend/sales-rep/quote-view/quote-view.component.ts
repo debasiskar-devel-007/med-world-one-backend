@@ -32,16 +32,19 @@ public notes:string;
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
       let datasource:any='';
-      //console.log(this.activatedRoute.params);
-      //console.log(this.activatedRoute.snapshot.url[0].path,'1');
-      //console.log(this.activatedRoute.snapshot.url[1].path,'2');
-      //let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
-      //console.log('urlsegments',urlsegments);
+      // console.log(this.activatedRoute.params);
+      // console.log(this.activatedRoute.snapshot.url[0].path,'1');
+      // console.log(this.activatedRoute.snapshot.url[1].path,'2');
+      // let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
+      // console.log('urlsegments',urlsegments);
       if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
         datasource='quoteviewasync';
       }
       if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
         datasource='purchasequoteviewasync';
+      }
+      if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+         datasource='quotelistingasync';
       }
 
 
@@ -120,7 +123,9 @@ public notes:string;
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       source='purchase_comparison_quote-details';
     }
-
+    if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      source='';
+    }
     let postData={
 
       "source":source,
@@ -135,13 +140,18 @@ public notes:string;
       this._snackBar.open('Data Updated','', {
         duration: 2000,
       });
+      /**purchase quote */
       if(this.router.routerState.snapshot.url=='/admin/quote-view'){
         this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
       }
+
       if(this.router.routerState.snapshot.url=='/admin/quote-comparison-view'){
         this.router.navigateByUrl('/admin/managequotes/purchasquotelisting/list');
       }
-      
+      /**inventory listing quote */
+      if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+        this.router.navigateByUrl('/admin/inventory/inventorylistingquote/list');
+      }
     }
     })
 

@@ -82,6 +82,7 @@ import { PurchasecomparisoncartComponent } from '../Components/inventory/purchas
 
 
 
+
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -112,6 +113,8 @@ const routes: Routes = [
 
   { path: 'admin/quote-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
   { path: 'admin/quote-comparison-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+  { path: 'admin/inventory-listing-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+
   // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
 
 
@@ -413,7 +416,10 @@ const routes: Routes = [
 
 
   //________________INVENTORY LIST_________________
-  { path: 'inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+
+  //________________INVENTORY listing quote add
+  { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+
   { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
@@ -509,6 +515,19 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+    /*inventory Listing  Quotes */
+  {
+    path: 'admin/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-listing_view',
         condition: {}
       },
       endpoint: 'datalist'

@@ -135,7 +135,11 @@
         <!-- wholesale Column -->
         <ng-container matColumnDef="wholesale" >
           <th mat-header-cell *matHeaderCellDef> wholesale Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.wholesaleprice}} </td>
+          <td mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.wholesaleprice==null"></ng-container>
+            <ng-container *ngIf="element.wholesaleprice!=null">  {{element.wholesaleprice}} 
+            </ng-container>
+            </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>

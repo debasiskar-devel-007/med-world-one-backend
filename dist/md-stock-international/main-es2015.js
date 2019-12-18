@@ -1356,4585 +1356,6 @@ ContactusModule.decorators = [
 
 /***/ }),
 
-/***/ "./dist/file-upload/fesm2015/file-upload.js":
-/*!**************************************************!*\
-  !*** ./dist/file-upload/fesm2015/file-upload.js ***!
-  \**************************************************/
-/*! exports provided: FileUploadService, FileUploadComponent, FileUploadModule, ɵe, ɵb, ɵc, ɵd, ɵa */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadService", function() { return FileUploadService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadComponent", function() { return FileUploadComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadModule", function() { return FileUploadModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵe", function() { return MaterialModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return AlertMessageComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return DialogBoxComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵd", function() { return PreviewFilesComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return DragDropDirective; });
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/a11y */ "./node_modules/@angular/cdk/esm2015/a11y.js");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm2015/drag-drop.js");
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/esm2015/portal.js");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm2015/scrolling.js");
-/* harmony import */ var _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/cdk/stepper */ "./node_modules/@angular/cdk/esm2015/stepper.js");
-/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm2015/table.js");
-/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm2015/tree.js");
-/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/esm2015/autocomplete.js");
-/* harmony import */ var _angular_material_badge__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/badge */ "./node_modules/@angular/material/esm2015/badge.js");
-/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm2015/bottom-sheet.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm2015/button.js");
-/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/esm2015/button-toggle.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm2015/card.js");
-/* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/esm2015/checkbox.js");
-/* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/esm2015/chips.js");
-/* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/esm2015/stepper.js");
-/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/esm2015/datepicker.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/divider */ "./node_modules/@angular/material/esm2015/divider.js");
-/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
-/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/esm2015/grid-list.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm2015/input.js");
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/esm2015/list.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm2015/menu.js");
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/esm2015/core.js");
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
-/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm2015/progress-bar.js");
-/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm2015/progress-spinner.js");
-/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm2015/radio.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm2015/select.js");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/esm2015/sidenav.js");
-/* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/esm2015/slider.js");
-/* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/esm2015/slide-toggle.js");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
-/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm2015/tabs.js");
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm2015/toolbar.js");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm2015/tooltip.js");
-/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm2015/tree.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class FileUploadService {
-    /**
-     * @param {?} httpClient
-     */
-    constructor(httpClient) {
-        this.httpClient = httpClient;
-        this.BASE_URL = "http://3.15.236.141:5005/uploads";
-    }
-    /* Upload Function */
-    /**
-     * @param {?} uploadURL
-     * @param {?} data
-     * @return {?}
-     */
-    upload(uploadURL, data) {
-        /** @type {?} */
-        const formData = new FormData();
-        formData.append('file', data.file);
-        formData.append('type', data.type);
-        formData.append('path', data.path);
-        formData.append('prefix', data.prefix);
-        return this.httpClient.post(uploadURL, formData, {
-            reportProgress: true,
-            observe: 'events'
-        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])((/**
-         * @param {?} event
-         * @return {?}
-         */
-        (event) => {
-            switch (event.type) {
-                case _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpEventType"].UploadProgress:
-                    /** @type {?} */
-                    const percentage = Math.round(100 * event.loaded / event.total);
-                    if (percentage >= 0 && percentage <= 100) {
-                        return { status: 'progress', data: { totalData: event.total, loadedData: event.loaded, percentage: percentage } };
-                    }
-                    else {
-                        return { status: 'complete', data: null };
-                    }
-                case _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpEventType"].Response:
-                    if (event.body.status == 'success') {
-                        return { status: 'complete', data: event.body };
-                    }
-                    else {
-                        return { status: 'error', data: 'An error occord.' };
-                    }
-                default:
-                    return { status: 'waiting', data: '' };
-                    return `Unhandled event: ${event.type}`;
-            }
-        })));
-    }
-    /**
-     * @param {?} uploadURL
-     * @param {?} data
-     * @return {?}
-     */
-    uploadBase64(uploadURL, data) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpHeaders"]({
-                'Content-Type': 'application/json'
-            })
-        };
-        return this.httpClient.post(uploadURL, data, httpOptions);
-    }
-}
-FileUploadService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Injectable"], args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-FileUploadService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClient"] }
-];
-/** @nocollapse */ FileUploadService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_46__["defineInjectable"])({ factory: function FileUploadService_Factory() { return new FileUploadService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_46__["inject"])(_angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClient"])); }, token: FileUploadService, providedIn: "root" });
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class DialogBoxComponent {
-    /**
-     * @param {?} dialogRef
-     * @param {?} data
-     */
-    constructor(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-    }
-    /**
-     * @return {?}
-     */
-    onNoClick() {
-        this.dialogRef.close();
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-    }
-}
-DialogBoxComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Component"], args: [{
-                selector: 'lib-dialog-box',
-                template: "<h1 mat-dialog-title>Are you sure ??</h1>\n<div mat-dialog-actions>\n  <button mat-button type=\"button\" [mat-dialog-close]=\"false\" (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button type=\"button\" [mat-dialog-close]=\"true\" cdkFocusInitial>Yes</button>\n</div>",
-                styles: [""]
-            }] }
-];
-/** @nocollapse */
-DialogBoxComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MatDialogRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MAT_DIALOG_DATA"],] }] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class PreviewFilesComponent {
-    /**
-     * @param {?} dialogRef
-     * @param {?} data
-     */
-    constructor(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-    }
-    /**
-     * @return {?}
-     */
-    onNoClick() {
-        this.dialogRef.close();
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        // console.log('Preview component: ', this.data);
-    }
-}
-PreviewFilesComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Component"], args: [{
-                selector: 'lib-preview-files',
-                template: "<h2 mat-dialog-title>File Preview</h2>\n<mat-dialog-content class=\"mat-typography\">\n  <img mat-card-image [src]=\"this.data.imgURL\" *ngIf=\"this.data.imgURL\">\n</mat-dialog-content>\n<mat-dialog-actions align=\"end\">\n  <button mat-button type=\"button\" mat-dialog-close>Cancel</button>\n</mat-dialog-actions>",
-                styles: ["img{max-width:100%;max-height:64vh}"]
-            }] }
-];
-/** @nocollapse */
-PreviewFilesComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MatDialogRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MAT_DIALOG_DATA"],] }] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class FileUploadComponent {
-    /**
-     * @param {?} formBuilder
-     * @param {?} fileUploadService
-     * @param {?} ActivatedRoute
-     * @param {?} router
-     * @param {?} _snackBar
-     * @param {?} dialog
-     */
-    constructor(formBuilder, fileUploadService, ActivatedRoute$$1, router, _snackBar, dialog) {
-        this.formBuilder = formBuilder;
-        this.fileUploadService = fileUploadService;
-        this.ActivatedRoute = ActivatedRoute$$1;
-        this.router = router;
-        this._snackBar = _snackBar;
-        this.dialog = dialog;
-        this.formData = new FormData();
-        this.files = [];
-        this.filesProcess = [];
-        this.totalFile = 0;
-        this.loading = false;
-    }
-    /**
-     * @param {?} getConfig
-     * @return {?}
-     */
-    set config(getConfig) {
-        this.configData = getConfig;
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-    }
-    /* Select File Proccess */
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    selectFiles(event) {
-        this.loading = true;
-        for (let index = 0; index < event.length; index++) {
-            /** @type {?} */
-            var count = this.files.length;
-            /** @type {?} */
-            const element = event[index];
-            /* Checking Validation */
-            /** @type {?} */
-            let validate = this.checkingValidation(element);
-            if (validate.status) {
-                element.valid = { status: true };
-                element.upload = { status: 'selected' };
-                element.viewUrl = 'https://loading.io/spinners/dual-ring/lg.dual-ring-loader.gif';
-                this.files.push(element);
-                this.viewFiles(count, element);
-            }
-            else {
-                element.valid = { status: false, message: validate.message };
-                element.upload = { status: 'selected' };
-                element.viewUrl = null;
-                /** @type {?} */
-                let format = element.type.split("/");
-                element.viewText = format[1];
-                this.files.push(element);
-            }
-        }
-    }
-    /**
-     * @param {?} count
-     * @param {?} element
-     * @return {?}
-     */
-    viewFiles(count, element) {
-        /** @type {?} */
-        let format = element.type.split("/");
-        if (format[0] == 'image') {
-            /** @type {?} */
-            var reader = new FileReader();
-            /** @type {?} */
-            let imagePath = this.files[count];
-            reader.readAsDataURL(this.files[count]);
-            reader.onload = (/**
-             * @param {?} _event
-             * @return {?}
-             */
-            (_event) => {
-                /** @type {?} */
-                let imgURL = reader.result;
-                this.files[count].viewUrl = imgURL;
-            });
-        }
-        else {
-            this.files[count].viewUrl = null;
-            this.files[count].viewText = format[1];
-        }
-    }
-    /* Checking Validation */
-    /**
-     * @param {?} element
-     * @return {?}
-     */
-    checkingValidation(element) {
-        /** @type {?} */
-        let valid = { status: true, message: null };
-        /* Checking File Format */
-        /** @type {?} */
-        let format = element.type.split("/");
-        /** @type {?} */
-        let check = this.configData.format.includes(format[1]);
-        if (check == false) {
-            valid.status = false;
-            valid.message = format[1].toUpperCase() + " format not supported.";
-            this.openSnackBar(format[1].toUpperCase() + " format not supported.", '');
-            return valid;
-        }
-        /* Checking File size */
-        if (element.size / 1000 > this.configData.size) {
-            valid.status = false;
-            valid.message = "File size too large. Maximum file size limit: " + this.configData.size + " KB.";
-            this.openSnackBar("File size too large. Maximum file size limit: " + this.configData.size + " KB.", '');
-            return valid;
-        }
-        if (valid.status == true) {
-            return valid;
-        }
-    }
-    /* File Upload Process */
-    /**
-     * @param {?=} getIndex
-     * @return {?}
-     */
-    uploadAll(getIndex = null) {
-        for (let index = 0; index < this.files.length; index++) {
-            if (this.files[index].valid.status == true && this.files[index].upload.status != 'complete') {
-                this.uploading(index);
-            }
-        }
-    }
-    /* Upload */
-    /**
-     * @param {?} index
-     * @return {?}
-     */
-    uploading(index) {
-        /** @type {?} */
-        var postData = {
-            file: this.files[index],
-            type: this.configData.type,
-            path: this.configData.path,
-            prefix: this.configData.prefix,
-            uploadType: this.configData.uploadType
-        };
-        /** @type {?} */
-        var url = this.configData.baseUrl + this.configData.endpoint + '?path=' + this.configData.path + '&prefix=' + this.configData.prefix + '&type=' + this.configData.type + '&rand=' + index;
-        this.fileUploadService.upload(url, postData).subscribe((/**
-         * @param {?} response
-         * @return {?}
-         */
-        (response) => {
-            /** @type {?} */
-            let result = response;
-            switch (result.status) {
-                case 'complete':
-                    this.files[index].upload = result;
-                    this.configData.files = this.files;
-                    this.openSnackBar('Successfully Uploaded !!', 'Undo');
-                    break;
-                case 'error':
-                    this.files[index].upload = result.data;
-                    this.openSnackBar(result.data, '');
-                    break;
-                default:
-                    this.files[index].upload = result;
-                    break;
-            }
-        }), (/**
-         * @param {?} err
-         * @return {?}
-         */
-        (err) => {
-            this.files[index] = { status: 'error' };
-            this.openSnackBar('An error occurred !!', 'Retry');
-        }));
-    }
-    /* Remove Files */
-    /**
-     * @param {?=} index
-     * @return {?}
-     */
-    removeFiles(index = null) {
-        this.openDialog();
-        this.dialogRef.afterClosed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            if (result) {
-                this.files.splice(index, 1);
-                this.openSnackBar('Successfully Remove !!', '');
-            }
-        }));
-    }
-    /**
-     * @param {?} message
-     * @param {?} action
-     * @return {?}
-     */
-    openSnackBar(message, action) {
-        this._snackBar.open(message, action, {
-            duration: 2000,
-        });
-    }
-    /* Dialog Box */
-    /**
-     * @return {?}
-     */
-    openDialog() {
-        this.dialogRef = this.dialog.open(DialogBoxComponent, {
-            width: '250px',
-            data: { message: "Message" }
-        });
-    }
-    /* Delete all selected files */
-    /**
-     * @return {?}
-     */
-    deleteAll() {
-        this.openDialog();
-        this.dialogRef.afterClosed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            if (result) {
-                this.files.splice(0, this.files.length);
-                this.openSnackBar('Successfully Remove !!', '');
-            }
-        }));
-    }
-    /* Preview Files */
-    /**
-     * @param {?} index
-     * @return {?}
-     */
-    previewFiles(index) {
-        /** @type {?} */
-        var mimeType = this.files[index].type;
-        if (mimeType.match(/image\/*/) == null) {
-            this.openSnackBar('Preview not supported.', '');
-            return;
-        }
-        /** @type {?} */
-        var reader = new FileReader();
-        /** @type {?} */
-        let imagePath = this.files[index];
-        reader.readAsDataURL(this.files[index]);
-        reader.onload = (/**
-         * @param {?} _event
-         * @return {?}
-         */
-        (_event) => {
-            /** @type {?} */
-            let imgURL = reader.result;
-            /** @type {?} */
-            const dialogRef = this.dialog.open(PreviewFilesComponent, {
-                data: { imgURL: imgURL }
-            });
-        });
-    }
-}
-FileUploadComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Component"], args: [{
-                selector: 'lib-file-upload',
-                template: "<!-- File Upload -->\n<div class=\"uploadfilecontainer\" (click)=\"fileInput.click()\" libDragDrop (onFileDropped)=\"selectFiles($event)\">\n    <input hidden type=\"file\" #fileInput (change)=\"selectFiles($event.target.files)\" multiple>\n    <div class=\"uploadtextwrapper\">\n        <h2>Drag and Drop Files</h2>\n        <p>Supported Formats:\n            <ng-container *ngFor=\"let val of configData.format; let i = index\">\n                {{ val }}<ng-container *ngIf=\"i + 1 < configData.format.length\">,</ng-container>\n            </ng-container>\n        </p>\n        <p>MAX Size: {{ configData.size / 1024 | number: '.1-2' }} MB</p>\n    </div>\n</div>\n\n<div class=\"button-group\" *ngIf=\"files.length > 0\">\n    <button mat-raised-button color=\"primary\" type=\"button\" (click)=\"uploadAll();\">Upload All</button>\n    <button mat-raised-button color=\"warn\" type=\"button\" (click)=\"deleteAll();\">Delete All</button>\n</div>\n\n<div class=\"files-view\">\n    <!-- View Files -->\n    <mat-card class=\"example-card\" *ngFor=\"let file of files; let i = index;\">\n        <span class=\"viewUrlwrapper\">\n            <div *ngIf=\"file.viewUrl == null\" (click)=\"previewFiles(i);\" class=\"othersFilePreview\"> <h2 style=\"color:white; font-weight: bold;\">{{ file.viewText | uppercase }}</h2></div>\n            <img mat-card-image *ngIf=\"file.viewUrl != null\" [src]=\"file.viewUrl\" alt=\"{{ file.name }}\" (click)=\"previewFiles(i);\" />\n        </span>\n        <span class=\"viewUrlcontent\">\n            <mat-card-header>\n                <mat-card-title>{{ file.name }}</mat-card-title>\n                <mat-card-subtitle class=\"fileDescription\">Type: {{ file.type }}, Size:\n                    <ng-container *ngIf=\"file.size / 1000 > 999\">\n                        {{ file.size / 1000 / 1000 | number: '.1-2' }} MB\n                    </ng-container>\n                    <ng-container *ngIf=\"file.size / 1000 < 1000\">\n                        {{ file.size / 1000 | number: '.1-2' }} KB\n                    </ng-container>\n                </mat-card-subtitle>\n                <mat-card-subtitle class=\"error\" *ngIf=\"file.valid.status == false\">{{ file.valid.message }}\n                </mat-card-subtitle>\n            </mat-card-header>\n\n            <mat-card-content>\n                <mat-progress-bar mode=\"determinate\" *ngIf=\"file.upload.status == 'progress'\"\n                    value=\"{{ file.upload.data.percentage }}\"></mat-progress-bar>\n                <mat-progress-bar mode=\"indeterminate\" *ngIf=\"file.upload.status == 'waiting'\"></mat-progress-bar>\n            </mat-card-content>\n\n            <mat-card-actions>\n                <!-- <button mat-raised-button matTooltip=\"Preview\" *ngIf=\"file.valid.status == true\" aria-label=\"Preview\" (click)=\"previewFiles(i);\">Preview</button> -->\n\n                <button mat-raised-button color=\"primary\" type=\"button\"\n                    *ngIf=\"file.valid.status == true && file.upload.status != 'complete'\" matTooltip=\"Upload\"\n                    aria-label=\"Upload\" (click)=\"uploading(i);\">Upload</button>\n                <button mat-raised-button type=\"button\" disabled *ngIf=\"file.upload.status == 'complete'\">Upload Complete</button>\n\n                <button mat-raised-button type=\"button\" color=\"warn\" matTooltip=\"Remove\" aria-label=\"Remove\"\n                    (click)=\"removeFiles(i);\">Remove</button>\n            </mat-card-actions>\n        </span>\n    </mat-card>\n</div>",
-                styles: [".uploadfilecontainer{background-repeat:no-repeat;background-size:100px;background-position:center;height:200px;width:80%;margin:20px auto;border:2px dashed #1c8adb;border-radius:10px;text-align:center;display:flex;justify-content:center;align-items:center}.uploadfilecontainer:hover{cursor:pointer;background-color:#9ecbec!important;opacity:.8}.button-group{background-repeat:no-repeat;background-size:100px;background-position:center;height:40px;width:80%;margin:20px auto;border-radius:10px}.error.mat-card-subtitle{color:#a00;text-align:left}.example-card{margin:6px auto auto;max-width:100%}.example-header-image{background-image:url(https://material.angular.io/assets/img/examples/shiba1.jpg);background-size:cover}.progress-bar{margin-top:24px}.file-div{background-color:#dedddc;margin-top:6px}.othersFilePreview{background-color:#8a2be2;height:100%;width:100%;text-align:center;justify-content:center;align-items:center;display:flex}.fileDescription{text-align:left}.files-view{background-repeat:no-repeat;background-size:cover;background-position:center;height:auto!important;width:82%;margin:20px auto;border-radius:10px;display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap}.files-view .mat-card{position:relative;z-index:9;flex:1 1 28.33%;margin:10px!important;display:flex;flex-wrap:wrap}.viewUrlwrapper{height:160px;width:100%;overflow:hidden;position:relative}.viewUrlwrapper img{max-width:100%;-o-object-fit:cover;object-fit:cover;margin:0 auto;z-index:99;position:relative;max-width:100%;width:initial;display:block;margin-top:-46px!important}.viewUrlcontent{display:block;justify-content:center;align-items:stretch;flex-wrap:wrap;flex:1 1 100%}.viewUrlcontent .mat-card-header{display:flex;flex-direction:row;flex:1 1 100%;justify-content:center;text-align:center;flex-wrap:wrap}.viewUrlcontent .mat-progress-bar{margin-bottom:5px}.viewUrlcontent .mat-card-header .mat-card-header-text{margin:10px;width:100%}.viewUrlcontent .mat-card-header .mat-card-header-text .mat-card-title{width:100%;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;line-height:19px;max-height:40px;-webkit-line-clamp:2}.mat-typography .mat-card-image{width:inherit!important;margin:0!important}"]
-            }] }
-];
-/** @nocollapse */
-FileUploadComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
-    { type: FileUploadService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"] },
-    { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_38__["MatSnackBar"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MatDialog"] }
-];
-FileUploadComponent.propDecorators = {
-    config: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Input"] }]
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class MaterialModule {
-}
-MaterialModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["NgModule"], args: [{
-                exports: [
-                    _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_4__["A11yModule"],
-                    _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_8__["CdkStepperModule"],
-                    _angular_cdk_table__WEBPACK_IMPORTED_MODULE_9__["CdkTableModule"],
-                    _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_10__["CdkTreeModule"],
-                    _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_5__["DragDropModule"],
-                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_11__["MatAutocompleteModule"],
-                    _angular_material_badge__WEBPACK_IMPORTED_MODULE_12__["MatBadgeModule"],
-                    _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_13__["MatBottomSheetModule"],
-                    _angular_material_button__WEBPACK_IMPORTED_MODULE_14__["MatButtonModule"],
-                    _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_15__["MatButtonToggleModule"],
-                    _angular_material_card__WEBPACK_IMPORTED_MODULE_16__["MatCardModule"],
-                    _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_17__["MatCheckboxModule"],
-                    _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"],
-                    _angular_material_stepper__WEBPACK_IMPORTED_MODULE_19__["MatStepperModule"],
-                    _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_20__["MatDatepickerModule"],
-                    _angular_material_dialog__WEBPACK_IMPORTED_MODULE_21__["MatDialogModule"],
-                    _angular_material_divider__WEBPACK_IMPORTED_MODULE_22__["MatDividerModule"],
-                    _angular_material_expansion__WEBPACK_IMPORTED_MODULE_23__["MatExpansionModule"],
-                    _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_24__["MatGridListModule"],
-                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_25__["MatIconModule"],
-                    _angular_material_input__WEBPACK_IMPORTED_MODULE_26__["MatInputModule"],
-                    _angular_material_list__WEBPACK_IMPORTED_MODULE_27__["MatListModule"],
-                    _angular_material_menu__WEBPACK_IMPORTED_MODULE_28__["MatMenuModule"],
-                    _angular_material_core__WEBPACK_IMPORTED_MODULE_29__["MatNativeDateModule"],
-                    _angular_material_paginator__WEBPACK_IMPORTED_MODULE_30__["MatPaginatorModule"],
-                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_31__["MatProgressBarModule"],
-                    _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_32__["MatProgressSpinnerModule"],
-                    _angular_material_radio__WEBPACK_IMPORTED_MODULE_33__["MatRadioModule"],
-                    _angular_material_core__WEBPACK_IMPORTED_MODULE_29__["MatRippleModule"],
-                    _angular_material_select__WEBPACK_IMPORTED_MODULE_34__["MatSelectModule"],
-                    _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_35__["MatSidenavModule"],
-                    _angular_material_slider__WEBPACK_IMPORTED_MODULE_36__["MatSliderModule"],
-                    _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_37__["MatSlideToggleModule"],
-                    _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_38__["MatSnackBarModule"],
-                    _angular_material_sort__WEBPACK_IMPORTED_MODULE_39__["MatSortModule"],
-                    _angular_material_table__WEBPACK_IMPORTED_MODULE_40__["MatTableModule"],
-                    _angular_material_tabs__WEBPACK_IMPORTED_MODULE_41__["MatTabsModule"],
-                    _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_42__["MatToolbarModule"],
-                    _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_43__["MatTooltipModule"],
-                    _angular_material_tree__WEBPACK_IMPORTED_MODULE_44__["MatTreeModule"],
-                    _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["PortalModule"],
-                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_7__["ScrollingModule"],
-                ]
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class DragDropDirective {
-    constructor() {
-        this.onFileDropped = new _angular_core__WEBPACK_IMPORTED_MODULE_46__["EventEmitter"]();
-        this.background = '#f5fcff';
-        this.opacity = '1';
-    }
-    //Dragover listener
-    /**
-     * @param {?} evt
-     * @return {?}
-     */
-    onDragOver(evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        this.background = '#9ecbec';
-        this.opacity = '0.8';
-    }
-    //Dragleave listener
-    /**
-     * @param {?} evt
-     * @return {?}
-     */
-    onDragLeave(evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        this.background = '#f5fcff';
-        this.opacity = '1';
-    }
-    //Drop listener
-    /**
-     * @param {?} evt
-     * @return {?}
-     */
-    ondrop(evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        this.background = '#f5fcff';
-        this.opacity = '1';
-        /** @type {?} */
-        let files = evt.dataTransfer.files;
-        if (files.length > 0) {
-            this.onFileDropped.emit(files);
-        }
-    }
-}
-DragDropDirective.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Directive"], args: [{
-                selector: '[libDragDrop]'
-            },] }
-];
-DragDropDirective.propDecorators = {
-    onFileDropped: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Output"] }],
-    background: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["HostBinding"], args: ['style.background-color',] }],
-    opacity: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["HostBinding"], args: ['style.opacity',] }],
-    onDragOver: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["HostListener"], args: ['dragover', ['$event'],] }],
-    onDragLeave: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["HostListener"], args: ['dragleave', ['$event'],] }],
-    ondrop: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["HostListener"], args: ['drop', ['$event'],] }]
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class AlertMessageComponent {
-    constructor() {
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-    }
-}
-AlertMessageComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["Component"], args: [{
-                selector: 'lib-alert-message',
-                template: "<span class=\"example-pizza-party\">\n  An error occurred.\n</span>",
-                styles: [".example-pizza-party{color:#ff69b4}"]
-            }] }
-];
-/** @nocollapse */
-AlertMessageComponent.ctorParameters = () => [];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class FileUploadModule {
-}
-FileUploadModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_46__["NgModule"], args: [{
-                declarations: [
-                    FileUploadComponent,
-                    DragDropDirective,
-                    AlertMessageComponent,
-                    DialogBoxComponent,
-                    PreviewFilesComponent
-                ],
-                imports: [
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-                    MaterialModule,
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_45__["HttpClientModule"]
-                ],
-                providers: [],
-                exports: [FileUploadComponent],
-                entryComponents: [
-                    AlertMessageComponent,
-                    DialogBoxComponent,
-                    PreviewFilesComponent
-                ]
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-
-
-//# sourceMappingURL=file-upload.js.map
-
-/***/ }),
-
-/***/ "./dist/listing/fesm2015/listing-angular7.js":
-/*!***************************************************!*\
-  !*** ./dist/listing/fesm2015/listing-angular7.js ***!
-  \***************************************************/
-/*! exports provided: BottomSheet, Confirmdialog, ListingComponent, ListingModule, ListingService, ɵa, ɵb */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BottomSheet", function() { return BottomSheet; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Confirmdialog", function() { return Confirmdialog; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListingComponent", function() { return ListingComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListingModule", function() { return ListingModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListingService", function() { return ListingService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return ApiService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return DemoMaterialModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var ngx_uploader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-uploader */ "./node_modules/ngx-uploader/fesm2015/ngx-uploader.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/a11y */ "./node_modules/@angular/cdk/esm2015/a11y.js");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm2015/drag-drop.js");
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/esm2015/portal.js");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm2015/scrolling.js");
-/* harmony import */ var _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/cdk/stepper */ "./node_modules/@angular/cdk/esm2015/stepper.js");
-/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm2015/table.js");
-/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm2015/tree.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var ngx_moment__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-moment */ "./node_modules/ngx-moment/fesm2015/ngx-moment.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ListingService {
-    constructor() { }
-}
-ListingService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-ListingService.ctorParameters = () => [];
-/** @nocollapse */ ListingService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function ListingService_Factory() { return new ListingService(); }, token: ListingService, providedIn: "root" });
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ApiService {
-    /*@Input()
-      set uploadOutput(uploadOutput: any){
-        this.uploadOutputval = uploadOutput;
-        console.log('this.uploadOutput');
-        console.log(this.uploadOutput);
-      }*/
-    /**
-     * @param {?} _http
-     * @param {?} _authHttp
-     */
-    constructor(_http, _authHttp) {
-        this._http = _http;
-        this._authHttp = _authHttp;
-        this.domain_for_fileupload_val = 'http://developmentapi.audiodeadline.com:7031/uploads' + 'uploads';
-        this.progress = [];
-        this.uploaderror = '';
-        // public uploadOutputval:any;
-        this.fileservername = [];
-        this.options = { concurrency: 10, maxUploads: 10 };
-        this.files = []; // local uploading files array
-        this.uploadInput = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"](); // input events, we use this to emit data to ngx-uploader
-        this.humanizeBytes = ngx_uploader__WEBPACK_IMPORTED_MODULE_5__["humanizeBytes"];
-        //console.log('this.domain');
-        //console.log(this.domain);
-    }
-    /**
-     * @param {?} uploadOutput
-     * @param {?} arrayvalue
-     * @param {?} uploadtypec
-     * @param {?} uploadpath
-     * @return {?}
-     */
-    onUploadOutput(uploadOutput, arrayvalue, uploadtypec, uploadpath) {
-        // this.uploaderInput.nativeElement.value = '';
-        if (uploadOutput.type === 'allAddedToQueue') {
-            /** @type {?} */
-            const event = {
-                type: 'uploadAll',
-                url: 'http://developmentapi.audiodeadline.com:7031/uploads',
-                method: 'POST',
-                data: { path: uploadpath }
-            };
-            this.uploadInput.emit(event);
-        }
-        else if (uploadOutput.type === 'addedToQueue' && typeof uploadOutput.file !== 'undefined') {
-            if (uploadOutput.file.response != '') {
-                this.files = [];
-                this.files.push(uploadOutput.file);
-                console.log('this.files*********');
-                console.log(this.files);
-                this.lengthis = this.files.length;
-                this.percentageis = this.files[0].progress.data.percentage;
-            }
-        }
-        else if (uploadOutput.type === 'uploading' && typeof uploadOutput.file !== 'undefined') {
-            /** @type {?} */
-            const index = this.files.findIndex((/**
-             * @param {?} file
-             * @return {?}
-             */
-            file => typeof uploadOutput.file !== 'undefined' && file.id === uploadOutput.file.id));
-            this.files[index] = uploadOutput.file;
-            this.lengthis = this.files.length;
-            if (this.files[0] != null && this.files[0].progress != null)
-                this.percentageis = this.files[0].progress.data.percentage;
-            console.log('this.files==================');
-            console.log(this.files);
-        }
-        else if (uploadOutput.type === 'removed') {
-            this.files = this.files.filter((/**
-             * @param {?} file
-             * @return {?}
-             */
-            (file) => file !== uploadOutput.file));
-        }
-        else if (uploadOutput.type === 'dragOver') {
-            this.dragOver = true;
-        }
-        else if (uploadOutput.type === 'dragOut') {
-            this.dragOver = false;
-        }
-        else if (uploadOutput.type === 'drop') {
-            this.dragOver = false;
-        }
-        console.log('files');
-        console.log(this.files);
-        if (this.files[0] != null && this.files[0].progress != null) {
-            if (this.progress[arrayvalue] == null)
-                this.progress[arrayvalue] = 0;
-            this.inprogress = true;
-            console.log('file upload progressing');
-            console.log(this.files[0].progress.data.percentage);
-            this.progress[arrayvalue] = (this.files[0].progress.data.percentage);
-            if (this.progress[arrayvalue] == 100) {
-                this.progress[arrayvalue] = null;
-                this.inprogress = null;
-            }
-            console.log('this.uploadtype in api service');
-            console.log(uploadtypec);
-        }
-        if (uploadtypec == 'single') {
-            // this.fileservername = [];
-            if (this.fileservername[arrayvalue] == null)
-                this.fileservername[arrayvalue] = [];
-            this.fileservername[arrayvalue] = [];
-            if (this.files[0].response != null)
-                this.fileservername[arrayvalue].push(this.files[0].response);
-        }
-        if (uploadtypec == 'multiple') {
-            console.log('this.files[0].response');
-            // console.log(this.files[0].response);
-            console.log(this.files.length);
-            console.log(this.files);
-            if (this.fileservername[arrayvalue] == null)
-                this.fileservername[arrayvalue] = [];
-            // if(this.files[0].response!=null){
-            if (this.files.length == 1) {
-                if (this.files[0] && this.files[0].response != null && this.files[0].response.error_code == null) {
-                    this.fileservername[arrayvalue].push(this.files[0].response);
-                    this.files = [];
-                    this.uploaderror = '';
-                }
-                if (this.files[0] != null && this.files[0].response != null && this.files[0].response.error_code != null) {
-                    this.uploaderror = 'error occured on uploading !!!';
-                }
-            }
-            if (this.files.length > 1) {
-                console.log('sdfdsf==== in multiple length ');
-                for (let b in this.files) {
-                    if (this.files[b].response != null && this.files[b].response.error_code == null) {
-                        this.fileservername[arrayvalue].push(this.files[b].response);
-                    }
-                }
-                this.files = [];
-            }
-            //}
-        }
-        console.log('this.fileservername');
-        console.log(this.fileservername);
-        console.log(this.uploaderror);
-        //this.uploaderservice.filenamevalc1=this.fileservername;
-        //UploaderComponent.filenamevalc1=87;
-        //console.log(classval);
-    }
-    /**
-     * @return {?}
-     */
-    isTokenExpired() {
-        // const helper = new JwtHelperService();
-        // const decodedToken = helper.decodeToken(localStorage.getItem('id_token'));
-        // var isIdTokenExpired = helper.isTokenExpired(localStorage.getItem('id_token'));
-        // console.log('refresh_token',localStorage.getItem('refresh_token'))
-        // const isRefreshTokenExpired = helper.isTokenExpired(localStorage.getItem('refresh_token'));
-        // console.log('id_token isExpired:',isIdTokenExpired)
-        // console.log('refresh_token isExpired:',isRefreshTokenExpired)
-    }
-    /**
-     * @return {?}
-     */
-    getclientip() {
-        console.log('endpoint');
-        // this.isTokenExpired()
-        /** @type {?} */
-        var result = this._http.get("http://ipinfo.io/?format=json&token=9797c42b93078a").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @return {?}
-     */
-    getEndpoint(endpoint) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': ''
-            })
-        };
-        console.log('endpoint');
-        console.log(endpoint);
-        console.log('httpOptions');
-        console.log(httpOptions);
-        console.log('');
-        // this.isTokenExpired()
-        /** @type {?} */
-        var result = this._http.post('' + endpoint.source, {}, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @return {?}
-     */
-    getData(endpoint) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': ''
-            })
-        };
-        console.log('endpoint');
-        console.log(endpoint);
-        console.log('httpOptions');
-        console.log(httpOptions);
-        console.log('');
-        // this.isTokenExpired()
-        /** @type {?} */
-        var result = this._http.post('' + 'datalist', endpoint, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    // getData end
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @return {?}
-     */
-    postData(endpoint, data) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': data.token
-            })
-        };
-        console.log('');
-        console.log('endpoint');
-        console.log(endpoint);
-        console.log('httpOptions');
-        console.log(httpOptions);
-        /** @type {?} */
-        var result = this._http.post(this.getEndpointUrl(endpoint), JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @return {?}
-     */
-    postDatawithoutToken(endpoint, data) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json'
-            })
-        };
-        console.log('');
-        console.log('endpoint');
-        console.log(endpoint);
-        /** @type {?} */
-        var result = this._http.post(this.getEndpointUrl(endpoint), JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @return {?}
-     */
-    postlogin(endpoint, data) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json'
-            })
-        };
-        console.log('');
-        console.log('endpoint');
-        console.log(endpoint);
-        /** @type {?} */
-        var result = this._http.post(this.getEndpointUrl(endpoint), JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    } // postData end
-    // postData end
-    /**
-     * @param {?} link
-     * @param {?} token
-     * @param {?} source
-     * @return {?}
-     */
-    postSearch(link, token, source) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': token
-            })
-        };
-        console.log('------ ');
-        console.log("link in postSearch");
-        console.log(link);
-        console.log(source);
-        /** @type {?} */
-        var result = this._http.post(link, source, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} link
-     * @param {?} source
-     * @return {?}
-     */
-    postSearch1(link, source) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': source.token
-            })
-        };
-        console.log('------ ');
-        console.log("link");
-        console.log(link);
-        /** @type {?} */
-        var result = this._http.post(link, source).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @param {?} id
-     * @return {?}
-     */
-    putData(endpoint, data, id) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': ''
-            })
-        };
-        console.log('');
-        console.log("endpoint");
-        console.log(endpoint);
-        /** @type {?} */
-        var result = this._http.put(this.getEndpointUrl(endpoint) + '/' + id, JSON.stringify(data), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @param {?} token
-     * @param {?} source
-     * @return {?}
-     */
-    deteOneData(endpoint, data, token, source) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': token
-            })
-        };
-        console.log('------ ');
-        console.log("endpoint");
-        console.log(endpoint);
-        console.log(data);
-        /** @type {?} */
-        let dataval;
-        dataval = { source: source, id: data._id };
-        /** @type {?} */
-        var result = this._http.post(endpoint, dataval, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @param {?} token
-     * @param {?} source
-     * @return {?}
-     */
-    togglestatus(endpoint, data, token, source) {
-        console.log(endpoint);
-        console.log(data);
-        console.log(token);
-        console.log(source);
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': token
-            })
-        };
-        console.log('------ ');
-        console.log("endpoint");
-        console.log(endpoint);
-        console.log(data);
-        /** @type {?} */
-        let dataval;
-        dataval = { source: source, data: data };
-        /** @type {?} */
-        var result = this._http.post(endpoint, dataval, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @param {?} token
-     * @param {?} source
-     * @return {?}
-     */
-    deteManyData(endpoint, data, token, source) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': token
-            })
-        };
-        console.log('------ ');
-        console.log("endpoint");
-        console.log(endpoint);
-        console.log(data);
-        /** @type {?} */
-        let dataval;
-        dataval = { source: source, ids: data };
-        /** @type {?} */
-        var result = this._http.post(endpoint + 'many', dataval, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} endpoint
-     * @param {?} data
-     * @param {?} val
-     * @param {?} token
-     * @param {?} source
-     * @return {?}
-     */
-    togglestatusmany(endpoint, data, val, token, source) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': token
-            })
-        };
-        console.log('------ ');
-        console.log("endpoint");
-        console.log(endpoint);
-        console.log(data);
-        /** @type {?} */
-        let dataval;
-        dataval = { source: source, data: { ids: data, val: val } };
-        /** @type {?} */
-        var result = this._http.post(endpoint + 'many', dataval, httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @private
-     * @param {?} endpoint
-     * @return {?}
-     */
-    getEndpointUrl(endpoint) {
-        return '' + endpoint;
-    }
-}
-ApiService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-/** @nocollapse */
-ApiService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
-];
-ApiService.propDecorators = {
-    uploaderInput: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['fileInput1', { static: false },] }]
-};
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const moment = moment__WEBPACK_IMPORTED_MODULE_9__;
-class ListingComponent {
-    // myForm:any;
-    /**
-     * @param {?} _apiService
-     * @param {?} dialog
-     * @param {?} bottomSheet
-     * @param {?} fb
-     * @param {?} router
-     * @param {?} resolver
-     * @param {?} container
-     * @param {?} _http
-     * @param {?} sanitizer
-     */
-    constructor(_apiService, dialog, bottomSheet, fb, router, resolver, container, _http, sanitizer) {
-        this._apiService = _apiService;
-        this.dialog = dialog;
-        this.bottomSheet = bottomSheet;
-        this.fb = fb;
-        this.router = router;
-        this.resolver = resolver;
-        this.container = container;
-        this._http = _http;
-        this.sanitizer = sanitizer;
-        this.myControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]();
-        this.columns = [];
-        this.olddata = [];
-        this.tsearch = [];
-        this.autosearch = [];
-        this.result = {};
-        this.sh = false;
-        this.art = false;
-        this.aud2 = false;
-        this.aud = false;
-        /* this variable for artist xp preview */
-        this.previewFlug = false;
-        /* artistxp preview end */
-        this.stateGroups = this.searchListval;
-        this.displayedColumns = [];
-        this.datacolumns = [];
-        this.displayedColumnsheader = [];
-        this.formarray = [];
-        this.dateSearch_condition = {};
-        this.selectSearch_condition = {};
-        this.autoSearch_condition = {};
-        this.textSearch_condition = {};
-        this.loading = false;
-        this.preresult = {};
-        //dataSource = new MatTableDataSource(this.datasourceval);
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"];
-        this.router.events.subscribe((/**
-         * @param {?} event
-         * @return {?}
-         */
-        (event) => {
-            switch (true) {
-                case event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_7__["NavigationStart"]: {
-                    this.loading = true;
-                    break;
-                }
-                case event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_7__["NavigationEnd"]:
-                case event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_7__["NavigationCancel"]:
-                case event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_7__["NavigationError"]: {
-                    this.loading = false;
-                    break;
-                }
-                default: {
-                    break;
-                }
-            }
-        }));
-        /* this.myForm = this.fb.group({
-           email: ['', Validators.compose([Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)])],
-           password: ['', Validators.required]
-         });*/
-    }
-    /**
-     * @param {?} search_settings
-     * @return {?}
-     */
-    set search_settings(search_settings) {
-        this.search_settingsval = search_settings;
-        console.log('this.search_settingsval');
-        console.log(this.search_settingsval);
-        /*for (let i= 0; i<= this.search_settingsval.search.length; i++) {
-          console.log(this.search_settingsval.search[i].label);
-        }*/
-        /*  console.log(this.search_settingsval.selectsearch);
-          console.log(this.search_settingsval.selectsearch[0].label);
-          console.log(this.search_settingsval.selectsearch[0].values);
-          console.log(this.search_settingsval.datesearch);*/
-    }
-    /**
-     * @param {?} click_to_add_ananother_page
-     * @return {?}
-     */
-    set click_to_add_ananother_page(click_to_add_ananother_page) {
-        this.click_to_add_ananother_pageval = click_to_add_ananother_page;
-        console.log('this.click_to_add_ananother_pageval');
-        console.log(this.click_to_add_ananother_pageval);
-    }
-    /**
-     * @param {?} grab_link
-     * @return {?}
-     */
-    set grab_link(grab_link) {
-        this.grab_linkval = grab_link;
-        console.log('this.grab_linkval');
-        console.log(this.grab_linkval);
-    }
-    /**
-     * @param {?} custombutton
-     * @return {?}
-     */
-    set custombutton(custombutton) {
-        this.custombuttonval = custombutton;
-        console.log('this.custombuttonval');
-        console.log(this.custombuttonval);
-    }
-    /**
-     * @param {?} date_search_source
-     * @return {?}
-     */
-    set date_search_source(date_search_source) {
-        this.date_search_sourceval = date_search_source;
-        console.log('this.date_search_sourceval');
-        console.log(this.date_search_sourceval);
-    }
-    /**
-     * @param {?} date_search_endpoint
-     * @return {?}
-     */
-    set date_search_endpoint(date_search_endpoint) {
-        this.date_search_endpointval = date_search_endpoint;
-        console.log('this.date_search_endpointval');
-        console.log(this.date_search_endpointval);
-    }
-    /**
-     * @param {?} url
-     * @return {?}
-     */
-    set url(url) {
-        this.urlval = url;
-        console.log('this.urlval');
-        console.log(this.urlval);
-    }
-    /**
-     * @param {?} searchendpoint
-     * @return {?}
-     */
-    set searchendpoint(searchendpoint) {
-        this.searchendpointval = searchendpoint;
-        console.log('this.searchendpointval');
-        console.log(this.searchendpointval);
-    }
-    /**
-     * @param {?} pdf_link
-     * @return {?}
-     */
-    set pdf_link(pdf_link) {
-        this.pdf_link_val = pdf_link;
-        console.log('this.pdf_link_val');
-        console.log(this.pdf_link_val);
-    }
-    /**
-     * @param {?} searchList
-     * @return {?}
-     */
-    set searchList(searchList) {
-        this.searchListval = searchList;
-        console.log('this.searchListval');
-        console.log(this.searchListval);
-    }
-    /**
-     * @param {?} datasource
-     * @return {?}
-     */
-    set datasource(datasource) {
-        this.datasourceval = datasource;
-        console.log('this.datasourceval');
-        console.log(this.datasourceval);
-    }
-    /**
-     * @param {?} skip
-     * @return {?}
-     */
-    set skip(skip) {
-        this.skipval = skip;
-        console.log('this.skipval');
-        console.log(this.skipval);
-    }
-    /**
-     * @param {?} detail_datatype
-     * @return {?}
-     */
-    set detail_datatype(detail_datatype) {
-        this.detail_datatypeval = detail_datatype;
-        console.log('this.detail_datatypeval');
-        console.log(this.detail_datatypeval);
-    }
-    /**
-     * @param {?} detail_skip_array
-     * @return {?}
-     */
-    set detail_skip_array(detail_skip_array) {
-        this.detail_skip_arrayval = detail_skip_array;
-        console.log('this.detail_skip_arrayval');
-        console.log(this.detail_skip_arrayval);
-    }
-    /**
-     * @param {?} sourcedata
-     * @return {?}
-     */
-    set sourcedata(sourcedata) {
-        this.sourcedataval = sourcedata;
-        console.log('this.sourcedataval');
-        console.log(this.sourcedataval);
-    }
-    /**
-     * @param {?} modify_header_array
-     * @return {?}
-     */
-    set modify_header_array(modify_header_array) {
-        this.modify_header_arrayval = modify_header_array;
-        console.log('this.modify_header_arrayval');
-        console.log(this.modify_header_arrayval);
-    }
-    /**
-     * @param {?} deleteendpointval
-     * @return {?}
-     */
-    set deleteendpoint(deleteendpointval) {
-        this.deleteendpointval = deleteendpointval;
-        console.log('this.deleteendpointval');
-        console.log(this.deleteendpointval);
-    }
-    /**
-     * @param {?} updateendpoint
-     * @return {?}
-     */
-    set updateendpoint(updateendpoint) {
-        this.updateendpointval = updateendpoint;
-        console.log('this.updateendpointval');
-        console.log(this.updateendpointval);
-    }
-    /**
-     * @param {?} apiurl
-     * @return {?}
-     */
-    set apiurl(apiurl) {
-        this.apiurlval = apiurl;
-        console.log('this.apiurlval');
-        console.log(this.apiurlval);
-    }
-    /**
-     * @param {?} jwttoken
-     * @return {?}
-     */
-    set jwttoken(jwttoken) {
-        this.jwttokenval = jwttoken;
-        console.log('this.jwttokenval');
-        console.log(this.jwttokenval);
-    }
-    /**
-     * @param {?} statusarr
-     * @return {?}
-     */
-    set statusarr(statusarr) {
-        this.statusarrval = statusarr;
-        console.log('this.statusarrval');
-        console.log(this.statusarrval);
-    }
-    /**
-     * @param {?} emailarray
-     * @return {?}
-     */
-    set emailarray(emailarray) {
-        this.emailarrayval = emailarray;
-        console.log('this.emailarrayval');
-        console.log(this.emailarrayval);
-    }
-    /**
-     * @param {?} editroute
-     * @return {?}
-     */
-    set editroute(editroute) {
-        console.log('editroute');
-        console.log(editroute);
-        this.editrouteval = editroute;
-        console.log('this.editrouteval');
-        console.log(this.editrouteval);
-    }
-    /* artistxp preview start */
-    /**
-     * @param {?} flug
-     * @return {?}
-     */
-    set preview_artistxp(flug) {
-        this.previewFlug = true;
-    }
-    /*@Directive({
-        selector: '[Listing]'
-      })*/
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    inputblur(val) {
-        console.log('on blur .....');
-        this.myForm.controls[val].markAsUntouched();
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        if (this.search_settingsval != null && this.search_settingsval.search != null && this.search_settingsval.search != '') {
-            console.log('----------------');
-            /** @type {?} */
-            let source;
-            /** @type {?} */
-            let condition = {};
-            source = {
-                source: this.date_search_sourceval,
-                condition: condition
-            };
-            /** @type {?} */
-            let link = this.apiurlval + '' + this.date_search_endpointval;
-            this._apiService.postSearch(link, this.jwttokenval, source).subscribe((/**
-             * @param {?} res
-             * @return {?}
-             */
-            res => {
-                console.log(res);
-                this.result = res;
-                console.log(this.result);
-                this.preresult = this.result.res;
-                console.log(this.preresult);
-            }));
-        }
-        // this._service.success(this.columns[0].date,'dndnnd',this.options);
-        /* this.stateGroupOptions = this.myControl.valueChanges
-             .pipe(
-                 startWith(''),
-                 map(value => this._filterGroup(value))
-             );*/
-        this.stateGroup = this.myControl.valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(''), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} value
-         * @return {?}
-         */
-        value => this._filter(value))));
-        /*const factory = this.resolver.resolveComponentFactory(
-            componentMapper[this.field.type]
-        );
-        this.componentRef = this.container.createComponent(factory);
-        this.componentRef.instance.field = this.field;
-        this.componentRef.instance.group = this.group;
-    */
-        this.x = this.datasourceval;
-        /** @type {?} */
-        let x = this.x;
-        /** @type {?} */
-        let temp = [];
-        /** @type {?} */
-        let keys = x[0];
-        temp = Object.keys(keys); /*by Object.keys() we can find the fieldnames(or keys) in an object, i.e, in temp object field names are saved*/
-        /*by Object.keys() we can find the fieldnames(or keys) in an object, i.e, in temp object field names are saved*/
-        /** @type {?} */
-        let coldef_list = [];
-        /** @type {?} */
-        let header_list = [];
-        for (let i = 0; i < temp.length; i++) {
-            coldef_list.push(temp[i].replace(/\s/g, "_")); /*to replace spaces in field name by "_", we use "replace(/\s/g, "_")"*/
-            header_list.push(temp[i]);
-        }
-        //coldef_list.push('Actions');
-        //header_list.push('Actions')
-        console.log('coldef_list', coldef_list);
-        console.log('header_list', header_list);
-        for (let i = 0; i < coldef_list.length; i++) {
-            /** @type {?} */
-            let ff = `row.${coldef_list[i]}`;
-            /** @type {?} */
-            var tt = { columnDef: `${coldef_list[i]}`, header: `${header_list[i].replace(/_/g, " ")}`, cell: (/**
-                 * @param {?} row
-                 * @return {?}
-                 */
-                (row) => eval(ff)), objlength: header_list.length };
-            // console.log('tt.columnDef');
-            // console.log(tt.columnDef);
-            for (let b in this.modify_header_arrayval) {
-                if (b == tt.header)
-                    tt.header = this.modify_header_arrayval[b];
-            }
-            if (this.skipval.indexOf(tt.columnDef) == -1)
-                this.columns.push(tt);
-            // console.log('this.columns');
-            // console.log(this.columns);
-        }
-        /** @type {?} */
-        let displayedcols = this.columns.map((/**
-         * @param {?} x
-         * @return {?}
-         */
-        x => x.columnDef));
-        displayedcols.push('Actions');
-        this.displayedColumns = displayedcols;
-        this.displayedColumns.unshift('select'); /*adds select column in table by unshift function*/
-        /*adds select column in table by unshift function*/
-        /** @type {?} */
-        let data_list = [];
-        for (let i = 0; i < this.x.length; i++) {
-            data_list.push(this.createData(x[i]));
-        }
-        this.olddata = data_list;
-        console.log(data_list);
-        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](data_list);
-        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-    }
-    /**
-     * @return {?}
-     */
-    onSubmit() {
-        /** @type {?} */
-        let x;
-        this.errormg = '';
-        /** @type {?} */
-        let data = this.myForm.value;
-        console.log('data');
-        console.log(data);
-        console.log(this.myForm.valid);
-        for (x in this.myForm.controls) {
-            this.myForm.controls[x].markAsTouched();
-        }
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    dateSearch(val) {
-        console.log("start date");
-        console.log(this.start_date);
-        console.log(this.end_date);
-        /** @type {?} */
-        let sd = moment(this.start_date).unix();
-        /** @type {?} */
-        let ed = moment(this.end_date).unix();
-        console.log(moment(this.start_date).unix());
-        console.log(moment(this.end_date).unix());
-        console.log(new Date(this.end_date).getTime());
-        /** @type {?} */
-        let link = this.apiurlval + '' + this.date_search_endpointval;
-        console.log(link);
-        if (moment(this.end_date).unix() != null && moment(this.start_date).unix() != null) {
-            /** @type {?} */
-            let source;
-            /** @type {?} */
-            let condition;
-            condition = {};
-            condition[val] = {
-                $lte: new Date(this.end_date).getTime(),
-                $gte: new Date(this.start_date).getTime(),
-            };
-            this.dateSearch_condition = {};
-            this.dateSearch_condition = condition;
-            /** @type {?} */
-            let conditionobj = Object.assign({}, this.textSearch_condition, this.dateSearch_condition, this.autoSearch_condition, this.selectSearch_condition);
-            source = {
-                source: this.date_search_sourceval,
-                condition: conditionobj,
-            };
-            console.log(source);
-            this._apiService.postSearch(link, this.jwttokenval, source).subscribe((/**
-             * @param {?} res
-             * @return {?}
-             */
-            res => {
-                console.log(res);
-                /** @type {?} */
-                let result = {};
-                result = res;
-                console.log(result.res);
-                this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](result.res);
-                this.dataSource.paginator = this.paginator;
-                this.dataSource.sort = this.sort;
-            }));
-            /*this._http.post(link, {source:this.date_search_sourceval,
-              condition: {
-                'created_at': {
-                  $lte: new Date(this.end_date).getTime(),
-                  $gte: new Date(this.start_date).getTime(),
-                }
-              },token: this.jwttokenval,
-            }).subscribe( res =>{
-              let result: any ={};
-              result = res;
-              console.log("ok");
-              console.log(res);
-              console.log(result.res);
-              let newdata = result.res;
-              this.dataSource = new MatTableDataSource(result.res);
-              this.dataSource.paginator = this.paginator;
-              this.dataSource.sort = this.sort;
-            })*/
-        }
-        else
-            console.log("error");
-    }
-    /**
-     * @param {?} value
-     * @param {?} type
-     * @return {?}
-     */
-    selectSearch(value, type) {
-        console.log('type');
-        console.log(type);
-        /** @type {?} */
-        let link = this.apiurlval + '' + this.date_search_endpointval;
-        console.log(link);
-        /** @type {?} */
-        let source;
-        /** @type {?} */
-        let condition;
-        condition = {};
-        condition[type.field] = value;
-        this.selectSearch_condition = {};
-        this.selectSearch_condition = condition;
-        /** @type {?} */
-        let conditionobj = Object.assign({}, this.textSearch_condition, this.dateSearch_condition, this.autoSearch_condition, this.selectSearch_condition);
-        source = {
-            source: this.date_search_sourceval,
-            condition: conditionobj
-        };
-        if (value != null) {
-            this._apiService.postSearch(link, this.jwttokenval, source).subscribe((/**
-             * @param {?} res
-             * @return {?}
-             */
-            res => {
-                console.log(res);
-                /** @type {?} */
-                let result = {};
-                result = res;
-                console.log("ok");
-                console.log(res);
-                console.log(result.res);
-                /** @type {?} */
-                let newdata = result.res;
-                this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](result.res);
-                this.dataSource.paginator = this.paginator;
-                this.dataSource.sort = this.sort;
-            }));
-        }
-        else {
-            console.log('oops');
-        }
-        console.log("error");
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    autosearchfunction(value) {
-        console.log(value);
-        /** @type {?} */
-        let val = this.autosearch[value];
-        console.log(val);
-        /** @type {?} */
-        let source;
-        /** @type {?} */
-        let condition = {};
-        if (this.autosearch[value].length > 0 && { $or: [this.autosearch[value].toLowerCase(), this.autosearch[value].toUpperCase(), this.autosearch[value]] })
-            condition[value + '_regex'] = val;
-        this.autoSearch_condition = {};
-        this.autoSearch_condition = condition;
-        /** @type {?} */
-        let conditionobj = Object.assign({}, this.textSearch_condition, this.dateSearch_condition, this.autoSearch_condition, this.selectSearch_condition);
-        source = {
-            source: this.date_search_sourceval,
-            condition: conditionobj
-        };
-        /** @type {?} */
-        let link = this.apiurlval + '' + this.date_search_endpointval;
-        this._apiService.postSearch(link, this.jwttokenval, source).subscribe((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => {
-            console.log(res);
-            // let result:any={};
-            this.result = res;
-            console.log(this.result);
-            console.log(this.result.res);
-            this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.result.res);
-            this.dataSource.paginator = this.paginator;
-            this.dataSource.sort = this.sort;
-        }));
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    textsearchfunction(value) {
-        console.log('value');
-        console.log(value);
-        console.log(value.toLowerCase());
-        console.log(this.tsearch[value]);
-        /** @type {?} */
-        let link = this.apiurlval + '' + this.date_search_endpointval;
-        console.log(link);
-        /** @type {?} */
-        let source;
-        /** @type {?} */
-        let condition = {};
-        //condition = {};
-        /** @type {?} */
-        let val = this.tsearch[value].toLowerCase();
-        // condition={$or:[this.tsearch[value].toLowerCase(),this.tsearch[value].toUpperCase()]};
-        if (this.tsearch[value].length > 1 && { $or: [this.tsearch[value].toLowerCase(), this.tsearch[value].toUpperCase()] })
-            condition[value + '_regex'] = val;
-        this.textSearch_condition = {};
-        this.textSearch_condition = condition;
-        //condition[value]="/222/";
-        //condition={email:{$regx:'/222/i'}};
-        /** @type {?} */
-        let conditionobj = Object.assign({}, this.textSearch_condition, this.dateSearch_condition, this.autoSearch_condition, this.selectSearch_condition);
-        source = {
-            source: this.date_search_sourceval,
-            condition: conditionobj
-        };
-        console.log('source');
-        console.log(source);
-        //add loader
-        this.loading = true;
-        if (value != null) {
-            this._apiService.postSearch(link, this.jwttokenval, source).subscribe((/**
-             * @param {?} res
-             * @return {?}
-             */
-            res => {
-                console.log(res);
-                /** @type {?} */
-                let result = {};
-                result = res;
-                //close loader
-                this.loading = false;
-                console.log("ok");
-                console.log(res);
-                console.log(result.res);
-                /** @type {?} */
-                let newdata = result.res;
-                this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](result.res);
-                this.dataSource.paginator = this.paginator;
-                this.dataSource.sort = this.sort;
-            }));
-        }
-        else {
-            console.log('oops');
-        }
-        console.log("error");
-    }
-    /**
-     * @private
-     * @param {?} value
-     * @return {?}
-     */
-    _filter(value) {
-        /** @type {?} */
-        const filterValue = value.toLowerCase();
-        return this.searchListval.filter((/**
-         * @param {?} option
-         * @return {?}
-         */
-        option => option.toLowerCase().includes(filterValue)));
-    }
-    /*private _filterGroup(value: string): StateGroup[] {
-       /!* if (value) {
-          return this.searchListval
-              .map(group => ({names: _filter(group.names, value)}))
-              .filter(group => group.names.length > 0);
-        }
-    
-        return this.searchListval;*!/
-        const filterValue = value.toLowerCase();
-    
-        return this.searchListval.filter(option => option.toLowerCase().includes(filterValue));
-      }*/
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    getstatus(val) {
-        // console.log('val');
-        // console.log(val);
-        for (let b in this.statusarrval) {
-            if (this.statusarrval[b].val == val)
-                return this.statusarrval[b].name;
-            // console.log(this.statusarrval[b].name);
-        }
-        return "N/A";
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    hi(val) {
-        // console.log('hi  val');
-        // console.log(val);
-        if (val.shatterblok_agreement_date != null && val.audiodeadline_agreement_date == null) {
-            // console.log('shatter blok');
-            this.sh = true;
-            this.aud = false;
-        }
-        if (val.shatterblok_agreement_date != null && val.audiodeadline_agreement_date != null) {
-            this.sh = true;
-            this.aud = true;
-        }
-        if (val.shatterblok_agreement_date == null && val.audiodeadline_agreement_date == null) {
-            this.sh = false;
-            this.aud = false;
-        }
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    grapurl(val) {
-        //  for all row checking
-        // console.log(val)
-        if (val != null) {
-            this.art = true;
-            this.aud2 = true;
-        }
-        if (val == null) {
-            this.art = false;
-            this.aud2 = false;
-        }
-        // console.log(this.sh);
-        // console.log(this.aud);
-    }
-    /**
-     * @param {?} row
-     * @param {?} val
-     * @return {?}
-     */
-    copyText(row, val) {
-        console.log('row in copyText');
-        console.log(row);
-        console.log('val in copyText');
-        console.log(val);
-        /** @type {?} */
-        let fullurl = val + '' + row;
-        console.log(fullurl);
-        /** @type {?} */
-        let selBox = document.createElement('textarea');
-        selBox.style.position = 'fixed';
-        selBox.style.left = '0';
-        selBox.style.top = '0';
-        selBox.style.opacity = '0';
-        selBox.value = fullurl;
-        document.body.appendChild(selBox);
-        selBox.focus();
-        selBox.select();
-        document.execCommand('copy');
-        document.body.removeChild(selBox);
-    }
-    /**
-     * @param {?} val
-     * @param {?} url
-     * @return {?}
-     */
-    clickurl(val, url) {
-        /** @type {?} */
-        let i;
-        console.log('ok');
-        console.log(val);
-        console.log(val._id);
-        console.log(url);
-        console.log(url + '' + val._id + '' + this.pdf_link_val);
-        /** @type {?} */
-        let link = url + '' + val._id + '' + this.pdf_link_val;
-        window.open(link, "_blank");
-    }
-    /**
-     * Whether the number of selected elements matches the total number of rows.
-     * @return {?}
-     */
-    isAllSelected() {
-        /** @type {?} */
-        const numSelected = this.selection.selected.length;
-        /** @type {?} */
-        const numRows = this.dataSource.data.length;
-        return numSelected === numRows;
-    }
-    /**
-     * Selects all rows if they are not all selected; otherwise clear selection.
-     * @return {?}
-     */
-    masterToggle() {
-        this.isAllSelected() ?
-            this.selection.clear() :
-            this.dataSource.data.forEach((/**
-             * @param {?} row
-             * @return {?}
-             */
-            row => this.selection.select(row)));
-    }
-    /**
-     * The label for the checkbox on the passed row
-     * @param {?=} row
-     * @return {?}
-     */
-    checkboxLabel(row) {
-        if (!row) {
-            return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
-        }
-        return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
-    }
-    /**
-     * @param {?} point
-     * @return {?}
-     */
-    createData(point) {
-        /** @type {?} */
-        let data = {};
-        Object.keys(point).forEach((/**
-         * @param {?} key
-         * @return {?}
-         */
-        function (key) {
-            data[key.replace(/\s/g, "_")] = point[key];
-        }));
-        return data;
-    }
-    /**
-     * @param {?} filterValue
-     * @return {?}
-     */
-    applyFilter(filterValue) {
-        console.log(filterValue);
-        console.log(this.dataSource);
-        // console.log(this.dataSource[name])
-        this.dataSource.filter = filterValue.trim().toLowerCase();
-        if (this.dataSource.paginator) {
-            this.dataSource.paginator.firstPage();
-        }
-    }
-    /*applyFilter1(filterValue: string, val: any) {
-        console.log(filterValue);
-        console.log(val.value);
-        let value= new MatTableDataSource(val.value);
-    
-        value.filter = filterValue.trim().toLowerCase();
-        console.log(value);
-        /!* this.dataSource.filterPredicate = function(data, filter: string): boolean {
-          // return data.name.toLowerCase().includes(filter);
-        };
-        if (this.dataSource.paginator) {
-          this.dataSource.paginator.firstPage();
-        }*!/
-      }*/
-    /**
-     * @param {?} col_name
-     * @param {?} row
-     * @return {?}
-     */
-    styleCell(col_name, row) {
-        /*
-         if (col_name['columnDef']=='progress' && row['progress']=='100'){
-         return {'color' : 'red'}
-         } else {
-         return {}
-         }
-         */
-        return {};
-    }
-    /**
-     * @param {?} data1
-     * @return {?}
-     */
-    viewdata(data1) {
-        /** @type {?} */
-        let data;
-        data = data1;
-        /** @type {?} */
-        let data2 = [];
-        console.log('data');
-        console.log(data);
-        for (let key in data) {
-            /** @type {?} */
-            let flagk = '';
-            if (data.hasOwnProperty(key)) {
-                console.log(key + " -> " + data[key] + "--->" + typeof (data[key]));
-                if (typeof (data[key]) == 'boolean') {
-                    if (data[key] == true)
-                        data[key] = 'Yes';
-                    if (data[key] == false)
-                        data[key] = 'No';
-                }
-                if (typeof (data[key]) == 'object') {
-                    /** @type {?} */
-                    let tempdata = [];
-                    for (let k in data[key]) {
-                        console.log('key');
-                        console.log(key);
-                        console.log(this.detail_datatypeval);
-                        for (let p in this.detail_datatypeval) {
-                            console.log('p');
-                            console.log(p);
-                            console.log(key);
-                            console.log(data[key][k]);
-                            if (this.detail_datatypeval[p].key == key && this.detail_datatypeval[p].value == 'image') {
-                                /** @type {?} */
-                                let imgval = this.detail_datatypeval[p].fileurl + data[key][k].replace(/'/g, '');
-                                console.log('imgval');
-                                console.log('imgval');
-                                console.log(imgval);
-                                console.log(data[key][k].replace(/'/g, ''));
-                                tempdata.push("<img mat-card-image src=" + imgval + "><br/>");
-                                // tempdata.push("<span>"+data[key][k]+"</span><br/>")
-                            }
-                            if (this.detail_datatypeval[p].key == key && this.detail_datatypeval[p].value != 'image') {
-                                //tempdata.push("<img mat-card-image src="+data[key][k]+"><br/>")
-                                tempdata.push("<span>" + data[key][k] + "</span><br/>");
-                            }
-                        }
-                    }
-                    data[key] = tempdata;
-                }
-            }
-        }
-        console.log('data');
-        console.log(data);
-        for (let n in data) {
-            if (data[n] != null && data[n] != '') {
-                data2[n] = data[n];
-            }
-        }
-        for (let v in this.detail_skip_arrayval) {
-            //data2[this.detail_skip_arrayval[v]]='';
-            delete data2[this.detail_skip_arrayval[v]];
-            console.log('this.detail_skip_arrayval[v]');
-            console.log(this.detail_skip_arrayval[v]);
-        }
-        /** @type {?} */
-        let res = Object.entries(data2);
-        console.log('this.detail_skip_array');
-        console.log(this.detail_skip_arrayval);
-        console.log(this.detail_datatypeval);
-        console.log('res');
-        console.log(res);
-        /** @type {?} */
-        const dialogRef = this.dialog.open(Confirmdialog, {
-            height: 'auto',
-            panelClass: 'custom-modalbox',
-            data: { isconfirmation: false, data: res }
-        });
-    }
-    /**
-     * @param {?} data
-     * @return {?}
-     */
-    managestatus(data) {
-        console.log('data');
-        console.log(data);
-        /** @type {?} */
-        let bs = this.bottomSheet.open(BottomSheet, { panelClass: 'custom-bottomsheet', data: { items: this.statusarrval } });
-        bs.afterDismissed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            console.log('The bottom sheet was closed');
-            console.log(result);
-            if (result != null) {
-                data.status = result.val;
-                data.id = data._id;
-                this._apiService.togglestatus(this.apiurlval + 'statusupdate', data, this.jwttokenval, this.sourcedataval).subscribe((/**
-                 * @param {?} res
-                 * @return {?}
-                 */
-                res => {
-                    /** @type {?} */
-                    let result = {};
-                    result = res;
-                    if (result.status == 'success') {
-                        for (let c in this.olddata) {
-                            //this.olddata = this.olddata.filter(olddata => olddata._id != ids[c]);
-                            if (this.olddata[c]._id == data._id) {
-                                console.log('in data update');
-                                console.log(data);
-                                this.olddata[c].status = data.status;
-                            }
-                        }
-                        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.olddata);
-                        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
-                        this.dataSource.paginator = this.paginator;
-                        this.dataSource.sort = this.sort;
-                        /** @type {?} */
-                        let dialogRef = this.dialog.open(Confirmdialog, {
-                            panelClass: 'custom-modalbox',
-                            data: { message: 'Status updated successfully!!', isconfirmation: false }
-                        });
-                    }
-                }), (/**
-                 * @param {?} error
-                 * @return {?}
-                 */
-                error => {
-                    console.log('Oooops!');
-                }));
-            }
-            //this.animal = result;
-        }));
-    }
-    // for tree view in modal
-    /**
-     * @param {?} data
-     * @return {?}
-     */
-    custombuttonfunc(data) {
-        console.log('data');
-        console.log(data); // row data
-        console.log(this.custombuttonval); // object from where the library has been used
-        // object from where the library has been used
-        /** @type {?} */
-        let unsafeurl = this.custombuttonval.url;
-        for (let b in this.custombuttonval.fields) {
-            unsafeurl = unsafeurl + '/' + data[this.custombuttonval.fields[b]];
-        }
-        console.log('unsafeurl');
-        console.log(unsafeurl);
-        unsafeurl = this.sanitizer.bypassSecurityTrustResourceUrl(unsafeurl); //for sanitizing the url for security, otherwise it won't be able to show the page in iframe, hence modal
-        //for sanitizing the url for security, otherwise it won't be able to show the page in iframe, hence modal
-        /** @type {?} */
-        const dialogRef = this.dialog.open(Confirmdialog, {
-            // for opening the modal
-            height: 'auto',
-            panelClass: 'custom-data-modal',
-            data: { isconfirmation: false, data: [{ data: data, customdata: unsafeurl }] }
-        });
-    }
-    /**
-     * @return {?}
-     */
-    managestatusmultiple() {
-        /** @type {?} */
-        let ids = [];
-        /** @type {?} */
-        let c;
-        for (c in this.selection.selected) {
-            ids.push(this.selection.selected[c]._id);
-        }
-        console.log('ids');
-        console.log(ids);
-        //console.log('data');
-        //console.log(data);
-        /** @type {?} */
-        let bs = this.bottomSheet.open(BottomSheet, { data: { items: this.statusarrval } });
-        bs.afterDismissed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            console.log('The bottom sheet was closed');
-            console.log(result);
-            if (result != null) {
-                //data.status = result.val;
-                //data.id = data._id;
-                /** @type {?} */
-                let newstatus = result.val;
-                this._apiService.togglestatusmany(this.apiurlval + 'statusupdate', ids, result.val, this.jwttokenval, this.sourcedataval).subscribe((/**
-                 * @param {?} res
-                 * @return {?}
-                 */
-                res => {
-                    /** @type {?} */
-                    let result = {};
-                    result = res;
-                    if (result.status == 'success') {
-                        for (let c in this.olddata) {
-                            //this.olddata = this.olddata.filter(olddata => olddata._id != ids[c]);
-                            if (ids.indexOf(this.olddata[c]._id) > -1) {
-                                console.log('in data update');
-                                //console.log(data);
-                                this.olddata[c].status = newstatus;
-                            }
-                        }
-                        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.olddata);
-                        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
-                        this.dataSource.paginator = this.paginator;
-                        this.dataSource.sort = this.sort;
-                        /** @type {?} */
-                        let dialogRef = this.dialog.open(Confirmdialog, {
-                            panelClass: 'custom-modalbox',
-                            data: { message: 'Status updated successfully!!', isconfirmation: false }
-                        });
-                    }
-                }), (/**
-                 * @param {?} error
-                 * @return {?}
-                 */
-                error => {
-                    console.log('Oooops!');
-                }));
-            }
-            //this.animal = result;
-        }));
-    }
-    /**
-     * @return {?}
-     */
-    deletemultiple() {
-        console.log('this.selection.selected.length');
-        console.log(this.selection.selected.length);
-        console.log(this.selection);
-        console.log(this.selection.selected);
-        /** @type {?} */
-        const dialogRef = this.dialog.open(Confirmdialog, {
-            panelClass: 'custom-modalbox',
-            data: { message: 'Are you sure you want to delete the selected records?' }
-        });
-        /** @type {?} */
-        let ids = [];
-        /** @type {?} */
-        let c;
-        for (c in this.selection.selected) {
-            ids.push(this.selection.selected[c]._id);
-        }
-        console.log('ids');
-        console.log(ids);
-        dialogRef.afterClosed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            console.log('The dialog was closed');
-            console.log(result);
-            if (result == 'yes') {
-                this._apiService.deteManyData(this.apiurlval + this.deleteendpointval, ids, this.jwttokenval, this.sourcedataval).subscribe((/**
-                 * @param {?} res
-                 * @return {?}
-                 */
-                res => {
-                    /** @type {?} */
-                    let result = {};
-                    result = res;
-                    if (result.status == 'success') {
-                        for (let c in ids) {
-                            this.olddata = this.olddata.filter((/**
-                             * @param {?} olddata
-                             * @return {?}
-                             */
-                            olddata => olddata._id != ids[c]));
-                        }
-                        console.log('this.olddata');
-                        console.log(this.olddata);
-                        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.olddata);
-                        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
-                        this.dataSource.paginator = this.paginator;
-                        this.dataSource.sort = this.sort;
-                        /** @type {?} */
-                        let dialogRef = this.dialog.open(Confirmdialog, {
-                            panelClass: 'custom-modalbox',
-                            data: { message: 'Record(s)  deleted successfully !!', isconfirmation: false }
-                        });
-                    }
-                }), (/**
-                 * @param {?} error
-                 * @return {?}
-                 */
-                error => {
-                    console.log('Oooops!');
-                }));
-            }
-            //this.animal = result;
-        }));
-    }
-    /**
-     * @param {?} data
-     * @return {?}
-     */
-    deletedata(data) {
-        //alert(5);
-        //this._apiService.deteOneData(this.apiurlval+this.deleteendpointval,data,this.jwttokenval);
-        console.log('data 889 ---');
-        console.log(data);
-        console.log('jwttokenval');
-        console.log(this.jwttokenval);
-        /** @type {?} */
-        const dialogRef = this.dialog.open(Confirmdialog, {
-            panelClass: 'custom-modalbox',
-            height: 'auto',
-            data: { message: 'Are you sure to delete this record ??' }
-        });
-        dialogRef.afterClosed().subscribe((/**
-         * @param {?} result
-         * @return {?}
-         */
-        result => {
-            console.log('The dialog was closed');
-            console.log(result);
-            if (result == 'yes') {
-                this._apiService.deteOneData(this.apiurlval + this.deleteendpointval, data, this.jwttokenval, this.sourcedataval).subscribe((/**
-                 * @param {?} res
-                 * @return {?}
-                 */
-                res => {
-                    /** @type {?} */
-                    let result = {};
-                    result = res;
-                    if (result.status == 'success') {
-                        console.log('this.olddata');
-                        console.log(this.olddata);
-                        console.log(this.olddata._id);
-                        this.olddata = this.olddata.filter((/**
-                         * @param {?} olddata
-                         * @return {?}
-                         */
-                        olddata => olddata._id != data._id));
-                        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](this.olddata);
-                        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_2__["SelectionModel"](true, []);
-                        this.dataSource.paginator = this.paginator;
-                        this.dataSource.sort = this.sort;
-                        /** @type {?} */
-                        let dialogRef = this.dialog.open(Confirmdialog, {
-                            panelClass: 'custom-modalbox',
-                            data: { message: 'Record  deleted successfully !!', isconfirmation: false }
-                        });
-                    }
-                }), (/**
-                 * @param {?} error
-                 * @return {?}
-                 */
-                error => {
-                    console.log('Oooops!');
-                }));
-            }
-            //this.animal = result;
-        }));
-    }
-    /**
-     * @param {?} data
-     * @return {?}
-     */
-    editdata(data) {
-        console.log('data');
-        console.log(data);
-        console.log(this.editrouteval);
-        console.log(this.editrouteval + data._id);
-        console.log(this.jwttokenval);
-        this.router.navigate([this.editrouteval, data._id]);
-        //this.na
-    }
-    /* artistxp preview button click function start */
-    /**
-     * @param {?} singleData
-     * @return {?}
-     */
-    artistxpPreview(singleData) {
-        /** @type {?} */
-        let link = 'http://developmentapi.audiodeadline.com:3090/' + 'datalist';
-        /**
-         * **** not completed *****
-         * @type {?}
-         */
-        let data = { "source": "blockchainuser_view", "condition": { "posts_id_object": singleData._id }, "token": this.jwttokenval };
-        /******** not completed *****/
-        this._apiService.postData(link, data).subscribe((/**
-         * @param {?} response
-         * @return {?}
-         */
-        response => {
-            /** @type {?} */
-            let restlt = response;
-            /* open dialog */
-            /** @type {?} */
-            const dialogRef = this.dialog.open(Confirmdialog, {
-                panelClass: 'custom-modalbox-artistxp-preview',
-                height: 'auto',
-                data: { preview: true, previewData: restlt }
-            });
-        }));
-    }
-}
-ListingComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-listing',
-                template: "<div class=\"container\">\n\n\n  <mat-card>\n    <mat-toolbar-row class=\"searchbar\" style=\"display: flex!important; justify-content: space-between!important;\">\n    <mat-form-field class=\"searchdiv\">\n\n      <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filter\">\n    </mat-form-field>\n\n      <span  *ngIf=\"search_settingsval !=null && search_settingsval.textsearch != null \">\n    <mat-form-field *ngFor=\"let item of search_settingsval.textsearch\" class=\"searchdiv\">\n\n      <input matInput (change)=\"textsearchfunction(item.field)\" (keyup)=\"textsearchfunction(item.field)\" [(ngModel)]='tsearch[item.field]' placeholder=\"{{item.label}}\">\n      <span matPrefix><i class=\"material-icons searchicon\" >\n        search\n      </i> &nbsp;</span>\n    </mat-form-field>\n      </span>\n\n<span *ngIf=\"search_settingsval !=null && search_settingsval.search != null \">\n  <mat-form-field  *ngFor=\"let item of search_settingsval.search\">\n    <input type=\"text\" placeholder=\"{{item.label}}\" matInput [(ngModel)]=\"autosearch[item.field]\" [matAutocomplete]=\"auto\">\n    <mat-autocomplete  #auto=\"matAutocomplete\" >\n       <mat-option *ngFor=\"let option of result.res | async\" [value]=\"option[item.field]\" (click)=\"autosearchfunction(item.field)\">\n        {{option[item.field]}}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</span>\n\n\n\n<!--      <span *ngIf=\"search_settingsval !=null && search_settingsval != null \">\n\n      <mat-form-field *ngFor=\"let item of search_settingsval.search\">\n        <mat-label>{{item.label}}</mat-label>\n        <mat-select>\n          <mat-option *ngFor=\"let status of preresult\" [value]=\"status\" (click)=\"autosearchfunction(status.email)\">\n            {{status.email}}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      </span>-->\n    <!--  <ng-container  *ngIf=\"search_settingsval !=null && search_settingsval.textsearch != null \">\n&lt;!&ndash;        <span *ngFor=\"let status of this.search_settingsval.textsearch\">&ndash;&gt;\n&lt;!&ndash;        <mat-form-field *ngFor=\"let statusval of status.value\">&ndash;&gt;\n        <mat-form-field *ngFor=\"let status of this.search_settingsval.textsearch\">\n              <input matInput (keyup)=\"applyFilter1($event.target.value, status)\" placeholder=\"{{status.label}}\">\n        </mat-form-field>\n&lt;!&ndash;              </span>&ndash;&gt;\n      </ng-container>-->\n\n\n      <ng-container  *ngIf=\"search_settingsval !=null && search_settingsval.selectsearch != null \">\n        <mat-form-field *ngFor=\"let status of this.search_settingsval.selectsearch\">\n          <mat-label>{{status.label}}</mat-label>\n          <mat-select>\n            <mat-option *ngFor=\"let statusval of status.values\" [value]=\"statusval\" (click)=\"selectSearch(statusval.val, status)\">\n              {{statusval.name}}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n      </ng-container>\n\n\n      <ng-container *ngIf=\"date_search_endpointval !=null && date_search_sourceval != null && search_settingsval.datesearch != null \">\n        <span *ngFor=\"let status of this.search_settingsval.datesearch\">\n        <mat-form-field >\n          <input matInput [matDatepicker]=\"picker\"autocomplete=\"off\"  placeholder=\"{{status.startdatelabel}}\"  [(ngModel)]=\"start_date\" >\n          <mat-datepicker-toggle matSuffix [for]=\"picker\" ></mat-datepicker-toggle>\n          <mat-datepicker #picker></mat-datepicker>\n        </mat-form-field>\n        <mat-form-field>\n          <input matInput [matDatepicker]=\"picker1\" autocomplete=\"off\" placeholder=\"{{status.enddatelabel}}\" [(ngModel)]=\"end_date\" >\n          <mat-datepicker-toggle matSuffix [for]=\"picker1\"></mat-datepicker-toggle>\n          <mat-datepicker #picker1 ></mat-datepicker>\n        </mat-form-field>\n        <button mat-raised-button color=\"primary\" class=\"add_button\" style=\"margin: 0!important; margin-left: 10px!important; \" (click)=\"dateSearch(status.field)\">{{status.submit}}</button>\n      </span>\n      </ng-container>\n\n\n\n      <span *ngIf=\"click_to_add_ananother_pageval !=null\">\n        <button mat-raised-button color=\"primary\" class=\"add_button\" style=\"margin: 0!important; margin-left: 10px!important; \" [routerLink]=\"click_to_add_ananother_pageval\" >Add</button>\n      </span>\n    </mat-toolbar-row>\n\n\n\n    <ng-container *ngIf=\"selection.selected.length!=null && selection.selected.length>0\">\n      <button mat-raised-button (click)=\"deletemultiple()\"> Delete </button>\n      <button mat-raised-button (click)=\"managestatusmultiple()\"> Update Status </button>\n    </ng-container>\n\n\n\n    <table mat-table [dataSource]=\"dataSource\" matSort class=\"mat-elevation-z8\">\n\n      <ng-container matColumnDef=\"select\">\n        <th mat-header-cell *matHeaderCellDef>\n          <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                        [checked]=\"selection.hasValue() && isAllSelected()\"\n                        [indeterminate]=\"selection.hasValue() && !isAllSelected()\">\n          </mat-checkbox>\n        </th>\n        <td mat-cell *matCellDef=\"let row\" data-label=\"select\">\n          <mat-checkbox (click)=\"$event.stopPropagation()\"\n                        (change)=\"$event ? selection.toggle(row) : null\"\n                        [checked]=\"selection.isSelected(row)\">\n          </mat-checkbox>\n        </td>\n      </ng-container>\n\n      <ng-container *ngFor=\"let column of columns\" [matColumnDef]=\"column.columnDef\" >\n        <th mat-header-cell *matHeaderCellDef mat-sort-header class=\"th-header-center\">{{column.header}}</th>\n        <td mat-cell *matCellDef=\"let row\" [ngStyle]=\"styleCell(column,row)\" data-title=\"{{column.header}}\"   class=\"td-cell-center\">\n          <span *ngIf=\"column.columnDef=='status' \">{{ getstatus([column.cell(row)]) }} {{hi(row)}}</span>\n          <span *ngIf=\"column.columnDef!='status' \">{{ column.cell(row) }}</span>\n          <span *ngIf=\"column.columnDef=='grab_url && grab_linkval!=null && grab_linkval[0]!=null' \">{{grapurl(row[this.grab_linkval[0].field_name])}}</span>\n          <br>\n\n<!--          <span *ngIf=\"sh==true\">-->\n            <span *ngIf=\"column.columnDef=='contractssigned' && sh==true && urlval !=null\" class=\"cursor\">\n              <i title=\"{{urlval[0].label}}\" (click)=\"clickurl(row,urlval[0].url)\" class=\"material-icons\">cloud_download</i>\n            </span>\n<!--          </span>-->\n<!--          <span *ngIf=\"aud==true\">-->\n            <span *ngIf=\"column.columnDef=='contractssigned' && aud==true  && urlval !=null\">\n              <i title=\"{{urlval[1].label}}\" (click)=\"clickurl(row,urlval[1].url)\" class=\"material-icons\">cloud_download</i>\n            </span>\n\n\n<!--// for grap url//-->\n\n\n\n          <span *ngIf=\" grab_linkval!=null && grab_linkval[0]!=null && column.columnDef==[grab_linkval[0].col_name]\" class=\"cursor\">\n              <button mat-button (click)=\"copyText(row[grab_linkval[0].field_name],grab_linkval[1].url)\">{{grab_linkval[1].label}}</button>\n            </span>\n          <br>\n          <!--          </span>-->\n          <!--          <span *ngIf=\"aud==true\">-->\n          <span *ngIf=\"grab_linkval!=null && grab_linkval[0]!=null &&column.columnDef== [grab_linkval[0].col_name]\">\n              <button mat-button (click)=\"copyText(row[grab_linkval[0].field_name],grab_linkval[2].url)\">{{grab_linkval[2].label}}</button>\n            </span>\n\n<!--          //grap url end//-->\n\n\n<!--          </span>-->\n          <!-- <span *ngIf=\"column.columnDef=='contractssigned' \">\n            <span *ngFor=\"let item of urlval\" class=\"cursor\">\n            <i title=\"{{item.label}}\" (click)=\"clickurl(row,item.url)\" class=\"material-icons\">cloud_download</i>\n          </span>\n          </span>-->\n        </td>\n      </ng-container>\n\n\n\n      <ng-container matColumnDef=\"Actions\"   >\n        <th mat-header-cell *matHeaderCellDef  class=\"th-header-center\">Actions</th>\n        <td (click)=\"$event.stopPropagation()\" mat-cell  *matCellDef=\"let row\" data-label=\"Actions\"  class=\"td-cell-center\">\n          <span *ngIf=\"selection.selected.length==null || selection.selected.length==0\">\n            <span class=\"cursor\" (click)=\"editdata(row)\" >\n              <i class=\"material-icons\">\n                edit\n              </i>\n            </span>\n\n            <!--For modern browsers-->\n            <span class=\"cursor\" (click)=\"deletedata(row)\" >\n              <i class=\"material-icons\">\n                delete_outline\n              </i>\n            </span>\n\n            <!--For modern browsers-->\n            <span class=\"cursor\" (click)=\"viewdata(row)\" >\n              <i class=\"material-icons\">\n                pageview\n              </i>\n            </span>\n\n            <!--For modern browsers-->\n            <span class=\"cursor\" (click)=\"managestatus(row)\" >\n              <i class=\"material-icons\">\n                toggle_off\n              </i>\n            </span>\n            <span *ngIf=\"custombuttonval!=null\" class=\"cursor treeclass\" (click)=\"custombuttonfunc(row)\" >\n              <i class=\"material-icons treeclass\">\n                toggle_off\n              </i>\n            </span>\n\n            <!-- artistxp preview start -->\n            <span *ngIf=\"previewFlug==true\" class=\"cursor treeclass\" (click)=\"artistxpPreview(row)\">\n              <i class=\"material-icons\">perm_media</i>\n            </span>\n            <!-- artistxp preview end -->\n\n          </span>\n\n        </td>\n      </ng-container>\n\n\n\n\n\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n\n    </table>\n\n    <mat-paginator [pageSizeOptions]=\"[5,10, 20, 50,100]\" showFirstLastButtons></mat-paginator>\n    <mat-spinner *ngIf=\"loading == true\" ></mat-spinner>\n\n    <br>\n\n\n   <!-- <form [formGroup]=\"stateForm\">\n      <mat-form-field>\n        <input type=\"text\" matInput placeholder=\"States Group\" formControlName=\"stateGroup\" required [matAutocomplete]=\"autoGroup\">\n        <mat-autocomplete #autoGroup=\"matAutocomplete\">\n          <mat-optgroup *ngFor=\"let group of stateGroupOptions | async\" [label]=\"group.letter\">\n            <mat-option *ngFor=\"let name of group.names\" [value]=\"name\">\n              {{name}}\n            </mat-option>\n          </mat-optgroup>\n        </mat-autocomplete>\n      </mat-form-field>\n    </form>-->\n\n    <!--<form class=\"example-form\">\n      <mat-form-field class=\"example-full-width\">\n        <input type=\"text\" placeholder=\"Select state\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\">\n        <mat-autocomplete #auto=\"matAutocomplete\">\n          <mat-option *ngFor=\"let option of stateGroup | async\" [value]=\"option\">\n            {{option}}\n          </mat-option>\n        </mat-autocomplete>\n      </mat-form-field>\n    </form>\n-->\n\n  </mat-card>\n\n<!--\n  <mat-card>\n\n    <div class=\"example-container\">\n\n\n      <mat-card-content >\n        <mat-form-field class=\"form-group\">\n            <input (blur)=\"inputblur('email')\" matInput placeholder=\"email\" type=\"email\" [formControl]=\"myForm.controls['email']\" >\n            <mat-error  *ngIf=\"!myForm.controls['email'].valid && myForm.controls['email'].touched && issubmit==1\">email field can not be blank</mat-error>\n        </mat-form-field>\n\n        <mat-form-field class=\"form-group\">\n            <input (blur)=\"inputblur('password')\" matInput placeholder=\"Password\" type=\"password\" [formControl]=\"myForm.controls['password']\" >\n            <mat-error  *ngIf=\"!myForm.controls['password'].valid && myForm.controls['password'].touched && issubmit==1\">Password field can not be blank</mat-error>\n        </mat-form-field>\n\n            <button mat-button  (click)=\"onSubmit()\" class=\"s_getmyoffer_login_button\"  >Login</button>\n        </mat-card-content>\n\n\n    </div>\n\n  </mat-card>-->\n  <br>\n  <br>\n\n\n\n</div>\n\n",
-                styles: [".container{background:#fff}body{font-family:Roboto,Arial,sans-serif;margin:0;display:none!important}.basic-container{padding:30px}.version-info{font-size:8pt;float:right}table{width:100%}th.mat-sort-header-sorted{color:#000}.custom-modalbox{display:none}"]
-            }] }
-];
-/** @nocollapse */
-ListingComponent.ctorParameters = () => [
-    { type: ApiService },
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialog"] },
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatBottomSheet"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"] }
-];
-ListingComponent.propDecorators = {
-    search_settings: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    click_to_add_ananother_page: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    grab_link: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    custombutton: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    date_search_source: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    date_search_endpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    url: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    searchendpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    pdf_link: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    searchList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    datasource: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    skip: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    detail_datatype: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    detail_skip_array: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    sourcedata: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    modify_header_array: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    deleteendpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    updateendpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    apiurl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    jwttoken: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    statusarr: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    emailarray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    editroute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    preview_artistxp: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    sort: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSort"], { static: true },] }],
-    paginator: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginator"], { static: true },] }]
-};
-if (false) {}
-class Confirmdialog {
-    /**
-     * @param {?} dialogRef
-     * @param {?} data
-     * @param {?} sanitizer
-     */
-    constructor(dialogRef, data, sanitizer) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-        this.sanitizer = sanitizer;
-        console.log('my data ...');
-        console.log(this.data);
-    }
-    /**
-     * @return {?}
-     */
-    onNoClick() {
-        this.dialogRef.close();
-    }
-    /**
-     * @param {?} unsafeurl
-     * @param {?} data
-     * @param {?} rowdata
-     * @return {?}
-     */
-    sanitizeUrl(unsafeurl, data, rowdata) {
-        for (let b in data) {
-            unsafeurl = unsafeurl + '/' + rowdata[data[b]];
-        }
-        console.log('unsafeurl');
-        console.log(unsafeurl);
-        console.log(data);
-        console.log(rowdata);
-        return this.sanitizer.bypassSecurityTrustResourceUrl(unsafeurl);
-    }
-}
-Confirmdialog.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'confirmdialog',
-                template: "\n<div *ngIf=\"data.preview != true\">\n    <h1 mat-dialog-title *ngIf=\"data!=null && data.message!=null\" >Hey !</h1>\n    <h1 mat-dialog-title *ngIf=\"data!=null && data.data!=null && data.data[0]==null\">Details </h1>\n    <div mat-dialog-content>\n        <p *ngIf=\"data!=null && data.message!=null\">{{data.message}}</p>\n\n\n        <div *ngIf=\"data!=null && data.data!=null\">\n\n\n\n            <mat-card class=\"example-card\" *ngFor=\"let item of data.data;\">\n                <mat-card-header id=\"dialogdata{{item[0]}}\">\n                    <!--<div mat-card-avatar class=\"example-header-image\"></div>-->\n                    <mat-card-title>{{item[0]}}</mat-card-title>\n                </mat-card-header>\n                <!--<img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">-->\n                <mat-card-content id=\"dialogdata{{item[0]}}\">\n                    <p [innerHtml]=\"item[1]\">\n\n                    </p>\n                </mat-card-content>\n            </mat-card>\n\n        </div>\n\n        <!--for custom page in modal(mainly used for tree)-->\n        <div *ngIf=\"data!=null && data.data!=null  && data.data[0]!=null &&  data.data[0].customdata!=null\">\n\n            <iframe class=\"custom-datadiv\" height=\"auto\"  [src]=\"data.data[0].customdata\" ></iframe>\n\n        </div>\n\n    </div>\n</div>\n\n\n<div *ngIf=\"data.preview == true\">\n    <lib-singlepost [post1]=\"data.previewData.res[0].posts\" [user]=\"\"></lib-singlepost>\n</div>\n\n\n\n\n\n<div mat-dialog-actions *ngIf=\"data.preview != true\">\n    <button mat-button *ngIf=\"data.isconfirmation==null ||  data.isconfirmation!=false\" (click)=\"onNoClick()\">No Thanks</button>\n    <button mat-button mat-dialog-close=\"yes\" cdkFocusInitial>Ok</button>\n</div>\n"
-            }] }
-];
-/** @nocollapse */
-Confirmdialog.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"],] }] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"] }
-];
-if (false) {}
-class BottomSheet {
-    /**
-     * @param {?} bottomSheetRef
-     * @param {?} data
-     */
-    constructor(bottomSheetRef, data) {
-        this.bottomSheetRef = bottomSheetRef;
-        this.data = data;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    openLink(val) {
-        console.log('bottomsheet data');
-        console.log(val);
-        this.bottomSheetRef.dismiss(val);
-        //event.preventDefault();
-    }
-}
-BottomSheet.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'bottom-sheet',
-                template: "<mat-nav-list>\n\n\n    <a *ngFor=\"let item of data.items;\"  mat-list-item (click)=\"openLink(item)\">\n        <span mat-line></span>\n        <span mat-line>{{item.name}}</span>\n    </a>\n\n\n</mat-nav-list>\n"
-            }] }
-];
-/** @nocollapse */
-BottomSheet.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatBottomSheetRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_1__["MAT_BOTTOM_SHEET_DATA"],] }] }
-];
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class DemoMaterialModule {
-}
-DemoMaterialModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                exports: [
-                    _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_10__["A11yModule"],
-                    _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_14__["CdkStepperModule"],
-                    _angular_cdk_table__WEBPACK_IMPORTED_MODULE_15__["CdkTableModule"],
-                    _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_16__["CdkTreeModule"],
-                    _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_11__["DragDropModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatAutocompleteModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatBadgeModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatBottomSheetModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatButtonToggleModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCardModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatCheckboxModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatChipsModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatStepperModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDatepickerModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDialogModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatDividerModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatExpansionModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatGridListModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatIconModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatListModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatMenuModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatNativeDateModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatPaginatorModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressBarModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatProgressSpinnerModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatRadioModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatRippleModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSelectModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSidenavModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSliderModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSlideToggleModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSnackBarModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatSortModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTableModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTabsModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatToolbarModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTooltipModule"],
-                    _angular_material__WEBPACK_IMPORTED_MODULE_1__["MatTreeModule"],
-                    _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_12__["PortalModule"],
-                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_13__["ScrollingModule"],
-                ]
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-//import { SinglepostComponent } from './singlepost/singlepost.component';
-class ListingModule {
-}
-ListingModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                declarations: [ListingComponent, Confirmdialog, BottomSheet],
-                imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_18__["CommonModule"],
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
-                    DemoMaterialModule,
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-                    _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"],
-                    ngx_moment__WEBPACK_IMPORTED_MODULE_19__["MomentModule"]
-                    // DynamicFieldDirective,
-                ],
-                schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["CUSTOM_ELEMENTS_SCHEMA"]],
-                exports: [ListingComponent,
-                ],
-                providers: [ApiService],
-                entryComponents: [Confirmdialog, BottomSheet],
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-
-//# sourceMappingURL=listing-angular7.js.map
-
-
-/***/ }),
-
-/***/ "./dist/team/fesm2015/team.js":
-/*!************************************!*\
-  !*** ./dist/team/fesm2015/team.js ***!
-  \************************************/
-/*! exports provided: TeamComponent, TeamModule, TeamService, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamComponent", function() { return TeamComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamModule", function() { return TeamModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TeamService", function() { return TeamService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return AddEditTeamComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return UploadService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return ApiService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵd", function() { return AddeditTeamComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵe", function() { return ListTeamComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵf", function() { return TeamListComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵg", function() { return MaterialModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/cdk/a11y */ "./node_modules/@angular/cdk/esm2015/a11y.js");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm2015/drag-drop.js");
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/esm2015/portal.js");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm2015/scrolling.js");
-/* harmony import */ var _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/cdk/stepper */ "./node_modules/@angular/cdk/esm2015/stepper.js");
-/* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm2015/table.js");
-/* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm2015/tree.js");
-/* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/esm2015/autocomplete.js");
-/* harmony import */ var _angular_material_badge__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/badge */ "./node_modules/@angular/material/esm2015/badge.js");
-/* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm2015/bottom-sheet.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm2015/button.js");
-/* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/esm2015/button-toggle.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm2015/card.js");
-/* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/esm2015/checkbox.js");
-/* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/esm2015/chips.js");
-/* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/esm2015/stepper.js");
-/* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/esm2015/datepicker.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
-/* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/material/divider */ "./node_modules/@angular/material/esm2015/divider.js");
-/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
-/* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/esm2015/grid-list.js");
-/* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm2015/input.js");
-/* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/esm2015/list.js");
-/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm2015/menu.js");
-/* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/esm2015/core.js");
-/* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
-/* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm2015/progress-bar.js");
-/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm2015/progress-spinner.js");
-/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm2015/radio.js");
-/* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm2015/select.js");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/esm2015/sidenav.js");
-/* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/esm2015/slider.js");
-/* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/esm2015/slide-toggle.js");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
-/* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
-/* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm2015/tabs.js");
-/* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm2015/toolbar.js");
-/* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm2015/tooltip.js");
-/* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm2015/tree.js");
-/* harmony import */ var lib_listing__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! lib-listing */ "./dist/listing/fesm2015/listing-angular7.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var file_upload__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! file-upload */ "./dist/file-upload/fesm2015/file-upload.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class TeamService {
-    constructor() { }
-}
-TeamService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-TeamService.ctorParameters = () => [];
-/** @nocollapse */ TeamService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function TeamService_Factory() { return new TeamService(); }, token: TeamService, providedIn: "root" });
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class TeamComponent {
-    constructor() { }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-    }
-}
-TeamComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-Team',
-                template: "",
-                styles: [".example-card{max-width:400px}.example-header-image{background-image:url(https://material.angular.io/assets/img/examples/shiba1.jpg);background-size:cover;border:2px solid #e0dada}.headerSpan{text-align:center;display:block;margin:auto}.darkToolbar{background-color:#000}.gridListWrapper{padding:30px}.buttonsetToolbar{background-color:#f4f3f8;text-align:center;display:block;padding-top:10px}.singleButton{margin:5px;float:right}.example-form{min-width:150px;max-width:auto;width:100%}.example-full-width{width:100%}td{padding-right:8px}.mat-card{background:#fff!important}.mat-dialog-content{border-radius:0;overflow:hidden!important;padding:0 24px!important;box-shadow:none!important}.mat-dialog-content .mat-dialog-title{background-color:#4f4f4f;border:0;padding:.35em;color:#fff}.mat-dialog-content .mat-card{transition:none!important;display:flex!important;position:relative;padding:5px;border-radius:0;align-items:center}.mat-dialog-content .mat-card .mat-card-content,.mat-dialog-content .mat-card .mat-card-header{white-space:normal;word-break:break-word}.mat-dialog-content .mat-card-header .mat-card-title{margin-bottom:0;font-size:16px}.mat-dialog-content .mat-dialog-actions{margin-bottom:0;justify-content:center}.mat-dialog-content .mat-dialog-actions button{display:inline-block;height:auto;background:#c33;font-size:18px;color:#fff!important;text-transform:uppercase;font-family:Ralewaybold;text-decoration:none!important;line-height:normal;text-align:center;margin:10px auto 0;white-space:normal;padding:12px 10px;border-radius:0!important}.cdk-global-overlay-wrapper{align-items:center!important}.cdk-global-overlay-wrapper .mat-bottom-sheet-container bottom-sheet .mat-nav-list{display:flex;padding-top:0!important}.mat-bottom-sheet-container bottom-sheet .mat-nav-list .mat-list-item{display:inline-block;height:auto;background:#c33;font-size:18px;color:#fff!important;text-transform:uppercase;font-family:Ralewaybold;text-decoration:none!important;line-height:normal;text-align:center;margin:5px;white-space:normal;padding:12px 10px;border-radius:0!important}.mat-bottom-sheet-container bottom-sheet .mat-nav-list{text-align:center}.mat-dialog-container .mat-dialog-actions button{display:inline-block;height:auto;background:#c33;font-size:18px;color:#fff!important;text-transform:uppercase;font-family:Ralewaybold;text-decoration:none!important;line-height:normal;text-align:center;margin:10px auto 0;white-space:normal;padding:12px 10px;border-radius:0!important}.mat-dialog-container .mat-card-header .mat-card-title{margin-bottom:0;font-size:16px;font-weight:600}.mat-form-field{margin:0 10px}"]
-            }] }
-];
-/** @nocollapse */
-TeamComponent.ctorParameters = () => [];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ApiService {
-    /**
-     * @param {?} _http
-     * @param {?} _authHttp
-     * @param {?} cookieService
-     */
-    constructor(_http, _authHttp, cookieService) {
-        this._http = _http;
-        this._authHttp = _authHttp;
-        this.cookieService = cookieService;
-        this.progress = [];
-        this.uploaderror = '';
-        this.accesstoken = this.cookieService.get('jwtToken');
-        this.fileservername = [];
-        this.subjectForServerUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subjectForaddEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subjectForuploadEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"](); //added by souresh
-        //added by souresh
-        this.subjectForupdateEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subjectFordeletesingleEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subjectForupdatestatusSingleEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subjectForGetdataEndpointUrl = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
-        this.subscriptionServer = this.getServerUrl().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.serverUrl = result;
-            }
-            else {
-                this.serverUrl = null;
-            }
-        }));
-        this.subscriptionaddEndpoint = this.getaddEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.addendpointUrl = result;
-            }
-            else {
-                this.addendpointUrl = null;
-            }
-        }));
-        /*********added by souresh***********/
-        this.subscriptionuploadEndpoint = this.getuploadEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.uploadEndpointUrl = result;
-            }
-            else {
-                this.uploadEndpointUrl = null;
-            }
-        }));
-        /************souresh end here**************/
-        this.subscriptionupdateEndpoint = this.getupdateEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.updateendpointUrl = result;
-            }
-            else {
-                this.updateendpointUrl = null;
-            }
-        }));
-        this.subscriptiondeletesingleEndpoint = this.getdeletesingleEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.deletesingle_endpointUrl = result;
-            }
-            else {
-                this.deletesingle_endpointUrl = null;
-            }
-        }));
-        this.subscriptionupdatestatusSingleEndpoint = this.getupdatestatus_singleEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.updatestatus_single_endpointUrl = result;
-            }
-            else {
-                this.updatestatus_single_endpointUrl = null;
-            }
-        }));
-        this.subscriptionGetdataEndpoint = this.getdataEndpoint().subscribe((/**
-         * @param {?} message
-         * @return {?}
-         */
-        message => {
-            /** @type {?} */
-            let result;
-            result = message;
-            if (result != null) {
-                this.getdata_endpointUrl = result;
-            }
-            else {
-                this.getdata_endpointUrl = null;
-            }
-        }));
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    setServerUrl(value) {
-        this.subjectForServerUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    clearServerUrl() {
-        this.subjectForServerUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getServerUrl() {
-        return this.subjectForServerUrl.asObservable();
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    setaddEndpoint(value) {
-        this.subjectForaddEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    clearaddEndpoint() {
-        this.subjectForaddEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getaddEndpoint() {
-        return this.subjectForaddEndpointUrl.asObservable();
-    }
-    /**
-     * **added by souresh*****
-     * @param {?} value
-     * @return {?}
-     */
-    setuploadEndpont(value) {
-        this.subjectForuploadEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    clearuploadEndpoint() {
-        this.subjectForuploadEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getuploadEndpoint() {
-        return this.subjectForuploadEndpointUrl.asObservable();
-    }
-    /**
-     * *****souresh end here*******
-     * @param {?} value
-     * @return {?}
-     */
-    setupdateEndpoint(value) {
-        this.subjectForupdateEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    clearupdateEndpoint() {
-        this.subjectForupdateEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getupdateEndpoint() {
-        return this.subjectForupdateEndpointUrl.asObservable();
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    setdeletesingleEndpoint(value) {
-        this.subjectFordeletesingleEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    cleardeletesingleEndpoint() {
-        this.subjectFordeletesingleEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getdeletesingleEndpoint() {
-        return this.subjectFordeletesingleEndpointUrl.asObservable();
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    setupdatestatus_singleEndpoint(value) {
-        this.subjectForupdatestatusSingleEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    clearupdatestatus_singleEndpoint() {
-        this.subjectForupdatestatusSingleEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getupdatestatus_singleEndpoint() {
-        return this.subjectForupdatestatusSingleEndpointUrl.asObservable();
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    setgetdataEndpoint(value) {
-        this.subjectForGetdataEndpointUrl.next(value);
-    }
-    /**
-     * @return {?}
-     */
-    cleargetdataEndpoint() {
-        this.subjectForGetdataEndpointUrl.next(null);
-    }
-    /**
-     * @return {?}
-     */
-    getdataEndpoint() {
-        return this.subjectForGetdataEndpointUrl.asObservable();
-    }
-    /**
-     * @return {?}
-     */
-    isTokenExpired() {
-        // const helper = new JwtHelperService();
-        // const decodedToken = helper.decodeToken(localStorage.getItem('id_token'));
-        // var isIdTokenExpired = helper.isTokenExpired(localStorage.getItem('id_token'));
-        // console.log('refresh_token',localStorage.getItem('refresh_token'))
-        // const isRefreshTokenExpired = helper.isTokenExpired(localStorage.getItem('refresh_token'));
-        // console.log('id_token isExpired:',isIdTokenExpired)
-        // console.log('refresh_token isExpired:',isRefreshTokenExpired)
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    addData(requestdata) {
-        console.log('in adddata apiservice');
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                // 'access-token': this.accesstoken 
-                'Authorization': this.accesstoken //hard code written access-token(temp)
-            })
-        };
-        console.log('httpoptions', httpOptions, this.serverUrl, requestdata);
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.addendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * ****added by souresh***********
-     * @param {?} requestdata
-     * @return {?}
-     */
-    uploadFile(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken //hard code written access-token(temp)
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.uploadEndpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * ****souresh end here*******
-     * @param {?} requestdata
-     * @return {?}
-     */
-    UpdateData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken //hard code written access-token(temp)
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.updateendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    getData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.getdata_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    deleteSingleData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.deletesingle_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    deleteMultipleData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.deletesingle_endpointUrl + 'many', JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    UpdateStatusForSingleData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.updatestatus_single_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @return {?}
-     */
-    UpdateStatusForMultipleData(requestdata) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + this.updatestatus_single_endpointUrl + 'many', JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-    /**
-     * @param {?} requestdata
-     * @param {?} endpoint
-     * @return {?}
-     */
-    CustomRequest(requestdata, endpoint) {
-        /** @type {?} */
-        const httpOptions = {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({
-                'Content-Type': 'application/json',
-                'Authorization': this.accesstoken
-            })
-        };
-        /** @type {?} */
-        var result = this._http.post(this.serverUrl + endpoint, JSON.stringify(requestdata), httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} res
-         * @return {?}
-         */
-        res => res)));
-        return result;
-    }
-}
-ApiService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-ApiService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] }
-];
-/** @nocollapse */ ApiService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function ApiService_Factory() { return new ApiService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"])); }, token: ApiService, providedIn: "root" });
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class UploadService {
-    /**
-     * @param {?} httpClient
-     */
-    constructor(httpClient) {
-        this.httpClient = httpClient;
-        this.SERVER_URL = "http://166.62.39.137:5009/uploads";
-        this.response = {};
-    }
-    /**
-     * @param {?} data
-     * @param {?} userId
-     * @return {?}
-     */
-    upload(data, userId) {
-        return this.httpClient.post(this.SERVER_URL, data, {
-            reportProgress: true,
-            observe: 'events'
-        }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((/**
-         * @param {?} event
-         * @return {?}
-         */
-        (event) => {
-            switch (event.type) {
-                case _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpEventType"].UploadProgress:
-                    /** @type {?} */
-                    const uploadPercent = Math.round(100 * event.loaded / event.total);
-                    this.response = { status: "process", data: { total: 100, loaded: uploadPercent } };
-                    return this.response;
-                case _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpEventType"].Response:
-                    return event.body;
-                default:
-                    return `Unhandled event: ${event.type}`;
-                // return `Unhandled event: ${event.type}`;
-            }
-        })));
-    }
-}
-UploadService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"], args: [{
-                providedIn: 'root'
-            },] }
-];
-/** @nocollapse */
-UploadService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
-];
-/** @nocollapse */ UploadService.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"])({ factory: function UploadService_Factory() { return new UploadService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"])(_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); }, token: UploadService, providedIn: "root" });
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class AddEditTeamComponent {
-    /**
-     * @param {?} fb
-     * @param {?} activeroute
-     * @param {?} _http
-     * @param {?} uploadService
-     * @param {?} apiservice
-     * @param {?} router
-     */
-    constructor(fb, activeroute, _http, uploadService, apiservice, router) {
-        this.fb = fb;
-        this.activeroute = activeroute;
-        this._http = _http;
-        this.uploadService = uploadService;
-        this.apiservice = apiservice;
-        this.router = router;
-        this.teamData = [];
-        this.allData = [];
-        this.listrouteData = "";
-        this.editarray = [];
-        this.imageConfigData = '';
-        this.SingleDataList = [];
-        this.ButtonText = "Submit";
-        this.HeaderText = "Add Team Member";
-        this.flag = false;
-        this.img_var = '';
-        this.teamForm = this.fb.group({
-            categoryname: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            membername: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            description: ["", _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            multiplephone: this.fb.array([]),
-            multipleemail: this.fb.array([]),
-            bulletarray: this.fb.array([]),
-            team_img: ['']
-        });
-    }
-    /* Config Upload file lib */
-    /**
-     * @param {?} getConfig
-     * @return {?}
-     */
-    set imageUpload(getConfig) {
-        this.imageConfigData = getConfig;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set singleData(val) {
-        this.SingleDataList = (val) || '<no name set>';
-        this.SingleDataList = val;
-        if (this.activeroute.snapshot.params._id) {
-            this.ButtonText = "Update";
-            this.HeaderText = "Edit Team Member";
-            this.flag = true;
-            this.params_id = this.activeroute.snapshot.params._id;
-            this.teamForm.controls['categoryname'].patchValue(val[0].categoryname);
-            this.teamForm.controls['description'].patchValue(val[0].description);
-            this.teamForm.controls['membername'].patchValue(val[0].membername);
-            this.teamForm.controls['team_img'].patchValue(val[0].team_img);
-            this.img_var = this.SingleDataList[0].team_img.basepath + this.SingleDataList[0].team_img.image;
-            this.image_name = this.SingleDataList[0].team_img.name;
-            this.image_type = this.SingleDataList[0].team_img.type;
-            for (const i in this.SingleDataList[0].bulletarray) {
-                this.addBulletListData(this.SingleDataList[0].bulletarray[i].bullet_name, this.SingleDataList[0].bulletarray[i].bullet_desc);
-            }
-            for (const i in this.SingleDataList[0].multiplephone) {
-                this.addphone(this.SingleDataList[0].multiplephone[i].contactphone);
-            }
-            for (const i in this.SingleDataList[0].multipleemail) {
-                this.addemail(this.SingleDataList[0].multipleemail[i].contactemail);
-            }
-        }
-    }
-    /**
-     * @param {?} serverUrlval
-     * @return {?}
-     */
-    set serverUrl(serverUrlval) {
-        this.serverUrlData = (serverUrlval) || '<no name set>';
-        this.serverUrlData = serverUrlval;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set ListRoute(val) {
-        this.listrouteData = (val) || '<no name set>';
-        this.listrouteData = val;
-    }
-    /**
-     * @param {?} endpointUrlval
-     * @return {?}
-     */
-    set getDataEndpoint(endpointUrlval) {
-        this.getDataEndpointData = (endpointUrlval) || '<no name set>';
-        this.getDataEndpointData = endpointUrlval;
-    }
-    /**
-     * @param {?} endpointUrlval
-     * @return {?}
-     */
-    set addEndpoint(endpointUrlval) {
-        this.addEndpointData = (endpointUrlval) || '<no name set>';
-        this.addEndpointData = endpointUrlval;
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        this.apiservice.clearServerUrl();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiservice.setServerUrl(this.serverUrlData);
-        }), 50);
-        this.apiservice.cleargetdataEndpoint();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiservice.setgetdataEndpoint(this.getDataEndpointData);
-        }), 50);
-        this.apiservice.clearaddEndpoint();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiservice.setaddEndpoint(this.addEndpointData);
-        }), 50);
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.getData();
-        }), 50);
-        if (this.activeroute.snapshot.params._id == null) {
-            this.addBulletListData('', '');
-            this.addphone('');
-            this.addemail('');
-        }
-    }
-    /**
-     * @param {?} form
-     * @param {?} val
-     * @return {?}
-     */
-    inputUntouch(form, val) {
-        form.controls[val].markAsUntouched();
-    }
-    /**
-     * for multiple phone function start here*
-     * @param {?} a
-     * @return {?}
-     */
-    addphone(a) {
-        /** @type {?} */
-        const mphone = (/** @type {?} */ (this.teamForm.controls.multiplephone));
-        mphone.push(this.fb.group({
-            contactphone: [a]
-        }));
-    }
-    /**
-     * @param {?} index
-     * @return {?}
-     */
-    removephone(index) {
-        /** @type {?} */
-        const mphone = (/** @type {?} */ (this.teamForm.controls.multiplephone));
-        mphone.removeAt(index);
-    }
-    /**multiple phone end here**/
-    /**
-     * for multiple emails functions start here*
-     * @param {?} a
-     * @return {?}
-     */
-    addemail(a) {
-        /** @type {?} */
-        const memail = (/** @type {?} */ (this.teamForm.controls.multipleemail));
-        memail.push(this.fb.group({
-            contactemail: [a]
-        }));
-    }
-    /**
-     * @param {?} index
-     * @return {?}
-     */
-    removeemail(index) {
-        /** @type {?} */
-        const mphone = (/** @type {?} */ (this.teamForm.controls.multipleemail));
-        mphone.removeAt(index);
-    }
-    /**
-     * multiple email functions end here*
-     * @return {?}
-     */
-    getData() {
-        /** @type {?} */
-        let data = {
-            "source": "Team_category"
-        };
-        this.apiservice.getData(data).subscribe((/**
-         * @param {?} response
-         * @return {?}
-         */
-        response => {
-            /** @type {?} */
-            let result = response;
-            this.allData = result.res;
-        }));
-    }
-    /**
-     * resetting the form*
-     * @return {?}
-     */
-    ResetForm() {
-        this.teamForm.reset();
-    }
-    /**
-     * bullet list function start here*
-     * @param {?} a
-     * @param {?} b
-     * @return {?}
-     */
-    addBulletListData(a, b) {
-        /** @type {?} */
-        const bulletlist = (/** @type {?} */ (this.teamForm.controls.bulletarray));
-        bulletlist.push(this.fb.group({
-            bullet_name: [a],
-            bullet_desc: [b],
-        }));
-    }
-    /**
-     * @return {?}
-     */
-    deleteBulletListData() {
-        /** @type {?} */
-        const bulletlist = (/** @type {?} */ (this.teamForm.controls.bulletarray));
-        bulletlist.removeAt(1);
-    }
-    /**
-     * @param {?} index
-     * @return {?}
-     */
-    trackByFn(index) {
-        return index;
-    }
-    /**
-     * bullet list function end here*
-     * @return {?}
-     */
-    clear_image() {
-        this.flag = false;
-    }
-    /**
-     * @return {?}
-     */
-    TeamFormSubmit() {
-        if (this.imageConfigData.files) {
-            if (this.imageConfigData.files.length > 1) {
-                this.ErrCode = true;
-                return;
-            }
-            this.teamForm.value.team_img =
-                {
-                    "basepath": this.imageConfigData.files[0].upload.data.basepath + '/'
-                        + this.imageConfigData.path + '/',
-                    "image": this.imageConfigData.files[0].upload.data.data.fileservername,
-                    "name": this.imageConfigData.files[0].name,
-                    "type": this.imageConfigData.files[0].type
-                };
-        }
-        else {
-            this.teamForm.value.team_img = false;
-        }
-        /** @type {?} */
-        let x;
-        for (x in this.teamForm.controls) {
-            this.teamForm.controls[x].markAsTouched();
-        }
-        if (this.teamForm.valid) {
-            /** @type {?} */
-            var data;
-            if (this.activeroute.snapshot.params._id) { //update part
-                data = {
-                    "source": "Team_management",
-                    "data": {
-                        "id": this.params_id,
-                        "categoryname": this.teamForm.value.categoryname,
-                        "membername": this.teamForm.value.membername,
-                        "description": this.teamForm.value.description,
-                        "multiplephone": this.teamForm.value.multiplephone,
-                        "multipleemail": this.teamForm.value.multipleemail,
-                        "bulletarray": this.teamForm.value.bulletarray,
-                        'team_img': this.teamForm.value.team_img
-                    },
-                    "sourceobj": ["categoryname"]
-                };
-            }
-            else {
-                data = {
-                    //add part
-                    "source": "Team_management",
-                    "data": this.teamForm.value,
-                    "sourceobj": ["categoryname"]
-                };
-            }
-            ;
-            this.spinnerLoader = true;
-            this.apiservice.addData(data).subscribe((/**
-             * @param {?} response
-             * @return {?}
-             */
-            response => {
-                this.spinnerLoader = false;
-                this.ResetForm();
-                setTimeout((/**
-                 * @return {?}
-                 */
-                () => {
-                    this.router.navigateByUrl('/' + this.listrouteData);
-                }), 100);
-            }));
-        }
-        else {
-            alert("error occured");
-        }
-    }
-}
-AddEditTeamComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-add-edit-team',
-                template: "<span class=\"formspan\">\n  <mat-card>\n    <mat-toolbar color=\"primary\" style=\"justify-content: center; align-items: center;\">\n      <h2 class=\"headerSpan\">{{HeaderText}}</h2>\n    </mat-toolbar>\n    <span class=\"formspan\">\n      <mat-card-content class=\"example-container\">\n        <form class=\"example-form\" novalidate [formGroup]=\"teamForm\" name=\"teamForm\" (ngSubmit)=\"TeamFormSubmit()\"\n          autocomplete=\"off\">\n          <div class=\"example-container\">\n\n            <mat-form-field>\n              <input matInput placeholder=\"Team Member Name\" [formControl]=\"teamForm.controls['membername']\"\n                (blur)=\"inputUntouch(teamForm,'membername')\">\n              <mat-error *ngIf=\"teamForm.controls['membername'].touched \n                && !teamForm.controls['membername'].valid\n                       && teamForm.controls['membername'].errors.required\">\n                Category Name field can not be blank</mat-error>\n            </mat-form-field><br>\n\n\n\n            <mat-form-field>\n              <textarea matInput placeholder=\"Description\" [formControl]=\"teamForm.controls['description']\"\n                (blur)=\"inputUntouch(teamForm,'description')\">\n                       </textarea>\n              <mat-error *ngIf=\"teamForm.controls['description'].touched && !teamForm.controls['description'].valid\n                   && teamForm.controls['description'].errors.required\">\n                Description field can not be blank</mat-error>\n            </mat-form-field>\n\n\n            <mat-form-field>\n              <mat-label>Category Name</mat-label>\n              <mat-select formControlName=\"categoryname\">\n                <mat-option [value]=0>\n                  Select a category\n                </mat-option>\n                <mat-option *ngFor=\"let f of allData\" [value]=\"f._id\">\n                  {{f.categoryName}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n\n            <!-- bullet list start here -->\n            <div formArrayName=\"bulletarray\" class=\"bulletarr\"\n              *ngFor=\"let blist of teamForm.controls.bulletarray?.value; let i = index; trackBy: trackByFn\">\n              <ng-container [formGroupName]=\"i\">\n                <div class=\"top_header\">\n                  bullet list\n                </div>\n                <!-- ------------bullet name-----------  -->\n                <mat-form-field>\n                  <input matInput formControlName=\"bullet_name\" placeholder=\"Name\">\n\n                </mat-form-field><br>\n                <!-- -----------------------------------  -->\n\n\n                <!-- --------------------bullet description-----------------  -->\n                <mat-form-field>\n                  <textarea matInput formControlName=\"bullet_desc\" placeholder=\"Description\"></textarea>\n\n                </mat-form-field><br>\n                <!-- ----------------------------------------------------------  -->\n\n              </ng-container>\n              <button type=\"button\" (click)=\"addBulletListData('','')\">\n                <mat-icon>add</mat-icon>\n              </button>\n              <button type=\"button\" (click)=\"deleteBulletListData()\" *ngIf=\"i!=0\">\n                <mat-icon>remove</mat-icon>\n              </button>\n            </div>\n            <!-- bullet list end here -->\n\n\n            <!--multiple phone start here -->\n            <div formArrayName=\"multiplephone\"\n              *ngFor=\"let plist of teamForm.controls.multiplephone?.value; let i = index; trackBy: trackByFn\">\n              <ng-container [formGroupName]=\"i\">\n\n                <mat-form-field>\n                  <input matInput formControlName=\"contactphone\" placeholder=\"contactphone\">\n                  <span matSuffix>\n                    <i class=\"material-icons\" (click)=\"addphone('')\">add</i>\n                    <i *ngIf=\"i>0\" class=\"material-icons\" (click)=\"removephone(i)\">remove</i>\n                  </span>\n                </mat-form-field><br>\n\n              </ng-container>\n            </div>\n            <!-- multiple phone end here -->\n\n            <!-- multiple e-mail start here -->\n            <div formArrayName=\"multipleemail\"\n              *ngFor=\"let elist of teamForm.controls.multipleemail?.value; let i = index; trackBy: trackByFn\">\n              <ng-container [formGroupName]=\"i\">\n\n                <mat-form-field>\n                  <input matInput formControlName=\"contactemail\" placeholder=\"contactemail\">\n                  <span matSuffix>\n                    <i class=\"material-icons\" (click)=\"addemail('')\">add</i>\n                    <i *ngIf=\"i>0\" class=\"material-icons\" (click)=\"removeemail(i)\">remove</i>\n                  </span>\n                </mat-form-field><br>\n\n              </ng-container>\n            </div>\n            <!-- multiple e-mail end here -->\n\n          </div>\n          <!-- file upload library start here -->\n          <lib-file-upload [config]=\"imageConfigData\"></lib-file-upload>\n          <mat-error *ngIf=\"ErrCode==true\">Please add just one image.</mat-error>\n\n          <!-- CARD VIEW  -->\n          <mat-card-content class=\"files-view\" *ngIf=\"flag==true\">\n            <mat-card class=\"example-card\">\n              <img mat-card-image [attr.src]=\"img_var\">\n              <mat-card-title>{{ image_name }}</mat-card-title>\n              <mat-card-subtitle>{{ image_type }}</mat-card-subtitle>\n              <span class=\"closecard\" (click)=\"clear_image()\">\n                <i class=\"material-icons\">clear</i>\n              </span>\n            </mat-card>\n          </mat-card-content>\n          <!-- file upload end here -->\n          <button mat-raised-button color=\"primary\" mat-button class=\"submitbtn\" type=\"submit\">{{ButtonText}}</button>\n          <button type=\"button\" class=\"submitbtn\" mat-raised-button color=\"primary\" (click)=\"ResetForm()\">Reset</button>\n        </form>\n      </mat-card-content>\n    </span>\n    <mat-spinner *ngIf=\"spinnerLoader\"></mat-spinner>\n  </mat-card>\n",
-                styles: [".example-container{display:flex;flex-direction:column}.example-container>*{width:100%}.main-class .submitbtn{display:block;width:170px;margin:10px auto;background:#3f50b5!important;color:#fff}.main-class .material-icons{cursor:pointer}.formspan{background-color:#e7e9ea;border:6px solid #fff;border-bottom:10px solid #fff;display:inline-block;width:100%;position:relative;z-index:9}.formspan .example-container{display:flex;flex-direction:column;width:98%;padding:14px;margin-bottom:0}.formspan .form-field-span,.formspan .mat-form-field{display:block;position:relative;text-align:left;width:100%;background:#fff;padding:1px 14px;box-sizing:border-box;margin:0}.formspan .form-field-span .mat-checkbox,.formspan .form-field-span .mat-radio-button{padding-right:15px;padding-bottom:15px;display:inline-block}.formspan .mat-form-field-wrapper{padding-bottom:0!important}.form-field-span .mat-error{font-size:13px!important}.mat-error{color:#f44336;font-size:13px!important}button.submitbtn.mat-raised-button.mat-primary{margin-right:15px}:host ::ng-deep .ck-editor__editable_inline{min-height:50px}.bulletarr{margin-top:20px;border:2px solid #3f50b4;box-sizing:border-box;margin-bottom:15px;padding:10px}.top_header{background:#3f50b4;padding:16px;color:#fff;font-weight:700;text-transform:capitalize;margin-bottom:20px}.files-view{background-repeat:no-repeat;background-size:cover;background-position:center;height:auto!important;width:82%;margin:20px auto;border-radius:10px;display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap}.files-view .mat-card{z-index:9;margin:10px!important;display:flex;flex-wrap:wrap;justify-content:center;width:27%;position:relative}.files-view .mat-card .mat-card-actions,.files-view .mat-card .mat-card-titlt{display:inline-block;width:100%}.files-view .mat-card .mat-card-subtitle{display:inline-block;width:100%;text-align:center}.closecard{position:absolute;top:-10px;right:-8px;background:#464545;height:25px;width:25px;border-radius:50%;border:1px solid #696969;color:#fff;text-align:center;box-shadow:0 2px 6px #00000070;cursor:pointer}.closecard i{font-size:18px;line-height:27px}"]
-            }] }
-];
-/** @nocollapse */
-AddEditTeamComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: UploadService },
-    { type: ApiService },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-AddEditTeamComponent.propDecorators = {
-    imageUpload: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    singleData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    serverUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    ListRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    getDataEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    addEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
-};
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class MaterialModule {
-}
-MaterialModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                declarations: [],
-                imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_8__["CommonModule"]
-                ],
-                exports: [
-                    _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_9__["A11yModule"],
-                    _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_13__["CdkStepperModule"],
-                    _angular_cdk_table__WEBPACK_IMPORTED_MODULE_14__["CdkTableModule"],
-                    _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_15__["CdkTreeModule"],
-                    _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_10__["DragDropModule"],
-                    _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_16__["MatAutocompleteModule"],
-                    _angular_material_badge__WEBPACK_IMPORTED_MODULE_17__["MatBadgeModule"],
-                    _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_18__["MatBottomSheetModule"],
-                    _angular_material_button__WEBPACK_IMPORTED_MODULE_19__["MatButtonModule"],
-                    _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_20__["MatButtonToggleModule"],
-                    _angular_material_card__WEBPACK_IMPORTED_MODULE_21__["MatCardModule"],
-                    _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_22__["MatCheckboxModule"],
-                    _angular_material_chips__WEBPACK_IMPORTED_MODULE_23__["MatChipsModule"],
-                    _angular_material_stepper__WEBPACK_IMPORTED_MODULE_24__["MatStepperModule"],
-                    _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_25__["MatDatepickerModule"],
-                    _angular_material_dialog__WEBPACK_IMPORTED_MODULE_26__["MatDialogModule"],
-                    _angular_material_divider__WEBPACK_IMPORTED_MODULE_27__["MatDividerModule"],
-                    _angular_material_expansion__WEBPACK_IMPORTED_MODULE_28__["MatExpansionModule"],
-                    _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_29__["MatGridListModule"],
-                    _angular_material_icon__WEBPACK_IMPORTED_MODULE_30__["MatIconModule"],
-                    _angular_material_input__WEBPACK_IMPORTED_MODULE_31__["MatInputModule"],
-                    _angular_material_list__WEBPACK_IMPORTED_MODULE_32__["MatListModule"],
-                    _angular_material_menu__WEBPACK_IMPORTED_MODULE_33__["MatMenuModule"],
-                    _angular_material_core__WEBPACK_IMPORTED_MODULE_34__["MatNativeDateModule"],
-                    _angular_material_paginator__WEBPACK_IMPORTED_MODULE_35__["MatPaginatorModule"],
-                    _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_36__["MatProgressBarModule"],
-                    _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_37__["MatProgressSpinnerModule"],
-                    _angular_material_radio__WEBPACK_IMPORTED_MODULE_38__["MatRadioModule"],
-                    _angular_material_core__WEBPACK_IMPORTED_MODULE_34__["MatRippleModule"],
-                    _angular_material_select__WEBPACK_IMPORTED_MODULE_39__["MatSelectModule"],
-                    _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_40__["MatSidenavModule"],
-                    _angular_material_slider__WEBPACK_IMPORTED_MODULE_41__["MatSliderModule"],
-                    _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_42__["MatSlideToggleModule"],
-                    _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_43__["MatSnackBarModule"],
-                    _angular_material_sort__WEBPACK_IMPORTED_MODULE_44__["MatSortModule"],
-                    _angular_material_table__WEBPACK_IMPORTED_MODULE_45__["MatTableModule"],
-                    _angular_material_tabs__WEBPACK_IMPORTED_MODULE_46__["MatTabsModule"],
-                    _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_47__["MatToolbarModule"],
-                    _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_48__["MatTooltipModule"],
-                    _angular_material_tree__WEBPACK_IMPORTED_MODULE_49__["MatTreeModule"],
-                    _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_11__["PortalModule"],
-                    _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_12__["ScrollingModule"],
-                ]
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class AddeditTeamComponent {
-    /**
-     * @param {?} fb
-     * @param {?} activeroute
-     * @param {?} _http
-     * @param {?} router
-     * @param {?} apiService
-     */
-    constructor(fb, activeroute, _http, router, apiService) {
-        this.fb = fb;
-        this.activeroute = activeroute;
-        this._http = _http;
-        this.router = router;
-        this.apiService = apiService;
-        this.DataListViaResolve = [];
-        this.allData = [];
-        this.SingledataEdit = [];
-        this.listingPageUrl = '';
-        this.ButtonText = "Submit";
-        this.CategoryManagementTeamForm = this.fb.group({
-            categoryName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            description: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-            status: [true,],
-            role: ['']
-        });
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set TeamData(val) {
-        this.DataListViaResolve = (val) || '<no name set>';
-        this.DataListViaResolve = val;
-        console.log("in ts ", this.DataListViaResolve);
-    }
-    /**
-     * @param {?} serverUrlval
-     * @return {?}
-     */
-    set serverUrl(serverUrlval) {
-        this.serverUrlData = (serverUrlval) || '<no name set>';
-        this.serverUrlData = serverUrlval;
-    }
-    /**
-     * @param {?} endpointUrlval
-     * @return {?}
-     */
-    set getDataEndpoint(endpointUrlval) {
-        this.getDataEndpointData = (endpointUrlval) || '<no name set>';
-        this.getDataEndpointData = endpointUrlval;
-        console.log("data", this.getDataEndpointData);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set singleEditData(val) {
-        this.SingledataEdit = (val) || '<no name set>';
-        this.SingledataEdit = val;
-        if (this.activeroute.snapshot.params._id) {
-            this.ButtonText = "Update";
-            this.params_id = this.activeroute.snapshot.params._id;
-            this.CategoryManagementTeamForm.controls['categoryName'].patchValue(val[0].categoryName);
-            this.CategoryManagementTeamForm.controls['description'].patchValue(val[0].description);
-            this.CategoryManagementTeamForm.controls['status'].patchValue(val[0].status);
-            //this.CategoryManagementTeamForm.controls['role'].patchValue(val[0].role);
-            // for (const i in this.SingledataEdit[0].role) {
-            //     this.CategoryManagementTeamForm.controls['role'].patchValue(this.SingledataEdit[i].role)
-            // }
-        }
-    }
-    /**
-     * @param {?} endpointUrlval
-     * @return {?}
-     */
-    set addEndpoint(endpointUrlval) {
-        this.addEndpointData = (endpointUrlval) || '<no name set>';
-        this.addEndpointData = endpointUrlval;
-    }
-    /**
-     * @param {?} Url
-     * @return {?}
-     */
-    set ListPageRoute(Url) {
-        this.listingPageUrl = (Url) || '<no name set>';
-        this.listingPageUrl = Url;
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        this.apiService.clearServerUrl();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiService.setServerUrl(this.serverUrlData);
-        }), 50);
-        this.apiService.clearaddEndpoint();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiService.setaddEndpoint(this.addEndpointData);
-        }), 50);
-        this.apiService.cleargetdataEndpoint();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.apiService.setgetdataEndpoint(this.getDataEndpointData);
-        }), 50);
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.getData();
-        }), 50);
-    }
-    /**
-     * @param {?} form
-     * @param {?} val
-     * @return {?}
-     */
-    inputUntouch(form, val) {
-        form.controls[val].markAsUntouched();
-    }
-    /**
-     * @return {?}
-     */
-    CategoryManagementTeamFormSubmit() {
-        if (this.CategoryManagementTeamForm.valid) {
-            /** @type {?} */
-            let x;
-            for (x in this.CategoryManagementTeamForm.controls) {
-                this.CategoryManagementTeamForm.controls[x].markAsTouched();
-            }
-            if (this.CategoryManagementTeamForm.valid) {
-                if (this.CategoryManagementTeamForm.value.status)
-                    this.CategoryManagementTeamForm.value.status = parseInt("1");
-                else
-                    this.CategoryManagementTeamForm.value.status = parseInt("0");
-            }
-            /** @type {?} */
-            var data;
-            if (this.activeroute.snapshot.params._id) {
-                data = {
-                    "source": "Team_category",
-                    "data": {
-                        "id": this.params_id,
-                        'categoryName': this.CategoryManagementTeamForm.value.categoryName,
-                        'description': this.CategoryManagementTeamForm.value.description,
-                        'status': this.CategoryManagementTeamForm.value.status,
-                        'role': this.CategoryManagementTeamForm.value.role
-                    }
-                };
-            }
-            else {
-                data = {
-                    "source": "Team_category",
-                    "data": this.CategoryManagementTeamForm.value
-                };
-            }
-            this.spinnerLoader = true;
-            this.apiService.addData(data).subscribe((/**
-             * @param {?} response
-             * @return {?}
-             */
-            response => {
-                this.spinnerLoader = false;
-                setTimeout((/**
-                 * @return {?}
-                 */
-                () => {
-                    this.router.navigateByUrl('/' + this.listingPageUrl);
-                }), 100);
-            }));
-        }
-    }
-    /**
-     * @return {?}
-     */
-    getData() {
-        /** @type {?} */
-        let data = {
-            "source": "rolemanagement"
-        };
-        this.apiService.getData(data).subscribe((/**
-         * @param {?} response
-         * @return {?}
-         */
-        response => {
-            /** @type {?} */
-            let result = response;
-            this.allData = result.res;
-        }));
-    }
-    /**
-     * @return {?}
-     */
-    ResetTeamForm() {
-        this.CategoryManagementTeamForm.reset();
-    }
-}
-AddeditTeamComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-addedit-team',
-                template: "<mat-card>\n  <mat-toolbar color=\"primary\" style=\"justify-content: center; align-items: center;\">\n    <h2 class=\"headerSpan\">Team Category Management</h2>\n  </mat-toolbar>\n\n  <span class=\"formspan\">\n  <mat-card-content class=\"example-container\">\n\n    <!-- ----------form starts here------------------ -->\n    <form class=\"example-form\"\n    name=\"CategoryManagementTeamForm\" (ngSubmit)=\"CategoryManagementTeamFormSubmit()\"\n          [formGroup]=\"CategoryManagementTeamForm\" >\n\n\n      <!-- ---------------------input for role name---------------- -->\n      <mat-form-field class=\"example-full-width\">\n        <input matInput placeholder=\"Category Name\" \n        [formControl]=\"CategoryManagementTeamForm.controls['categoryName']\"\n        (blur)=\"inputUntouch(CategoryManagementTeamForm,'categoryName')\">\n        <mat-error *ngIf=\"CategoryManagementTeamForm.controls['categoryName'].touched && !CategoryManagementTeamForm.controls['categoryName'].valid\n               && CategoryManagementTeamForm.controls['categoryName'].errors.required\">\n              Category Name field can not be blank</mat-error>\n      </mat-form-field><br>\n\n      <!-- -----------------------text area------------------------>\n      <mat-form-field>\n        <textarea matInput placeholder=\"Description\" \n        [formControl]=\"CategoryManagementTeamForm.controls['description']\"\n        (blur)=\"inputUntouch(CategoryManagementTeamForm,'description')\"\n          ></textarea>\n          <mat-error *ngIf=\"CategoryManagementTeamForm.controls['description'].touched && !CategoryManagementTeamForm.controls['description'].valid\n          && CategoryManagementTeamForm.controls['description'].errors.required\">\n         Description field can not be blank</mat-error>\n      </mat-form-field><br>\n\n      <!-- ------status for role-management---------- -->\n      <mat-checkbox [formControl]=\"CategoryManagementTeamForm.controls['status']\" color=\"primary\" >Active</mat-checkbox><br>\n\n      <mat-form-field>\n        <mat-label>Multiple Role</mat-label>\n        <mat-select formControlName=\"role\" multiple >\n          <mat-option [value]=0>\n            Select a category\n          </mat-option>\n          <mat-option *ngFor=\"let f of allData\" [value]=\"f.roleslug\">\n        {{f.roleslug}}\n      </mat-option>\n        </mat-select>\n      </mat-form-field>\n\n      <!-- -------------------button form submission----------------------- -->\n      <button type=\"submit\" class=\"submitbtn\" mat-raised-button color=\"primary\" >{{ButtonText}}</button>\n      <!-- resetting the form -->\n      <button type=\"button\" class=\"submitbtn\" mat-raised-button color=\"primary\" (click)=\"ResetTeamForm()\" >Reset</button>\n    </form>\n\n    <!-- -----------------------form ends here--------------------->\n  </mat-card-content>\n  \n\n</span>\n<mat-spinner  *ngIf=\"spinnerLoader\"></mat-spinner>\n</mat-card>",
-                styles: [".example-container{display:flex;flex-direction:column}.example-container>*{width:100%}.main-class .submitbtn{display:block;width:170px;margin:10px auto;background:#3f50b5!important;color:#fff}.main-class .material-icons{cursor:pointer}.formspan{background-color:#e7e9ea;border:6px solid #fff;border-bottom:10px solid #fff;display:inline-block;width:100%;position:relative;z-index:9}.formspan .example-container{display:flex;flex-direction:column;width:98%;padding:14px;margin-bottom:0}.formspan .form-field-span,.formspan .mat-form-field{display:inline-block;position:relative;text-align:left;width:98%;background:#fff;margin-bottom:9px;padding:1px 14px}.formspan .form-field-span .mat-checkbox,.formspan .form-field-span .mat-radio-button{padding-right:15px;padding-bottom:15px;display:inline-block}.formspan .mat-form-field-wrapper{padding-bottom:0!important}.form-field-span .mat-error{font-size:13px!important}.mat-error{color:#f44336;font-size:13px!important}button.submitbtn.mat-raised-button.mat-primary{margin-right:15px}:host ::ng-deep .ck-editor__editable_inline{min-height:50px}"]
-            }] }
-];
-/** @nocollapse */
-AddeditTeamComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: ApiService }
-];
-AddeditTeamComponent.propDecorators = {
-    TeamData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    serverUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    getDataEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    singleEditData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    addEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    ListPageRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
-};
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ListTeamComponent {
-    /**
-     * @param {?} router
-     */
-    constructor(router) {
-        this.router = router;
-        this.alldata = [];
-        this.addPageVal = '';
-        this.searchingendpoint = '';
-        this.sourcenameViaapp = '';
-        this.tokenVal = '';
-        this.deleteendpointVal = '';
-        this.addupdate = '';
-        this.serverUrlData = '';
-        this.editRouteval = '';
-        this.alldata_skip = ["_id", "created_at"];
-        this.alldata_modify_header = {
-            "categoryName": "Category Name", "description": "Description",
-            "rolename": "Role Name", "status": "Status", "role": "Role"
-        };
-        this.status = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
-        this.search_settings = {
-            selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
-            textsearch: [{ label: "Search By Category Name", field: 'categoryName' }],
-        };
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set TeamData(val) {
-        this.alldata = (val) || '<no name set>';
-        this.alldata = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set EditRoute(val) {
-        this.editRouteval = (val) || '<no name set>';
-        this.editRouteval = val;
-        console.log(this.editRouteval);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set addButtonRoute(val) {
-        this.addPageVal = (val) || '<no name set>';
-        this.addPageVal = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set manageButtonRoute(val) {
-        this.manageRoute = (val) || '<no name set>';
-        this.manageRoute = (val);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set UpdateRoute(val) {
-        this.addupdate = (val) || '<no name set>';
-        this.addupdate = val;
-        console.log(this.addupdate);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set Token(val) {
-        this.tokenVal = (val) || '<no name set>';
-        this.tokenVal = val;
-        console.log(this.tokenVal);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set SourceName(val) {
-        this.sourcenameViaapp = (val) || '<no name set>';
-        this.sourcenameViaapp = val;
-        console.log(this.sourcenameViaapp);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set SearchEndpoint(val) {
-        this.searchingendpoint = (val) || '<no name set>';
-        this.searchingendpoint = val;
-        console.log(this.searchingendpoint);
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set DeleteEndpoint(val) {
-        this.deleteendpointVal = (val) || '<no name set>';
-        this.deleteendpointVal = val;
-        console.log(this.deleteendpointVal);
-    }
-    /**
-     * @param {?} serverUrlval
-     * @return {?}
-     */
-    set serverUrl(serverUrlval) {
-        this.serverUrlData = (serverUrlval) || '<no name set>';
-        this.serverUrlData = serverUrlval;
-        console.log(this.serverUrlData);
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-    }
-    /**
-     * @return {?}
-     */
-    addButton() {
-        this.router.navigateByUrl('/' + this.addPageVal);
-    }
-    /**
-     * @return {?}
-     */
-    manageTeamButton() {
-        this.router.navigateByUrl('/' + this.manageRoute);
-    }
-}
-ListTeamComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-list-team',
-                template: "<mat-card>\n  <mat-toolbar color=\"primary\" style=\"justify-content: center; align-items: center;\">\n    <h2 class=\"headerSpan\">Team Category Management List</h2>\n  </mat-toolbar>\n\n  <!-- add button start here -->\n  <mat-toolbar class=\"buttonsetToolbar\">\n    <button class=\"singleButton\" mat-raised-button color=\"primary\" (click)=\"addButton()\" >Add Team Category</button>\n    <button class=\"singleButton\" mat-raised-button color=\"primary\" (click)=\"manageTeamButton()\" >Manage Team</button>\n\n  </mat-toolbar>\n<!-- adding button end here -->\n<mat-card-content class=\"listing-content-admin\">\n \n  <lib-listing class=\"formfilterdiv formfilterdivnew\" *ngIf=\"alldata.length>0\" \n    [datasource]=\"alldata\"\n    [sourcedata]=\"sourcenameViaapp\"\n    [skip]=\"alldata_skip\" \n    [modify_header_array]=\"alldata_modify_header\" \n    [apiurl]=\"serverUrlData\" \n    [editroute]=\"editRouteval\"\n    [jwttoken]=\"tokenVal\" \n    [statusarr]=\"status\" \n    [updateendpoint]=\"addupdate\"\n    [deleteendpoint]=\"deleteendpointVal\"\n    [jwttoken]=\"tokenVal\"\n    [date_search_endpoint]=\"searchingendpoint\"\n    [date_search_source]=\"sourcenameViaapp\"\n    [search_settings]=\"search_settings\">\n</lib-listing>\n</mat-card-content>\n</mat-card>",
-                styles: [".example-card{max-width:400px}.example-header-image{background-image:url(https://material.angular.io/assets/img/examples/shiba1.jpg);background-size:cover;border:2px solid #e0dada}.headerSpan{text-align:center;display:block;margin:auto}.darkToolbar{background-color:#000}.gridListWrapper{padding:30px}.buttonsetToolbar{background-color:#f4f3f8;text-align:center;display:block;padding-top:10px}.singleButton{margin:5px;float:right}.example-form{min-width:150px;max-width:500px;width:100%}.example-full-width{width:100%}td{padding-right:8px}"]
-            }] }
-];
-/** @nocollapse */
-ListTeamComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-ListTeamComponent.propDecorators = {
-    TeamData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    EditRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    addButtonRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    manageButtonRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    UpdateRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    Token: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    SourceName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    SearchEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    DeleteEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    serverUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
-};
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class TeamListComponent {
-    /**
-     * @param {?} router
-     */
-    constructor(router) {
-        this.router = router;
-        this.DataList = [];
-        this.serverUrlData = '';
-        this.tokenVal = '';
-        this.DelEndpoint = '';
-        this.editroute = '';
-        this.updatendpoint = '';
-        this.collectionName = '';
-        this.searchingSource = '';
-        this.searchingEndpoint = '';
-        this.addPageRoute = '';
-        this.data_skip = ["_id", "multipleemail", "bulletarray"];
-        this.data_modify_header = { "membername": "Member Name", "description": "Description",
-            "categoryName": "Category Name", "multiplephone": "Phone Numbers", "images": "Images"
-        };
-        this.search_settings = {
-            textsearch: [{ label: "Search By Category Name", field: 'categoryname' },
-                { label: "Search By Member Name", field: 'membername' },
-                { label: "Search By E-Mail", field: 'multipleemail' }],
-        };
-        this.pendingmodelapplicationarray_detail_datatype = [{
-                key: "images",
-                value: 'image',
-                fileurl: 'https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/team/' // Image path 
-            }];
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set allData(val) {
-        this.DataList = (val) || '<no name set>';
-        this.DataList = val;
-    }
-    /**
-     * @param {?} serverUrlval
-     * @return {?}
-     */
-    set serverUrl(serverUrlval) {
-        this.serverUrlData = (serverUrlval) || '<no name set>';
-        this.serverUrlData = serverUrlval;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set Token(val) {
-        this.tokenVal = (val) || '<no name set>';
-        this.tokenVal = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set DeleteEndpoint(val) {
-        this.DelEndpoint = (val) || '<no name set>';
-        this.DelEndpoint = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set EditRoute(val) {
-        this.editroute = (val) || '<no name set>';
-        this.editroute = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set UpdateEndpoint(val) {
-        this.updatendpoint = (val) || '<no name set>';
-        this.updatendpoint = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set SourceName(val) {
-        this.collectionName = (val) || '<no name set>';
-        this.collectionName = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set SearchSourceName(val) {
-        this.searchingSource = (val) || '<no name set>';
-        this.searchingSource = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set SearchEndpoint(val) {
-        this.searchingEndpoint = (val) || '<no name set>';
-        this.searchingEndpoint = val;
-    }
-    /**
-     * @param {?} val
-     * @return {?}
-     */
-    set AddPageRoute(val) {
-        this.addPageRoute = (val) || '<no name set>';
-        this.addPageRoute = val;
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        console.log('this.preview_detail_listing');
-        console.log(this.pendingmodelapplicationarray_detail_datatype);
-    }
-    /**
-     * @return {?}
-     */
-    addButton() {
-        this.router.navigateByUrl('/' + this.addPageRoute);
-    }
-}
-TeamListComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'lib-team-list',
-                template: "\n<mat-card>\n  <mat-toolbar color=\"primary\" style=\"justify-content: center; align-items: center;\">\n    <h2 class=\"headerSpan\">Team List</h2>\n  </mat-toolbar>\n\n<!-- add button start here -->\n<mat-toolbar class=\"buttonsetToolbar\">\n  <button class=\"singleButton\" mat-raised-button color=\"primary\" (click)=\"addButton()\" >Add Team Member</button>\n</mat-toolbar>\n<!-- adding button end here -->\n<mat-card-content class=\"listing-content-admin\">\n  <lib-listing class=\"formfilterdiv formfilterdivnew\" *ngIf=\"DataList.length>0\" \n    [datasource]=\"DataList\"\n    [jwttoken]=\"tokenVal\" \n    [skip]=\"data_skip\" \n    [modify_header_array]=\"data_modify_header\" \n    [apiurl]=\"serverUrlData\" \n    [deleteendpoint]=\"DelEndpoint\"\n    [editroute]=\"editroute\"\n    [updateendpoint]=\"updatendpoint\"\n    [sourcedata]=\"collectionName\"\n    [date_search_source]=\"searchingSource\"\n    [date_search_endpoint]=\"searchingEndpoint\"\n    [search_settings]=\"search_settings\"\n    [detail_datatype]=\"pendingmodelapplicationarray_detail_datatype\"\n   >\n</lib-listing>\n</mat-card-content>\n</mat-card>",
-                styles: [".example-card{max-width:400px}.example-header-image{background-image:url(https://material.angular.io/assets/img/examples/shiba1.jpg);background-size:cover;border:2px solid #e0dada}.headerSpan{text-align:center;display:block;margin:auto}.darkToolbar{background-color:#000}.gridListWrapper{padding:30px}.buttonsetToolbar{background-color:#f4f3f8;text-align:center;display:block;padding-top:10px}.singleButton{margin:5px;float:right}.example-form{min-width:150px;max-width:500px;width:100%}.example-full-width{width:100%}td{padding-right:8px}"]
-            }] }
-];
-/** @nocollapse */
-TeamListComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
-];
-TeamListComponent.propDecorators = {
-    allData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    serverUrl: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    Token: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    DeleteEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    EditRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    UpdateEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    SourceName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    SearchSourceName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    SearchEndpoint: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    AddPageRoute: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }]
-};
-if (false) {}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class TeamModule {
-}
-TeamModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                declarations: [TeamComponent, AddEditTeamComponent, AddeditTeamComponent, ListTeamComponent, TeamListComponent],
-                imports: [
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["BrowserModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],
-                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ReactiveFormsModule"],
-                    _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
-                    MaterialModule,
-                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__["BrowserAnimationsModule"],
-                    lib_listing__WEBPACK_IMPORTED_MODULE_50__["ListingModule"],
-                    file_upload__WEBPACK_IMPORTED_MODULE_52__["FileUploadModule"]
-                ],
-                providers: [ApiService],
-                exports: [TeamComponent, AddEditTeamComponent, AddeditTeamComponent, ListTeamComponent, TeamListComponent],
-                schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["CUSTOM_ELEMENTS_SCHEMA"]]
-            },] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-
-//# sourceMappingURL=team.js.map
-
-
-/***/ }),
-
 /***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
 /*!**************************************************!*\
   !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
@@ -6295,7 +1716,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<span class=\"topbar\">\r\n    <span class=\"dashboardcontainer\">\r\n        <mat-card-content>WELCOME TO MD STOCK</mat-card-content>\r\n    </span>\r\n</span>\r\n<span class=\"topblock2\">\r\n    <span class=\"dashboardcontainer\">\r\n        <mat-card-content class=\"topblock2subwrapper\">\r\n            <span class=\"logo_wrapper\" [routerLink]=\"[ '/dashboard-admin' ]\">\r\n                <img src=\"/assets/images/dashboardlogo.png\">\r\n                <button mat-flat-button><i class=\"material-icons\"> menu </i></button>\r\n            </span>\r\n            <mat-card-content class=\"profile_section\">\r\n                <mat-menu #appMenu=\"matMenu\">\r\n                        <ng-container *ngIf=\"type=='salesrep'\">\r\n                                <button mat-menu-item [routerLink]=\"['/salesrep/my-details']\">\r\n                                    <mat-icon>account_circle</mat-icon> Account\r\n                                </button>\r\n                        </ng-container>\r\n\r\n                        <ng-container *ngIf=\"type=='admin'\">\r\n                                <button mat-menu-item [routerLink]=\"['/salesrep/my-details']\">\r\n                                    <mat-icon>account_circle</mat-icon> Account\r\n                                </button>\r\n                        </ng-container>\r\n\r\n                      <button mat-menu-item *ngIf=\"type=='salesrep'\" [routerLink]=\"['/salesrep/change-password']\">\r\n                        <mat-icon>build</mat-icon> Change Password\r\n                    </button>\r\n\r\n                    <button mat-menu-item *ngIf=\"type=='hospital'\" [routerLink]=\"['/hospital/change-password']\">\r\n                        <mat-icon>build</mat-icon> Change Password\r\n                    </button>\r\n\r\n                    <button mat-menu-item (click)=\"logout()\">\r\n                        <mat-icon>power_settings_new</mat-icon> Logout\r\n                    </button>\r\n\r\n                </mat-menu>\r\n                <span class=\"menubtnwrapper\">\r\n                    <span class=\"username\">{{ user_name }}</span>\r\n                    <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\r\n                        <span class=\"user_profile\">\r\n                            <mat-icon>account_circle</mat-icon>\r\n                            <i class=\"material-icons\">\r\n                                keyboard_arrow_down\r\n                            </i>\r\n                        </span>\r\n                    </button>\r\n                </span>\r\n\r\n            </mat-card-content>\r\n\r\n        </mat-card-content>\r\n    </span>\r\n</span>\r\n<mat-card *ngIf=\"type=='admin'\" class=\"adminnavbar\" >\r\n<mat-toolbar class=\"techdashboard_header\">\r\n\r\n    <span class=\"dashboardcontainer\">\r\n\r\n        <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n        <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n        <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n            <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n            <span>\r\n                <mat-nav-list>\r\n\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-admin'\"> Dashboard </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"marketerMenu\"> User Management <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item routerLinkActive=\"active\" routerLink=\"/manage-websites/team-category/list\">Manage Team</a>\r\n                    <a mat-list-item routerLinkActive=\"active\" routerLink=\"/manage-websites/addblogcategory/list\">Manage Blog</a>\r\n\r\n                    <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Inventory Management <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n\r\n\r\n                    <!-- manage website -->\r\n\r\n\r\n                    <!-- Resource manager list -->\r\n                    <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                        <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                    </mat-menu>\r\n\r\n                    <!-- User Management list -->\r\n                    <mat-menu #marketerMenu=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin-management/list\">Admin Management</button>\r\n                        <button mat-menu-item routerLink=\"/admin/medicalpartners-management/list\">Medical Partners</button>\r\n                        <button mat-menu-item routerLink=\"/admin/salesrep-management/list\">Sales Rep Management</button>\r\n                    </mat-menu>\r\n\r\n\r\n\r\n                    <!-- Resource manager list -->\r\n                    <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup</button>\r\n                    </mat-menu>\r\n\r\n                    <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                    <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/inventorylistingquote/add\">Inventory Listing Quotes</button>\r\n                        <button mat-menu-item routerLink=\"/admin/inventory/purchase-comparison/list\">Purchase Comparison Quotes</button>\r\n                    </mat-menu>\r\n\r\n                </mat-nav-list>\r\n            </span>\r\n\r\n\r\n             <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                <mat-nav-list> -->\r\n                    <!-- <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i class=\"material-icons\">home </i> </a> -->\r\n                    <!-- <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                        Services </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                        Healthcare Review </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                    <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                        [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                </mat-nav-list>\r\n\r\n\r\n\r\n            </span>  -->\r\n\r\n\r\n        </mat-card-content>\r\n\r\n    </span>\r\n\r\n\r\n\r\n</mat-toolbar>\r\n</mat-card>\r\n\r\n\r\n<mat-card *ngIf=\"type=='salesrep'\" class=\"repdashboardnavbar\">\r\n        <mat-toolbar class=\"techdashboard_header\">\r\n\r\n            <span class=\"dashboardcontainer\">\r\n\r\n                <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n                <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n                <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n                    <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n                    <span>\r\n                        <mat-nav-list>\r\n\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-salesrep'\"> Dashboard </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" routerLink=\"/salesrep/my-hospital\">Medical Partners</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"Quotes\"> Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item routerLinkActive=\"active\" >Reports</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" routerLink=\"/inventory\">Inventory</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" >Quote Cart</a>\r\n\r\n                            <!-- <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Manage Inventory <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a> -->\r\n\r\n\r\n                            <!-- manage website -->\r\n\r\n\r\n                            <!-- Resource manager list -->\r\n                            <!-- <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                                <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                            </mat-menu> -->\r\n\r\n                            <!-- User Management list -->\r\n                            <mat-menu #Quotes=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/salesrep/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/salesrep/inventory/inventorylistingquote/add\">Inventory Listing Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/salesrep/purchase-comparison/list\">Purchase Comparison Quotes</button>\r\n                            </mat-menu>\r\n\r\n\r\n\r\n                            <!-- Resource manager list -->\r\n                            <!-- <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category & Brand</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory List</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup Management List</button>\r\n                                <button mat-menu-item routerLink=\"/admin/inventory/purchase-comparison/list\">Price Comparison Report</button>\r\n                            </mat-menu> -->\r\n\r\n                            <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                            <!-- <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Purchase Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Purchase Comparison Quotes</button>\r\n                            </mat-menu> -->\r\n\r\n                        </mat-nav-list>\r\n                    </span>\r\n\r\n\r\n                    <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                        <mat-nav-list>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i\r\n                                    class=\"material-icons\">home\r\n                                </i> </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                                Services </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                                Healthcare Review </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                            <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                                [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                        </mat-nav-list>\r\n\r\n\r\n\r\n                    </span> -->\r\n\r\n\r\n                </mat-card-content>\r\n\r\n            </span>\r\n\r\n\r\n\r\n        </mat-toolbar>\r\n</mat-card>\r\n<mat-card *ngIf=\"type=='hospital'\" class=\"repdashboardnavbar\">\r\n    <mat-toolbar class=\"techdashboard_header\">\r\n\r\n        <span class=\"dashboardcontainer\">\r\n\r\n            <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n            <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n            <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n                <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n                <span>\r\n                    <mat-nav-list>\r\n\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-medical-partner'\"> Dashboard </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"Quotes\"> Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item routerLinkActive=\"active\" >Reports</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" routerLink=\"/inventory\">Inventory</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" >Quote Cart</a>\r\n\r\n                        <!-- <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Manage Inventory <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a> -->\r\n\r\n\r\n                        <!-- manage website -->\r\n\r\n\r\n                        <!-- Resource manager list -->\r\n                        <!-- <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                            <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                        </mat-menu> -->\r\n\r\n                        <!-- User Management list -->\r\n                        <mat-menu #Quotes=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/hospital/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/salesrep/purchase-comparison/list\">Purchase Comparison Quotes</button>\r\n                        </mat-menu>\r\n\r\n\r\n\r\n                        <!-- Resource manager list -->\r\n                        <!-- <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category & Brand</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory List</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup Management List</button>\r\n                            <button mat-menu-item routerLink=\"/admin/inventory/purchase-comparison/list\">Price Comparison Report</button>\r\n                        </mat-menu> -->\r\n\r\n                        <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                        <!-- <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Purchase Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Purchase Comparison Quotes</button>\r\n                        </mat-menu> -->\r\n\r\n                    </mat-nav-list>\r\n                </span>\r\n\r\n\r\n                <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                    <mat-nav-list>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i\r\n                                class=\"material-icons\">home\r\n                            </i> </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                            Services </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                            Healthcare Review </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                        <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                            [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                    </mat-nav-list>\r\n\r\n\r\n\r\n                </span>\r\n -->\r\n\r\n            </mat-card-content>\r\n\r\n        </span>\r\n\r\n\r\n\r\n    </mat-toolbar>\r\n</mat-card>\r\n\r\n<div class=\"inner_wrapper\">\r\n    <!-- <div class=\"leftpannel\">\r\n       <app-left-nav></app-left-nav>\r\n    </div> -->\r\n    <div class=\"rightpannel\">\r\n        <ng-content></ng-content>\r\n\r\n        <app-footer></app-footer>\r\n    </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<!-- end header -->\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<span class=\"topbar\">\r\n    <span class=\"dashboardcontainer\">\r\n        <mat-card-content>WELCOME TO MD STOCK</mat-card-content>\r\n    </span>\r\n</span>\r\n<span class=\"topblock2\">\r\n    <span class=\"dashboardcontainer\">\r\n        <mat-card-content class=\"topblock2subwrapper\">\r\n            <span class=\"logo_wrapper\" [routerLink]=\"[ '/dashboard-admin' ]\">\r\n                <img src=\"/assets/images/dashboardlogo.png\">\r\n                <button mat-flat-button><i class=\"material-icons\"> menu </i></button>\r\n            </span>\r\n            <mat-card-content class=\"profile_section\">\r\n                <mat-menu #appMenu=\"matMenu\">\r\n                        <ng-container *ngIf=\"type=='salesrep'\">\r\n                                <button mat-menu-item [routerLink]=\"['/salesrep/my-details']\">\r\n                                    <mat-icon>account_circle</mat-icon> Account\r\n                                </button>\r\n                        </ng-container>\r\n\r\n                        <ng-container *ngIf=\"type=='admin'\">\r\n                                <button mat-menu-item [routerLink]=\"['/salesrep/my-details']\">\r\n                                    <mat-icon>account_circle</mat-icon> Account\r\n                                </button>\r\n                        </ng-container>\r\n\r\n                      <button mat-menu-item *ngIf=\"type=='salesrep'\" [routerLink]=\"['/salesrep/change-password']\">\r\n                        <mat-icon>build</mat-icon> Change Password\r\n                    </button>\r\n\r\n                    <button mat-menu-item *ngIf=\"type=='hospital'\" [routerLink]=\"['/hospital/change-password']\">\r\n                        <mat-icon>build</mat-icon> Change Password\r\n                    </button>\r\n\r\n                    <button mat-menu-item (click)=\"logout()\">\r\n                        <mat-icon>power_settings_new</mat-icon> Logout\r\n                    </button>\r\n\r\n                </mat-menu>\r\n                <span class=\"menubtnwrapper\">\r\n                    <span class=\"username\">{{ user_name }}</span>\r\n                    <button mat-icon-button [matMenuTriggerFor]=\"appMenu\">\r\n                        <span class=\"user_profile\">\r\n                            <mat-icon>account_circle</mat-icon>\r\n                            <i class=\"material-icons\">\r\n                                keyboard_arrow_down\r\n                            </i>\r\n                        </span>\r\n                    </button>\r\n                </span>\r\n\r\n            </mat-card-content>\r\n\r\n        </mat-card-content>\r\n    </span>\r\n</span>\r\n<mat-card *ngIf=\"type=='admin'\" class=\"adminnavbar\" >\r\n<mat-toolbar class=\"techdashboard_header\">\r\n\r\n    <span class=\"dashboardcontainer\">\r\n\r\n        <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n        <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n        <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n            <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n            <span>\r\n                <mat-nav-list>\r\n\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-admin'\"> Dashboard </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"marketerMenu\"> User Management <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item routerLinkActive=\"active\" routerLink=\"/manage-websites/team-category/list\">Manage Team</a>\r\n                    <a mat-list-item routerLinkActive=\"active\" routerLink=\"/manage-websites/addblogcategory/list\">Manage Blog</a>\r\n\r\n                    <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Inventory Management <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n\r\n\r\n                    <!-- manage website -->\r\n\r\n\r\n                    <!-- Resource manager list -->\r\n                    <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                        <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                    </mat-menu>\r\n\r\n                    <!-- User Management list -->\r\n                    <mat-menu #marketerMenu=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin-management/list\">Admin Management</button>\r\n                        <button mat-menu-item routerLink=\"/admin/medicalpartners-management/list\">Medical Partners</button>\r\n                        <button mat-menu-item routerLink=\"/admin/salesrep-management/list\">Sales Rep Management</button>\r\n                    </mat-menu>\r\n\r\n\r\n\r\n                    <!-- Resource manager list -->\r\n                    <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup</button>\r\n                    </mat-menu>\r\n\r\n                    <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                    <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                        <button mat-menu-item routerLink=\"/admin/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                        <button mat-menu-item routerLink=\"/inventory/inventorylistingquote/add\">Inventory Listing Quotes</button>\r\n                        <button mat-menu-item routerLink=\"/admin/managequotes/purchasquotelisting/list\">Purchase Comparison Quotes</button>\r\n                    </mat-menu>\r\n\r\n                </mat-nav-list>\r\n            </span>\r\n\r\n\r\n             <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                <mat-nav-list> -->\r\n                    <!-- <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i class=\"material-icons\">home </i> </a> -->\r\n                    <!-- <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                        Services </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                        Healthcare Review </a>\r\n                    <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                    <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                        [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                </mat-nav-list>\r\n\r\n\r\n\r\n            </span>  -->\r\n\r\n\r\n        </mat-card-content>\r\n\r\n    </span>\r\n\r\n\r\n\r\n</mat-toolbar>\r\n</mat-card>\r\n\r\n\r\n<mat-card *ngIf=\"type=='salesrep'\" class=\"repdashboardnavbar\">\r\n        <mat-toolbar class=\"techdashboard_header\">\r\n\r\n            <span class=\"dashboardcontainer\">\r\n\r\n                <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n                <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n                <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n                    <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n                    <span>\r\n                        <mat-nav-list>\r\n\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-salesrep'\"> Dashboard </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" routerLink=\"/salesrep/my-hospital\">Medical Partners</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"Quotes\"> Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item routerLinkActive=\"active\" >Reports</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" routerLink=\"/inventory\">Inventory</a>\r\n                            <a mat-list-item routerLinkActive=\"active\" >Quote Cart</a>\r\n\r\n                            <!-- <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Manage Inventory <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a> -->\r\n\r\n\r\n                            <!-- manage website -->\r\n\r\n\r\n                            <!-- Resource manager list -->\r\n                            <!-- <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                                <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                            </mat-menu> -->\r\n\r\n                            <!-- User Management list -->\r\n                            <mat-menu #Quotes=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/salesrep/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/salesrep/inventory/inventorylistingquote/add\">Inventory Listing Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/salesrep/managequotes/purchasquotelisting/list\">Purchase Comparison Quotes</button>\r\n                            </mat-menu>\r\n\r\n\r\n\r\n                            <!-- Resource manager list -->\r\n                            <!-- <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category & Brand</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory List</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup Management List</button>\r\n                                <button mat-menu-item routerLink=\"/admin/inventory/purchase-comparison/list\">Price Comparison Report</button>\r\n                            </mat-menu> -->\r\n\r\n                            <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                            <!-- <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                                <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Purchase Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                                <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Purchase Comparison Quotes</button>\r\n                            </mat-menu> -->\r\n\r\n                        </mat-nav-list>\r\n                    </span>\r\n\r\n\r\n                    <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                        <mat-nav-list>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i\r\n                                    class=\"material-icons\">home\r\n                                </i> </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                                Services </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                                Healthcare Review </a>\r\n                            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                            <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                                [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                        </mat-nav-list>\r\n\r\n\r\n\r\n                    </span> -->\r\n\r\n\r\n                </mat-card-content>\r\n\r\n            </span>\r\n\r\n\r\n\r\n        </mat-toolbar>\r\n</mat-card>\r\n<mat-card *ngIf=\"type=='hospital'\" class=\"repdashboardnavbar\">\r\n    <mat-toolbar class=\"techdashboard_header\">\r\n\r\n        <span class=\"dashboardcontainer\">\r\n\r\n            <button mat-flat-button id=\"menu_button\"><i class=\"material-icons\"> menu </i></button>\r\n            <!-- <i routerLinkActive=\"active\" [routerLink]=\"'/home'\" class=\"material-icons home_button\"> home </i> -->\r\n            <mat-card-content class=\"quotation\" id=\"myDIV\">\r\n                <!-- *ngIf=\"indexUrl === 'admin-dashboard'\" -->\r\n                <span>\r\n                    <mat-nav-list>\r\n\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/dashboard-medical-partner'\"> Dashboard </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/home'\"> Home</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"Quotes\"> Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item routerLinkActive=\"active\" >Reports</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" routerLink=\"/inventory\">Inventory</a>\r\n                        <a mat-list-item routerLinkActive=\"active\" >Quote Cart</a>\r\n\r\n                        <!-- <a mat-list-item [matMenuTriggerFor]=\"userManagement\">Manage Inventory <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item [matMenuTriggerFor]=\"Quotesmanage\">Manage Quotes <i class=\"material-icons\">keyboard_arrow_down</i></a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [matMenuTriggerFor]=\"miscMenu\"> Miscellaneous <i class=\"material-icons\">keyboard_arrow_down</i></a> -->\r\n\r\n\r\n                        <!-- manage website -->\r\n\r\n\r\n                        <!-- Resource manager list -->\r\n                        <!-- <mat-menu #miscMenu=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/admin-dashboard/contact\"> Contact Us</button>\r\n                            <button mat-menu-item routerLink=\"/admin-dashboard/language-container\"> Language Container</button>\r\n                        </mat-menu> -->\r\n\r\n                        <!-- User Management list -->\r\n                        <mat-menu #Quotes=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/hospital/managequotes/purchasequote/list\">Purchase Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/salesrep/purchase-comparison/list\">Purchase Comparison Quotes</button>\r\n                        </mat-menu>\r\n\r\n\r\n\r\n                        <!-- Resource manager list -->\r\n                        <!-- <mat-menu #userManagement=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Category & Brand</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory List</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Price Markup Management List</button>\r\n                            <button mat-menu-item routerLink=\"/admin/inventory/purchase-comparison/list\">Price Comparison Report</button>\r\n                        </mat-menu> -->\r\n\r\n                        <!-- -------- Manage Quotes list ---------- -->\r\n\r\n                        <!-- <mat-menu #Quotesmanage=\"matMenu\" class=\"admin_submenu\">\r\n                            <button mat-menu-item routerLink=\"/inventory/manage-inventory/inventory-category/list\">Purchase Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/inventory-list/list\">Inventory Listing Quotes</button>\r\n                            <button mat-menu-item routerLink=\"/inventory/price-markup-management-list/list\">Purchase Comparison Quotes</button>\r\n                        </mat-menu> -->\r\n\r\n                    </mat-nav-list>\r\n                </span>\r\n\r\n\r\n                <!-- <span *ngIf=\"indexUrl === 'user-dashboard' \">\r\n                    <mat-nav-list>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/landingpage'\"> <i\r\n                                class=\"material-icons\">home\r\n                            </i> </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/user'\"> Dashboard </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/articles'\"> Articles </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/teledoc/home'\"> Teledoc\r\n                            Services </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/360-healthcare'\"> 360\r\n                            Healthcare Review </a>\r\n                        <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/user-dashboard/webiners'\"> Webinars </a>\r\n                        <a mat-list-item class=\"sehedule_link\" routerLinkActive=\"active\"\r\n                            [routerLink]=\"'/user-dashboard/teledoc/book-appointments'\">Scheduled Appointment</a>\r\n                    </mat-nav-list>\r\n\r\n\r\n\r\n                </span>\r\n -->\r\n\r\n            </mat-card-content>\r\n\r\n        </span>\r\n\r\n\r\n\r\n    </mat-toolbar>\r\n</mat-card>\r\n\r\n<div class=\"inner_wrapper\">\r\n    <!-- <div class=\"leftpannel\">\r\n       <app-left-nav></app-left-nav>\r\n    </div> -->\r\n    <div class=\"rightpannel\">\r\n        <ng-content></ng-content>\r\n\r\n        <app-footer></app-footer>\r\n    </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<!-- end header -->\r\n");
 
 /***/ }),
 
@@ -6347,7 +1768,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <span class=\"dashboardcontainer\">\r\n    <mat-card class=\"main_wrapper inputstyle\">\r\n      <!-- <mat-card-content class=\"bred_cram_wrapper\">\r\n            <a mat-list-item routerLinkActive=\"active\"> Dashboard </a>\r\n            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/admin/medicalpartners-management/list'\">Medical\r\n                Partner List </a>\r\n            <a mat-list-item routerLinkActive=\"active activebread\"\r\n                [routerLink]=\"'/admin/medicalpartners-management/add'\"> add\r\n            </a>\r\n        </mat-card-content> -->\r\n\r\n      <mat-card-content class=\"from_wrapper\">\r\n        <mat-list class=\"formstylemainwrapper\">\r\n\r\n          <mat-list-item class=\"formheader\">\r\n            <!-- <h1 class=\"form_header\">{{ header_txt }}</h1> -->\r\n            <mat-card-title class=\"formtitle\">{{ header_txt }}</mat-card-title>\r\n          </mat-list-item>\r\n          <mat-list-item class=\"formbody\">\r\n            <form [formGroup]=\"medicalPartnerForm\" autocomplete=\"off\">\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>User Id</mat-label>\r\n                  <input matInput formControlName=\"user_id\">\r\n                </mat-form-field>\r\n              </span>\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>Date Added</mat-label>\r\n                  <input matInput formControlName=\"date_added\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Name  -->\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>Hospital Name</mat-label>\r\n                  <input matInput formControlName=\"hospitalname\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Sales rep  -->\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>Select Sales Representative</mat-label>\r\n                  <mat-select formControlName=\"salesrepselect\">\r\n                    <mat-option *ngFor=\"let sale of salesNameArray;\" value=\"{{ sale._id }}\">\r\n                      {{ sale.user_full_name }}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Contact Person  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Contact Person</mat-label>\r\n                  <input matInput formControlName=\"contactperson\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Primary Email -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Primary Email</mat-label>\r\n                  <input [readonly]=\"flag==true?true:false\" matInput formControlName=\"email\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Contact Email  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-cart-content class=\"m_emailwrapper\">\r\n                  <span class=\"m_email m_email1\">\r\n                    <mat-form-field>\r\n                      <mat-label>Contact Email(s) </mat-label>&nbsp;<mat-label> *Press Spacebar\r\n                        after each Entry </mat-label>\r\n                      <input matInput formControlName=\"contactemails\" (keyup)=\"collect_email($event)\">\r\n                    </mat-form-field>\r\n                  </span>\r\n                  <span class=\"m_email m_email2\">\r\n                    <mat-chip-list>\r\n                      <mat-chip *ngFor=\"let cma of collect_email_array;let i = index\">{{ cma }}\r\n                        <mat-icon matSuffix class=\"clickable\" (click)=\"clearEmail(i)\">clear\r\n                        </mat-icon>\r\n                      </mat-chip>\r\n\r\n                    </mat-chip-list>\r\n                  </span>\r\n                </mat-cart-content>\r\n              </span>\r\n\r\n\r\n              <!-- Contact Phones  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Contact Phones(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each\r\n                    Entry\r\n                  </mat-label>\r\n                  <input matInput formControlName=\"contactphones\" (keyup)=\"collect_phones($event)\">\r\n                </mat-form-field>\r\n                <div>\r\n                  <mat-chip-list>\r\n                    <mat-chip *ngFor=\"let cpa of collect_phone_array;let i = index\">{{ cpa }}\r\n                      <mat-icon matSuffix class=\"clickable\" (click)=\"clearPhones(i)\">clear\r\n                      </mat-icon>\r\n                    </mat-chip>\r\n\r\n                  </mat-chip-list>\r\n                </div>\r\n              </span>\r\n\r\n\r\n\r\n              <!-- Password  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field *ngIf=\"action=='add'\">\r\n                  <mat-label>Password</mat-label>\r\n                  <input matInput type=\"password\" formControlName=\"password\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Confirm Password  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field *ngIf=\"action=='add'\">\r\n                  <mat-label>Confirm Password</mat-label>\r\n                  <input matInput type=\"password\" formControlName=\"confirmpassword\">\r\n                </mat-form-field>\r\n\r\n              </span>\r\n\r\n              <!-- Address  -->\r\n              <span class=\"col-1-1\">\r\n                <mat-form-field>\r\n                  <mat-label>Address</mat-label>\r\n                  <input matInput formControlName=\"address\">\r\n                </mat-form-field>\r\n              </span>\r\n              <span class=\"col-1-2\" *ngIf=\"action=='edit'\">\r\n                <mat-form-field>\r\n                  <mat-label>Password</mat-label>\r\n                  <input matInput type=\"password\" value=\"***************************\">\r\n                  <mat-error>Password is required.</mat-error>\r\n                </mat-form-field>\r\n\r\n              </span>\r\n              <span class=\"col-1-2\" *ngIf=\"action!='add'\">\r\n                <a class=\"cpass\" (click)=\"change_password()\" color=\"accent\">Change password</a>\r\n\r\n              </span>\r\n\r\n\r\n              <!-- Country  -->\r\n              <span class=\"col-1-1\">\r\n                <mat-form-field>\r\n                  <mat-select formControlName=\"country\" (blur)=\"inputBlur('country')\"  placeholder=\"Select a Country\">\r\n                    <mat-option value=''>Select a country</mat-option>\r\n                    <mat-option value=\"{{country._id}}\" *ngFor=\"let country of countryList\">{{country.name}}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                  <mat-error\r\n                    *ngIf=\"!medicalPartnerForm.controls['country'].valid && medicalPartnerForm.controls['country'].errors.required && medicalPartnerForm.controls['country'].touched\">\r\n                    Country field can not be blank</mat-error>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- contact No  -->\r\n\r\n              <!-- <span class=\"col-1-2\" *ngIf=\"action!='add'\">\r\n                <a class=\"cpass\" (click)=\"change_password()\" color=\"accent\">Change password</a>\r\n\r\n              </span> -->\r\n\r\n\r\n              <!-- State  -->\r\n              <span class=\"col-1-3\">\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>State</mat-label>\r\n                  <mat-select formControlName=\"state\" (selectionChange)=\"getCity($event.value);\">\r\n                    <mat-option [value]=0>Select a category</mat-option>\r\n                    <mat-option *ngFor=\"let state of states;\" value=\"{{ state.name }}\">\r\n                      {{ state.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- City  -->\r\n              <span class=\"col-1-3\">\r\n\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>City</mat-label>\r\n                  <mat-select formControlName=\"city\">\r\n                    <mat-option [value]=0>Select a category</mat-option>\r\n                    <mat-option *ngFor=\"let city of cities;\" value=\"{{ city }}\">{{ city }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Zip  -->\r\n              <span class=\"col-1-3\">\r\n                <mat-form-field>\r\n                  <mat-label>Zip</mat-label>\r\n                  <input matInput formControlName=\"zip\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n\r\n              <!-- Status -->\r\n              <span class=\"col-1-1\">\r\n\r\n\r\n\r\n\r\n                <!-- Status -->\r\n\r\n                <span class=\"col-1-1\">\r\n                  <span class=\"checkradiowrapper\">\r\n                    <mat-label class=\"checkradiotitle\">Status</mat-label>\r\n                    <mat-radio-group aria-label=\"Select an option\" formControlName=\"status\">\r\n                      <mat-radio-button [value]=1>Active</mat-radio-button>\r\n                      <mat-radio-button [value]=0>Blocked</mat-radio-button>\r\n                    </mat-radio-group><br>\r\n                  </span>\r\n                </span>\r\n\r\n\r\n                <!-- Medical Parner's Image  -->\r\n                <h1>Medical Parner's Image</h1>*Just add a single image\r\n                <lib-file-upload [config]=\"configData\"></lib-file-upload><br>\r\n                <mat-error *ngIf=\"ErrCode==true\">Please add just one service image.</mat-error>\r\n              </span>\r\n\r\n              <!-- Card view for Image  -->\r\n              <mat-card-content class=\"files-view\" *ngIf=\"img_flag==true\">\r\n                <mat-card class=\"example-card\">\r\n                  <img mat-card-image [src]=\"fullImgPath\">\r\n                  <mat-card-title>{{ imgName }}</mat-card-title>\r\n                  <mat-card-subtitle>{{ imgType }}</mat-card-subtitle>\r\n                  <span class=\"closecard\" (click)=\"clear_image()\"><i class=\"material-icons\">clear</i></span>\r\n\r\n                </mat-card>\r\n              </mat-card-content>\r\n\r\n\r\n\r\n              <!-- Buttons  -->\r\n              <span class=\"button_wrapper\">\r\n\r\n                <!-- <button mat-flat-button type=\"button\" (click)=\"change_password()\" *ngIf=\"action!='add'\">CHANGE PASSWORD</button> -->\r\n              </span>\r\n            </form>\r\n          </mat-list-item>\r\n          <mat-list-item class=\"formfooter\">\r\n            <span class=\"button_wrapper\">\r\n              <button mat-flat-button type=\"reset\" color=\"warn\">RESET</button>\r\n              <button mat-flat-button type=\"button\" (click)=\"onSubmit()\" color=\"primary\">{{btn_text}}</button>\r\n            </span>\r\n          </mat-list-item>\r\n\r\n        </mat-list>\r\n\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </span>\r\n\r\n</app-adminheader>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <span class=\"dashboardcontainer\">\r\n    <mat-card class=\"main_wrapper inputstyle\">\r\n      <!-- <mat-card-content class=\"bred_cram_wrapper\">\r\n            <a mat-list-item routerLinkActive=\"active\"> Dashboard </a>\r\n            <a mat-list-item routerLinkActive=\"active\" [routerLink]=\"'/admin/medicalpartners-management/list'\">Medical\r\n                Partner List </a>\r\n            <a mat-list-item routerLinkActive=\"active activebread\"\r\n                [routerLink]=\"'/admin/medicalpartners-management/add'\"> add\r\n            </a>\r\n        </mat-card-content> -->\r\n\r\n      <mat-card-content class=\"from_wrapper\">\r\n        <mat-list class=\"formstylemainwrapper\">\r\n\r\n          <mat-list-item class=\"formheader\">\r\n            <!-- <h1 class=\"form_header\">{{ header_txt }}</h1> -->\r\n            <mat-card-title class=\"formtitle\">{{ header_txt }}</mat-card-title>\r\n          </mat-list-item>\r\n          <mat-list-item class=\"formbody\">\r\n            <form [formGroup]=\"medicalPartnerForm\" autocomplete=\"off\">\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>User Id</mat-label>\r\n                  <input matInput formControlName=\"user_id\">\r\n                </mat-form-field>\r\n              </span>\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>Date Added</mat-label>\r\n                  <input matInput formControlName=\"date_added\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Name  -->\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field>\r\n                  <mat-label>Hospital Name</mat-label>\r\n                  <input matInput formControlName=\"hospitalname\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Sales rep  -->\r\n              <span class=\"col-1-4\">\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>Select Sales Representative</mat-label>\r\n                  <mat-select formControlName=\"salesrepselect\">\r\n                    <mat-option *ngFor=\"let sale of salesNameArray;\" value=\"{{ sale._id }}\">\r\n                      {{ sale.user_full_name }}</mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Contact Person  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Contact Person</mat-label>\r\n                  <input matInput formControlName=\"contactperson\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Primary Email -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Primary Email</mat-label>\r\n                  <input [readonly]=\"flag==true?true:false\" matInput formControlName=\"email\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Contact Email  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-cart-content class=\"m_emailwrapper\">\r\n                  <span class=\"m_email m_email1\">\r\n                    <mat-form-field>\r\n                      <mat-label>Contact Email(s) </mat-label>&nbsp;<mat-label> *Press Spacebar\r\n                        after each Entry </mat-label>\r\n                      <input matInput formControlName=\"contactemails\" (keyup)=\"collect_email($event)\">\r\n                    </mat-form-field>\r\n                  </span>\r\n                  <span class=\"m_email m_email2\">\r\n                    <mat-chip-list>\r\n                      <mat-chip *ngFor=\"let cma of collect_email_array;let i = index\">{{ cma }}\r\n                        <mat-icon matSuffix class=\"clickable\" (click)=\"clearEmail(i)\">clear\r\n                        </mat-icon>\r\n                      </mat-chip>\r\n\r\n                    </mat-chip-list>\r\n                  </span>\r\n                </mat-cart-content>\r\n              </span>\r\n\r\n\r\n              <!-- Contact Phones  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field>\r\n                  <mat-label>Contact Phones(s)</mat-label>&nbsp;<mat-label>*Press Spacebar after each\r\n                    Entry\r\n                  </mat-label>\r\n                  <input matInput formControlName=\"contactphones\" (keyup)=\"collect_phones($event)\">\r\n                </mat-form-field>\r\n                <div>\r\n                  <mat-chip-list>\r\n                    <mat-chip *ngFor=\"let cpa of collect_phone_array;let i = index\">{{ cpa }}\r\n                      <mat-icon matSuffix class=\"clickable\" (click)=\"clearPhones(i)\">clear\r\n                      </mat-icon>\r\n                    </mat-chip>\r\n\r\n                  </mat-chip-list>\r\n                </div>\r\n              </span>\r\n\r\n\r\n\r\n              <!-- Password  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field *ngIf=\"action=='add'\">\r\n                  <mat-label>Password</mat-label>\r\n                  <input matInput type=\"password\" formControlName=\"password\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n              <!-- Confirm Password  -->\r\n              <span class=\"col-1-2\">\r\n                <mat-form-field *ngIf=\"action=='add'\">\r\n                  <mat-label>Confirm Password</mat-label>\r\n                  <input matInput type=\"password\" formControlName=\"confirmpassword\">\r\n                </mat-form-field>\r\n\r\n              </span>\r\n\r\n              <!-- Address  -->\r\n              <span class=\"col-1-1\">\r\n                <mat-form-field>\r\n                  <mat-label>Address</mat-label>\r\n                  <input matInput formControlName=\"address\">\r\n                </mat-form-field>\r\n              </span>\r\n              <span class=\"col-1-2\" *ngIf=\"action=='edit'\">\r\n                <mat-form-field>\r\n                  <mat-label>Password</mat-label>\r\n                  <input matInput type=\"password\" value=\"***************************\">\r\n                  <mat-error>Password is required.</mat-error>\r\n                </mat-form-field>\r\n\r\n              </span>\r\n              <span class=\"col-1-2\" *ngIf=\"action!='add'\">\r\n                <a class=\"cpass\" (click)=\"change_password()\" color=\"accent\">Change password</a>\r\n\r\n              </span>\r\n\r\n\r\n              <!-- Country  -->\r\n              <span class=\"col-1-1\">\r\n                <mat-form-field>\r\n                  <mat-select formControlName=\"country\" (blur)=\"inputBlur('country')\"  placeholder=\"Select a Country\">\r\n                    <mat-option value=''>Select a country</mat-option>\r\n                    <mat-option value=\"{{country._id}}\" *ngFor=\"let country of countryList\">{{country.name}}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                  <mat-error\r\n                    *ngIf=\"!medicalPartnerForm.controls['country'].valid && medicalPartnerForm.controls['country'].errors.required && medicalPartnerForm.controls['country'].touched\">\r\n                    Country field can not be blank</mat-error>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- contact No  -->\r\n\r\n              <!-- <span class=\"col-1-2\" *ngIf=\"action!='add'\">\r\n                <a class=\"cpass\" (click)=\"change_password()\" color=\"accent\">Change password</a>\r\n\r\n              </span> -->\r\n\r\n\r\n              <!-- State  -->\r\n              <span class=\"col-1-3\">\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>State</mat-label>\r\n                  <mat-select formControlName=\"state\" (selectionChange)=\"getCity($event.value);\">\r\n                    <mat-option [value]=0>Select a category</mat-option>\r\n                    <mat-option *ngFor=\"let state of states;\" value=\"{{ state.name }}\">\r\n                      {{ state.name }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- City  -->\r\n              <span class=\"col-1-3\">\r\n\r\n                <mat-form-field appearance=\"fill\">\r\n                  <mat-label>City</mat-label>\r\n                  <mat-select formControlName=\"city\">\r\n                    <mat-option [value]=0>Select a category</mat-option>\r\n                    <mat-option *ngFor=\"let city of cities;\" value=\"{{ city }}\">{{ city }}\r\n                    </mat-option>\r\n                  </mat-select>\r\n                </mat-form-field>\r\n              </span>\r\n\r\n              <!-- Zip  -->\r\n              <span class=\"col-1-3\">\r\n                <mat-form-field>\r\n                  <mat-label>Zip</mat-label>\r\n                  <input matInput formControlName=\"zip\">\r\n                </mat-form-field>\r\n              </span>\r\n\r\n\r\n\r\n              <!-- Status -->\r\n              <span class=\"col-1-1\">\r\n\r\n\r\n\r\n\r\n                <!-- Status -->\r\n\r\n                <span class=\"col-1-1\">\r\n                  <span class=\"checkradiowrapper\">\r\n                    <mat-label class=\"checkradiotitle\">Status</mat-label>\r\n                    <mat-radio-group aria-label=\"Select an option\" formControlName=\"status\">\r\n                      <mat-radio-button [value]=1>Active</mat-radio-button>\r\n                      <mat-radio-button [value]=0>Blocked</mat-radio-button>\r\n                    </mat-radio-group><br>\r\n                  </span>\r\n                </span>\r\n\r\n\r\n                <!-- Medical Parner's Image  -->\r\n                <h1>Medical Parner's Image</h1>*Just add a single image\r\n                <lib-file-upload [config]=\"configData\"></lib-file-upload><br>\r\n                <mat-error *ngIf=\"ErrCode==true\">Please add just one service image.</mat-error>\r\n              </span>\r\n\r\n              <!-- Card view for Image  -->\r\n              <mat-card-content class=\"files-view\" *ngIf=\"img_flag==true\">\r\n                <mat-card class=\"example-card\">\r\n                  <img mat-card-image [src]=\"fullImgPath\">\r\n                  <mat-card-title>{{ imgName }}</mat-card-title>\r\n                  <mat-card-subtitle>{{ imgtype }}</mat-card-subtitle>\r\n                  <span class=\"closecard\" (click)=\"clear_image()\"><i class=\"material-icons\">clear</i></span>\r\n\r\n                </mat-card>\r\n              </mat-card-content>\r\n\r\n\r\n\r\n              <!-- Buttons  -->\r\n              <span class=\"button_wrapper\">\r\n\r\n                <!-- <button mat-flat-button type=\"button\" (click)=\"change_password()\" *ngIf=\"action!='add'\">CHANGE PASSWORD</button> -->\r\n              </span>\r\n            </form>\r\n          </mat-list-item>\r\n          <mat-list-item class=\"formfooter\">\r\n            <span class=\"button_wrapper\">\r\n              <button mat-flat-button type=\"reset\" color=\"warn\">RESET</button>\r\n              <button mat-flat-button type=\"button\" (click)=\"onSubmit()\" color=\"primary\">{{btn_text}}</button>\r\n            </span>\r\n          </mat-list-item>\r\n\r\n        </mat-list>\r\n\r\n      </mat-card-content>\r\n    </mat-card>\r\n  </span>\r\n\r\n</app-adminheader>\r\n");
 
 /***/ }),
 
@@ -6386,7 +1807,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <span class=\"listingnewstyle\">\r\n    <span class=\"dashboardcontainer\">\r\n      <mat-card class=\"main_wrapper\">\r\n        <!-- Listing goes here  -->\r\n        <!-- <lib-listing *ngIf=\"purchaseQListData != null && purchaseQListData.length>0\"\r\n                [datasource]=\"purchaseQListData\" [skip]=\"purchaseQListData_skip\"\r\n                [modify_header_array]=\"purchaseQListData_modify_header\" [sourcedata]=\"tableName\" [apiurl]=\"apiUrl\"\r\n                [editroute]=\"editUrl\" [jwttoken]=\"user_cookie\" [statusarr]=\"status\"\r\n                [updateendpoint]=\"UpdateEndpoint\" [deleteendpoint]=\"deleteEndpoint\"\r\n                [search_settings]=\"search_settings\" [detail_datatype]=\"image_detail_datatype\"\r\n                [detail_skip_array]=\"detail_skip_array\">\r\n          /lib-listing> -->\r\n        <span class=\"searchmainwrapper puchase_quotes\">\r\n          <mat-card-title class=\"header\">Recently Added Quotes</mat-card-title>\r\n          <span class=\"searchwrapper\">\r\n            <form class=\"example-form\">\r\n              <mat-form-field>\r\n                <input matInput type=\"search\" placeholder=\"Search\" class=\"search-input\">\r\n                <button matbutton><i class=\"material-icons\">search</i></button>\r\n              </mat-form-field>\r\n              <mat-form-field>\r\n                <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                <mat-datepicker #picker></mat-datepicker>\r\n              </mat-form-field>\r\n            </form>\r\n          </span>\r\n        </span>\r\n        <table mat-table [dataSource]=\"recentlyAdded\" class=\"mat-elevation-z8 purchase_quotes\">\r\n\r\n\r\n          <!--- Note that these columns can be defined in any order. The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n          <!-- Position Column -->\r\n          <ng-container matColumnDef=\"date\">\r\n              <th mat-header-cell *matHeaderCellDef>date Added</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.date}}</td>\r\n          </ng-container>\r\n          <!-- Position Column -->\r\n          <ng-container matColumnDef=\"Quote_ID\">\r\n              <th mat-header-cell *matHeaderCellDef>Quote ID</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.quote_id}}</td>\r\n          </ng-container>\r\n\r\n          <!-- Name Column -->\r\n          <ng-container matColumnDef=\"medical_partner\">\r\n            <th mat-header-cell *matHeaderCellDef>medical partner</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.hospitalname}}</td>\r\n          </ng-container>\r\n\r\n\r\n           <ng-container matColumnDef=\"sales_rep\">\r\n            <th mat-header-cell *matHeaderCellDef>sales rep</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.salesrepname}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"quoted_by\">\r\n              <th mat-header-cell *matHeaderCellDef>quoted by</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.quoted_by}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"status\">\r\n            <th mat-header-cell *matHeaderCellDef>status</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.copy_status}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"action\">\r\n            <th mat-header-cell *matHeaderCellDef>action</th>\r\n            <td mat-cell *matCellDef=\"let element\">\r\n              <button mat-button (click)=\"viewQuoteDetails(element._id,element.hospital_id)\">view</button>\r\n              <button mat-button>email</button>\r\n            </td>\r\n          </ng-container>\r\n           <tr mat-header-row *matHeaderRowDef=\"displayed\"></tr>\r\n           <tr mat-row *matRowDef=\"let row; columns: displayed;\"></tr>\r\n        </table>\r\n      </mat-card>\r\n    </span>\r\n  </span>\r\n</app-adminheader>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <span class=\"listingnewstyle\">\r\n    <span class=\"dashboardcontainer\">\r\n      <mat-card class=\"main_wrapper\">\r\n        \r\n        <!-- Listing goes here  -->\r\n        <!-- <lib-listing *ngIf=\"purchaseQListData != null && purchaseQListData.length>0\"\r\n                [datasource]=\"purchaseQListData\" [skip]=\"purchaseQListData_skip\"\r\n                [modify_header_array]=\"purchaseQListData_modify_header\" [sourcedata]=\"tableName\" [apiurl]=\"apiUrl\"\r\n                [editroute]=\"editUrl\" [jwttoken]=\"user_cookie\" [statusarr]=\"status\"\r\n                [updateendpoint]=\"UpdateEndpoint\" [deleteendpoint]=\"deleteEndpoint\"\r\n                [search_settings]=\"search_settings\" [detail_datatype]=\"image_detail_datatype\"\r\n                [detail_skip_array]=\"detail_skip_array\">\r\n          /lib-listing> -->\r\n        <span class=\"searchmainwrapper puchase_quotes\">\r\n          <mat-card-title class=\"header\">Recently Added Quotes</mat-card-title>\r\n          <span class=\"searchwrapper\">\r\n            <form class=\"example-form\">\r\n              <mat-form-field>\r\n                <input matInput type=\"search\" placeholder=\"Search\" class=\"search-input\">\r\n                <button matbutton><i class=\"material-icons\">search</i></button>\r\n              </mat-form-field>\r\n              <mat-form-field>\r\n                <input matInput [matDatepicker]=\"picker\" placeholder=\"Choose a date\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n                <mat-datepicker #picker></mat-datepicker>\r\n              </mat-form-field>\r\n            </form>\r\n          </span>\r\n          <button type=\"button\" (click)=\"addPurchasequotes()\">Add</button>\r\n        </span>\r\n        <table mat-table [dataSource]=\"recentlyAdded\" class=\"mat-elevation-z8 purchase_quotes\">\r\n\r\n\r\n          <!--- Note that these columns can be defined in any order. The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n          <!-- Position Column -->\r\n          <ng-container matColumnDef=\"date\">\r\n              <th mat-header-cell *matHeaderCellDef>date Added</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.date}}</td>\r\n          </ng-container>\r\n          <!-- Position Column -->\r\n          <ng-container matColumnDef=\"Quote_ID\">\r\n              <th mat-header-cell *matHeaderCellDef>Quote ID</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.quote_id}}</td>\r\n          </ng-container>\r\n\r\n          <!-- Name Column -->\r\n          <ng-container matColumnDef=\"medical_partner\">\r\n            <th mat-header-cell *matHeaderCellDef>medical partner</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.hospitalname}}</td>\r\n          </ng-container>\r\n\r\n\r\n           <ng-container matColumnDef=\"sales_rep\">\r\n            <th mat-header-cell *matHeaderCellDef>sales rep</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.salesrepname}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"quoted_by\">\r\n              <th mat-header-cell *matHeaderCellDef>quoted by</th>\r\n              <td mat-cell *matCellDef=\"let element\">{{element.quoted_by}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"status\">\r\n            <th mat-header-cell *matHeaderCellDef>status</th>\r\n            <td mat-cell *matCellDef=\"let element\">{{element.copy_status}}</td>\r\n          </ng-container>\r\n\r\n\r\n          <!-- Symbol Column -->\r\n          <ng-container matColumnDef=\"action\">\r\n            <th mat-header-cell *matHeaderCellDef>action</th>\r\n            <td mat-cell *matCellDef=\"let element\">\r\n              <button mat-button (click)=\"viewQuoteDetails(element._id,element.hospital_id)\">view</button>\r\n              <button mat-button>email</button>\r\n            </td>\r\n          </ng-container>\r\n           <tr mat-header-row *matHeaderRowDef=\"displayed\"></tr>\r\n           <tr mat-row *matRowDef=\"let row; columns: displayed;\"></tr>\r\n        </table>\r\n      </mat-card>\r\n    </span>\r\n  </span>\r\n</app-adminheader>\r\n");
 
 /***/ }),
 
@@ -6659,7 +2080,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n\r\n  <mat-card class=\"quote_cart_wrapper\">\r\n    <mat-card-content class=\"top_logo_wrapper\">\r\n      <span class=\"top_wr1\">\r\n        <mat-card-content class=\"inner_items\">\r\n          <img src=\"../../../../../assets/images/logo.png\">\r\n        </mat-card-content>\r\n\r\n        <mat-card-content class=\"inner_items_top\">\r\n          <mat-list class=\"details\">\r\n            <mat-list-item><span>Date :</span><span>{{quoteinfo.date}}</span></mat-list-item>\r\n            <mat-list-item><span>Quote ID :</span><span>{{quoteinfo.user_id}}</span></mat-list-item>\r\n            <mat-list-item>1175 American Pacific Dr Ste# F\r\n              Henderson, NV 89074\r\n            </mat-list-item>\r\n          </mat-list>\r\n        </mat-card-content>\r\n      </span>\r\n      <mat-card-content class=\"inner_items_top_bottom\">\r\n        <mat-card-content class=\"rep_wrapper\">\r\n          <mat-card-title class=\"header\">rep</mat-card-title>\r\n\r\n          <p><span>rep name : </span>{{quoteinfo.salesrepname}}</p>\r\n\r\n        </mat-card-content>\r\n        <mat-card-content class=\"rep_wrapper\">\r\n          <mat-card-title class=\"header\">client</mat-card-title>\r\n\r\n          <p><span>HOSPITAL NAME :</span>{{quoteinfo.hospitalname}}</p>\r\n          <p><span>HOSPITAL Address : </span>{{quoteinfo.address}}</p>\r\n\r\n        </mat-card-content>\r\n      </mat-card-content>\r\n\r\n    </mat-card-content>\r\n    <!-- end of top -->\r\n\r\n    <mat-card-content class=\"quote_table_wrapper\">\r\n      <table *ngIf=\"quotedetails !=null\" mat-table [dataSource]=\"quotedetails\" class=\"mat-elevation-z8\">\r\n\r\n        <!--- Note that these columns can be defined in any order.\r\n                  The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"name\">\r\n          <th mat-header-cell *matHeaderCellDef> Name </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.inventory_name}} </td>\r\n          <td mat-footer-cell *matFooterCellDef> Note :{{notes}} </td>\r\n        </ng-container>\r\n\r\n        <!-- Sku Column -->\r\n        <ng-container matColumnDef=\"sku\">\r\n          <th mat-header-cell *matHeaderCellDef> sku# </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.sku}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n        </ng-container>\r\n\r\n        <!-- Category Column -->\r\n        <ng-container matColumnDef=\"category\">\r\n          <th mat-header-cell *matHeaderCellDef> category </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.brand_name}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n        </ng-container>\r\n\r\n        <!-- brand Column -->\r\n        <ng-container matColumnDef=\"brand\">\r\n          <th mat-header-cell *matHeaderCellDef> brand </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.brand_name}} </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n          <td mat-footer-cell *matFooterCellDef> Total </td>\r\n        </ng-container>\r\n\r\n        <!-- quinty Column -->\r\n        <ng-container matColumnDef=\"qty\">\r\n          <th mat-header-cell *matHeaderCellDef> qty </th> \r\n          <td mat-cell *matCellDef=\"let element; let i=index;\"> {{element.quantity}} </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n          <td mat-footer-cell *matFooterCellDef> {{totalqty}} </td>\r\n        </ng-container>\r\n\r\n        <!-- Symbol Column -->\r\n        <ng-container matColumnDef=\"price\" >\r\n          <th mat-header-cell *matHeaderCellDef> MDSI price </th>\r\n          <td mat-cell *matCellDef=\"let element\">\r\n            <span class=\"text_with_span\">\r\n              <input name='awesome' [attr.disabled]=\"userType=='admin' ? null : '' \" type=\"number\" [(ngModel)]=\"element.price\" (keyup)=\"calculatevalue()\"  value=\"{{element.price}}\" placeholder=\"{{element.price}}\" />\r\n              <span class=\"action_button\">\r\n                <!-- <button mat-button>edit</button>\r\n                <button mat-button>revert</button> -->\r\n              </span>\r\n            </span>\r\n          </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>\r\n          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->\r\n        </ng-container>\r\n\r\n\r\n\r\n              <!-- tax Column -->\r\n        <ng-container matColumnDef=\"tax\">\r\n          <th mat-header-cell *matHeaderCellDef> Tax </th>\r\n          <td mat-cell *matCellDef=\"let element\">\r\n            <span class=\"text_with_span\">\r\n              <input  name='awesome' [attr.disabled]=\"userType=='admin' ? null : '' \" [(ngModel)]=\"element.tax\" type=\"number\" (keyup)=\"calculatevalue()\"  value=\"{{element.price}}\"  placeholder=\"{{tax}}\" />\r\n            </span>\r\n          </td>\r\n          <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef> </td> -->\r\n          </ng-container> \r\n\r\n\r\n\r\n\r\n         <ng-container matColumnDef=\"subtotalprice\">\r\n          <th mat-header-cell *matHeaderCellDef> subtotal </th> \r\n          <td mat-cell *matCellDef=\"let element; let i=index;\"> {{element.subtotalprice}} </td>\r\n          <td mat-footer-cell *matFooterCellDef> {{totalprice}}  </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n        </ng-container>\r\n\r\n\r\n        <!-- wholesale Column -->\r\n        <ng-container matColumnDef=\"wholesale\" >\r\n          <th mat-header-cell *matHeaderCellDef> wholesale Price </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.wholesaleprice}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef> </td>\r\n        </ng-container>\r\n        <tr mat-header-row *matHeaderRowDef=\"viewQuoteHeader\"></tr>\r\n        <tr mat-row *matRowDef=\"let row; columns: viewQuoteHeader;\"></tr>\r\n        <tr mat-footer-row *matFooterRowDef=\"viewQuoteHeader;\"></tr>\r\n      </table>\r\n\r\n\r\n\r\n      <mat-card-content class=\"bottom_action\">\r\n        <button mat-button *ngIf=\"userType=='admin'\" (click)=\"save()\">Save</button>\r\n        <button mat-button>Download</button>\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n  </mat-card>\r\n\r\n\r\n</app-adminheader>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n\r\n  <mat-card class=\"quote_cart_wrapper\">\r\n    <mat-card-content class=\"top_logo_wrapper\">\r\n      <span class=\"top_wr1\">\r\n        <mat-card-content class=\"inner_items\">\r\n          <img src=\"../../../../../assets/images/logo.png\">\r\n        </mat-card-content>\r\n\r\n        <mat-card-content class=\"inner_items_top\">\r\n          <mat-list class=\"details\">\r\n            <mat-list-item><span>Date :</span><span>{{quoteinfo.date}}</span></mat-list-item>\r\n            <mat-list-item><span>Quote ID :</span><span>{{quoteinfo.user_id}}</span></mat-list-item>\r\n            <mat-list-item>1175 American Pacific Dr Ste# F\r\n              Henderson, NV 89074\r\n            </mat-list-item>\r\n          </mat-list>\r\n        </mat-card-content>\r\n      </span>\r\n      <mat-card-content class=\"inner_items_top_bottom\">\r\n        <mat-card-content class=\"rep_wrapper\">\r\n          <mat-card-title class=\"header\">rep</mat-card-title>\r\n\r\n          <p><span>rep name : </span>{{quoteinfo.salesrepname}}</p>\r\n\r\n        </mat-card-content>\r\n        <mat-card-content class=\"rep_wrapper\">\r\n          <mat-card-title class=\"header\">client</mat-card-title>\r\n\r\n          <p><span>HOSPITAL NAME :</span>{{quoteinfo.hospitalname}}</p>\r\n          <p><span>HOSPITAL Address : </span>{{quoteinfo.address}}</p>\r\n\r\n        </mat-card-content>\r\n      </mat-card-content>\r\n\r\n    </mat-card-content>\r\n    <!-- end of top -->\r\n\r\n    <mat-card-content class=\"quote_table_wrapper\">\r\n      <table *ngIf=\"quotedetails !=null\" mat-table [dataSource]=\"quotedetails\" class=\"mat-elevation-z8\">\r\n\r\n        <!--- Note that these columns can be defined in any order.\r\n                  The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n        <!-- Name Column -->\r\n        <ng-container matColumnDef=\"name\">\r\n          <th mat-header-cell *matHeaderCellDef> Name </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.inventory_name}} </td>\r\n          <td mat-footer-cell *matFooterCellDef> Note :{{notes}} </td>\r\n        </ng-container>\r\n\r\n        <!-- Sku Column -->\r\n        <ng-container matColumnDef=\"sku\">\r\n          <th mat-header-cell *matHeaderCellDef> sku# </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.sku}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n        </ng-container>\r\n\r\n        <!-- Category Column -->\r\n        <ng-container matColumnDef=\"category\">\r\n          <th mat-header-cell *matHeaderCellDef> category </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.category_name}}  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n        </ng-container>\r\n\r\n        <!-- brand Column -->\r\n        <ng-container matColumnDef=\"brand\">\r\n          <th mat-header-cell *matHeaderCellDef> brand </th>\r\n          <td mat-cell *matCellDef=\"let element\">\r\n            <ng-container *ngIf=\"element.brand_name!=null\">  {{element.brand_name}} \r\n            </ng-container>\r\n\r\n            <ng-container *ngIf=\"element.brand!=null\">  {{element.brand}} \r\n            </ng-container>\r\n            </td>\r\n            \r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n          <td mat-footer-cell *matFooterCellDef> Total </td>\r\n        </ng-container>\r\n\r\n        <!-- quinty Column -->\r\n        <ng-container matColumnDef=\"qty\">\r\n          <th mat-header-cell *matHeaderCellDef> qty </th>\r\n          <td mat-cell *matCellDef=\"let element; let i=index;\"> {{element.quantity}} </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n          <td mat-footer-cell *matFooterCellDef> {{totalqty}} </td>\r\n        </ng-container>\r\n\r\n        <!-- Symbol Column -->\r\n        <ng-container matColumnDef=\"price\" >\r\n          <th mat-header-cell *matHeaderCellDef> MDSI price </th>\r\n          <td mat-cell *matCellDef=\"let element\">\r\n            <span class=\"text_with_span\">\r\n              <input name='awesome' [attr.disabled]=\"userType=='admin' ? null : '' \" type=\"number\" [(ngModel)]=\"element.price\" (keyup)=\"calculatevalue()\"  value=\"{{element.price}}\" placeholder=\"{{element.price}}\" />\r\n              <span class=\"action_button\">\r\n                <!-- <button mat-button>edit</button>\r\n                <button mat-button>revert</button> -->\r\n              </span>\r\n            </span>\r\n          </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>\r\n          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->\r\n        </ng-container>\r\n\r\n\r\n\r\n              <!-- tax Column -->\r\n        <ng-container matColumnDef=\"tax\">\r\n          <th mat-header-cell *matHeaderCellDef> Tax </th>\r\n          <td mat-cell *matCellDef=\"let element\">\r\n            <span class=\"text_with_span\">\r\n              <input  name='awesome' [attr.disabled]=\"userType=='admin' ? null : '' \" [(ngModel)]=\"element.tax\" type=\"number\" (keyup)=\"calculatevalue()\"  value=\"{{element.price}}\"  placeholder=\"\" />\r\n            </span>\r\n          </td>\r\n          <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef> </td> -->\r\n          </ng-container> \r\n\r\n\r\n\r\n\r\n         <ng-container matColumnDef=\"subtotalprice\">\r\n          <th mat-header-cell *matHeaderCellDef> subtotal </th>\r\n          <td mat-cell *matCellDef=\"let element; let i=index;\"> {{element.subtotalprice}} </td>\r\n          <td mat-footer-cell *matFooterCellDef> {{totalprice}}  </td>\r\n          <!-- <td mat-footer-cell *matFooterCellDef>  </td> -->\r\n        </ng-container>\r\n\r\n\r\n        <!-- wholesale Column -->\r\n        <ng-container matColumnDef=\"wholesale\" >\r\n          <th mat-header-cell *matHeaderCellDef> wholesale Price </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.wholesaleprice}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef> </td>\r\n        </ng-container>\r\n\r\n        <ng-container matColumnDef=\"purchaseprice\" >\r\n          <th mat-header-cell *matHeaderCellDef> purchaseprice Price </th>\r\n          <td mat-cell *matCellDef=\"let element\"> {{element.purchased_price}} </td>\r\n          <td mat-footer-cell *matFooterCellDef>  </td>\r\n          <td mat-footer-cell *matFooterCellDef> </td>\r\n        </ng-container>\r\n\r\n\r\n        <tr mat-header-row *matHeaderRowDef=\"viewQuoteHeader\"></tr>\r\n        <tr mat-row *matRowDef=\"let row; columns: viewQuoteHeader;\"></tr>\r\n        <tr mat-footer-row *matFooterRowDef=\"viewQuoteHeader;\"></tr>\r\n      </table>\r\n\r\n\r\n\r\n      <mat-card-content class=\"bottom_action\">\r\n        <button mat-button *ngIf=\"userType=='admin'\" (click)=\"save()\">Save</button>\r\n        <button mat-button>Download</button>\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n  </mat-card>\r\n\r\n\r\n</app-adminheader>\r\n");
 
 /***/ }),
 
@@ -6854,7 +2275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-frontend-header></app-frontend-header>\r\n<mat-card-content class=\"sh_buyfrmus_topblock\">\r\n  <mat-card-content class=\"sh_buyfrmus_content_wrapper\">\r\n    <h2 class=\"header\">contact us</h2>\r\n    <p class=\"paragraph\">\r\n      Get in touch with our Representatives <span> TODAY </span> to know how you can source or sell Medical Equipment\r\n      and Supplies of the finest quality. Need to talk to someone about our services, we’re all ears and would be happy\r\n      to help you with your queries or anything else you may need.\r\n\r\n    </p>\r\n\r\n    <button mat-button class=\"manufac_action_btn\" routerLink=\"/inventory\"> view inventory</button>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n<!-- end one -->\r\n\r\n<mat-card-content class=\"main_contact_wrapper\">\r\n\r\n  <mat-card-content class=\"title_wrapper\">\r\n    <mat-card-title class=\"top_header\"> Get In Touch With Our Team </mat-card-title>\r\n    <mat-card-title class=\"top_subheader\"> Want To Know More About How MD Stock International Can Benefit Your Medical\r\n      Facility? Get In Touch With Us TODAY!! </mat-card-title>\r\n    <p class=\"top_paragraph\">Regardless of whether you have a question, want to know about Medical Partnerships, or just\r\n      have a general query that you would like to discuss, We would love to talk to you. Send in your queries about our\r\n      Medical Partnerships and services, and someone will get in touch with you at the earliest possible moment. Fill\r\n      the form here and get going on the way towards improving the quality of Healthcare services you offer to meet and\r\n      surpass international standards.\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-content class=\"sh_hp_wrapper\" *ngFor=\"let item of contactLocationActive\">\r\n\r\n    <mat-card-content class=\"content_wrapper\">\r\n\r\n      <mat-card-content class=\"inner_image_wrapper\">\r\n        <img src=\"assets/images/contact_us_map.jpg\">\r\n      </mat-card-content>\r\n      <mat-card-content class=\"inner_content_wrapper\">\r\n        <mat-card-title class=\"header\">Address</mat-card-title>\r\n\r\n        <mat-card-content class=\"address1\">\r\n          <span>\r\n            <h2>{{item.name}}</h2>\r\n            <p>{{item.address}}</p>\r\n            <p>Contact Person : {{item.contactperson}}</p>\r\n          </span>\r\n          <span>\r\n            <h2>Email</h2>\r\n            <p>{{item.email}}</p>\r\n          </span>\r\n          <span>\r\n            <h2>Phone / Fax</h2>\r\n            <p>{{item.phone}}<br>\r\n              </p>\r\n          </span>\r\n          <span>\r\n            <h2>State / City</h2>\r\n            <p>{{item.state}}<br>\r\n              {{item.city}}</p>\r\n          </span>\r\n        </mat-card-content>\r\n        <mat-card-content class=\"address2\">\r\n\r\n        </mat-card-content>\r\n\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n<mat-card-content class=\"contact_form_banner\">\r\n\r\n  <!-- <mat-card-content class=\"form_section\">\r\n    <mat-card-content class=\"form_section_actions\">\r\n      <span>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Name\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Email Address\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Phone Number\">\r\n        </mat-form-field>\r\n      </span>\r\n\r\n      <mat-form-field class=\"address\">\r\n        <input matInput placeholder=\"Address\">\r\n      </mat-form-field>\r\n\r\n      <mat-form-field class=\"message\">\r\n        <textarea matInput placeholder=\"Message\"></textarea>\r\n      </mat-form-field>\r\n\r\n\r\n      <button mat-button class=\"submit_btn\">submit</button>\r\n      <span class=\"clearfix\"></span>\r\n    </mat-card-content>\r\n  </mat-card-content> -->\r\n\r\n  <mat-card-content class=\"form_section\">\r\n    <mat-card-content class=\"form_section_actions\">\r\n\r\n      <form [formGroup]=\"contactusForm\" autocomplete=\"off\">\r\n        <span>\r\n          <!-- Name  -->\r\n          <mat-form-field>\r\n            <mat-label>Name</mat-label>\r\n            <input matInput placeholder=\"Name\" formControlName=\"name\" (blur)=\"inputUntouch(contactusForm, 'name')\">\r\n            <mat-error *ngIf=\"\r\n                  contactusForm.controls['name'].touched &&\r\n                  !contactusForm.controls['name'].valid\r\n                \" class=\"errortext\">Name is required </mat-error>\r\n          </mat-form-field>\r\n\r\n          <!-- Contact Emails -->\r\n\r\n          <!-- <mat-chip-list #chipList>\r\n            <mat-chip *ngFor=\"let fruit of fruits\" [selectable]=\"selectable\"\r\n                     [removable]=\"removable\" (removed)=\"remove(fruit)\">\r\n              {{fruit.name}}\r\n              <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n            </mat-chip>\r\n            <input placeholder=\"New fruit...\"\r\n                   [matChipInputFor]=\"chipList\"\r\n                   [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n                   [matChipInputAddOnBlur]=\"addOnBlur\"\r\n                   (matChipInputTokenEnd)=\"add($event)\">\r\n          </mat-chip-list> -->\r\n          <mat-form-field>\r\n            <mat-label>Email(s)</mat-label>\r\n\r\n            <mat-chip-list #chipListt>\r\n              <mat-chip *ngFor=\"let cma of collect_email_array;let i = index\" [selectable]=\"selectable\"\r\n              [removable]=\"removable\" (removed)=\"clearEmail(i)\">{{ cma }}\r\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n              </mat-chip>\r\n            <input matInput placeholder=\"Emails\" formControlName=\"email\" [matChipInputFor]=\"chipListt\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"collect_email($event)\" \r\n            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"  (blur)=\"inputUntouch(contactusForm,'email')\">\r\n\r\n            <mat-error *ngIf=\"contactusForm.controls.email.errors && contactusForm.controls['name'].touched\" class=\"errortext\">Email\r\n              is required</mat-error>\r\n              <mat-error *ngIf=\"contactusForm.controls.email.errors && contactusForm.controls['name'].touched\r\n               && contactusForm.controls.email.email\" class=\"errortext\">Email\r\n                is not valid</mat-error>\r\n            </mat-chip-list>\r\n            \r\n          </mat-form-field>\r\n\r\n          <!-- Contact Phones  -->\r\n          <mat-form-field>\r\n            <mat-label>Phones(s)</mat-label>\r\n             <mat-chip-list #chipList>\r\n                <mat-chip *ngFor=\"let cpa of collect_phone_array;let i = index\" [selectable]=\"selectable\"\r\n                [removable]=\"removable\" (removed)=\"clearPhones(i)\">{{ cpa }}\r\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n                </mat-chip>\r\n\r\n            <input matInput placeholder=\"Phones\" formControlName=\"phone\" [matChipInputFor]=\"chipList\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"collect_phones($event)\"\r\n            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n              (blur)=\"inputUntouch(contactusForm, 'phone')\">\r\n\r\n              <mat-error *ngIf=\"contactusForm.controls.phone.errors && contactusForm.controls['phone'].touched\" class=\"errortext\">Phone is required</mat-error>\r\n          </mat-chip-list>\r\n          </mat-form-field>\r\n      \r\n            \r\n\r\n           \r\n            \r\n          \r\n        </span>\r\n        <!-- Address  -->\r\n        <mat-form-field class=\"address\">\r\n          <mat-label>Address</mat-label>\r\n          <input matInput placeholder=\"Address\" formControlName=\"address\"\r\n            (blur)=\"inputUntouch(contactusForm, 'address')\">\r\n          <mat-error *ngIf=\"\r\n                  contactusForm.controls['address'].touched &&\r\n                  !contactusForm.controls['address'].valid\r\n                \" class=\"errortext\">Address is required</mat-error>\r\n        </mat-form-field>\r\n\r\n        <!-- Message  -->\r\n        <mat-form-field class=\"message\">\r\n          <mat-label>Message</mat-label>\r\n          <input matInput placeholder=\"Message\" formControlName=\"message\"\r\n            (blur)=\"inputUntouch(contactusForm, 'message')\">\r\n          <mat-error *ngIf=\"\r\n                  contactusForm.controls['message'].touched &&\r\n                  !contactusForm.controls['message'].valid\r\n                \" class=\"errortext\">Message is required</mat-error>\r\n        </mat-form-field>\r\n\r\n\r\n        <!-- Buttons  -->\r\n        <mat-toolbar class=\"sentButton\">\r\n          <button mat-button type=\"button\" (click)=\"onSubmit()\" class=\"submit_btn\">Send</button>\r\n        </mat-toolbar>\r\n      </form>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n\r\n\r\n\r\n</mat-card-content>\r\n\r\n\r\n\r\n\r\n<app-frontend-footer></app-frontend-footer>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-frontend-header></app-frontend-header>\r\n<mat-card-content class=\"sh_buyfrmus_topblock\">\r\n  <mat-card-content class=\"sh_buyfrmus_content_wrapper\">\r\n    <h2 class=\"header\">contact us</h2>\r\n    <p class=\"paragraph\">\r\n      Get in touch with our Representatives <span> TODAY </span> to know how you can source or sell Medical Equipment\r\n      and Supplies of the finest quality. Need to talk to someone about our services, we’re all ears and would be happy\r\n      to help you with your queries or anything else you may need.\r\n\r\n    </p>\r\n\r\n    <button mat-button class=\"manufac_action_btn\" routerLink=\"/inventory\"> view inventory</button>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n<!-- end one -->\r\n\r\n<mat-card-content class=\"main_contact_wrapper\">\r\n\r\n  <mat-card-content class=\"title_wrapper\">\r\n    <mat-card-title class=\"top_header\"> Get In Touch With Our Team </mat-card-title>\r\n    <mat-card-title class=\"top_subheader\"> Want To Know More About How MD Stock International Can Benefit Your Medical\r\n      Facility? Get In Touch With Us TODAY!! </mat-card-title>\r\n    <p class=\"top_paragraph\">Regardless of whether you have a question, want to know about Medical Partnerships, or just\r\n      have a general query that you would like to discuss, We would love to talk to you. Send in your queries about our\r\n      Medical Partnerships and services, and someone will get in touch with you at the earliest possible moment. Fill\r\n      the form here and get going on the way towards improving the quality of Healthcare services you offer to meet and\r\n      surpass international standards.\r\n    </p>\r\n  </mat-card-content>\r\n  <mat-card-content class=\"sh_hp_wrapper\" *ngFor=\"let item of contactLocationActive\">\r\n\r\n    <mat-card-content class=\"content_wrapper\">\r\n\r\n      <mat-card-content class=\"inner_image_wrapper\">\r\n        <img src=\"assets/images/contact_us_map.jpg\">\r\n      </mat-card-content>\r\n      <mat-card-content class=\"inner_content_wrapper\">\r\n        <mat-card-title class=\"header\">Address</mat-card-title>\r\n\r\n        <mat-card-content class=\"address1\">\r\n          <span>\r\n            <h2>{{item.name}}</h2>\r\n            <p>{{item.address}}</p>\r\n            <p>Contact Person : {{item.contactperson}}</p>\r\n          </span>\r\n          <span>\r\n            <h2>Email</h2>\r\n            <p>{{item.email}}</p>\r\n          </span>\r\n          <span>\r\n            <h2>Phone / Fax</h2>\r\n            <p>{{item.phone}}<br>\r\n              </p>\r\n          </span>\r\n          <span>\r\n            <h2>State / City</h2>\r\n            <p>{{item.state}}<br>\r\n              {{item.city}}</p>\r\n          </span>\r\n        </mat-card-content>\r\n        <mat-card-content class=\"address2\">\r\n\r\n        </mat-card-content>\r\n\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n<mat-card-content class=\"contact_form_banner\">\r\n\r\n  <!-- <mat-card-content class=\"form_section\">\r\n    <mat-card-content class=\"form_section_actions\">\r\n      <span>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Name\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Email Address\">\r\n        </mat-form-field>\r\n        <mat-form-field>\r\n          <input matInput placeholder=\"Phone Number\">\r\n        </mat-form-field>\r\n      </span>\r\n\r\n      <mat-form-field class=\"address\">\r\n        <input matInput placeholder=\"Address\">\r\n      </mat-form-field>\r\n\r\n      <mat-form-field class=\"message\">\r\n        <textarea matInput placeholder=\"Message\"></textarea>\r\n      </mat-form-field>\r\n\r\n\r\n      <button mat-button class=\"submit_btn\">submit</button>\r\n      <span class=\"clearfix\"></span>\r\n    </mat-card-content>\r\n  </mat-card-content> -->\r\n\r\n  <mat-card-content class=\"form_section\">\r\n    <mat-card-content class=\"form_section_actions\">\r\n\r\n      <form [formGroup]=\"contactusForm\" autocomplete=\"off\">\r\n        <span>\r\n          <!-- Name  -->\r\n          <mat-form-field>\r\n            <mat-label>Name</mat-label>\r\n            <input matInput placeholder=\"Name\" formControlName=\"name\" (blur)=\"inputUntouch(contactusForm, 'name')\">\r\n            <mat-error *ngIf=\"\r\n                  contactusForm.controls['name'].touched &&\r\n                  !contactusForm.controls['name'].valid\r\n                \" class=\"errortext\">Name is required </mat-error>\r\n          </mat-form-field>\r\n\r\n          <!-- Contact Emails -->\r\n\r\n          <!-- <mat-chip-list #chipList>\r\n            <mat-chip *ngFor=\"let fruit of fruits\" [selectable]=\"selectable\"\r\n                     [removable]=\"removable\" (removed)=\"remove(fruit)\">\r\n              {{fruit.name}}\r\n              <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n            </mat-chip>\r\n            <input placeholder=\"New fruit...\"\r\n                   [matChipInputFor]=\"chipList\"\r\n                   [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n                   [matChipInputAddOnBlur]=\"addOnBlur\"\r\n                   (matChipInputTokenEnd)=\"add($event)\">\r\n          </mat-chip-list> -->\r\n          <mat-form-field>\r\n            <mat-label>Email(s)</mat-label>\r\n\r\n            <mat-chip-list #chipListt>\r\n              <mat-chip *ngFor=\"let cma of collect_email_array;let i = index\" [selectable]=\"selectable\"\r\n              [removable]=\"removable\" (removed)=\"clearEmail(i)\">{{ cma }}\r\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n              </mat-chip>\r\n            <input matInput placeholder=\"Emails\" formControlName=\"email\" [matChipInputFor]=\"chipListt\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"collect_email($event)\" \r\n            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"  (blur)=\"inputUntouch(contactusForm,'email')\">\r\n\r\n            <mat-error *ngIf=\"contactusForm.controls.email.errors && contactusForm.controls['email'].touched\" class=\"errortext\">Email\r\n              is required</mat-error>\r\n              <mat-error *ngIf=\"contactusForm.controls.email.errors && contactusForm.controls['email'].touched\r\n               && contactusForm.controls.email.email\" class=\"errortext\">Email\r\n                is not valid</mat-error>\r\n            </mat-chip-list>\r\n            \r\n          </mat-form-field>\r\n\r\n          <!-- Contact Phones  -->\r\n          <mat-form-field>\r\n            <mat-label>Phones(s)</mat-label>\r\n             <mat-chip-list #chipList>\r\n                <mat-chip *ngFor=\"let cpa of collect_phone_array;let i = index\" [selectable]=\"selectable\"\r\n                [removable]=\"removable\" (removed)=\"clearPhones(i)\">{{ cpa }}\r\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\r\n                </mat-chip>\r\n\r\n            <input matInput placeholder=\"Phones\" formControlName=\"phone\" [matChipInputFor]=\"chipList\" [matChipInputAddOnBlur]=\"addOnBlur\" (matChipInputTokenEnd)=\"collect_phones($event)\"\r\n            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\r\n              (blur)=\"inputUntouch(contactusForm, 'phone')\">\r\n\r\n              <mat-error *ngIf=\"contactusForm.controls.phone.errors && contactusForm.controls['phone'].touched\" class=\"errortext\">Phone is required</mat-error>\r\n          </mat-chip-list>\r\n          </mat-form-field>\r\n      \r\n            \r\n\r\n           \r\n            \r\n          \r\n        </span>\r\n        <!-- Address  -->\r\n        <mat-form-field class=\"address\">\r\n          <mat-label>Address</mat-label>\r\n          <input matInput placeholder=\"Address\" formControlName=\"address\"\r\n            (blur)=\"inputUntouch(contactusForm, 'address')\">\r\n          <mat-error *ngIf=\"\r\n                  contactusForm.controls['address'].touched &&\r\n                  !contactusForm.controls['address'].valid\r\n                \" class=\"errortext\">Address is required</mat-error>\r\n        </mat-form-field>\r\n\r\n        <!-- Message  -->\r\n        <mat-form-field class=\"message\">\r\n          <mat-label>Message</mat-label>\r\n          <input matInput placeholder=\"Message\" formControlName=\"message\"\r\n            (blur)=\"inputUntouch(contactusForm, 'message')\">\r\n          <mat-error *ngIf=\"\r\n                  contactusForm.controls['message'].touched &&\r\n                  !contactusForm.controls['message'].valid\r\n                \" class=\"errortext\">Message is required</mat-error>\r\n        </mat-form-field>\r\n\r\n\r\n        <!-- Buttons  -->\r\n        <mat-toolbar class=\"sentButton\">\r\n          <button mat-button type=\"button\" (click)=\"onSubmit()\" class=\"submit_btn\">Send</button>\r\n        </mat-toolbar>\r\n      </form>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n\r\n\r\n\r\n</mat-card-content>\r\n\r\n\r\n\r\n\r\n<app-frontend-footer></app-frontend-footer>");
 
 /***/ }),
 
@@ -7010,7 +2431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-frontend-header></app-frontend-header>\r\n\r\n<mat-card-content class=\"cart_wrapper\">\r\n  <mat-card-title class=\"cart_title\">my quote ({{qouteCount}})</mat-card-title>\r\n\r\n  <mat-card-content *ngIf=\"userType=='salesrep'\" class=\"medical_partners\">\r\n    <form>\r\n      <mat-card-content class=\"top_quotesection new\">\r\n        <label mat-label>Medical Partner : </label>\r\n        <mat-form-field>\r\n          <mat-label>Select Medical Partner</mat-label>\r\n          <mat-select [(ngModel)]=\"selectedValue\" (selectionChange)=\"hospitalName($event.value)\" name=\"id\">\r\n            <mat-option>None</mat-option>\r\n            <mat-option *ngFor=\"let hospital of hospitalDetails\" [value]=\"hospital._id\">{{hospital.hospitalname}}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n      </mat-card-content>\r\n    </form>\r\n\r\n  </mat-card-content>\r\n\r\n\r\n\r\n  <mat-card-content class=\"cart_item_wrapper\">\r\n\r\n    <mat-card-content class=\"cart_item\" *ngFor=\"let item of inventoryDetailsByUserId;let i=index;\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"{{item.inventory_image}}\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>{{item.sku}}</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>{{item.inventory_name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>{{item.brand_name}}</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">{{item.quantity}}</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus(item,i)\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus(item,i)\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button (click)=\"remove(item._id,i)\" class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage3.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage4.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage5.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage1.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n  </mat-card-content>\r\n  <!-- hospital -->\r\n\r\n  <mat-card-content class=\"medical_partners\">\r\n    <mat-card-content class=\"top_quotesection\">\r\n      <label mat-label>Notes :</label>\r\n      <textarea type=\"text\" class=\"form-control\" (input)=\"onSearchChange($event.target.value)\"></textarea>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n  <mat-card-content class=\"button_wrapper\">\r\n    <button class=\"cart_action\" mat-button color=\"accent\" (click)=\"getQuote()\">get quote</button>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n\r\n\r\n<app-frontend-footer></app-frontend-footer>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-frontend-header></app-frontend-header>\r\n\r\n<mat-card-content class=\"cart_wrapper\">\r\n  <mat-card-title class=\"cart_title\">my quote ({{qouteCount}})</mat-card-title>\r\n\r\n  <mat-card-content *ngIf=\"userType=='salesrep'\" class=\"medical_partners\">\r\n    <form>\r\n      <mat-card-content class=\"top_quotesection new\">\r\n        <label mat-label>Medical Partner : </label>\r\n        <mat-form-field>\r\n          <mat-label>Select Medical Partner</mat-label>\r\n          <mat-select [(ngModel)]=\"selectedValue\" (selectionChange)=\"hospitalName($event.value)\" name=\"id\">\r\n            <mat-option>None</mat-option>\r\n            <mat-option *ngFor=\"let hospital of hospitalDetails\" [value]=\"hospital._id\">{{hospital.hospitalname}}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n      </mat-card-content>\r\n    </form>\r\n\r\n  </mat-card-content>\r\n\r\n\r\n\r\n  <mat-card-content class=\"cart_item_wrapper\">\r\n\r\n    <mat-card-content class=\"cart_item\" *ngFor=\"let item of inventoryDetailsByUserId;let i=index;\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"{{item.inventory_image}}\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>{{item.sku}}</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>{{item.inventory_name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>{{item.brand_name}}</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">{{item.quantity}}</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus(i)\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus(i)\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button (click)=\"remove(item._id,i)\" class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage3.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage4.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage5.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n    <!-- <mat-card-content class=\"cart_item\">\r\n      <mat-card-content class=\"image_wrapper\">\r\n        <img src=\"../../../../assets/images/invItemimage1.jpg\">\r\n      </mat-card-content>\r\n\r\n      <mat-card-content class=\"cart_content\">\r\n        <table class=\"cart_table\">\r\n          <tr>\r\n            <th>SKU # :</th>\r\n            <td>911727</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Product Name :</th>\r\n            <td>Nebulizer Kits</td>\r\n          </tr>\r\n          <tr>\r\n            <th>Manufacturer :</th>\r\n            <td>Lorem Ipsum</td>\r\n          </tr>\r\n        </table>\r\n\r\n        <mat-toolbar class=\"acctions\">\r\n          <mat-card-content class=\"quantity\">\r\n            <p>qty</p>\r\n            <span class=\"counter_wrapper\">\r\n              <span class=\"inner_box\">\r\n                <span class=\"boxes\">1</span>\r\n                <span class=\"counter\">\r\n                  <a (click)=\"plus()\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\r\n                  <a (click)=\"minus()\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\r\n                </span>\r\n              </span>\r\n\r\n              <button mat-button class=\"remove\">Remove</button>\r\n            </span>\r\n          </mat-card-content>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n    </mat-card-content> -->\r\n\r\n\r\n  </mat-card-content>\r\n  <!-- hospital -->\r\n\r\n  <mat-card-content class=\"medical_partners\">\r\n    <mat-card-content class=\"top_quotesection\">\r\n      <label mat-label>Notes :</label>\r\n      <textarea type=\"text\" class=\"form-control\" (input)=\"onSearchChange($event.target.value)\"></textarea>\r\n    </mat-card-content>\r\n  </mat-card-content>\r\n  <mat-card-content class=\"button_wrapper\">\r\n    <button class=\"cart_action\" mat-button color=\"accent\" (click)=\"getQuote()\">get quote</button>\r\n  </mat-card-content>\r\n</mat-card-content>\r\n\r\n\r\n<app-frontend-footer></app-frontend-footer>\r\n");
 
 /***/ }),
 
@@ -7218,7 +2639,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <!-- <app-frontend-header></app-frontend-header> -->\r\n  <!-- go to salesrep dashborad -->\r\n  \r\n\r\n  <!-- <mat-card-content class=\"sh<app-adminheader>_buyfrmus_topblock\">\r\n  <mat-card-content class=\"sh_buyfrmus_content_wrapper\">\r\n    <h2 class=\"header\">inventory</h2>\r\n\r\n    <p class=\"paragraph\"> Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment Needs </p>\r\n    <p class=\"sub_para\">\r\n      Get access to a vast inventory of hundreds and thousands of premium medical equipment and supplies. Check out\r\n      multiple options and choose the best machinery that precisely fits the needs and requirements of your medical\r\n      facility. What’s more? You get absolutely the <span> BEST PRICES </span> for top-quality equipment — prices that\r\n      are extremely competitive, prices that would be impossible for you to get anywhere else in the industry!\r\n\r\n    </p>\r\n\r\n  </mat-card-content>\r\n</mat-card-content> -->\r\n  <!-- <mat-card-content class=\"images\">\r\n    <img src=\"/assets/images/inventory1.jpg\">\r\n</mat-card-content> -->\r\n\r\n  <mat-card-content class=\"sh_view_inv_blok2\">\r\n    <!-- <mat-card-content class=\"sh_view_inv_blok2_inner\">\r\n    <mat-card-title class=\"top_header\">Find Your Medical Equipment Requirements Here </mat-card-title>\r\n    <mat-card-subtitle class=\"top_subheader\">Use our inventory today to locate the best quality hospital equipment and\r\n      medical supplies based on your requirements, at prices unmatched anywhere else in the industry.\r\n    </mat-card-subtitle>\r\n    <p class=\"description\">\r\n      Depending on what you are looking for, you are likely to find multiple options and equipment that match your\r\n      requirements. Whether you are looking for brand new equipment and supplies, or used machinery is what you need,\r\n      you are more than likely to find multiple items that match your search criteria. The expansive range of our\r\n      inventory is unmatched and unparalleled in the industry and has been so for more than a decade.\r\n    </p>\r\n  </mat-card-content> -->\r\n\r\n    <mat-card-content class=\"sh_search_wrapper\">\r\n      <mat-card-content class=\"switch_btn\">\r\n        <!-- <button mat-button>category view</button>\r\n      <button mat-button>brand view</button> -->\r\n\r\n        <h2>Search Inventory</h2>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"searchfilter\">\r\n        <span class=\"search_bar\">\r\n\r\n          <!-- search by category  -->\r\n          <mat-select class=\"searchpannel\" [(ngModel)]=\"inventory_cat\" #srch class=\"searchpannel seperate\" placeholder=\"Search By Category\"\r\n            (keyup)=\"searchByCategory($event)\">\r\n            <mat-option  value=\"\"> Select a Category</mat-option>\r\n            <mat-option *ngFor=\"let cat of inventory_category_list\" value=\"{{cat._id}}\" (click)=\"searchBrand(cat._id)\">\r\n              {{cat.category_name}}</mat-option>\r\n          </mat-select>\r\n\r\n          <!-- search by brand -->\r\n          <mat-select class=\"searchpannel\" *ngIf=\"inventory_cat!=null && inventory_cat!='' \" [(ngModel)]=\"inventory_brand\" placeholder=\"Search By Brand\">\r\n            <mat-option  value=\"\"> Select a Brand</mat-option>\r\n            <mat-option *ngFor=\"let brand of brandList\" value=\"{{brand.brand_id}}\"\r\n            >\r\n              {{brand.brand_name}}</mat-option>\r\n          </mat-select>\r\n\r\n          <!-- serach by inventory  -->\r\n          <input type=\"text\" #srch class=\"searchpannel  seperate\" [(ngModel)]=\"inventory_name\" placeholder=\"Search By Inventory\"\r\n        >\r\n\r\n          <!-- search by sku  -->\r\n          <input type=\"text\" #srch class=\"searchpannel sku_search\" [(ngModel)]=\"inventory_sku\" placeholder=\"Search by SKU#\"\r\n            >\r\n\r\n          <button mat-button (click)=\"search()\" class=\"search_button\"> Search</button>\r\n        </span>\r\n\r\n        <!-- <mat-form-field>\r\n        <input matInput placeholder=\"Amount\" type=\"number\" class=\"example-right-align\">\r\n        <button mat-icon-button matPrefix>$&nbsp;</button >\r\n\r\n      </mat-form-field> -->\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n\r\n    <mat-card-content class=\"cataLog_wrapper\">\r\n\r\n      <!-- <mat-card-content class=\"categoyPart\">\r\n      <span class=\"categoryAll\">\r\n        <input type=\"text\" placeholder=\"All Categories\">\r\n      </span>\r\n      <mat-card-content class=\"cat_list\">\r\n        <a mat-list-item active (click)=\"searchCatagory(category._id)\"\r\n          *ngFor=\"let category of categoryList\">{{category.category_name}}</a>\r\n      </mat-card-content>\r\n\r\n\r\n\r\n    </mat-card-content> -->\r\n\r\n      <mat-card-content class=\"sh_inventory_content\">\r\n        <!-- Loop start -->\r\n\r\n        <mat-card-content class=\"sh_inventory_content_item\" *ngFor=\"let list of inventoryCatagoryList\">\r\n          <mat-card-content class=\"inner_top_wrapper\">\r\n            <mat-card-content class=\"image_wrapper\">\r\n              <img src=\"{{list.image}}\">\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_wrapper\">\r\n              <h1>{{list.inventory_name}}</h1>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Brand: </h3>\r\n                <p>{{list.brand}}</p>\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Description: </h3>\r\n                <p>{{list.description}}</p>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n          <mat-toolbar class=\"action_buttons\">\r\n            <button mat-button (click)=\"addQuote(list,list._id)\">Add to Quote List</button>\r\n            <button mat-button class=\"view_more\" (click)=\"viewDetails(list._id)\">View Details</button>\r\n          </mat-toolbar>\r\n        </mat-card-content>\r\n\r\n        <!-- loop end  -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage3.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage4.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage1.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n          <mat-card-content class=\"inner_top_wrapper\">\r\n            <mat-card-content class=\"image_wrapper\">\r\n              <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_wrapper\">\r\n              <h1>Lorem Ipsum is simply</h1>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Brand: </h3>\r\n                <p>Lorem Ipsum</p>\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Description: </h3>\r\n                <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                  looking at its layout.</p>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n          <mat-toolbar class=\"action_buttons\">\r\n            <button mat-button>Add to Quote List</button>\r\n            <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n          </mat-toolbar>\r\n        </mat-card-content> -->\r\n\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n            <mat-card-content class=\"inner_top_wrapper\">\r\n              <mat-card-content class=\"image_wrapper\">\r\n                <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_wrapper\">\r\n                <h1>Lorem Ipsum is simply</h1>\r\n                <mat-card-content class=\"content_w\">\r\n                  <h3>Brand: </h3>\r\n                  <p>Lorem Ipsum</p>\r\n                </mat-card-content>\r\n                <mat-card-content class=\"content_w\">\r\n                  <h3>Description: </h3>\r\n                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                    looking at its layout.</p>\r\n                </mat-card-content>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n            <mat-toolbar class=\"action_buttons\">\r\n              <button mat-button>Add to Quote List</button>\r\n              <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n            </mat-toolbar>\r\n          </mat-card-content> -->\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n  </mat-card-content>\r\n\r\n\r\n\r\n\r\n  <!-- <mat-card-content class=\"images\">\r\n  <img src=\"/assets/images/inventory2.jpg\">\r\n</mat-card-content> -->\r\n\r\n\r\n  <!-- <app-frontend-footer></app-frontend-footer> -->\r\n</app-adminheader>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\r\n  <!-- <app-frontend-header></app-frontend-header> -->\r\n  <!-- go to salesrep dashborad -->\r\n  \r\n\r\n  <!-- <mat-card-content class=\"sh<app-adminheader>_buyfrmus_topblock\">\r\n  <mat-card-content class=\"sh_buyfrmus_content_wrapper\">\r\n    <h2 class=\"header\">inventory</h2>\r\n\r\n    <p class=\"paragraph\"> Expansive Inventory Listing For An One-Stop-Shop For All Your Hospital Equipment Needs </p>\r\n    <p class=\"sub_para\">\r\n      Get access to a vast inventory of hundreds and thousands of premium medical equipment and supplies. Check out\r\n      multiple options and choose the best machinery that precisely fits the needs and requirements of your medical\r\n      facility. What’s more? You get absolutely the <span> BEST PRICES </span> for top-quality equipment — prices that\r\n      are extremely competitive, prices that would be impossible for you to get anywhere else in the industry!\r\n\r\n    </p>\r\n\r\n  </mat-card-content>\r\n</mat-card-content> -->\r\n  <!-- <mat-card-content class=\"images\">\r\n    <img src=\"/assets/images/inventory1.jpg\">\r\n</mat-card-content> -->\r\n\r\n  <mat-card-content class=\"sh_view_inv_blok2\">\r\n    <!-- <mat-card-content class=\"sh_view_inv_blok2_inner\">\r\n    <mat-card-title class=\"top_header\">Find Your Medical Equipment Requirements Here </mat-card-title>\r\n    <mat-card-subtitle class=\"top_subheader\">Use our inventory today to locate the best quality hospital equipment and\r\n      medical supplies based on your requirements, at prices unmatched anywhere else in the industry.\r\n    </mat-card-subtitle>\r\n    <p class=\"description\">\r\n      Depending on what you are looking for, you are likely to find multiple options and equipment that match your\r\n      requirements. Whether you are looking for brand new equipment and supplies, or used machinery is what you need,\r\n      you are more than likely to find multiple items that match your search criteria. The expansive range of our\r\n      inventory is unmatched and unparalleled in the industry and has been so for more than a decade.\r\n    </p>\r\n  </mat-card-content> -->\r\n\r\n    <mat-card-content class=\"sh_search_wrapper\">\r\n      <mat-card-content class=\"switch_btn\">\r\n        <!-- <button mat-button>category view</button>\r\n      <button mat-button>brand view</button> -->\r\n\r\n        <h2>Search Inventory</h2>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"searchfilter\">\r\n        <span class=\"search_bar\">\r\n            <button type=\"button\" (click)=\"goToCart()\">Go To Cart</button>\r\n          <!-- search by category  -->\r\n          <mat-select class=\"searchpannel\" [(ngModel)]=\"inventory_cat\" #srch class=\"searchpannel seperate\" placeholder=\"Search By Category\"\r\n            >\r\n            <mat-option  value=\"\"> Select a Category</mat-option>\r\n            <mat-option *ngFor=\"let cat of inventory_category_list\" value=\"{{cat._id}}\" (click)=\"searchBrand(cat._id)\">\r\n              {{cat.category_name}}</mat-option>\r\n          </mat-select>\r\n\r\n          <!-- search by brand -->\r\n          <mat-select class=\"searchpannel\" *ngIf=\"inventory_cat!=null && inventory_cat!='' \" [(ngModel)]=\"inventory_brand\" placeholder=\"Search By Brand\">\r\n            <mat-option  value=\"\"> Select a Brand</mat-option>\r\n            <mat-option *ngFor=\"let brand of brandList\" value=\"{{brand.brand_id}}\"\r\n            >\r\n              {{brand.brand_name}}</mat-option>\r\n          </mat-select>\r\n\r\n          <!-- serach by inventory  -->\r\n          <input type=\"text\" #srch class=\"searchpannel  seperate\" [(ngModel)]=\"inventory_name\" placeholder=\"Search By Inventory\"\r\n        >\r\n\r\n          <!-- search by sku  -->\r\n          <input type=\"text\" #srch class=\"searchpannel sku_search\" [(ngModel)]=\"inventory_sku\" placeholder=\"Search by SKU#\"\r\n            >\r\n\r\n          <button mat-button (click)=\"search()\" class=\"search_button\"> Search</button>\r\n        </span>\r\n\r\n        <!-- <mat-form-field>\r\n        <input matInput placeholder=\"Amount\" type=\"number\" class=\"example-right-align\">\r\n        <button mat-icon-button matPrefix>$&nbsp;</button >\r\n\r\n      </mat-form-field> -->\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n\r\n    <mat-card-content class=\"cataLog_wrapper\">\r\n         \r\n      <!-- <mat-card-content class=\"categoyPart\">\r\n      <span class=\"categoryAll\">\r\n        <input type=\"text\" placeholder=\"All Categories\">\r\n      </span>\r\n      <mat-card-content class=\"cat_list\">\r\n        <a mat-list-item active (click)=\"searchCatagory(category._id)\"\r\n          *ngFor=\"let category of categoryList\">{{category.category_name}}</a>\r\n      </mat-card-content>\r\n\r\n\r\n      \r\n    </mat-card-content> -->\r\n\r\n      <mat-card-content class=\"sh_inventory_content\">\r\n        <!-- Loop start -->\r\n\r\n        <mat-card-content class=\"sh_inventory_content_item\" *ngFor=\"let list of inventoryCatagoryList\">\r\n          <mat-card-content class=\"inner_top_wrapper\">\r\n            <mat-card-content class=\"image_wrapper\">\r\n              <img src=\"{{list.image}}\">\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_wrapper\">\r\n              <h1>{{list.inventory_name}}</h1>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Brand: </h3>\r\n                <p>{{list.brand}}</p>\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Description: </h3>\r\n                <p>{{list.description}}</p>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n          <mat-toolbar class=\"action_buttons\">\r\n            <button mat-button (click)=\"addQuote(list,list._id)\">Add to Quote List</button>\r\n            <button mat-button class=\"view_more\" (click)=\"viewDetails(list._id)\">View Details</button>\r\n          </mat-toolbar>\r\n        </mat-card-content>\r\n\r\n        <!-- loop end  -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage3.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content>\r\n      <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage4.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage1.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n        <mat-card-content class=\"inner_top_wrapper\">\r\n          <mat-card-content class=\"image_wrapper\">\r\n            <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n          </mat-card-content>\r\n          <mat-card-content class=\"content_wrapper\">\r\n            <h1>Lorem Ipsum is simply</h1>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Brand: </h3>\r\n              <p>Lorem Ipsum</p>\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_w\">\r\n              <h3>Description: </h3>\r\n              <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                looking at its layout.</p>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n        </mat-card-content>\r\n        <mat-toolbar class=\"action_buttons\">\r\n          <button mat-button>Add to Quote List</button>\r\n          <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n        </mat-toolbar>\r\n      </mat-card-content> -->\r\n\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n          <mat-card-content class=\"inner_top_wrapper\">\r\n            <mat-card-content class=\"image_wrapper\">\r\n              <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n            </mat-card-content>\r\n            <mat-card-content class=\"content_wrapper\">\r\n              <h1>Lorem Ipsum is simply</h1>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Brand: </h3>\r\n                <p>Lorem Ipsum</p>\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_w\">\r\n                <h3>Description: </h3>\r\n                <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                  looking at its layout.</p>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n          </mat-card-content>\r\n          <mat-toolbar class=\"action_buttons\">\r\n            <button mat-button>Add to Quote List</button>\r\n            <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n          </mat-toolbar>\r\n        </mat-card-content> -->\r\n\r\n        <!-- <mat-card-content class=\"sh_inventory_content_item\">\r\n            <mat-card-content class=\"inner_top_wrapper\">\r\n              <mat-card-content class=\"image_wrapper\">\r\n                <img src=\"../../../../assets/images/invItemimage2.jpg\">\r\n              </mat-card-content>\r\n              <mat-card-content class=\"content_wrapper\">\r\n                <h1>Lorem Ipsum is simply</h1>\r\n                <mat-card-content class=\"content_w\">\r\n                  <h3>Brand: </h3>\r\n                  <p>Lorem Ipsum</p>\r\n                </mat-card-content>\r\n                <mat-card-content class=\"content_w\">\r\n                  <h3>Description: </h3>\r\n                  <p>It is a long established fact that a reader will be distracted by the readable content of a page when\r\n                    looking at its layout.</p>\r\n                </mat-card-content>\r\n              </mat-card-content>\r\n            </mat-card-content>\r\n            <mat-toolbar class=\"action_buttons\">\r\n              <button mat-button>Add to Quote List</button>\r\n              <button mat-button class=\"view_more\" routerLink=\"/inventory-details\">View Details</button>\r\n            </mat-toolbar>\r\n          </mat-card-content> -->\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n      </mat-card-content>\r\n    </mat-card-content>\r\n\r\n  </mat-card-content>\r\n\r\n\r\n\r\n\r\n  <!-- <mat-card-content class=\"images\">\r\n  <img src=\"/assets/images/inventory2.jpg\">\r\n</mat-card-content> -->\r\n\r\n\r\n  <!-- <app-frontend-footer></app-frontend-footer> -->\r\n</app-adminheader>");
 
 /***/ }),
 
@@ -7271,6 +2692,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<mat-card class=\"dialogContainer\">\r\n   <mat-card-content-title class=\"Title\">SEND MAIL</mat-card-content-title>\r\n\r\n   <mat-card-content class=\"sendMail\">\r\n      <!-- <mat-form-field>\r\n        <span class=\"label_class\"> Subject :</span> <input matInput >\r\n      </mat-form-field> -->\r\n      <mat-form-field class=\"body\" appearance=\"outline\">\r\n      <span class=\"label_class\">Message for Hospital :</span> <textarea matInput rows=\"5\" cols=\"40\"></textarea>\r\n      </mat-form-field>\r\n\r\n\r\n     \r\n   </mat-card-content>\r\n</mat-card>\r\n\r\n<!-- ------------------------------------embdedding the  report here------------------------- -->\r\n<mat-card class=\"dialogContainer\">\r\n   <mat-card-content-title class=\"Title\">PURCHASE COMPARISON REPORT</mat-card-content-title>\r\n\r\n   <table id=\"customers\">\r\n      <thead>\r\n          <tr>\r\n              <th>Sl No. </th>\r\n              <th style=\"width: 320px;\">Product Details</th>\r\n              <th>Purchase Price</th>\r\n              <th>MD Stock Price</th>\r\n          </tr>\r\n      </thead>\r\n      <tbody>\r\n         <tr *ngFor=\"let item of data.msg\">\r\n              <td>1</td>\r\n              <td>{{ item.productname_sr }}</td>\r\n              <td>{{item.price_sr }}</td>\r\n              <td> {{item.price_md }}</td>\r\n          </tr>\r\n          \r\n      </tbody>\r\n\r\n      <tfoot>\r\n          <tr>\r\n              <td colspan=\"2\" align=\"right\"> Total Price</td>\r\n              <td>$5000</td>\r\n              <td>$4800</td>\r\n          </tr>\r\n          <tr style=\" background: #10c7e4; color: #fff; font-weight: bold;\">\r\n              <td colspan=\"2\" align=\"right\" style=\"font-size: 18px;\"> Total Saving</td>\r\n              <td></td>\r\n              <td style=\"font-size: 18px;\">$200</td>\r\n          </tr>\r\n      </tfoot>\r\n\r\n  </table>\r\n   <mat-card-content class=\"sendMail\">\r\n   <mat-toolbar class=\"button_wrapper\">\r\n      <button mat-button >Send</button>\r\n   </mat-toolbar>\r\n   </mat-card-content>\r\n</mat-card>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.html":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.html ***!
+  \************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<app-adminheader>\n\n    <mat-card-content *ngIf=\"userType=='salesrep' || userType=='admin'\" class=\"medical_partners\">\n        <form>\n          <mat-card-content class=\"top_quotesection new\">\n            <label mat-label>Medical Partner : </label>\n            <mat-form-field>\n              <mat-label>Select Medical Partner</mat-label>\n              <mat-select [(ngModel)]=\"selectedValue\" (selectionChange)=\"hospitalName($event.value)\" name=\"id\">\n                <mat-option>None</mat-option>\n                <mat-option *ngFor=\"let hospital of hospitalDetails\" [value]=\"hospital._id\">{{hospital.hospitalname}}\n                </mat-option>\n              </mat-select>\n            </mat-form-field>\n          </mat-card-content>\n        </form>\n    \n      </mat-card-content>\n\n    <mat-card-content class=\"cart_item_wrapper\">\n    \n        <mat-card-content class=\"cart_item\" *ngFor=\"let item of inventoryDetailsByUserId;let i=index;\">\n          <mat-card-content class=\"image_wrapper\">\n            <img src=\"{{item.image}}\">\n          </mat-card-content>\n    \n          <mat-card-content class=\"cart_content\">\n            <table class=\"cart_table\">\n              <tr>\n                <th>SKU # :</th>\n                <td>{{item.sku}}</td>\n              </tr>\n              <tr>\n                <th>Product Name :</th>\n                <td>{{item.inventory_name}}</td>\n              </tr>\n              <tr>\n                <th>Manufacturer :</th>\n                <td>{{item.brand}}</td>\n              </tr>\n            </table>\n    \n            <mat-toolbar class=\"acctions\">\n              <mat-card-content class=\"quantity\">\n                <p>qty</p>\n                <span class=\"counter_wrapper\">\n                  <span class=\"inner_box\">\n                    <span class=\"boxes\">{{item.quantity}}</span>\n                    <span class=\"counter\">\n                      <a (click)=\"plus(i)\"><i class=\"material-icons\"> keyboard_arrow_up </i></a>\n                      <a (click)=\"minus(i)\"><i class=\"material-icons\"> keyboard_arrow_down </i></a>\n                    </span>\n                  </span>\n                  <span>Purchased Price</span><span><input type=\"number\" step=\"any\"[(ngModel)]=\"item.purchased_price\"></span>\n                  <button mat-button (click)=\"remove(item._id,i)\" class=\"remove\">Remove</button>\n                </span>\n              </mat-card-content>\n            </mat-toolbar>\n          </mat-card-content>\n        </mat-card-content>\n    \n        \n        \n    </mat-card-content>    \n    \n    \n     \n    \n    \n \n    <mat-card-content class=\"medical_partners\">\n        <mat-card-content class=\"top_quotesection\">\n          <label mat-label>Notes :</label>\n          <textarea type=\"text\" class=\"form-control\" (input)=\"onSearchChange($event.target.value)\"></textarea>\n        </mat-card-content>\n      </mat-card-content>\n      <mat-card-content class=\"button_wrapper\">\n        <button class=\"cart_action\" mat-button color=\"accent\" (click)=\"getQuote()\">get quote</button>\n      </mat-card-content>\n   \n</app-adminheader>\n\n");
 
 /***/ }),
 
@@ -9203,6 +4637,7 @@ let PurchaseQuotesListingComponent = class PurchaseQuotesListingComponent {
         // displayed: string[] = ['date', 'medical_partner', 'sales_rep','quoted_by', 'status', 'action'];
         this.displayed = ['date', 'Quote_ID', 'medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
         this.recentlyAdded = [];
+        console.log(router.routerState.snapshot.url);
     }
     ngOnInit() {
         this.activatedRoute.data.subscribe(resolveData => {
@@ -9212,8 +4647,19 @@ let PurchaseQuotesListingComponent = class PurchaseQuotesListingComponent {
     }
     /** quote details view*/
     viewQuoteDetails(quoteid, hospiid) {
-        this.router.navigateByUrl('/admin/quote-view/' + quoteid + '/' + hospiid);
+        if (this.router.routerState.snapshot.url == '/admin/managequotes/purchasequote/list') {
+            console.log("purchase Quote listing view route");
+            this.router.navigateByUrl('/admin/quote-view/' + quoteid + '/' + hospiid);
+        }
+        if (this.router.routerState.snapshot.url == '/admin/managequotes/purchasquotelisting/list') {
+            console.log("purchase Quote listing view route");
+            this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid + '/' + hospiid);
+        }
+        //this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
         //console.log("quote details",quoteid);
+    }
+    addPurchasequotes() {
+        this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
     }
 };
 PurchaseQuotesListingComponent.ctorParameters = () => [
@@ -11232,7 +6678,7 @@ MyaccountComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".quote_cart_wrapper{ width: 1400px; margin: 20px auto;}\r\n\r\n.top_logo_wrapper{ border: 1px solid #d6d6d6; padding: 16px; }\r\n\r\n.top_logo_wrapper .top_wr1{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}\r\n\r\n.top_logo_wrapper .top_wr1 .inner_items {margin-bottom: 0;}\r\n\r\n.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px;}\r\n\r\n.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 10px; }\r\n\r\n.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 5px 0;}\r\n\r\n.top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;\r\n  padding: 10px; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper  .mat-list{ padding: 0; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper p{ font-family: \"AvenirBook\"; font-size: 18px; color: #535353; height: auto; word-break: break-word;\r\n  padding: 5px 12px; display: flex; margin:0; width: auto;}\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper p span{  min-width: -webkit-max-content;  min-width: -moz-max-content;  min-width: max-content; text-transform: uppercase; margin-right: 6px; }\r\n\r\n/* table */\r\n\r\n.quote_table_wrapper{ margin-bottom: 0;}\r\n\r\n.quote_table_wrapper table{width: 100%; }\r\n\r\n.quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }\r\n\r\n.quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: \"AvenirRoman\"; font-size: 18px;}\r\n\r\n.quote_table_wrapper .text_with_span { display: inline-flex; align-items: center;  }\r\n\r\n.quote_table_wrapper .text_with_span textarea {border: 1px solid #ddd; resize: none; text-align: center;}\r\n\r\n.quote_table_wrapper .text_with_span textarea:focus { outline: none;}\r\n\r\n.quote_table_wrapper .text_with_span .action_button { display: inline-flex; flex-direction: column;  }\r\n\r\n.quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: \"AvenirMedium\";  }\r\n\r\n.quote_table_wrapper .text_with_span .action_button button:last-child { background:#013265;  margin-top: 1px; }\r\n\r\n.quote_table_wrapper .bottom_action { justify-content: flex-end; margin-top: 24px; align-items: center; height: auto; display: flex;}\r\n\r\n.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0;}\r\n\r\n.quote_table_wrapper .bottom_action button:last-child{ margin-left: 10px; background:#09c5fb;}\r\n\r\n.quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}\r\n\r\n.quote_table_wrapper table .cdk-column-price{    width: 8%;}\r\n\r\n.quote_table_wrapper table td.mat-footer-cell{border-bottom-color:none; }\r\n\r\n.quote_table_wrapper table td.mat-footer-cell:last-child{ border: 1px solid #d2d2d2; text-align: center;}\r\n\r\n.quote_table_wrapper table td.mat-footer-cell:nth-child(6){ border: 1px solid #d2d2d2; text-align: center; }\r\n\r\n.quote_table_wrapper table td.mat-cell { color: #465157; font-family: \"AvenirMedium\"; }\r\n\r\n.quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px!important; }\r\n\r\n.quote_table_wrapper table th:first-of-type{ width: 40%;}\r\n\r\n.quote_table_wrapper table th:last-of-type{ width: 15%;}\r\n\r\n.hidecls{display: none !important;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9iYWNrZW5kL3NhbGVzLXJlcC9xdW90ZS12aWV3L3F1b3RlLXZpZXcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUIsYUFBYSxFQUFFLGlCQUFpQixDQUFDOztBQUV0RCxtQkFBbUIseUJBQXlCLEVBQUUsYUFBYSxFQUFFOztBQUU3RCw0QkFBNEIsYUFBYSxFQUFFLDhCQUE4QixFQUFFLG1CQUFtQixFQUFFLG1CQUFtQixDQUFDOztBQUNwSCx5Q0FBeUMsZ0JBQWdCLENBQUM7O0FBQzFELCtDQUErQyxZQUFZLENBQUM7O0FBQzVELHFDQUFxQyw4QkFBOEIsRUFBRSxVQUFVLEVBQUUsZ0JBQWdCLEVBQUU7O0FBQ25HLG9EQUFvRCxZQUFZLEVBQUUsY0FBYyxDQUFDOztBQUNqRiw0Q0FBNEMsYUFBYSxFQUFFLDhCQUE4QixFQUFFOztBQUMzRix5REFBeUQsZ0JBQWdCLEVBQUUsWUFBWSxFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLHNCQUFzQixFQUFFOztBQUNqSyxpRUFBaUUsMEJBQTBCLEVBQUUseUJBQXlCLEVBQUUsZUFBZSxFQUFFLG1CQUFtQixHQUFHLFdBQVc7RUFDeEssYUFBYSxFQUFFOztBQUNqQixtRUFBbUUsVUFBVSxFQUFFOztBQUMvRSwwREFBMEQseUJBQXlCLEVBQUUsZUFBZSxFQUFFLGNBQWMsRUFBRSxZQUFZLEVBQUUsc0JBQXNCO0VBQ3hKLGlCQUFpQixFQUFFLGFBQWEsRUFBRSxRQUFRLEVBQUUsV0FBVyxDQUFDOztBQUMxRCxnRUFBZ0UsOEJBQXNCLEdBQXRCLDJCQUFzQixHQUF0QixzQkFBc0IsRUFBRSx5QkFBeUIsRUFBRSxpQkFBaUIsRUFBRTs7QUFFdEksVUFBVTs7QUFDVixzQkFBc0IsZ0JBQWdCLENBQUM7O0FBQ3ZDLDJCQUEyQixXQUFXLEVBQUU7O0FBQ3hDLDhDQUE4QyxtQkFBbUIsRUFBRTs7QUFDbkUsZ0RBQWdELGNBQWMsRUFBRSx5QkFBeUIsRUFBRSwwQkFBMEIsRUFBRSxlQUFlLENBQUM7O0FBQ3ZJLHVDQUF1QyxvQkFBb0IsRUFBRSxtQkFBbUIsR0FBRzs7QUFDbkYsK0NBQStDLHNCQUFzQixFQUFFLFlBQVksRUFBRSxrQkFBa0IsQ0FBQzs7QUFDeEcsc0RBQXNELGFBQWEsQ0FBQzs7QUFDcEUsc0RBQXNELG9CQUFvQixFQUFFLHNCQUFzQixHQUFHOztBQUNyRyw0REFBNEQsb0JBQW9CLEVBQUUsWUFBWSxFQUFFLGtCQUFrQixFQUFFLGdCQUFnQixFQUFFLFVBQVUsRUFBRSwwQkFBMEIsRUFBRSxlQUFlLEVBQUUsMkJBQTJCLEdBQUc7O0FBQzdOLHdFQUF3RSxrQkFBa0IsR0FBRyxlQUFlLEVBQUU7O0FBQzlHLHNDQUFzQyx5QkFBeUIsRUFBRSxnQkFBZ0IsRUFBRSxtQkFBbUIsRUFBRSxZQUFZLEVBQUUsYUFBYSxDQUFDOztBQUNwSSw0Q0FBNEMsMEJBQTBCLEVBQUUsZUFBZSxFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLFdBQVcsRUFBRSxnQkFBZ0IsRUFBRSxnQkFBZ0IsQ0FBQzs7QUFDekwsdURBQXVELGlCQUFpQixFQUFFLGtCQUFrQixDQUFDOztBQUM3Rix5Q0FBeUMsMEJBQTBCLEVBQUUsWUFBWSxDQUFDOztBQUNsRixpREFBaUQsU0FBUyxDQUFDOztBQUMzRCw4Q0FBOEMsd0JBQXdCLEVBQUU7O0FBQ3hFLDBEQUEwRCx5QkFBeUIsRUFBRSxrQkFBa0IsQ0FBQzs7QUFDeEcsNERBQTRELHlCQUF5QixFQUFFLGtCQUFrQixFQUFFOztBQUUzRyx5Q0FBeUMsY0FBYyxFQUFFLDJCQUEyQixFQUFFOztBQUN0Rix3REFBd0QsNEJBQTRCLEVBQUU7O0FBQ3RGLDZDQUE2QyxVQUFVLENBQUM7O0FBQ3hELDRDQUE0QyxVQUFVLENBQUM7O0FBQ3ZELFNBQVMsd0JBQXdCLENBQUMiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2JhY2tlbmQvc2FsZXMtcmVwL3F1b3RlLXZpZXcvcXVvdGUtdmlldy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnF1b3RlX2NhcnRfd3JhcHBlcnsgd2lkdGg6IDE0MDBweDsgbWFyZ2luOiAyMHB4IGF1dG87fVxyXG5cclxuLnRvcF9sb2dvX3dyYXBwZXJ7IGJvcmRlcjogMXB4IHNvbGlkICNkNmQ2ZDY7IHBhZGRpbmc6IDE2cHg7IH1cclxuXHJcbi50b3BfbG9nb193cmFwcGVyIC50b3Bfd3IxeyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGFsaWduLWl0ZW1zOiBjZW50ZXI7IG1hcmdpbi1ib3R0b206IDEwcHg7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAudG9wX3dyMSAuaW5uZXJfaXRlbXMge21hcmdpbi1ib3R0b206IDA7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAudG9wX3dyMSAuaW5uZXJfaXRlbXNfdG9wICB7IHdpZHRoOiAzMDBweDt9XHJcbi50b3BfbG9nb193cmFwcGVyIC50b3Bfd3IxIC5kZXRhaWxzeyBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkMmQyZDI7IHBhZGRpbmc6IDA7IG1hcmdpbi10b3A6IDEwcHg7IH1cclxuLnRvcF9sb2dvX3dyYXBwZXIgLnRvcF93cjEgLmRldGFpbHMgLm1hdC1saXN0LWl0ZW17IGhlaWdodDogYXV0bzsgcGFkZGluZzogNXB4IDA7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSB7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgeyBtYXJnaW4tYm90dG9tOiAwOyB3aWR0aDogNDkuNSU7IGJvcmRlcjogMXB4IHNvbGlkICNkMmQyZDI7IHBhZGRpbmctYm90dG9tOiA4cHg7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH1cclxuLnRvcF9sb2dvX3dyYXBwZXIgLmlubmVyX2l0ZW1zX3RvcF9ib3R0b20gLnJlcF93cmFwcGVyIC5oZWFkZXIgeyBmb250LWZhbWlseTogJ0F2ZW5pckJsYWNrJzsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1zaXplOiAyMHB4OyBiYWNrZ3JvdW5kOiAjMDEzMjY1OyAgY29sb3I6ICNmZmY7XHJcbiAgcGFkZGluZzogMTBweDsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgIC5tYXQtbGlzdHsgcGFkZGluZzogMDsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgcHsgZm9udC1mYW1pbHk6IFwiQXZlbmlyQm9va1wiOyBmb250LXNpemU6IDE4cHg7IGNvbG9yOiAjNTM1MzUzOyBoZWlnaHQ6IGF1dG87IHdvcmQtYnJlYWs6IGJyZWFrLXdvcmQ7XHJcbiAgcGFkZGluZzogNXB4IDEycHg7IGRpc3BsYXk6IGZsZXg7IG1hcmdpbjowOyB3aWR0aDogYXV0bzt9XHJcbi50b3BfbG9nb193cmFwcGVyIC5pbm5lcl9pdGVtc190b3BfYm90dG9tIC5yZXBfd3JhcHBlciBwIHNwYW57ICBtaW4td2lkdGg6IG1heC1jb250ZW50OyB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOyBtYXJnaW4tcmlnaHQ6IDZweDsgfVxyXG5cclxuLyogdGFibGUgKi9cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXJ7IG1hcmdpbi1ib3R0b206IDA7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZXt3aWR0aDogMTAwJTsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aC5tYXQtaGVhZGVyLWNlbGx7YmFja2dyb3VuZDogIzFiNjZiNTsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aC5tYXQtaGVhZGVyLWNlbGwgeyBjb2xvcjogI2ZmZmZmZjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1mYW1pbHk6IFwiQXZlbmlyUm9tYW5cIjsgZm9udC1zaXplOiAxOHB4O31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgLnRleHRfd2l0aF9zcGFuIHsgZGlzcGxheTogaW5saW5lLWZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiB0ZXh0YXJlYSB7Ym9yZGVyOiAxcHggc29saWQgI2RkZDsgcmVzaXplOiBub25lOyB0ZXh0LWFsaWduOiBjZW50ZXI7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAudGV4dF93aXRoX3NwYW4gdGV4dGFyZWE6Zm9jdXMgeyBvdXRsaW5lOiBub25lO31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgLnRleHRfd2l0aF9zcGFuIC5hY3Rpb25fYnV0dG9uIHsgZGlzcGxheTogaW5saW5lLWZsZXg7IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiAuYWN0aW9uX2J1dHRvbiBidXR0b24ge2xpbmUtaGVpZ2h0OiBpbmhlcml0OyBwYWRkaW5nOiAzcHg7IGJhY2tncm91bmQ6I2U3M2EzODsgYm9yZGVyLXJhZGl1czogMDsgY29sb3I6I2ZmZjsgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6IFwiQXZlbmlyTWVkaXVtXCI7ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiAuYWN0aW9uX2J1dHRvbiBidXR0b246bGFzdC1jaGlsZCB7IGJhY2tncm91bmQ6IzAxMzI2NTsgIG1hcmdpbi10b3A6IDFweDsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAuYm90dG9tX2FjdGlvbiB7IGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7IG1hcmdpbi10b3A6IDI0cHg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGhlaWdodDogYXV0bzsgZGlzcGxheTogZmxleDt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC5ib3R0b21fYWN0aW9uIGJ1dHRvbnsgZm9udC1mYW1pbHk6ICdBdmVuaXJSb21hbic7IGZvbnQtc2l6ZTogMThweDsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgYmFja2dyb3VuZDogIzAxMzI2NTsgY29sb3I6ICNmZmY7IG1pbi13aWR0aDogMTIwcHg7IGJvcmRlci1yYWRpdXM6IDA7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAuYm90dG9tX2FjdGlvbiBidXR0b246bGFzdC1jaGlsZHsgbWFyZ2luLWxlZnQ6IDEwcHg7IGJhY2tncm91bmQ6IzA5YzVmYjt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsIHsgYm9yZGVyOiAuMnB4IHNvbGlkICNkYWRhZGE7IHBhZGRpbmc6IDhweDt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIC5jZGstY29sdW1uLXByaWNleyAgICB3aWR0aDogOCU7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0ZC5tYXQtZm9vdGVyLWNlbGx7Ym9yZGVyLWJvdHRvbS1jb2xvcjpub25lOyB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1mb290ZXItY2VsbDpsYXN0LWNoaWxkeyBib3JkZXI6IDFweCBzb2xpZCAjZDJkMmQyOyB0ZXh0LWFsaWduOiBjZW50ZXI7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0ZC5tYXQtZm9vdGVyLWNlbGw6bnRoLWNoaWxkKDYpeyBib3JkZXI6IDFweCBzb2xpZCAjZDJkMmQyOyB0ZXh0LWFsaWduOiBjZW50ZXI7IH1cclxuXHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsIHsgY29sb3I6ICM0NjUxNTc7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsOmZpcnN0LW9mLXR5cGUgIHsgcGFkZGluZy1sZWZ0OiAyNHB4IWltcG9ydGFudDsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aDpmaXJzdC1vZi10eXBleyB3aWR0aDogNDAlO31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgdGFibGUgdGg6bGFzdC1vZi10eXBleyB3aWR0aDogMTUlO31cclxuLmhpZGVjbHN7ZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O31cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".quote_cart_wrapper{ width: 1400px; margin: 20px auto;}\r\n\r\n.top_logo_wrapper{ border: 1px solid #d6d6d6; padding: 16px; }\r\n\r\n.top_logo_wrapper .top_wr1{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}\r\n\r\n.top_logo_wrapper .top_wr1 .inner_items {margin-bottom: 0;}\r\n\r\n.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px;}\r\n\r\n.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 10px; }\r\n\r\n.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 5px 0;}\r\n\r\n.top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;\r\n  padding: 10px; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper  .mat-list{ padding: 0; }\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper p{ font-family: \"AvenirBook\"; font-size: 18px; color: #535353; height: auto; word-break: break-word;\r\n  padding: 5px 12px; display: flex; margin:0; width: auto;}\r\n\r\n.top_logo_wrapper .inner_items_top_bottom .rep_wrapper p span{  min-width: -webkit-max-content;  min-width: -moz-max-content;  min-width: max-content; text-transform: uppercase; margin-right: 6px; }\r\n\r\n/* table */\r\n\r\n.quote_table_wrapper{ margin-bottom: 0;}\r\n\r\n.quote_table_wrapper table{width: 100%; }\r\n\r\n.quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }\r\n\r\n.quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: \"AvenirRoman\"; font-size: 18px;}\r\n\r\n.quote_table_wrapper .text_with_span { display: inline-flex; align-items: center;  }\r\n\r\n.quote_table_wrapper .text_with_span textarea {border: 1px solid #ddd; resize: none; text-align: center;}\r\n\r\n.quote_table_wrapper .text_with_span textarea:focus { outline: none;}\r\n\r\n.quote_table_wrapper .text_with_span .action_button { display: inline-flex; flex-direction: column;  }\r\n\r\n.quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: \"AvenirMedium\";  }\r\n\r\n.quote_table_wrapper .text_with_span .action_button button:last-child { background:#013265;  margin-top: 1px; }\r\n\r\n.quote_table_wrapper .bottom_action { justify-content: flex-end; margin-top: 24px; align-items: center; height: auto; display: flex;}\r\n\r\n.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0;}\r\n\r\n.quote_table_wrapper .bottom_action button:last-child{ margin-left: 10px; background:#09c5fb;}\r\n\r\n.quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}\r\n\r\n.quote_table_wrapper table .cdk-column-price{    width: 8%;}\r\n\r\n.quote_table_wrapper table td.mat-footer-cell{ border: 1px solid #d2d2d2; padding: 8px; }\r\n\r\n.quote_table_wrapper table td.mat-footer-cell:last-child{ border: 1px solid #d2d2d2; }\r\n\r\n.quote_table_wrapper table td.mat-footer-cell:nth-child(6){ border: 1px solid #d2d2d2; text-align: center; }\r\n\r\n.quote_table_wrapper table td.mat-cell { color: #465157; font-family: \"AvenirMedium\"; }\r\n\r\n.quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px!important; }\r\n\r\n.quote_table_wrapper table th:first-of-type{ width: 40%;}\r\n\r\n.quote_table_wrapper table th:last-of-type{ width: 15%;}\r\n\r\n.hidecls{display: none !important;}\r\n\r\n.quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9iYWNrZW5kL3NhbGVzLXJlcC9xdW90ZS12aWV3L3F1b3RlLXZpZXcuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUIsYUFBYSxFQUFFLGlCQUFpQixDQUFDOztBQUV0RCxtQkFBbUIseUJBQXlCLEVBQUUsYUFBYSxFQUFFOztBQUU3RCw0QkFBNEIsYUFBYSxFQUFFLDhCQUE4QixFQUFFLG1CQUFtQixFQUFFLG1CQUFtQixDQUFDOztBQUNwSCx5Q0FBeUMsZ0JBQWdCLENBQUM7O0FBQzFELCtDQUErQyxZQUFZLENBQUM7O0FBQzVELHFDQUFxQyw4QkFBOEIsRUFBRSxVQUFVLEVBQUUsZ0JBQWdCLEVBQUU7O0FBQ25HLG9EQUFvRCxZQUFZLEVBQUUsY0FBYyxDQUFDOztBQUNqRiw0Q0FBNEMsYUFBYSxFQUFFLDhCQUE4QixFQUFFOztBQUMzRix5REFBeUQsZ0JBQWdCLEVBQUUsWUFBWSxFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLHNCQUFzQixFQUFFOztBQUNqSyxpRUFBaUUsMEJBQTBCLEVBQUUseUJBQXlCLEVBQUUsZUFBZSxFQUFFLG1CQUFtQixHQUFHLFdBQVc7RUFDeEssYUFBYSxFQUFFOztBQUNqQixtRUFBbUUsVUFBVSxFQUFFOztBQUMvRSwwREFBMEQseUJBQXlCLEVBQUUsZUFBZSxFQUFFLGNBQWMsRUFBRSxZQUFZLEVBQUUsc0JBQXNCO0VBQ3hKLGlCQUFpQixFQUFFLGFBQWEsRUFBRSxRQUFRLEVBQUUsV0FBVyxDQUFDOztBQUMxRCxnRUFBZ0UsOEJBQXNCLEdBQXRCLDJCQUFzQixHQUF0QixzQkFBc0IsRUFBRSx5QkFBeUIsRUFBRSxpQkFBaUIsRUFBRTs7QUFFdEksVUFBVTs7QUFDVixzQkFBc0IsZ0JBQWdCLENBQUM7O0FBQ3ZDLDJCQUEyQixXQUFXLEVBQUU7O0FBQ3hDLDhDQUE4QyxtQkFBbUIsRUFBRTs7QUFDbkUsZ0RBQWdELGNBQWMsRUFBRSx5QkFBeUIsRUFBRSwwQkFBMEIsRUFBRSxlQUFlLENBQUM7O0FBQ3ZJLHVDQUF1QyxvQkFBb0IsRUFBRSxtQkFBbUIsR0FBRzs7QUFDbkYsK0NBQStDLHNCQUFzQixFQUFFLFlBQVksRUFBRSxrQkFBa0IsQ0FBQzs7QUFDeEcsc0RBQXNELGFBQWEsQ0FBQzs7QUFDcEUsc0RBQXNELG9CQUFvQixFQUFFLHNCQUFzQixHQUFHOztBQUNyRyw0REFBNEQsb0JBQW9CLEVBQUUsWUFBWSxFQUFFLGtCQUFrQixFQUFFLGdCQUFnQixFQUFFLFVBQVUsRUFBRSwwQkFBMEIsRUFBRSxlQUFlLEVBQUUsMkJBQTJCLEdBQUc7O0FBQzdOLHdFQUF3RSxrQkFBa0IsR0FBRyxlQUFlLEVBQUU7O0FBQzlHLHNDQUFzQyx5QkFBeUIsRUFBRSxnQkFBZ0IsRUFBRSxtQkFBbUIsRUFBRSxZQUFZLEVBQUUsYUFBYSxDQUFDOztBQUNwSSw0Q0FBNEMsMEJBQTBCLEVBQUUsZUFBZSxFQUFFLHlCQUF5QixFQUFFLG1CQUFtQixFQUFFLFdBQVcsRUFBRSxnQkFBZ0IsRUFBRSxnQkFBZ0IsQ0FBQzs7QUFDekwsdURBQXVELGlCQUFpQixFQUFFLGtCQUFrQixDQUFDOztBQUM3Rix5Q0FBeUMsMEJBQTBCLEVBQUUsWUFBWSxDQUFDOztBQUNsRixpREFBaUQsU0FBUyxDQUFDOztBQUMzRCwrQ0FBK0MseUJBQXlCLEVBQUUsWUFBWSxFQUFFOztBQUN4RiwwREFBMEQseUJBQXlCLEVBQUU7O0FBQ3JGLDREQUE0RCx5QkFBeUIsRUFBRSxrQkFBa0IsRUFBRTs7QUFFM0cseUNBQXlDLGNBQWMsRUFBRSwyQkFBMkIsRUFBRTs7QUFDdEYsd0RBQXdELDRCQUE0QixFQUFFOztBQUN0Riw2Q0FBNkMsVUFBVSxDQUFDOztBQUN4RCw0Q0FBNEMsVUFBVSxDQUFDOztBQUN2RCxTQUFTLHdCQUF3QixDQUFDOztBQUNsQywyREFBMkQsa0JBQWtCLENBQUMiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2JhY2tlbmQvc2FsZXMtcmVwL3F1b3RlLXZpZXcvcXVvdGUtdmlldy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnF1b3RlX2NhcnRfd3JhcHBlcnsgd2lkdGg6IDE0MDBweDsgbWFyZ2luOiAyMHB4IGF1dG87fVxyXG5cclxuLnRvcF9sb2dvX3dyYXBwZXJ7IGJvcmRlcjogMXB4IHNvbGlkICNkNmQ2ZDY7IHBhZGRpbmc6IDE2cHg7IH1cclxuXHJcbi50b3BfbG9nb193cmFwcGVyIC50b3Bfd3IxeyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGFsaWduLWl0ZW1zOiBjZW50ZXI7IG1hcmdpbi1ib3R0b206IDEwcHg7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAudG9wX3dyMSAuaW5uZXJfaXRlbXMge21hcmdpbi1ib3R0b206IDA7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAudG9wX3dyMSAuaW5uZXJfaXRlbXNfdG9wICB7IHdpZHRoOiAzMDBweDt9XHJcbi50b3BfbG9nb193cmFwcGVyIC50b3Bfd3IxIC5kZXRhaWxzeyBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkMmQyZDI7IHBhZGRpbmc6IDA7IG1hcmdpbi10b3A6IDEwcHg7IH1cclxuLnRvcF9sb2dvX3dyYXBwZXIgLnRvcF93cjEgLmRldGFpbHMgLm1hdC1saXN0LWl0ZW17IGhlaWdodDogYXV0bzsgcGFkZGluZzogNXB4IDA7fVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSB7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgeyBtYXJnaW4tYm90dG9tOiAwOyB3aWR0aDogNDkuNSU7IGJvcmRlcjogMXB4IHNvbGlkICNkMmQyZDI7IHBhZGRpbmctYm90dG9tOiA4cHg7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IH1cclxuLnRvcF9sb2dvX3dyYXBwZXIgLmlubmVyX2l0ZW1zX3RvcF9ib3R0b20gLnJlcF93cmFwcGVyIC5oZWFkZXIgeyBmb250LWZhbWlseTogJ0F2ZW5pckJsYWNrJzsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1zaXplOiAyMHB4OyBiYWNrZ3JvdW5kOiAjMDEzMjY1OyAgY29sb3I6ICNmZmY7XHJcbiAgcGFkZGluZzogMTBweDsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgIC5tYXQtbGlzdHsgcGFkZGluZzogMDsgfVxyXG4udG9wX2xvZ29fd3JhcHBlciAuaW5uZXJfaXRlbXNfdG9wX2JvdHRvbSAucmVwX3dyYXBwZXIgcHsgZm9udC1mYW1pbHk6IFwiQXZlbmlyQm9va1wiOyBmb250LXNpemU6IDE4cHg7IGNvbG9yOiAjNTM1MzUzOyBoZWlnaHQ6IGF1dG87IHdvcmQtYnJlYWs6IGJyZWFrLXdvcmQ7XHJcbiAgcGFkZGluZzogNXB4IDEycHg7IGRpc3BsYXk6IGZsZXg7IG1hcmdpbjowOyB3aWR0aDogYXV0bzt9XHJcbi50b3BfbG9nb193cmFwcGVyIC5pbm5lcl9pdGVtc190b3BfYm90dG9tIC5yZXBfd3JhcHBlciBwIHNwYW57ICBtaW4td2lkdGg6IG1heC1jb250ZW50OyB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOyBtYXJnaW4tcmlnaHQ6IDZweDsgfVxyXG5cclxuLyogdGFibGUgKi9cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXJ7IG1hcmdpbi1ib3R0b206IDA7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZXt3aWR0aDogMTAwJTsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aC5tYXQtaGVhZGVyLWNlbGx7YmFja2dyb3VuZDogIzFiNjZiNTsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aC5tYXQtaGVhZGVyLWNlbGwgeyBjb2xvcjogI2ZmZmZmZjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1mYW1pbHk6IFwiQXZlbmlyUm9tYW5cIjsgZm9udC1zaXplOiAxOHB4O31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgLnRleHRfd2l0aF9zcGFuIHsgZGlzcGxheTogaW5saW5lLWZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiB0ZXh0YXJlYSB7Ym9yZGVyOiAxcHggc29saWQgI2RkZDsgcmVzaXplOiBub25lOyB0ZXh0LWFsaWduOiBjZW50ZXI7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAudGV4dF93aXRoX3NwYW4gdGV4dGFyZWE6Zm9jdXMgeyBvdXRsaW5lOiBub25lO31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgLnRleHRfd2l0aF9zcGFuIC5hY3Rpb25fYnV0dG9uIHsgZGlzcGxheTogaW5saW5lLWZsZXg7IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiAuYWN0aW9uX2J1dHRvbiBidXR0b24ge2xpbmUtaGVpZ2h0OiBpbmhlcml0OyBwYWRkaW5nOiAzcHg7IGJhY2tncm91bmQ6I2U3M2EzODsgYm9yZGVyLXJhZGl1czogMDsgY29sb3I6I2ZmZjsgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7IGZvbnQtc2l6ZTogMTJweDsgZm9udC1mYW1pbHk6IFwiQXZlbmlyTWVkaXVtXCI7ICB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC50ZXh0X3dpdGhfc3BhbiAuYWN0aW9uX2J1dHRvbiBidXR0b246bGFzdC1jaGlsZCB7IGJhY2tncm91bmQ6IzAxMzI2NTsgIG1hcmdpbi10b3A6IDFweDsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAuYm90dG9tX2FjdGlvbiB7IGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7IG1hcmdpbi10b3A6IDI0cHg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGhlaWdodDogYXV0bzsgZGlzcGxheTogZmxleDt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIC5ib3R0b21fYWN0aW9uIGJ1dHRvbnsgZm9udC1mYW1pbHk6ICdBdmVuaXJSb21hbic7IGZvbnQtc2l6ZTogMThweDsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgYmFja2dyb3VuZDogIzAxMzI2NTsgY29sb3I6ICNmZmY7IG1pbi13aWR0aDogMTIwcHg7IGJvcmRlci1yYWRpdXM6IDA7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciAuYm90dG9tX2FjdGlvbiBidXR0b246bGFzdC1jaGlsZHsgbWFyZ2luLWxlZnQ6IDEwcHg7IGJhY2tncm91bmQ6IzA5YzVmYjt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsIHsgYm9yZGVyOiAuMnB4IHNvbGlkICNkYWRhZGE7IHBhZGRpbmc6IDhweDt9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIC5jZGstY29sdW1uLXByaWNleyAgICB3aWR0aDogOCU7fVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0ZC5tYXQtZm9vdGVyLWNlbGx7IGJvcmRlcjogMXB4IHNvbGlkICNkMmQyZDI7IHBhZGRpbmc6IDhweDsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0ZC5tYXQtZm9vdGVyLWNlbGw6bGFzdC1jaGlsZHsgYm9yZGVyOiAxcHggc29saWQgI2QyZDJkMjsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0ZC5tYXQtZm9vdGVyLWNlbGw6bnRoLWNoaWxkKDYpeyBib3JkZXI6IDFweCBzb2xpZCAjZDJkMmQyOyB0ZXh0LWFsaWduOiBjZW50ZXI7IH1cclxuXHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsIHsgY29sb3I6ICM0NjUxNTc7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyB9XHJcbi5xdW90ZV90YWJsZV93cmFwcGVyIHRhYmxlIHRkLm1hdC1jZWxsOmZpcnN0LW9mLXR5cGUgIHsgcGFkZGluZy1sZWZ0OiAyNHB4IWltcG9ydGFudDsgfVxyXG4ucXVvdGVfdGFibGVfd3JhcHBlciB0YWJsZSB0aDpmaXJzdC1vZi10eXBleyB3aWR0aDogNDAlO31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgdGFibGUgdGg6bGFzdC1vZi10eXBleyB3aWR0aDogMTUlO31cclxuLmhpZGVjbHN7ZGlzcGxheTogbm9uZSAhaW1wb3J0YW50O31cclxuLnF1b3RlX3RhYmxlX3dyYXBwZXIgdGFibGUgdGQubWF0LWZvb3Rlci1jZWxsOmZpcnN0LWNoaWxkeyBwYWRkaW5nLWxlZnQ6IDI0cHg7fVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -11283,6 +6729,18 @@ let QuoteViewComponent = class QuoteViewComponent {
         //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
         //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
         // this.tableshow(); 
+        let datasource = '';
+        //console.log(this.activatedRoute.params);
+        //console.log(this.activatedRoute.snapshot.url[0].path,'1');
+        //console.log(this.activatedRoute.snapshot.url[1].path,'2');
+        //let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
+        //console.log('urlsegments',urlsegments);
+        if (this.activatedRoute.snapshot.url[1].path == 'quote-view') {
+            datasource = 'quoteviewasync';
+        }
+        if (this.activatedRoute.snapshot.url[1].path == 'quote-comparison-view') {
+            datasource = 'purchasequoteviewasync';
+        }
         let userData = JSON.parse(this.cookieService.get('user_details'));
         this.userId = userData._id;
         this.userType = userData.type;
@@ -11290,7 +6748,7 @@ let QuoteViewComponent = class QuoteViewComponent {
             "hospital_id": this.activatedRoute.snapshot.params.hospitalid,
             "id": this.activatedRoute.snapshot.params.id
         };
-        this.http.httpViaPost('quoteviewasync', postData).subscribe((response) => {
+        this.http.httpViaPost(datasource, postData).subscribe((response) => {
             //console.log(response);
             if (response.status = "success") {
                 console.log("quotedetails", response.quotedetails[0].inventory_details);
@@ -11337,11 +6795,21 @@ let QuoteViewComponent = class QuoteViewComponent {
     ngOnInit() {
         if (this.userType != 'admin')
             this.viewQuoteHeader = ['name', 'sku', 'category', 'brand', 'qty', 'price', 'subtotalprice'];
+        if (this.activatedRoute.snapshot.url[1].path == 'quote-comparison-view') {
+            this.viewQuoteHeader.push('purchaseprice');
+        }
     }
     /**update quote with price */
     save() {
+        let source = '';
+        if (this.activatedRoute.snapshot.url[1].path == 'quote-view') {
+            source = 'quote-details';
+        }
+        if (this.activatedRoute.snapshot.url[1].path == 'quote-comparison-view') {
+            source = 'purchase_comparison_quote-details';
+        }
         let postData = {
-            "source": "quote-details",
+            "source": source,
             "data": {
                 "id": this.activatedRoute.snapshot.params.id,
                 "inventory_details": this.quotedetails
@@ -11353,7 +6821,12 @@ let QuoteViewComponent = class QuoteViewComponent {
                 this._snackBar.open('Data Updated', '', {
                     duration: 2000,
                 });
-                this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
+                if (this.router.routerState.snapshot.url == '/admin/quote-view') {
+                    this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
+                }
+                if (this.router.routerState.snapshot.url == '/admin/quote-comparison-view') {
+                    this.router.navigateByUrl('/admin/managequotes/purchasquotelisting/list');
+                }
             }
         });
     }
@@ -11560,6 +7033,7 @@ let SalesrepHospitalComponent = class SalesrepHospitalComponent {
         this.userData = JSON.parse(this.cookieService.get('user_details'));
         /*Getting the role*/
         this.sharelink = 'https://dev-hospital-signup.mdstockinternational.com/' + this.userData._id;
+        this.id = this.userData._id;
         let data = {
             "source": "users_view",
             "condition": {
@@ -12766,7 +8240,7 @@ FrontendFooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".front_main { display: block; border-radius: 0; padding: 0; background: #fff; }\r\n.front_main:after { content: ''; position: absolute; border-bottom: 2px solid #d9d9d9; width: 100%; bottom: 54px; }\r\n.frontend_nav { position: relative; height: auto; padding: 0; display: flex; justify-content: space-between; width: 1460px; margin: 0 auto; background: transparent; min-height: 78px;\r\n  flex-direction: column; }\r\n.frontend_nav .logo_wrapper { cursor: pointer; display: flex; align-items: center; justify-content: flex-start; background: #fff; position: relative; margin: 16px; }\r\n.frontend_nav .logo_wrapper img { max-width: 100%; }\r\n.frontend_nav .logo_wrapper:focus { outline: none;}\r\n.frontend_nav .listing_container { display: flex; padding: 0; width: 100%;}\r\n.frontend_nav .listing_container .mat-list-item { color: #1e6cbb; height: auto; justify-content: center; font-family: \"AvenirRoman\"; text-transform: uppercase; font-size: 20px;\r\n  margin: 0 4px; padding: 10px 5px;}\r\n.frontend_nav .language_container { -webkit-clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%); clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%); background: #111214; width: 200px; color: #d8d8d8; font-size: 16px; text-align: -webkit-center;\r\nposition: absolute; bottom: -35px; z-index: 1; right: 0px; }\r\n.active { border-top: 2px solid #bab7b7; background: rgba(0, 0, 0, .05);}\r\n.login { color: #000!important; background: linear-gradient(40deg, #13b4fc, #017fe5); margin-left: 30px; border-radius: 2px;}\r\n.signup { color: #000!important; background: linear-gradient(40deg, #ffffff, #dcdcdc); border-radius: 2px; }\r\n.toggle_button { display: none; position: absolute; color: #fff; right: 0px; z-index: 9999; top: 60px; background: #001d39; border-radius: 0; padding: 0 10px; min-width: auto;\r\n}\r\n.a_pro { margin-bottom: 0; margin-left: 10px; display: flex; justify-content: center; align-items: center; }\r\n.a_pro i {\r\n  color: #fff;\r\n  cursor: pointer;\r\n}\r\n.a_pro .profile {\r\n  width: 33px;\r\n  height: 33px;\r\n  background: #246dad;\r\n  border: 1px solid #fffdff;\r\n  overflow: hidden;\r\n  border-radius: 50%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 2px;\r\n  box-sizing: border-box;\r\n}\r\n.profile img {\r\n  max-width: 100%;\r\n}\r\n.hide {\r\n  display: none;\r\n}\r\n.show {\r\n  display: block!important;\r\n}\r\n/* new modi */\r\n.front_main .top_toolbar {\r\n  height: auto;\r\n  background: #001d39;\r\n  padding: 0;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation {\r\n  padding: 0; display: flex;\r\n  justify-content: flex-end;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation a {\r\n  color: #fff;\r\n  font-family: \"AvenirLight\";\r\n  font-size: 14px;\r\n  text-transform: capitalize;\r\n  margin: 0 10px;\r\n  border-right: 1px solid #a59e9e;\r\n  padding-right: 20px;\r\n  line-height: 28px;\r\n  display: flex;\r\n  align-items: flex-end;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation a  .mat-icon { font-size: 22px; }\r\n.front_main .top_toolbar .top_toolbar_navigation a:last-child {\r\n  border: none;\r\n}\r\n.wrapper {\r\n  width: 1460px;\r\n  margin: 0 auto;\r\n  display: block; padding: 12px 0 10px\r\n}\r\n.floating_button { position: fixed; top: 60px; right: 10px; background: #ee220c;\r\n  color: #fff;\r\n  width: 70px;\r\n  height: 70px;\r\n  border-radius: 50%;\r\n  padding: 12px;\r\n  box-sizing: border-box;\r\n}\r\n.floating_button img{ max-width: 100%;}\r\n@media screen and (max-width: 1560px) {\r\n  .frontend_nav {\r\n    width: 90%;\r\n  }\r\n  .wrapper {\r\n    width: 90%;\r\n  }\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 18px;\r\n    margin: 0;\r\n  }\r\n}\r\n@media screen and (max-width: 1440px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    padding: 10px 0;\r\n  }\r\n}\r\n@media screen and (max-width: 1240px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 16px;\r\n  }\r\n}\r\n@media screen and (max-width: 1120px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 14px;\r\n  }\r\n}\r\n@media screen and (max-width: 991px) {\r\n  .frontend_nav .listing_container {\r\n    display: none;\r\n    padding: 0;\r\n    width: 100%;\r\n    background: #fff4f4;\r\n    margin-bottom: 20px;\r\n  }\r\n  .front_main:after {\r\n    display: none;\r\n  }\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 16px;\r\n    padding: 5px 0;\r\n    box-sizing: border-box;\r\n  }\r\n  .toggle_button {\r\n    display: block;\r\n  }\r\n}\r\n@media screen and (max-width: 480px) {\r\n.frontend_nav  .logo_wrapper  { display: block; align-items: center; justify-content: flex-start; margin: 12px 0; width: 260px; }\r\n.frontend_nav { display: flex;  }\r\n.toggle_button { top: 30px; }\r\n\r\n}\r\n@media screen and (max-width: 420px) {\r\n.frontend_nav .logo_wrapper { width: 300px; }\r\n.frontend_nav { width: 95%; align-items: baseline; }\r\n}\r\n@media screen and (max-width: 390px){\r\n  .frontend_nav .logo_wrapper { width: 250px; }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9mcm9udGVuZC9mcm9udGVuZC1oZWFkZXIvZnJvbnRlbmQtaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FBYyxjQUFjLEVBQUUsZ0JBQWdCLEVBQUUsVUFBVSxFQUFFLGdCQUFnQixFQUFFO0FBQzlFLG9CQUFvQixXQUFXLEVBQUUsa0JBQWtCLEVBQUUsZ0NBQWdDLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUNsSCxnQkFBZ0Isa0JBQWtCLEVBQUUsWUFBWSxFQUFFLFVBQVUsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsYUFBYSxFQUFFLGNBQWMsRUFBRSx1QkFBdUIsRUFBRSxnQkFBZ0I7RUFDbkwsc0JBQXNCLEVBQUU7QUFDMUIsOEJBQThCLGVBQWUsRUFBRSxhQUFhLEVBQUUsbUJBQW1CLEVBQUUsMkJBQTJCLEVBQUUsZ0JBQWdCLEVBQUUsa0JBQWtCLEVBQUUsWUFBWSxFQUFFO0FBQ3BLLGtDQUFrQyxlQUFlLEVBQUU7QUFDbkQsb0NBQW9DLGFBQWEsQ0FBQztBQUNsRCxtQ0FBbUMsYUFBYSxFQUFFLFVBQVUsRUFBRSxXQUFXLENBQUM7QUFDMUUsa0RBQWtELGNBQWMsRUFBRSxZQUFZLEVBQUUsdUJBQXVCLEVBQUUsMEJBQTBCLEVBQUUseUJBQXlCLEVBQUUsZUFBZTtFQUM3SyxhQUFhLEVBQUUsaUJBQWlCLENBQUM7QUFFbkMsb0NBQW9DLDJEQUFtRCxFQUFuRCxtREFBbUQsRUFBRSxtQkFBbUIsRUFBRSxZQUFZLEVBQUUsY0FBYyxFQUFFLGVBQWUsRUFBRSwwQkFBMEI7QUFDdkwsa0JBQWtCLEVBQUUsYUFBYSxFQUFFLFVBQVUsRUFBRSxVQUFVLEVBQUU7QUFDM0QsVUFBVSw2QkFBNkIsRUFBRSw4QkFBOEIsQ0FBQztBQUN4RSxTQUFTLHFCQUFxQixFQUFFLG9EQUFvRCxFQUFFLGlCQUFpQixFQUFFLGtCQUFrQixDQUFDO0FBQzVILFVBQVUscUJBQXFCLEVBQUUsb0RBQW9ELEVBQUUsa0JBQWtCLEVBQUU7QUFFM0csaUJBQWlCLGFBQWEsRUFBRSxrQkFBa0IsRUFBRSxXQUFXLEVBQUUsVUFBVSxFQUFFLGFBQWEsRUFBRSxTQUFTLEVBQUUsbUJBQW1CLEVBQUUsZ0JBQWdCLEVBQUUsZUFBZSxFQUFFLGVBQWU7QUFDOUs7QUFFQSxTQUFTLGdCQUFnQixFQUFFLGlCQUFpQixFQUFFLGFBQWEsRUFBRSx1QkFBdUIsRUFBRSxtQkFBbUIsRUFBRTtBQUMzRztFQUNFLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osc0JBQXNCO0FBQ3hCO0FBRUE7RUFDRSxlQUFlO0FBQ2pCO0FBRUE7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLHdCQUF3QjtBQUMxQjtBQUVBLGFBQWE7QUFFYjtFQUNFLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVLEVBQUUsYUFBYTtFQUN6Qix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLFdBQVc7RUFDWCwwQkFBMEI7RUFDMUIsZUFBZTtFQUNmLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QsK0JBQStCO0VBQy9CLG1CQUFtQjtFQUNuQixpQkFBaUI7RUFDakIsYUFBYTtFQUNiLHFCQUFxQjtBQUN2QjtBQUNBLGdFQUFnRSxlQUFlLEVBQUU7QUFDakY7RUFDRSxZQUFZO0FBQ2Q7QUFFQTtFQUNFLGFBQWE7RUFDYixjQUFjO0VBQ2QsY0FBYyxFQUFFO0FBQ2xCO0FBQ0EsbUJBQW1CLGVBQWUsRUFBRSxTQUFTLEVBQUUsV0FBVyxFQUFFLG1CQUFtQjtFQUM3RSxXQUFXO0VBQ1gsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLHNCQUFzQjtBQUN4QjtBQUNBLHNCQUFzQixlQUFlLENBQUM7QUFHdEM7RUFDRTtJQUNFLFVBQVU7RUFDWjtFQUNBO0lBQ0UsVUFBVTtFQUNaO0VBQ0E7SUFDRSxlQUFlO0lBQ2YsU0FBUztFQUNYO0FBQ0Y7QUFFQTtFQUNFO0lBQ0UsZUFBZTtFQUNqQjtBQUNGO0FBRUE7RUFDRTtJQUNFLGVBQWU7RUFDakI7QUFDRjtBQUVBO0VBQ0U7SUFDRSxlQUFlO0VBQ2pCO0FBQ0Y7QUFFQTtFQUNFO0lBQ0UsYUFBYTtJQUNiLFVBQVU7SUFDVixXQUFXO0lBQ1gsbUJBQW1CO0lBQ25CLG1CQUFtQjtFQUNyQjtFQUNBO0lBQ0UsYUFBYTtFQUNmO0VBQ0E7SUFDRSxlQUFlO0lBQ2YsY0FBYztJQUNkLHNCQUFzQjtFQUN4QjtFQUNBO0lBQ0UsY0FBYztFQUNoQjtBQUNGO0FBR0E7QUFDQSxnQ0FBZ0MsY0FBYyxFQUFFLG1CQUFtQixFQUFFLDJCQUEyQixFQUFFLGNBQWMsRUFBRSxZQUFZLEVBQUU7QUFDaEksZ0JBQWdCLGFBQWEsR0FBRztBQUNoQyxpQkFBaUIsU0FBUyxFQUFFOztBQUU1QjtBQUNBO0FBQ0EsOEJBQThCLFlBQVksRUFBRTtBQUM1QyxnQkFBZ0IsVUFBVSxFQUFFLHFCQUFxQixFQUFFO0FBQ25EO0FBRUE7RUFDRSw4QkFBOEIsWUFBWSxFQUFFO0FBQzlDIiwiZmlsZSI6InNyYy9hcHAvQ29tcG9uZW50cy9mcm9udGVuZC9mcm9udGVuZC1oZWFkZXIvZnJvbnRlbmQtaGVhZGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZnJvbnRfbWFpbiB7IGRpc3BsYXk6IGJsb2NrOyBib3JkZXItcmFkaXVzOiAwOyBwYWRkaW5nOiAwOyBiYWNrZ3JvdW5kOiAjZmZmOyB9XHJcbi5mcm9udF9tYWluOmFmdGVyIHsgY29udGVudDogJyc7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICNkOWQ5ZDk7IHdpZHRoOiAxMDAlOyBib3R0b206IDU0cHg7IH1cclxuLmZyb250ZW5kX25hdiB7IHBvc2l0aW9uOiByZWxhdGl2ZTsgaGVpZ2h0OiBhdXRvOyBwYWRkaW5nOiAwOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IHdpZHRoOiAxNDYwcHg7IG1hcmdpbjogMCBhdXRvOyBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsgbWluLWhlaWdodDogNzhweDtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyB9XHJcbi5mcm9udGVuZF9uYXYgLmxvZ29fd3JhcHBlciB7IGN1cnNvcjogcG9pbnRlcjsgZGlzcGxheTogZmxleDsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0OyBiYWNrZ3JvdW5kOiAjZmZmOyBwb3NpdGlvbjogcmVsYXRpdmU7IG1hcmdpbjogMTZweDsgfVxyXG4uZnJvbnRlbmRfbmF2IC5sb2dvX3dyYXBwZXIgaW1nIHsgbWF4LXdpZHRoOiAxMDAlOyB9XHJcbi5mcm9udGVuZF9uYXYgLmxvZ29fd3JhcHBlcjpmb2N1cyB7IG91dGxpbmU6IG5vbmU7fVxyXG4uZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciB7IGRpc3BsYXk6IGZsZXg7IHBhZGRpbmc6IDA7IHdpZHRoOiAxMDAlO31cclxuLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0geyBjb2xvcjogIzFlNmNiYjsgaGVpZ2h0OiBhdXRvOyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgZm9udC1mYW1pbHk6IFwiQXZlbmlyUm9tYW5cIjsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgZm9udC1zaXplOiAyMHB4O1xyXG4gIG1hcmdpbjogMCA0cHg7IHBhZGRpbmc6IDEwcHggNXB4O31cclxuXHJcbi5mcm9udGVuZF9uYXYgLmxhbmd1YWdlX2NvbnRhaW5lciB7IGNsaXAtcGF0aDogcG9seWdvbigxMyUgMCwgMTAwJSAwLCA5MCUgMTAwJSwgMCAxMDAlKTsgYmFja2dyb3VuZDogIzExMTIxNDsgd2lkdGg6IDIwMHB4OyBjb2xvcjogI2Q4ZDhkODsgZm9udC1zaXplOiAxNnB4OyB0ZXh0LWFsaWduOiAtd2Via2l0LWNlbnRlcjtcclxucG9zaXRpb246IGFic29sdXRlOyBib3R0b206IC0zNXB4OyB6LWluZGV4OiAxOyByaWdodDogMHB4OyB9XHJcbi5hY3RpdmUgeyBib3JkZXItdG9wOiAycHggc29saWQgI2JhYjdiNzsgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAuMDUpO31cclxuLmxvZ2luIHsgY29sb3I6ICMwMDAhaW1wb3J0YW50OyBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoNDBkZWcsICMxM2I0ZmMsICMwMTdmZTUpOyBtYXJnaW4tbGVmdDogMzBweDsgYm9yZGVyLXJhZGl1czogMnB4O31cclxuLnNpZ251cCB7IGNvbG9yOiAjMDAwIWltcG9ydGFudDsgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDQwZGVnLCAjZmZmZmZmLCAjZGNkY2RjKTsgYm9yZGVyLXJhZGl1czogMnB4OyB9XHJcblxyXG4udG9nZ2xlX2J1dHRvbiB7IGRpc3BsYXk6IG5vbmU7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgY29sb3I6ICNmZmY7IHJpZ2h0OiAwcHg7IHotaW5kZXg6IDk5OTk7IHRvcDogNjBweDsgYmFja2dyb3VuZDogIzAwMWQzOTsgYm9yZGVyLXJhZGl1czogMDsgcGFkZGluZzogMCAxMHB4OyBtaW4td2lkdGg6IGF1dG87XHJcbn1cclxuXHJcbi5hX3BybyB7IG1hcmdpbi1ib3R0b206IDA7IG1hcmdpbi1sZWZ0OiAxMHB4OyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgYWxpZ24taXRlbXM6IGNlbnRlcjsgfVxyXG4uYV9wcm8gaSB7XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uYV9wcm8gLnByb2ZpbGUge1xyXG4gIHdpZHRoOiAzM3B4O1xyXG4gIGhlaWdodDogMzNweDtcclxuICBiYWNrZ3JvdW5kOiAjMjQ2ZGFkO1xyXG4gIGJvcmRlcjogMXB4IHNvbGlkICNmZmZkZmY7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIHBhZGRpbmc6IDJweDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcblxyXG4ucHJvZmlsZSBpbWcge1xyXG4gIG1heC13aWR0aDogMTAwJTtcclxufVxyXG5cclxuLmhpZGUge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuXHJcbi5zaG93IHtcclxuICBkaXNwbGF5OiBibG9jayFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi8qIG5ldyBtb2RpICovXHJcblxyXG4uZnJvbnRfbWFpbiAudG9wX3Rvb2xiYXIge1xyXG4gIGhlaWdodDogYXV0bztcclxuICBiYWNrZ3JvdW5kOiAjMDAxZDM5O1xyXG4gIHBhZGRpbmc6IDA7XHJcbn1cclxuXHJcbi5mcm9udF9tYWluIC50b3BfdG9vbGJhciAudG9wX3Rvb2xiYXJfbmF2aWdhdGlvbiB7XHJcbiAgcGFkZGluZzogMDsgZGlzcGxheTogZmxleDtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtZW5kO1xyXG59XHJcblxyXG4uZnJvbnRfbWFpbiAudG9wX3Rvb2xiYXIgLnRvcF90b29sYmFyX25hdmlnYXRpb24gYSB7XHJcbiAgY29sb3I6ICNmZmY7XHJcbiAgZm9udC1mYW1pbHk6IFwiQXZlbmlyTGlnaHRcIjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbiAgbWFyZ2luOiAwIDEwcHg7XHJcbiAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2E1OWU5ZTtcclxuICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xyXG4gIGxpbmUtaGVpZ2h0OiAyOHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGZsZXgtZW5kO1xyXG59XHJcbi5mcm9udF9tYWluIC50b3BfdG9vbGJhciAudG9wX3Rvb2xiYXJfbmF2aWdhdGlvbiBhICAubWF0LWljb24geyBmb250LXNpemU6IDIycHg7IH1cclxuLmZyb250X21haW4gLnRvcF90b29sYmFyIC50b3BfdG9vbGJhcl9uYXZpZ2F0aW9uIGE6bGFzdC1jaGlsZCB7XHJcbiAgYm9yZGVyOiBub25lO1xyXG59XHJcblxyXG4ud3JhcHBlciB7XHJcbiAgd2lkdGg6IDE0NjBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBkaXNwbGF5OiBibG9jazsgcGFkZGluZzogMTJweCAwIDEwcHhcclxufVxyXG4uZmxvYXRpbmdfYnV0dG9uIHsgcG9zaXRpb246IGZpeGVkOyB0b3A6IDYwcHg7IHJpZ2h0OiAxMHB4OyBiYWNrZ3JvdW5kOiAjZWUyMjBjO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIHdpZHRoOiA3MHB4O1xyXG4gIGhlaWdodDogNzBweDtcclxuICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbiAgcGFkZGluZzogMTJweDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG59XHJcbi5mbG9hdGluZ19idXR0b24gaW1neyBtYXgtd2lkdGg6IDEwMCU7fVxyXG5cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDE1NjBweCkge1xyXG4gIC5mcm9udGVuZF9uYXYge1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICB9XHJcbiAgLndyYXBwZXIge1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICB9XHJcbiAgLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0ge1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogMTQ0MHB4KSB7XHJcbiAgLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0ge1xyXG4gICAgcGFkZGluZzogMTBweCAwO1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogMTI0MHB4KSB7XHJcbiAgLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0ge1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogMTEyMHB4KSB7XHJcbiAgLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0ge1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gIH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogOTkxcHgpIHtcclxuICAuZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgcGFkZGluZzogMDtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjRmNDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgfVxyXG4gIC5mcm9udF9tYWluOmFmdGVyIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgfVxyXG4gIC5mcm9udGVuZF9uYXYgLmxpc3RpbmdfY29udGFpbmVyIC5tYXQtbGlzdC1pdGVtIHtcclxuICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgIHBhZGRpbmc6IDVweCAwO1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICB9XHJcbiAgLnRvZ2dsZV9idXR0b24ge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgfVxyXG59XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpIHtcclxuLmZyb250ZW5kX25hdiAgLmxvZ29fd3JhcHBlciAgeyBkaXNwbGF5OiBibG9jazsgYWxpZ24taXRlbXM6IGNlbnRlcjsganVzdGlmeS1jb250ZW50OiBmbGV4LXN0YXJ0OyBtYXJnaW46IDEycHggMDsgd2lkdGg6IDI2MHB4OyB9XHJcbi5mcm9udGVuZF9uYXYgeyBkaXNwbGF5OiBmbGV4OyAgfVxyXG4udG9nZ2xlX2J1dHRvbiB7IHRvcDogMzBweDsgfVxyXG5cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA0MjBweCkge1xyXG4uZnJvbnRlbmRfbmF2IC5sb2dvX3dyYXBwZXIgeyB3aWR0aDogMzAwcHg7IH1cclxuLmZyb250ZW5kX25hdiB7IHdpZHRoOiA5NSU7IGFsaWduLWl0ZW1zOiBiYXNlbGluZTsgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAzOTBweCl7XHJcbiAgLmZyb250ZW5kX25hdiAubG9nb193cmFwcGVyIHsgd2lkdGg6IDI1MHB4OyB9XHJcbn1cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".front_main { display: block; border-radius: 0; padding: 0; background: #fff; }\r\n.front_main:after { content: ''; position: absolute; border-bottom: 2px solid #d9d9d9; width: 100%; bottom: 54px; }\r\n.frontend_nav { position: relative; height: auto; padding: 0; display: flex; justify-content: space-between; width: 1460px; margin: 0 auto; background: transparent; min-height: 78px;\r\n  flex-direction: column; }\r\n.frontend_nav .logo_wrapper { cursor: pointer; display: flex; align-items: center; justify-content: flex-start; background: #fff; position: relative; margin: 16px; }\r\n.frontend_nav .logo_wrapper img { max-width: 100%; }\r\n.frontend_nav .logo_wrapper:focus { outline: none;}\r\n.frontend_nav .listing_container { display: flex; padding: 0; width: 100%;}\r\n.frontend_nav .listing_container .mat-list-item { color: #1e6cbb; height: auto; justify-content: center; font-family: \"AvenirRoman\"; text-transform: uppercase; font-size: 20px;\r\n  margin: 0 4px; padding: 10px 5px;}\r\n.frontend_nav .language_container { -webkit-clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%); clip-path: polygon(13% 0, 100% 0, 90% 100%, 0 100%); background: #111214; width: 200px; color: #d8d8d8; font-size: 16px; text-align: -webkit-center;\r\nposition: absolute; bottom: -35px; z-index: 1; right: 0px; }\r\n.active { border-top: 2px solid #bab7b7; background: rgba(0, 0, 0, .05);}\r\n.login { color: #000!important; background: linear-gradient(40deg, #13b4fc, #017fe5); margin-left: 30px; border-radius: 2px;}\r\n.signup { color: #000!important; background: linear-gradient(40deg, #ffffff, #dcdcdc); border-radius: 2px; }\r\n.toggle_button { display: none; position: absolute; color: #fff; right: 0px; z-index: 9999; top: 60px; background: #001d39; border-radius: 0; padding: 0 10px; min-width: auto;\r\n}\r\n.a_pro { margin-bottom: 0; margin-left: 10px; display: flex; justify-content: center; align-items: center; }\r\n.a_pro i {\r\n  color: #fff;\r\n  cursor: pointer;\r\n}\r\n.a_pro .profile {\r\n  width: 33px;\r\n  height: 33px;\r\n  background: #246dad;\r\n  border: 1px solid #fffdff;\r\n  overflow: hidden;\r\n  border-radius: 50%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding: 2px;\r\n  box-sizing: border-box;\r\n}\r\n.profile img {\r\n  max-width: 100%;\r\n}\r\n.hide {\r\n  display: none;\r\n}\r\n.show {\r\n  display: block!important;\r\n}\r\n/* new modi */\r\n.front_main .top_toolbar {\r\n  height: auto;\r\n  background: #001d39;\r\n  padding: 0;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation {\r\n  padding: 0; display: flex;\r\n  justify-content: flex-end;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation a {\r\n  color: #fff;\r\n  font-family: \"AvenirLight\";\r\n  font-size: 14px;\r\n  text-transform: capitalize;\r\n  margin: 0 10px;\r\n  border-right: 1px solid #a59e9e;\r\n  padding-right: 20px;\r\n  line-height: 28px;\r\n  display: flex;\r\n  align-items: flex-end;\r\n}\r\n.front_main .top_toolbar .top_toolbar_navigation a  .mat-icon { font-size: 22px; }\r\n.front_main .top_toolbar .top_toolbar_navigation a:last-child { border: none; }\r\n.wrapper { width: 1460px; margin: 0 auto; display: block; padding: 12px 0 10px; }\r\n.floating_button { position: fixed; top: 60px; right: 10px; background: #ee220c;\r\n  color: #fff; width: 70px; height: 70px; border-radius: 50%; padding: 12px; box-sizing: border-box; z-index: 1; }\r\n.floating_button img{ max-width: 100%;}\r\n@media screen and (max-width: 1560px) {\r\n  .frontend_nav {\r\n    width: 90%;\r\n  }\r\n  .wrapper {\r\n    width: 90%;\r\n  }\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 18px;\r\n    margin: 0;\r\n  }\r\n}\r\n@media screen and (max-width: 1440px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    padding: 10px 0;\r\n  }\r\n}\r\n@media screen and (max-width: 1240px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 16px;\r\n  }\r\n}\r\n@media screen and (max-width: 1120px) {\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 14px;\r\n  }\r\n}\r\n@media screen and (max-width: 991px) {\r\n  .frontend_nav .listing_container {\r\n    display: none;\r\n    padding: 0;\r\n    width: 100%;\r\n    background: #fff4f4;\r\n    margin-bottom: 20px;\r\n  }\r\n  .front_main:after {\r\n    display: none;\r\n  }\r\n  .frontend_nav .listing_container .mat-list-item {\r\n    font-size: 16px;\r\n    padding: 5px 0;\r\n    box-sizing: border-box;\r\n  }\r\n  .toggle_button {\r\n    display: block;\r\n  }\r\n}\r\n@media screen and (max-width: 480px) {\r\n.frontend_nav  .logo_wrapper  { display: block; align-items: center; justify-content: flex-start; margin: 12px 0; width: 260px; }\r\n.frontend_nav { display: flex;  }\r\n.toggle_button { top: 30px; }\r\n\r\n}\r\n@media screen and (max-width: 420px) {\r\n.frontend_nav .logo_wrapper { width: 300px; }\r\n.frontend_nav { width: 95%; align-items: baseline; }\r\n}\r\n@media screen and (max-width: 390px){\r\n  .frontend_nav .logo_wrapper { width: 250px; }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9mcm9udGVuZC9mcm9udGVuZC1oZWFkZXIvZnJvbnRlbmQtaGVhZGVyLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FBYyxjQUFjLEVBQUUsZ0JBQWdCLEVBQUUsVUFBVSxFQUFFLGdCQUFnQixFQUFFO0FBQzlFLG9CQUFvQixXQUFXLEVBQUUsa0JBQWtCLEVBQUUsZ0NBQWdDLEVBQUUsV0FBVyxFQUFFLFlBQVksRUFBRTtBQUNsSCxnQkFBZ0Isa0JBQWtCLEVBQUUsWUFBWSxFQUFFLFVBQVUsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsYUFBYSxFQUFFLGNBQWMsRUFBRSx1QkFBdUIsRUFBRSxnQkFBZ0I7RUFDbkwsc0JBQXNCLEVBQUU7QUFDMUIsOEJBQThCLGVBQWUsRUFBRSxhQUFhLEVBQUUsbUJBQW1CLEVBQUUsMkJBQTJCLEVBQUUsZ0JBQWdCLEVBQUUsa0JBQWtCLEVBQUUsWUFBWSxFQUFFO0FBQ3BLLGtDQUFrQyxlQUFlLEVBQUU7QUFDbkQsb0NBQW9DLGFBQWEsQ0FBQztBQUNsRCxtQ0FBbUMsYUFBYSxFQUFFLFVBQVUsRUFBRSxXQUFXLENBQUM7QUFDMUUsa0RBQWtELGNBQWMsRUFBRSxZQUFZLEVBQUUsdUJBQXVCLEVBQUUsMEJBQTBCLEVBQUUseUJBQXlCLEVBQUUsZUFBZTtFQUM3SyxhQUFhLEVBQUUsaUJBQWlCLENBQUM7QUFFbkMsb0NBQW9DLDJEQUFtRCxFQUFuRCxtREFBbUQsRUFBRSxtQkFBbUIsRUFBRSxZQUFZLEVBQUUsY0FBYyxFQUFFLGVBQWUsRUFBRSwwQkFBMEI7QUFDdkwsa0JBQWtCLEVBQUUsYUFBYSxFQUFFLFVBQVUsRUFBRSxVQUFVLEVBQUU7QUFDM0QsVUFBVSw2QkFBNkIsRUFBRSw4QkFBOEIsQ0FBQztBQUN4RSxTQUFTLHFCQUFxQixFQUFFLG9EQUFvRCxFQUFFLGlCQUFpQixFQUFFLGtCQUFrQixDQUFDO0FBQzVILFVBQVUscUJBQXFCLEVBQUUsb0RBQW9ELEVBQUUsa0JBQWtCLEVBQUU7QUFFM0csaUJBQWlCLGFBQWEsRUFBRSxrQkFBa0IsRUFBRSxXQUFXLEVBQUUsVUFBVSxFQUFFLGFBQWEsRUFBRSxTQUFTLEVBQUUsbUJBQW1CLEVBQUUsZ0JBQWdCLEVBQUUsZUFBZSxFQUFFLGVBQWU7QUFDOUs7QUFFQSxTQUFTLGdCQUFnQixFQUFFLGlCQUFpQixFQUFFLGFBQWEsRUFBRSx1QkFBdUIsRUFBRSxtQkFBbUIsRUFBRTtBQUMzRztFQUNFLFdBQVc7RUFDWCxlQUFlO0FBQ2pCO0FBRUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osc0JBQXNCO0FBQ3hCO0FBRUE7RUFDRSxlQUFlO0FBQ2pCO0FBRUE7RUFDRSxhQUFhO0FBQ2Y7QUFFQTtFQUNFLHdCQUF3QjtBQUMxQjtBQUVBLGFBQWE7QUFFYjtFQUNFLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsVUFBVTtBQUNaO0FBRUE7RUFDRSxVQUFVLEVBQUUsYUFBYTtFQUN6Qix5QkFBeUI7QUFDM0I7QUFFQTtFQUNFLFdBQVc7RUFDWCwwQkFBMEI7RUFDMUIsZUFBZTtFQUNmLDBCQUEwQjtFQUMxQixjQUFjO0VBQ2QsK0JBQStCO0VBQy9CLG1CQUFtQjtFQUNuQixpQkFBaUI7RUFDakIsYUFBYTtFQUNiLHFCQUFxQjtBQUN2QjtBQUNBLGdFQUFnRSxlQUFlLEVBQUU7QUFDakYsZ0VBQWdFLFlBQVksRUFBRTtBQUM5RSxXQUFXLGFBQWEsRUFBRSxjQUFjLEVBQUUsY0FBYyxFQUFFLG9CQUFvQixFQUFFO0FBQ2hGLG1CQUFtQixlQUFlLEVBQUUsU0FBUyxFQUFFLFdBQVcsRUFBRSxtQkFBbUI7RUFDN0UsV0FBVyxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUUsa0JBQWtCLEVBQUUsYUFBYSxFQUFFLHNCQUFzQixFQUFFLFVBQVUsRUFBRTtBQUVqSCxzQkFBc0IsZUFBZSxDQUFDO0FBR3RDO0VBQ0U7SUFDRSxVQUFVO0VBQ1o7RUFDQTtJQUNFLFVBQVU7RUFDWjtFQUNBO0lBQ0UsZUFBZTtJQUNmLFNBQVM7RUFDWDtBQUNGO0FBRUE7RUFDRTtJQUNFLGVBQWU7RUFDakI7QUFDRjtBQUVBO0VBQ0U7SUFDRSxlQUFlO0VBQ2pCO0FBQ0Y7QUFFQTtFQUNFO0lBQ0UsZUFBZTtFQUNqQjtBQUNGO0FBRUE7RUFDRTtJQUNFLGFBQWE7SUFDYixVQUFVO0lBQ1YsV0FBVztJQUNYLG1CQUFtQjtJQUNuQixtQkFBbUI7RUFDckI7RUFDQTtJQUNFLGFBQWE7RUFDZjtFQUNBO0lBQ0UsZUFBZTtJQUNmLGNBQWM7SUFDZCxzQkFBc0I7RUFDeEI7RUFDQTtJQUNFLGNBQWM7RUFDaEI7QUFDRjtBQUdBO0FBQ0EsZ0NBQWdDLGNBQWMsRUFBRSxtQkFBbUIsRUFBRSwyQkFBMkIsRUFBRSxjQUFjLEVBQUUsWUFBWSxFQUFFO0FBQ2hJLGdCQUFnQixhQUFhLEdBQUc7QUFDaEMsaUJBQWlCLFNBQVMsRUFBRTs7QUFFNUI7QUFDQTtBQUNBLDhCQUE4QixZQUFZLEVBQUU7QUFDNUMsZ0JBQWdCLFVBQVUsRUFBRSxxQkFBcUIsRUFBRTtBQUNuRDtBQUVBO0VBQ0UsOEJBQThCLFlBQVksRUFBRTtBQUM5QyIsImZpbGUiOiJzcmMvYXBwL0NvbXBvbmVudHMvZnJvbnRlbmQvZnJvbnRlbmQtaGVhZGVyL2Zyb250ZW5kLWhlYWRlci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZyb250X21haW4geyBkaXNwbGF5OiBibG9jazsgYm9yZGVyLXJhZGl1czogMDsgcGFkZGluZzogMDsgYmFja2dyb3VuZDogI2ZmZjsgfVxyXG4uZnJvbnRfbWFpbjphZnRlciB7IGNvbnRlbnQ6ICcnOyBwb3NpdGlvbjogYWJzb2x1dGU7IGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjZDlkOWQ5OyB3aWR0aDogMTAwJTsgYm90dG9tOiA1NHB4OyB9XHJcbi5mcm9udGVuZF9uYXYgeyBwb3NpdGlvbjogcmVsYXRpdmU7IGhlaWdodDogYXV0bzsgcGFkZGluZzogMDsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyB3aWR0aDogMTQ2MHB4OyBtYXJnaW46IDAgYXV0bzsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7IG1pbi1oZWlnaHQ6IDc4cHg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG4uZnJvbnRlbmRfbmF2IC5sb2dvX3dyYXBwZXIgeyBjdXJzb3I6IHBvaW50ZXI7IGRpc3BsYXk6IGZsZXg7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDsgYmFja2dyb3VuZDogI2ZmZjsgcG9zaXRpb246IHJlbGF0aXZlOyBtYXJnaW46IDE2cHg7IH1cclxuLmZyb250ZW5kX25hdiAubG9nb193cmFwcGVyIGltZyB7IG1heC13aWR0aDogMTAwJTsgfVxyXG4uZnJvbnRlbmRfbmF2IC5sb2dvX3dyYXBwZXI6Zm9jdXMgeyBvdXRsaW5lOiBub25lO31cclxuLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgeyBkaXNwbGF5OiBmbGV4OyBwYWRkaW5nOiAwOyB3aWR0aDogMTAwJTt9XHJcbi5mcm9udGVuZF9uYXYgLmxpc3RpbmdfY29udGFpbmVyIC5tYXQtbGlzdC1pdGVtIHsgY29sb3I6ICMxZTZjYmI7IGhlaWdodDogYXV0bzsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pclJvbWFuXCI7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IGZvbnQtc2l6ZTogMjBweDtcclxuICBtYXJnaW46IDAgNHB4OyBwYWRkaW5nOiAxMHB4IDVweDt9XHJcblxyXG4uZnJvbnRlbmRfbmF2IC5sYW5ndWFnZV9jb250YWluZXIgeyBjbGlwLXBhdGg6IHBvbHlnb24oMTMlIDAsIDEwMCUgMCwgOTAlIDEwMCUsIDAgMTAwJSk7IGJhY2tncm91bmQ6ICMxMTEyMTQ7IHdpZHRoOiAyMDBweDsgY29sb3I6ICNkOGQ4ZDg7IGZvbnQtc2l6ZTogMTZweDsgdGV4dC1hbGlnbjogLXdlYmtpdC1jZW50ZXI7XHJcbnBvc2l0aW9uOiBhYnNvbHV0ZTsgYm90dG9tOiAtMzVweDsgei1pbmRleDogMTsgcmlnaHQ6IDBweDsgfVxyXG4uYWN0aXZlIHsgYm9yZGVyLXRvcDogMnB4IHNvbGlkICNiYWI3Yjc7IGJhY2tncm91bmQ6IHJnYmEoMCwgMCwgMCwgLjA1KTt9XHJcbi5sb2dpbiB7IGNvbG9yOiAjMDAwIWltcG9ydGFudDsgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KDQwZGVnLCAjMTNiNGZjLCAjMDE3ZmU1KTsgbWFyZ2luLWxlZnQ6IDMwcHg7IGJvcmRlci1yYWRpdXM6IDJweDt9XHJcbi5zaWdudXAgeyBjb2xvcjogIzAwMCFpbXBvcnRhbnQ7IGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCg0MGRlZywgI2ZmZmZmZiwgI2RjZGNkYyk7IGJvcmRlci1yYWRpdXM6IDJweDsgfVxyXG5cclxuLnRvZ2dsZV9idXR0b24geyBkaXNwbGF5OiBub25lOyBwb3NpdGlvbjogYWJzb2x1dGU7IGNvbG9yOiAjZmZmOyByaWdodDogMHB4OyB6LWluZGV4OiA5OTk5OyB0b3A6IDYwcHg7IGJhY2tncm91bmQ6ICMwMDFkMzk7IGJvcmRlci1yYWRpdXM6IDA7IHBhZGRpbmc6IDAgMTBweDsgbWluLXdpZHRoOiBhdXRvO1xyXG59XHJcblxyXG4uYV9wcm8geyBtYXJnaW4tYm90dG9tOiAwOyBtYXJnaW4tbGVmdDogMTBweDsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IGFsaWduLWl0ZW1zOiBjZW50ZXI7IH1cclxuLmFfcHJvIGkge1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmFfcHJvIC5wcm9maWxlIHtcclxuICB3aWR0aDogMzNweDtcclxuICBoZWlnaHQ6IDMzcHg7XHJcbiAgYmFja2dyb3VuZDogIzI0NmRhZDtcclxuICBib3JkZXI6IDFweCBzb2xpZCAjZmZmZGZmO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBwYWRkaW5nOiAycHg7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxufVxyXG5cclxuLnByb2ZpbGUgaW1nIHtcclxuICBtYXgtd2lkdGg6IDEwMCU7XHJcbn1cclxuXHJcbi5oaWRlIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG4uc2hvdyB7XHJcbiAgZGlzcGxheTogYmxvY2shaW1wb3J0YW50O1xyXG59XHJcblxyXG4vKiBuZXcgbW9kaSAqL1xyXG5cclxuLmZyb250X21haW4gLnRvcF90b29sYmFyIHtcclxuICBoZWlnaHQ6IGF1dG87XHJcbiAgYmFja2dyb3VuZDogIzAwMWQzOTtcclxuICBwYWRkaW5nOiAwO1xyXG59XHJcblxyXG4uZnJvbnRfbWFpbiAudG9wX3Rvb2xiYXIgLnRvcF90b29sYmFyX25hdmlnYXRpb24ge1xyXG4gIHBhZGRpbmc6IDA7IGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxufVxyXG5cclxuLmZyb250X21haW4gLnRvcF90b29sYmFyIC50b3BfdG9vbGJhcl9uYXZpZ2F0aW9uIGEge1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIGZvbnQtZmFtaWx5OiBcIkF2ZW5pckxpZ2h0XCI7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gIG1hcmdpbjogMCAxMHB4O1xyXG4gIGJvcmRlci1yaWdodDogMXB4IHNvbGlkICNhNTllOWU7XHJcbiAgcGFkZGluZy1yaWdodDogMjBweDtcclxuICBsaW5lLWhlaWdodDogMjhweDtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGFsaWduLWl0ZW1zOiBmbGV4LWVuZDtcclxufVxyXG4uZnJvbnRfbWFpbiAudG9wX3Rvb2xiYXIgLnRvcF90b29sYmFyX25hdmlnYXRpb24gYSAgLm1hdC1pY29uIHsgZm9udC1zaXplOiAyMnB4OyB9XHJcbi5mcm9udF9tYWluIC50b3BfdG9vbGJhciAudG9wX3Rvb2xiYXJfbmF2aWdhdGlvbiBhOmxhc3QtY2hpbGQgeyBib3JkZXI6IG5vbmU7IH1cclxuLndyYXBwZXIgeyB3aWR0aDogMTQ2MHB4OyBtYXJnaW46IDAgYXV0bzsgZGlzcGxheTogYmxvY2s7IHBhZGRpbmc6IDEycHggMCAxMHB4OyB9XHJcbi5mbG9hdGluZ19idXR0b24geyBwb3NpdGlvbjogZml4ZWQ7IHRvcDogNjBweDsgcmlnaHQ6IDEwcHg7IGJhY2tncm91bmQ6ICNlZTIyMGM7XHJcbiAgY29sb3I6ICNmZmY7IHdpZHRoOiA3MHB4OyBoZWlnaHQ6IDcwcHg7IGJvcmRlci1yYWRpdXM6IDUwJTsgcGFkZGluZzogMTJweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsgei1pbmRleDogMTsgfVxyXG5cclxuLmZsb2F0aW5nX2J1dHRvbiBpbWd7IG1heC13aWR0aDogMTAwJTt9XHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogMTU2MHB4KSB7XHJcbiAgLmZyb250ZW5kX25hdiB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gIH1cclxuICAud3JhcHBlciB7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gIH1cclxuICAuZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciAubWF0LWxpc3QtaXRlbSB7XHJcbiAgICBmb250LXNpemU6IDE4cHg7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxNDQwcHgpIHtcclxuICAuZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciAubWF0LWxpc3QtaXRlbSB7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDA7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMjQwcHgpIHtcclxuICAuZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciAubWF0LWxpc3QtaXRlbSB7XHJcbiAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMTIwcHgpIHtcclxuICAuZnJvbnRlbmRfbmF2IC5saXN0aW5nX2NvbnRhaW5lciAubWF0LWxpc3QtaXRlbSB7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgfVxyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTFweCkge1xyXG4gIC5mcm9udGVuZF9uYXYgLmxpc3RpbmdfY29udGFpbmVyIHtcclxuICAgIGRpc3BsYXk6IG5vbmU7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmZmNGY0O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICB9XHJcbiAgLmZyb250X21haW46YWZ0ZXIge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcbiAgLmZyb250ZW5kX25hdiAubGlzdGluZ19jb250YWluZXIgLm1hdC1saXN0LWl0ZW0ge1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgcGFkZGluZzogNXB4IDA7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIH1cclxuICAudG9nZ2xlX2J1dHRvbiB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICB9XHJcbn1cclxuXHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA0ODBweCkge1xyXG4uZnJvbnRlbmRfbmF2ICAubG9nb193cmFwcGVyICB7IGRpc3BsYXk6IGJsb2NrOyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7IG1hcmdpbjogMTJweCAwOyB3aWR0aDogMjYwcHg7IH1cclxuLmZyb250ZW5kX25hdiB7IGRpc3BsYXk6IGZsZXg7ICB9XHJcbi50b2dnbGVfYnV0dG9uIHsgdG9wOiAzMHB4OyB9XHJcblxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDQyMHB4KSB7XHJcbi5mcm9udGVuZF9uYXYgLmxvZ29fd3JhcHBlciB7IHdpZHRoOiAzMDBweDsgfVxyXG4uZnJvbnRlbmRfbmF2IHsgd2lkdGg6IDk1JTsgYWxpZ24taXRlbXM6IGJhc2VsaW5lOyB9XHJcbn1cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDM5MHB4KXtcclxuICAuZnJvbnRlbmRfbmF2IC5sb2dvX3dyYXBwZXIgeyB3aWR0aDogMjUwcHg7IH1cclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -13771,7 +9245,7 @@ MedicalPartnersComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".cart_wrapper {width: 1460px; margin: 40px auto; background: #f4f4f4; padding: 16px; margin-bottom: 45px; }\r\n.cart_wrapper .cart_title { color: #565656; font-family: \"AvenirMedium\"; font-size: 20px; text-transform: capitalize; border-bottom: 1px solid #969696;\r\n  padding-bottom: 10px; }\r\n.cart_wrapper .cart_item_wrapper { display: flex; justify-content: center; flex-wrap: wrap;}\r\n.cart_wrapper .cart_item_wrapper .cart_item { background: #fff;  display: flex; justify-content: space-between; width: 49%; padding: 16px; box-sizing: border-box;\r\nmargin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+1){ margin-left: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+2){ margin-right: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { max-height: 200px; margin-bottom: 0; width: 40%; border: 2px solid #d2d2d2; display: flex; align-items: center; justify-content: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper img{ max-width: 100%;height: 100%;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content{  width: 60%; padding-left: 16px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table{ width: 100%;  text-align: left;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th{ font-size: 16px; font-family: \"AvenirMedium\"; color: #292828; text-transform: uppercase; width: 145px; line-height: 26px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td{ font-size: 16px; font-family: \"AvenirMedium\";  color: #636363;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions { padding: 0; height: auto; background: transparent;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity { width: 100%; display: flex; justify-content: space-between; flex-direction: column; margin-bottom: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper{ width: 100%; display: flex; justify-content: space-between; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count{ border: 2px solid #b3b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count .counter button{ width: auto; border: 0; background: none; padding: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .inner_box{ border: 1px solid #9c9999; display: flex; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { width: 120px; color: #fff; border-radius: 0; background: #37a0f5; text-transform: capitalize;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity p { font-size: 18px; font-family: \"AvenirMedium\"; color: #636363; text-transform: uppercase; margin: 0;}\r\n.inner_box .boxes{ width: 30px; display: inline-block; text-align: center; padding: 3px;}\r\n.counter{ display: inline-flex; flex-direction: column; }\r\n.counter a{ padding: 0; background: none; border: none; height: 20px; border-left: 1px solid #a0a0a0; cursor: pointer;}\r\n.counter a:focus{ outline: none;}\r\n.counter a:first-child{ border-bottom: 1px solid #a0a0a0; }\r\n.counter a .material-icons { font-size: 20px;}\r\n.button_wrapper{ height: auto; display: flex; justify-content: flex-end; }\r\n.button_wrapper .cart_action{ background: #0a4788; min-width: 200px; border-radius: 0; font-family: \"AvenirMedium\"; color: #fff; font-size: 20px; text-transform: uppercase; padding: 4px 0 2px;}\r\n.medical_partners .form-control{ height: 120px; width: 100%; box-sizing: border-box; resize: none; margin: 2px; }\r\n.top_quotesection label { font-family: 'AvenirMedium'; font-size: 20px; min-width: 75px; margin: 5px;}\r\n.top_quotesection { margin-bottom: 0; display: flex; background: #51e3ea; }\r\n.new{ align-items: center;}\r\n.cart_new_wrapper{ display: flex;}\r\n@media screen and (max-width: 1560px){\r\n    .cart_wrapper { width: 90%; }\r\n}\r\n@media screen and (max-width: 1199px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { font-size: 14px; width: 125px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 15px; }\r\n}\r\n@media screen and (max-width: 1040px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { margin-bottom: 0; width: 30%; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content { width: 70%; padding-left: 10px; }\r\n}\r\n@media screen and (max-width: 991px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; }\r\n}\r\n@media screen and (max-width: 860px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 18px; width: 110px; font-size: 12px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 13px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { min-width: 100px; line-height: 30px; }\r\n}\r\n@media screen and (max-width: 768px){\r\n.cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; width: 150px; font-size: 16px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 16px; }\r\n}\r\n@media screen and (max-width: 576px){\r\n.button_wrapper { display: flex; justify-content: center; }\r\n}\r\n@media screen and (max-width: 480px){\r\n  .cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; flex-direction: column; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { width: 100%; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content{ width: 100%; padding-left: 0; margin-top: 16px; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 26px; width: auto; font-size: 16px; }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9mcm9udGVuZC9xdW90ZXMtY2FydC9xdW90ZXMtY2FydC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGVBQWUsYUFBYSxFQUFFLGlCQUFpQixFQUFFLG1CQUFtQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRyw0QkFBNEIsY0FBYyxFQUFFLDJCQUEyQixFQUFFLGVBQWUsRUFBRSwwQkFBMEIsRUFBRSxnQ0FBZ0M7RUFDcEosb0JBQW9CLEVBQUU7QUFDeEIsbUNBQW1DLGFBQWEsRUFBRSx1QkFBdUIsRUFBRSxlQUFlLENBQUM7QUFDM0YsOENBQThDLGdCQUFnQixHQUFHLGFBQWEsRUFBRSw4QkFBOEIsRUFBRSxVQUFVLEVBQUUsYUFBYSxFQUFFLHNCQUFzQjtBQUNqSyxZQUFZLEVBQUUsbUNBQW1DLEVBQUU7QUFDbkQsNkRBQTZELGNBQWMsQ0FBQztBQUM1RSw2REFBNkQsZUFBZSxDQUFDO0FBQzdFLDZEQUE2RCxpQkFBaUIsRUFBRSxnQkFBZ0IsRUFBRSxVQUFVLEVBQUUseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFLHVCQUF1QixFQUFFO0FBQ3RNLGdFQUFnRSxlQUFlLENBQUMsWUFBWSxDQUFDO0FBQzdGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLENBQUM7QUFDM0YsdUVBQXVFLFdBQVcsR0FBRyxnQkFBZ0IsQ0FBQztBQUN0Ryw2RUFBNkUsZUFBZSxFQUFFLDJCQUEyQixFQUFFLGNBQWMsRUFBRSx5QkFBeUIsRUFBRSxZQUFZLEVBQUUsaUJBQWlCLENBQUM7QUFDdE0sNkVBQTZFLGVBQWUsRUFBRSwyQkFBMkIsR0FBRyxjQUFjLENBQUM7QUFDM0ksc0VBQXNFLFVBQVUsRUFBRSxZQUFZLEVBQUUsdUJBQXVCLENBQUM7QUFDeEgsZ0ZBQWdGLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsc0JBQXNCLEVBQUUsZ0JBQWdCLEVBQUU7QUFDdEwsZ0dBQWdHLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsbUJBQW1CLEVBQUU7QUFDakwsdUdBQXVHLHlCQUF5QixFQUFFO0FBQ2xJLHVIQUF1SCxXQUFXLEVBQUUsU0FBUyxFQUFFLGdCQUFnQixFQUFFLFVBQVUsRUFBRTtBQUM3SywyR0FBMkcseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFO0FBQzFLLHdGQUF3RixZQUFZLEVBQUUsV0FBVyxFQUFFLGdCQUFnQixFQUFFLG1CQUFtQixFQUFFLDBCQUEwQixDQUFDO0FBQ3JMLGtGQUFrRixlQUFlLEVBQUUsMkJBQTJCLEVBQUUsY0FBYyxFQUFFLHlCQUF5QixFQUFFLFNBQVMsQ0FBQztBQUVyTCxtQkFBbUIsV0FBVyxFQUFFLHFCQUFxQixFQUFFLGtCQUFrQixFQUFFLFlBQVksQ0FBQztBQUN4RixVQUFVLG9CQUFvQixFQUFFLHNCQUFzQixFQUFFO0FBQ3hELFlBQVksVUFBVSxFQUFFLGdCQUFnQixFQUFFLFlBQVksRUFBRSxZQUFZLEVBQUUsOEJBQThCLEVBQUUsZUFBZSxDQUFDO0FBQ3RILGtCQUFrQixhQUFhLENBQUM7QUFDaEMsd0JBQXdCLGdDQUFnQyxFQUFFO0FBQzFELDZCQUE2QixlQUFlLENBQUM7QUFFN0MsaUJBQWlCLFlBQVksRUFBRSxhQUFhLEVBQUUseUJBQXlCLEVBQUU7QUFDekUsOEJBQThCLG1CQUFtQixFQUFFLGdCQUFnQixFQUFFLGdCQUFnQixFQUFFLDJCQUEyQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUUseUJBQXlCLEVBQUUsa0JBQWtCLENBQUM7QUFFaE0saUNBQWlDLGFBQWEsRUFBRSxXQUFXLEVBQUUsc0JBQXNCLEVBQUUsWUFBWSxFQUFFLFdBQVcsRUFBRTtBQUNoSCwwQkFBMEIsMkJBQTJCLEVBQUUsZUFBZSxFQUFFLGVBQWUsRUFBRSxXQUFXLENBQUM7QUFDckcsb0JBQW9CLGdCQUFnQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRSxNQUFNLG1CQUFtQixDQUFDO0FBRTFCLG1CQUFtQixhQUFhLENBQUM7QUFDakM7SUFDSSxnQkFBZ0IsVUFBVSxFQUFFO0FBQ2hDO0FBQ0E7QUFDQSw4RUFBOEUsZUFBZSxFQUFFLFlBQVksRUFBRTtBQUM3Ryw4RUFBOEUsZUFBZSxFQUFFO0FBQy9GO0FBQ0E7QUFDQSw2REFBNkQsZ0JBQWdCLEVBQUUsVUFBVSxFQUFFO0FBQzNGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLEVBQUU7QUFDNUY7QUFDQTtBQUNBLDhFQUE4RSxpQkFBaUIsRUFBRTtBQUNqRztBQUNBO0FBQ0EsOEVBQThFLGlCQUFpQixFQUFFLFlBQVksRUFBRSxlQUFlLEVBQUU7QUFDaEksOEVBQThFLGVBQWUsRUFBRTtBQUMvRix3RkFBd0YsZ0JBQWdCLEVBQUUsaUJBQWlCLEVBQUU7QUFDN0g7QUFDQTtBQUNBLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFO0FBQzNGLDhFQUE4RSxpQkFBaUIsRUFBRSxZQUFZLEVBQUUsZUFBZSxFQUFFO0FBQ2hJLDhFQUE4RSxlQUFlLEVBQUU7QUFDL0Y7QUFDQTtBQUNBLGtCQUFrQixhQUFhLEVBQUUsdUJBQXVCLEVBQUU7QUFDMUQ7QUFFQTtFQUNFLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFLHNCQUFzQixFQUFFO0VBQ25ILDZEQUE2RCxXQUFXLEVBQUU7RUFDMUUsMkRBQTJELFdBQVcsRUFBRSxlQUFlLEVBQUUsZ0JBQWdCLEVBQUU7RUFDM0csOEVBQThFLGlCQUFpQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUU7QUFDakkiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2Zyb250ZW5kL3F1b3Rlcy1jYXJ0L3F1b3Rlcy1jYXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FydF93cmFwcGVyIHt3aWR0aDogMTQ2MHB4OyBtYXJnaW46IDQwcHggYXV0bzsgYmFja2dyb3VuZDogI2Y0ZjRmNDsgcGFkZGluZzogMTZweDsgbWFyZ2luLWJvdHRvbTogNDVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X3RpdGxlIHsgY29sb3I6ICM1NjU2NTY7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplOyBib3JkZXItYm90dG9tOiAxcHggc29saWQgIzk2OTY5NjtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciB7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogY2VudGVyOyBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIHsgYmFja2dyb3VuZDogI2ZmZjsgIGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjsgd2lkdGg6IDQ5JTsgcGFkZGluZzogMTZweDsgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxubWFyZ2luOiAuNzUlOyBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggI2IxYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisxKXsgbWFyZ2luLWxlZnQ6IDA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisyKXsgbWFyZ2luLXJpZ2h0OiAwO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IG1heC1oZWlnaHQ6IDIwMHB4OyBtYXJnaW4tYm90dG9tOiAwOyB3aWR0aDogNDAlOyBib3JkZXI6IDJweCBzb2xpZCAjZDJkMmQyOyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIGltZ3sgbWF4LXdpZHRoOiAxMDAlO2hlaWdodDogMTAwJTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudHsgIHdpZHRoOiA2MCU7IHBhZGRpbmctbGVmdDogMTZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZXsgd2lkdGg6IDEwMCU7ICB0ZXh0LWFsaWduOiBsZWZ0O31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoeyBmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzI5MjgyODsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgd2lkdGg6IDE0NXB4OyBsaW5lLWhlaWdodDogMjZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZHsgZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogXCJBdmVuaXJNZWRpdW1cIjsgIGNvbG9yOiAjNjM2MzYzO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyB7IHBhZGRpbmc6IDA7IGhlaWdodDogYXV0bzsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSB7IHdpZHRoOiAxMDAlOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlcnsgd2lkdGg6IDEwMCU7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsgYWxpZ24taXRlbXM6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudHsgYm9yZGVyOiAycHggc29saWQgI2IzYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudCAuY291bnRlciBidXR0b257IHdpZHRoOiBhdXRvOyBib3JkZXI6IDA7IGJhY2tncm91bmQ6IG5vbmU7IHBhZGRpbmc6IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlciAuaW5uZXJfYm94eyBib3JkZXI6IDFweCBzb2xpZCAjOWM5OTk5OyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyB3aWR0aDogMTIwcHg7IGNvbG9yOiAjZmZmOyBib3JkZXItcmFkaXVzOiAwOyBiYWNrZ3JvdW5kOiAjMzdhMGY1OyB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IHAgeyBmb250LXNpemU6IDE4cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzYzNjM2MzsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgbWFyZ2luOiAwO31cclxuXHJcbi5pbm5lcl9ib3ggLmJveGVzeyB3aWR0aDogMzBweDsgZGlzcGxheTogaW5saW5lLWJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IHBhZGRpbmc6IDNweDt9XHJcbi5jb3VudGVyeyBkaXNwbGF5OiBpbmxpbmUtZmxleDsgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG4uY291bnRlciBheyBwYWRkaW5nOiAwOyBiYWNrZ3JvdW5kOiBub25lOyBib3JkZXI6IG5vbmU7IGhlaWdodDogMjBweDsgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjYTBhMGEwOyBjdXJzb3I6IHBvaW50ZXI7fVxyXG4uY291bnRlciBhOmZvY3VzeyBvdXRsaW5lOiBub25lO31cclxuLmNvdW50ZXIgYTpmaXJzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNhMGEwYTA7IH1cclxuLmNvdW50ZXIgYSAubWF0ZXJpYWwtaWNvbnMgeyBmb250LXNpemU6IDIwcHg7fVxyXG5cclxuLmJ1dHRvbl93cmFwcGVyeyBoZWlnaHQ6IGF1dG87IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7IH1cclxuLmJ1dHRvbl93cmFwcGVyIC5jYXJ0X2FjdGlvbnsgYmFja2dyb3VuZDogIzBhNDc4ODsgbWluLXdpZHRoOiAyMDBweDsgYm9yZGVyLXJhZGl1czogMDsgZm9udC1mYW1pbHk6IFwiQXZlbmlyTWVkaXVtXCI7IGNvbG9yOiAjZmZmOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IHBhZGRpbmc6IDRweCAwIDJweDt9XHJcblxyXG4ubWVkaWNhbF9wYXJ0bmVycyAuZm9ybS1jb250cm9seyBoZWlnaHQ6IDEyMHB4OyB3aWR0aDogMTAwJTsgYm94LXNpemluZzogYm9yZGVyLWJveDsgcmVzaXplOiBub25lOyBtYXJnaW46IDJweDsgfVxyXG4udG9wX3F1b3Rlc2VjdGlvbiBsYWJlbCB7IGZvbnQtZmFtaWx5OiAnQXZlbmlyTWVkaXVtJzsgZm9udC1zaXplOiAyMHB4OyBtaW4td2lkdGg6IDc1cHg7IG1hcmdpbjogNXB4O31cclxuLnRvcF9xdW90ZXNlY3Rpb24geyBtYXJnaW4tYm90dG9tOiAwOyBkaXNwbGF5OiBmbGV4OyBiYWNrZ3JvdW5kOiAjNTFlM2VhOyB9XHJcbi5uZXd7IGFsaWduLWl0ZW1zOiBjZW50ZXI7fVxyXG5cclxuLmNhcnRfbmV3X3dyYXBwZXJ7IGRpc3BsYXk6IGZsZXg7fVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxNTYwcHgpe1xyXG4gICAgLmNhcnRfd3JhcHBlciB7IHdpZHRoOiA5MCU7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMTk5cHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBmb250LXNpemU6IDE0cHg7IHdpZHRoOiAxMjVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGQgeyBmb250LXNpemU6IDE1cHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMDQwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIHsgbWFyZ2luLWJvdHRvbTogMDsgd2lkdGg6IDMwJTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgeyB3aWR0aDogNzAlOyBwYWRkaW5nLWxlZnQ6IDEwcHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTFweCl7XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0aCB7IGxpbmUtaGVpZ2h0OiAyMnB4OyB9XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogODYwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBsaW5lLWhlaWdodDogMThweDsgd2lkdGg6IDExMHB4OyBmb250LXNpemU6IDEycHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRkIHsgZm9udC1zaXplOiAxM3B4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyBtaW4td2lkdGg6IDEwMHB4OyBsaW5lLWhlaWdodDogMzBweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KXtcclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSB7IHdpZHRoOiAxMDAlOyBtYXJnaW46IDA7IG1hcmdpbi1ib3R0b206IDIwcHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDIycHg7IHdpZHRoOiAxNTBweDsgZm9udC1zaXplOiAxNnB4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZCB7IGZvbnQtc2l6ZTogMTZweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDU3NnB4KXtcclxuLmJ1dHRvbl93cmFwcGVyIHsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpe1xyXG4gIC5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0geyB3aWR0aDogMTAwJTsgbWFyZ2luOiAwOyBtYXJnaW4tYm90dG9tOiAyMHB4OyBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IHdpZHRoOiAxMDAlOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50eyB3aWR0aDogMTAwJTsgcGFkZGluZy1sZWZ0OiAwOyBtYXJnaW4tdG9wOiAxNnB4OyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDI2cHg7IHdpZHRoOiBhdXRvOyBmb250LXNpemU6IDE2cHg7IH1cclxufVxyXG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".cart_wrapper {width: 1460px; margin: 40px auto; background: #f4f4f4; padding: 16px; margin-bottom: 45px; }\r\n.cart_wrapper .cart_title { color: #565656; font-family: \"AvenirMedium\"; font-size: 20px; text-transform: capitalize; border-bottom: 1px solid #969696;\r\n  padding-bottom: 10px; }\r\n.cart_wrapper .cart_item_wrapper { display: flex; justify-content: center; flex-wrap: wrap;}\r\n.cart_wrapper .cart_item_wrapper .cart_item { background: #fff;  display: flex; justify-content: space-between; width: 49%; padding: 16px; box-sizing: border-box;\r\nmargin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+1){ margin-left: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+2){ margin-right: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { max-height: 200px; margin-bottom: 0; width: 40%; border: 2px solid #d2d2d2; display: flex; align-items: center; justify-content: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper img{ max-width: 100%;height: 100%;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content{  width: 60%; padding-left: 16px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table{ width: 100%;  text-align: left;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th{ font-size: 16px; font-family: \"AvenirMedium\"; color: #292828; text-transform: uppercase; width: 145px; line-height: 26px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td{ font-size: 16px; font-family: \"AvenirMedium\";  color: #636363;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions { padding: 0; height: auto; background: transparent;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity { width: 100%; display: flex; justify-content: space-between; flex-direction: column; margin-bottom: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper{ width: 100%; display: flex; justify-content: space-between; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count{ border: 2px solid #b3b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count .counter button{ width: auto; border: 0; background: none; padding: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .inner_box{ border: 1px solid #9c9999; display: flex; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { width: 120px; color: #fff; border-radius: 0; background: #37a0f5; text-transform: capitalize;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity p { font-size: 18px; font-family: \"AvenirMedium\"; color: #636363; text-transform: uppercase; margin: 0;}\r\n.inner_box .boxes{ width: 30px; display: inline-block; text-align: center; padding: 3px;}\r\n.counter{ display: inline-flex; flex-direction: column; }\r\n.counter a{ padding: 0; background: none; border: none; height: 20px; border-left: 1px solid #a0a0a0; cursor: pointer;}\r\n.counter a:focus{ outline: none;}\r\n.counter a:first-child{ border-bottom: 1px solid #a0a0a0; }\r\n.counter a .material-icons { font-size: 20px;}\r\n.button_wrapper{ height: auto; display: flex; justify-content: flex-end; }\r\n.button_wrapper .cart_action{ background: #0a4788; min-width: 200px; border-radius: 0; font-family: \"AvenirMedium\"; color: #fff; font-size: 20px; text-transform: uppercase; padding: 4px 0 2px;}\r\n.medical_partners .form-control{ height: 120px; width: 100%; box-sizing: border-box; resize: none; margin: 2px; }\r\n.top_quotesection label { font-family: 'AvenirMedium'; font-size: 20px; min-width: 75px; margin: 5px;}\r\n.top_quotesection { margin-bottom: 0; display: flex; background: #51e3ea; }\r\n.new{ align-items: center;}\r\n.cart_new_wrapper{ display: flex;}\r\n@media screen and (max-width: 1560px){\r\n    .cart_wrapper { width: 90%; }\r\n}\r\n@media screen and (max-width: 1199px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { font-size: 14px; width: 125px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 15px; }\r\n}\r\n@media screen and (max-width: 1040px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { margin-bottom: 0; width: 30%; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content { width: 70%; padding-left: 10px; }\r\n}\r\n@media screen and (max-width: 991px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; }\r\n}\r\n@media screen and (max-width: 860px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 18px; width: 110px; font-size: 12px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 13px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { min-width: 100px; line-height: 30px; }\r\n}\r\n@media screen and (max-width: 768px){\r\n.cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; width: 150px; font-size: 16px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 16px; }\r\n}\r\n@media screen and (max-width: 576px){\r\n.button_wrapper { display: flex; justify-content: center; }\r\n}\r\n@media screen and (max-width: 480px){\r\n  .cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; flex-direction: column; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { width: 100%; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content{ width: 100%; padding-left: 0; margin-top: 16px; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 26px; width: auto; font-size: 16px; }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9mcm9udGVuZC9xdW90ZXMtY2FydC9xdW90ZXMtY2FydC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGVBQWUsYUFBYSxFQUFFLGlCQUFpQixFQUFFLG1CQUFtQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRyw0QkFBNEIsY0FBYyxFQUFFLDJCQUEyQixFQUFFLGVBQWUsRUFBRSwwQkFBMEIsRUFBRSxnQ0FBZ0M7RUFDcEosb0JBQW9CLEVBQUU7QUFDeEIsbUNBQW1DLGFBQWEsRUFBRSx1QkFBdUIsRUFBRSxlQUFlLENBQUM7QUFDM0YsOENBQThDLGdCQUFnQixHQUFHLGFBQWEsRUFBRSw4QkFBOEIsRUFBRSxVQUFVLEVBQUUsYUFBYSxFQUFFLHNCQUFzQjtBQUNqSyxZQUFZLEVBQUUsbUNBQW1DLEVBQUU7QUFDbkQsNkRBQTZELGNBQWMsQ0FBQztBQUM1RSw2REFBNkQsZUFBZSxDQUFDO0FBQzdFLDZEQUE2RCxpQkFBaUIsRUFBRSxnQkFBZ0IsRUFBRSxVQUFVLEVBQUUseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFLHVCQUF1QixFQUFFO0FBQ3RNLGdFQUFnRSxlQUFlLENBQUMsWUFBWSxDQUFDO0FBQzdGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLENBQUM7QUFDM0YsdUVBQXVFLFdBQVcsR0FBRyxnQkFBZ0IsQ0FBQztBQUN0Ryw2RUFBNkUsZUFBZSxFQUFFLDJCQUEyQixFQUFFLGNBQWMsRUFBRSx5QkFBeUIsRUFBRSxZQUFZLEVBQUUsaUJBQWlCLENBQUM7QUFDdE0sNkVBQTZFLGVBQWUsRUFBRSwyQkFBMkIsR0FBRyxjQUFjLENBQUM7QUFDM0ksc0VBQXNFLFVBQVUsRUFBRSxZQUFZLEVBQUUsdUJBQXVCLENBQUM7QUFDeEgsZ0ZBQWdGLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsc0JBQXNCLEVBQUUsZ0JBQWdCLEVBQUU7QUFDdEwsZ0dBQWdHLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsbUJBQW1CLEVBQUU7QUFDakwsdUdBQXVHLHlCQUF5QixFQUFFO0FBQ2xJLHVIQUF1SCxXQUFXLEVBQUUsU0FBUyxFQUFFLGdCQUFnQixFQUFFLFVBQVUsRUFBRTtBQUM3SywyR0FBMkcseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFO0FBQzFLLHdGQUF3RixZQUFZLEVBQUUsV0FBVyxFQUFFLGdCQUFnQixFQUFFLG1CQUFtQixFQUFFLDBCQUEwQixDQUFDO0FBQ3JMLGtGQUFrRixlQUFlLEVBQUUsMkJBQTJCLEVBQUUsY0FBYyxFQUFFLHlCQUF5QixFQUFFLFNBQVMsQ0FBQztBQUVyTCxtQkFBbUIsV0FBVyxFQUFFLHFCQUFxQixFQUFFLGtCQUFrQixFQUFFLFlBQVksQ0FBQztBQUN4RixVQUFVLG9CQUFvQixFQUFFLHNCQUFzQixFQUFFO0FBQ3hELFlBQVksVUFBVSxFQUFFLGdCQUFnQixFQUFFLFlBQVksRUFBRSxZQUFZLEVBQUUsOEJBQThCLEVBQUUsZUFBZSxDQUFDO0FBQ3RILGtCQUFrQixhQUFhLENBQUM7QUFDaEMsd0JBQXdCLGdDQUFnQyxFQUFFO0FBQzFELDZCQUE2QixlQUFlLENBQUM7QUFFN0MsaUJBQWlCLFlBQVksRUFBRSxhQUFhLEVBQUUseUJBQXlCLEVBQUU7QUFDekUsOEJBQThCLG1CQUFtQixFQUFFLGdCQUFnQixFQUFFLGdCQUFnQixFQUFFLDJCQUEyQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUUseUJBQXlCLEVBQUUsa0JBQWtCLENBQUM7QUFFaE0saUNBQWlDLGFBQWEsRUFBRSxXQUFXLEVBQUUsc0JBQXNCLEVBQUUsWUFBWSxFQUFFLFdBQVcsRUFBRTtBQUNoSCwwQkFBMEIsMkJBQTJCLEVBQUUsZUFBZSxFQUFFLGVBQWUsRUFBRSxXQUFXLENBQUM7QUFDckcsb0JBQW9CLGdCQUFnQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRSxNQUFNLG1CQUFtQixDQUFDO0FBQzFCLG1CQUFtQixhQUFhLENBQUM7QUFFakM7SUFDSSxnQkFBZ0IsVUFBVSxFQUFFO0FBQ2hDO0FBQ0E7QUFDQSw4RUFBOEUsZUFBZSxFQUFFLFlBQVksRUFBRTtBQUM3Ryw4RUFBOEUsZUFBZSxFQUFFO0FBQy9GO0FBQ0E7QUFDQSw2REFBNkQsZ0JBQWdCLEVBQUUsVUFBVSxFQUFFO0FBQzNGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLEVBQUU7QUFDNUY7QUFDQTtBQUNBLDhFQUE4RSxpQkFBaUIsRUFBRTtBQUNqRztBQUNBO0FBQ0EsOEVBQThFLGlCQUFpQixFQUFFLFlBQVksRUFBRSxlQUFlLEVBQUU7QUFDaEksOEVBQThFLGVBQWUsRUFBRTtBQUMvRix3RkFBd0YsZ0JBQWdCLEVBQUUsaUJBQWlCLEVBQUU7QUFDN0g7QUFDQTtBQUNBLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFO0FBQzNGLDhFQUE4RSxpQkFBaUIsRUFBRSxZQUFZLEVBQUUsZUFBZSxFQUFFO0FBQ2hJLDhFQUE4RSxlQUFlLEVBQUU7QUFDL0Y7QUFDQTtBQUNBLGtCQUFrQixhQUFhLEVBQUUsdUJBQXVCLEVBQUU7QUFDMUQ7QUFFQTtFQUNFLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFLHNCQUFzQixFQUFFO0VBQ25ILDZEQUE2RCxXQUFXLEVBQUU7RUFDMUUsMkRBQTJELFdBQVcsRUFBRSxlQUFlLEVBQUUsZ0JBQWdCLEVBQUU7RUFDM0csOEVBQThFLGlCQUFpQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUU7QUFDakkiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2Zyb250ZW5kL3F1b3Rlcy1jYXJ0L3F1b3Rlcy1jYXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FydF93cmFwcGVyIHt3aWR0aDogMTQ2MHB4OyBtYXJnaW46IDQwcHggYXV0bzsgYmFja2dyb3VuZDogI2Y0ZjRmNDsgcGFkZGluZzogMTZweDsgbWFyZ2luLWJvdHRvbTogNDVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X3RpdGxlIHsgY29sb3I6ICM1NjU2NTY7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplOyBib3JkZXItYm90dG9tOiAxcHggc29saWQgIzk2OTY5NjtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciB7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogY2VudGVyOyBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIHsgYmFja2dyb3VuZDogI2ZmZjsgIGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjsgd2lkdGg6IDQ5JTsgcGFkZGluZzogMTZweDsgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxubWFyZ2luOiAuNzUlOyBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggI2IxYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisxKXsgbWFyZ2luLWxlZnQ6IDA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisyKXsgbWFyZ2luLXJpZ2h0OiAwO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IG1heC1oZWlnaHQ6IDIwMHB4OyBtYXJnaW4tYm90dG9tOiAwOyB3aWR0aDogNDAlOyBib3JkZXI6IDJweCBzb2xpZCAjZDJkMmQyOyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIGltZ3sgbWF4LXdpZHRoOiAxMDAlO2hlaWdodDogMTAwJTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudHsgIHdpZHRoOiA2MCU7IHBhZGRpbmctbGVmdDogMTZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZXsgd2lkdGg6IDEwMCU7ICB0ZXh0LWFsaWduOiBsZWZ0O31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoeyBmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzI5MjgyODsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgd2lkdGg6IDE0NXB4OyBsaW5lLWhlaWdodDogMjZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZHsgZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogXCJBdmVuaXJNZWRpdW1cIjsgIGNvbG9yOiAjNjM2MzYzO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyB7IHBhZGRpbmc6IDA7IGhlaWdodDogYXV0bzsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSB7IHdpZHRoOiAxMDAlOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlcnsgd2lkdGg6IDEwMCU7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsgYWxpZ24taXRlbXM6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudHsgYm9yZGVyOiAycHggc29saWQgI2IzYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudCAuY291bnRlciBidXR0b257IHdpZHRoOiBhdXRvOyBib3JkZXI6IDA7IGJhY2tncm91bmQ6IG5vbmU7IHBhZGRpbmc6IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlciAuaW5uZXJfYm94eyBib3JkZXI6IDFweCBzb2xpZCAjOWM5OTk5OyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyB3aWR0aDogMTIwcHg7IGNvbG9yOiAjZmZmOyBib3JkZXItcmFkaXVzOiAwOyBiYWNrZ3JvdW5kOiAjMzdhMGY1OyB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IHAgeyBmb250LXNpemU6IDE4cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzYzNjM2MzsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgbWFyZ2luOiAwO31cclxuXHJcbi5pbm5lcl9ib3ggLmJveGVzeyB3aWR0aDogMzBweDsgZGlzcGxheTogaW5saW5lLWJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IHBhZGRpbmc6IDNweDt9XHJcbi5jb3VudGVyeyBkaXNwbGF5OiBpbmxpbmUtZmxleDsgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG4uY291bnRlciBheyBwYWRkaW5nOiAwOyBiYWNrZ3JvdW5kOiBub25lOyBib3JkZXI6IG5vbmU7IGhlaWdodDogMjBweDsgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjYTBhMGEwOyBjdXJzb3I6IHBvaW50ZXI7fVxyXG4uY291bnRlciBhOmZvY3VzeyBvdXRsaW5lOiBub25lO31cclxuLmNvdW50ZXIgYTpmaXJzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNhMGEwYTA7IH1cclxuLmNvdW50ZXIgYSAubWF0ZXJpYWwtaWNvbnMgeyBmb250LXNpemU6IDIwcHg7fVxyXG5cclxuLmJ1dHRvbl93cmFwcGVyeyBoZWlnaHQ6IGF1dG87IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7IH1cclxuLmJ1dHRvbl93cmFwcGVyIC5jYXJ0X2FjdGlvbnsgYmFja2dyb3VuZDogIzBhNDc4ODsgbWluLXdpZHRoOiAyMDBweDsgYm9yZGVyLXJhZGl1czogMDsgZm9udC1mYW1pbHk6IFwiQXZlbmlyTWVkaXVtXCI7IGNvbG9yOiAjZmZmOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IHBhZGRpbmc6IDRweCAwIDJweDt9XHJcblxyXG4ubWVkaWNhbF9wYXJ0bmVycyAuZm9ybS1jb250cm9seyBoZWlnaHQ6IDEyMHB4OyB3aWR0aDogMTAwJTsgYm94LXNpemluZzogYm9yZGVyLWJveDsgcmVzaXplOiBub25lOyBtYXJnaW46IDJweDsgfVxyXG4udG9wX3F1b3Rlc2VjdGlvbiBsYWJlbCB7IGZvbnQtZmFtaWx5OiAnQXZlbmlyTWVkaXVtJzsgZm9udC1zaXplOiAyMHB4OyBtaW4td2lkdGg6IDc1cHg7IG1hcmdpbjogNXB4O31cclxuLnRvcF9xdW90ZXNlY3Rpb24geyBtYXJnaW4tYm90dG9tOiAwOyBkaXNwbGF5OiBmbGV4OyBiYWNrZ3JvdW5kOiAjNTFlM2VhOyB9XHJcbi5uZXd7IGFsaWduLWl0ZW1zOiBjZW50ZXI7fVxyXG4uY2FydF9uZXdfd3JhcHBlcnsgZGlzcGxheTogZmxleDt9XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxNTYwcHgpe1xyXG4gICAgLmNhcnRfd3JhcHBlciB7IHdpZHRoOiA5MCU7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMTk5cHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBmb250LXNpemU6IDE0cHg7IHdpZHRoOiAxMjVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGQgeyBmb250LXNpemU6IDE1cHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMDQwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIHsgbWFyZ2luLWJvdHRvbTogMDsgd2lkdGg6IDMwJTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgeyB3aWR0aDogNzAlOyBwYWRkaW5nLWxlZnQ6IDEwcHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTFweCl7XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0aCB7IGxpbmUtaGVpZ2h0OiAyMnB4OyB9XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogODYwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBsaW5lLWhlaWdodDogMThweDsgd2lkdGg6IDExMHB4OyBmb250LXNpemU6IDEycHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRkIHsgZm9udC1zaXplOiAxM3B4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyBtaW4td2lkdGg6IDEwMHB4OyBsaW5lLWhlaWdodDogMzBweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KXtcclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSB7IHdpZHRoOiAxMDAlOyBtYXJnaW46IDA7IG1hcmdpbi1ib3R0b206IDIwcHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDIycHg7IHdpZHRoOiAxNTBweDsgZm9udC1zaXplOiAxNnB4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZCB7IGZvbnQtc2l6ZTogMTZweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDU3NnB4KXtcclxuLmJ1dHRvbl93cmFwcGVyIHsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpe1xyXG4gIC5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0geyB3aWR0aDogMTAwJTsgbWFyZ2luOiAwOyBtYXJnaW4tYm90dG9tOiAyMHB4OyBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IHdpZHRoOiAxMDAlOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50eyB3aWR0aDogMTAwJTsgcGFkZGluZy1sZWZ0OiAwOyBtYXJnaW4tdG9wOiAxNnB4OyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDI2cHg7IHdpZHRoOiBhdXRvOyBmb250LXNpemU6IDE2cHg7IH1cclxufVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -16258,6 +11732,9 @@ let PurchaseComparisonSearchListComponent = class PurchaseComparisonSearchListCo
             this.inventory_category_list = response.res;
         });
     }
+    goToCart() {
+        this.router.navigateByUrl('/admin/purchasecomparision/cart');
+    }
 };
 PurchaseComparisonSearchListComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
@@ -16860,6 +12337,191 @@ sendMailModal = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.css":
+/*!*********************************************************************************************************************!*\
+  !*** ./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.css ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".cart_wrapper {width: 1460px; margin: 40px auto; background: #f4f4f4; padding: 16px; margin-bottom: 45px; }\r\n.cart_wrapper .cart_title { color: #565656; font-family: \"AvenirMedium\"; font-size: 20px; text-transform: capitalize; border-bottom: 1px solid #969696;\r\n  padding-bottom: 10px; }\r\n.cart_wrapper .cart_item_wrapper { display: flex; justify-content: center; flex-wrap: wrap;}\r\n.cart_wrapper .cart_item_wrapper .cart_item { background: #fff;  display: flex; justify-content: space-between; width: 49%; padding: 16px; box-sizing: border-box;\r\nmargin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+1){ margin-left: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item:nth-child(2n+2){ margin-right: 0;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { max-height: 200px; margin-bottom: 0; width: 40%; border: 2px solid #d2d2d2; display: flex; align-items: center; justify-content: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper img{ max-width: 100%;height: 100%;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content{  width: 60%; padding-left: 16px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table{ width: 100%;  text-align: left;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th{ font-size: 16px; font-family: \"AvenirMedium\"; color: #292828; text-transform: uppercase; width: 145px; line-height: 26px;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td{ font-size: 16px; font-family: \"AvenirMedium\";  color: #636363;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions { padding: 0; height: auto; background: transparent;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity { width: 100%; display: flex; justify-content: space-between; flex-direction: column; margin-bottom: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper{ width: 100%; display: flex; justify-content: space-between; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count{ border: 2px solid #b3b1b1; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .count .counter button{ width: auto; border: 0; background: none; padding: 0; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .counter_wrapper .inner_box{ border: 1px solid #9c9999; display: flex; align-items: center; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { width: 120px; color: #fff; border-radius: 0; background: #37a0f5; text-transform: capitalize;}\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity p { font-size: 18px; font-family: \"AvenirMedium\"; color: #636363; text-transform: uppercase; margin: 0;}\r\n.inner_box .boxes{ width: 30px; display: inline-block; text-align: center; padding: 3px;}\r\n.counter{ display: inline-flex; flex-direction: column; }\r\n.counter a{ padding: 0; background: none; border: none; height: 20px; border-left: 1px solid #a0a0a0; cursor: pointer;}\r\n.counter a:focus{ outline: none;}\r\n.counter a:first-child{ border-bottom: 1px solid #a0a0a0; }\r\n.counter a .material-icons { font-size: 20px;}\r\n.button_wrapper{ height: auto; display: flex; justify-content: flex-end; }\r\n.button_wrapper .cart_action{ background: #0a4788; min-width: 200px; border-radius: 0; font-family: \"AvenirMedium\"; color: #fff; font-size: 20px; text-transform: uppercase; padding: 4px 0 2px;}\r\n.medical_partners .form-control{ height: 120px; width: 100%; box-sizing: border-box; resize: none; margin: 2px; }\r\n.top_quotesection label { font-family: 'AvenirMedium'; font-size: 20px; min-width: 75px; margin: 5px;}\r\n.top_quotesection { margin-bottom: 0; display: flex; background: #51e3ea; }\r\n.new{ align-items: center;}\r\n.cart_new_wrapper{ display: flex;}\r\n@media screen and (max-width: 1560px){\r\n    .cart_wrapper { width: 90%; }\r\n}\r\n@media screen and (max-width: 1199px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { font-size: 14px; width: 125px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 15px; }\r\n}\r\n@media screen and (max-width: 1040px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { margin-bottom: 0; width: 30%; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content { width: 70%; padding-left: 10px; }\r\n}\r\n@media screen and (max-width: 991px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; }\r\n}\r\n@media screen and (max-width: 860px){\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 18px; width: 110px; font-size: 12px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 13px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .acctions .quantity .remove { min-width: 100px; line-height: 30px; }\r\n}\r\n@media screen and (max-width: 768px){\r\n.cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 22px; width: 150px; font-size: 16px; }\r\n.cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr td { font-size: 16px; }\r\n}\r\n@media screen and (max-width: 576px){\r\n.button_wrapper { display: flex; justify-content: center; }\r\n}\r\n@media screen and (max-width: 480px){\r\n  .cart_wrapper .cart_item_wrapper .cart_item { width: 100%; margin: 0; margin-bottom: 20px; flex-direction: column; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .image_wrapper { width: 100%; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content{ width: 100%; padding-left: 0; margin-top: 16px; }\r\n  .cart_wrapper .cart_item_wrapper .cart_item .cart_content .cart_table tr th { line-height: 26px; width: auto; font-size: 16px; }\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQ29tcG9uZW50cy9pbnZlbnRvcnkvcHVyY2hhc2Vjb21wYXJpc29uL3B1cmNoYXNlY29tcGFyaXNvbmNhcnQvcHVyY2hhc2Vjb21wYXJpc29uY2FydC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGVBQWUsYUFBYSxFQUFFLGlCQUFpQixFQUFFLG1CQUFtQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRyw0QkFBNEIsY0FBYyxFQUFFLDJCQUEyQixFQUFFLGVBQWUsRUFBRSwwQkFBMEIsRUFBRSxnQ0FBZ0M7RUFDcEosb0JBQW9CLEVBQUU7QUFDeEIsbUNBQW1DLGFBQWEsRUFBRSx1QkFBdUIsRUFBRSxlQUFlLENBQUM7QUFDM0YsOENBQThDLGdCQUFnQixHQUFHLGFBQWEsRUFBRSw4QkFBOEIsRUFBRSxVQUFVLEVBQUUsYUFBYSxFQUFFLHNCQUFzQjtBQUNqSyxZQUFZLEVBQUUsbUNBQW1DLEVBQUU7QUFDbkQsNkRBQTZELGNBQWMsQ0FBQztBQUM1RSw2REFBNkQsZUFBZSxDQUFDO0FBQzdFLDZEQUE2RCxpQkFBaUIsRUFBRSxnQkFBZ0IsRUFBRSxVQUFVLEVBQUUseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFLHVCQUF1QixFQUFFO0FBQ3RNLGdFQUFnRSxlQUFlLENBQUMsWUFBWSxDQUFDO0FBQzdGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLENBQUM7QUFDM0YsdUVBQXVFLFdBQVcsR0FBRyxnQkFBZ0IsQ0FBQztBQUN0Ryw2RUFBNkUsZUFBZSxFQUFFLDJCQUEyQixFQUFFLGNBQWMsRUFBRSx5QkFBeUIsRUFBRSxZQUFZLEVBQUUsaUJBQWlCLENBQUM7QUFDdE0sNkVBQTZFLGVBQWUsRUFBRSwyQkFBMkIsR0FBRyxjQUFjLENBQUM7QUFDM0ksc0VBQXNFLFVBQVUsRUFBRSxZQUFZLEVBQUUsdUJBQXVCLENBQUM7QUFDeEgsZ0ZBQWdGLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsc0JBQXNCLEVBQUUsZ0JBQWdCLEVBQUU7QUFDdEwsZ0dBQWdHLFdBQVcsRUFBRSxhQUFhLEVBQUUsOEJBQThCLEVBQUUsbUJBQW1CLEVBQUU7QUFDakwsdUdBQXVHLHlCQUF5QixFQUFFO0FBQ2xJLHVIQUF1SCxXQUFXLEVBQUUsU0FBUyxFQUFFLGdCQUFnQixFQUFFLFVBQVUsRUFBRTtBQUM3SywyR0FBMkcseUJBQXlCLEVBQUUsYUFBYSxFQUFFLG1CQUFtQixFQUFFO0FBQzFLLHdGQUF3RixZQUFZLEVBQUUsV0FBVyxFQUFFLGdCQUFnQixFQUFFLG1CQUFtQixFQUFFLDBCQUEwQixDQUFDO0FBQ3JMLGtGQUFrRixlQUFlLEVBQUUsMkJBQTJCLEVBQUUsY0FBYyxFQUFFLHlCQUF5QixFQUFFLFNBQVMsQ0FBQztBQUVyTCxtQkFBbUIsV0FBVyxFQUFFLHFCQUFxQixFQUFFLGtCQUFrQixFQUFFLFlBQVksQ0FBQztBQUN4RixVQUFVLG9CQUFvQixFQUFFLHNCQUFzQixFQUFFO0FBQ3hELFlBQVksVUFBVSxFQUFFLGdCQUFnQixFQUFFLFlBQVksRUFBRSxZQUFZLEVBQUUsOEJBQThCLEVBQUUsZUFBZSxDQUFDO0FBQ3RILGtCQUFrQixhQUFhLENBQUM7QUFDaEMsd0JBQXdCLGdDQUFnQyxFQUFFO0FBQzFELDZCQUE2QixlQUFlLENBQUM7QUFFN0MsaUJBQWlCLFlBQVksRUFBRSxhQUFhLEVBQUUseUJBQXlCLEVBQUU7QUFDekUsOEJBQThCLG1CQUFtQixFQUFFLGdCQUFnQixFQUFFLGdCQUFnQixFQUFFLDJCQUEyQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUUseUJBQXlCLEVBQUUsa0JBQWtCLENBQUM7QUFFaE0saUNBQWlDLGFBQWEsRUFBRSxXQUFXLEVBQUUsc0JBQXNCLEVBQUUsWUFBWSxFQUFFLFdBQVcsRUFBRTtBQUNoSCwwQkFBMEIsMkJBQTJCLEVBQUUsZUFBZSxFQUFFLGVBQWUsRUFBRSxXQUFXLENBQUM7QUFDckcsb0JBQW9CLGdCQUFnQixFQUFFLGFBQWEsRUFBRSxtQkFBbUIsRUFBRTtBQUMxRSxNQUFNLG1CQUFtQixDQUFDO0FBRTFCLG1CQUFtQixhQUFhLENBQUM7QUFDakM7SUFDSSxnQkFBZ0IsVUFBVSxFQUFFO0FBQ2hDO0FBQ0E7QUFDQSw4RUFBOEUsZUFBZSxFQUFFLFlBQVksRUFBRTtBQUM3Ryw4RUFBOEUsZUFBZSxFQUFFO0FBQy9GO0FBQ0E7QUFDQSw2REFBNkQsZ0JBQWdCLEVBQUUsVUFBVSxFQUFFO0FBQzNGLDREQUE0RCxVQUFVLEVBQUUsa0JBQWtCLEVBQUU7QUFDNUY7QUFDQTtBQUNBLDhFQUE4RSxpQkFBaUIsRUFBRTtBQUNqRztBQUNBO0FBQ0EsOEVBQThFLGlCQUFpQixFQUFFLFlBQVksRUFBRSxlQUFlLEVBQUU7QUFDaEksOEVBQThFLGVBQWUsRUFBRTtBQUMvRix3RkFBd0YsZ0JBQWdCLEVBQUUsaUJBQWlCLEVBQUU7QUFDN0g7QUFDQTtBQUNBLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFO0FBQzNGLDhFQUE4RSxpQkFBaUIsRUFBRSxZQUFZLEVBQUUsZUFBZSxFQUFFO0FBQ2hJLDhFQUE4RSxlQUFlLEVBQUU7QUFDL0Y7QUFDQTtBQUNBLGtCQUFrQixhQUFhLEVBQUUsdUJBQXVCLEVBQUU7QUFDMUQ7QUFFQTtFQUNFLDhDQUE4QyxXQUFXLEVBQUUsU0FBUyxFQUFFLG1CQUFtQixFQUFFLHNCQUFzQixFQUFFO0VBQ25ILDZEQUE2RCxXQUFXLEVBQUU7RUFDMUUsMkRBQTJELFdBQVcsRUFBRSxlQUFlLEVBQUUsZ0JBQWdCLEVBQUU7RUFDM0csOEVBQThFLGlCQUFpQixFQUFFLFdBQVcsRUFBRSxlQUFlLEVBQUU7QUFDakkiLCJmaWxlIjoic3JjL2FwcC9Db21wb25lbnRzL2ludmVudG9yeS9wdXJjaGFzZWNvbXBhcmlzb24vcHVyY2hhc2Vjb21wYXJpc29uY2FydC9wdXJjaGFzZWNvbXBhcmlzb25jYXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY2FydF93cmFwcGVyIHt3aWR0aDogMTQ2MHB4OyBtYXJnaW46IDQwcHggYXV0bzsgYmFja2dyb3VuZDogI2Y0ZjRmNDsgcGFkZGluZzogMTZweDsgbWFyZ2luLWJvdHRvbTogNDVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X3RpdGxlIHsgY29sb3I6ICM1NjU2NTY7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplOyBib3JkZXItYm90dG9tOiAxcHggc29saWQgIzk2OTY5NjtcclxuICBwYWRkaW5nLWJvdHRvbTogMTBweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciB7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogY2VudGVyOyBmbGV4LXdyYXA6IHdyYXA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIHsgYmFja2dyb3VuZDogI2ZmZjsgIGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjsgd2lkdGg6IDQ5JTsgcGFkZGluZzogMTZweDsgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxubWFyZ2luOiAuNzUlOyBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggI2IxYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisxKXsgbWFyZ2luLWxlZnQ6IDA7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtOm50aC1jaGlsZCgybisyKXsgbWFyZ2luLXJpZ2h0OiAwO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IG1heC1oZWlnaHQ6IDIwMHB4OyBtYXJnaW4tYm90dG9tOiAwOyB3aWR0aDogNDAlOyBib3JkZXI6IDJweCBzb2xpZCAjZDJkMmQyOyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIGltZ3sgbWF4LXdpZHRoOiAxMDAlO2hlaWdodDogMTAwJTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudHsgIHdpZHRoOiA2MCU7IHBhZGRpbmctbGVmdDogMTZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZXsgd2lkdGg6IDEwMCU7ICB0ZXh0LWFsaWduOiBsZWZ0O31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoeyBmb250LXNpemU6IDE2cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzI5MjgyODsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgd2lkdGg6IDE0NXB4OyBsaW5lLWhlaWdodDogMjZweDt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZHsgZm9udC1zaXplOiAxNnB4OyBmb250LWZhbWlseTogXCJBdmVuaXJNZWRpdW1cIjsgIGNvbG9yOiAjNjM2MzYzO31cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyB7IHBhZGRpbmc6IDA7IGhlaWdodDogYXV0bzsgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7fVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSB7IHdpZHRoOiAxMDAlOyBkaXNwbGF5OiBmbGV4OyBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47IGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47IG1hcmdpbi1ib3R0b206IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlcnsgd2lkdGg6IDEwMCU7IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjsgYWxpZ24taXRlbXM6IGNlbnRlcjsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudHsgYm9yZGVyOiAycHggc29saWQgI2IzYjFiMTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmFjY3Rpb25zIC5xdWFudGl0eSAuY291bnRlcl93cmFwcGVyIC5jb3VudCAuY291bnRlciBidXR0b257IHdpZHRoOiBhdXRvOyBib3JkZXI6IDA7IGJhY2tncm91bmQ6IG5vbmU7IHBhZGRpbmc6IDA7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5hY2N0aW9ucyAucXVhbnRpdHkgLmNvdW50ZXJfd3JhcHBlciAuaW5uZXJfYm94eyBib3JkZXI6IDFweCBzb2xpZCAjOWM5OTk5OyBkaXNwbGF5OiBmbGV4OyBhbGlnbi1pdGVtczogY2VudGVyOyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyB3aWR0aDogMTIwcHg7IGNvbG9yOiAjZmZmOyBib3JkZXItcmFkaXVzOiAwOyBiYWNrZ3JvdW5kOiAjMzdhMGY1OyB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTt9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IHAgeyBmb250LXNpemU6IDE4cHg7IGZvbnQtZmFtaWx5OiBcIkF2ZW5pck1lZGl1bVwiOyBjb2xvcjogIzYzNjM2MzsgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsgbWFyZ2luOiAwO31cclxuXHJcbi5pbm5lcl9ib3ggLmJveGVzeyB3aWR0aDogMzBweDsgZGlzcGxheTogaW5saW5lLWJsb2NrOyB0ZXh0LWFsaWduOiBjZW50ZXI7IHBhZGRpbmc6IDNweDt9XHJcbi5jb3VudGVyeyBkaXNwbGF5OiBpbmxpbmUtZmxleDsgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsgfVxyXG4uY291bnRlciBheyBwYWRkaW5nOiAwOyBiYWNrZ3JvdW5kOiBub25lOyBib3JkZXI6IG5vbmU7IGhlaWdodDogMjBweDsgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjYTBhMGEwOyBjdXJzb3I6IHBvaW50ZXI7fVxyXG4uY291bnRlciBhOmZvY3VzeyBvdXRsaW5lOiBub25lO31cclxuLmNvdW50ZXIgYTpmaXJzdC1jaGlsZHsgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNhMGEwYTA7IH1cclxuLmNvdW50ZXIgYSAubWF0ZXJpYWwtaWNvbnMgeyBmb250LXNpemU6IDIwcHg7fVxyXG5cclxuLmJ1dHRvbl93cmFwcGVyeyBoZWlnaHQ6IGF1dG87IGRpc3BsYXk6IGZsZXg7IGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7IH1cclxuLmJ1dHRvbl93cmFwcGVyIC5jYXJ0X2FjdGlvbnsgYmFja2dyb3VuZDogIzBhNDc4ODsgbWluLXdpZHRoOiAyMDBweDsgYm9yZGVyLXJhZGl1czogMDsgZm9udC1mYW1pbHk6IFwiQXZlbmlyTWVkaXVtXCI7IGNvbG9yOiAjZmZmOyBmb250LXNpemU6IDIwcHg7IHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7IHBhZGRpbmc6IDRweCAwIDJweDt9XHJcblxyXG4ubWVkaWNhbF9wYXJ0bmVycyAuZm9ybS1jb250cm9seyBoZWlnaHQ6IDEyMHB4OyB3aWR0aDogMTAwJTsgYm94LXNpemluZzogYm9yZGVyLWJveDsgcmVzaXplOiBub25lOyBtYXJnaW46IDJweDsgfVxyXG4udG9wX3F1b3Rlc2VjdGlvbiBsYWJlbCB7IGZvbnQtZmFtaWx5OiAnQXZlbmlyTWVkaXVtJzsgZm9udC1zaXplOiAyMHB4OyBtaW4td2lkdGg6IDc1cHg7IG1hcmdpbjogNXB4O31cclxuLnRvcF9xdW90ZXNlY3Rpb24geyBtYXJnaW4tYm90dG9tOiAwOyBkaXNwbGF5OiBmbGV4OyBiYWNrZ3JvdW5kOiAjNTFlM2VhOyB9XHJcbi5uZXd7IGFsaWduLWl0ZW1zOiBjZW50ZXI7fVxyXG5cclxuLmNhcnRfbmV3X3dyYXBwZXJ7IGRpc3BsYXk6IGZsZXg7fVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxNTYwcHgpe1xyXG4gICAgLmNhcnRfd3JhcHBlciB7IHdpZHRoOiA5MCU7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMTk5cHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBmb250LXNpemU6IDE0cHg7IHdpZHRoOiAxMjVweDsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGQgeyBmb250LXNpemU6IDE1cHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiAxMDQwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5pbWFnZV93cmFwcGVyIHsgbWFyZ2luLWJvdHRvbTogMDsgd2lkdGg6IDMwJTsgfVxyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgeyB3aWR0aDogNzAlOyBwYWRkaW5nLWxlZnQ6IDEwcHg7IH1cclxufVxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA5OTFweCl7XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0aCB7IGxpbmUtaGVpZ2h0OiAyMnB4OyB9XHJcbn1cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogODYwcHgpe1xyXG4uY2FydF93cmFwcGVyIC5jYXJ0X2l0ZW1fd3JhcHBlciAuY2FydF9pdGVtIC5jYXJ0X2NvbnRlbnQgLmNhcnRfdGFibGUgdHIgdGggeyBsaW5lLWhlaWdodDogMThweDsgd2lkdGg6IDExMHB4OyBmb250LXNpemU6IDEycHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRkIHsgZm9udC1zaXplOiAxM3B4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuYWNjdGlvbnMgLnF1YW50aXR5IC5yZW1vdmUgeyBtaW4td2lkdGg6IDEwMHB4OyBsaW5lLWhlaWdodDogMzBweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KXtcclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSB7IHdpZHRoOiAxMDAlOyBtYXJnaW46IDA7IG1hcmdpbi1ib3R0b206IDIwcHg7IH1cclxuLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDIycHg7IHdpZHRoOiAxNTBweDsgZm9udC1zaXplOiAxNnB4OyB9XHJcbi5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0gLmNhcnRfY29udGVudCAuY2FydF90YWJsZSB0ciB0ZCB7IGZvbnQtc2l6ZTogMTZweDsgfVxyXG59XHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDU3NnB4KXtcclxuLmJ1dHRvbl93cmFwcGVyIHsgZGlzcGxheTogZmxleDsganVzdGlmeS1jb250ZW50OiBjZW50ZXI7IH1cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNDgwcHgpe1xyXG4gIC5jYXJ0X3dyYXBwZXIgLmNhcnRfaXRlbV93cmFwcGVyIC5jYXJ0X2l0ZW0geyB3aWR0aDogMTAwJTsgbWFyZ2luOiAwOyBtYXJnaW4tYm90dG9tOiAyMHB4OyBmbGV4LWRpcmVjdGlvbjogY29sdW1uOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuaW1hZ2Vfd3JhcHBlciB7IHdpZHRoOiAxMDAlOyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50eyB3aWR0aDogMTAwJTsgcGFkZGluZy1sZWZ0OiAwOyBtYXJnaW4tdG9wOiAxNnB4OyB9XHJcbiAgLmNhcnRfd3JhcHBlciAuY2FydF9pdGVtX3dyYXBwZXIgLmNhcnRfaXRlbSAuY2FydF9jb250ZW50IC5jYXJ0X3RhYmxlIHRyIHRoIHsgbGluZS1oZWlnaHQ6IDI2cHg7IHdpZHRoOiBhdXRvOyBmb250LXNpemU6IDE2cHg7IH1cclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.ts":
+/*!********************************************************************************************************************!*\
+  !*** ./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.ts ***!
+  \********************************************************************************************************************/
+/*! exports provided: PurchasecomparisoncartComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchasecomparisoncartComponent", function() { return PurchasecomparisoncartComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_http_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/http-service.service */ "./src/app/services/http-service.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ngx_meta_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ngx-meta/core */ "./node_modules/@ngx-meta/core/fesm2015/ngx-meta-core.js");
+
+
+
+
+
+
+
+let PurchasecomparisoncartComponent = class PurchasecomparisoncartComponent {
+    constructor(router, cookieService, httpServiceService, _snackBar, meta) {
+        this.router = router;
+        this.cookieService = cookieService;
+        this.httpServiceService = httpServiceService;
+        this._snackBar = _snackBar;
+        this.meta = meta;
+        this.inventoryDetailsByUserId = [];
+        this.ids = [];
+        this.hospitalDetails = [];
+        let userData = JSON.parse(this.cookieService.get('user_details'));
+        this.userId = userData._id;
+        this.userType = userData.type;
+        if (this.userType == 'admin') {
+            let data = {
+                "source": "users_view_hospital_withrepdetails"
+            };
+            this.httpServiceService.httpViaPost('datalist', data).subscribe((response) => {
+                //console.log(response);
+                this.hospitalDetails = response.res;
+            });
+        }
+        if (this.userType == 'salesrep') {
+            let data = {
+                "source": "users_view_hospital_withrepdetails",
+                "condition": {
+                    "salesrepid_object": this.userId
+                }
+            };
+            this.httpServiceService.httpViaPost('datalist', data).subscribe((response) => {
+                //console.log(response);
+                this.hospitalDetails = response.res;
+            });
+        }
+        this.qouteDetails();
+    }
+    ngOnInit() {
+    }
+    /**get quote details respect user id */
+    qouteDetails() {
+        let data = {
+            "source": "purchase_comparison_quote_view",
+            "condition": {
+                "user_id_object": this.userId
+            }
+        };
+        this.httpServiceService.httpViaPost('datalist', data).subscribe((response) => {
+            this.inventoryDetailsByUserId = response.res;
+            //console.log(response);
+        });
+    }
+    plus(i) {
+        this.inventoryDetailsByUserId[i].quantity += 1;
+    }
+    minus(i) {
+        if (this.inventoryDetailsByUserId[i].quantity > 1)
+            this.inventoryDetailsByUserId[i].quantity -= 1;
+    }
+    /**add notes */
+    onSearchChange(searchValue) {
+        this.notes = searchValue;
+        //console.log(this.notes);
+    }
+    /**remove inventory */
+    remove(id, indx) {
+        //console.log(id,indx);
+        let data = { "source": "purchase_comparison_quote",
+            "id": id
+        };
+        this.httpServiceService.httpViaPost('deletesingledata', data).subscribe((response) => {
+            //console.log(response);
+            if (response.status == "success") {
+                this.inventoryDetailsByUserId.splice(indx, indx + 1);
+            }
+        });
+    }
+    /**select onchnage  */
+    hospitalName(data) {
+        this.hospitalId = data;
+        //console.log(data);
+    }
+    /**get quote function */
+    getQuote() {
+        if (this.userType == 'admin' && this.hospitalId == undefined) {
+            this._snackBar.open('please select hospital', '', {
+                duration: 1000,
+            });
+        }
+        if (this.userType == 'salesrep' && this.hospitalId == undefined) {
+            this._snackBar.open('please select hospital', '', {
+                duration: 1000,
+            });
+        }
+        let postData = {
+            "source": "purchase_comparison_quote-details",
+            "data": {
+                "inventory_details": this.inventoryDetailsByUserId,
+                "hospital_id": this.hospitalId,
+                "quoted_by": this.userId,
+                "notes": this.notes,
+                "status": 0
+            },
+            "sourceobj": ["hospital_id", "quoted_by"]
+        };
+        //console.log(postData);
+        for (let i in this.inventoryDetailsByUserId) {
+            this.ids.push(this.inventoryDetailsByUserId[i]._id);
+        }
+        //console.log(this.ids);
+        let deleteData = {
+            "source": "purchase_comparison_quote",
+            "ids": this.ids
+        };
+        //console.log(deleteData);
+        this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response) => {
+            //console.log(response);
+            if (response.status = "success") {
+                this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response) => {
+                    if (response.status = "success") {
+                        this._snackBar.open('Your Quote Submitted Successfully', '', {
+                            duration: 3000,
+                        });
+                        this.router.navigateByUrl('/admin/inventory/purchase-comparison-search-list');
+                    }
+                });
+            }
+        });
+    }
+};
+PurchasecomparisoncartComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
+    { type: _services_http_service_service__WEBPACK_IMPORTED_MODULE_2__["HttpServiceService"] },
+    { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"] },
+    { type: _ngx_meta_core__WEBPACK_IMPORTED_MODULE_6__["MetaService"] }
+];
+PurchasecomparisoncartComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-purchasecomparisoncart',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./purchasecomparisoncart.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./purchasecomparisoncart.component.css */ "./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.css")).default]
+    })
+], PurchasecomparisoncartComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.css":
 /*!**********************************************************************************************************!*\
   !*** ./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.css ***!
@@ -17097,6 +12759,7 @@ let ListingBlogcatComponent = class ListingBlogcatComponent {
         this.apiUrl = this.baseUrl;
         this.status = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
         this.view = "blogs_view";
+        this.image_detail_datatype = '';
         // public date_search_source:any="events_view";
         this.date_search_endpoint = "datalist";
         this.search_settings = {
@@ -17723,6 +13386,7 @@ let ContactusListingComponent = class ContactusListingComponent {
         this.apiUrl = this.httpServiceService.baseUrl;
         this.status = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
         this.view = "contactus_view";
+        this.image_detail_datatype = '';
         this.search_settings = {
         // selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
         // textsearch: [{ label: "Search By brand name...", field: 'brand_name' }]
@@ -17741,6 +13405,7 @@ let ContactusListingComponent = class ContactusListingComponent {
         this.tableNam = 'contactus';
         this.UpdateEndpnt = "addorupdatedata";
         this.deleteEndpnt = "deletesingledata";
+        this.image_detail_datatyp = '';
         this.searchingEndpnt = "datalist";
         this.edtUrl = '';
         this.apiUrll = this.httpServiceService.baseUrl;
@@ -17995,6 +13660,9 @@ let ListingLanguageComponent = class ListingLanguageComponent {
         this.editUrl = 'admin-dashboard/language/edit';
         this.apiUrl = "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/";
         this.status = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+        this.view = '';
+        this.image_detail_datatype = '';
+        this.search_settings = {};
         this.user_cookie = cookieService.get('jwtToken');
     }
     ngOnInit() {
@@ -18107,6 +13775,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_inventory_purchase_comparison_search_list_purchase_comparison_search_list_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component */ "./src/app/Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component.ts");
 /* harmony import */ var _Components_inventory_admin_inventory_details_admin_inventory_details_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ../Components/inventory/admin-inventory-details/admin-inventory-details.component */ "./src/app/Components/inventory/admin-inventory-details/admin-inventory-details.component.ts");
 /* harmony import */ var _Components_inventory_addinventorylistingquote_addinventorylistingquote_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ../Components/inventory/addinventorylistingquote/addinventorylistingquote.component */ "./src/app/Components/inventory/addinventorylistingquote/addinventorylistingquote.component.ts");
+/* harmony import */ var _Components_inventory_purchasecomparison_purchasecomparisoncart_purchasecomparisoncart_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component */ "./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.ts");
 
 
 
@@ -18185,6 +13854,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 const routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'login', component: _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
@@ -18205,6 +13875,7 @@ const routes = [
     //SalesRep Dashboard
     { path: 'dashboard-salesrep', component: _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_5__["DashboardAdminComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
     { path: 'admin/quote-view/:id/:hospitalid', component: _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_71__["QuoteViewComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
+    { path: 'admin/quote-comparison-view/:id/:hospitalid', component: _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_71__["QuoteViewComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
     // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
     // __________________ADMIN MANGEMENT____________________
     // =====================================================
@@ -18509,8 +14180,10 @@ const routes = [
         data: { requestcondition: { source: 'inventories_list_view', condition: {} }, endpoint: 'datalist' },
     },
     //_______________Admin Contact us Listing_____________//
-    { path: 'admin-dashboard/contact', component: _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_62__["ContactusListingComponent"], resolve: { contactlist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
-        data: { requestcondition: { source: 'contactus_view', condition: {} }, endpoint: 'datalist' }, canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
+    {
+        path: 'admin-dashboard/contact', component: _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_62__["ContactusListingComponent"], resolve: { contactlist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
+        data: { requestcondition: { source: 'contactus_view', condition: {} }, endpoint: 'datalist' }, canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]]
+    },
     // add admin contact info
     { path: 'admin-dashboard/addcontactinfo', component: _Components_miscellaneous_addcontactinfo_addcontactinfo_component__WEBPACK_IMPORTED_MODULE_67__["AddcontactinfoComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
     //____________________price markup management______________________//
@@ -18540,7 +14213,8 @@ const routes = [
         }
     },
     /*Manage Quotes */
-    { path: 'admin/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
+    {
+        path: 'admin/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
         resolve: { purchasequotelist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
         data: {
             requestcondition: {
@@ -18548,9 +14222,11 @@ const routes = [
                 condition: {}
             },
             endpoint: 'datalist'
-        } },
+        }
+    },
     /**manage purchase quote for salesref */
-    { path: 'salesrep/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
+    {
+        path: 'salesrep/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
         resolve: { purchasequotelist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
         data: {
             requestcondition: {
@@ -18558,9 +14234,11 @@ const routes = [
                 condition: { 'salesrepid_object': 'user_id' }
             },
             endpoint: 'datalist'
-        } },
+        }
+    },
     /**manage purchase quote for Hospital */
-    { path: 'hospital/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
+    {
+        path: 'hospital/managequotes/purchasequote/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
         resolve: { purchasequotelist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
         data: {
             requestcondition: {
@@ -18568,7 +14246,32 @@ const routes = [
                 condition: { 'hospital_id_object': 'user_id' }
             },
             endpoint: 'datalist'
-        } },
+        }
+    },
+    // purchase Quote Listing for admin 
+    {
+        path: 'admin/managequotes/purchasquotelisting/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
+        resolve: { purchasequotelist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
+        data: {
+            requestcondition: {
+                source: 'purchase_comparison_quote-details_view',
+                condition: {}
+            },
+            endpoint: 'datalist'
+        }
+    },
+    // purchase Quote Listing for salesrep
+    {
+        path: 'salesrep/managequotes/purchasquotelisting/list', component: _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_72__["PurchaseQuotesListingComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]],
+        resolve: { purchasequotelist: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
+        data: {
+            requestcondition: {
+                source: 'purchase_comparison_quote-details_view',
+                condition: {}
+            },
+            endpoint: 'datalist'
+        }
+    },
     // ________________________ACCOUNT SETTINGS______________________
     { path: 'account-settings', component: _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_29__["AccountsComponent"] },
     { path: 'cart', component: _Components_frontend_quotes_cart_quotes_cart_component__WEBPACK_IMPORTED_MODULE_68__["QuotesCartComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
@@ -18626,8 +14329,10 @@ const routes = [
         }
     },
     // Forntend inventory list
-    { path: 'inventory', component: _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_37__["InventoryComponent"], resolve: { inventoryList: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
-        data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' }, },
+    {
+        path: 'inventory', component: _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_37__["InventoryComponent"], resolve: { inventoryList: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
+        data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' },
+    },
     { path: 'inventory-details/:id', component: _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_38__["InventoryDetailsComponent"] },
     { path: 'about-us', component: _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_39__["AboutUsFrontComponent"] },
     { path: 'salesrep-login', component: _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_40__["SalesRepLoginComponent"] },
@@ -18671,6 +14376,7 @@ const routes = [
             endpoint: 'datalist'
         },
     },
+    { path: 'admin/purchasecomparision/cart', component: _Components_inventory_purchasecomparison_purchasecomparisoncart_purchasecomparisoncart_component__WEBPACK_IMPORTED_MODULE_76__["PurchasecomparisoncartComponent"], canActivate: [_services_authguard_service__WEBPACK_IMPORTED_MODULE_6__["AuthguardService"]] },
     {
         path: 'admin/inventory/purchase-comparison/edit/:_id',
         component: _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_65__["AddEditPurchaseComparisonComponent"],
@@ -18736,7 +14442,8 @@ const routes = [
     { path: 'hospital/added-inventory/add', component: _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_46__["HospitalAddInventoryComponent"] },
     { path: 'hospital/view-quotes', component: _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_47__["HospitalViewQuotesComponent"] },
     { path: 'hospital/view-quotes/details', component: _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_48__["DetailsQuotesComponent"] },
-    { path: 'salesrep/my-details', component: _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_49__["MyDetailsComponent"], resolve: { data: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
+    {
+        path: 'salesrep/my-details', component: _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_49__["MyDetailsComponent"], resolve: { data: _services_resolve_service__WEBPACK_IMPORTED_MODULE_9__["ResolveService"] },
         data: {
             requestcondition: {
                 source: 'users_view',
@@ -19012,104 +14719,104 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/ngx-cookie-service.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var listing_angular7__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! listing-angular7 */ "./node_modules/listing-angular7/fesm2015/listing-angular7.js");
-/* harmony import */ var file_upload_lib_influxiq__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! file-upload-lib-influxiq */ "./node_modules/file-upload-lib-influxiq/fesm2015/file-upload-lib-influxiq.js");
-/* harmony import */ var ngx_clipboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-clipboard */ "./node_modules/ngx-clipboard/fesm2015/ngx-clipboard.js");
-/* harmony import */ var _Modules_app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Modules/app-routing.module */ "./src/app/Modules/app-routing.module.ts");
-/* harmony import */ var _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/auth/login/login.component */ "./src/app/Components/auth/login/login.component.ts");
-/* harmony import */ var _Components_auth_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/auth/reset-password/reset-password.component */ "./src/app/Components/auth/reset-password/reset-password.component.ts");
-/* harmony import */ var _Components_auth_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/auth/forgot-password/forgot-password.component */ "./src/app/Components/auth/forgot-password/forgot-password.component.ts");
-/* harmony import */ var _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Components/admin/dashboard-admin/dashboard-admin.component */ "./src/app/Components/admin/dashboard-admin/dashboard-admin.component.ts");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _Components_admin_adminheader_adminheader_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/admin/adminheader/adminheader.component */ "./src/app/Components/admin/adminheader/adminheader.component.ts");
-/* harmony import */ var _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/admin/footer/footer.component */ "./src/app/Components/admin/footer/footer.component.ts");
-/* harmony import */ var _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./Components/admin/left-nav/left-nav.component */ "./src/app/Components/admin/left-nav/left-nav.component.ts");
-/* harmony import */ var ngx_ckeditor__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-ckeditor */ "./node_modules/ngx-ckeditor/fesm2015/ngx-ckeditor.js");
-/* harmony import */ var ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-daterangepicker-material */ "./node_modules/ngx-daterangepicker-material/fesm2015/ngx-daterangepicker-material.js");
-/* harmony import */ var _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/admin/admin-management/add-edit-admin/add-edit-admin.component */ "./src/app/Components/admin/admin-management/add-edit-admin/add-edit-admin.component.ts");
-/* harmony import */ var _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/admin/admin-management/listing-admin/listing-admin.component */ "./src/app/Components/admin/admin-management/listing-admin/listing-admin.component.ts");
-/* harmony import */ var _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component.ts");
-/* harmony import */ var _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component.ts");
-/* harmony import */ var _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component */ "./src/app/Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component.ts");
-/* harmony import */ var _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component */ "./src/app/Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component.ts");
-/* harmony import */ var blog_lib_influxiq__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! blog-lib-influxiq */ "./node_modules/blog-lib-influxiq/fesm2015/blog-lib-influxiq.js");
-/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.ts");
-/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component.ts");
-/* harmony import */ var team__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! team */ "./dist/team/fesm2015/team.js");
-/* harmony import */ var _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component */ "./src/app/Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team/listing-team.component */ "./src/app/Components/managewebsites/teammanagement/listing-team/listing-team.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component.ts");
-/* harmony import */ var _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component */ "./src/app/Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component.ts");
-/* harmony import */ var _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/listing-brand/listing-brand.component */ "./src/app/Components/inventory/manageinventory/brand/listing-brand/listing-brand.component.ts");
-/* harmony import */ var _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component */ "./src/app/Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component.ts");
-/* harmony import */ var _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./Components/inventory/inventorylist/listing-inventory/listing-inventory.component */ "./src/app/Components/inventory/inventorylist/listing-inventory/listing-inventory.component.ts");
-/* harmony import */ var _services_loader_service__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./services/loader.service */ "./src/app/services/loader.service.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./Class/common/loader.interceptor */ "./src/app/Class/common/loader.interceptor.ts");
-/* harmony import */ var _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./Components/common/http-loader/http-loader.component */ "./src/app/Components/common/http-loader/http-loader.component.ts");
-/* harmony import */ var _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./Components/common/accounts/accounts.component */ "./src/app/Components/common/accounts/accounts.component.ts");
-/* harmony import */ var _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./Components/common/dialog-box/dialog-box.component */ "./src/app/Components/common/dialog-box/dialog-box.component.ts");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./Components/frontend/home-page/home-page.component */ "./src/app/Components/frontend/home-page/home-page.component.ts");
-/* harmony import */ var _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./Components/frontend/buy-from-us/buy-from-us.component */ "./src/app/Components/frontend/buy-from-us/buy-from-us.component.ts");
-/* harmony import */ var _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./Components/frontend/manufacturar-direct/manufacturar-direct.component */ "./src/app/Components/frontend/manufacturar-direct/manufacturar-direct.component.ts");
-/* harmony import */ var _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./Components/frontend/medical-partners/medical-partners.component */ "./src/app/Components/frontend/medical-partners/medical-partners.component.ts");
-/* harmony import */ var _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./Components/frontend/contact-us/contact-us.component */ "./src/app/Components/frontend/contact-us/contact-us.component.ts");
-/* harmony import */ var _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./Components/frontend/team-page/team-page.component */ "./src/app/Components/frontend/team-page/team-page.component.ts");
-/* harmony import */ var _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./Components/frontend/blog/blog.component */ "./src/app/Components/frontend/blog/blog.component.ts");
-/* harmony import */ var _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./Components/frontend/blog-details/blog-details.component */ "./src/app/Components/frontend/blog-details/blog-details.component.ts");
-/* harmony import */ var _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./Components/frontend/inventory/inventory.component */ "./src/app/Components/frontend/inventory/inventory.component.ts");
-/* harmony import */ var _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./Components/frontend/inventory-details/inventory-details.component */ "./src/app/Components/frontend/inventory-details/inventory-details.component.ts");
-/* harmony import */ var _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./Components/frontend/about-us-front/about-us-front.component */ "./src/app/Components/frontend/about-us-front/about-us-front.component.ts");
-/* harmony import */ var _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./Components/frontend/logins/sales-rep-login/sales-rep-login.component */ "./src/app/Components/frontend/logins/sales-rep-login/sales-rep-login.component.ts");
-/* harmony import */ var _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./Components/backend/hospital/my-details-hospital/my-details-hospital.component */ "./src/app/Components/backend/hospital/my-details-hospital/my-details-hospital.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-change-password/hospital-change-password.component */ "./src/app/Components/backend/hospital/hospital-change-password/hospital-change-password.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component */ "./src/app/Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component */ "./src/app/Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component.ts");
-/* harmony import */ var _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./Components/backend/hospital/details-inventory/details-inventory.component */ "./src/app/Components/backend/hospital/details-inventory/details-inventory.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component */ "./src/app/Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component.ts");
-/* harmony import */ var _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component */ "./src/app/Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component.ts");
-/* harmony import */ var _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./Components/backend/hospital/details-quotes/details-quotes.component */ "./src/app/Components/backend/hospital/details-quotes/details-quotes.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./Components/backend/sales-rep/my-details/my-details.component */ "./src/app/Components/backend/sales-rep/my-details/my-details.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component */ "./src/app/Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component */ "./src/app/Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component */ "./src/app/Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./Components/backend/sales-rep/edit-inventory/edit-inventory.component */ "./src/app/Components/backend/sales-rep/edit-inventory/edit-inventory.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./Components/backend/sales-rep/details-inventory/details-inventory.component */ "./src/app/Components/backend/sales-rep/details-inventory/details-inventory.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component */ "./src/app/Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-sales/salesrep-sales.component */ "./src/app/Components/backend/sales-rep/salesrep-sales/salesrep-sales.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./Components/backend/sales-rep/manage-hospital/manage-hospital.component */ "./src/app/Components/backend/sales-rep/manage-hospital/manage-hospital.component.ts");
-/* harmony import */ var _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./Components/frontend/frontend-footer/frontend-footer.component */ "./src/app/Components/frontend/frontend-footer/frontend-footer.component.ts");
-/* harmony import */ var _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./Components/frontend/frontend-header/frontend-header.component */ "./src/app/Components/frontend/frontend-header/frontend-header.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./Components/backend/sales-rep/myaccount/myaccount.component */ "./src/app/Components/backend/sales-rep/myaccount/myaccount.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./Components/backend/sales-rep/left-nav-sales/left-nav-sales.component */ "./src/app/Components/backend/sales-rep/left-nav-sales/left-nav-sales.component.ts");
-/* harmony import */ var _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./Components/frontend/logins/hospital-login/hospital-login.component */ "./src/app/Components/frontend/logins/hospital-login/hospital-login.component.ts");
-/* harmony import */ var _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! ./Components/common/upload-dialog-box/upload-dialog-box.component */ "./src/app/Components/common/upload-dialog-box/upload-dialog-box.component.ts");
-/* harmony import */ var _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ./Components/frontend/logins/login/login.component */ "./src/app/Components/frontend/logins/login/login.component.ts");
-/* harmony import */ var contactus__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! contactus */ "./dist/contactus/fesm2015/contactus.js");
-/* harmony import */ var ngx_moment__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ngx-moment */ "./node_modules/ngx-moment/fesm2015/ngx-moment.js");
-/* harmony import */ var _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component.ts");
-/* harmony import */ var _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component.ts");
-/* harmony import */ var _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./Components/miscellaneous/contactus-listing/contactus-listing.component */ "./src/app/Components/miscellaneous/contactus-listing/contactus-listing.component.ts");
-/* harmony import */ var _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/add-edit-language/add-edit-language.component */ "./src/app/Components/miscellaneous/language-container/add-edit-language/add-edit-language.component.ts");
-/* harmony import */ var _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/listing-language/listing-language.component */ "./src/app/Components/miscellaneous/language-container/listing-language/listing-language.component.ts");
-/* harmony import */ var _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component.ts");
-/* harmony import */ var _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.ts");
-/* harmony import */ var _ngx_meta_core__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! @ngx-meta/core */ "./node_modules/@ngx-meta/core/fesm2015/ngx-meta-core.js");
-/* harmony import */ var _Components_miscellaneous_addcontactinfo_addcontactinfo_component__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./Components/miscellaneous/addcontactinfo/addcontactinfo.component */ "./src/app/Components/miscellaneous/addcontactinfo/addcontactinfo.component.ts");
-/* harmony import */ var _Components_frontend_quotes_cart_quotes_cart_component__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./Components/frontend/quotes-cart/quotes-cart.component */ "./src/app/Components/frontend/quotes-cart/quotes-cart.component.ts");
-/* harmony import */ var _Components_admin_admin_dashboard_hospital_viewdetails_admin_dashboard_hospital_viewdetails_component__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component */ "./src/app/Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component.ts");
-/* harmony import */ var _Components_admin_admin_details_admin_details_component__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./Components/admin/admin-details/admin-details.component */ "./src/app/Components/admin/admin-details/admin-details.component.ts");
-/* harmony import */ var _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./Components/backend/sales-rep/quote-view/quote-view.component */ "./src/app/Components/backend/sales-rep/quote-view/quote-view.component.ts");
-/* harmony import */ var _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./Components/admin/purchase-quotes-listing/purchase-quotes-listing.component */ "./src/app/Components/admin/purchase-quotes-listing/purchase-quotes-listing.component.ts");
-/* harmony import */ var _Components_inventory_purchase_comparison_search_list_purchase_comparison_search_list_component__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component */ "./src/app/Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component.ts");
-/* harmony import */ var _Components_inventory_admin_inventory_details_admin_inventory_details_component__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! ./Components/inventory/admin-inventory-details/admin-inventory-details.component */ "./src/app/Components/inventory/admin-inventory-details/admin-inventory-details.component.ts");
-/* harmony import */ var _Components_inventory_addinventorylistingquote_addinventorylistingquote_component__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! ./Components/inventory/addinventorylistingquote/addinventorylistingquote.component */ "./src/app/Components/inventory/addinventorylistingquote/addinventorylistingquote.component.ts");
-
+/* harmony import */ var ngx_clipboard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-clipboard */ "./node_modules/ngx-clipboard/fesm2015/ngx-clipboard.js");
+/* harmony import */ var _Modules_app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Modules/app-routing.module */ "./src/app/Modules/app-routing.module.ts");
+/* harmony import */ var _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/auth/login/login.component */ "./src/app/Components/auth/login/login.component.ts");
+/* harmony import */ var _Components_auth_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/auth/reset-password/reset-password.component */ "./src/app/Components/auth/reset-password/reset-password.component.ts");
+/* harmony import */ var _Components_auth_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/auth/forgot-password/forgot-password.component */ "./src/app/Components/auth/forgot-password/forgot-password.component.ts");
+/* harmony import */ var _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/admin/dashboard-admin/dashboard-admin.component */ "./src/app/Components/admin/dashboard-admin/dashboard-admin.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _Components_admin_adminheader_adminheader_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./Components/admin/adminheader/adminheader.component */ "./src/app/Components/admin/adminheader/adminheader.component.ts");
+/* harmony import */ var _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./Components/admin/footer/footer.component */ "./src/app/Components/admin/footer/footer.component.ts");
+/* harmony import */ var _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./Components/admin/left-nav/left-nav.component */ "./src/app/Components/admin/left-nav/left-nav.component.ts");
+/* harmony import */ var ngx_ckeditor__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ngx-ckeditor */ "./node_modules/ngx-ckeditor/fesm2015/ngx-ckeditor.js");
+/* harmony import */ var ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-daterangepicker-material */ "./node_modules/ngx-daterangepicker-material/fesm2015/ngx-daterangepicker-material.js");
+/* harmony import */ var _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./Components/admin/admin-management/add-edit-admin/add-edit-admin.component */ "./src/app/Components/admin/admin-management/add-edit-admin/add-edit-admin.component.ts");
+/* harmony import */ var _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./Components/admin/admin-management/listing-admin/listing-admin.component */ "./src/app/Components/admin/admin-management/listing-admin/listing-admin.component.ts");
+/* harmony import */ var _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/listing-medicalpartners/listing-medicalpartners.component.ts");
+/* harmony import */ var _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component */ "./src/app/Components/admin/medicalpartners-management/add-edit-medicalpartners/add-edit-medicalpartners.component.ts");
+/* harmony import */ var _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component */ "./src/app/Components/admin/salesrep-management/listing-salesrep/listing-salesrep.component.ts");
+/* harmony import */ var _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component */ "./src/app/Components/admin/salesrep-management/add-edit-salesrep/add-edit-salesrep.component.ts");
+/* harmony import */ var blog_lib_influxiq__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! blog-lib-influxiq */ "./node_modules/blog-lib-influxiq/fesm2015/blog-lib-influxiq.js");
+/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogs/add-edit-blogs.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogs/listing-blogs.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/add-edit-blogcat/add-edit-blogcat.component.ts");
+/* harmony import */ var _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component */ "./src/app/Components/managewebsites/blogmanagement/listing-blogcat/listing-blogcat.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component */ "./src/app/Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team/listing-team.component */ "./src/app/Components/managewebsites/teammanagement/listing-team/listing-team.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component.ts");
+/* harmony import */ var _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component */ "./src/app/Components/managewebsites/teammanagement/addedit-team-cat/addedit-team-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/add-edit-inventory-cat/add-edit-inventory-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component */ "./src/app/Components/inventory/manageinventory/inventory_category/listing-inventory-cat/listing-inventory-cat.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component */ "./src/app/Components/inventory/manageinventory/brand/add-edit-brand/add-edit-brand.component.ts");
+/* harmony import */ var _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./Components/inventory/manageinventory/brand/listing-brand/listing-brand.component */ "./src/app/Components/inventory/manageinventory/brand/listing-brand/listing-brand.component.ts");
+/* harmony import */ var _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component */ "./src/app/Components/inventory/inventorylist/add-edit-inventory/add-edit-inventory.component.ts");
+/* harmony import */ var _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./Components/inventory/inventorylist/listing-inventory/listing-inventory.component */ "./src/app/Components/inventory/inventorylist/listing-inventory/listing-inventory.component.ts");
+/* harmony import */ var _services_loader_service__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./services/loader.service */ "./src/app/services/loader.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./Class/common/loader.interceptor */ "./src/app/Class/common/loader.interceptor.ts");
+/* harmony import */ var _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./Components/common/http-loader/http-loader.component */ "./src/app/Components/common/http-loader/http-loader.component.ts");
+/* harmony import */ var _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./Components/common/accounts/accounts.component */ "./src/app/Components/common/accounts/accounts.component.ts");
+/* harmony import */ var _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./Components/common/dialog-box/dialog-box.component */ "./src/app/Components/common/dialog-box/dialog-box.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./Components/frontend/home-page/home-page.component */ "./src/app/Components/frontend/home-page/home-page.component.ts");
+/* harmony import */ var _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./Components/frontend/buy-from-us/buy-from-us.component */ "./src/app/Components/frontend/buy-from-us/buy-from-us.component.ts");
+/* harmony import */ var _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./Components/frontend/manufacturar-direct/manufacturar-direct.component */ "./src/app/Components/frontend/manufacturar-direct/manufacturar-direct.component.ts");
+/* harmony import */ var _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./Components/frontend/medical-partners/medical-partners.component */ "./src/app/Components/frontend/medical-partners/medical-partners.component.ts");
+/* harmony import */ var _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./Components/frontend/contact-us/contact-us.component */ "./src/app/Components/frontend/contact-us/contact-us.component.ts");
+/* harmony import */ var _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./Components/frontend/team-page/team-page.component */ "./src/app/Components/frontend/team-page/team-page.component.ts");
+/* harmony import */ var _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./Components/frontend/blog/blog.component */ "./src/app/Components/frontend/blog/blog.component.ts");
+/* harmony import */ var _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./Components/frontend/blog-details/blog-details.component */ "./src/app/Components/frontend/blog-details/blog-details.component.ts");
+/* harmony import */ var _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./Components/frontend/inventory/inventory.component */ "./src/app/Components/frontend/inventory/inventory.component.ts");
+/* harmony import */ var _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./Components/frontend/inventory-details/inventory-details.component */ "./src/app/Components/frontend/inventory-details/inventory-details.component.ts");
+/* harmony import */ var _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./Components/frontend/about-us-front/about-us-front.component */ "./src/app/Components/frontend/about-us-front/about-us-front.component.ts");
+/* harmony import */ var _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./Components/frontend/logins/sales-rep-login/sales-rep-login.component */ "./src/app/Components/frontend/logins/sales-rep-login/sales-rep-login.component.ts");
+/* harmony import */ var _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./Components/backend/hospital/my-details-hospital/my-details-hospital.component */ "./src/app/Components/backend/hospital/my-details-hospital/my-details-hospital.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_63__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-change-password/hospital-change-password.component */ "./src/app/Components/backend/hospital/hospital-change-password/hospital-change-password.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_64__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component */ "./src/app/Components/backend/hospital/hospital-my-salesrep/hospital-my-salesrep.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_65__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component */ "./src/app/Components/backend/hospital/hospital-inventory-added/hospital-inventory-added.component.ts");
+/* harmony import */ var _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_66__ = __webpack_require__(/*! ./Components/backend/hospital/details-inventory/details-inventory.component */ "./src/app/Components/backend/hospital/details-inventory/details-inventory.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_67__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component */ "./src/app/Components/backend/hospital/hospital-add-inventory/hospital-add-inventory.component.ts");
+/* harmony import */ var _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_68__ = __webpack_require__(/*! ./Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component */ "./src/app/Components/backend/hospital/hospital-view-quotes/hospital-view-quotes.component.ts");
+/* harmony import */ var _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_69__ = __webpack_require__(/*! ./Components/backend/hospital/details-quotes/details-quotes.component */ "./src/app/Components/backend/hospital/details-quotes/details-quotes.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_70__ = __webpack_require__(/*! ./Components/backend/sales-rep/my-details/my-details.component */ "./src/app/Components/backend/sales-rep/my-details/my-details.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_71__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component */ "./src/app/Components/backend/sales-rep/salesrep-change-password/salesrep-change-password.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_72__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component */ "./src/app/Components/backend/sales-rep/salesrep-hospital/salesrep-hospital.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_73__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component */ "./src/app/Components/backend/sales-rep/salesrep-inventory-added/salesrep-inventory-added.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_74__ = __webpack_require__(/*! ./Components/backend/sales-rep/edit-inventory/edit-inventory.component */ "./src/app/Components/backend/sales-rep/edit-inventory/edit-inventory.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_75__ = __webpack_require__(/*! ./Components/backend/sales-rep/details-inventory/details-inventory.component */ "./src/app/Components/backend/sales-rep/details-inventory/details-inventory.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_76__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component */ "./src/app/Components/backend/sales-rep/salesrep-view-quotes/salesrep-view-quotes.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_77__ = __webpack_require__(/*! ./Components/backend/sales-rep/salesrep-sales/salesrep-sales.component */ "./src/app/Components/backend/sales-rep/salesrep-sales/salesrep-sales.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_78__ = __webpack_require__(/*! ./Components/backend/sales-rep/manage-hospital/manage-hospital.component */ "./src/app/Components/backend/sales-rep/manage-hospital/manage-hospital.component.ts");
+/* harmony import */ var _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_79__ = __webpack_require__(/*! ./Components/frontend/frontend-footer/frontend-footer.component */ "./src/app/Components/frontend/frontend-footer/frontend-footer.component.ts");
+/* harmony import */ var _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_80__ = __webpack_require__(/*! ./Components/frontend/frontend-header/frontend-header.component */ "./src/app/Components/frontend/frontend-header/frontend-header.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_81__ = __webpack_require__(/*! ./Components/backend/sales-rep/myaccount/myaccount.component */ "./src/app/Components/backend/sales-rep/myaccount/myaccount.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_82__ = __webpack_require__(/*! ./Components/backend/sales-rep/left-nav-sales/left-nav-sales.component */ "./src/app/Components/backend/sales-rep/left-nav-sales/left-nav-sales.component.ts");
+/* harmony import */ var _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_83__ = __webpack_require__(/*! ./Components/frontend/logins/hospital-login/hospital-login.component */ "./src/app/Components/frontend/logins/hospital-login/hospital-login.component.ts");
+/* harmony import */ var _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_84__ = __webpack_require__(/*! ./Components/common/upload-dialog-box/upload-dialog-box.component */ "./src/app/Components/common/upload-dialog-box/upload-dialog-box.component.ts");
+/* harmony import */ var _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_85__ = __webpack_require__(/*! ./Components/frontend/logins/login/login.component */ "./src/app/Components/frontend/logins/login/login.component.ts");
+/* harmony import */ var contactus__WEBPACK_IMPORTED_MODULE_86__ = __webpack_require__(/*! contactus */ "./dist/contactus/fesm2015/contactus.js");
+/* harmony import */ var ngx_moment__WEBPACK_IMPORTED_MODULE_87__ = __webpack_require__(/*! ngx-moment */ "./node_modules/ngx-moment/fesm2015/ngx-moment.js");
+/* harmony import */ var _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component.ts");
+/* harmony import */ var _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_89__ = __webpack_require__(/*! ./Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component */ "./src/app/Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component.ts");
+/* harmony import */ var _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_90__ = __webpack_require__(/*! ./Components/miscellaneous/contactus-listing/contactus-listing.component */ "./src/app/Components/miscellaneous/contactus-listing/contactus-listing.component.ts");
+/* harmony import */ var _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_91__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/add-edit-language/add-edit-language.component */ "./src/app/Components/miscellaneous/language-container/add-edit-language/add-edit-language.component.ts");
+/* harmony import */ var _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_92__ = __webpack_require__(/*! ./Components/miscellaneous/language-container/listing-language/listing-language.component */ "./src/app/Components/miscellaneous/language-container/listing-language/listing-language.component.ts");
+/* harmony import */ var _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_93__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/add-edit-purchase-comparison/add-edit-purchase-comparison.component.ts");
+/* harmony import */ var _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component */ "./src/app/Components/inventory/purchasecomparison/listing-purchase-comparison/listing-purchase-comparison.component.ts");
+/* harmony import */ var _ngx_meta_core__WEBPACK_IMPORTED_MODULE_95__ = __webpack_require__(/*! @ngx-meta/core */ "./node_modules/@ngx-meta/core/fesm2015/ngx-meta-core.js");
+/* harmony import */ var _Components_miscellaneous_addcontactinfo_addcontactinfo_component__WEBPACK_IMPORTED_MODULE_96__ = __webpack_require__(/*! ./Components/miscellaneous/addcontactinfo/addcontactinfo.component */ "./src/app/Components/miscellaneous/addcontactinfo/addcontactinfo.component.ts");
+/* harmony import */ var _Components_frontend_quotes_cart_quotes_cart_component__WEBPACK_IMPORTED_MODULE_97__ = __webpack_require__(/*! ./Components/frontend/quotes-cart/quotes-cart.component */ "./src/app/Components/frontend/quotes-cart/quotes-cart.component.ts");
+/* harmony import */ var _Components_admin_admin_dashboard_hospital_viewdetails_admin_dashboard_hospital_viewdetails_component__WEBPACK_IMPORTED_MODULE_98__ = __webpack_require__(/*! ./Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component */ "./src/app/Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component.ts");
+/* harmony import */ var _Components_admin_admin_details_admin_details_component__WEBPACK_IMPORTED_MODULE_99__ = __webpack_require__(/*! ./Components/admin/admin-details/admin-details.component */ "./src/app/Components/admin/admin-details/admin-details.component.ts");
+/* harmony import */ var _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_100__ = __webpack_require__(/*! ./Components/backend/sales-rep/quote-view/quote-view.component */ "./src/app/Components/backend/sales-rep/quote-view/quote-view.component.ts");
+/* harmony import */ var _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_101__ = __webpack_require__(/*! ./Components/admin/purchase-quotes-listing/purchase-quotes-listing.component */ "./src/app/Components/admin/purchase-quotes-listing/purchase-quotes-listing.component.ts");
+/* harmony import */ var _Components_inventory_purchase_comparison_search_list_purchase_comparison_search_list_component__WEBPACK_IMPORTED_MODULE_102__ = __webpack_require__(/*! ./Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component */ "./src/app/Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component.ts");
+/* harmony import */ var _Components_inventory_admin_inventory_details_admin_inventory_details_component__WEBPACK_IMPORTED_MODULE_103__ = __webpack_require__(/*! ./Components/inventory/admin-inventory-details/admin-inventory-details.component */ "./src/app/Components/inventory/admin-inventory-details/admin-inventory-details.component.ts");
+/* harmony import */ var _Components_inventory_addinventorylistingquote_addinventorylistingquote_component__WEBPACK_IMPORTED_MODULE_104__ = __webpack_require__(/*! ./Components/inventory/addinventorylistingquote/addinventorylistingquote.component */ "./src/app/Components/inventory/addinventorylistingquote/addinventorylistingquote.component.ts");
+/* harmony import */ var file_upload_lib_influxiq__WEBPACK_IMPORTED_MODULE_105__ = __webpack_require__(/*! file-upload-lib-influxiq */ "./node_modules/file-upload-lib-influxiq/fesm2015/file-upload-lib-influxiq.js");
+/* harmony import */ var team_lib_influxiq__WEBPACK_IMPORTED_MODULE_106__ = __webpack_require__(/*! team-lib-influxiq */ "./node_modules/team-lib-influxiq/fesm2015/team-lib-influxiq.js");
+/* harmony import */ var _Components_inventory_purchasecomparison_purchasecomparisoncart_purchasecomparisoncart_component__WEBPACK_IMPORTED_MODULE_107__ = __webpack_require__(/*! ./Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component */ "./src/app/Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component.ts");
 
 
 
@@ -19150,7 +14857,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Team
-
 
 
 
@@ -19231,6 +14937,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 let AppModule = class AppModule {
     constructor(http, matIconRegistry) {
         this.http = http;
@@ -19238,132 +14947,132 @@ let AppModule = class AppModule {
     }
 };
 AppModule.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClient"] },
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_51__["MatIconRegistry"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_44__["HttpClient"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_49__["MatIconRegistry"] }
 ];
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
             _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-            _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-            _Components_auth_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_14__["ResetPasswordComponent"],
-            _Components_auth_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_15__["ForgotPasswordComponent"],
-            _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_16__["DashboardAdminComponent"],
-            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["AddEditAdminComponent"],
-            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["Modal"],
-            _Components_inventory_admin_inventory_details_admin_inventory_details_component__WEBPACK_IMPORTED_MODULE_105__["AdminInventoryDetailsComponent"],
-            _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_24__["ListingAdminComponent"],
-            _Components_inventory_addinventorylistingquote_addinventorylistingquote_component__WEBPACK_IMPORTED_MODULE_106__["AddinventorylistingquoteComponent"],
-            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["AddEditMedicalpartnersComponent"],
-            _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["ListingMedicalpartnersComponent"],
-            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["Modal2"],
-            _Components_inventory_purchase_comparison_search_list_purchase_comparison_search_list_component__WEBPACK_IMPORTED_MODULE_104__["PurchaseComparisonSearchListComponent"],
-            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["AddEditSalesrepComponent"],
-            _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["ListingSalesrepComponent"],
-            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["Modal3"],
-            _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_103__["PurchaseQuotesListingComponent"],
-            _Components_admin_adminheader_adminheader_component__WEBPACK_IMPORTED_MODULE_18__["AdminheaderComponent"],
-            _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_19__["FooterComponent"],
-            _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__["LeftNavComponent"],
-            _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_30__["AddEditBlogsComponent"],
-            _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_31__["ListingBlogsComponent"],
-            _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_32__["AddEditBlogcatComponent"],
-            _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_33__["ListingBlogcatComponent"],
-            _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_35__["AddEditTeamComponent"],
-            _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_36__["ListingTeamComponent"],
-            _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_37__["ListingTeamCatComponent"],
-            _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_38__["AddeditTeamCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["AddEditInventoryCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_40__["ListingInventoryCatComponent"],
-            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["Modal4"],
-            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["AddEditBrandComponent"],
-            _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_42__["ListingBrandComponent"],
-            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["Modal5"],
-            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["Modal6"],
-            _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_43__["AddEditInventoryComponent"],
-            _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_44__["ListingInventoryComponent"],
-            _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_48__["HttpLoaderComponent"],
-            _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_49__["AccountsComponent"],
-            _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__["DialogBoxComponent"],
+            _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
+            _Components_auth_reset_password_reset_password_component__WEBPACK_IMPORTED_MODULE_13__["ResetPasswordComponent"],
+            _Components_auth_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_14__["ForgotPasswordComponent"],
+            _Components_admin_dashboard_admin_dashboard_admin_component__WEBPACK_IMPORTED_MODULE_15__["DashboardAdminComponent"],
+            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["AddEditAdminComponent"],
+            _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["Modal"],
+            _Components_inventory_admin_inventory_details_admin_inventory_details_component__WEBPACK_IMPORTED_MODULE_103__["AdminInventoryDetailsComponent"],
+            _Components_admin_admin_management_listing_admin_listing_admin_component__WEBPACK_IMPORTED_MODULE_23__["ListingAdminComponent"],
+            _Components_inventory_addinventorylistingquote_addinventorylistingquote_component__WEBPACK_IMPORTED_MODULE_104__["AddinventorylistingquoteComponent"],
+            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["AddEditMedicalpartnersComponent"],
+            _Components_admin_medicalpartners_management_listing_medicalpartners_listing_medicalpartners_component__WEBPACK_IMPORTED_MODULE_24__["ListingMedicalpartnersComponent"],
+            _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["Modal2"],
+            _Components_inventory_purchase_comparison_search_list_purchase_comparison_search_list_component__WEBPACK_IMPORTED_MODULE_102__["PurchaseComparisonSearchListComponent"],
+            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["AddEditSalesrepComponent"],
+            _Components_admin_salesrep_management_listing_salesrep_listing_salesrep_component__WEBPACK_IMPORTED_MODULE_26__["ListingSalesrepComponent"],
+            _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["Modal3"],
+            _Components_admin_purchase_quotes_listing_purchase_quotes_listing_component__WEBPACK_IMPORTED_MODULE_101__["PurchaseQuotesListingComponent"],
+            _Components_admin_adminheader_adminheader_component__WEBPACK_IMPORTED_MODULE_17__["AdminheaderComponent"],
+            _Components_admin_footer_footer_component__WEBPACK_IMPORTED_MODULE_18__["FooterComponent"],
+            _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_19__["LeftNavComponent"],
+            _Components_managewebsites_blogmanagement_add_edit_blogs_add_edit_blogs_component__WEBPACK_IMPORTED_MODULE_29__["AddEditBlogsComponent"],
+            _Components_managewebsites_blogmanagement_listing_blogs_listing_blogs_component__WEBPACK_IMPORTED_MODULE_30__["ListingBlogsComponent"],
+            _Components_managewebsites_blogmanagement_add_edit_blogcat_add_edit_blogcat_component__WEBPACK_IMPORTED_MODULE_31__["AddEditBlogcatComponent"],
+            _Components_managewebsites_blogmanagement_listing_blogcat_listing_blogcat_component__WEBPACK_IMPORTED_MODULE_32__["ListingBlogcatComponent"],
+            _Components_managewebsites_teammanagement_add_edit_team_add_edit_team_component__WEBPACK_IMPORTED_MODULE_33__["AddEditTeamComponent"],
+            _Components_managewebsites_teammanagement_listing_team_listing_team_component__WEBPACK_IMPORTED_MODULE_34__["ListingTeamComponent"],
+            _Components_managewebsites_teammanagement_listing_team_cat_listing_team_cat_component__WEBPACK_IMPORTED_MODULE_35__["ListingTeamCatComponent"],
+            _Components_managewebsites_teammanagement_addedit_team_cat_addedit_team_cat_component__WEBPACK_IMPORTED_MODULE_36__["AddeditTeamCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_37__["AddEditInventoryCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_listing_inventory_cat_listing_inventory_cat_component__WEBPACK_IMPORTED_MODULE_38__["ListingInventoryCatComponent"],
+            _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_37__["Modal4"],
+            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_39__["AddEditBrandComponent"],
+            _Components_inventory_manageinventory_brand_listing_brand_listing_brand_component__WEBPACK_IMPORTED_MODULE_40__["ListingBrandComponent"],
+            _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_39__["Modal5"],
+            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["Modal6"],
+            _Components_inventory_inventorylist_add_edit_inventory_add_edit_inventory_component__WEBPACK_IMPORTED_MODULE_41__["AddEditInventoryComponent"],
+            _Components_inventory_inventorylist_listing_inventory_listing_inventory_component__WEBPACK_IMPORTED_MODULE_42__["ListingInventoryComponent"],
+            _Components_common_http_loader_http_loader_component__WEBPACK_IMPORTED_MODULE_46__["HttpLoaderComponent"],
+            _Components_common_accounts_accounts_component__WEBPACK_IMPORTED_MODULE_47__["AccountsComponent"],
+            _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_48__["DialogBoxComponent"],
             // front end
-            _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_52__["HomePageComponent"],
-            _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_53__["BuyFromUsComponent"],
-            _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_54__["ManufacturarDirectComponent"],
-            _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_55__["MedicalPartnersComponent"],
-            _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_56__["ContactUsComponent"],
-            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamPageComponent"],
-            _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_58__["BlogComponentFrontEnd"],
-            _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_59__["BlogDetailsComponent"],
-            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__["InventoryComponent"],
-            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__["InventoryDetailsComponent"],
-            _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_62__["AboutUsFrontComponent"],
-            _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_63__["SalesRepLoginComponent"],
-            _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_64__["MyDetailsHospitalComponent"],
-            _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_65__["HospitalChangePasswordComponent"],
-            _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_66__["HospitalMySalesrepComponent"],
-            _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_67__["HospitalInventoryAddedComponent"],
-            _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_68__["DetailsHospitalInventoryComponent"],
-            _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_69__["HospitalAddInventoryComponent"],
-            _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_70__["HospitalViewQuotesComponent"],
-            _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_71__["DetailsQuotesComponent"],
-            _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_72__["MyDetailsComponent"],
-            _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_73__["SalesrepChangePasswordComponent"],
-            _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_74__["SalesrepHospitalComponent"],
-            _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_75__["SalesrepInventoryAddedComponent"],
-            _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_76__["EditInventoryComponent"],
-            _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_77__["DetailsInventoryComponent"],
-            _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_78__["SalesrepViewQuotesComponent"],
-            _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_79__["SalesrepSalesComponent"],
-            _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_80__["ManageHospitalComponent"],
-            _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_81__["FrontendFooterComponent"],
-            _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_82__["FrontendHeaderComponent"],
-            _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_83__["MyaccountComponent"],
-            _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_20__["LeftNavComponent"],
-            _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_84__["LeftNavSalesComponent"],
-            _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_85__["HospitalLoginComponent"],
-            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__["UploadDialogBoxComponent"],
-            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_86__["DialogContentExampleDialog"],
-            _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-            _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_87__["LoginAdminComponent"],
-            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamDetails"],
-            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["AddEditPriceMarkupManagementComponent"],
-            _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_91__["ListingPriceMarkupManagementComponent"],
-            _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_92__["ContactusListingComponent"],
-            _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_93__["AddEditLanguageComponent"],
-            _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_94__["ListingLanguageComponent"],
-            _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_95__["AddEditPurchaseComparisonComponent"],
-            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["ListingPurchaseComparisonComponent"],
-            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__["Dialoglogin"],
-            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__["Dialogloginn"],
-            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["quoteModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["sendMailModal"], _Components_miscellaneous_addcontactinfo_addcontactinfo_component__WEBPACK_IMPORTED_MODULE_98__["AddcontactinfoComponent"], _Components_frontend_quotes_cart_quotes_cart_component__WEBPACK_IMPORTED_MODULE_99__["QuotesCartComponent"], _Components_admin_admin_dashboard_hospital_viewdetails_admin_dashboard_hospital_viewdetails_component__WEBPACK_IMPORTED_MODULE_100__["AdminDashboardHospitalViewdetailsComponent"], _Components_admin_admin_details_admin_details_component__WEBPACK_IMPORTED_MODULE_101__["AdminDetailsComponent"], _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_102__["QuoteViewComponent"],
+            _Components_frontend_home_page_home_page_component__WEBPACK_IMPORTED_MODULE_50__["HomePageComponent"],
+            _Components_frontend_buy_from_us_buy_from_us_component__WEBPACK_IMPORTED_MODULE_51__["BuyFromUsComponent"],
+            _Components_frontend_manufacturar_direct_manufacturar_direct_component__WEBPACK_IMPORTED_MODULE_52__["ManufacturarDirectComponent"],
+            _Components_frontend_medical_partners_medical_partners_component__WEBPACK_IMPORTED_MODULE_53__["MedicalPartnersComponent"],
+            _Components_frontend_contact_us_contact_us_component__WEBPACK_IMPORTED_MODULE_54__["ContactUsComponent"],
+            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_55__["TeamPageComponent"],
+            _Components_frontend_blog_blog_component__WEBPACK_IMPORTED_MODULE_56__["BlogComponentFrontEnd"],
+            _Components_frontend_blog_details_blog_details_component__WEBPACK_IMPORTED_MODULE_57__["BlogDetailsComponent"],
+            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_58__["InventoryComponent"],
+            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_59__["InventoryDetailsComponent"],
+            _Components_frontend_about_us_front_about_us_front_component__WEBPACK_IMPORTED_MODULE_60__["AboutUsFrontComponent"],
+            _Components_frontend_logins_sales_rep_login_sales_rep_login_component__WEBPACK_IMPORTED_MODULE_61__["SalesRepLoginComponent"],
+            _Components_backend_hospital_my_details_hospital_my_details_hospital_component__WEBPACK_IMPORTED_MODULE_62__["MyDetailsHospitalComponent"],
+            _Components_backend_hospital_hospital_change_password_hospital_change_password_component__WEBPACK_IMPORTED_MODULE_63__["HospitalChangePasswordComponent"],
+            _Components_backend_hospital_hospital_my_salesrep_hospital_my_salesrep_component__WEBPACK_IMPORTED_MODULE_64__["HospitalMySalesrepComponent"],
+            _Components_backend_hospital_hospital_inventory_added_hospital_inventory_added_component__WEBPACK_IMPORTED_MODULE_65__["HospitalInventoryAddedComponent"],
+            _Components_backend_hospital_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_66__["DetailsHospitalInventoryComponent"],
+            _Components_backend_hospital_hospital_add_inventory_hospital_add_inventory_component__WEBPACK_IMPORTED_MODULE_67__["HospitalAddInventoryComponent"],
+            _Components_backend_hospital_hospital_view_quotes_hospital_view_quotes_component__WEBPACK_IMPORTED_MODULE_68__["HospitalViewQuotesComponent"],
+            _Components_backend_hospital_details_quotes_details_quotes_component__WEBPACK_IMPORTED_MODULE_69__["DetailsQuotesComponent"],
+            _Components_backend_sales_rep_my_details_my_details_component__WEBPACK_IMPORTED_MODULE_70__["MyDetailsComponent"],
+            _Components_backend_sales_rep_salesrep_change_password_salesrep_change_password_component__WEBPACK_IMPORTED_MODULE_71__["SalesrepChangePasswordComponent"],
+            _Components_backend_sales_rep_salesrep_hospital_salesrep_hospital_component__WEBPACK_IMPORTED_MODULE_72__["SalesrepHospitalComponent"],
+            _Components_backend_sales_rep_salesrep_inventory_added_salesrep_inventory_added_component__WEBPACK_IMPORTED_MODULE_73__["SalesrepInventoryAddedComponent"],
+            _Components_backend_sales_rep_edit_inventory_edit_inventory_component__WEBPACK_IMPORTED_MODULE_74__["EditInventoryComponent"],
+            _Components_backend_sales_rep_details_inventory_details_inventory_component__WEBPACK_IMPORTED_MODULE_75__["DetailsInventoryComponent"],
+            _Components_backend_sales_rep_salesrep_view_quotes_salesrep_view_quotes_component__WEBPACK_IMPORTED_MODULE_76__["SalesrepViewQuotesComponent"],
+            _Components_backend_sales_rep_salesrep_sales_salesrep_sales_component__WEBPACK_IMPORTED_MODULE_77__["SalesrepSalesComponent"],
+            _Components_backend_sales_rep_manage_hospital_manage_hospital_component__WEBPACK_IMPORTED_MODULE_78__["ManageHospitalComponent"],
+            _Components_frontend_frontend_footer_frontend_footer_component__WEBPACK_IMPORTED_MODULE_79__["FrontendFooterComponent"],
+            _Components_frontend_frontend_header_frontend_header_component__WEBPACK_IMPORTED_MODULE_80__["FrontendHeaderComponent"],
+            _Components_backend_sales_rep_myaccount_myaccount_component__WEBPACK_IMPORTED_MODULE_81__["MyaccountComponent"],
+            _Components_admin_left_nav_left_nav_component__WEBPACK_IMPORTED_MODULE_19__["LeftNavComponent"],
+            _Components_backend_sales_rep_left_nav_sales_left_nav_sales_component__WEBPACK_IMPORTED_MODULE_82__["LeftNavSalesComponent"],
+            _Components_frontend_logins_hospital_login_hospital_login_component__WEBPACK_IMPORTED_MODULE_83__["HospitalLoginComponent"],
+            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_84__["UploadDialogBoxComponent"],
+            _Components_common_upload_dialog_box_upload_dialog_box_component__WEBPACK_IMPORTED_MODULE_84__["DialogContentExampleDialog"],
+            _Components_auth_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
+            _Components_frontend_logins_login_login_component__WEBPACK_IMPORTED_MODULE_85__["LoginAdminComponent"],
+            _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_55__["TeamDetails"],
+            _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["AddEditPriceMarkupManagementComponent"],
+            _Components_inventory_priceMarkupManagementList_listing_price_markup_management_listing_price_markup_management_component__WEBPACK_IMPORTED_MODULE_89__["ListingPriceMarkupManagementComponent"],
+            _Components_miscellaneous_contactus_listing_contactus_listing_component__WEBPACK_IMPORTED_MODULE_90__["ContactusListingComponent"],
+            _Components_miscellaneous_language_container_add_edit_language_add_edit_language_component__WEBPACK_IMPORTED_MODULE_91__["AddEditLanguageComponent"],
+            _Components_miscellaneous_language_container_listing_language_listing_language_component__WEBPACK_IMPORTED_MODULE_92__["ListingLanguageComponent"],
+            _Components_inventory_purchasecomparison_add_edit_purchase_comparison_add_edit_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_93__["AddEditPurchaseComparisonComponent"],
+            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["ListingPurchaseComparisonComponent"],
+            _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_58__["Dialoglogin"],
+            _Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_59__["Dialogloginn"],
+            _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["quoteModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["sendMailModal"], _Components_miscellaneous_addcontactinfo_addcontactinfo_component__WEBPACK_IMPORTED_MODULE_96__["AddcontactinfoComponent"], _Components_frontend_quotes_cart_quotes_cart_component__WEBPACK_IMPORTED_MODULE_97__["QuotesCartComponent"], _Components_admin_admin_dashboard_hospital_viewdetails_admin_dashboard_hospital_viewdetails_component__WEBPACK_IMPORTED_MODULE_98__["AdminDashboardHospitalViewdetailsComponent"], _Components_admin_admin_details_admin_details_component__WEBPACK_IMPORTED_MODULE_99__["AdminDetailsComponent"], _Components_backend_sales_rep_quote_view_quote_view_component__WEBPACK_IMPORTED_MODULE_100__["QuoteViewComponent"], _Components_inventory_purchasecomparison_purchasecomparisoncart_purchasecomparisoncart_component__WEBPACK_IMPORTED_MODULE_107__["PurchasecomparisoncartComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _Modules_app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
+            _Modules_app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
             _Modules_material_module__WEBPACK_IMPORTED_MODULE_5__["DemoMaterialModule"],
             login_lib_influxiq__WEBPACK_IMPORTED_MODULE_6__["LoginModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
             listing_angular7__WEBPACK_IMPORTED_MODULE_9__["ListingModule"],
-            file_upload_lib_influxiq__WEBPACK_IMPORTED_MODULE_10__["FileUploadModule"],
-            blog_lib_influxiq__WEBPACK_IMPORTED_MODULE_29__["BlogModule"],
-            ngx_ckeditor__WEBPACK_IMPORTED_MODULE_21__["CKEditorModule"],
-            team__WEBPACK_IMPORTED_MODULE_34__["TeamModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"],
-            contactus__WEBPACK_IMPORTED_MODULE_88__["ContactusModule"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_17__["CommonModule"],
-            ngx_moment__WEBPACK_IMPORTED_MODULE_89__["MomentModule"],
-            ngx_clipboard__WEBPACK_IMPORTED_MODULE_11__["ClipboardModule"],
-            ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_22__["NgxDaterangepickerMd"].forRoot(),
-            _ngx_meta_core__WEBPACK_IMPORTED_MODULE_97__["MetaModule"].forRoot(),
+            file_upload_lib_influxiq__WEBPACK_IMPORTED_MODULE_105__["FileUploadModule"],
+            blog_lib_influxiq__WEBPACK_IMPORTED_MODULE_28__["BlogModule"],
+            ngx_ckeditor__WEBPACK_IMPORTED_MODULE_20__["CKEditorModule"],
+            team_lib_influxiq__WEBPACK_IMPORTED_MODULE_106__["TeamModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_44__["HttpClientModule"],
+            contactus__WEBPACK_IMPORTED_MODULE_86__["ContactusModule"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_16__["CommonModule"],
+            ngx_moment__WEBPACK_IMPORTED_MODULE_87__["MomentModule"],
+            ngx_clipboard__WEBPACK_IMPORTED_MODULE_10__["ClipboardModule"],
+            ngx_daterangepicker_material__WEBPACK_IMPORTED_MODULE_21__["NgxDaterangepickerMd"].forRoot(),
+            _ngx_meta_core__WEBPACK_IMPORTED_MODULE_95__["MetaModule"].forRoot(),
         ],
         providers: [ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
-            _services_loader_service__WEBPACK_IMPORTED_MODULE_45__["LoaderService"],
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HTTP_INTERCEPTORS"], useClass: _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_47__["LoaderInterceptor"], multi: true }],
+            _services_loader_service__WEBPACK_IMPORTED_MODULE_43__["LoaderService"],
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_44__["HTTP_INTERCEPTORS"], useClass: _Class_common_loader_interceptor__WEBPACK_IMPORTED_MODULE_45__["LoaderInterceptor"], multi: true }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["NO_ERRORS_SCHEMA"]],
-        entryComponents: [_Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_61__["Dialogloginn"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["sendMailModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_96__["quoteModal"], _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_41__["Modal5"], _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_60__["Dialoglogin"], _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_39__["Modal4"], _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_23__["Modal"], _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_26__["Modal2"], _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_28__["Modal3"], _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_90__["Modal6"], _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_50__["DialogBoxComponent"], _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_57__["TeamDetails"]]
+        entryComponents: [_Components_frontend_inventory_details_inventory_details_component__WEBPACK_IMPORTED_MODULE_59__["Dialogloginn"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["sendMailModal"], _Components_inventory_purchasecomparison_listing_purchase_comparison_listing_purchase_comparison_component__WEBPACK_IMPORTED_MODULE_94__["quoteModal"], _Components_inventory_manageinventory_brand_add_edit_brand_add_edit_brand_component__WEBPACK_IMPORTED_MODULE_39__["Modal5"], _Components_frontend_inventory_inventory_component__WEBPACK_IMPORTED_MODULE_58__["Dialoglogin"], _Components_inventory_manageinventory_inventory_category_add_edit_inventory_cat_add_edit_inventory_cat_component__WEBPACK_IMPORTED_MODULE_37__["Modal4"], _Components_admin_admin_management_add_edit_admin_add_edit_admin_component__WEBPACK_IMPORTED_MODULE_22__["Modal"], _Components_admin_medicalpartners_management_add_edit_medicalpartners_add_edit_medicalpartners_component__WEBPACK_IMPORTED_MODULE_25__["Modal2"], _Components_admin_salesrep_management_add_edit_salesrep_add_edit_salesrep_component__WEBPACK_IMPORTED_MODULE_27__["Modal3"], _Components_inventory_priceMarkupManagementList_add_edit_price_markup_management_add_edit_price_markup_management_component__WEBPACK_IMPORTED_MODULE_88__["Modal6"], _Components_common_dialog_box_dialog_box_component__WEBPACK_IMPORTED_MODULE_48__["DialogBoxComponent"], _Components_frontend_team_page_team_page_component__WEBPACK_IMPORTED_MODULE_55__["TeamDetails"]]
     })
 ], AppModule);
 
