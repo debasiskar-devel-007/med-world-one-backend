@@ -527,7 +527,7 @@ const routes: Routes = [
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
-        source: 'quote-listing_view',
+        source: 'quote_listing_details_view',
         condition: {}
       },
       endpoint: 'datalist'

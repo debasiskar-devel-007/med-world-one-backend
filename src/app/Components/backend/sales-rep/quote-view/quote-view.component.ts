@@ -124,7 +124,7 @@ public notes:string;
       source='purchase_comparison_quote-details';
     }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      source='';
+      source='quote-listing_details';
     }
     let postData={
 

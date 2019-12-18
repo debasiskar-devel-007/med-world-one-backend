@@ -13,6 +13,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
   public hospital_id:any;
+  public ids:any=[];
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add Listing Inventory";
@@ -263,7 +264,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       //console.log(postData);
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-          console.log(response);
+         // console.log(response);
         if (response.status == "success") {
             this.addinventorylistingquoteForm.reset();
             this._snackBar.open('Inventory Listing Added', '', {
@@ -272,7 +273,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
             //this.defaultData.inventory_image=null;
            this.imageblockflag=false;
            this.imageblockflag=true;
-            this.inventoryDetails.push(postData.data);
+            this.inventoryDetails.push(postData.data.inventory_details);
             this.router.events.subscribe(() =>
             window.scrollTo({
                 top: 0,
@@ -412,5 +413,47 @@ minus(){
 }
   trackByFn(index) {
     return index;
+  }
+
+  submitquote(){
+    let postData = {
+      "source": "quote_listing_details",
+      "data":{
+      "inventory_details": this.inventoryDetails,
+      "hospital_id": this.hospital_id,
+      "user_id": this.userId,
+      "status":0
+      },
+      "sourceobj":["hospital_id","quoted_by","user_id"]
+    };
+
+    // console.log(postData);
+    // console.log(this.inventoryDetails);
+
+    for(let i in this.inventoryDetails){
+        this.ids.push(this.inventoryDetails[i]._id);
+    }
+    // console.log(this.ids);
+
+
+    let deleteData={
+      "source": "quote-listing",
+      "ids":this.ids
+    }
+    //console.log(deleteData);
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
+      if(response.status="success"){
+        this._snackBar.open('Inventory Listing Submitted', '', {
+          duration: 2000,
+        });
+        this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+          if(response.status="success"){
+          this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+          }
+        })
+        
+      }
+    })
   }
 }
