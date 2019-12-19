@@ -2371,7 +2371,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card-content>\r\n    <mat-card-content >\r\n  \r\n      \r\n   \r\n      <h1>Your Quote Saved.</h1>\r\n    </mat-card-content>\r\n  \r\n    <span class=\"login_button\">\r\n    <button mat-button color=\"accent\" (click)=\"goToinventoryPage()\">Inventory</button>\r\n    <button mat-button color=\"primary\" (click)=\"goTodashboardPage()\">Dashboard</button>\r\n  </span>\r\n  </mat-card-content>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<mat-card-content>\r\n    <mat-card-content >\r\n  \r\n      \r\n   \r\n      <h1>Your Purchase Quote is successfully submitted. Please choose where you want to return.</h1>\r\n    </mat-card-content>\r\n  \r\n    <span class=\"login_button\">\r\n    <button mat-button color=\"accent\" (click)=\"goToinventoryPage()\">Inventory</button>\r\n    <button mat-button color=\"primary\" (click)=\"goTodashboardPage()\">Dashboard</button>\r\n  </span>\r\n  </mat-card-content>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/Components/frontend/team-page/team-page.component.html": 
@@ -8889,6 +8889,7 @@
                 /**get quote function */
                 QuotesCartComponent.prototype.getQuote = function () {
                     var _this = this;
+                    this.openDialog();
                     /**if sales */
                     if (this.userType == 'salesrep') {
                         if (this.userType == 'salesrep' && this.hospitalId == undefined) {
@@ -9013,9 +9014,11 @@
                 };
                 Dialoggetquote.prototype.goToinventoryPage = function () {
                     this.router.navigateByUrl('/inventory');
+                    this.onNoClick();
                 };
                 Dialoggetquote.prototype.goTodashboardPage = function () {
                     this.router.navigateByUrl('/dashboard-admin');
+                    this.onNoClick();
                 };
                 return Dialoggetquote;
             }());
@@ -9591,13 +9594,24 @@
                     this.http.httpViaPost('addorupdatedata', postData).subscribe(function (response) {
                         //console.log(response);
                         if (response.status = "success") {
-                            _this._snackBar.open('Inventory Listing Submitted', '', {
+                            _this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
                                 duration: 2000,
                             });
                             _this.http.httpViaPost('deletesingledatamany', deleteData).subscribe(function (response) {
                                 //console.log(response);
                                 if (response.status = "success") {
-                                    // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+                                    /**salesrep route */
+                                    if (_this.userType == 'salesrep') {
+                                        _this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+                                    }
+                                    /**hospital route */
+                                    if (_this.userType == 'salesrep') {
+                                        _this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+                                    }
+                                    /**hospital route */
+                                    if (_this.userType == 'admin') {
+                                        _this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+                                    }
                                 }
                             });
                         }

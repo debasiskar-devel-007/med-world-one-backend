@@ -2457,7 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-card-content>\r\n    <mat-card-content >\r\n  \r\n      \r\n   \r\n      <h1>Your Quote Saved.</h1>\r\n    </mat-card-content>\r\n  \r\n    <span class=\"login_button\">\r\n    <button mat-button color=\"accent\" (click)=\"goToinventoryPage()\">Inventory</button>\r\n    <button mat-button color=\"primary\" (click)=\"goTodashboardPage()\">Dashboard</button>\r\n  </span>\r\n  </mat-card-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-card-content>\r\n    <mat-card-content >\r\n  \r\n      \r\n   \r\n      <h1>Your Purchase Quote is successfully submitted. Please choose where you want to return.</h1>\r\n    </mat-card-content>\r\n  \r\n    <span class=\"login_button\">\r\n    <button mat-button color=\"accent\" (click)=\"goToinventoryPage()\">Inventory</button>\r\n    <button mat-button color=\"primary\" (click)=\"goTodashboardPage()\">Dashboard</button>\r\n  </span>\r\n  </mat-card-content>");
 
 /***/ }),
 
@@ -9461,6 +9461,7 @@ let QuotesCartComponent = class QuotesCartComponent {
     }
     /**get quote function */
     getQuote() {
+        this.openDialog();
         /**if sales */
         if (this.userType == 'salesrep') {
             if (this.userType == 'salesrep' && this.hospitalId == undefined) {
@@ -9584,9 +9585,11 @@ let Dialoggetquote = class Dialoggetquote {
     }
     goToinventoryPage() {
         this.router.navigateByUrl('/inventory');
+        this.onNoClick();
     }
     goTodashboardPage() {
         this.router.navigateByUrl('/dashboard-admin');
+        this.onNoClick();
     }
 };
 Dialoggetquote.ctorParameters = () => [
@@ -10176,13 +10179,24 @@ let AddinventorylistingquoteComponent = class AddinventorylistingquoteComponent 
         this.http.httpViaPost('addorupdatedata', postData).subscribe((response) => {
             //console.log(response);
             if (response.status = "success") {
-                this._snackBar.open('Inventory Listing Submitted', '', {
+                this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
                     duration: 2000,
                 });
                 this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response) => {
                     //console.log(response);
                     if (response.status = "success") {
-                        // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+                        /**salesrep route */
+                        if (this.userType == 'salesrep') {
+                            this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+                        }
+                        /**hospital route */
+                        if (this.userType == 'salesrep') {
+                            this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+                        }
+                        /**hospital route */
+                        if (this.userType == 'admin') {
+                            this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+                        }
                     }
                 });
             }

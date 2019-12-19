@@ -105,7 +105,7 @@ export class QuotesCartComponent implements OnInit {
 
   /**get quote function */
   getQuote() {
-    
+    this.openDialog();
     /**if sales */
     if(this.userType=='salesrep'){
 
@@ -250,8 +250,10 @@ export class Dialoggetquote {
   }
   goToinventoryPage(){
     this.router.navigateByUrl('/inventory');
+    this.onNoClick();
   }
   goTodashboardPage(){
     this.router.navigateByUrl('/dashboard-admin');
+    this.onNoClick();
   }
 }
