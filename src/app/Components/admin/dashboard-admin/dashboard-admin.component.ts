@@ -50,6 +50,8 @@ export class DashboardAdminComponent implements OnInit {
   public fullImagePath: any = [];
   public salesRepHospital: any = [];
   public count_dashboard: any;
+  public salesrepPurchaseQuote:any=[];
+  public salesrepListingQuote:any=[];
   public hospital_count:string;
   public salesrep_count:string;
   public inventory_count:string;
@@ -100,30 +102,30 @@ export class DashboardAdminComponent implements OnInit {
   getHospitalsSalesRep() {
 
     let data: any = {
-      source: 'users_view',
-      condition: {
-        'type': 'hospital',
-        "salesrepselect_object": this.userData._id
-      }
+                
+        "salesrepid": this.userData._id,
+        "user_id":this.userData._id
     }
-    this.http.httpViaPost('datalist', data).subscribe((response: any) => {
-      this.hospitalDetails = response.res;
-
+    this.http.httpViaPost('salesrepdashboard', data).subscribe((response: any) => {
+      console.log(response);
+      this.hospitalDetails = response.hospitaldetails;
+      this.salesrepPurchaseQuote=response.quotedetails;
+      this.salesrepListingQuote=response.quotelisting;
     });
 
-    let dta: any = {
-      source: 'purchasecomparison_view_admin',
-      condition: {
-        'salesrep_id_object': this.userData._id
-      },
-      token: this.cookieService.get('jwtToken')
-    }
+    // let dta: any = {
+    //   source: 'purchasecomparison_view_admin',
+    //   condition: {
+    //     'salesrep_id_object': this.userData._id
+    //   },
+    //   token: this.cookieService.get('jwtToken')
+    // }
 
-    this.http.httpViaPost('datalist', dta).subscribe(response => {
-      this.purcehseComparisionQuote = response.res;
-      //console.log(this.purcehseComparisionQuote);
+    // this.http.httpViaPost('datalist', dta).subscribe(response => {
+    //   this.purcehseComparisionQuote = response.res;
+    //   console.log(this.purcehseComparisionQuote);
 
-    });
+    // });
   }
 
 

@@ -32,8 +32,17 @@ export class PurchaseQuotesListingComponent implements OnInit {
   }
 /** quote details view*/
 viewQuoteDetails(quoteid:any,hospiid:any){
+ 
   if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasequote/list'){
-    //console.log("purchase Quote listing view route");
+    // console.log("purchase Quote");
+    this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+  }
+  if(this.router.routerState.snapshot.url=='/salesrep/managequotes/purchasequote/list'){
+    // console.log("purchase Quote");
+    this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+  }
+  if(this.router.routerState.snapshot.url=='/hospital/managequotes/purchasequote/list'){
+    // console.log("purchase Quote");
     this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
   }
   
