@@ -415,9 +415,9 @@
             <fieldset>
               <legend class="rep_avbbre">Sales Rep Details:</legend>
               <mat-list class="listu">
-                  <mat-list-item> <span> Name: &nbsp;</span> Test name </mat-list-item>
-                  <mat-list-item> <span>Email: &nbsp;</span> test@testmail.com </mat-list-item>
-                  <mat-list-item> <span>Phone: &nbsp;</span> 85465865658</mat-list-item>
+                  <mat-list-item> <span> Name: &nbsp;</span> {{hospitalrepDetails.fullname}} </mat-list-item>
+                  <mat-list-item> <span>Email: &nbsp;</span> {{hospitalrepDetails.email}} </mat-list-item>
+                  <mat-list-item> <span>Phone: &nbsp;</span> {{hospitalrepDetails.phone}}</mat-list-item>
                  </mat-list>
             </fieldset>
 
@@ -429,28 +429,28 @@
               <mat-card-content>Recently Added Purchase Quotes</mat-card-content>
             </span>
 
-            <table mat-table [dataSource]="dataSourcee" class="mat-elevation-z8">
+            <table mat-table [dataSource]="hospitalPurchaseQuote" class="mat-elevation-z8">
               <ng-container matColumnDef="position">
                 <th mat-header-cell *matHeaderCellDef> Date Added </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
               </ng-container>
 
 
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Quote ID </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.quote_id}} </td>
               </ng-container>
 
               <!-- Weight Column -->
               <ng-container matColumnDef="weight">
                 <th mat-header-cell *matHeaderCellDef> Medical Partner </th>
-                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.salesrepname}} </td>
               </ng-container>
 
               <!-- Symbol Column -->
               <ng-container matColumnDef="symbol">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.copy_status}} </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
@@ -458,7 +458,7 @@
             </table>
 
             <span class="buttonwrapper right">
-              <button mat-button class="bluebtn">View All</button>
+              <button mat-button class="bluebtn" routerLink="/hospital/managequotes/purchasequote/list">View All</button>
             </span>
           </mat-card>
           <mat-card class="blocktablemainwrapper col-1-2">
@@ -466,28 +466,28 @@
               <mat-card-content>Recently Added Inventory Listing Quotes</mat-card-content>
             </span>
 
-            <table mat-table [dataSource]="dataSourcee" class="mat-elevation-z8">
+            <table mat-table [dataSource]="hospitalListingQuote" class="mat-elevation-z8">
               <ng-container matColumnDef="position">
                 <th mat-header-cell *matHeaderCellDef> Date Added </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.date}} </td>
               </ng-container>
 
 
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Quote ID </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.quote_id}} </td>
               </ng-container>
 
               <!-- Weight Column -->
               <ng-container matColumnDef="weight">
                 <th mat-header-cell *matHeaderCellDef> Medical Partner </th>
-                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.hospitalname}} </td>
               </ng-container>
 
               <!-- Symbol Column -->
               <ng-container matColumnDef="symbol">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.copy_status}} </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumn"></tr>
@@ -495,7 +495,7 @@
             </table>
 
             <span class="buttonwrapper right">
-              <button mat-button class="bluebtn">View All</button>
+              <button mat-button class="bluebtn" routerLink="/hospital/managequotes/inventorylistingquote/list">View All</button>
             </span>
           </mat-card>
           <mat-card class="blocktablemainwrapper col-1-1">

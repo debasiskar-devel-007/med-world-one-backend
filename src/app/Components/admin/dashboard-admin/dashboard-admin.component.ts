@@ -61,6 +61,10 @@ export class DashboardAdminComponent implements OnInit {
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
+  public hospitalrepDetails:any=[];
+  public hospitalPurchaseQuote:any=[];
+  public hospitalListingQuote:any=[];
+
   displayed: string[] = ['date', 'quote_id','medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
 
@@ -73,6 +77,7 @@ export class DashboardAdminComponent implements OnInit {
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.type = this.userData.type;
+
     switch (this.userData.type) {
       case "admin":
         // this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
@@ -127,17 +132,21 @@ export class DashboardAdminComponent implements OnInit {
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
       this.recentlyAdded=response.quotedetails;
-      // console.log("hospital name recently",this.hospitalDetails);
-      // console.log("salesrep name recently",this.dataSource)
     });
   }
 
 
-    /**getting data for admin */
+    /**getting data for hospital */
   getmedicalpartnerData(){
-    
-    this.http.httpViaPost('hospitaldashboard',undefined).subscribe((response: any) => {
-      console.log(response);
+    let data: any = {
+               
+      "hospital_id": this.userData._id,
+      "salesrepid":this.userData.salesrepselect
+      }
+    this.http.httpViaPost('hospitaldashboard',data).subscribe((response: any) => {
+      this.hospitalrepDetails=response.salesrepdetails[0];
+      this.hospitalPurchaseQuote=response.quotedetails;
+      this.hospitalListingQuote=response.quotelisting;
     });
   }
 
