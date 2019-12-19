@@ -88,18 +88,24 @@ export class DashboardAdminComponent implements OnInit {
 
   ngOnInit() {
     this.getCount();
-    if(this.type=='admin')
-    this.getHospitals();
-    else
-    this.getHospitalsSalesRep();
+    if(this.type=='admin'){
+    this.getadmin();
+    }
+    if(this.type=='salesrep'){
+      this.getSalesRepallData();
+    }
+    if(this.type=='hospital'){
+      this.getmedicalpartnerData();
+    }
+    
   }
 
   toHospitalList(index: any) {
     this.router.navigateByUrl('admin/hospital/view_details/' + index)
   }
 
-  /** getting hospitals for salesrep **/
-  getHospitalsSalesRep() {
+  /** getting for salesrep **/
+  getSalesRepallData() {
 
     let data: any = {
                 
@@ -113,29 +119,25 @@ export class DashboardAdminComponent implements OnInit {
       this.salesrepListingQuote=response.quotelisting;
     });
 
-    // let dta: any = {
-    //   source: 'purchasecomparison_view_admin',
-    //   condition: {
-    //     'salesrep_id_object': this.userData._id
-    //   },
-    //   token: this.cookieService.get('jwtToken')
-    // }
-
-    // this.http.httpViaPost('datalist', dta).subscribe(response => {
-    //   this.purcehseComparisionQuote = response.res;
-    //   console.log(this.purcehseComparisionQuote);
-
-    // });
   }
 
-
-  getHospitals() {
+  /**getting data for admin */
+  getadmin() {
     this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
       this.hospitalDetails = response.hospital;
       this.dataSource = response.salesrep;
       this.recentlyAdded=response.quotedetails;
       // console.log("hospital name recently",this.hospitalDetails);
       // console.log("salesrep name recently",this.dataSource)
+    });
+  }
+
+
+    /**getting data for admin */
+  getmedicalpartnerData(){
+    
+    this.http.httpViaPost('hospitaldashboard',undefined).subscribe((response: any) => {
+      console.log(response);
     });
   }
 

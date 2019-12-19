@@ -30,6 +30,8 @@ public totaltax:number=0;
 public totalprice:number=0;
 public purchasemarkup:number=0;
 public notes:string;
+public quoteId:number;
+public dateAdded:number;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -61,14 +63,16 @@ public notes:string;
         "id":this.activatedRoute.snapshot.params.id
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
-     //console.log(response);
+    // console.log(response);
      if(response.status="success"){
-      console.log("quotedetails",response.quotedetails[0].inventory_details);
-      console.log("quoteinfo",response.quoteinfo[0]);
+      //console.log("quotedetails",response.quotedetails[0].inventory_details);
+      //console.log("quoteinfo",response.quoteinfo[0]);
       this.quoteinfo=response.quoteinfo[0];
       this.purchasemarkup=response.countrysetvalue;
       this.quotedetails=response.quotedetails[0].inventory_details;
       this.notes=response.quotedetails[0].notes;
+      this.quoteId=response.quotedetails[0].quote_id;
+      this.dateAdded=response.quotedetails[0].date;
       for(let i in this.quotedetails){
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         //this.quotedetails[i].price=null;
