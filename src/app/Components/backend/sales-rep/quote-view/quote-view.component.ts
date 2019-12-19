@@ -167,7 +167,7 @@ public notes:string;
 
 
   showDetails(ele:any){
-    console.log(ele);
+    //console.log(ele);
      
       const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
        panelClass:'viewquoteModal',
@@ -197,7 +197,7 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      console.log(data);
+      //console.log(data);
     }
 
   onNoClick(): void {

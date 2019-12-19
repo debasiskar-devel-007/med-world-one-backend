@@ -28,6 +28,14 @@
                       </mat-form-field>
                     </span>
 
+                    <span class="col-1-1 pb-20">
+                      <!-- quote Id  -->
+                      <mat-form-field>
+                        <mat-label class="label">Quote Id</mat-label>
+                        <input matInput value="{{quote_id}}" [disabled]='true' >
+                      </mat-form-field>
+                    </span>
+
                     <span class="col-1-3">
                       <!-- source  -->
                       <mat-form-field>
@@ -231,7 +239,7 @@
                 <mat-card-title class="title" *ngIf="inventoryDetails.length>0">List Inventory Quote
                   ({{inventoryDetails.length}})</mat-card-title>
                 <!-- loop here -->
-                <span class="total_wrapper" *ngFor="let item of inventoryDetails">
+                <span class="total_wrapper" *ngFor="let item of inventoryDetails;let i=index;">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
                       <img src="{{item.inventory_image}}">
@@ -273,7 +281,7 @@
 
                   <mat-toolbar class="action">
                     <button mat-button>view details</button>
-                    <button mat-button>Delete</button>
+                    <button mat-button (click)="delete(item._id,i)">Delete</button>
                   </mat-toolbar>
                 </span>
                 <!-- end loop -->

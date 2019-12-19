@@ -47,6 +47,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public getcatagory:any;
   public gettbrandname:any;
   public hospitalName:any;
+  public quote_id:number;
   //@HostListener('window:scroll')
    //image upload 
    public configData: any = {
@@ -199,10 +200,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
     })
 
     // for quote id
-  //   this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
-  //     console.log(response.userID);
-    
-  // })
+    this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+      //console.log(response.userID);
+      this.quote_id=response.userID;
+  })
 
   }
   // ======================submit form=======================
@@ -272,7 +273,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
         "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
 
       };
-      //console.log(postData);
+      //console.log(postData,postData.data.inventory_details.inventory_image.basepath,postData.data.inventory_details.inventory_image.image);
+      let inventory_image:any=postData.data.inventory_details.inventory_image.basepath+postData.data.inventory_details.inventory_image.image;
+      //console.log(inventory_image,'inventory_image');
+      //return;
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
          // console.log(response);
@@ -288,7 +292,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
             this.imageblockflag=true;
               }, 1000);
           
-           
+           postData.data.inventory_details.inventory_image=inventory_image;
+           postData.data.inventory_details.category=this.getcatagory;
             this.inventoryDetails.push(postData.data.inventory_details);
             this.router.events.subscribe(() =>
             window.scrollTo({
@@ -464,6 +469,7 @@ minus(){
       "inventory_details": this.inventoryDetails,
       "hospital_id": this.hospital_id,
       "user_id": this.userId,
+      "quote_id":this.quote_id,
       "status":0
       },
       "sourceobj":["hospital_id","quoted_by","user_id"]
@@ -490,11 +496,25 @@ minus(){
           duration: 2000,
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+          console.log(response);
           if(response.status="success"){
           // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+          
           }
         })
         
+      }
+    })
+  }
+
+  delete(id:any,index:any){
+    //console.log(id,index);
+    let deleteData:any={
+       "source": "quote-listing",
+       "id":id};
+    this.http.httpViaPost('deletesingledata', deleteData).subscribe((response: any) => {
+      if(response.status=="success"){
+        this.inventoryDetails.splice(index, index + 1);
       }
     })
   }
