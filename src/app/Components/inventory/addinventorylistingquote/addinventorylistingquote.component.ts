@@ -534,13 +534,25 @@ minus(){
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if(response.status="success"){
-        this._snackBar.open('Inventory Listing Submitted', '', {
+        this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
           duration: 2000,
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
           //console.log(response);
           if(response.status="success"){
-          // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+            
+                      /**salesrep route */
+                    if(this.userType=='salesrep'){
+                      this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+                    }
+                    /**hospital route */
+                    if(this.userType=='salesrep'){
+                      this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+                    }
+                    /**hospital route */
+                    if(this.userType=='admin'){
+                      this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+                    }
           }
         })
         

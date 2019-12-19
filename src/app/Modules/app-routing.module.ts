@@ -419,6 +419,7 @@ const routes: Routes = [
 
   //________________INVENTORY listing quote add for admin
   { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+  
 
 //________________INVENTORY listing quote add for salesrep--------------
 { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
