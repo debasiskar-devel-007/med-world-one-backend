@@ -12,6 +12,8 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
+  public submitbuttonFlage:number=0;
+  public msg:string;
   public hospital_id:any;
   public ids:any=[];
   public addinventorylistingquoteForm: FormGroup;
@@ -117,6 +119,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // =====================generate form=====================
   generateForm() {
     this.addinventorylistingquoteForm = this.formBuilder.group({
+      id:[null],
       product_name: ['', [Validators.required]],
       source: [""],
       brand_id: ["",[Validators.required]],
@@ -253,36 +256,52 @@ export class AddinventorylistingquoteComponent implements OnInit {
         this.addinventorylistingquoteForm.value.status = parseInt("0");
       }
 
-
-
-      delete this.addinventorylistingquoteForm.value.confirmpassword;
-
-
-
       /* start process to submited data */
       this.addinventorylistingquoteForm.value.brandname=this.gettbrandname;
       this.addinventorylistingquoteForm.value.catagory=this.getcatagory;
       this.addinventorylistingquoteForm.value.hospitalname=this.hospitalName;
-      let postData: any = {
-        "source": 'quote-listing',
-        "data":{
-          "userid":this.userId,
-          "hospital_id":this.hospital_id,
-          "inventory_details":this.addinventorylistingquoteForm.value
-        },
-        "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
 
-      };
+      /**inventory */
+      if(this.addinventorylistingquoteForm.value.id==null){
+        var postData: any = {
+          "source": 'quote-listing',
+          "data":{
+            "userid":this.userId,
+            "hospital_id":this.hospital_id,
+            "inventory_details":this.addinventorylistingquoteForm.value
+          },
+          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
+  
+        };
+        this.msg='Thank You For Submitting A Listing Inventory Quote';
+      }else{
+        var inventID= this.addinventorylistingquoteForm.value.id;
+        var postData: any = {
+          "source": 'quote-listing',
+          "data":{
+            "userid":this.userId,
+            "hospital_id":this.hospital_id,
+            "inventory_details":this.addinventorylistingquoteForm.value,
+            "id":inventID
+          },
+          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
+  
+        };
+        this.msg='Inventory Updated';
+      }
+        
+      console.log(postData,'postData');
+      //return;
+     
       //console.log(postData,postData.data.inventory_details.inventory_image.basepath,postData.data.inventory_details.inventory_image.image);
       let inventory_image:any=postData.data.inventory_details.inventory_image.basepath+postData.data.inventory_details.inventory_image.image;
-      //console.log(inventory_image,'inventory_image');
-      //return;
+          
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
          // console.log(response);
         if (response.status == "success") {
             this.addinventorylistingquoteForm.reset();
-            this._snackBar.open('Inventory Listing Added', '', {
+            this._snackBar.open(this.msg, '', {
               duration: 2000,
             });
             //this.defaultData.inventory_image=null;
@@ -294,7 +313,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           
            postData.data.inventory_details.inventory_image=inventory_image;
            postData.data.inventory_details.category=this.getcatagory;
-            this.inventoryDetails.push(postData.data.inventory_details);
+           if(postData.data.id==null) this.inventoryDetails.push(postData.data.inventory_details);
             this.router.events.subscribe(() =>
             window.scrollTo({
                 top: 0,
@@ -302,6 +321,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
                 behavior: 'smooth'
             })
         );
+
+        this.generateForm();
 
 
         } else {
@@ -338,6 +359,27 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.brand_name_array = result[0].brand_data;
     });
   }
+  //getting the brand name
+
+  getBrandNamewithval(index: any,selectid:any) {
+    //console.log(index);
+    var data: any;
+    data = {
+      'source': 'category_view',
+      'token': this.cookieService.get('jwtToken'),
+      condition: {
+        _id_object: index
+      }
+    };
+    this.http.httpViaPost("datalist", data).subscribe(response => {
+      //console.log("getBrandName response",response);
+      let result: any;
+      result = response.res;
+      this.brand_name_array = result[0].brand_data;
+     this.addinventorylistingquoteForm.patchValue({brand_id:selectid});
+    });
+  }
+
 
   // clear image in InventoryComponent//
   clear_image() {
@@ -376,7 +418,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
       this.http.httpViaPost("datalist", data).subscribe(response => {
-        console.log(response);
+        //console.log(response);
         let result: any;
         result = response.res;
         this.active_hospital_list = result
@@ -397,7 +439,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
       this.http.httpViaPost("datalist", data).subscribe(response => {
-        console.log(response);
+        //console.log(response);
         let result: any;
         result = response.res;
         this.active_hospital_list = result
@@ -475,7 +517,7 @@ minus(){
       "sourceobj":["hospital_id","quoted_by","user_id"]
     };
 
-    // console.log(postData);
+    console.log(postData);
     // console.log(this.inventoryDetails);
 
     for(let i in this.inventoryDetails){
@@ -496,17 +538,16 @@ minus(){
           duration: 2000,
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-          console.log(response);
+          //console.log(response);
           if(response.status="success"){
           // this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
-          
           }
         })
         
       }
     })
   }
-
+  /**delete inventory */
   delete(id:any,index:any){
     //console.log(id,index);
     let deleteData:any={
@@ -517,5 +558,45 @@ minus(){
         this.inventoryDetails.splice(index, index + 1);
       }
     })
+  }
+  /**view Detail inventory */
+  viewDetailsInventory(item:any){
+    console.log(item);
+    this.submitbuttonFlage=1;
+    this.addinventorylistingquoteForm.patchValue({
+      id:item._id,
+      product_name:item.inventory_details.product_name ,
+      source:item.inventory_details.source,
+      //brand_id:item.inventory_details.brand_id,
+      category_id:item.inventory_details.category_id,
+      sku:item.inventory_details.sku,
+      quantity:item.inventory_details.quantity,
+      saleprice:item.inventory_details.saleprice,
+      description:item.inventory_details.description,
+      inventory_image:item.inventory_details.inventory_image.basepath+item.inventory_details.inventory_image.image
+    });
+    // this.getbrandName=item.inventory_details.brandname;
+    this.getbrandName(item.inventory_details.brandname);
+    this.getcatagoryName(item.inventory_details.catagory);
+    this.gethospitalName(item.inventory_details.hospitalname,item.inventory_details.source);
+    this.getBrandNamewithval(item.inventory_details.category_id,item.inventory_details.brand_id);
+
+    this.configData={};
+    this.configData.files=[];
+    this.configData.files[0]=item.inventory_details.inventory_image;  
+
+    this.fullImagePath = item.inventory_details.inventory_image.basepath + item.inventory_details.inventory_image.image;
+    this.imageName = item.inventory_details.inventory_image.name;
+    this.imageType = item.inventory_details.inventory_image.type;
+    this.img_flag=true;
+
+    // this.addinventorylistingquoteForm.value.inventory_image =
+    //     {
+    //       "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+    //       "image": this.configData.files[0].upload.data.data.fileservername,
+    //       "name": this.configData.files[0].name,
+    //       "type": this.configData.files[0].type
+    //     };
+
   }
 }
