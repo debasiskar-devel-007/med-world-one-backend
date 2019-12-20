@@ -512,7 +512,7 @@ minus(){
       "hospital_id": this.hospital_id,
       "user_id": this.userId,
       "quote_id":this.quote_id,
-      "status":0
+      "status":1
       },
       "sourceobj":["hospital_id","quoted_by","user_id"]
     };
@@ -573,7 +573,7 @@ minus(){
   }
   /**view Detail inventory */
   viewDetailsInventory(item:any){
-    console.log(item);
+    //console.log(item);
     this.submitbuttonFlage=1;
     this.addinventorylistingquoteForm.patchValue({
       id:item._id,
@@ -602,13 +602,64 @@ minus(){
     this.imageType = item.inventory_details.inventory_image.type;
     this.img_flag=true;
 
-    // this.addinventorylistingquoteForm.value.inventory_image =
-    //     {
-    //       "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
-    //       "image": this.configData.files[0].upload.data.data.fileservername,
-    //       "name": this.configData.files[0].name,
-    //       "type": this.configData.files[0].type
-    //     };
 
+
+  }
+
+
+  saveQuote(){
+    let postData = {
+      "source": "quote_listing_details",
+      "data":{
+      "inventory_details": this.inventoryDetails,
+      "hospital_id": this.hospital_id,
+      "user_id": this.userId,
+      "quote_id":this.quote_id,
+      "status":0
+      },
+      "sourceobj":["hospital_id","quoted_by","user_id"]
+    };
+
+    console.log(postData);
+    // console.log(this.inventoryDetails);
+
+    // for(let i in this.inventoryDetails){
+    //     this.ids.push(this.inventoryDetails[i]._id);
+    // }
+    // console.log(this.ids);
+
+
+    // let deleteData={
+    //   "source": "quote-listing",
+    //   "ids":this.ids
+    // }
+    //console.log(deleteData);
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
+      if(response.status="success"){
+        this._snackBar.open('Listing Inventory Quote saved in Draft.', '', {
+          duration: 2000,
+        });
+        // this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+        //   //console.log(response);
+        //   if(response.status="success"){
+            
+        //               /**salesrep route */
+        //             if(this.userType=='salesrep'){
+        //               this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+        //             }
+        //             /**hospital route */
+        //             if(this.userType=='salesrep'){
+        //               this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+        //             }
+        //             /**hospital route */
+        //             if(this.userType=='admin'){
+        //               this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+        //             }
+        //   }
+        // })
+        
+      }
+    })
   }
 }

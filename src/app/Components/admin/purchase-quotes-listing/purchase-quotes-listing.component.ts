@@ -25,9 +25,12 @@ export class PurchaseQuotesListingComponent implements OnInit {
     if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
      this.displayed = ['date','Quote_ID', 'status', 'action'];
     }
+    if(this.activatedRoute.snapshot.url[0].path=='admin' &&this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+      this.displayed = ['date','Quote_ID','medical_partner','sales_rep','status','action'];
+    }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     //console.log(resolveData.purchasequotelist.res);
+     console.log(resolveData.purchasequotelist.res);
     });
   }
 /** quote details view*/
