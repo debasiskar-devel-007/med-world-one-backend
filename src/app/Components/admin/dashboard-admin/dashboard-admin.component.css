@@ -59,7 +59,7 @@
 .searchmainwrapper .mat-form-field{padding:0 4px;}
 .searchmainwrapper .mat-form-field .mat-form-field-wrapper{padding-bottom: 0;}
 .blocktablemainwrapper .mat-table{width: 100%;box-shadow: none; }
-.buttonwrapper {display: inline-block; width: 100%; padding-top: 16px;}
+.buttonwrapper {display: inline-block; width: 100%; padding-top: 16px; margin-top: auto;}
 .right{text-align: right;}
 .center{text-align: center;}
 .bluebtn{ background: #09c5fb; color: #fff; border-radius: 0; text-transform: uppercase; font-size: 16px; font-family: "AvenirRoman";  }
@@ -89,7 +89,7 @@
 .admindashboard_content, .rapdashboard_content {padding: 0; background: none;box-shadow: none;}
 
 .table_mainwrapper{display: flex; justify-content: space-between; flex-wrap: wrap;}
-.table_mainwrapper .col-1-2{width: 47%;}
+.table_mainwrapper .col-1-2{width: 47%; display: flex; flex-direction: column;}
 .table_mainwrapper .col-1-1{width: 100%;}
 .table_mainwrapper tr.mat-row{background:none;}
 .rapdashboard_content .block2content .mat-list-item .col1 .imgwrapper {

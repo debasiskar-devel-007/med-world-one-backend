@@ -2,7 +2,7 @@
   background: #ffffff;
   border: 1px solid #dddd;
   padding-bottom: 20px;
-  width: 70%;
+  width: 100%;
   margin: 35px auto;
   box-shadow: 0 5px 10px #b2b2b2;    padding: 0;
 }
@@ -66,3 +66,6 @@ width: 170px; padding: 3px; background: linear-gradient(180deg, #80d7ff, #0081de
   @media screen and (max-width:840px){
 .my_details_wrapper .mydetails_form_wrapper .button_action button { width: 49%; }
 }
+
+
+
