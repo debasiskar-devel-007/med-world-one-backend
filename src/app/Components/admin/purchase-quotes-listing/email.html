@@ -1,17 +1,19 @@
-<mat-card>
-    <span>Send Email</span>
-    <form autocomplete="off" [formGroup]="email">
+<mat-card class="email_wrapper">
+  <mat-card-title>Send Email</mat-card-title><br>
+  <form autocomplete="off" [formGroup]="email">
     <mat-form-field>
-        <input matInput placeholder="email" formControlName="emailto">
-      </mat-form-field><br>
+      <input matInput placeholder="Email" formControlName="emailto">
+    </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="cc" formControlName="cc">
-      </mat-form-field><br>
-    
-      <mat-form-field>
-        <textarea matInput placeholder="msg" formControlName="body"></textarea>
-      </mat-form-field><br>
-      <button mat-button type="button" (click)="onSubmit()">Send</button>
-      </form>
+    <mat-form-field>
+      <input matInput placeholder="CC" formControlName="cc">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Message" formControlName="body"></textarea>
+    </mat-form-field>
+    <mat-toolbar class="button_send">
+    <button mat-button type="button"  (click)="onSubmit()">Send</button>
+  </mat-toolbar>
+  </form>
 </mat-card>

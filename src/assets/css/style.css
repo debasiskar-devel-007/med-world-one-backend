@@ -1003,9 +1003,21 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   border: 1px solid #ddd;
 }
 .viewquoteModal{ width: 700px;}
+/* email dialog */
+.emailModal{ width: 700px;}
+.email_wrapper .mat-card-title{ font-family: 'Avenirmedium'; font-size:30px; color: #ffffff; text-align: center; text-transform: uppercase; background: #01b2d3;
+  padding: 10px; margin-bottom: 16px; }
+.emailModal .mat-dialog-container { border: 2px solid #0bb5e4; padding: 0; }
+.email_wrapper { padding: 0!important;}
+.email_wrapper .mat-form-field{ width: 100%;}
+.email_wrapper .button_send{ background: transparent; height: auto; padding: 0; justify-content: flex-end; }
+.email_wrapper .button_send button{ background: #15b7e4; color: #fff; font-size: 24px; min-width: 150px; text-transform: uppercase; padding:3px 5px; border-radius: 25px;}
+.email_wrapper .mat-form-field .mat-form-field-flex { border: 1px solid #01b2d3; padding: 6px 10px; }
+.email_wrapper .mat-form-field-appearance-legacy .mat-form-field-underline { height: 0; }
+.email_wrapper form{ padding: 16px;}
 
 
-@media screen and (max-width: 1620px) {
+  @media screen and (max-width: 1620px) {
 .listingnewstyle mat-toolbar-row.searchbar {justify-content: center !important;flex-wrap: wrap;height: auto;}
 .listingnewstyle mat-toolbar-row.searchbar mat-form-field{margin:0 5px 5px 0;}
 }
