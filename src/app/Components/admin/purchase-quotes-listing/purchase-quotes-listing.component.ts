@@ -1,7 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from '../../../services/http-service.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+export interface DialogData {
+  data: any;
+  alldata:any
+  rout:any;
+}
+
 @Component({
   selector: 'app-purchase-quotes-listing',
   templateUrl: './purchase-quotes-listing.component.html',
@@ -14,7 +23,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
   public recentlyAdded:any=[];
     
 
-  constructor(public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
+  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
     //console.log(this.activatedRoute.snapshot.url[2].path);
     if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
       this.flage=1;
@@ -30,7 +39,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     console.log(resolveData.purchasequotelist.res);
+     //console.log(resolveData.purchasequotelist.res);
     });
   }
 /** quote details view*/
@@ -71,5 +80,71 @@ addPurchasequotes(){
     this.router.navigateByUrl('/inventory');
   }
 }
+/**send email */
+email(element:any,rout:any){
 
+  const dialogRef = this.dialog.open(emailModal, {
+    panelClass:'emailModal',
+     data: {alldata: element,rout}
+    
+   });
+
+   dialogRef.afterClosed().subscribe(result => {
+          
+   });
+}
+}
+
+@Component({
+  selector: 'dialog-overview',
+  templateUrl: 'email.html',
+  styleUrls: ['./purchase-quotes-listing.component.css']
+})
+export class emailModal {
+ public email:FormGroup;
+ public rout:any;
+  constructor(public dialogRef: MatDialogRef<emailModal>,@Inject(MAT_DIALOG_DATA) public data: DialogData,
+              public formBuilder: FormBuilder,public activatedRoute:ActivatedRoute,public router: Router,public http:HttpServiceService,
+              public _snackBar:MatSnackBar) {
+                this.email = this.formBuilder.group({
+                  id:[data.alldata._id],
+                  emailto:[data.alldata.email,Validators.required],
+                  cc:[data.alldata.salesrepemail,Validators.required],
+                  body:['']
+                });
+                this.rout=data.rout;
+      //console.log(data);
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  /**send email */
+  onSubmit(){
+    let datasource:any='';
+    if(this.rout=='purchasequote'){
+      datasource='quote-details_view';
+    }
+    if(this.rout=='inventorylistingquote'){
+      datasource='quote_listing_details_view';
+    }
+
+    let postEmailBody={
+      "source": datasource,
+    "id":this.email.value.id,
+    "recipient": [this.email.value.emailto],
+    "ccrecipient": [this.email.value.cc],
+    "emailbody":this.email.value.body
+    };
+    //console.log(postEmailBody);
+    this.http.httpViaPost('purchasequotemailforsalesrep',postEmailBody).subscribe((res:any)=>{
+      //console.log(res);
+      if(res.status==1){
+        this._snackBar.open(res.msg,'', {
+          duration: 2000,
+        });
+      }
+      this.dialogRef.close();
+    })
+  }
 }
