@@ -105,7 +105,7 @@ export class QuotesCartComponent implements OnInit {
 
   /**get quote function */
   getQuote() {
-    this.openDialog();
+   
     /**if sales */
     if(this.userType=='salesrep'){
 

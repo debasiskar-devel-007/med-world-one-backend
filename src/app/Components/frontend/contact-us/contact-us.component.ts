@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service';
-import { FormControl, FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validator, Validators,AbstractControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -44,7 +44,7 @@ export class ContactUsComponent implements OnInit {
 
      this.contactusForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['',Validators.required],
+      email: ['',Validators.required,Validators.email],
       phone: ['',Validators.required],
       address: ['', Validators.required],
       message: ['', Validators.required]

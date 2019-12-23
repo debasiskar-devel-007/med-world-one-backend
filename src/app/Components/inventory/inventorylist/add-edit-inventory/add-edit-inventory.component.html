@@ -191,7 +191,7 @@
                                 <!-- DYNAMIC FORM ATTRIBUTE  -->
 
                                 <div formArrayName="items" class="dynamic_attributes"
-                                    *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
+                                    *ngFor="let item of inventoryForm.controls.items['controls']; let i = index;">
                                     <div [formGroupName]="i">
                                         <mat-form-field>
                                             <input matInput formControlName="label_name" placeholder="Enter A Label">
@@ -216,7 +216,7 @@
 
                                 <span class="button_wrapper">
                                     <!-- Dynamic form fields  -->
-                                    <button mat-flat-button type="button" (click)="create_field()" color="primary">
+                                    <button mat-flat-button type="button"  color="primary">
                                         &nbsp; Add
                                         field
                                     </button>

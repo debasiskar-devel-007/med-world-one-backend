@@ -194,7 +194,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
-    console.log(defaultValue);
+    // console.log(defaultValue);
     this.medicalPartnerForm.patchValue({
       user_id:defaultValue.user_id,
       hospitalname: defaultValue.hospitalname,
