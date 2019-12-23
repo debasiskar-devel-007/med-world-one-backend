@@ -145,7 +145,7 @@ import { AdminDetailsComponent} from './Components/admin/admin-details/admin-det
 import { QuoteViewComponent ,DialogOverviewExampleDialog} from './Components/backend/sales-rep/quote-view/quote-view.component';
 
 //admin dashboard view purchase quote
-import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { PurchaseQuotesListingComponent ,emailModal} from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 import { PurchaseComparisonSearchListComponent } from './Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
@@ -258,6 +258,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     Dialogloginn,
     Dialoggetquote,
     DialogOverviewExampleDialog,
+    emailModal,
     quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent,
 
 
@@ -288,7 +289,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
