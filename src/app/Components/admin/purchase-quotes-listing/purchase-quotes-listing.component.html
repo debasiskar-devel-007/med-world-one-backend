@@ -55,8 +55,7 @@
            <ng-container matColumnDef="sales_rep">
             <th mat-header-cell *matHeaderCellDef>sales rep</th>
             <td mat-cell *matCellDef="let element">
-              <ng-container *ngIf="element.fullname!=null">{{element.fullname}}</ng-container>
-              <ng-container *ngIf="element.salesrepname!=null">{{element.salesrepname}}</ng-container>
+              {{element.salesrepname}}
               </td>
           </ng-container>
 

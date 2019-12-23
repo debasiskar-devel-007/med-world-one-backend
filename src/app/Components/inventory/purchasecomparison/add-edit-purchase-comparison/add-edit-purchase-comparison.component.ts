@@ -152,7 +152,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   /** generate form  **/
   generateForm() {
     this.purchaseForm = this.formBuilder.group({
-      items: new FormArray([]),
+      // items: new FormArray([]),
       hospital_id: [],
       report_name: [],
       is_draft: [],

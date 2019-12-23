@@ -43,7 +43,7 @@
                         <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
                           <mat-option value="">Select Source</mat-option>
                           <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list"
-                            (click)="gethospitalName(item.hospitalname,item._id)">
+                            (click)="gethospitalName(item.hospitalname,item._id)" [disabled]="hospitalflag">
                             {{ item.hospitalname }}
                           </mat-option>
                         </mat-select>
@@ -191,7 +191,7 @@
                     <!-- DYNAMIC FORM ATTRIBUTE  -->
 
                     <div formArrayName="items" class="dynamic_attributes"
-                      *ngFor="let item of addinventorylistingquoteForm.get('items').controls; let i = index;">
+                      *ngFor="let item of addinventorylistingquoteForm.controls.items['controls']; let i = index;">
                       <div [formGroupName]="i" class="repeatBg">
                         <mat-form-field>
                           <input matInput formControlName="label_name" placeholder="Attribute Name">

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray,AbstractControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -13,6 +13,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
   public submitbuttonFlage:number=0;
+  public hospitalflag:boolean=false;
   public msg:string;
   public hospital_id:any;
   public ids:any=[];
@@ -172,6 +173,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // ===================================================================================
 
   gethospitalName(data:any,id:any){
+   
    // console.log(data);
     this.hospitalName=data;
     this.hospital_id=id;
@@ -300,6 +302,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
          // console.log(response);
         if (response.status == "success") {
+          this.hospitalflag=true;
             this.addinventorylistingquoteForm.reset();
             this._snackBar.open(this.msg, '', {
               duration: 2000,
@@ -509,7 +512,7 @@ minus(){
       "source": "quote_listing_details",
       "data":{
       "inventory_details": this.inventoryDetails,
-      "hospital_id": this.hospital_id,
+      "hospital_id":this.inventoryDetails[0].hospital_id,
       "user_id": this.userId,
       "quote_id":this.quote_id,
       "status":1
@@ -518,6 +521,7 @@ minus(){
     };
 
     console.log(postData);
+    return;
     // console.log(this.inventoryDetails);
 
     for(let i in this.inventoryDetails){
@@ -570,6 +574,10 @@ minus(){
         this.inventoryDetails.splice(index, index + 1);
       }
     })
+  
+    if(this.inventoryDetails.length<=1){
+      this.hospitalflag=false;
+    }
   }
   /**view Detail inventory */
   viewDetailsInventory(item:any){
