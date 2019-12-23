@@ -69,31 +69,32 @@
 
             <span class="col-1-2">
               <mat-form-field>
-                <input matInput formControlName="contactemails" (keyup)="collect_email($event)"
-                  placeholder="Contact Email(s)">
-              </mat-form-field>
-              <div>
+                <mat-lebel>Contact Email(s)</mat-lebel>
                 <mat-chip-list>
                   <mat-chip *ngFor="let cma of collect_email_array;let i = index">{{ cma }}
                     <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
                   </mat-chip>
 
+
+                <input matInput formControlName="contactemails" (keyup)="collect_email($event)"
+                  placeholder="">
                 </mat-chip-list>
-              </div>
+              </mat-form-field>
+
             </span>
             <span class="col-1-2">
               <mat-form-field>
-                <input matInput formControlName="contactphones" (keyup)="collect_phones($event)"
-                  placeholder="Contact Phone(s)">
-              </mat-form-field>
-              <div>
+                <mat-lebel>Contact Phone(s)</mat-lebel>
                 <mat-chip-list>
                   <mat-chip *ngFor="let cpa of collect_phone_array;let i = index">{{ cpa }}
                     <mat-icon matSuffix class="clickable" (click)="clearPhones(i)">clear
                     </mat-icon>
                   </mat-chip>
-                </mat-chip-list>
-              </div>
+
+                <input matInput formControlName="contactphones" (keyup)="collect_phones($event)"  >
+              </mat-chip-list>
+              </mat-form-field>
+
             </span>
             <span class="col-1-2">
               <mat-form-field>
