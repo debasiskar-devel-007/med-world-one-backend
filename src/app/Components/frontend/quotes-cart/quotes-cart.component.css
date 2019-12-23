@@ -36,6 +36,12 @@ margin: .75%; box-shadow: 0px 2px 4px 0px #b1b1b1; }
 .top_quotesection { margin-bottom: 0; display: flex; background: #51e3ea; }
 .new{ align-items: center;}
 .cart_new_wrapper{ display: flex;}
+.quoteSuccess h1{ color: #069206; font-family: 'AvenirMedium'; font-size: 20px; text-align: center; line-height: 20px; margin-bottom: 26px;}
+.quoteSuccess { margin: 0; padding:16px;}
+.quoteSuccess .icon { display: block; width: 24px; height: 24px; border: 1px solid #1c8e1d; padding: 10px; border-radius: 50%; color: #028202; margin: auto;}
+.quoteSuccess .login_button{ display: block; text-align: center;}
+.quoteSuccess .login_button button{ background: #1c8e1d; color: #fff; font-family: 'AvenirMedium'; font-size: 18px; text-transform: capitalize; border-radius: 0;}
+.quoteSuccess .login_button button:last-child{ margin-left: 16px;  background: #d21905; }
 
 @media screen and (max-width: 1560px){
     .cart_wrapper { width: 90%; }

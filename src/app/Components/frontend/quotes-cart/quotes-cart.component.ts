@@ -98,14 +98,14 @@ export class QuotesCartComponent implements OnInit {
   }
 
   /**add notes */
-  onSearchChange(searchValue: string): void { 
+  onSearchChange(searchValue: string): void {
     this.notes=searchValue;
     //console.log(this.notes);
   }
 
   /**get quote function */
   getQuote() {
-   
+
     /**if sales */
     if(this.userType=='salesrep'){
 
@@ -113,8 +113,8 @@ export class QuotesCartComponent implements OnInit {
         this._snackBar.open('please select hospital','', {
           duration: 1000,
         });
-       
-      } 
+
+      }
       else {
         let postData = {
           "source": "quote-details",
@@ -127,16 +127,16 @@ export class QuotesCartComponent implements OnInit {
           },
           "sourceobj":["hospital_id","quoted_by"]
         };
-  
+
         //console.log(postData);
         for(let i in this.inventoryDetailsByUserId){
-            
+
             this.ids.push(this.inventoryDetailsByUserId[i]._id);
         }
         //console.log(this.ids);
-  
-  
-  
+
+
+
         let deleteData={
           "source": "quote",
           "ids":this.ids
@@ -146,23 +146,23 @@ export class QuotesCartComponent implements OnInit {
           //console.log(response);
           if(response.status="success"){
               this.openDialog();
-  
+
             this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-              
+
             })
-            
-  
-  
+
+
+
           }
         })
-  
-  
+
+
       }
     }
 
     /**if hospital */
     if(this.userType=='hospital'){
-       
+
       let postData = {
         "source": "quote-details",
         "data":{
@@ -177,7 +177,7 @@ export class QuotesCartComponent implements OnInit {
 
       console.log(postData);
       for(let i in this.inventoryDetailsByUserId){
-          
+
           this.ids.push(this.inventoryDetailsByUserId[i]._id);
       }
       //console.log(this.ids);
@@ -195,9 +195,9 @@ export class QuotesCartComponent implements OnInit {
           this.openDialog();
 
           this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-           
+
           })
-          
+
 
 
         }
@@ -210,7 +210,7 @@ export class QuotesCartComponent implements OnInit {
   remove(id:any,indx:any){
     //console.log(id,indx);
     let data={"source": "quote",
-                "id":id            
+                "id":id
   }
     this.httpServiceService.httpViaPost('deletesingledata', data).subscribe((response: any) => {
         //console.log(response);
@@ -238,6 +238,7 @@ export class QuotesCartComponent implements OnInit {
 @Component({
   selector: 'Dialoggetquote',
   templateUrl: 'success.html',
+  styleUrls: ['./quotes-cart.component.css']
 })
 export class Dialoggetquote {
 
