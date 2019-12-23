@@ -1027,10 +1027,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 .formmainwrapper .file_uploader .uploadtextwrapper {font-family: 'AvenirMedium'; }
 
-
-
-
-
-
-
+/* manage hospital css */
+  .manage_hospital .mat-form-field-flex {
+    background: #fff!important;
+    padding: 5px;}
 

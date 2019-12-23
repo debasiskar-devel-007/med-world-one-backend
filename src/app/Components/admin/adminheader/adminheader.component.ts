@@ -15,6 +15,7 @@ export class AdminheaderComponent implements OnInit {
   public userData: any;
   user_cookie: any;
   public type: string;
+  public statusToggle:boolean = true;
   constructor(public router: Router, private cookieService: CookieService) {
 
     let allData: any = {};
@@ -49,5 +50,15 @@ export class AdminheaderComponent implements OnInit {
     }, 1000);
   }
   /**logout function end here**/
+
+
+
+
+
+  togglemenu(){
+    this.statusToggle = !this.statusToggle;
+
+  }
+
 
 }

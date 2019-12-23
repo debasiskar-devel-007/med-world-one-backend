@@ -37,7 +37,7 @@
 .mat-action-list .mat-list-item:focus, .mat-action-list .mat-list-item:hover, .mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover { background: #0bc6fd; color: #fff; }
 /*End header css */
 
-#menu_button{ display: none;}
+.menu_button{ display: none; position: absolute; left: 50%; background: #fff; padding: 0px; top: 10px; border-radius: 2px; min-width: 44px;}
 .home_button{ position: absolute; left: 270px; color: #fff;}
 /* dashboard left */
 
@@ -75,7 +75,7 @@
 .menubtnwrapper button{height: 23px;}
 .menubtnwrapper .username{padding-right: 5px;}
 .logo_wrapper .mat-flat-button.mat-button-base{display: none;}
-
+.isblock{ display: block;}
 @media screen and (max-width: 1500px){
   .techdashboard_header  .quotation p { font-size: 22px; }
   .content_wrapper .itemsection { padding-bottom: 36px; }
@@ -140,11 +140,14 @@
 .patient_report_section .button_action { width: auto; margin: 0 5px; display: flex; justify-content: center; }
 .content_wrapper .itemsection { width: 30.8%; }
 .table_structure .mat-list-item .title_a { font-size: 16px; }
-
-
-.techdashboard_header  .quotation .mat-list-base {
-  display: block;
+.techdashboard_header .quotation .mat-list-base {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+.menu_button{ display: block;}
+.topbar  { padding: 20px 0; }
+.checkedClass{ display: none;}
 }
 @media screen and (max-width: 970px){
 .patient_report_section .button_action button { width: auto; }
@@ -203,3 +206,5 @@
 /* .inner_wrapper .leftpannel:hover{
   width: 200px!important;
 } */
+
+.uncheckedClass{ display: block;}

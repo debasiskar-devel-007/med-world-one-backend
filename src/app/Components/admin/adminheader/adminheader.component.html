@@ -2,13 +2,14 @@
     <span class="dashboardcontainer">
         <mat-card-content>WELCOME TO MD STOCK</mat-card-content>
     </span>
+    <button mat-flat-button class="menu_button" (click)="togglemenu()"><i class="material-icons"> menu </i></button>
 </span>
 <span class="topblock2">
     <span class="dashboardcontainer">
         <mat-card-content class="topblock2subwrapper">
             <span class="logo_wrapper" [routerLink]="[ '/dashboard-admin' ]">
                 <img src="/assets/images/dashboardlogo.png">
-                <button mat-flat-button><i class="material-icons"> menu </i></button>
+
             </span>
             <mat-card-content class="profile_section">
                 <mat-menu #appMenu="matMenu">
@@ -54,12 +55,12 @@
         </mat-card-content>
     </span>
 </span>
-<mat-card *ngIf="type=='admin'" class="adminnavbar" >
+<mat-card *ngIf="type=='admin'" class="adminnavbar" [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
 <mat-toolbar class="techdashboard_header">
 
     <span class="dashboardcontainer">
 
-        <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
+        <button mat-flat-button class="menu_button" (click)="togglemenu()"><i class="material-icons"> menu </i></button>
         <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
         <mat-card-content class="quotation" id="myDIV">
             <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
@@ -106,7 +107,7 @@
 
                     <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
                         <button mat-menu-item routerLink="/admin/managequotes/purchasequote/list">Purchase Quotes</button>
-                        
+
                         <button mat-menu-item routerLink="/admin/managequotes/inventorylistingquote/list">Inventory Listing Quotes</button>
                         <!-- <button mat-menu-item routerLink="/admin/inventory/inventorylistingquote/list">Inventory Listing Quotes</button> -->
 
@@ -146,12 +147,12 @@
 </mat-card>
 
 
-<mat-card *ngIf="type=='salesrep'" class="repdashboardnavbar">
+<mat-card *ngIf="type=='salesrep'" class="repdashboardnavbar" [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
         <mat-toolbar class="techdashboard_header">
 
             <span class="dashboardcontainer">
 
-                <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
+
                 <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
                 <mat-card-content class="quotation" id="myDIV">
                     <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
@@ -243,7 +244,6 @@
 
         <span class="dashboardcontainer">
 
-            <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
             <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
             <mat-card-content class="quotation" id="myDIV">
                 <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
