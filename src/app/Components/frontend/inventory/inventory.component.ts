@@ -123,7 +123,7 @@ export class InventoryComponent implements OnInit {
       // console.log(postData);
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
         this.inventoryCatagoryList = res.res;
-        console.log(res);
+        // console.log(res);
       })
 
   }
@@ -133,7 +133,7 @@ export class InventoryComponent implements OnInit {
 
   /*****Add addQuote function ******/
   addQuote(invenId: any) {
- console.log("inven id",invenId);
+//  console.log("inven id",invenId);
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       if (this.flag != 0) {
         /**check inventory already exsities in cart or not */
@@ -166,7 +166,7 @@ export class InventoryComponent implements OnInit {
             "sourceobj": ["user_id", "inventory"],
           };
           this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
-            console.log(res);
+            // console.log(res);
             this._snackBar.open('This Inventory Add in your Cart', '', {
               duration: 1000,
             });
@@ -176,7 +176,7 @@ export class InventoryComponent implements OnInit {
 
       }
       else {
-        console.log("first entry");
+        // console.log("first entry");
         let user = JSON.parse(this.cookieService.get('user_details'));
         this.user_id = user._id;
         //console.log("user_id"+' '+this.user_id);
