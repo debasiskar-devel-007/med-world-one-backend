@@ -968,7 +968,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
   width: 233px;
 }
-.quote_table_wrapper .text_with_span input{ width: 50px; padding: 8px 4px; text-align: center; }
+.quote_table_wrapper .text_with_span input{ width: 85px; padding: 8px 4px; text-align: center; }
 
 /* inventory login modal css */
 .Login_confirm{ width: 600px;}
