@@ -508,20 +508,36 @@ minus(){
   }
 
   submitquote(){
-    let postData = {
-      "source": "quote_listing_details",
-      "data":{
-      "inventory_details": this.inventoryDetails,
-      "hospital_id":this.inventoryDetails[0].hospital_id,
-      "user_id": this.userId,
-      "quote_id":this.quote_id,
-      "status":1
-      },
-      "sourceobj":["hospital_id","quoted_by","user_id"]
-    };
+    if(this.inventoryDetails[0].hospital_id==null){
+      var postData = {
+        "source": "quote_listing_details",
+        "data":{
+        "inventory_details": this.inventoryDetails,
+        "hospital_id":this.hospital_id,
+        "user_id": this.userId,
+        "quote_id":this.quote_id,
+        "status":1
+        },
+        "sourceobj":["hospital_id","quoted_by","user_id"]
+      };
+    }
+    if(this.inventoryDetails[0].hospital_id!=null){
+      var postData = {
+        "source": "quote_listing_details",
+        "data":{
+        "inventory_details": this.inventoryDetails,
+        "hospital_id":this.inventoryDetails[0].hospital_id,
+        "user_id": this.userId,
+        "quote_id":this.quote_id,
+        "status":1
+        },
+        "sourceobj":["hospital_id","quoted_by","user_id"]
+      };
+    }
+    
+   
 
     console.log(postData);
-    return;
     // console.log(this.inventoryDetails);
 
     for(let i in this.inventoryDetails){
