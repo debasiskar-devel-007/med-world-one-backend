@@ -1021,7 +1021,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .listingnewstyle mat-toolbar-row.searchbar mat-form-field{margin:0 5px 5px 0;}
 }
 @media screen and (max-width: 1560px) {
-  .dashboardcontainer {width: 85%;}
+  .dashboardcontainer {width: 90%;}
+
 }
 
 @media screen and (max-width: 1300px){
@@ -1035,7 +1036,9 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 }
 /* ------------------------------- avijit css end ------------------------------------ */
 
-
+@media screen and (max-width: 1199px){
+.main_wrapper .main_dashboard .mat-list-item .mat-list-item-content{ display: flex; flex-direction: column; }
+}
 .formmainwrapper .file_uploader .uploadtextwrapper {font-family: 'AvenirMedium'; }
 
 /* manage hospital css */

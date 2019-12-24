@@ -32,7 +32,7 @@
   bottom: -40px;
   transform: translate(-50%, 0);z-index: 9;
 }
-.techdashboard_header  .quotation .mat-nav-list .mat-list-item {font-family: "HelveticaRegular";  margin: 0 1px; color: #fff; position: relative; height: auto; font-size: 15px; display: inline-flex; width: auto;}
+.techdashboard_header  .quotation .mat-nav-list .mat-list-item {font-family: "AvenirMedium";  margin: 0 1px; color: #fff; position: relative; height: auto; font-size: 15px; display: inline-flex; width: auto;}
 .techdashboard_header  .quotation .mat-nav-list .sehedule_link{ margin-left: 400px; border: 1px solid #6fdaef; border-radius: 5px;}
 .mat-action-list .mat-list-item:focus, .mat-action-list .mat-list-item:hover, .mat-list-option:focus, .mat-list-option:hover, .mat-nav-list .mat-list-item:focus, .mat-nav-list .mat-list-item:hover { background: #0bc6fd; color: #fff; }
 /*End header css */
@@ -68,12 +68,9 @@
   align-items: center;
   justify-content: space-between;margin: 0;
 }
-.menubtnwrapper{
-  display: flex;
-  align-items: center
-}
+.menubtnwrapper{ display: flex; align-items: center }
 .menubtnwrapper button{height: 23px;}
-.menubtnwrapper .username{padding-right: 5px;}
+.menubtnwrapper .username{padding-right: 5px; font-family: 'AvenirMedium';}
 .logo_wrapper .mat-flat-button.mat-button-base{display: none;}
 .isblock{ display: block;}
 @media screen and (max-width: 1500px){
@@ -108,8 +105,9 @@
 .table_structure .mat-list-item .title_a { font-size: 22px; }
 .content_wrapper .itemsection p{ width: 100%; font-size: 22px; }
 .techdashboard_header  { height: auto; flex-direction: column; }
-
 .inner_wrapper .rightpannel { padding-right: 0;}
+.techdashboard_header .quotation .mat-list-base { display: flex;  padding-top: 0;  flex-wrap: wrap; }
+.active:after{ display: none;}
 
 }
 
