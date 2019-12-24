@@ -64,6 +64,7 @@ export class DashboardAdminComponent implements OnInit {
   public hospitalrepDetails:any=[];
   public hospitalPurchaseQuote:any=[];
   public hospitalListingQuote:any=[];
+  public hospitalPurchseComparison:any=[];
 
   displayed: string[] = ['date', 'quote_id','medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
@@ -147,6 +148,7 @@ export class DashboardAdminComponent implements OnInit {
       this.hospitalrepDetails=response.salesrepdetails[0];
       this.hospitalPurchaseQuote=response.quotedetails;
       this.hospitalListingQuote=response.quotelisting;
+      this.hospitalPurchseComparison=response.purchasecomparisonquote;
     });
   }
 
