@@ -59,14 +59,9 @@
   <mat-toolbar class="techdashboard_header">
 
     <span class="dashboardcontainer">
-
-      <button mat-flat-button class="menu_button" (click)="togglemenu()"><i class="material-icons"> menu </i></button>
-      <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
       <mat-card-content class="quotation" id="myDIV">
-        <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
         <span>
           <mat-nav-list>
-
             <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
             <a mat-list-item routerLinkActive="active" [routerLink]="'/home'"> Home</a>
             <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="marketerMenu"> User Management <i
