@@ -1038,6 +1038,13 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 @media screen and (max-width: 1199px){
 .main_wrapper .main_dashboard .mat-list-item .mat-list-item-content{ display: flex; flex-direction: column; }
+.searchwrapper .mat-form-field-infix { width: 260px; }
+}
+@media screen and (max-width: 991px){
+  .block2content .mat-list-item-content  { display: flex; flex-direction: column; }
+}
+@media screen and (max-width: 870px){
+.searchwrapper .mat-form-field-infix { width: 210px; }
 }
 .formmainwrapper .file_uploader .uploadtextwrapper {font-family: 'AvenirMedium'; }
 

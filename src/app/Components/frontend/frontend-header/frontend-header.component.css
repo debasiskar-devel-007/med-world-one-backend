@@ -19,68 +19,27 @@ position: absolute; bottom: -35px; z-index: 1; right: 0px; }
 }
 
 .a_pro { margin-bottom: 0; margin-left: 10px; display: flex; justify-content: center; align-items: center; }
-.a_pro i {
-  color: #fff;
-  cursor: pointer;
-}
+.a_pro i { color: #fff; cursor: pointer;}
 
-.a_pro .profile {
-  width: 33px;
-  height: 33px;
-  background: #246dad;
-  border: 1px solid #fffdff;
-  overflow: hidden;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2px;
-  box-sizing: border-box;
-}
+.a_pro .profile { width: 33px; height: 33px; background: #246dad; border: 1px solid #fffdff; overflow: hidden; border-radius: 50%; display: flex;
+  justify-content: center; align-items: center; padding: 2px; box-sizing: border-box;}
+.profile img { max-width: 100%;}
 
-.profile img {
-  max-width: 100%;
-}
+.hide { display: none;}
 
-.hide {
-  display: none;
-}
-
-.show {
-  display: block!important;
-}
+.show { display: block!important;}
 
 /* new modi */
 
-.front_main .top_toolbar {
-  height: auto;
-  background: #001d39;
-  padding: 0;
-}
-
-.front_main .top_toolbar .top_toolbar_navigation {
-  padding: 0; display: flex;
-  justify-content: flex-end;
-}
-
-.front_main .top_toolbar .top_toolbar_navigation a {
-  color: #fff;
-  font-family: "AvenirLight";
-  font-size: 14px;
-  text-transform: capitalize;
-  margin: 0 10px;
-  border-right: 1px solid #a59e9e;
-  padding-right: 20px;
-  line-height: 28px;
-  display: flex;
-  align-items: flex-end;
-}
+.front_main .top_toolbar { height: auto; background: #001d39; padding: 0; }
+.front_main .top_toolbar .top_toolbar_navigation { padding: 0; display: flex; justify-content: flex-end; }
+.front_main .top_toolbar .top_toolbar_navigation a { color: #fff;  font-family: "AvenirMedium";  font-size: 14px; text-transform: capitalize; margin: 0 10px;
+  border-right: 1px solid #a59e9e; padding-right: 20px; line-height: 28px; display: flex; align-items: flex-end; cursor: pointer; }
 .front_main .top_toolbar .top_toolbar_navigation a  .mat-icon { font-size: 22px; }
-.front_main .top_toolbar .top_toolbar_navigation a:last-child { border: none; }
+.front_main .top_toolbar .top_toolbar_navigation a:last-child { margin: 0; border: none; padding: 0 6px; border-radius: 4px; min-width: 60px; justify-content: center;
+ font-size: 16px; }
 .wrapper { width: 1460px; margin: 0 auto; display: block; padding: 12px 0 10px; }
-.floating_button { position: fixed; top: 60px; right: 10px; background: #ee220c;
-  color: #fff; width: 70px; height: 70px; border-radius: 50%; padding: 12px; box-sizing: border-box; z-index: 1; }
-
+.floating_button { position: fixed; top: 60px; right: 10px; background: #ee220c; color: #fff; width: 70px; height: 70px; border-radius: 50%; padding: 12px; box-sizing: border-box; z-index: 1; }
 .floating_button img{ max-width: 100%;}
 
 
