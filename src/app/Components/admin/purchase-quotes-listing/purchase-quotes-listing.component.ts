@@ -57,15 +57,28 @@ viewQuoteDetails(quoteid:any,hospiid:any){
     // console.log("purchase Quote");
     this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
   }
-  
-  if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasquotelisting/list'){
-    //console.log("purchasquotelisting");
-    this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
-  }
+ 
   if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
     //console.log("inventory-listing-view");
     this.router.navigateByUrl('/admin/inventory-listing-view/' + quoteid+'/'+hospiid);
    }
+
+
+    /**purchase comparision for admin */
+  if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasquotelisting/list'){
+    //console.log("purchasquotelisting");
+    this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
+  }
+   /**purchase comparision for salesrep */
+   if(this.router.routerState.snapshot.url=='/salesrep/managequotes/purchasquotelisting/list'){
+    //console.log("purchasquotelisting");
+    this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
+  }
+  /**purchase comparision for hospital */
+  if(this.router.routerState.snapshot.url=='/hospital/managequotes/purchasquotelisting/list'){
+    //console.log("purchasquotelisting");
+    this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
+  }
 }
 
 addPurchasequotes(){

@@ -623,6 +623,19 @@ const routes: Routes = [
 
     }
   },
+   // purchase Quote Listing for salesrep
+   {
+    path: 'hospital/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
