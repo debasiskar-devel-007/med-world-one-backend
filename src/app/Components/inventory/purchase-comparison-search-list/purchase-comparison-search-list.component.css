@@ -202,3 +202,15 @@
   .cataLog_wrapper { position: relative; }
 
   }
+  .addinventoryname{
+    display: block !important;
+    margin: 10px auto !important;
+    background: #3b3434;
+    color: #fff;
+    border-radius: 0;
+    width: 270px;
+    padding: 2px;
+    font-size: 18px;
+    font-family: "HelveticaRegular";
+    margin-left: 8px;
+  }

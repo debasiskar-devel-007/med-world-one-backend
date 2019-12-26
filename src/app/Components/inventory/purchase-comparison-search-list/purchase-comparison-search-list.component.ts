@@ -68,54 +68,9 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
       this.brandList = result[0].brand_data;
     });
 
-
-    // var data2:any = {
-    //   'source':'inventories_list_view',
-    //   'condition':{
-    //     category_id_object: cat_id
-    //   }
-    // }
-    // this.httpServiceService.httpViaPost("datalist", data2).subscribe(res => {
-    //   let result: any;
-    //   result = res.res;
-    //   this.inventoryCatagoryList = res.res;
-    // });
-
   }
 
 
-  /**  search by brand **/
-  // searchByBrand(index){
-  //   let postData = {
-  //     "source": "inventories_list_view",
-  //     condition: { "brand_id_object": index }
-  //   };
-  //   this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-  //     this.inventoryCatagoryList = res.res;
-  //   })
-  // }
-
-  /** search by sku**/
-  // searchBySKU(event:any){
-  //   let postData = {
-  //     "source": "inventories_list_view",
-  //     condition: { "sku_regex": event.target.value }
-  //   };
-  //   this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-  //     this.inventoryCatagoryList = res.res;
-  //   })
-  // }
-
-  /**inventory search */
-  // searchByInventory(event: any) {
-  //   let postData = {
-  //     "source": "inventories_list_view",
-  //     condition: { "inventory_search_regex": (event.target.value).toLowerCase() }
-  //   };
-  //   this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-  //     this.inventoryCatagoryList = res.res;
-  //   })
-  // }
 
   search(){
       
@@ -139,7 +94,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
   /*****Add addQuote function ******/
   addQuote(list_inven: any , inven_id:any) {
 
- console.log("inven_id",inven_id);
+//  console.log("inven_id",inven_id);
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       if (this.flag != 0) {
         /**check inventory already exsities in cart or not */

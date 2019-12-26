@@ -617,7 +617,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'purchase_comparison_quote-details_view',
-        condition: {}
+        condition: { 'salesrepid_object': 'user_id' }
       },
       endpoint: 'datalist'
 

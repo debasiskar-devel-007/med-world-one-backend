@@ -67,16 +67,6 @@ export class InventoryComponent implements OnInit {
     this.router.navigateByUrl('/inventory-details/' + val);
   }
 
-   /** category list **/
-  //  getCategoryList() {
-  //   var data: any = {
-  //     source: 'inventory_category_view_async'
-  //   }
-  //   this.httpServiceService.httpViaPost('datalist', data).subscribe((response:any) => {
-  //     this.categoryList = response.res;
-  //    // console.log(response);
-  //   });
-  // }
 
 
   /**search Brand Function */
@@ -123,7 +113,7 @@ export class InventoryComponent implements OnInit {
       // console.log(postData);
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
         this.inventoryCatagoryList = res.res;
-        // console.log(res);
+         console.log(res);
       })
 
   }
@@ -215,7 +205,7 @@ export class InventoryComponent implements OnInit {
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       let user = JSON.parse(this.cookieService.get('user_details'));
       this.type=user.type;
-       console.log(this.type);
+      
       let postData = {
         "source": "quote", "condition": {
           "user_id_object": user._id
