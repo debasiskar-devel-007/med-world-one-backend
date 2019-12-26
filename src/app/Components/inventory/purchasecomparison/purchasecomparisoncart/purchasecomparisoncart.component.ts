@@ -107,13 +107,13 @@ export class PurchasecomparisoncartComponent implements OnInit {
           this._snackBar.open('please select hospital','', {
             duration: 1000,
           });
-         
+         return;
         } 
         if (this.userType=='salesrep' && this.hospitalId == undefined) {
           this._snackBar.open('please select hospital','', {
             duration: 1000,
           });
-         
+         return;
         } 
           let postData = {
             "source": "purchase_comparison_quote-details",

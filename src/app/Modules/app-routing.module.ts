@@ -670,18 +670,18 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-  {
-    path: 'our-team',
-    component: TeamPageComponent,
-    resolve: { teamList: ResolveService },
-    data: {
-      requestcondition: {
-        source: 'Team_management_view',
-        condition: {}
-      },
-      endpoint: 'datalist'
-    },
-  },
+  // {
+  //   path: 'our-team',
+  //   component: TeamPageComponent,
+  //   resolve: { teamList: ResolveService },
+  //   data: {
+  //     requestcondition: {
+  //       source: 'Team_management_view',
+  //       condition: {}
+  //     },
+  //     endpoint: 'datalist'
+  //   },
+  // },
 
   { path: 'blog', component: BlogComponentFrontEnd },
 
