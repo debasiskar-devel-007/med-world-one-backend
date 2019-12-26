@@ -38,7 +38,8 @@ const Recent_DATA = [
 })
 export class DashboardAdminComponent implements OnInit {
 
-
+  public searchbyMedicalName:string;
+  public searchbySalesrepEmail:string;
   /** declarations **/
   public userData: any;
   displayedColumns: string[] = ['date','firstname','lastname','email','phone','state','city'];
@@ -140,7 +141,6 @@ export class DashboardAdminComponent implements OnInit {
     /**getting data for hospital */
   getmedicalpartnerData(){
     let data: any = {
-               
       "hospital_id": this.userData._id,
       "salesrepid":this.userData.salesrepselect
       }
@@ -169,6 +169,38 @@ export class DashboardAdminComponent implements OnInit {
 viewQuoteDetails(quoteid:any,hospiid:any){
   this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
 //console.log("quote details",quoteid);
+}
+/**addes quote in admin */
+adminsearchbyMedicalName(){
+ 
+    let post={
+      "source":"quote-details_view",
+    "condition":{
+      "hospitalname_search_regex":this.searchbyMedicalName.toLowerCase()
+    },
+    "limit":10,
+    }
+    this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+        this.recentlyAdded=res.res;
+    })
+  
+  
+}
+/**addes quote in admin */
+adminAddSalesrepbyEmail(){
+ 
+    let post={
+      "source":"users_view_salesrep",
+    "condition":{
+      "email_regex":this.searchbySalesrepEmail.toLowerCase()
+    },
+    "limit":6,
+    }
+    this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+        this.dataSource=res.res;
+    })
+
+  
 }
 
 }

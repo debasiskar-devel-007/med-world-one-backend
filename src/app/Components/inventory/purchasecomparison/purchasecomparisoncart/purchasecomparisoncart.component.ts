@@ -76,7 +76,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
   }
 
    /**add notes */
-   onSearchChange(searchValue: string): void { 
+   note(searchValue: string): void { 
     this.notes=searchValue;
     //console.log(this.notes);
   }

@@ -56,8 +56,8 @@
             <span class="searchwrapper">
               <form class="example-form">
                 <mat-form-field>
-                  <input matInput type="search" placeholder="Search" class="search-input">
-                  <button matbutton><i class="material-icons">search</i></button>
+                  <input matInput type="search" name ="searchbyMedicalName" [(ngModel)]="searchbyMedicalName" placeholder="Search by Medical partner name" class="search-input">
+                  <button matbutton type="button" (click)="adminsearchbyMedicalName()"><i class="material-icons">search</i></button>
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput [matDatepicker]="picker" placeholder="Choose a date">
@@ -177,8 +177,8 @@
                   <button matbutton><i class="material-icons">search</i></button>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput type="search" placeholder="Search by Email" class="search-input">
-                  <button matbutton><i class="material-icons">email</i></button>
+                  <input matInput type="search" name ="searchbySalesrepEmail" [(ngModel)]="searchbySalesrepEmail" placeholder="Search by Email" class="search-input">
+                  <button matbutton (click)="adminAddSalesrepbyEmail()"><i class="material-icons">email</i></button>
                 </mat-form-field>
               </form>
             </span>

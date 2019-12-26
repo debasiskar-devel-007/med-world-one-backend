@@ -5,7 +5,6 @@ import { LoginComponent } from '../Components/auth/login/login.component';
 import { ResetPasswordComponent } from '../Components/auth/reset-password/reset-password.component';
 import { DashboardAdminComponent } from '../Components/admin/dashboard-admin/dashboard-admin.component';
 import { AuthguardService } from '../services/authguard.service';
-import { AuthService } from '../services/auth.service';
 import { AddEditAdminComponent } from '../Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from '../Components/admin/admin-management/listing-admin/listing-admin.component';
 import { ResolveService } from '../services/resolve.service';
@@ -614,6 +613,19 @@ const routes: Routes = [
   // purchase Quote Listing for salesrep
   {
     path: 'salesrep/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: { 'salesrepid_object': 'user_id' }
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+   // purchase Quote Listing for salesrep
+   {
+    path: 'hospital/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
