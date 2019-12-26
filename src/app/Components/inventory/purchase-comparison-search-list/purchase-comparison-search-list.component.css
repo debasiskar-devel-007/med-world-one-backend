@@ -39,8 +39,8 @@
   .search_bar { display: flex; justify-content: space-between; align-items: center; }
   .search_bar .searchpannel{ width: 100%; padding: 12px 10px; box-sizing: border-box; border: none;  background: #fff; text-align: left; }
   .search_bar .seperate{ margin: 0 8px; padding: 13px; }
-  .search_bar .search_button{ background: #ea240f; color: #fff; border-radius: 0; width: 270px; padding: 2px; font-size: 18px; font-family: "HelveticaRegular"; margin-left: 8px;}
-
+  .search_bar .search_button{ background: #ea240f; color: #fff; border-radius: 0; min-width: 100px; padding: 2px; font-size: 18px; font-family: "HelveticaRegular"; margin-left: 8px;}
+.search_bar .cart_button{ min-width: 112px; background: #2dc1e2; color: #fff; border-radius: 0; font-family: 'AvenirMedium'; padding: 3px; font-size: 16px; }
   .sh_inventory_content { display: flex; justify-content: center; flex-wrap: wrap; width: 100%; margin: 3px 0; }
   .sh_inventory_content .sh_inventory_content_item { background:#f5f5f5; border: 1px solid #eaeaea; padding: 16px; box-sizing: border-box; margin-bottom: 0; width: 32.5%;
     margin: .5%; }

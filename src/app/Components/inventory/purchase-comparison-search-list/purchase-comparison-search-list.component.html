@@ -45,7 +45,7 @@
       </mat-card-content>
       <mat-card-content class="searchfilter">
         <span class="search_bar">
-            <button type="button" (click)="goToCart()">Go To Cart</button>
+            <button type="button" mat-button class="cart_button" (click)="goToCart()">Go To Cart</button>
           <!-- search by category  -->
           <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch class="searchpannel seperate" placeholder="Search By Category"
             >

@@ -131,8 +131,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       category_id: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
-      wholesaleprice:['',Validators.required],
-      saleprice:['',Validators.required],
+      // wholesaleprice:['',Validators.required],
+      // saleprice:['',Validators.required],
       purchased_price:['',Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
@@ -162,8 +162,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
-      wholesaleprice:defaultValue.wholesaleprice,
-      saleprice:defaultValue.saleprice,
+      // wholesaleprice:defaultValue.wholesaleprice,
+      // saleprice:defaultValue.saleprice,
       purchased_price:defaultValue.purchased_price,
       source: this.defaultData.source
 
@@ -202,13 +202,13 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   fetchAddedInventoryDetails(){
     // console.log(this.condition.user_id);
     let postData={
-      "source": "quote-listing_view",
+      "source": "purchase_comparison_quote_view",
       "condition":{
-        "userid_object":this.userId
+        "user_id_object":this.userId
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-        //console.log(response.res);
+        console.log(response.res);
         this.inventoryDetails=response.res;
     })
 
@@ -594,20 +594,17 @@ minus(){
     })
   }
   /**delete inventory */
-  delete(id:any,index:any){
-    //console.log(id,index);
-    let deleteData:any={
-       "source": "quote-listing",
-       "id":id};
-    this.http.httpViaPost('deletesingledata', deleteData).subscribe((response: any) => {
-      if(response.status=="success"){
-        this.inventoryDetails.splice(index, index + 1);
-      }
-    })
-  
-    if(this.inventoryDetails.length<=1){
-      this.hospitalflag=false;
-    }
+  remove(id:any,indx:any){
+    //console.log(id,indx);
+    let data={"source": "purchase_comparison_quote",
+                "id":id            
+  }
+    this.http.httpViaPost('deletesingledata', data).subscribe((response: any) => {
+        //console.log(response);
+        if(response.status=="success"){
+          this.inventoryDetails.splice(indx, indx + 1);
+        }
+      })
   }
   /**view Detail inventory */
   viewDetailsInventory(item:any){

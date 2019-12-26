@@ -120,8 +120,8 @@
                     </span>
 
 
-                    <span class="col-1-1">
-                      <!-- wholesale price -->
+                    <!-- <span class="col-1-1">
+                       wholesale price 
 
                       <mat-form-field>
                         <mat-label class="label">Wholesell price</mat-label>
@@ -137,7 +137,7 @@
                     </span>
 
                     <span class="col-1-1">
-                      <!-- Sell price -->
+                      Sell price 
 
                       <mat-form-field>
                         <mat-label class="label">Sell price</mat-label>
@@ -150,7 +150,7 @@
                           sell
                           price is required.</mat-error>
                       </mat-form-field>
-                    </span>
+                    </span> -->
                     
                     <span class="col-1-1">
                       <!-- purchase price price -->
@@ -280,14 +280,14 @@
                 <span class="total_wrapper" *ngFor="let item of inventoryDetails;let i=index;">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
-                      <img src="{{item.inventory_image}}">
+                      <img src="{{item.image}}">
                     </mat-card-content>
                     <mat-card-content class="inner_content">
 
                       <table>
                         <tr>
                           <td>Product Name :</td>
-                          <td>{{item.product_name}}</td>
+                          <td>{{item.inventory_name}}</td>
                         </tr>
                         <tr>
                           <td>Source/Manufacturer :</td>
@@ -295,7 +295,7 @@
                         </tr>
                         <tr>
                           <td>Category : </td>
-                          <td>{{item.category}}</td>
+                          <td>{{item.category_name}}</td>
                         </tr>
                         <tr>
                           <td>SKU# :</td>
@@ -307,7 +307,7 @@
                         </tr>
                         <tr>
                           <td>Sell Price :</td>
-                          <td>{{item.saleprice}}</td>
+                          <td>{{item.wholesaleprice}}</td>
                         </tr>
                       </table>
 
@@ -319,7 +319,8 @@
 
                   <mat-toolbar class="action">
                     <!-- <button mat-button (click)="viewDetailsInventory(item)">view details</button> -->
-                    <button mat-button (click)="delete(item._id,i)">Delete</button>
+                    <!-- <button mat-button (click)="delete(item._id,i)">Delete</button> -->
+                    <button mat-button (click)="remove(item._id,i)" class="remove">Remove</button>
                   </mat-toolbar>
                 </span>
                 <!-- end loop -->
