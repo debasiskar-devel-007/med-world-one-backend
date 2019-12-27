@@ -91,8 +91,6 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
 
-
-
   { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
@@ -630,7 +628,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'purchase_comparison_quote-details_view',
-        condition: {}
+        condition: {'hospital_id_object': 'user_id'}
       },
       endpoint: 'datalist'
 

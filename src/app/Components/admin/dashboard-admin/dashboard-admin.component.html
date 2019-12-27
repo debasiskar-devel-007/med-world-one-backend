@@ -173,8 +173,8 @@
             <span class="searchwrapper">
               <form class="example-form">
                 <mat-form-field>
-                  <input matInput type="search" placeholder="Search" class="search-input">
-                  <button matbutton><i class="material-icons">search</i></button>
+                  <input matInput type="search" name ="searchbyrecentlyaddedSalesrep" [(ngModel)]="searchbyrecentlyaddedSalesrep" placeholder="Search by Firstname" class="search-input">
+                  <button matbutton (click)="adminAddSalesrepbyfirstname()"><i class="material-icons">search</i></button>
                 </mat-form-field>
                 <mat-form-field>
                   <input matInput type="search" name ="searchbySalesrepEmail" [(ngModel)]="searchbySalesrepEmail" placeholder="Search by Email" class="search-input">
@@ -403,7 +403,7 @@
 
 
       <!-- medical partners [Hospital] -->
-      <!-- -------------------------------salesrep------------------------- -->
+      <!-- -------------------------------hospital------------------------- -->
       <mat-card *ngIf="type=='hospital'" class="rapdashboard_content">
         <mat-card-content class="Welcome_banner">
           <h2>Welcome {{user_name}}</h2>
@@ -530,7 +530,7 @@
             </table>
 
             <span class="buttonwrapper right">
-              <button mat-button class="bluebtn">View All</button>
+              <button mat-button class="bluebtn" routerLink="hospital/managequotes/purchasquotelisting/list">View All</button>
             </span>
           </mat-card>
         </span>

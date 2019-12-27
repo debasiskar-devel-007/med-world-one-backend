@@ -20,6 +20,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public msg:string;
   public hospital_id:any;
   public ids:any=[];
+  public selectedValue:any;
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add New Comparison Quotes";

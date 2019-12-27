@@ -66,7 +66,7 @@ export class DashboardAdminComponent implements OnInit {
   public hospitalPurchaseQuote:any=[];
   public hospitalListingQuote:any=[];
   public hospitalPurchseComparison:any=[];
-
+  public searchbyrecentlyaddedSalesrep:any;
   displayed: string[] = ['date', 'quote_id','medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
 
@@ -202,5 +202,17 @@ adminAddSalesrepbyEmail(){
 
   
 }
+/**admin search recently add salesrep firstname*/
+adminAddSalesrepbyfirstname(){let post={
+  "source":"users_view_salesrep",
+"condition":{
+  "firstname_search_regex":this.searchbyrecentlyaddedSalesrep.toLowerCase()
+},
+"limit":6,
+}
+this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+    //console.log(res);
+    this.dataSource=res.res;
+})}
 
 }
