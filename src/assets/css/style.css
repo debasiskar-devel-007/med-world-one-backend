@@ -1055,6 +1055,26 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 
 
+    /*--------------*/
+
+    .team-category-newspan{position: relative;display: block;}
+
+    .team-category-btn {
+      position: absolute;
+      z-index: 9;
+      right: 210px;
+      top: 95px;
+      background-color: #3f51b5;
+      font-family: Roboto,"Helvetica Neue",sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      padding: 9px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
     /* table responsive */
 
 
@@ -1118,7 +1138,3 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 }
 
 /* .listing_tab i{ color: #fff;} */
-
-
-
-

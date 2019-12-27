@@ -294,7 +294,7 @@ const routes: Routes = [
     resolve: { teamCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_category_view',
+        source: 'team_category',
         condition: {}
       },
       endpoint: 'datalist'
@@ -307,7 +307,7 @@ const routes: Routes = [
     resolve: { teamCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_category',
+        source: 'team_category',
         condition: {}
       },
       endpoint: 'datalist'
@@ -326,7 +326,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
@@ -339,7 +339,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management',
+        source: 'team_management',
         condition: {}
       },
       endpoint: 'datalist'
@@ -664,24 +664,13 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
     },
   },
-  {
-    path: 'our-team',
-    component: TeamPageComponent,
-    resolve: { teamList: ResolveService },
-    data: {
-      requestcondition: {
-        source: 'Team_management_view',
-        condition: {}
-      },
-      endpoint: 'datalist'
-    },
-  },
+
 
   { path: 'blog', component: BlogComponentFrontEnd },
 

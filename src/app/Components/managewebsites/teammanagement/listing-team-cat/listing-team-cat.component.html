@@ -1,13 +1,17 @@
 <app-adminheader>
-<lib-list-team
-[TeamData]="allTeamData"
-[serverUrl]="serverUrl"
-[EditRoute]="editpageRoute"
-[addButtonRoute]="addPageRoute"
-[manageButtonRoute]="manageTeamRoute"
-[UpdateRoute]="updateendpoint"
-[DeleteEndpoint]="deleteEndpoint"
-[Token]="jwtToken"
-[SourceName]="sourceName"
-[SearchEndpoint]="searchendpoint"></lib-list-team>
+    <span class="team-category-newspan"  >
+        <button type="button" class="team-category-btn"  routerLink="/manage-websites/team/list">Manage Team</button>
+    
+   
+    <lib-list-team
+    [TeamData]="allTeamData"
+    [serverUrl]="serverUrl"
+    [EditRoute]="editpageRoute"
+    [addButtonRoute]="addPageRoute"
+    [manageButtonRoute]="manageTeamRoute"
+    [UpdateRoute]="updateendpoint"
+    [DeleteEndpoint]="deleteEndpoint"
+    [Token]="jwtToken"
+    [SourceName]="sourceName"
+    [SearchEndpoint]="searchendpoint"></lib-list-team></span>
 </app-adminheader>

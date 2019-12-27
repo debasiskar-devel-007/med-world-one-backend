@@ -9,10 +9,13 @@ import { environment } from '../../../../../environments/environment.dev';
 })
 export class AddeditTeamCatComponent implements OnInit {
 
+
   public teamDataList: any = [];
   public serverUrl: any = environment.API_URL;
   public addendpoint: any = "addorupdatedata";
   public listRoute: any = "manage-websites/team-category/list";
+  public sourceName : any = "team_category";
+  public roleSourceName :any = "rolemanagement";
   public SingleTeamData: any = [];
   public getdataEndpoint:any="datalist";
 
