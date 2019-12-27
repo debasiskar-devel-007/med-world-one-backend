@@ -1138,3 +1138,5 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 }
 
 /* .listing_tab i{ color: #fff;} */
+.top_quotesection .partner_select{ margin: 10px 0;}
+.top_quotesection .partner_select .mat-form-field-flex{ width: 100%;}
