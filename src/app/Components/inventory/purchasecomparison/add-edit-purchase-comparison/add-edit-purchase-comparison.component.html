@@ -293,6 +293,7 @@
                     <mat-card-content class="inner_image">
                       <img *ngIf="item.image!=null" src="{{item.image}}">
                       <img *ngIf="item.image==null" src="{{item.image_copy}}">
+                      <img *ngIf="item.image==null" src="{{item.inventory_image}}">
                     </mat-card-content>
                     <mat-card-content class="inner_content">
 

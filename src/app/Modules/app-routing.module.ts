@@ -326,7 +326,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'team_management',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
@@ -664,7 +664,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
