@@ -55,6 +55,8 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public hospitalName:any;
   public quote_id:number;
   public notes:string;
+  public hospitalId:any;
+  public hospitalDetails: any = [];
   //@HostListener('window:scroll')
    //image upload 
    public configData: any = {
@@ -80,7 +82,28 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       this.userType = userData.type;
 
       this.imageblockflag=true;
-
+      if(this.userType=='admin'){
+        let data = {
+          "source": "users_view_hospital_withrepdetails"
+        }
+        this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+          //console.log(response);
+          this.hospitalDetails=response.res;
+        });
+       }
+  
+       if(this.userType=='salesrep'){
+        let data = {
+          "source": "users_view_hospital_withrepdetails",
+          "condition":{
+            "salesrepid_object":this.userId
+          }
+        }
+        this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+          //console.log(response);
+          this.hospitalDetails=response.res;
+        });
+       }
       this.activatedRoute.params.subscribe(params => {
         if (params['_id'] != null) {
           this.action = "edit";
@@ -125,15 +148,13 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   generateForm() {
     this.addinventorylistingquoteForm = this.formBuilder.group({
       id:[null],
-      product_name: ['', [Validators.required]],
+      inventory_name: ['', [Validators.required]],
       source: [""],
       brand_id: ["",[Validators.required]],
       category_id: ["",[Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
-      // wholesaleprice:['',Validators.required],
-      // saleprice:['',Validators.required],
-      purchased_price:['',Validators.required],
+      // purchased_price:['',Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
       condition: ['New',],
@@ -153,7 +174,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   // ===================================Setting the default Value========================
   setDefaultValue(defaultValue) {
     this.addinventorylistingquoteForm.patchValue({
-      product_name: defaultValue.product_name,
+      inventory_name: defaultValue.inventory_name,
       brand_id: defaultValue.brand_id,
       category_id: defaultValue.category_id,
       sku: defaultValue.sku,
@@ -162,9 +183,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       status: defaultValue.status,
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
-      // wholesaleprice:defaultValue.wholesaleprice,
-      // saleprice:defaultValue.saleprice,
-      purchased_price:defaultValue.purchased_price,
+      // purchased_price:defaultValue.purchased_price,
       source: this.defaultData.source
 
     })
@@ -267,20 +286,21 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       }
 
       /* start process to submited data */
-      this.addinventorylistingquoteForm.value.brandname=this.gettbrandname;
+      this.addinventorylistingquoteForm.value.brand=this.gettbrandname;
       this.addinventorylistingquoteForm.value.catagory=this.getcatagory;
       this.addinventorylistingquoteForm.value.hospitalname=this.hospitalName;
 
       /**inventory */
       if(this.addinventorylistingquoteForm.value.id==null){
+        delete this.addinventorylistingquoteForm.value.id;
         var postData: any = {
           "source": 'purchase_comparison_quote',
           "data":{
-            "userid":this.userId,
+            "user_id":this.userId,
             "hospital_id":this.hospital_id,
             "inventory_details":this.addinventorylistingquoteForm.value
           },
-          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
+          "sourceobj": ["user_id","hospital_id"],
   
         };
         this.msg='Thank You For Submitting A Comparison Quote';
@@ -289,26 +309,25 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         var postData: any = {
           "source": 'purchase_comparison_quote',
           "data":{
-            "userid":this.userId,
+            "user_id":this.userId,
             "hospital_id":this.hospital_id,
             "inventory_details":this.addinventorylistingquoteForm.value,
             "id":inventID
           },
-          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
+          "sourceobj": ["user_id","hospital_id"],
   
         };
         this.msg='Inventory Updated';
       }
         
       console.log(postData,'postData');
-      //return;
-     
+      
       //console.log(postData,postData.data.inventory_details.inventory_image.basepath,postData.data.inventory_details.inventory_image.image);
       let inventory_image:any=postData.data.inventory_details.inventory_image.basepath+postData.data.inventory_details.inventory_image.image;
           
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-         // console.log(response);
+         console.log(response);
         if (response.status == "success") {
           this.hospitalflag=true;
             this.addinventorylistingquoteForm.reset();
@@ -397,6 +416,11 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     this.img_flag = false;
   }
 
+  /**select onchnage  */
+  hhospitalName(data: any) {
+    this.hospitalId = data;
+    //console.log(data);
+  }
 
   //getting the brand name
 
@@ -520,37 +544,33 @@ minus(){
     //console.log(this.notes);
   }
   submitquote(){
-    if(this.inventoryDetails[0].hospital_id==null){
+    if (this.userType=='admin' && this.hospitalId == undefined) {
+      this._snackBar.open('please select hospital','', {
+        duration: 1000,
+      });
+     return;
+    } 
+    if (this.userType=='salesrep' && this.hospitalId == undefined) {
+      this._snackBar.open('please select hospital','', {
+        duration: 1000,
+      });
+     return;
+    } 
+   
       var postData = {
         "source": "purchase_comparison_quote-details",
         "data":{
         "inventory_details": this.inventoryDetails,
-        "hospital_id":this.hospital_id,
+        "hospital_id":this.hospitalId,
         "quoted_by": this.userId,
         "notes":this.notes,
         "quote_id":this.quote_id,
         "status":1
         },
         "sourceobj":["hospital_id","quoted_by","user_id"]
-      };
-    }
-    if(this.inventoryDetails[0].hospital_id!=null){
-      var postData = {
-        "source": "purchase_comparison_quote-details",
-        "data":{
-        "inventory_details": this.inventoryDetails,
-        "hospital_id":this.inventoryDetails[0].hospital_id,
-        "quoted_by": this.userId,
-        "notes":this.notes,
-        "quote_id":this.quote_id,
-        "status":1
-        },
-        "sourceobj":["hospital_id","quoted_by","user_id"]
-      };
-    }
+      }; 
     
    
-
     console.log(postData);
     // console.log(this.inventoryDetails);
 
