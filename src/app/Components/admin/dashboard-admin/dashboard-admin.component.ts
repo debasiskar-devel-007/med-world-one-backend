@@ -199,7 +199,6 @@ adminAddSalesrepbyEmail(){
     this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
         this.dataSource=res.res;
     })
-
   
 }
 /**admin search recently add salesrep firstname*/
