@@ -26,7 +26,7 @@ export class AddEditTeamComponent implements OnInit {
     path: "team",
     prefix: "team-picture_",
     formSubmit: false,
-    conversionNeeded: 1,
+    conversionNeeded: 0,
     bucketName: "teammanagement-files"
   }
   constructor( public activeRoute : ActivatedRoute ) { }

@@ -33,12 +33,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public imageType: any;
   public img_flag: any = false;
   public add_field_flag: boolean = false;
-  public i_count: number = 0;
-  public dummy_array: any;
-  public attr_name: any;
   public attr_value: any;
-  public a_name: string;
-  public a_value: string;
   public temp_array: any = [];
   public items: FormArray;
   public active_hospital_list: any = [];
@@ -524,11 +519,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         }
       }
        
-    
    
-    
-   
-
     // console.log(postData);
     // console.log(this.inventoryDetails);
     
