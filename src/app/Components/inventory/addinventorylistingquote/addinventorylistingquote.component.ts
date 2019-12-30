@@ -17,7 +17,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public msg:string;
   public invendetailsbyId:any=[];
   public hospital_id:any;
-  public ids:any;
+  public ids:any=[];
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add New Listing Inventory Quote";
@@ -104,22 +104,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
         /** getting the active hospitals **/
         this.getActiveHospital();
-    
-        // Case 
-        // switch (this.action) {
-        //   case 'add':
-        //     /* Button text */
-        //     this.btn_text = "SUBMIT";
-        //     break;
-        //   case 'edit':
-        //     /* Button text */
-        //     this.btn_text = "UPDATE";
-        //     this.successMessage = "One row updated";
-        //     this.setDefaultValue(this.defaultData);
-        //     this.header_txt = "Edit Brand Information";
-        //     this.img_flag = true;
-        //     break;
-        // }
+  
   }
 
   // =====================generate form=====================
@@ -144,39 +129,6 @@ export class AddinventorylistingquoteComponent implements OnInit {
     });
   }
   // =======================================================
-
-
-
-
-
-  // ===================================Setting the default Value========================
-  // setDefaultValue(defaultValue) {
-  //   console.log("defaultValue",defaultValue)
-  //   this.addinventorylistingquoteForm.patchValue({
-  //     product_name: defaultValue.product_name,
-  //     brand_id: defaultValue.brand_id,
-  //     category_id: defaultValue.category_id,
-  //     sku: defaultValue.sku,
-  //     description: defaultValue.description,
-  //     condition: defaultValue.condition,
-  //     status: defaultValue.status,
-  //     inventory_image: defaultValue.inventory_image,
-  //     quantity: defaultValue.quantity,
-  //     saleprice:defaultValue.saleprice,
-  //     source: this.defaultData.source
-
-  //   })
-  //   this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
-  //   this.imageName = defaultValue.inventory_image.name;
-  //   this.imageType = defaultValue.inventory_image.type;
-  //   this.getBrandName(defaultValue.inventory_category);
-  //   for (let i = 0; i < this.defaultData.items.length; i++) {
-  //     if (this.defaultData.items[i] != null) {
-  //       this.addItemWithData(this.defaultData.items[i]);
-  //     }
-  //   }
-  // }
-  // ===================================================================================
 
   gethospitalName(data:any,id:any){
    
@@ -207,7 +159,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-        //console.log(response.res);
+        console.log(response.res);
         this.inventoryDetails=response.res;
     })
 
@@ -230,6 +182,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         console.log("invenID",response.res);
         this.invendetailsbyId=response.res;
         this.inventoryDetails=response.res[0].inventory_details;
+        
     })
 
     // for quote id
@@ -542,35 +495,37 @@ export class AddinventorylistingquoteComponent implements OnInit {
           },
          
         };
+      }else{
+        if(this.inventoryDetails[0].hospital_id==null){
+          postData = {
+            "source": "quote_listing_details",
+            "data":{
+            "inventory_details": this.inventoryDetails,
+            "hospital_id":this.hospital_id,
+            "user_id": this.userId,
+            "quote_id":this.quote_id,
+            "status":1
+            },
+            "sourceobj":["hospital_id","quoted_by","user_id"]
+          };
+        }
+        if(this.inventoryDetails[0].hospital_id!=null){
+          postData = {
+            "source": "quote_listing_details",
+            "data":{
+            "inventory_details": this.inventoryDetails,
+            "hospital_id":this.inventoryDetails[0].hospital_id,
+            "user_id": this.userId,
+            "quote_id":this.quote_id,
+            "status":1
+            },
+            "sourceobj":["hospital_id","quoted_by","user_id"]
+          };
+        }
       }
        
     
-    if(this.inventoryDetails[0].hospital_id==null){
-      postData = {
-        "source": "quote_listing_details",
-        "data":{
-        "inventory_details": this.inventoryDetails,
-        "hospital_id":this.hospital_id,
-        "user_id": this.userId,
-        "quote_id":this.quote_id,
-        "status":1
-        },
-        "sourceobj":["hospital_id","quoted_by","user_id"]
-      };
-    }
-    if(this.inventoryDetails[0].hospital_id!=null){
-      postData = {
-        "source": "quote_listing_details",
-        "data":{
-        "inventory_details": this.inventoryDetails,
-        "hospital_id":this.inventoryDetails[0].hospital_id,
-        "user_id": this.userId,
-        "quote_id":this.quote_id,
-        "status":1
-        },
-        "sourceobj":["hospital_id","quoted_by","user_id"]
-      };
-    }
+   
     
    
 
@@ -635,6 +590,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   /**view Detail inventory */
   viewDetailsInventory(item:any){
+    // this.activatedRoute.snapshot.params.listingquoteid
     console.log("viewDetailsInventory",item);
     this.submitbuttonFlage=1;
     this.addinventorylistingquoteForm.patchValue({
