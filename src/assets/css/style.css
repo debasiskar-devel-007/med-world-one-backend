@@ -1140,3 +1140,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 /* .listing_tab i{ color: #fff;} */
 .top_quotesection .partner_select{ margin: 10px 0;}
 .top_quotesection .partner_select .mat-form-field-flex{ width: 100%;}
+/* quote cart css */
+.top_quotesection { padding: 7px;}
+.top_quotesection .mat-form-field .mat-form-field-wrapper{ padding-bottom: 0; }
+.top_quotesection .mat-form-field-appearance-legacy .mat-form-field-ripple{ display: none; }
