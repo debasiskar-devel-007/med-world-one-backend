@@ -1,8 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, FormArray,AbstractControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 @Component({
   selector: 'app-addinventorylistingquote',
@@ -12,12 +12,12 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
-  public submitbuttonFlage:number=0;
-  public hospitalflag:boolean=false;
-  public msg:string;
-  public invendetailsbyId:any=[];
-  public hospital_id:any;
-  public ids:any=[];
+  public submitbuttonFlage: number = 0;
+  public hospitalflag: boolean = false;
+  public msg: string;
+  public invendetailsbyId: any = [];
+  public hospital_id: any;
+  public ids: any = [];
   public addinventorylistingquoteForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add New Listing Inventory Quote";
@@ -38,18 +38,16 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public items: FormArray;
   public active_hospital_list: any = [];
   public imageErrCode: boolean = false;
-  public userId:any;
-  public userType:any;
-  public imageblockflag:boolean=false
-  public selected:any;
-  public inventoryDetails:any=[];
-  public getcatagory:any;
-  public gettbrandname:any;
-  public hospitalName:any;
-  public quote_id:number;
-  //@HostListener('window:scroll')
-   //image upload 
-   public configData: any = {
+  public userId: any;
+  public userType: any;
+  public imageblockflag: boolean = false
+  public selected: any;
+  public inventoryDetails: any = [];
+  public getcategory: any;
+  public gettbrandname: any;
+  public hospitalName: any;
+  public quote_id: number;
+  public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
@@ -64,55 +62,55 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService,
     public http: HttpServiceService, public router: Router,
-    public activatedRoute: ActivatedRoute,public _snackBar: MatSnackBar) { 
-      
-      let userData = JSON.parse(this.cookieService.get('user_details'));
-      this.userId = userData._id;
-      this.userType = userData.type;
+    public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar) {
 
-      this.imageblockflag=true;
+    let userData = JSON.parse(this.cookieService.get('user_details'));
+    this.userId = userData._id;
+    this.userType = userData.type;
 
-      this.activatedRoute.params.subscribe(params => {
-        if (params['_id'] != null) {
-          this.action = "edit";
-          this.condition = { user_id: params._id };
-          this.activatedRoute.data.subscribe(resolveData => {
-            this.defaultData = resolveData.inventoryList.res[0];
-          });
-        }
-        else this.action = "add";
+    this.imageblockflag = true;
 
-      });
-       //generating the form
+    this.activatedRoute.params.subscribe(params => {
+      if (params['_id'] != null) {
+        this.action = "edit";
+        this.condition = { user_id: params._id };
+        this.activatedRoute.data.subscribe(resolveData => {
+          this.defaultData = resolveData.inventoryList.res[0];
+        });
+      }
+      else this.action = "add";
+
+    });
+    //generating the form
     this.generateForm();
-    if(this.activatedRoute.snapshot.params.listingquoteid==undefined){
+    if (this.activatedRoute.snapshot.params.listingquoteid == undefined) {
       this.fetchAddedInventoryDetails();
-    }else{
+    } else {
       this.fetchAddedInventoryDetailsbyinventoryId();
     }
-    
+
   }
 
   ngOnInit() {
-        //getting the inventory category
-        this.getInventoryCategory();
+    //getting the inventory category
+    this.getInventoryCategory();
 
-        /** getting the active hospitals **/
-        this.getActiveHospital();
-  
+    /** getting the active hospitals **/
+    this.getActiveHospital();
+
   }
 
   // =====================generate form=====================
   generateForm() {
     this.addinventorylistingquoteForm = this.formBuilder.group({
-      id:[null],
+      id: [null],
       product_name: ['', [Validators.required]],
       source: [""],
-      brand_id: ["",[Validators.required]],
-      category_id: ["",[Validators.required]],
+      brand_id: ["", [Validators.required]],
+      category_id: ["", [Validators.required]],
       sku: ['', [Validators.required]],
       quantity: ['', [Validators.required]],
-      saleprice:['',Validators.required],
+      saleprice: ['', Validators.required],
       description: ['', [Validators.required]],
       inventory_image: [],
       condition: ['New',],
@@ -125,19 +123,15 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   // =======================================================
 
-  gethospitalName(data:any,id:any){
-   
-   // console.log(data);
-    this.hospitalName=data;
-    this.hospital_id=id;
+  gethospitalName(data: any, id: any) {
+    this.hospitalName = data;
+    this.hospital_id = id;
   }
-  getcatagoryName(catname:any){
-    //console.log(catname);
-    this.getcatagory=catname;
+  getcatagoryName(catname: any) {
+    this.getcategory = catname;
   }
-  getbrandName(brndname:any){
-    //console.log(brndname);
-    this.gettbrandname=brndname;
+  getbrandName(brndname: any) {
+    this.gettbrandname = brndname;
   }
   /** blur function **/
   inputBlur(val: any) {
@@ -145,51 +139,51 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
 
   /**Fetch inventory details */
-  fetchAddedInventoryDetails(){
+  fetchAddedInventoryDetails() {
     // console.log(this.condition.user_id);
-    let postData={
+    let postData = {
       "source": "quote-listing_view",
-      "condition":{
-        "userid_object":this.userId
+      "condition": {
+        "userid_object": this.userId
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-        console.log(response.res);
-        this.inventoryDetails=response.res;
+     // console.log(response);
+      this.inventoryDetails = response.res;
     })
 
     // for quote id
     this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
       //console.log(response.userID);
-      this.quote_id=response.userID;
-  })
+      this.quote_id = response.userID;
+    })
 
   }
 
-  fetchAddedInventoryDetailsbyinventoryId(){
-    let postData={
+  fetchAddedInventoryDetailsbyinventoryId() {
+    let postData = {
       "source": "quote_listing_details_view",
-      "condition":{
-        "_id_object":this.activatedRoute.snapshot.params.listingquoteid
+      "condition": {
+        "_id_object": this.activatedRoute.snapshot.params.listingquoteid
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-        console.log("invenID",response.res);
-        this.invendetailsbyId=response.res;
-        this.inventoryDetails=response.res[0].inventory_details;
-        
+      //console.log("invenID", response.res);
+      this.invendetailsbyId = response.res;
+      this.inventoryDetails = response.res[0].inventory_details;
+
     })
 
     // for quote id
     this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
       //console.log(response.userID);
-      this.quote_id=response.userID;
-  })
+      this.quote_id = response.userID;
+    })
 
   }
   // ======================submit form=======================
   onSubmit() {
-    
+
     /** marking as untouched **/
     for (let x in this.addinventorylistingquoteForm.controls) {
       this.addinventorylistingquoteForm.controls[x].markAsTouched();
@@ -208,12 +202,12 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
       if (this.configData.files.length > 1) { this.ErrCode = true; return; }
       this.addinventorylistingquoteForm.value.inventory_image =
-        {
-          "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
-          "image": this.configData.files[0].upload.data.data.fileservername,
-          "name": this.configData.files[0].name,
-          "type": this.configData.files[0].type
-        };
+      {
+        "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+        "image": this.configData.files[0].upload.data.data.fileservername,
+        "name": this.configData.files[0].name,
+        "type": this.configData.files[0].type
+      };
     } else {
       this.addinventorylistingquoteForm.value.inventory_image = false;
       this.imageErrCode = true;
@@ -235,73 +229,73 @@ export class AddinventorylistingquoteComponent implements OnInit {
       }
 
       /* start process to submited data */
-      this.addinventorylistingquoteForm.value.brandname=this.gettbrandname;
-      this.addinventorylistingquoteForm.value.catagory=this.getcatagory;
-      this.addinventorylistingquoteForm.value.hospitalname=this.hospitalName;
+      this.addinventorylistingquoteForm.value.brandname = this.gettbrandname;
+      this.addinventorylistingquoteForm.value.catagory = this.getcategory;
+      this.addinventorylistingquoteForm.value.hospitalname = this.hospitalName;
 
       /**inventory */
-      if(this.addinventorylistingquoteForm.value.id==null){
+      if (this.addinventorylistingquoteForm.value.id == null) {
         var postData: any = {
           "source": 'quote-listing',
-          "data":{
-            "userid":this.userId,
-            "hospital_id":this.hospital_id,
-            "inventory_details":this.addinventorylistingquoteForm.value
+          "data": {
+            "userid": this.userId,
+            "hospital_id": this.hospital_id,
+            "inventory_details": this.addinventorylistingquoteForm.value
           },
-          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
-  
+          "sourceobj": ["category_id", "brand_id", "userid", "hospital_id"],
+
         };
-        this.msg='Thank You For Submitting A Listing Inventory Quote';
-      }else{
-        var inventID= this.addinventorylistingquoteForm.value.id;
+        this.msg = 'Thank You For Submitting A Listing Inventory Quote';
+      } else {
+        var inventID = this.addinventorylistingquoteForm.value.id;
         var postData: any = {
           "source": 'quote-listing',
-          "data":{
-            "userid":this.userId,
-            "hospital_id":this.hospital_id,
-            "inventory_details":this.addinventorylistingquoteForm.value,
-            "id":inventID
+          "data": {
+            "userid": this.userId,
+            "hospital_id": this.hospital_id,
+            "inventory_details": this.addinventorylistingquoteForm.value,
+            "id": inventID
           },
-          "sourceobj": ["category_id", "brand_id","userid","hospital_id"],
-  
+          "sourceobj": ["category_id", "brand_id", "userid", "hospital_id"],
+
         };
-        this.msg='Inventory Updated';
+        this.msg = 'Inventory Updated';
       }
-        
-      console.log(postData,'postData');
-      //return;
-     
+
+      //console.log(postData, 'postData');
+
+
       //console.log(postData,postData.data.inventory_details.inventory_image.basepath,postData.data.inventory_details.inventory_image.image);
-      let inventory_image:any=postData.data.inventory_details.inventory_image.basepath+postData.data.inventory_details.inventory_image.image;
-          
+      let inventory_image: any = postData.data.inventory_details.inventory_image.basepath + postData.data.inventory_details.inventory_image.image;
+
 
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-         // console.log(response);
+        //console.log(response);
         if (response.status == "success") {
-          this.hospitalflag=true;
-            this.addinventorylistingquoteForm.reset();
-            this._snackBar.open(this.msg, '', {
-              duration: 2000,
-            });
-            //this.defaultData.inventory_image=null;
-           this.imageblockflag=false;
+          this.hospitalflag = true;
+          this.addinventorylistingquoteForm.reset();
+          this._snackBar.open(this.msg, '', {
+            duration: 2000,
+          });
+          //this.defaultData.inventory_image=null;
+          this.imageblockflag = false;
 
-           setTimeout(()=>{    //<<<---    using ()=> syntax
-            this.imageblockflag=true;
-              }, 1000);
-          
-           postData.data.inventory_details.inventory_image=inventory_image;
-           postData.data.inventory_details.category=this.getcatagory;
-           if(postData.data.id==null) this.inventoryDetails.push(postData.data.inventory_details);
-            this.router.events.subscribe(() =>
+          setTimeout(() => {    //<<<---    using ()=> syntax
+            this.imageblockflag = true;
+          }, 1000);
+
+          postData.data.inventory_details.inventory_image = inventory_image;
+          postData.data.inventory_details.category = this.getcategory;
+          if (postData.data.id == null) this.inventoryDetails.push(postData.data.inventory_details);
+          this.router.events.subscribe(() =>
             window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
+              top: 0,
+              left: 0,
+              behavior: 'smooth'
             })
-        );
-
-        this.generateForm();
+          );
+         
+          this.generateForm();
 
 
         } else {
@@ -340,7 +334,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   //getting the brand name
 
-  getBrandNamewithval(index: any,selectid:any) {
+  getBrandNamewithval(index: any, selectid: any) {
     //console.log(index);
     var data: any;
     data = {
@@ -355,7 +349,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       let result: any;
       result = response.res;
       this.brand_name_array = result[0].brand_data;
-     this.addinventorylistingquoteForm.patchValue({brand_id:selectid});
+      this.addinventorylistingquoteForm.patchValue({ brand_id: selectid });
     });
   }
 
@@ -385,14 +379,14 @@ export class AddinventorylistingquoteComponent implements OnInit {
   /** get active hospital list **/
   getActiveHospital() {
 
-    if(this.userType=='hospital'){
+    if (this.userType == 'hospital') {
       var data: any;
       data = {
         'source': 'users_view',
         'condition': {
           '_id_object': this.userId
         }
-          
+
       };
 
 
@@ -406,14 +400,14 @@ export class AddinventorylistingquoteComponent implements OnInit {
     }
 
 
-    if(this.userType=='salesrep'){
+    if (this.userType == 'salesrep') {
       var data: any;
       data = {
         'source': 'users_view',
         'condition': {
           'salesrepselect_object': this.userId
         }
-          
+
       };
 
 
@@ -428,22 +422,22 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
 
-    if(this.userType=='admin'){
-    var data: any;
-    data = {
-      'source': 'users_view',
-      'token': this.cookieService.get('jwtToken'),
-      'condition': {
-        'type': 'hospital',
-        status: 1
-      }
-    };
-    this.http.httpViaPost("datalist", data).subscribe(response => {
-      let result: any;
-      result = response.res;
-      this.active_hospital_list = result
-    });
-  }
+    if (this.userType == 'admin') {
+      var data: any;
+      data = {
+        'source': 'users_view',
+        'token': this.cookieService.get('jwtToken'),
+        'condition': {
+          'type': 'hospital',
+          status: 1
+        }
+      };
+      this.http.httpViaPost("datalist", data).subscribe(response => {
+        let result: any;
+        result = response.res;
+        this.active_hospital_list = result
+      });
+    }
   }
 
 
@@ -477,213 +471,255 @@ export class AddinventorylistingquoteComponent implements OnInit {
     return index;
   }
 
-  submitquote(){
-    console.log("submit quote",this.inventoryDetails);
+  submitquote() {
+    // console.log("submit quote", this.inventoryDetails);
     /**inventory from save quote */
-    var postData:any={};
-      if(this.activatedRoute.snapshot.params.listingquoteid!=undefined){
-         postData = {
+    var postData: any = {};
+    if (this.activatedRoute.snapshot.params.listingquoteid != undefined) {
+      postData = {
+
+        "source": "quote_listing_details",
+        "data": {
+          "status": 1,
+          "id": this.invendetailsbyId[0]._id
+        },
+
+      };
+    } else {
+      if (this.inventoryDetails[0].hospital_id == null) {
+        postData = {
           "source": "quote_listing_details",
-          "data":{
-          "status":1,
-          "id":this.invendetailsbyId[0]._id
+          "data": {
+            "inventory_details": this.inventoryDetails,
+            "hospital_id": this.hospital_id,
+            "user_id": this.userId,
+            "quote_id": this.quote_id,
+            "status": 1
           },
-         
+          "sourceobj": ["hospital_id", "quoted_by", "user_id"]
         };
-      }else{
-        if(this.inventoryDetails[0].hospital_id==null){
-          postData = {
-            "source": "quote_listing_details",
-            "data":{
-            "inventory_details": this.inventoryDetails,
-            "hospital_id":this.hospital_id,
-            "user_id": this.userId,
-            "quote_id":this.quote_id,
-            "status":1
-            },
-            "sourceobj":["hospital_id","quoted_by","user_id"]
-          };
-        }
-        if(this.inventoryDetails[0].hospital_id!=null){
-          postData = {
-            "source": "quote_listing_details",
-            "data":{
-            "inventory_details": this.inventoryDetails,
-            "hospital_id":this.inventoryDetails[0].hospital_id,
-            "user_id": this.userId,
-            "quote_id":this.quote_id,
-            "status":1
-            },
-            "sourceobj":["hospital_id","quoted_by","user_id"]
-          };
-        }
       }
-       
-   
-    // console.log(postData);
+      if (this.inventoryDetails[0].hospital_id != null) {
+        postData = {
+          "source": "quote_listing_details",
+          "data": {
+            "inventory_details": this.inventoryDetails,
+            "hospital_id": this.inventoryDetails[0].hospital_id,
+            "user_id": this.userId,
+            "quote_id": this.quote_id,
+            "status": 1
+          },
+          "sourceobj": ["hospital_id", "quoted_by", "user_id"]
+        };
+      }
+    }
+
+
+    //console.log(postData);
     // console.log(this.inventoryDetails);
-    
-    for(let i in this.inventoryDetails){
-        this.ids.push(this.inventoryDetails[i]._id);
+
+    for (let i in this.inventoryDetails) {
+      this.ids.push(this.inventoryDetails[i]._id);
     }
     //console.log(this.ids);
 
 
-    let deleteData={
+    let deleteData = {
       "source": "quote-listing",
-      "ids":this.ids
+      "ids": this.ids
     }
     // console.log("deletedata",deleteData);
-    
+
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
-      if(response.status="success"){
+      if (response.status = "success") {
         this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
           duration: 2000,
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
           //console.log(response);
-          if(response.status="success"){
-            
-                      /**salesrep route */
-                    if(this.userType=='salesrep'){
-                      this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
-                    }
-                    /**hospital route */
-                    if(this.userType=='salesrep'){
-                      this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
-                    }
-                    /**hospital route */
-                    if(this.userType=='admin'){
-                      this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
-                    }
+          if (response.status = "success") {
+
+            /**salesrep route */
+            if (this.userType == 'salesrep') {
+              this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+            }
+            /**hospital route */
+            if (this.userType == 'salesrep') {
+              this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+            }
+            /**hospital route */
+            if (this.userType == 'admin') {
+              this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+            }
           }
         })
-        
+
       }
     })
   }
   /**delete inventory */
-  delete(id:any,index:any){
+  delete(id: any, index: any) {
     //console.log(id,index);
-    let deleteData:any={
-       "source": "quote-listing",
-       "id":id};
+    let deleteData: any = {
+      "source": "quote-listing",
+      "id": id
+    };
     this.http.httpViaPost('deletesingledata', deleteData).subscribe((response: any) => {
-      if(response.status=="success"){
+      if (response.status == "success") {
         this.inventoryDetails.splice(index, index + 1);
       }
     })
-  
-    if(this.inventoryDetails.length<=1){
-      this.hospitalflag=false;
+
+    if (this.inventoryDetails.length <= 1) {
+      this.hospitalflag = false;
     }
   }
   /**view Detail inventory */
-  viewDetailsInventory(item:any){
-    // this.activatedRoute.snapshot.params.listingquoteid
-    console.log("viewDetailsInventory",item);
-    this.submitbuttonFlage=1;
-    this.addinventorylistingquoteForm.patchValue({
-      id:item._id,
-      product_name:item.inventory_details.product_name,
-      source:item.inventory_details.source,
-      //brand_id:item.inventory_details.brand_id,
-      category_id:item.inventory_details.category_id,
-      sku:item.inventory_details.sku,
-      quantity:item.inventory_details.quantity,
-      saleprice:item.inventory_details.saleprice,
-      description:item.inventory_details.description,
-      condition:item.inventory_details.condition,
-      yom:item.inventory_details.yom,
-      
-      inventory_image:item.inventory_details.inventory_image.basepath+item.inventory_details.inventory_image.image
-    });
-    for (let i = 0; i < item.inventory_details.items.length; i++) {
-          if (item.inventory_details.items[i] != null) {
-            this.addItemWithData(item.inventory_details.items[i]);
-          }
+  viewDetailsInventory(item: any) {
+    if (item._id != null) {
+      //console.log("viewDetailsInventory", item);
+      this.submitbuttonFlage = 1;
+      this.addinventorylistingquoteForm.patchValue({
+        id: item._id,
+        product_name: item.inventory_details.product_name,
+        source: item.inventory_details.source,
+        //brand_id:item.inventory_details.brand_id,
+        category_id: item.inventory_details.category_id,
+        sku: item.inventory_details.sku,
+        quantity: item.inventory_details.quantity,
+        saleprice: item.inventory_details.saleprice,
+        description: item.inventory_details.description,
+        condition: item.inventory_details.condition,
+        yom: item.inventory_details.yom,
+
+        inventory_image: item.inventory_details.inventory_image.basepath + item.inventory_details.inventory_image.image
+      });
+      for (let i = 0; i < item.inventory_details.items.length; i++) {
+        if (item.inventory_details.items[i] != null) {
+          this.addItemWithData(item.inventory_details.items[i]);
         }
-    // this.getbrandName=item.inventory_details.brandname;
-    this.getbrandName(item.inventory_details.brandname);
-    this.getcatagoryName(item.inventory_details.catagory);
-    this.gethospitalName(item.inventory_details.hospitalname,item.inventory_details.source);
-    this.getBrandNamewithval(item.inventory_details.category_id,item.inventory_details.brand_id);
+      }
+      // this.getbrandName=item.inventory_details.brandname;
+      this.getbrandName(item.inventory_details.brandname);
+      this.getcatagoryName(item.inventory_details.category);
+      this.gethospitalName(item.inventory_details.hospitalname, item.inventory_details.source);
+      this.getBrandNamewithval(item.inventory_details.category_id, item.inventory_details.brand_id);
 
-    this.configData={};
-    this.configData.files=[];
-    this.configData.files[0]=item.inventory_details.inventory_image;  
+      this.configData = {};
+      this.configData.files = [];
+      this.configData.files[0] = item.inventory_details.inventory_image;
 
-    this.fullImagePath = item.inventory_details.inventory_image.basepath + item.inventory_details.inventory_image.image;
-    this.imageName = item.inventory_details.inventory_image.name;
-    this.imageType = item.inventory_details.inventory_image.type;
-    this.img_flag=true;
+      this.fullImagePath = item.inventory_details.inventory_image.basepath + item.inventory_details.inventory_image.image;
+      this.imageName = item.inventory_details.inventory_image.name;
+      this.imageType = item.inventory_details.inventory_image.type;
+      this.img_flag = true;
+    } else {
+
+      //console.log("viewDetailsInventory", item);
+      this.submitbuttonFlage = 1;
+      this.addinventorylistingquoteForm.patchValue({
+        id: item._id,
+        product_name: item.product_name,
+        source: item.source,
+        //brand_id:item.brand_id,
+        category_id: item.category_id,
+        sku: item.sku,
+        quantity: item.quantity,
+        saleprice: item.saleprice,
+        description: item.description,
+        condition: item.condition,
+        yom: item.yom,
+
+        inventory_image: item.inventory_image.basepath + item.inventory_image.image
+      });
+      for (let i = 0; i < item.items.length; i++) {
+        if (item.items[i] != null) {
+          this.addItemWithData(item.items[i]);
+        }
+      }
+      // this.getbrandName=item.brandname;
+      this.getbrandName(item.brandname);
+      this.getcatagoryName(item.category);
+      this.gethospitalName(item.hospitalname, item.source);
+      this.getBrandNamewithval(item.category_id, item.brand_id);
+
+      this.configData = {};
+      this.configData.files = [];
+      this.configData.files[0] = item.inventory_image;
+
+      this.fullImagePath = item.inventory_image.basepath + item.inventory_image.image;
+      this.imageName = item.inventory_image.name;
+      this.imageType = item.inventory_image.type;
+      this.img_flag = true;
+    }
+
 
   }
 
 
-  saveQuote(){
-   // console.log("save",this.inventoryDetails);
+  saveQuote() {
+    // console.log("save",this.inventoryDetails);
     let postData = {
       "source": "quote_listing_details",
-      "data":{
-      "inventory_details": this.inventoryDetails,
-      "hospital_id": this.hospital_id,
-      "user_id": this.userId,
-      "quote_id":this.quote_id,
-      "status":0
+      "data": {
+        "inventory_details": this.inventoryDetails,
+        "hospital_id": this.hospital_id,
+        "user_id": this.userId,
+        "quote_id": this.quote_id,
+        "status": 0
       },
-      "sourceobj":["hospital_id","quoted_by","user_id"]
+      "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
 
-    for(let i in this.inventoryDetails){
+    for (let i in this.inventoryDetails) {
       this.ids.push(this.inventoryDetails[i]._id);
-  }
- 
-  let deleteData={
-    "source": "quote-listing",
-    "ids":this.ids
-  }
+    }
+
+    let deleteData = {
+      "source": "quote-listing",
+      "ids": this.ids
+    }
     //console.log(postData);
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
-      if(response.status="success"){
+      if (response.status = "success") {
         this._snackBar.open('Listing Inventory Quote saved in Draft.', '', {
           duration: 2000,
         });
         this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
           //console.log(response);
-          if(response.status="success"){
-            
-                      /**salesrep route */
-                    if(this.userType=='salesrep'){
-                      this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
-                    }
-                    /**hospital route */
-                    if(this.userType=='salesrep'){
-                      this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
-                    }
-                    /**hospital route */
-                    if(this.userType=='admin'){
-                      this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
-                    }
+          if (response.status = "success") {
+
+            /**salesrep route */
+            if (this.userType == 'salesrep') {
+              this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+            }
+            /**hospital route */
+            if (this.userType == 'salesrep') {
+              this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+            }
+            /**hospital route */
+            if (this.userType == 'admin') {
+              this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+            }
           }
         })
-        
+
       }
     })
   }
   /**cancel button */
-  cancel(){
-    if(this.userType=='salesrep'){
+  cancel() {
+    if (this.userType == 'salesrep') {
       this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
     }
     /**hospital route */
-    if(this.userType=='salesrep'){
+    if (this.userType == 'salesrep') {
       this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
     }
     /**hospital route */
-    if(this.userType=='admin'){
+    if (this.userType == 'admin') {
       this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
     }
   }
