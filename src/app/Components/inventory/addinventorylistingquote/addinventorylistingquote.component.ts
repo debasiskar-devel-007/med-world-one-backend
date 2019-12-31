@@ -307,10 +307,6 @@ export class AddinventorylistingquoteComponent implements OnInit {
   // ========================================================
 
 
-
-
-
-
   //getting the brand name
 
   getBrandName(index: any) {
@@ -330,8 +326,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.brand_name_array = result[0].brand_data;
     });
   }
-  //getting the brand name
 
+
+
+  //getting the brand name
   getBrandNamewithval(index: any, selectid: any) {
     //console.log(index);
     var data: any;
@@ -543,10 +541,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
               this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
             }
             /**hospital route */
-            if (this.userType == 'salesrep') {
+            if (this.userType == 'hospital') {
               this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
             }
-            /**hospital route */
+            /**admin route */
             if (this.userType == 'admin') {
               this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
             }

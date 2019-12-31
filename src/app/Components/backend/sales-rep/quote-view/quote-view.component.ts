@@ -66,7 +66,7 @@ public dateAdded:number;
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
     
-      console.log(response);
+    //  console.log(response);
      if(response.status="success"){
       //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);

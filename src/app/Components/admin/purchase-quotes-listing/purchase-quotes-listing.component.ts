@@ -95,7 +95,7 @@ addPurchasequotes(){
 }
 /**send email */
 email(element:any,rout:any){
-
+  
   const dialogRef = this.dialog.open(emailModal, {
     panelClass:'emailModal',
      data: {alldata: element,rout}
@@ -107,7 +107,7 @@ email(element:any,rout:any){
    });
 }
 editforroute(element:any){
-  console.log("element,rout",element._id);
+  
   this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
 }
 }

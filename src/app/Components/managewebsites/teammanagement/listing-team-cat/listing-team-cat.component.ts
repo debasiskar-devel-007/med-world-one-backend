@@ -17,7 +17,7 @@ export class ListingTeamCatComponent implements OnInit {
   public searchendpoint:any="datalist";
   public deleteEndpoint:any="deletesingledata";
   public addPageRoute:any='manage-websites/team-category/add';
-  public manageTeamRoute:any='team/add';
+  public manageButtonRoute:any='manage-websites/team/list';
   public editpageRoute:any='manage-websites/team-category/edit';
   public serverUrl:any = environment.API_URL;
   public jwtToken=this.cookies.get('jwttoken');

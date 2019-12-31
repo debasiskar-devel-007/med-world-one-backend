@@ -60,7 +60,6 @@ import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-
 import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
 // import { BlogComponent } from 'blog-lib-influxiq';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
-import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
