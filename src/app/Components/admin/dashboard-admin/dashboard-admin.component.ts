@@ -120,10 +120,11 @@ export class DashboardAdminComponent implements OnInit {
         "user_id":this.userData._id
     }
     this.http.httpViaPost('salesrepdashboard', data).subscribe((response: any) => {
-      //console.log(response);
+      console.log(response);
       this.hospitalDetails = response.hospitaldetails;
       this.salesrepPurchaseQuote=response.quotedetails;
       this.salesrepListingQuote=response.quotelisting;
+      this.purcehseComparisionQuote=response.purchasecomparisonquote;
     });
 
   }
