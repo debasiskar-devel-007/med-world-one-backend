@@ -263,8 +263,6 @@ export class AddinventorylistingquoteComponent implements OnInit {
       }
 
       //console.log(postData, 'postData');
-
-
       //console.log(postData,postData.data.inventory_details.inventory_image.basepath,postData.data.inventory_details.inventory_image.image);
       let inventory_image: any = postData.data.inventory_details.inventory_image.basepath + postData.data.inventory_details.inventory_image.image;
 
@@ -584,7 +582,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         id: item._id,
         product_name: item.inventory_details.product_name,
         source: item.inventory_details.source,
-        //brand_id:item.inventory_details.brand_id,
+        brand_id:item.inventory_details.brand_id,
         category_id: item.inventory_details.category_id,
         sku: item.inventory_details.sku,
         quantity: item.inventory_details.quantity,
@@ -616,13 +614,13 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.img_flag = true;
     } else {
 
-      //console.log("viewDetailsInventory", item);
+      console.log("viewDetailsInventory", item);
       this.submitbuttonFlage = 1;
       this.addinventorylistingquoteForm.patchValue({
         id: item._id,
         product_name: item.product_name,
         source: item.source,
-        //brand_id:item.brand_id,
+        brand_id:item.brand_id,
         category_id: item.category_id,
         sku: item.sku,
         quantity: item.quantity,
@@ -631,7 +629,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         condition: item.condition,
         yom: item.yom,
 
-        inventory_image: item.inventory_image.basepath + item.inventory_image.image
+        inventory_image: item.inventory_image
       });
       for (let i = 0; i < item.items.length; i++) {
         if (item.items[i] != null) {
@@ -648,7 +646,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.configData.files = [];
       this.configData.files[0] = item.inventory_image;
 
-      this.fullImagePath = item.inventory_image.basepath + item.inventory_image.image;
+      this.fullImagePath = item.inventory_image;
       this.imageName = item.inventory_image.name;
       this.imageType = item.inventory_image.type;
       this.img_flag = true;
