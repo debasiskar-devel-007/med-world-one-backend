@@ -39,7 +39,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     //console.log(resolveData.purchasequotelist.res);
+    //  console.log(resolveData.purchasequotelist.res);
     });
   }
 /** quote details view*/
@@ -95,7 +95,7 @@ addPurchasequotes(){
 }
 /**send email */
 email(element:any,rout:any){
-
+  
   const dialogRef = this.dialog.open(emailModal, {
     panelClass:'emailModal',
      data: {alldata: element,rout}
@@ -106,8 +106,13 @@ email(element:any,rout:any){
           
    });
 }
+editforroute(element:any){
+  
+  this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
+}
 }
 
+/**Modal component */
 @Component({
   selector: 'dialog-overview',
   templateUrl: 'email.html',
@@ -160,4 +165,6 @@ export class emailModal {
       this.dialogRef.close();
     })
   }
+
+  
 }

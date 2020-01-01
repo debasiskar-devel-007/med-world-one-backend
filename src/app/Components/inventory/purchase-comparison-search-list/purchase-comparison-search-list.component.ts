@@ -74,20 +74,31 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
 
   search(){
       
-    let postData ={
-      "source": "inventories_list_view_async",
-      'condition':{
-        'category_id_object':this.inventory_cat,
-        'brand_id_object':this.inventory_brand,
-        'sku_regex':this.inventory_sku,
-        'inventory_search_regex':this.inventory_name
-      },
-      "limit":30
-    }
-    this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-      this.inventoryCatagoryList = res.res;
-    })
-   
+    let condition:any={};
+     if(this.inventory_cat!=null && this.inventory_cat){
+        condition.category_id_object=this.inventory_cat;
+     }
+      if(this.inventory_brand!=null && this.inventory_brand){
+          condition.brand_id_object=this.inventory_brand;
+      }
+      if(this.inventory_sku!=null && this.inventory_sku.length>0){
+        condition.sku_regex=this.inventory_sku.toLowerCase();
+      }
+
+      if(this.inventory_name!=null && this.inventory_name.length>0){
+        condition.inventory_search_regex=this.inventory_name.toLowerCase()
+      }
+      
+      let postData ={
+        "source": "inventories_list_view_async",
+        'condition':condition,
+        "limit":30
+      }
+      // console.log(postData);
+      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
+        this.inventoryCatagoryList = res.res;
+        // console.log(res);
+      })
   }
 
 
