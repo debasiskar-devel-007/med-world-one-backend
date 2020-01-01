@@ -47,12 +47,12 @@
       <span class="search_bar">
 
         <!-- catagory -->
-        <mat-select class="searchpannel" [(ngModel)]="inventory_cat" #srch placeholder="Search By Categories">
+        <mat-select class="searchpannel " [(ngModel)]="inventory_cat" #srch placeholder="Search By Categories">
           <mat-option  value=""> Select a Category</mat-option>
           <mat-option *ngFor="let category of categoryList" value="{{category._id}}" (click)="searchBrand(category._id)">
             {{category.category_name}}</mat-option>
         </mat-select>
-          &nbsp;
+          &nbsp;&nbsp;&nbsp;
           <!-- search by brand -->
         <mat-select class="searchpannel" *ngIf="inventory_cat!=null && inventory_cat!='' " [(ngModel)]="inventory_brand" placeholder="Search By Brand">
           <mat-option  value=""> Select a Brand</mat-option>
@@ -186,78 +186,6 @@
           <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
         </mat-toolbar>
       </mat-card-content> -->
-      <!-- <mat-card-content class="sh_inventory_content_item">
-        <mat-card-content class="inner_top_wrapper">
-          <mat-card-content class="image_wrapper">
-            <img src="../../../../assets/images/invItemimage1.jpg">
-          </mat-card-content>
-          <mat-card-content class="content_wrapper">
-            <h1>Lorem Ipsum is simply</h1>
-            <mat-card-content class="content_w">
-              <h3>Brand: </h3>
-              <p>Lorem Ipsum</p>
-            </mat-card-content>
-            <mat-card-content class="content_w">
-              <h3>Description: </h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout.</p>
-            </mat-card-content>
-          </mat-card-content>
-        </mat-card-content>
-        <mat-toolbar class="action_buttons">
-          <button mat-button>Add to Quote List</button>
-          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
-        </mat-toolbar>
-      </mat-card-content> -->
-      <!-- <mat-card-content class="sh_inventory_content_item">
-        <mat-card-content class="inner_top_wrapper">
-          <mat-card-content class="image_wrapper">
-            <img src="../../../../assets/images/invItemimage2.jpg">
-          </mat-card-content>
-          <mat-card-content class="content_wrapper">
-            <h1>Lorem Ipsum is simply</h1>
-            <mat-card-content class="content_w">
-              <h3>Brand: </h3>
-              <p>Lorem Ipsum</p>
-            </mat-card-content>
-            <mat-card-content class="content_w">
-              <h3>Description: </h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout.</p>
-            </mat-card-content>
-          </mat-card-content>
-        </mat-card-content>
-        <mat-toolbar class="action_buttons">
-          <button mat-button>Add to Quote List</button>
-          <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
-        </mat-toolbar>
-      </mat-card-content> -->
-
-      <!-- <mat-card-content class="sh_inventory_content_item">
-          <mat-card-content class="inner_top_wrapper">
-            <mat-card-content class="image_wrapper">
-              <img src="../../../../assets/images/invItemimage2.jpg">
-            </mat-card-content>
-            <mat-card-content class="content_wrapper">
-              <h1>Lorem Ipsum is simply</h1>
-              <mat-card-content class="content_w">
-                <h3>Brand: </h3>
-                <p>Lorem Ipsum</p>
-              </mat-card-content>
-              <mat-card-content class="content_w">
-                <h3>Description: </h3>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                  looking at its layout.</p>
-              </mat-card-content>
-            </mat-card-content>
-          </mat-card-content>
-          <mat-toolbar class="action_buttons">
-            <button mat-button>Add to Quote List</button>
-            <button mat-button class="view_more" routerLink="/inventory-details">View Details</button>
-          </mat-toolbar>
-        </mat-card-content> -->
-
-    
 
     </mat-card-content>
   </mat-card-content>

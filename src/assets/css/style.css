@@ -994,7 +994,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-underline { background-color: inherit; }
 /* end quote cart css */
 /* ----------------- list view css end -------------------- */
-.logo_wrapper{ cursor: pointer;}
+.logo_wrapper{ cursor: pointer; width: 50%; display: block;}
+.logo_wrapper img{ max-width: 100%; }
 .logo_wrapper:focus{ outline: none;}
 .yearOfManu{ margin-top: 16px;}
 .repeatBg{ background: #ffe7ef; padding: 10px; margin-bottom: 16px; box-shadow: 0px 1px 3px 0px #f9216a; box-sizing: border-box;}
@@ -1136,6 +1137,25 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
     margin-top: 4%; padding-left: 0;
   }
 }
+@media screen and (max-width: 620px) {
+  .addlistingInventory_button_wrapper{ display: flex; flex-wrap: wrap; }
+}
+@media screen and (max-width: 576px) {
+.formstylemainwrapper .col-1-3{ width: 100%; margin: 0; } 
+}
+
+/* test */
+.uploadfilecontainer{ box-sizing: border-box; }
+/* inventory details */
+.mat-dialog-container{ padding: 0!important}
+.modal_wrapper { width: 100%; margin-bottom:0!important;}
+.modal_wrapper .modal_para{ background: linear-gradient(0deg, #052f5d, #04f7f9); min-height: 170px; padding: 20px; margin-bottom:0;}
+.modal_wrapper .modal_para .icon{ width: 150px; height: 150px; border-radius: 50%; display: flex; overflow: hidden; margin: auto; }
+.modal_wrapper .modal_para .icon img{ max-width: 100%; object-fit: cover; object-position: center;}
+.modal_wrapper .modal_para h1{  font-family: 'AvenirMedium'; text-shadow: 1px 1px 1px #807b0f; font-size: 24px; text-transform: uppercase; text-align: center; color: #fff;}
+.modal_wrapper .login_button button{ background: #01274a; color: #fff; border-radius: 0; font-family: "AvenirMedium"; font-size: 20px; min-width: 140px; }
+.modal_wrapper .login_button button:last-child{ background: #13b3f3; margin-left: 10px;}
+.login_button{ display: flex; min-height: 120px; align-items: center; justify-content: center; background: #e6e6e6;}
 
 /* .listing_tab i{ color: #fff;} */
 .top_quotesection .partner_select{ margin: 10px 0;}
