@@ -43,16 +43,18 @@
 
           <mat-toolbar class="acctions">
             <mat-card-content class="quantity">
-              <p>qty</p>
+
               <span class="counter_wrapper">
-                <span class="inner_box">
-                  <span class="boxes">{{item.quantity}}</span>
-                  <span class="counter">
-                    <a (click)="plus(i)"><i class="material-icons"> keyboard_arrow_up </i></a>
-                    <a (click)="minus(i)"><i class="material-icons"> keyboard_arrow_down </i></a>
+                <span class="quantity_wrapper">
+                  <p>qty</p>
+                  <span class="inner_box">
+                    <span class="boxes">{{item.quantity}}</span>
+                    <span class="counter">
+                      <a (click)="plus(i)"><i class="material-icons"> keyboard_arrow_up </i></a>
+                      <a (click)="minus(i)"><i class="material-icons"> keyboard_arrow_down </i></a>
+                    </span>
                   </span>
                 </span>
-              
                 <button mat-button (click)="remove(item._id,i)" class="remove">Remove</button>
               </span>
             </mat-card-content>
