@@ -8,14 +8,7 @@ export interface DialogData {
   data: any;
   alldata:any
 }
-const Data = [
-  { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
-  { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
-  { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
-  { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
-  { name: 'Lorem Ipsum is simply', sku: 253, category: 'Lorem Ipsum is simply dummy text', brand: 'Lorem Ipsum is simply dummy text', qty:'2', pric: 360, wholesale: 9600.00 },
 
-];
 @Component({
   selector: 'app-quote-view',
   templateUrl: './quote-view.component.html',
@@ -134,7 +127,7 @@ public savings:number=0;
  
   viewQuoteHeader: string[] = [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice','wholesale'];
   
-  viewData = Data;
+
 
 /**update quote with price */
   save(){
@@ -146,6 +139,7 @@ public savings:number=0;
     }
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       source='purchase_comparison_quote-details';
+      //console.log(this.quotedetails);
     }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       source='quote_listing_details';
@@ -159,6 +153,7 @@ public savings:number=0;
       }
     }
     //console.log(postData);
+    
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       if(response.status="success"){
       this._snackBar.open('Data Updated','', {

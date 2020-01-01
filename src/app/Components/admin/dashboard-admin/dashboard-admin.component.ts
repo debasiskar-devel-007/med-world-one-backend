@@ -120,7 +120,7 @@ export class DashboardAdminComponent implements OnInit {
         "user_id":this.userData._id
     }
     this.http.httpViaPost('salesrepdashboard', data).subscribe((response: any) => {
-      console.log(response);
+      //console.log(response);
       this.hospitalDetails = response.hospitaldetails;
       this.salesrepPurchaseQuote=response.quotedetails;
       this.salesrepListingQuote=response.quotelisting;
@@ -187,29 +187,24 @@ adminsearchbyMedicalName(){
   
   
 }
-/**addes quote in admin */
-adminAddSalesrepbyEmail(){
- 
-    let post={
-      "source":"users_view_salesrep",
-    "condition":{
-      "email_regex":this.searchbySalesrepEmail.toLowerCase()
-    },
-    "limit":6,
-    }
-    this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
-        this.dataSource=res.res;
-    })
-  
-}
+
 /**admin search recently add salesrep firstname*/
-adminAddSalesrepbyfirstname(){let post={
+adminAddSalesrepSearch(){
+  let condition:any={};
+  if(this.searchbyrecentlyaddedSalesrep!=null){
+    condition={};
+     condition.firstname_search_regex=this.searchbyrecentlyaddedSalesrep.toLowerCase();
+  }
+  if(this.searchbySalesrepEmail!=null){
+    condition={};
+    condition.email_regex=this.searchbySalesrepEmail
+  }
+  let post={
   "source":"users_view_salesrep",
-"condition":{
-  "firstname_search_regex":this.searchbyrecentlyaddedSalesrep.toLowerCase()
-},
+"condition":condition,
 "limit":6,
 }
+console.log(post)
 this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
     //console.log(res);
     this.dataSource=res.res;

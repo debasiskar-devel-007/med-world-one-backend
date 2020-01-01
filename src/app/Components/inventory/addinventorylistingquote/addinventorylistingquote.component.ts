@@ -67,7 +67,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
-
+     
     this.imageblockflag = true;
 
     this.activatedRoute.params.subscribe(params => {
@@ -88,7 +88,11 @@ export class AddinventorylistingquoteComponent implements OnInit {
     } else {
       this.fetchAddedInventoryDetailsbyinventoryId();
     }
-
+ // for quote id
+ this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+  //console.log(response.userID);
+  this.quote_id = response.userID;
+})
   }
 
   ngOnInit() {
@@ -151,15 +155,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
      // console.log(response);
       this.inventoryDetails = response.res;
     })
-
-    // for quote id
-    this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
-      //console.log(response.userID);
-      this.quote_id = response.userID;
-    })
-
   }
-
+  /**Fetch inventory details by quote id*/
   fetchAddedInventoryDetailsbyinventoryId() {
     let postData = {
       "source": "quote_listing_details_view",
@@ -173,13 +170,6 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.inventoryDetails = response.res[0].inventory_details;
 
     })
-
-    // for quote id
-    this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
-      //console.log(response.userID);
-      this.quote_id = response.userID;
-    })
-
   }
   // ======================submit form=======================
   onSubmit() {
@@ -294,8 +284,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           );
          
           this.generateForm();
-
-
+          
         } else {
           alert("Some error occurred. Please try again.");
         }
@@ -468,7 +457,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
 
   submitquote() {
-    // console.log("submit quote", this.inventoryDetails);
+    //console.log("submit quote", this.inventoryDetails);
+    
     /**inventory from save quote */
     var postData: any = {};
     if (this.activatedRoute.snapshot.params.listingquoteid != undefined) {
@@ -655,7 +645,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
   saveQuote() {
-    // console.log("save",this.inventoryDetails);
+    //console.log("save",this.inventoryDetails);
     let postData = {
       "source": "quote_listing_details",
       "data": {
@@ -692,7 +682,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
               this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
             }
             /**hospital route */
-            if (this.userType == 'salesrep') {
+            if (this.userType == 'hospital') {
               this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
             }
             /**hospital route */
@@ -707,16 +697,35 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
   /**cancel button */
   cancel() {
-    if (this.userType == 'salesrep') {
-      this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+    for (let i in this.inventoryDetails) {
+      this.ids.push(this.inventoryDetails[i]._id);
     }
-    /**hospital route */
-    if (this.userType == 'salesrep') {
-      this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+    //console.log(this.ids);
+
+
+    let deleteData = {
+      "source": "quote-listing",
+      "ids": this.ids
     }
-    /**hospital route */
-    if (this.userType == 'admin') {
-      this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
-    }
+   
+    
+    this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+      //console.log(response);
+      if (response.status = "success") {
+
+        /**salesrep route */
+        if (this.userType == 'salesrep') {
+          this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+        }
+        /**hospital route */
+        if (this.userType == 'hospital') {
+          this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+        }
+        /**admin route */
+        if (this.userType == 'admin') {
+          this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+        }
+      }
+    })
   }
 }

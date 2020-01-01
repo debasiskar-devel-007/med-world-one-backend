@@ -43,7 +43,7 @@
                         <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
                           <mat-option value="">Select Source</mat-option>
                           <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list"
-                            (click)="gethospitalName(item.hospitalname,item._id)" [disabled]="hospitalflag">
+                            (click)="gethospitalName(item.hospitalname,item._id)">
                             {{ item.hospitalname }}
                           </mat-option>
                         </mat-select>

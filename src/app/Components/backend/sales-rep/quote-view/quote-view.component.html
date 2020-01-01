@@ -54,7 +54,7 @@
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 
-            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'"> Total Savings with MD Stock International: ${{savings}}</p> </td>
+            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'" ng-bind="element.savings"> Total Savings with MD Stock International: ${{savings}}</p> </td>
         </ng-container>
 
         <!-- Sku Column -->
