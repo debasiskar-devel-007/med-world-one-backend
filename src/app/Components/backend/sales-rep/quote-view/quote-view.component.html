@@ -53,7 +53,8 @@
               <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
           </td>
-          <td mat-footer-cell *matFooterCellDef data-label="note"> Note :{{notes}} </td>
+          <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 
+            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'"> Total Savings with MD Stock International: ${{savings}}</p> </td>
         </ng-container>
 
         <!-- Sku Column -->
@@ -90,9 +91,6 @@
             <ng-container *ngIf="element.brand!=null">  {{element.brand}}
             </ng-container>
             </td>
-
-          <!-- <td mat-footer-cell *matFooterCellDef>  </td>
-          <td mat-footer-cell *matFooterCellDef>  </td> -->
           <td mat-footer-cell *matFooterCellDef> Total </td>
         </ng-container>
 
@@ -100,8 +98,7 @@
         <ng-container matColumnDef="qty">
           <th mat-header-cell *matHeaderCellDef> qty </th>
           <td mat-cell *matCellDef="let element; let i=index;" data-label="qty"> {{element.quantity}} </td>
-          <!-- <td mat-footer-cell *matFooterCellDef>  </td>
-          <td mat-footer-cell *matFooterCellDef>  </td> -->
+          
           <td mat-footer-cell *matFooterCellDef> {{totalqty}} </td>
         </ng-container>
 
@@ -110,16 +107,14 @@
           <th mat-header-cell *matHeaderCellDef> MDSI price </th>
           <td mat-cell *matCellDef="let element" data-label="MDSI price">
             <span class="text_with_span">
-              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.price" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.price}}" placeholder="{{element.price}}" />
+              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.price"  (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.price}}" placeholder="{{element.price}}" />
               <span class="action_button">
-                <!-- <button mat-button>edit</button>
-                <button mat-button>revert</button> -->
+                
               </span>
             </span>
           </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
-          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>
-          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->
+         
         </ng-container>
 
         <ng-container matColumnDef="saleprice" >
@@ -128,14 +123,12 @@
             <span class="text_with_span">
               <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.saleprice" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.price}}" placeholder="{{element.price}}" />
               <span class="action_button">
-                <!-- <button mat-button>edit</button>
-                <button mat-button>revert</button> -->
+               
               </span>
             </span>
           </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
-          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>
-          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->
+        
         </ng-container>
 
 
@@ -145,7 +138,7 @@
           <th mat-header-cell *matHeaderCellDef> Tax </th>
           <td mat-cell *matCellDef="let element" data-label="Tax">
             <span class="text_with_span">
-              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.price}}"  min="0"
+              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}"  min="0"
               pattern="^[0-9]+\.[0-9][0-9]$" />
             </span>
           </td>
@@ -176,9 +169,9 @@
         </ng-container>
 
         <ng-container matColumnDef="purchaseprice" >
-          <th mat-header-cell *matHeaderCellDef> purchaseprice Price </th>
+          <th mat-header-cell *matHeaderCellDef> MP Price </th>
           <td mat-cell *matCellDef="let element" data-label="purchaseprice Price"> {{element.purchased_price}} </td>
-          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalPurchasedPrice}}  </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
 

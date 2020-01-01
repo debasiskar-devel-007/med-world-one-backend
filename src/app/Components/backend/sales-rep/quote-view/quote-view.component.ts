@@ -33,7 +33,8 @@ public purchasemarkup:number=0;
 public notes:string;
 public quoteId:number;
 public dateAdded:number;
-
+public totalPurchasedPrice:number=0;
+public savings:number=0;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -66,7 +67,7 @@ public dateAdded:number;
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
     
-    //  console.log(response);
+    //console.log(response);
      if(response.status="success"){
       //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
@@ -88,6 +89,8 @@ public dateAdded:number;
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
+        this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
+        this.savings=this.totalPurchasedPrice-this.totalprice;
       }
      }
     });
@@ -99,17 +102,22 @@ public dateAdded:number;
     this.totalqty=0;
     this.totalprice=0;
     this.totaltax=0;
+    this.totalPurchasedPrice=0;
+
     for(let i in this.quotedetails){
       if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
 
       if(this.quotedetails[i].price==null) this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
       this.quotedetails[i].subtotalprice=(this.quotedetails[i].price)*this.quotedetails[i].quantity+parseFloat(this.quotedetails[i].tax);
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
-      this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
+      //this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
       this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
+      this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
+      this.savings=this.totalPurchasedPrice-this.totalprice;
     }
+    //console.log(this.savings);
    }
 
   ngOnInit() {
@@ -125,6 +133,7 @@ public dateAdded:number;
   
  
   viewQuoteHeader: string[] = [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice','wholesale'];
+  
   viewData = Data;
 
 /**update quote with price */
@@ -174,7 +183,7 @@ public dateAdded:number;
 
 
   showDetails(ele:any){
-    //console.log(ele);
+    // console.log(ele);
      
       const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
        panelClass:'viewquoteModal',
