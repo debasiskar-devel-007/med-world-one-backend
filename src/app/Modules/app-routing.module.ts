@@ -528,7 +528,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'quote_listing_details_view',
-        condition: {'user_id_object': 'user_id'}
+        condition: {'copy_status':'Pending'}
       },
       endpoint: 'datalist'
 
@@ -600,7 +600,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'purchase_comparison_quote-details_view',
-        condition: {}
+        condition: {'copy_status':'Pending'}
       },
       endpoint: 'datalist'
 
