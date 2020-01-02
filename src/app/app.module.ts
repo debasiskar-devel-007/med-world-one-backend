@@ -153,6 +153,7 @@ import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent } from './Components/inventory/adminpackage/adminpackage.component';
+import { PackageComponent } from './Components/frontend/package/package.component';
 
 
 
@@ -260,7 +261,7 @@ import { AdminpackageComponent } from './Components/inventory/adminpackage/admin
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent,
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent,
 
 
   ],

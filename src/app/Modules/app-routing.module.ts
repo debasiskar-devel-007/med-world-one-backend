@@ -78,6 +78,7 @@ import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-in
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent } from '../Components/inventory/adminpackage/adminpackage.component';
+import { PackageComponent } from '../Components/frontend/package/package.component';
 
 
 
@@ -412,6 +413,11 @@ const routes: Routes = [
   },
 //________________Package_________________
 {path:'admin/package',component:AdminpackageComponent},
+
+
+//________________Package frontend_________________
+{path:'package',component:PackageComponent},
+
   //________________INVENTORY LIST_________________
 
   //________________INVENTORY listing quote add for admin
