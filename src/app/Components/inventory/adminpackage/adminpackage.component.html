@@ -27,14 +27,15 @@
                           </mat-error>
                         </mat-form-field>
                       </span>
-  
-                      <span class="col-1-1 pb-20">
-                        <!-- quote Id  -->
+                      
+                      <!-- quote Id  -->
+                      <!-- <span class="col-1-1 pb-20">
+                        
                         <mat-form-field>
                           <mat-label class="label">Package Id</mat-label>
                           <input matInput value="{{quote_id}}" [disabled]='true' >
                         </mat-form-field>
-                      </span>
+                      </span> -->
 
                       <!-- priority -->
                       <span class="col-1-1">                       
@@ -47,17 +48,14 @@
                           <mat-error
                             *ngIf="!addpackageForm.controls['priority'].valid
                                                           && addpackageForm.controls['priority'].errors.required">
-                            sell
-                            price is required.</mat-error>
+                            
+                            priority is required.</mat-error>
                         </mat-form-field>
                       </span>
 
   
-  
-                      <span class="col-1-1">
-
-                        <!-- wholesale price -->
-  
+                       <!-- wholesale price -->
+                      <span class="col-1-1"> 
                         <mat-form-field>
                           <mat-label class="label">wholesell price</mat-label>
                           <input matInput formControlName="package_wholesell_price" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
@@ -125,7 +123,7 @@
   
                         <button mat-flat-button type="reset" color="warn">RESET</button>
   
-                        <button mat-flat-button type="button" >Cancel</button>
+                        <!-- <button mat-flat-button type="button" >Cancel</button> -->
                       </span>
   
   

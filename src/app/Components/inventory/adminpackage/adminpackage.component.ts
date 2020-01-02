@@ -15,6 +15,10 @@ export class AdminpackageComponent implements OnInit {
   public imageblockflag: boolean = false;
   public imageErrCode: boolean = false;
   public ErrCode: boolean=false;
+  public userId: any;
+  public userType: any;
+  public msg:string;
+
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -31,6 +35,8 @@ export class AdminpackageComponent implements OnInit {
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar) {
       this.imageblockflag = true;
       let userData = JSON.parse(this.cookieService.get('user_details'));
+      this.userId = userData._id;
+      this.userType = userData.type;
       this.generateForm();
      }
 
@@ -43,24 +49,72 @@ export class AdminpackageComponent implements OnInit {
       priority: ["",[Validators.required]],
       package_wholesell_price: ["", [Validators.required]],
       description: ['', [Validators.required]],
-      inventory_image: [],
-      status: ["",[Validators.required]],
+      package_image: [],
+      status: [""],
   
     });
   }
   onSubmit(){
+    //  console.log(this.addpackageForm.value);
+     
         /** marking as untouched **/
         for (let x in this.addpackageForm.controls) {
           this.addpackageForm.controls[x].markAsTouched();
         }
            //status
       if (this.addpackageForm.value.status) {
-        this.addpackageForm.value.status = parseInt("1");
+        this.addpackageForm.value.status=1;
       }
       else {
-        this.addpackageForm.value.status = parseInt("0");
+        this.addpackageForm.value.status=0;
       }
-    console.log(this.addpackageForm.value);
+
+      // Image File Upload Works 
+    if (this.configData.files) {
+
+      if (this.configData.files.length > 1) { this.ErrCode = true; return; }
+      this.addpackageForm.value.package_image =
+      {
+        "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+        "image": this.configData.files[0].upload.data.data.fileservername,
+        "name": this.configData.files[0].name,
+        "type": this.configData.files[0].type
+      };
+    } else {
+      this.addpackageForm.value.package_image = false;
+      this.imageErrCode = true;
+      // if (this.action == 'edit')
+      //   this.addpackageForm.value.package_image = this.defaultData.package_image;
+    }
+    
+        /**submit here */
+        if(this.addpackageForm.valid){
+                var postData: any = {
+                  "source": 'package_list',
+                  "data": {
+                    "user_id": this.userId,
+                    "package_details":this.addpackageForm.value
+                  },
+                  "sourceobj": ["user_id"],
+                };
+                this.msg="Package added Successfully"
+                this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+                  console.log(response);
+                  if (response.status == "success") {
+                    this._snackBar.open(this.msg, '', {
+                      duration: 2000,
+                    });
+                    this.addpackageForm.reset();
+                    this.imageblockflag = false;
+
+                    setTimeout(() => {    //<<<---    using ()=> syntax
+                      this.imageblockflag = true;
+                    }, 1000);
+                    this.generateForm();
+                  }
+                  })
+        }
+    
   }
 
   inputBlur(val: any) {
