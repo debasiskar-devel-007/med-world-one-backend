@@ -4,6 +4,13 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+export interface inventory {
+  sku: any;
+  inventory_name: any;
+}
+
 @Component({
   selector: 'app-adminpackage',
   templateUrl: './adminpackage.component.html',
@@ -18,7 +25,10 @@ export class AdminpackageComponent implements OnInit {
   public userId: any;
   public userType: any;
   public msg:string;
-
+  public active_hospital_list:any=[];
+  public inventoryList:any=[];
+  public inven: Observable<string[]>;
+  public PackageInventoryDetails:any=[];
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -41,22 +51,52 @@ export class AdminpackageComponent implements OnInit {
      }
 
   ngOnInit() {
+    /** getting the active hospitals **/
+    this.getActiveHospital();
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.inventoryList=resolveData.inventoryList.inventory;
+      });
+    this.inven=this.addpackageForm.controls['inventory'].valueChanges.pipe(
+      startWith(''),
+      map(inventory => inventory ? this._filterStates(inventory) : inventory.slice())
+    );
   }
+  private _filterStates(value: string): inventory[] {
+    const filterValue = value.toLowerCase();
+
+    return this.inventoryList.filter(inventory => inventory.inventory_name.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+
   generateForm(){
     this.addpackageForm = this.formBuilder.group({
       id: [null],
       package_name: ['', [Validators.required]],
-      priority: ["",[Validators.required]],
-      package_wholesell_price: ["", [Validators.required]],
-      description: ['', [Validators.required]],
-      package_image: [],
+      hospital_id:["",[Validators.required]],
+      inventory: [""],
+       notes: ['', [Validators.required]],
       status: [""],
   
     });
   }
+  inventoryAdd(value:any){
+   
+    this.PackageInventoryDetails.push(value);
+    //console.log(this.PackageInventoryDetails);
+  }
+  /**delete inventory */
+  remove(indx:any){
+      this.PackageInventoryDetails.splice(indx, indx + 1);
+      //console.log(this.PackageInventoryDetails);
+  }
+
+
+
+  /**submit function */
   onSubmit(){
-    //  console.log(this.addpackageForm.value);
-     
+     console.log(this.addpackageForm.value);
+     return;
         /** marking as untouched **/
         for (let x in this.addpackageForm.controls) {
           this.addpackageForm.controls[x].markAsTouched();
@@ -124,5 +164,67 @@ export class AdminpackageComponent implements OnInit {
     clear_image() {
       this.img_flag = false;
     }
+    /** get active hospital list **/
+    getActiveHospital() {
+
+      if (this.userType == 'hospital') {
+        var data: any;
+        data = {
+          'source': 'users_view',
+          'condition': {
+            '_id_object': this.userId
+          }
   
+        };
+  
+  
+        this.http.httpViaPost("datalist", data).subscribe(response => {
+          //console.log(response);
+          let result: any;
+          result = response.res;
+          this.active_hospital_list = result
+        });
+  
+      }
+  
+  
+      if (this.userType == 'salesrep') {
+        var data: any;
+        data = {
+          'source': 'users_view',
+          'condition': {
+            'salesrepselect_object': this.userId
+          }
+  
+        };
+  
+  
+        this.http.httpViaPost("datalist", data).subscribe(response => {
+          //console.log(response);
+          let result: any;
+          result = response.res;
+          this.active_hospital_list = result
+        });
+  
+      }
+  
+  
+  
+      if (this.userType == 'admin') {
+        var data: any;
+        data = {
+          'source': 'users_view',
+          'token': this.cookieService.get('jwtToken'),
+          'condition': {
+            'type': 'hospital',
+            status: 1
+          }
+        };
+        this.http.httpViaPost("datalist", data).subscribe(response => {
+          let result: any;
+          result = response.res;
+          this.active_hospital_list = result
+        });
+      }
+    }
 }

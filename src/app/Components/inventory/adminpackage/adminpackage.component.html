@@ -28,67 +28,99 @@
                         </mat-form-field>
                       </span>
                       
-                      <!-- quote Id  -->
-                      <!-- <span class="col-1-1 pb-20">
-                        
+                      <!--hospital-->
+                      <span class="col-1-1 pb-20">
                         <mat-form-field>
-                          <mat-label class="label">Package Id</mat-label>
-                          <input matInput value="{{quote_id}}" [disabled]='true' >
-                        </mat-form-field>
-                      </span> -->
+                            <mat-label class="label">Medical Partner</mat-label>
+                            <mat-select matNativeControl formControlName="hospital_id" [(value)]="selected" required>
+                              <mat-option value="">Select Medical Partner</mat-option>
+                              <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
+                                {{ item.hospitalname }}
+                              </mat-option>
+                            </mat-select>
+                            <mat-error
+                              *ngIf="!addpackageForm.controls['hospital_id'].valid
+                                                                && addpackageForm.controls['hospital_id'].errors.required">
+                              Medical partner
+                              Name is
+                              required.
+                            </mat-error>
+                          </mat-form-field>
+                      </span>
 
                       <!-- priority -->
                       <span class="col-1-1">                       
   
                         <mat-form-field>
-                          <mat-label class="label">Priority</mat-label>
-                          <input matInput formControlName="priority" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
-                            step="0.11" (blur)="inputBlur('priority')">
-                          <span matPrefix></span>
-                          <mat-error
-                            *ngIf="!addpackageForm.controls['priority'].valid
-                                                          && addpackageForm.controls['priority'].errors.required">
-                            
-                            priority is required.</mat-error>
+                          <mat-label class="label">Inventory Search</mat-label>
+                            <input matInput placeholder="Inventory Search" [matAutocomplete]="autoGroup" formControlName="inventory">
+                            <mat-autocomplete #autoGroup="matAutocomplete">
+                              <mat-option *ngFor="let inventory of inven | async" [value]="inventory.inventory_name" (click)="inventoryAdd(inventory)">
+                                <img class="example-option-img" aria-hidden [src]="inventory.image" height="25">
+                                <span>|| {{inventory.inventory_name}} ||</span>
+                                <small>{{inventory.sku}}</small>
+                              </mat-option>
+                            </mat-autocomplete>
                         </mat-form-field>
                       </span>
 
-  
-                       <!-- wholesale price -->
-                      <span class="col-1-1"> 
-                        <mat-form-field>
-                          <mat-label class="label">wholesell price</mat-label>
-                          <input matInput formControlName="package_wholesell_price" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
-                            step="0.11" (blur)="inputBlur('package_wholesell_price')">
-                          <span matPrefix></span>
-                          <mat-error
-                            *ngIf="!addpackageForm.controls['package_wholesell_price'].valid
-                                                          && addpackageForm.controls['package_wholesell_price'].errors.required">
-                            wholesell
-                            price is required.</mat-error>
-                        </mat-form-field>
-                      </span>
+                      <mat-card *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
+                            <mat-card-content class="package_wrapper">
+                                <span class="total_wrapper"  *ngFor="let item of PackageInventoryDetails;let i=index;">
+                                    <mat-card-content class="tab_item">
+                                      <mat-card-content class="inner_image">
+                                        <img src="{{item.image}}">
+                                      </mat-card-content>
+                                      <mat-card-content class="inner_content">
+                  
+                                        <table>
+                                          <tr>
+                                            <td>Inventory Name:</td>
+                                            <td>{{item.inventory_name}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Brand:</td>
+                                            <td>{{item.brand}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td>SKU#:</td>
+                                            <td>{{item.sku}}</td>
+                                          </tr>
+                                          <tr>
+                                            <td >Description:</td>
+                                            <td class="desc">{{item.description}}</td>
+                                          </tr>
+                                        </table>
+                                      </mat-card-content>
+                  
+                                    </mat-card-content>                 
+                                    <mat-toolbar class="action">
+                                      <button mat-button (click)="remove(i)" class="remove">Remove</button>
+                                    </mat-toolbar>
+                                  </span>
+                            </mat-card-content>
 
-                      <!-- Description  -->
+                      </mat-card>
+                      <!-- Notes  -->
                       <span class="col-1-1">
                         
                         <mat-form-field>
-                          <mat-label class="label">Description</mat-label>
-                          <textarea matInput formControlName="description" rows="5"   (blur)="inputBlur('description')"></textarea>
-                          <mat-error *ngIf="!addpackageForm.controls['description'].valid
-                                              && addpackageForm.controls['description'].errors.required">
+                          <mat-label class="label">Notes</mat-label>
+                          <textarea matInput formControlName="notes" rows="5"   (blur)="inputBlur('notes')"></textarea>
+                          <mat-error *ngIf="!addpackageForm.controls['notes'].valid
+                                              && addpackageForm.controls['notes'].errors.required">
                             Description is required.
                           </mat-error>
                         </mat-form-field>
                       </span>
-                      <span class="col-1-1">
+                      <!-- <span class="col-1-1">
   
-                        <!-- image upload -->
+                         image upload 
                         <h3>Image :</h3>
                         <lib-file-upload *ngIf="imageblockflag==true" [config]="configData"></lib-file-upload><br>
                         <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
                         <mat-error *ngIf="imageErrCode==true">Please add an image.</mat-error>
-                      </span>
+                      </span> -->
 
                         <!-- Card view for Image  -->
                       <span class="col-1-1">

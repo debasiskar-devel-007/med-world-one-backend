@@ -412,7 +412,8 @@ const routes: Routes = [
     },
   },
 //________________Package_________________
-{path:'admin/package',component:AdminpackageComponent},
+{path:'admin/package',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
+data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' }},
 
 
 //________________Package frontend_________________
