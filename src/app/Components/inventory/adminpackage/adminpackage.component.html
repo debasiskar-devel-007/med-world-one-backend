@@ -2,17 +2,17 @@
     <span class="inputstyle ">
       <span class="dashboardcontainer">
         <mat-card class="main_wrapper">
-  
+
           <mat-card-content class="from_wrapper">
             <mat-list class="formstylemainwrapper">
               <mat-list-item class="formheader">
                 <mat-card-title class="formtitle">Add Package</mat-card-title>
               </mat-list-item>
-  
-  
+
+
               <mat-card-content class="form_new_wrapper">
                 <mat-card-content class="items_content">
-  
+
                   <mat-list-item class="formbody">
                     <form autocomplete="off" [formGroup]="addpackageForm">
                       <span class="col-1-1 pb-20">
@@ -27,7 +27,7 @@
                           </mat-error>
                         </mat-form-field>
                       </span>
-                      
+
                       <!--hospital-->
                       <span class="col-1-1 pb-20">
                         <mat-form-field>
@@ -49,8 +49,8 @@
                       </span>
 
                       <!-- priority -->
-                      <span class="col-1-1">                       
-  
+                      <span class="col-1-1">
+
                         <mat-form-field>
                           <mat-label class="label">Inventory Search</mat-label>
                             <input matInput placeholder="Inventory Search" [matAutocomplete]="autoGroup" formControlName="inventory">
@@ -72,7 +72,7 @@
                                         <img src="{{item.image}}">
                                       </mat-card-content>
                                       <mat-card-content class="inner_content">
-                  
+
                                         <table>
                                           <tr>
                                             <td>Inventory Name:</td>
@@ -92,9 +92,12 @@
                                           </tr>
                                         </table>
                                       </mat-card-content>
-                  
-                                    </mat-card-content>                 
+
+                                    </mat-card-content>
                                     <mat-toolbar class="action">
+                                      <span class="inc_dec">
+                                        <a>-</a><label>1</label><a>+</a>
+                                      </span>
                                       <button mat-button (click)="remove(i)" class="remove">Remove</button>
                                     </mat-toolbar>
                                   </span>
@@ -103,7 +106,7 @@
                       </mat-card>
                       <!-- Notes  -->
                       <span class="col-1-1">
-                        
+
                         <mat-form-field>
                           <mat-label class="label">Notes</mat-label>
                           <textarea matInput formControlName="notes" rows="5"   (blur)="inputBlur('notes')"></textarea>
@@ -114,8 +117,8 @@
                         </mat-form-field>
                       </span>
                       <!-- <span class="col-1-1">
-  
-                         image upload 
+
+                         image upload
                         <h3>Image :</h3>
                         <lib-file-upload *ngIf="imageblockflag==true" [config]="configData"></lib-file-upload><br>
                         <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
@@ -124,58 +127,58 @@
 
                         <!-- Card view for Image  -->
                       <span class="col-1-1">
-  
-                       
+
+
                         <mat-card-content class="files-view" *ngIf="img_flag==true">
                           <mat-card class="example-card">
                             <img mat-card-image [src]="fullImagePath">
                             <mat-card-title>{{ imageName }}</mat-card-title>
                             <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
                             <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
-  
+
                           </mat-card>
                         </mat-card-content>
-  
+
                       </span>
-                      
-                                       
-                                     
+
+
+
                       <!-- Status -->
-  
+
                       <mat-label class="label">Status</mat-label><br>
                       <mat-checkbox formControlName="status" >Active</mat-checkbox><br>
-  
+
                        <!-- Buttons  -->
                       <span class="button_wrapper addlistingInventory_button_wrapper">
-                                              
-                       
+
+
                         <button mat-flat-button type="button"  (click)="onSubmit()" color="accent">Add New Package</button>
-  
+
                         <!-- <button mat-flat-button type="button" (click)="onSubmit()" color="accent">Save Change</button> -->
-  
+
                         <button mat-flat-button type="reset" color="warn">RESET</button>
-  
+
                         <!-- <button mat-flat-button type="button" >Cancel</button> -->
                       </span>
-  
-  
-  
+
+
+
                     </form>
                   </mat-list-item>
                 </mat-card-content>
-              
+
               </mat-card-content>
-  
-  
-  
-  
-              
+
+
+
+
+
             </mat-list>
-  
-           
-  
+
+
+
           </mat-card-content>
-  
+
         </mat-card>
       </span>
     </span>
