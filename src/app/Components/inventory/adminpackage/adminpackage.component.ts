@@ -27,6 +27,7 @@ export class AdminpackageComponent implements OnInit {
   public userId: any;
   public userType: any;
   public msg:string;
+  public selected:any;
   public active_hospital_list:any=[];
   public inventoryList:any=[];
   public inven: Observable<string[]>;
@@ -463,6 +464,10 @@ export class Dialoginventory {
       result = response;
       this.inventory_category_array = result.res;
     });
+  }
+   // clear image in InventoryComponent//
+   clear_image() {
+    this.img_flag = false;
   }
   onNoClick(): void {
     this.dialogRef.close();
