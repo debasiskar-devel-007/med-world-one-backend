@@ -1164,3 +1164,6 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .top_quotesection { padding: 7px;}
 .top_quotesection .mat-form-field .mat-form-field-wrapper{ padding-bottom: 0; }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-ripple{ display: none; }
+
+
+.packageInventory .mat-dialog-container{ height: inherit; overflow: auto;}

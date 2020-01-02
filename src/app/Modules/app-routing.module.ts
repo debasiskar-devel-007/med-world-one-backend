@@ -413,11 +413,11 @@ const routes: Routes = [
   },
 //________________Package_________________
 {path:'admin/package',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
-data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' }},
+data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
 
 
 //________________Package frontend_________________
-{path:'package',component:PackageComponent},
+// {path:'package',component:PackageComponent},
 
   //________________INVENTORY LIST_________________
 
@@ -628,7 +628,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybra
 
     }
   },
-   // purchase Quote Listing for salesrep
+   // purchase Quote Listing for hospital
    {
     path: 'hospital/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
@@ -641,6 +641,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybra
 
     }
   },
+  
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },

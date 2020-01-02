@@ -152,7 +152,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
-import { AdminpackageComponent } from './Components/inventory/adminpackage/adminpackage.component';
+import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from './Components/frontend/package/package.component';
 
 
@@ -261,7 +261,7 @@ import { PackageComponent } from './Components/frontend/package/package.componen
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent,
+    quoteModal,sendMailModal, Dialoginventory,AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent,
 
 
   ],
@@ -291,7 +291,7 @@ import { PackageComponent } from './Components/frontend/package/package.componen
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
