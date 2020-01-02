@@ -1,0 +1,152 @@
+<app-adminheader>
+    <span class="inputstyle ">
+      <span class="dashboardcontainer">
+        <mat-card class="main_wrapper">
+  
+          <mat-card-content class="from_wrapper">
+            <mat-list class="formstylemainwrapper">
+              <mat-list-item class="formheader">
+                <mat-card-title class="formtitle">Add Package</mat-card-title>
+              </mat-list-item>
+  
+  
+              <mat-card-content class="form_new_wrapper">
+                <mat-card-content class="items_content">
+  
+                  <mat-list-item class="formbody">
+                    <form autocomplete="off" [formGroup]="addpackageForm">
+                      <span class="col-1-1 pb-20">
+                        <!-- Inventory Name  -->
+                        <mat-form-field>
+                          <mat-label class="label">Package Name</mat-label>
+                          <input matInput formControlName="package_name" (blur)="inputBlur('package_name')">
+                          <mat-error *ngIf="!addpackageForm.controls['package_name'].valid
+                                  && addpackageForm.controls['package_name'].errors.required">Package
+                            Name is
+                            required.
+                          </mat-error>
+                        </mat-form-field>
+                      </span>
+  
+                      <span class="col-1-1 pb-20">
+                        <!-- quote Id  -->
+                        <mat-form-field>
+                          <mat-label class="label">Package Id</mat-label>
+                          <input matInput value="{{quote_id}}" [disabled]='true' >
+                        </mat-form-field>
+                      </span>
+
+                      <!-- priority -->
+                      <span class="col-1-1">                       
+  
+                        <mat-form-field>
+                          <mat-label class="label">Priority</mat-label>
+                          <input matInput formControlName="priority" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                            step="0.11" (blur)="inputBlur('priority')">
+                          <span matPrefix></span>
+                          <mat-error
+                            *ngIf="!addpackageForm.controls['priority'].valid
+                                                          && addpackageForm.controls['priority'].errors.required">
+                            sell
+                            price is required.</mat-error>
+                        </mat-form-field>
+                      </span>
+
+  
+  
+                      <span class="col-1-1">
+
+                        <!-- wholesale price -->
+  
+                        <mat-form-field>
+                          <mat-label class="label">wholesell price</mat-label>
+                          <input matInput formControlName="package_wholesell_price" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                            step="0.11" (blur)="inputBlur('package_wholesell_price')">
+                          <span matPrefix></span>
+                          <mat-error
+                            *ngIf="!addpackageForm.controls['package_wholesell_price'].valid
+                                                          && addpackageForm.controls['package_wholesell_price'].errors.required">
+                            wholesell
+                            price is required.</mat-error>
+                        </mat-form-field>
+                      </span>
+
+                      <!-- Description  -->
+                      <span class="col-1-1">
+                        
+                        <mat-form-field>
+                          <mat-label class="label">Description</mat-label>
+                          <textarea matInput formControlName="description" rows="5"   (blur)="inputBlur('description')"></textarea>
+                          <mat-error *ngIf="!addpackageForm.controls['description'].valid
+                                              && addpackageForm.controls['description'].errors.required">
+                            Description is required.
+                          </mat-error>
+                        </mat-form-field>
+                      </span>
+                      <span class="col-1-1">
+  
+                        <!-- image upload -->
+                        <h3>Image :</h3>
+                        <lib-file-upload *ngIf="imageblockflag==true" [config]="configData"></lib-file-upload><br>
+                        <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
+                        <mat-error *ngIf="imageErrCode==true">Please add an image.</mat-error>
+                      </span>
+
+                        <!-- Card view for Image  -->
+                      <span class="col-1-1">
+  
+                       
+                        <mat-card-content class="files-view" *ngIf="img_flag==true">
+                          <mat-card class="example-card">
+                            <img mat-card-image [src]="fullImagePath">
+                            <mat-card-title>{{ imageName }}</mat-card-title>
+                            <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
+                            <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
+  
+                          </mat-card>
+                        </mat-card-content>
+  
+                      </span>
+                      
+                                       
+                                     
+                      <!-- Status -->
+  
+                      <mat-label class="label">Status</mat-label><br>
+                      <mat-checkbox formControlName="status" >Active</mat-checkbox><br>
+  
+                       <!-- Buttons  -->
+                      <span class="button_wrapper addlistingInventory_button_wrapper">
+                                              
+                       
+                        <button mat-flat-button type="button"  (click)="onSubmit()" color="accent">Add New Package</button>
+  
+                        <!-- <button mat-flat-button type="button" (click)="onSubmit()" color="accent">Save Change</button> -->
+  
+                        <button mat-flat-button type="reset" color="warn">RESET</button>
+  
+                        <button mat-flat-button type="button" >Cancel</button>
+                      </span>
+  
+  
+  
+                    </form>
+                  </mat-list-item>
+                </mat-card-content>
+              
+              </mat-card-content>
+  
+  
+  
+  
+              
+            </mat-list>
+  
+           
+  
+          </mat-card-content>
+  
+        </mat-card>
+      </span>
+    </span>
+  </app-adminheader>

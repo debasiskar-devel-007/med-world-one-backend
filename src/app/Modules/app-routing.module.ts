@@ -77,6 +77,7 @@ import { PurchaseComparisonSearchListComponent } from '../Components/inventory/p
 import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
 import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
+import { AdminpackageComponent } from '../Components/inventory/adminpackage/adminpackage.component';
 
 
 
@@ -409,8 +410,8 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-
-
+//________________Package_________________
+{path:'admin/package',component:AdminpackageComponent},
   //________________INVENTORY LIST_________________
 
   //________________INVENTORY listing quote add for admin

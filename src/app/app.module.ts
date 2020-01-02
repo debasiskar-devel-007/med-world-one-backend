@@ -152,6 +152,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
+import { AdminpackageComponent } from './Components/inventory/adminpackage/adminpackage.component';
 
 
 
@@ -259,7 +260,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent,
+    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent,
 
 
   ],
