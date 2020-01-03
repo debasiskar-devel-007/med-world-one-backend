@@ -33,7 +33,7 @@
 .quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}
 .quote_table_wrapper table td.mat-cell .viewDetails { background: #09c5fb; color: #fff; font-family: 'AvenirMedium';
   line-height: inherit; padding: 5px 10px; font-size: 16px;}
-.quote_table_wrapper table .cdk-column-price{    width: 8%;}
+.quote_table_wrapper table .cdk-column-price{ width: 8%;}
 .quote_table_wrapper table td.mat-footer-cell{ border: 1px solid #d2d2d2; padding: 8px; }
 .quote_table_wrapper table td.mat-footer-cell:last-child{ border: 1px solid #d2d2d2; }
 .quote_table_wrapper table td.mat-footer-cell:nth-child(6){ border: 1px solid #d2d2d2; text-align: center; }
@@ -44,27 +44,17 @@
 .quote_table_wrapper table th:last-of-type{ width: 15%;}
 .hidecls{display: none !important;}
 .quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
-
-
-.quotemodalvew h1{ font-family: "AvenirMedium"; font-size: 20px; color: #000; margin: 0; margin-bottom: 10px;}
-.quotemodalvew h1 span{ color: #564c4c;
-  margin: 0;
-  margin-bottom: 10px;
-  min-width: 170px;
-  display: inline-block;}
-.quotemodalvew .image_wrapper{ width: 100%; border: 1px solid #d1d1d1; text-align: center;}
+.quotemodalvew h1{font-family: "AvenirMedium"; font-size: 20px; color: #000; margin: 0; margin-bottom: 10px; background: #fff; padding: 10px; border: 0.5px solid #d6d6d6;
+  border-radius: 2px;}
+.quotemodalvew h1 span{ color: #564c4c; margin: 0; min-width: 150px; display: inline-block;}
+.quotemodalvew .image_wrapper{ display: flex; justify-content: center; border: 1px solid #01c7ff; padding: 10px; box-sizing: border-box; background: #fff; align-items: center;
+}
 .quotemodalvew .image_wrapper img{ max-width: 100%;}
-.quotemodalvew{ margin-bottom: 0;}
-.quotemodalvew button{ background: #ff6161;
-  min-width: 120px;
-  color: #fff;
-  text-transform: uppercase;
-  font-family: 'Avenirmedium';
-  float: right;
-  clear: both;}
+.quotemodalvew{ margin-bottom: 0; padding: 24px; background: #e4e4e4; border: 5px solid #164e84; box-sizing: border-box; display: flex; flex-direction: column; }
+.quotemodalvew button{ background: #12457b; min-width: 120px; color: #fff; text-transform: uppercase; font-family: 'Avenirmedium'; margin-left: auto; border-radius: 0;
+  margin-top: 16px;}
 
-@media screen and ( max-width:1540px){
-
+@media screen and ( max-width:1540px){ 
   .quote_cart_wrapper { width: 88%; }
 }
 @media screen and ( max-width:992px){
