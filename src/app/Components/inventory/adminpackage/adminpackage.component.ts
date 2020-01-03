@@ -22,7 +22,7 @@ export interface DialogData {
 export class AdminpackageComponent implements OnInit {
   public addpackageForm:FormGroup;
   public img_flag: any = false;
-  public quantity:number=1;
+  public quantity:number;
   public imageblockflag: boolean = false;
   public imageErrCode: boolean = false;
   public ErrCode: boolean=false;
@@ -90,6 +90,8 @@ export class AdminpackageComponent implements OnInit {
     });
   }
   inventoryAdd(value:any){
+    // console.log('inventory choice',value);
+    value.quantity=1;
     this.PackageInventoryDetails.push(value);
     //console.log(this.PackageInventoryDetails);
   }
@@ -128,7 +130,7 @@ export class AdminpackageComponent implements OnInit {
               
                 this.msg="Package Save Successfully"
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-                  console.log(response);
+                  //console.log(response);
                   if (response.status == "success") {
                     this._snackBar.open(this.msg, '', {
                       duration: 2000,
@@ -142,13 +144,13 @@ export class AdminpackageComponent implements OnInit {
   }
 
    /**add and delete quentity */
-   addToqty(){
-    this.quantity=this.quantity+1;
-    // console.log(this.quantity)
+   addToqty(item:any){
+
+    item.quantity=item.quantity+1;
+    
   }
-  removeItem(){
-    this.quantity=this.quantity-1;
-    // console.log(this.quantity)
+  removeItem(item:any){
+    item.quantity=item.quantity-1;
    }
 
 /**SubmitPackage */
@@ -199,11 +201,10 @@ SubmitPackage(){
                   },
                   "sourceobj": ["user_id","hospital_id"],
                 };
-                console.log(postData);
-                return;
+                //console.log(postData);
                 this.msg="Package Submit Successfully"
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-                  console.log(response);
+                  //console.log(response);
                   if (response.status == "success") {
                     this._snackBar.open(this.msg, '', {
                       duration: 2000,
@@ -297,6 +298,7 @@ SubmitPackage(){
 
     dialogRef.afterClosed().subscribe((result:any) => {
       //console.log('All data kjghdsfgdrfhg',result);
+      result.quantity=1;
       if(result.inventory_name!=null && result.inventory_name!=''){
         this.PackageInventoryDetails.push(result);
       }
