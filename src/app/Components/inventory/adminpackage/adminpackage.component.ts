@@ -336,7 +336,8 @@ SubmitPackage(){
 
 @Component({
   selector: 'Dialoglogin',
-  templateUrl: './addinventorymodal.html',
+  templateUrl: './addinventorymodal.html',  
+  styleUrls: ['./adminpackage.component.css']
 })
 export class Dialoginventory {
   public brand_name_array: any = [];

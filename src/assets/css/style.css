@@ -1003,7 +1003,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .viewquoteModal .mat-dialog-container{
   border: 1px solid #ddd;
 }
-.viewquoteModal{ width: 700px;}
+.viewquoteModal{ width: 700px; overflow: auto; } 
 /* email dialog */
 .emailModal{ width: 700px;}
 .email_wrapper .mat-card-title{ font-family: 'Avenirmedium'; font-size:30px; color: #ffffff; text-align: center; text-transform: uppercase; background: #01b2d3;
@@ -1165,9 +1165,9 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .top_quotesection .mat-form-field .mat-form-field-wrapper{ padding-bottom: 0; }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-ripple{ display: none; }
 
-
 .packageInventory .mat-dialog-container{ height: inherit; overflow: auto;}
-.packageInventory .mat-dialog-container .formheader  {  padding:0 16px; width: auto;}
-.packageInventory .mat-dialog-container .formheader .formtitle { padding: 14px 10px; background: #00aee2; color: #fff; text-transform: uppercase; }
-.packageInventory .mat-dialog-container .formbody  .button_wrapper button { margin-left: 10px; }
-.packageInventory .mat-dialog-container .formbody  .button_wrapper button:first-child { margin-left: 0px; }
+.packageInventory .mat-dialog-container .formheader { width: auto;}
+.packageInventory .mat-dialog-container .formstylemainwrapper { padding: 0px; }
+.packageInventory .mat-dialog-container .formheader .formtitle { padding: 16px; background: #00aee2; color: #fff; text-transform: uppercase; font-size: 30px!important;}
+.packageInventory .mat-dialog-container .formbody .button_wrapper button { margin-left: 10px; }
+.packageInventory .mat-dialog-container .formbody .button_wrapper button:first-child { margin-left: 0px; }

@@ -69,7 +69,7 @@
 
                       <mat-card *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
                             <mat-card-content class="package_wrapper">
-                                <span class="total_wrapper"  *ngFor="let item of PackageInventoryDetails;let i=index;">
+                                <span class="total_wrapper" *ngFor="let item of PackageInventoryDetails;let i=index;">
                                     <mat-card-content class="tab_item">
                                       <mat-card-content class="inner_image">
                                         <img src="{{item.image}}">
