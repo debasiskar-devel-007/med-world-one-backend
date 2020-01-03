@@ -18,13 +18,18 @@ export interface DialogData {
 })
 export class PurchaseQuotesListingComponent implements OnInit {
  public flage:number=0;
+ public userId:any;
+ public userType:any;
   // displayed: string[] = ['date', 'medical_partner', 'sales_rep','quoted_by', 'status', 'action'];
   displayed: string[] = ['date','Quote_ID', 'medical_partner','sales_rep', 'quoted_by', 'status', 'action'];
   public recentlyAdded:any=[];
     
 
-  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router) {
+  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router,public cookieService:CookieService) {
     //console.log(this.activatedRoute.snapshot.url[2].path);
+    let userData = JSON.parse(this.cookieService.get('user_details'));
+    this.userId = userData._id;
+    this.userType = userData.type;
     if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
       this.flage=1;
     }

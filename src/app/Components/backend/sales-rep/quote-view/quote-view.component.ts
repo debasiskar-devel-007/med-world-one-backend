@@ -47,11 +47,10 @@ public savings:number=0;
       if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
          datasource='quotelistingasync';
       }
+      if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+        datasource='packagelistingasync';
+     }
 
-
-    let userData = JSON.parse(this.cookieService.get('user_details'));
-    this.userId = userData._id;
-    this.userType = userData.type;
 
 
     let postData:any={
@@ -60,7 +59,7 @@ public savings:number=0;
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
     
-    //console.log(response);
+    console.log(response);
      if(response.status="success"){
       //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);

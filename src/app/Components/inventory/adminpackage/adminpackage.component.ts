@@ -137,6 +137,18 @@ export class AdminpackageComponent implements OnInit {
                     });
                     this.addpackageForm.reset();
                     this.PackageInventoryDetails='';
+                     /**salesrep route */
+                     if (this.userType == 'salesrep') {
+                      this.router.navigateByUrl('/salesrep/package/list');
+                    }
+                    /**hospital route */
+                    if (this.userType == 'hospital') {
+                      this.router.navigateByUrl('/medicalpartner/package/list');
+                    }
+                    /**admin route */
+                    if (this.userType == 'admin') {
+                      this.router.navigateByUrl('/admin/package/list');
+                    }
                   }
                   })
         }
@@ -211,6 +223,19 @@ SubmitPackage(){
                     });
                     this.addpackageForm.reset();
                     this.PackageInventoryDetails='';
+
+                      /**salesrep route */
+                      if (this.userType == 'salesrep') {
+                        this.router.navigateByUrl('/salesrep/package/list');
+                      }
+                      /**hospital route */
+                      if (this.userType == 'hospital') {
+                        this.router.navigateByUrl('/medicalpartner/package/list');
+                      }
+                      /**admin route */
+                      if (this.userType == 'admin') {
+                        this.router.navigateByUrl('/admin/package/list');
+                      }
                   }
                   })
         }
