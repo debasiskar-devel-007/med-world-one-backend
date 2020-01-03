@@ -1,7 +1,7 @@
 import { Component, OnInit ,Inject} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Data } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ export interface inventory {
   inventory_name: any;
 }
 export interface DialogData {
+  alldata:any;
 }
 @Component({
   selector: 'app-adminpackage',
@@ -21,6 +22,7 @@ export interface DialogData {
 export class AdminpackageComponent implements OnInit {
   public addpackageForm:FormGroup;
   public img_flag: any = false;
+  public quantity:number=1;
   public imageblockflag: boolean = false;
   public imageErrCode: boolean = false;
   public ErrCode: boolean=false;
@@ -32,6 +34,7 @@ export class AdminpackageComponent implements OnInit {
   public inventoryList:any=[];
   public inven: Observable<string[]>;
   public PackageInventoryDetails:any=[];
+  public alldata:any='';
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -137,6 +140,17 @@ export class AdminpackageComponent implements OnInit {
         }
     
   }
+
+   /**add and delete quentity */
+   addToqty(){
+    this.quantity=this.quantity+1;
+    // console.log(this.quantity)
+  }
+  removeItem(){
+    this.quantity=this.quantity-1;
+    // console.log(this.quantity)
+   }
+
 /**SubmitPackage */
 SubmitPackage(){
    //console.log(this.addpackageForm.value);
@@ -186,7 +200,7 @@ SubmitPackage(){
                   "sourceobj": ["user_id","hospital_id"],
                 };
                 console.log(postData);
-              
+                return;
                 this.msg="Package Submit Successfully"
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
                   console.log(response);
@@ -277,10 +291,16 @@ SubmitPackage(){
     const dialogRef = this.dialog.open(Dialoginventory, {
       // width: '750px',
       // disableClose: true
-      panelClass:'packageInventory'
+      panelClass:'packageInventory',
+      data:this.alldata
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result:any) => {
+      //console.log('All data kjghdsfgdrfhg',result);
+      if(result.inventory_name!=null && result.inventory_name!=''){
+        this.PackageInventoryDetails.push(result);
+      }
+      
     });
   }
   /***************************************************** */
@@ -321,6 +341,8 @@ export class Dialoginventory {
   public imageErrCode: boolean = false;
   public userId: any;
   public userType: any;
+  public getcategory:any;
+  public gettbrandname:any;
     // ===================================================
 
   //image upload 
@@ -339,7 +361,7 @@ export class Dialoginventory {
   constructor(
     public dialogRef: MatDialogRef<Dialoginventory>, public router: Router,public formBuilder:FormBuilder,public http: HttpServiceService,
     public cookieService: CookieService,
-    @Inject(MAT_DIALOG_DATA) public DialogData) { 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { 
       let userData = JSON.parse(this.cookieService.get('user_details'));
       this.userId = userData._id;
       this.userType = userData.type;
@@ -349,16 +371,13 @@ export class Dialoginventory {
         inventory_category: ["",[Validators.required]],
         sku: ['', [Validators.required]],
         quantity: ['', [Validators.required]],
-        wholesaleprice:['',Validators.required],
         description: ['', [Validators.required]],
-        inventory_image: [],
-        condition: ['New',],
-        yom: [],
-        priority:['',Validators.required],
+        inventory_image: [],        
         items: new FormArray([]),
-        dynamic_attributes: [],
-        status: [],
-  
+        dynamic_attributes: [], 
+        brand:[],
+        image:[],
+        category:[]
       });
       this.getInventoryCategory();
      
@@ -366,6 +385,9 @@ export class Dialoginventory {
 
     onSubmit() {
       /** marking as untouched **/
+      //console.log(this.inventoryForm.value);
+      // this.dialogRef.close(this.inventoryForm.value);
+
       for (let x in this.inventoryForm.controls) {
         this.inventoryForm.controls[x].markAsTouched();
       }
@@ -395,14 +417,17 @@ export class Dialoginventory {
         if (this.action == 'edit')
           this.inventoryForm.value.inventory_image = this.defaultData.inventory_image;
       }
-      console.log(this.inventoryForm.value);
+      // console.log(this.inventoryForm.value);
       if (this.inventoryForm.invalid) {
         return;
       }
       else {
-  
-          console.log(this.inventoryForm.value);
-  
+        this.inventoryForm.value.brand = this.gettbrandname;
+        this.inventoryForm.value.category = this.getcategory;
+        this.inventoryForm.value.image = this.inventoryForm.value.inventory_image.basepath+this.inventoryForm.value.inventory_image.image;
+
+          //console.log(this.inventoryForm.value);
+          this.dialogRef.close(this.inventoryForm.value);
       }
     }
      /** blur function **/
@@ -468,6 +493,12 @@ export class Dialoginventory {
    // clear image in InventoryComponent//
    clear_image() {
     this.img_flag = false;
+  }
+  getcatagoryName(catname: any) {
+    this.getcategory = catname;
+  }
+  getbrandName(brndname: any) {
+    this.gettbrandname = brndname;
   }
   onNoClick(): void {
     this.dialogRef.close();
