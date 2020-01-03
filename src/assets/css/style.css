@@ -1167,3 +1167,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 
 .packageInventory .mat-dialog-container{ height: inherit; overflow: auto;}
+.packageInventory .mat-dialog-container .formheader  {  padding:0 16px; width: auto;}
+.packageInventory .mat-dialog-container .formheader .formtitle { padding: 14px 10px; background: #00aee2; color: #fff; text-transform: uppercase; }
+.packageInventory .mat-dialog-container .formbody  .button_wrapper button { margin-left: 10px; }
+.packageInventory .mat-dialog-container .formbody  .button_wrapper button:first-child { margin-left: 0px; }
