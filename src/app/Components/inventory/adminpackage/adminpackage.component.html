@@ -55,12 +55,14 @@
                         <mat-form-field>
                           <mat-label class="label">Inventory Search</mat-label>
                             <input matInput placeholder="Inventory Search" [matAutocomplete]="autoGroup" formControlName="inventory">
-                            <mat-autocomplete #autoGroup="matAutocomplete">
-                              <mat-option *ngFor="let inventory of inven | async" [value]="inventory.inventory_name" (click)="inventoryAdd(inventory)" (change)="inventoryAdd(inventory)">
-                                <img class="example-option-img" aria-hidden [src]="inventory.image" height="25">
-                                <span>|| {{inventory.inventory_name}} ||</span>
-                                <small>{{inventory.sku}}</small>
+                            <mat-autocomplete #autoGroup="matAutocomplete" >
+                              <ng-container *ngIf="inven!=null ">
+                              <mat-option *ngFor="let inventory of inven | async" [value]="inventory.inventory_name" (click)="inventoryAdd(inventory)" >
+                                <img *ngIf="inventory.image!=null" class="example-option-img" aria-hidden [src]="inventory.image" height="25">
+                                <span *ngIf="inventory.inventory_name!=null">|| {{inventory.inventory_name}} ||</span>
+                                <small *ngIf="inventory.sku!=null">{{inventory.sku}}</small>
                               </mat-option>
+                            </ng-container>
                             </mat-autocomplete>
                         </mat-form-field>
                       </span>
@@ -97,8 +99,8 @@
                                     </mat-card-content>
                                     <mat-toolbar class="action">
                                       <span class="inc_dec">
-                                        <a *ngIf="quantity!=1" (click)="removeItem()" [(ngModel)]="item.quantity">-</a>
-                                        <label>{{quantity}}</label><a (click)="addToqty()">+</a>
+                                        <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
+                                        <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
                                       </span>
                                       <button mat-button (click)="remove(i)" class="remove">Remove</button>
                                     </mat-toolbar>
