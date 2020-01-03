@@ -29,6 +29,7 @@
           </span>
           <button mat-button class="adButton" type="button" (click)="addPurchasequotes()" *ngIf="activatedRoute.snapshot.url[2].path=='inventorylistingquote'">Add</button>
           <button mat-button class="adButton" type="button" (click)="addPurchasequotes()" *ngIf="activatedRoute.snapshot.url[2].path=='purchasquotelisting'">Add</button>
+          <button mat-button class="adButton" type="button" (click)="addPurchasequotes()" *ngIf="activatedRoute.snapshot.url[1].path=='package'">Add</button>
 
         </span>
         <table mat-table [dataSource]="recentlyAdded" class="mat-elevation-z8 purchase_quotes">

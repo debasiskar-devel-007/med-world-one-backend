@@ -39,7 +39,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-    //  console.log(resolveData.purchasequotelist.res);
+     //console.log(resolveData.purchasequotelist);
     });
   }
 /** quote details view*/
@@ -79,6 +79,12 @@ viewQuoteDetails(quoteid:any,hospiid:any){
     //console.log("purchasquotelisting");
     this.router.navigateByUrl('/admin/quote-comparison-view/' + quoteid+'/'+hospiid);
   }
+
+  /**package quote view */
+  if(this.activatedRoute.snapshot.url[1].path=='package'){
+    //console.log("purchasquotelisting");
+    this.router.navigateByUrl('/admin/quote-package-view/' + quoteid+'/'+hospiid);
+  }
 }
 
 addPurchasequotes(){
@@ -92,10 +98,14 @@ addPurchasequotes(){
   if(this.activatedRoute.snapshot.url[2].path=='purchasequote'){
     this.router.navigateByUrl('/inventory');
   }
+  /**add package */
+  if(this.activatedRoute.snapshot.url[1].path=='package'){
+    this.router.navigateByUrl('//admin/package');
+  }
 }
 /**send email */
 email(element:any,rout:any){
-  
+  console.log(element);
   const dialogRef = this.dialog.open(emailModal, {
     panelClass:'emailModal',
      data: {alldata: element,rout}

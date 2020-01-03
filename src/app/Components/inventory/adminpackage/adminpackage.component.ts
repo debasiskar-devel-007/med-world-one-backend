@@ -90,7 +90,7 @@ export class AdminpackageComponent implements OnInit {
     });
   }
   inventoryAdd(value:any){
-    console.log('inventory choice',value);
+    // console.log('inventory choice',value);
     value.quantity=1;
     this.PackageInventoryDetails.push(value);
     //console.log(this.PackageInventoryDetails);
@@ -130,7 +130,7 @@ export class AdminpackageComponent implements OnInit {
               
                 this.msg="Package Save Successfully"
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-                  console.log(response);
+                  //console.log(response);
                   if (response.status == "success") {
                     this._snackBar.open(this.msg, '', {
                       duration: 2000,
@@ -151,7 +151,6 @@ export class AdminpackageComponent implements OnInit {
   }
   removeItem(item:any){
     item.quantity=item.quantity-1;
-    // console.log(this.quantity)
    }
 
 /**SubmitPackage */
@@ -202,11 +201,10 @@ SubmitPackage(){
                   },
                   "sourceobj": ["user_id","hospital_id"],
                 };
-                console.log(postData);
-                return;
+                //console.log(postData);
                 this.msg="Package Submit Successfully"
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-                  console.log(response);
+                  //console.log(response);
                   if (response.status == "success") {
                     this._snackBar.open(this.msg, '', {
                       duration: 2000,
@@ -300,6 +298,7 @@ SubmitPackage(){
 
     dialogRef.afterClosed().subscribe((result:any) => {
       //console.log('All data kjghdsfgdrfhg',result);
+      result.quantity=1;
       if(result.inventory_name!=null && result.inventory_name!=''){
         this.PackageInventoryDetails.push(result);
       }

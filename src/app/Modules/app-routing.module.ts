@@ -415,6 +415,23 @@ const routes: Routes = [
 {path:'admin/package',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
 
+//________________Package admin listing_________________
+{path:'admin/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {} }, endpoint: 'datalist' }},
+//________________Package admin view
+{ path: 'admin/quote-package-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+
+
+//________________Package salesrep view
+{path:'salesrep/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {'salesid_object': 'user_id'} }, endpoint: 'datalist' }},
+
+
+
+//________________Package hospital view
+{path:'medicalpartner/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {'hospital_id_object': 'user_id'} }, endpoint: 'datalist' }},
+
 
 //________________Package frontend_________________
 // {path:'package',component:PackageComponent},
