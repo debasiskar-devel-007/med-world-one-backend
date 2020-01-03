@@ -323,7 +323,6 @@ SubmitPackage(){
 
     dialogRef.afterClosed().subscribe((result:any) => {
       //console.log('All data kjghdsfgdrfhg',result);
-      result.quantity=1;
       if(result.inventory_name!=null && result.inventory_name!=''){
         this.PackageInventoryDetails.push(result);
       }

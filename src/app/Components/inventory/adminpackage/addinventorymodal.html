@@ -61,7 +61,7 @@
                                     <!-- SKU -->
                                     <mat-form-field>
                                         <mat-label class="label">SKU #</mat-label>
-                                        <input matInput formControlName="sku" (blur)="inputBlur('sku')">
+                                        <input matInput formControlName="sku" type="number" (blur)="inputBlur('sku')">
                                         <mat-error *ngIf="!inventoryForm.controls['sku'].valid	
                         && inventoryForm.controls['sku'].errors.required">SKU# is required.</mat-error>
                                     </mat-form-field>
@@ -71,7 +71,7 @@
 
                                     <mat-form-field>
                                         <mat-label class="label">Quantity</mat-label>
-                                        <input matInput formControlName="quantity" type="quantity"
+                                        <input matInput formControlName="quantity" type="number"
                                             (blur)="inputBlur('quantity')">
                                         <mat-error *ngIf="!inventoryForm.controls['quantity'].valid	
                                                 && inventoryForm.controls['quantity'].errors.required">Quantity is
