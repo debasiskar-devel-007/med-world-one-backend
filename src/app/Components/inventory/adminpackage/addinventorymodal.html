@@ -43,15 +43,15 @@
                                     <!-- Brand selection -->
                                     <mat-form-field>
                                         <mat-label class="label">Brand</mat-label>
-                                        <mat-select matNativeControl formControlName="brand_name" required>
+                                        <mat-select matNativeControl formControlName="brand_id" required>
                                             <mat-option value="">Select Brand</mat-option>
                                             <mat-option value="{{ item.brand_id }}"
                                                 *ngFor="let item of brand_name_array" (click)="getbrandName(item.brand_name)">
                                                 {{ item.brand_name }}
                                             </mat-option>
                                         </mat-select>
-                                        <mat-error *ngIf="!inventoryForm.controls['brand_name'].valid	
-                    && inventoryForm.controls['brand_name'].errors.required">Brand Name is required.
+                                        <mat-error *ngIf="!inventoryForm.controls['brand_id'].valid	
+                    && inventoryForm.controls['brand_id'].errors.required">Brand Name is required.
                                         </mat-error>
                                     </mat-form-field>
 

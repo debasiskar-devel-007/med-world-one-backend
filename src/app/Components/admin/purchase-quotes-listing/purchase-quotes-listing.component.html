@@ -83,10 +83,14 @@
             <td mat-cell *matCellDef="let element">
               <button mat-button (click)="viewQuoteDetails(element._id,element.hospital_id)">view</button>
               <button mat-button *ngIf="userType=='admin' && element.copy_status=='Draft' && activatedRoute.snapshot.url[2].path=='purchasquotelisting'" (click)="email(element,activatedRoute.snapshot.url[2].path)">email</button>
-              <button mat-button *ngIf="userType=='admin'" (click)="email(element,activatedRoute.snapshot.url[2].path)">email</button>
+              <button mat-button *ngIf="userType=='admin'&& element.copy_status!='Draft'" (click)="email(element,activatedRoute.snapshot.url[2].path)">email</button>
 
               <button mat-button *ngIf="element.copy_status=='Draft' && activatedRoute.snapshot.url[2].path=='inventorylistingquote'" 
               (click)="editforroute(element)">edit</button>
+
+              <button mat-button *ngIf="element.copy_status=='Draft' && activatedRoute.snapshot.url[1].path=='package'" 
+              (click)="editforroute(element)">edit</button>
+              
             </td>
           </ng-container>
            <tr mat-header-row *matHeaderRowDef="displayed"></tr>

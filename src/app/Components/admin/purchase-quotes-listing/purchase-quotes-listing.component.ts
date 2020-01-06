@@ -105,7 +105,7 @@ addPurchasequotes(){
   }
   /**add package */
   if(this.activatedRoute.snapshot.url[1].path=='package'){
-    this.router.navigateByUrl('//admin/package');
+    this.router.navigateByUrl('/admin/package');
   }
 }
 /**send email */
@@ -122,8 +122,15 @@ email(element:any,rout:any){
    });
 }
 editforroute(element:any){
+    /**package quote edit route */
+    if(this.activatedRoute.snapshot.url[1].path=='package'){
+      
+      this.router.navigateByUrl('/admin/package/edit/'+element._id);
+    }
+    if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+      this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
+    }
   
-  this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
 }
 }
 
@@ -161,9 +168,12 @@ export class emailModal {
     if(this.rout=='inventorylistingquote'){
       datasource='quote_listing_details_view';
     }
+    if(this.rout=='purchasquotelisting'){
+      datasource='purchase_comparison_quote-details_view';
+    }
 
     let postEmailBody={
-      "source": datasource,
+    "source": datasource,
     "id":this.email.value.id,
     "recipient": [this.email.value.emailto],
     "ccrecipient": [this.email.value.cc],
