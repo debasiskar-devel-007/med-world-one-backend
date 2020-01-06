@@ -30,6 +30,7 @@ public totalPurchasedPrice:number=0;
 public savings:number=0;
 public Package_Details:any=[];
 public save_inventoery_details:any=[];
+public Package_all_total:number;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -89,6 +90,7 @@ public save_inventoery_details:any=[];
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
         this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
         this.savings=this.totalPurchasedPrice-this.totalprice;
+        this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
       }
      }
     });
@@ -114,6 +116,7 @@ public save_inventoery_details:any=[];
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
       this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
       this.savings=this.totalPurchasedPrice-this.totalprice;
+      this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
     }
     //console.log(this.savings);
    }
