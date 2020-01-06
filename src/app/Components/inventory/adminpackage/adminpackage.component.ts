@@ -61,7 +61,7 @@ export class AdminpackageComponent implements OnInit {
     
     this.activatedRoute.data.subscribe(resolveData => {
       this.inventoryList=resolveData.inventoryList.inventory;
-      //console.log(resolveData);
+      console.log(resolveData);
       });
     this.inven=this.addpackageForm.controls['inventory'].valueChanges.pipe(
       startWith(''),

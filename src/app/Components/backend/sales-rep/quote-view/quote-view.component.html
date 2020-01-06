@@ -54,7 +54,8 @@
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 
-            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'" ng-bind="element.savings"> Total Savings with MD Stock International: ${{savings}}</p> </td>
+            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'" ng-bind="element.savings"> Total Savings with MD Stock International: ${{savings}}</p> 
+          </td>
         </ng-container>
 
         <!-- Sku Column -->
@@ -91,7 +92,8 @@
             <ng-container *ngIf="element.brand!=null">  {{element.brand}}
             </ng-container>
             </td>
-          <td mat-footer-cell *matFooterCellDef> Total </td>
+          <td mat-footer-cell *matFooterCellDef> Total 
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Quantity : </p></td>
         </ng-container>
 
         <!-- quinty Column -->
@@ -99,7 +101,9 @@
           <th mat-header-cell *matHeaderCellDef> qty </th>
           <td mat-cell *matCellDef="let element; let i=index;" data-label="qty"> {{element.quantity}} </td>
           
-          <td mat-footer-cell *matFooterCellDef> {{totalqty}} </td>
+          <td mat-footer-cell *matFooterCellDef> {{totalqty}} 
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">{{Package_Details.package_quantity}} </p>
+          </td>
         </ng-container>
 
         <!-- Symbol Column -->
