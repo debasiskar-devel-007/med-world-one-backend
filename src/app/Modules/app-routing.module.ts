@@ -568,7 +568,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
     data: {
       requestcondition: {
         source: 'quote_listing_details_view',
-        condition: {'user_id_object': 'user_id'}
+        condition: {'salesrepid_object': 'user_id'}
       },
       endpoint: 'datalist'
 

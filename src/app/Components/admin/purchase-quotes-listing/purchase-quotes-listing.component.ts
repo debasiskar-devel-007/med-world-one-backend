@@ -44,7 +44,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     //console.log(resolveData.purchasequotelist);
+     //console.log("Quotes List",resolveData.purchasequotelist);
     });
   }
 /** quote details view*/
@@ -110,7 +110,7 @@ addPurchasequotes(){
 }
 /**send email */
 email(element:any,rout:any){
-  console.log(element);
+  //console.log("email modal function",rout);
   const dialogRef = this.dialog.open(emailModal, {
     panelClass:'emailModal',
      data: {alldata: element,rout}
@@ -121,6 +121,7 @@ email(element:any,rout:any){
           
    });
 }
+/**edit quote rout for package and listing quote */
 editforroute(element:any){
     /**package quote edit route */
     if(this.activatedRoute.snapshot.url[1].path=='package'){
@@ -153,7 +154,7 @@ export class emailModal {
                   body:['']
                 });
                 this.rout=data.rout;
-      //console.log(data);
+      //console.log("email Modal component",data.alldata);
     }
 
   onNoClick(): void {
@@ -170,6 +171,9 @@ export class emailModal {
     }
     if(this.rout=='purchasquotelisting'){
       datasource='purchase_comparison_quote-details_view';
+    }
+    if(this.rout=='list'){
+      datasource='package_list_view';
     }
 
     let postEmailBody={

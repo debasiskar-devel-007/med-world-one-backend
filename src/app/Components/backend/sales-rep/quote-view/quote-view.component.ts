@@ -65,7 +65,7 @@ public Package_all_total:number;
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
     
-    console.log(response);
+    //console.log(response);
      if(response.status="success"){
       //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
@@ -90,8 +90,9 @@ public Package_all_total:number;
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
         this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
         this.savings=this.totalPurchasedPrice-this.totalprice;
-        this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
-      }
+              if(this.Package_Details!=null){
+                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;}        
+            }
      }
     });
 
@@ -116,14 +117,16 @@ public Package_all_total:number;
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
       this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
       this.savings=this.totalPurchasedPrice-this.totalprice;
+      if(this.Package_Details!=null && this.Package_Details.length>0){
       this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
+      }
     }
     //console.log(this.savings);
    }
 
   ngOnInit() {
     
-    if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','subtotalprice'];
+    if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice'];
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       this.viewQuoteHeader.push('purchaseprice');
     }

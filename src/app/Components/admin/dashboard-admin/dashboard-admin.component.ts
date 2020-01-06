@@ -173,7 +173,7 @@ viewQuoteDetails(quoteid:any,hospiid:any){
 }
 /**addes quote in admin */
 adminsearchbyMedicalName(){
- 
+ console.log(this.searchbyMedicalName.toLowerCase())
     let post={
       "source":"quote-details_view",
     "condition":{
@@ -182,6 +182,7 @@ adminsearchbyMedicalName(){
     "limit":10,
     }
     this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+        console.warn(res);
         this.recentlyAdded=res.res;
     })
   
