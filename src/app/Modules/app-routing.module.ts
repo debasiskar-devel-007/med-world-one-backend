@@ -415,6 +415,8 @@ const routes: Routes = [
 {path:'admin/package',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
 
+{path:'admin/package/edit/:id',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
+data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
 //________________Package admin listing_________________
 {path:'admin/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
 data: { requestcondition: { source: 'package_list_view', condition: {} }, endpoint: 'datalist' }},
@@ -566,7 +568,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
     data: {
       requestcondition: {
         source: 'quote_listing_details_view',
-        condition: {'user_id_object': 'user_id'}
+        condition: {'salesrepid_object': 'user_id'}
       },
       endpoint: 'datalist'
 

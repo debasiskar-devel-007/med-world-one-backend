@@ -28,6 +28,9 @@ public quoteId:number;
 public dateAdded:number;
 public totalPurchasedPrice:number=0;
 public savings:number=0;
+public Package_Details:any=[];
+public save_inventoery_details:any=[];
+public Package_all_total:number;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -38,6 +41,9 @@ public savings:number=0;
       // console.log(this.activatedRoute.snapshot.url[1].path,'2');
       // let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
       // console.log('urlsegments',urlsegments);
+      let userData = JSON.parse(this.cookieService.get('user_details'));
+      this.userId = userData._id;
+      this.userType = userData.type;
       if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
         datasource='quoteviewasync';
       }
@@ -59,7 +65,7 @@ public savings:number=0;
     }
     this.http.httpViaPost(datasource, postData).subscribe((response: any) => {
     
-    console.log(response);
+    //console.log(response);
      if(response.status="success"){
       //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
@@ -69,6 +75,7 @@ public savings:number=0;
       this.notes=response.quotedetails[0].notes;
       this.quoteId=response.quotedetails[0].quote_id;
       this.dateAdded=response.quotedetails[0].date;
+      this.Package_Details=response.quotedetails[0].package_details;
       for(let i in this.quotedetails){
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         //this.quotedetails[i].price=null;
@@ -83,7 +90,9 @@ public savings:number=0;
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
         this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
         this.savings=this.totalPurchasedPrice-this.totalprice;
-      }
+              if(this.Package_Details!=null){
+                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;}        
+            }
      }
     });
 
@@ -108,16 +117,22 @@ public savings:number=0;
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
       this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
       this.savings=this.totalPurchasedPrice-this.totalprice;
+      if(this.Package_Details!=null && this.Package_Details.length>0){
+      this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
+      }
     }
     //console.log(this.savings);
    }
 
   ngOnInit() {
     
-    if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','subtotalprice'];
+    if(this.userType!='admin') this.viewQuoteHeader= [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice'];
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
       this.viewQuoteHeader.push('purchaseprice');
     }
+    // if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+    //   this.viewQuoteHeader.push('tax');
+    // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       this.viewQuoteHeader=[ 'name', 'sku', 'category', 'brand', 'qty', 'saleprice',];
     }
@@ -131,29 +146,58 @@ public savings:number=0;
 /**update quote with price */
   save(){
 
-    let source:any='';
-
+    var postData:any={};
     if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
-      source='quote-details';
-    }
-    if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
-      source='purchase_comparison_quote-details';
-      //console.log(this.quotedetails);
-    }
-    if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      source='quote_listing_details';
-    }
-    let postData={
+      postData={
 
-      "source":source,
-      "data":{
-        "id":this.activatedRoute.snapshot.params.id,
-        "inventory_details":this.quotedetails
+        "source":'quote-details',
+        "data":{
+          "id":this.activatedRoute.snapshot.params.id,
+          "inventory_details":this.quotedetails
+        }
       }
     }
+
+    if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+      postData={
+
+        "source":'purchase_comparison_quote-details',
+        "data":{
+          "id":this.activatedRoute.snapshot.params.id,
+          "inventory_details":this.quotedetails
+        }
+      }
+    }
+
+    if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      postData={
+
+        "source":'quote_listing_details',
+        "data":{
+          "id":this.activatedRoute.snapshot.params.id,
+          "inventory_details":this.quotedetails
+        }
+      }
+    }
+
+    /**save package */
+    if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+      
+      postData={
+
+        "source":'package_list',
+        "data":{
+          "id":this.activatedRoute.snapshot.params.id,
+          "package_inventoery_details":this.quotedetails
+        }
+      }
+      }
+
+
     //console.log(postData);
     
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
       if(response.status="success"){
       this._snackBar.open('Data Updated','', {
         duration: 2000,
@@ -170,6 +214,10 @@ public savings:number=0;
       if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
         this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
       }
+       /**package quote for admin rout */
+       if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+        this.router.navigateByUrl('/admin/package/list');
+        }
     }
     })
 

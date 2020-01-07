@@ -44,7 +44,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
     }
         this.activatedRoute.data.subscribe(resolveData => {
       this.recentlyAdded=resolveData.purchasequotelist.res;
-     //console.log(resolveData.purchasequotelist);
+     //console.log("Quotes List",resolveData.purchasequotelist);
     });
   }
 /** quote details view*/
@@ -105,12 +105,12 @@ addPurchasequotes(){
   }
   /**add package */
   if(this.activatedRoute.snapshot.url[1].path=='package'){
-    this.router.navigateByUrl('//admin/package');
+    this.router.navigateByUrl('/admin/package');
   }
 }
 /**send email */
 email(element:any,rout:any){
-  console.log(element);
+  //console.log("email modal function",rout);
   const dialogRef = this.dialog.open(emailModal, {
     panelClass:'emailModal',
      data: {alldata: element,rout}
@@ -121,9 +121,17 @@ email(element:any,rout:any){
           
    });
 }
+/**edit quote rout for package and listing quote */
 editforroute(element:any){
+    /**package quote edit route */
+    if(this.activatedRoute.snapshot.url[1].path=='package'){
+      
+      this.router.navigateByUrl('/admin/package/edit/'+element._id);
+    }
+    if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+      this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
+    }
   
-  this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
 }
 }
 
@@ -146,7 +154,7 @@ export class emailModal {
                   body:['']
                 });
                 this.rout=data.rout;
-      //console.log(data);
+      //console.log("email Modal component",data.alldata);
     }
 
   onNoClick(): void {
@@ -161,9 +169,15 @@ export class emailModal {
     if(this.rout=='inventorylistingquote'){
       datasource='quote_listing_details_view';
     }
+    if(this.rout=='purchasquotelisting'){
+      datasource='purchase_comparison_quote-details_view';
+    }
+    if(this.rout=='list'){
+      datasource='package_list_view';
+    }
 
     let postEmailBody={
-      "source": datasource,
+    "source": datasource,
     "id":this.email.value.id,
     "recipient": [this.email.value.emailto],
     "ccrecipient": [this.email.value.cc],

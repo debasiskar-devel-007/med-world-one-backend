@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, Data } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, throwIfEmpty } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export interface inventory {
   sku: any;
@@ -49,6 +49,11 @@ export class AdminpackageComponent implements OnInit {
   }
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService,public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog) {
+      /**package edit */
+      if(this.activatedRoute.snapshot.params.id){
+        this.fetchPackageDetailsId(this.activatedRoute.snapshot.params.id);
+      }
+
       this.imageblockflag = true;
       let userData = JSON.parse(this.cookieService.get('user_details'));
       this.userId = userData._id;
@@ -78,19 +83,58 @@ export class AdminpackageComponent implements OnInit {
 
 
 
+  /**for edit package */
+  fetchPackageDetailsId(packageId:any){
+    let postData:any={
+      "source": "package_list_view",
+      "condition": {
+        "_id_object":packageId
+      }
+    }
+    this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
+      //console.log(response);
+      this.addpackageForm.patchValue({
+        id:response.res[0]._id,
+        package_name:response.res[0].package_details.package_name,
+        notes:response.res[0].package_details.notes,
+        hospital_id:response.res[0].package_details.hospital_id,
+        package_quantity:response.res[0].package_details.package_quantity
+      })
+
+      for(let i in response.res[0].inventory_details){
+        this.PackageInventoryDetails.push(response.res[0].inventory_details[i]);
+      }
+      this.gethospitalNamebyId(response.res[0].package_details.hospital_id);
+    })
+    
+  }
+  gethospitalNamebyId(hospitalId:number){
+    var data: any;
+        data = {
+          'source': 'users_view',
+          'condition': {
+            '_id_object':hospitalId,
+            status:1
+           
+          }
+        };
+        this.http.httpViaPost("datalist", data).subscribe((response:any) => {
+          this.active_hospital_list = response.res;
+        });
+  }
   generateForm(){
     this.addpackageForm = this.formBuilder.group({
       id: [null],
       package_name: ['', [Validators.required]],
       hospital_id:["",[Validators.required]],
       inventory: [""],
-       notes: ['', [Validators.required]],
+      notes: ['', [Validators.required]],
       package_quantity: ["",[Validators.required]],
   
     });
   }
   inventoryAdd(value:any){
-    // console.log('inventory choice',value);
+    //console.log('inventory choice',value);
     value.quantity=1;
     this.PackageInventoryDetails.push(value);
     //console.log(this.PackageInventoryDetails);
@@ -106,29 +150,52 @@ export class AdminpackageComponent implements OnInit {
   /**submit function */
   onSubmit(){
      //console.log(this.addpackageForm.value);
-     
+
+          //console.warn(this.addpackageForm.value);
+          
         /** marking as untouched **/
         for (let x in this.addpackageForm.controls) {
           this.addpackageForm.controls[x].markAsTouched();
         }
-              
+         
+        
+
         /**submit here */
         if(this.addpackageForm.valid){
             delete this.addpackageForm.value.inventory;
-                var postData: any = {
-                  "source": 'package_list',
-                  "data": {
-                    "user_id": this.userId,
-                    "hospital_id":this.addpackageForm.value.hospital_id,
-                    "package_details":this.addpackageForm.value,
-                    "package_inventoery_details":this.PackageInventoryDetails,
-                    "status":0
-                  },
-                  "sourceobj": ["user_id","hospital_id"],
-                };
-                //console.log(postData);
-              
-                this.msg="Package Save Successfully"
+                  if(this.addpackageForm.value.id!=null){
+                    var postData: any = {
+                      "source": 'package_list',
+                      "data": {
+                        "id":this.addpackageForm.value.id,
+                        "user_id": this.userId,
+                        "hospital_id":this.addpackageForm.value.hospital_id,
+                        "package_details":this.addpackageForm.value,
+                        "package_inventoery_details":this.PackageInventoryDetails,
+                        "status":0
+                      },
+                      "sourceobj": ["user_id","hospital_id"],
+                    };
+                    this.msg="Package Update Successfully"
+                  }else{
+                    var postData: any = {
+                      "source": 'package_list',
+                      "data": {
+                        "user_id": this.userId,
+                        "hospital_id":this.addpackageForm.value.hospital_id,
+                        "package_details":this.addpackageForm.value,
+                        "package_inventoery_details":this.PackageInventoryDetails,
+                        "status":0
+                      },
+                      "sourceobj": ["user_id","hospital_id"],
+                    };
+                    this.msg="Package Saved Successfully"
+                  }
+
+               
+                console.log("save package",postData);
+                  
+                
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
                   //console.log(response);
                   if (response.status == "success") {
@@ -202,19 +269,37 @@ SubmitPackage(){
         /**submit here */
         if(this.addpackageForm.valid){
             delete this.addpackageForm.value.inventory;
-                var postData: any = {
-                  "source": 'package_list',
-                  "data": {
-                    "user_id": this.userId,
-                    "hospital_id":this.addpackageForm.value.hospital_id,
-                    "package_details":this.addpackageForm.value,
-                    "package_inventoery_details":this.PackageInventoryDetails,
-                    "status":1
-                  },
-                  "sourceobj": ["user_id","hospital_id"],
-                };
-                //console.log(postData);
-                this.msg="Package Submit Successfully"
+            if(this.addpackageForm.value.id!=null){
+              var postData: any = {
+                "source": 'package_list',
+                "data": {
+                  "id":this.addpackageForm.value.id,
+                  "user_id": this.userId,
+                  "hospital_id":this.addpackageForm.value.hospital_id,
+                  "package_details":this.addpackageForm.value,
+                  "package_inventoery_details":this.PackageInventoryDetails,
+                  "status":1
+                },
+                "sourceobj": ["user_id","hospital_id"],
+              };
+              this.msg="Package Submited Successfully"
+            }else{
+              var postData: any = {
+                "source": 'package_list',
+                "data": {
+                  "user_id": this.userId,
+                  "hospital_id":this.addpackageForm.value.hospital_id,
+                  "package_details":this.addpackageForm.value,
+                  "package_inventoery_details":this.PackageInventoryDetails,
+                  "status":1
+                },
+                "sourceobj": ["user_id","hospital_id"],
+              };
+              this.msg="Package Submited Successfully"
+            }
+              
+                console.log("submit package",postData);
+              
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
                   //console.log(response);
                   if (response.status == "success") {
@@ -394,7 +479,7 @@ export class Dialoginventory {
       this.userType = userData.type;
       this.inventoryForm = this.formBuilder.group({
         inventory_name: ['', [Validators.required]],
-        brand_name: ["",[Validators.required]],
+        brand_id: ["",[Validators.required]],
         inventory_category: ["",[Validators.required]],
         sku: ['', [Validators.required]],
         quantity: ['', [Validators.required]],
