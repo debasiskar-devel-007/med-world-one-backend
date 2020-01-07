@@ -530,7 +530,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     }
 
 
-  console.log(postData);
+  //console.log(postData);
      
     // console.log(this.inventoryDetails);
 
@@ -671,7 +671,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
   saveQuote() {
-    console.log("save", this.inventoryDetails);
+    //console.log("save", this.inventoryDetails);
 
     let postData = {
       "source": "quote_listing_details",

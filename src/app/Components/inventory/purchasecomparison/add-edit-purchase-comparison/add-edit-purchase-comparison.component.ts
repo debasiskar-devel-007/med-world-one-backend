@@ -167,6 +167,9 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     });
   }
   // =======================================================
+  conditionRadio() {
+    this.yom_flag = false
+  }
 
 
 
