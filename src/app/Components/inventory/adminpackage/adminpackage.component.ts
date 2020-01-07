@@ -193,7 +193,7 @@ export class AdminpackageComponent implements OnInit {
                   }
 
                
-                console.log("save package",postData);
+                //console.log("save package",postData);
                   
                 
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
@@ -298,7 +298,7 @@ SubmitPackage(){
               this.msg="Package Submited Successfully"
             }
               
-                console.log("submit package",postData);
+                //console.log("submit package",postData);
               
                 this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
                   //console.log(response);

@@ -150,7 +150,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     this.addinventorylistingquoteForm = this.formBuilder.group({
       id:[null],
       inventory_name: ['', [Validators.required]],
-      source: [""],
+      // source: [""],
       brand_id: ["",[Validators.required]],
       category_id: ["",[Validators.required]],
       sku: ['', [Validators.required]],
@@ -185,7 +185,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
       // purchased_price:defaultValue.purchased_price,
-      source: this.defaultData.source
+      // source: this.defaultData.source
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;
@@ -288,7 +288,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
 
       /* start process to submited data */
       this.addinventorylistingquoteForm.value.brand=this.gettbrandname;
-      this.addinventorylistingquoteForm.value.catagory=this.getcatagory;
+      this.addinventorylistingquoteForm.value.category=this.getcatagory;
       this.addinventorylistingquoteForm.value.hospitalname=this.hospitalName;
 
       /**inventory */
