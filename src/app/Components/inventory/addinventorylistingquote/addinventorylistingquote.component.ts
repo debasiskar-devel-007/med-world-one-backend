@@ -12,6 +12,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
+  public disableSelect:boolean=false;
   public submitbuttonFlage: number = 0;
   public hospitalflag: boolean = false;
   public msg: string;
@@ -109,7 +110,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     this.addinventorylistingquoteForm = this.formBuilder.group({
       id: [null],
       product_name: ['', [Validators.required]],
-      source: [""],
+      source: ["",Validators.required],
       brand_id: ["", [Validators.required]],
       category_id: ["", [Validators.required]],
       sku: ['', [Validators.required]],
@@ -125,11 +126,29 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
     });
   }
+
+
+  gethospitalNamebyId(hospitalId:number){
+    var data: any;
+        data = {
+          'source': 'users_view',
+          'condition': {
+            '_id_object':hospitalId,
+            status:1
+           
+          }
+        };
+        this.http.httpViaPost("datalist", data).subscribe((response:any) => {
+          this.active_hospital_list = response.res;
+        });
+  }
   // =======================================================
 
   gethospitalName(data: any, id: any) {
+    //console.log("gethospitalName");
     this.hospitalName = data;
     this.hospital_id = id;
+    this.disableSelect=true;
   }
   getcatagoryName(catname: any) {
     this.getcategory = catname;
@@ -457,8 +476,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
 
   submitquote() {
-    //console.log("submit quote", this.inventoryDetails);
-    
+    console.log("submit quote", this.inventoryDetails);
+    return;
     /**inventory from save quote */
     var postData: any = {};
     if (this.activatedRoute.snapshot.params.listingquoteid != undefined) {
@@ -564,7 +583,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   /**view Detail inventory */
   viewDetailsInventory(item: any) {
     if (item._id != null) {
-      //console.log("viewDetailsInventory", item);
+      console.log("viewDetailsInventory", item);
       this.submitbuttonFlage = 1;
       this.addinventorylistingquoteForm.patchValue({
         id: item._id,
@@ -602,7 +621,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       this.img_flag = true;
     } else {
 
-      console.log("viewDetailsInventory", item);
+      console.log("viewDetailsInventoryfgdfgfd", item);
       this.submitbuttonFlage = 1;
       this.addinventorylistingquoteForm.patchValue({
         id: item._id,
@@ -645,7 +664,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
   saveQuote() {
-    //console.log("save",this.inventoryDetails);
+    console.log("save",this.inventoryDetails);
+    return;
     let postData = {
       "source": "quote_listing_details",
       "data": {

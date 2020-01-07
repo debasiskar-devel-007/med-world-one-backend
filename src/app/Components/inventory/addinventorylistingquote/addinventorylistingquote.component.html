@@ -40,7 +40,7 @@
                       <!-- source  -->
                       <mat-form-field>
                         <mat-label class="label">Source</mat-label>
-                        <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
+                        <mat-select matNativeControl formControlName="source" [(value)]="selected" [disabled]="disableSelect">
                           <mat-option value="">Select Source</mat-option>
                           <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list"
                             (click)="gethospitalName(item.hospitalname,item._id)">
@@ -48,8 +48,7 @@
                           </mat-option>
                         </mat-select>
                         <mat-error
-                          *ngIf="!addinventorylistingquoteForm.controls['source'].valid
-                                                            && addinventorylistingquoteForm.controls['source'].errors.required">
+                          *ngIf="!addinventorylistingquoteForm.controls['source'].valid">
                           Source
                           Name is
                           required.

@@ -36,8 +36,8 @@
                       </mat-form-field>
                     </span>
 
-                    <span class="col-1-3">
-                      <!-- source  -->
+                    <!-- <span class="col-1-3">
+                       source  
                       <mat-form-field>
                         <mat-label class="label">Source</mat-label>
                         <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
@@ -55,7 +55,7 @@
                           required.
                         </mat-error>
                       </mat-form-field>
-                    </span>
+                    </span> -->
 
                     <span class="col-1-3">
                       <!-- Inventory Category mat-selection  -->
@@ -309,7 +309,11 @@
                         </tr>
                         <tr>
                           <td>Category:</td>
-                          <td>{{item.category_name}}</td>
+                          <td *ngIf="item.category_name!=null">{{item.category_name}}</td>
+                        </tr>
+                        <tr>
+                          <td>Brand:</td>
+                          <td>{{item.brand}}</td>
                         </tr>
                         <tr>
                           <td>SKU#:</td>
