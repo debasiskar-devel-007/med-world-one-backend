@@ -12,7 +12,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class AddinventorylistingquoteComponent implements OnInit {
   // ======================declarations=================
   public brand_name_array: any = [];
-  public disableSelect:boolean=false;
+  public disableSelect: boolean = false;
   public submitbuttonFlage: number = 0;
   public hospitalflag: boolean = false;
   public msg: string;
@@ -32,6 +32,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   public fullImagePath: any;
   public imageName: any;
   public imageType: any;
+  public deleteUserId:any=[];
   public img_flag: any = false;
   public add_field_flag: boolean = false;
   public attr_value: any;
@@ -68,7 +69,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
-     
+
     this.imageblockflag = true;
 
     this.activatedRoute.params.subscribe(params => {
@@ -89,11 +90,11 @@ export class AddinventorylistingquoteComponent implements OnInit {
     } else {
       this.fetchAddedInventoryDetailsbyinventoryId();
     }
- // for quote id
- this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
-  //console.log(response.userID);
-  this.quote_id = response.userID;
-})
+    // for quote id
+    this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+      //console.log(response.userID);
+      this.quote_id = response.userID;
+    })
   }
 
   ngOnInit() {
@@ -110,7 +111,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     this.addinventorylistingquoteForm = this.formBuilder.group({
       id: [null],
       product_name: ['', [Validators.required]],
-      source: ["",Validators.required],
+      source: ["", Validators.required],
       brand_id: ["", [Validators.required]],
       category_id: ["", [Validators.required]],
       sku: ['', [Validators.required]],
@@ -127,20 +128,23 @@ export class AddinventorylistingquoteComponent implements OnInit {
     });
   }
 
+  conditionRadio() {
+    this.yom_flag = false
+  }
 
-  gethospitalNamebyId(hospitalId:number){
+  gethospitalNamebyId(hospitalId: number) {
     var data: any;
-        data = {
-          'source': 'users_view',
-          'condition': {
-            '_id_object':hospitalId,
-            status:1
-           
-          }
-        };
-        this.http.httpViaPost("datalist", data).subscribe((response:any) => {
-          this.active_hospital_list = response.res;
-        });
+    data = {
+      'source': 'users_view',
+      'condition': {
+        '_id_object': hospitalId,
+        status: 1
+
+      }
+    };
+    this.http.httpViaPost("datalist", data).subscribe((response: any) => {
+      this.active_hospital_list = response.res;
+    });
   }
   // =======================================================
 
@@ -148,7 +152,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     //console.log("gethospitalName");
     this.hospitalName = data;
     this.hospital_id = id;
-    this.disableSelect=true;
+    this.disableSelect = true;
   }
   getcatagoryName(catname: any) {
     this.getcategory = catname;
@@ -171,7 +175,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-     // console.log(response);
+      // console.log(response);
       this.inventoryDetails = response.res;
     })
   }
@@ -194,6 +198,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
   onSubmit() {
 
     /** marking as untouched **/
+    console.warn(this.addinventorylistingquoteForm.value)
+
     for (let x in this.addinventorylistingquoteForm.controls) {
       this.addinventorylistingquoteForm.controls[x].markAsTouched();
     }
@@ -254,7 +260,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           "sourceobj": ["category_id", "brand_id", "userid", "hospital_id"],
 
         };
-        this.msg = 'Thank You For Submitting A Listing Inventory Quote';
+        this.msg = 'Item Added';
       } else {
         var inventID = this.addinventorylistingquoteForm.value.id;
         var postData: any = {
@@ -268,7 +274,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           "sourceobj": ["category_id", "brand_id", "userid", "hospital_id"],
 
         };
-        this.msg = 'Inventory Updated';
+        this.msg = 'Item Updated';
       }
 
       //console.log(postData, 'postData');
@@ -284,6 +290,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           this._snackBar.open(this.msg, '', {
             duration: 2000,
           });
+
           //this.defaultData.inventory_image=null;
           this.imageblockflag = false;
 
@@ -301,9 +308,9 @@ export class AddinventorylistingquoteComponent implements OnInit {
               behavior: 'smooth'
             })
           );
-         
+
           this.generateForm();
-          
+
         } else {
           alert("Some error occurred. Please try again.");
         }
@@ -477,7 +484,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
   submitquote() {
     console.log("submit quote", this.inventoryDetails);
-    return;
+
     /**inventory from save quote */
     var postData: any = {};
     if (this.activatedRoute.snapshot.params.listingquoteid != undefined) {
@@ -490,7 +497,10 @@ export class AddinventorylistingquoteComponent implements OnInit {
         },
 
       };
+      console.log("submit quote with  _id");
+
     } else {
+      console.log("submit quote with out _id");
       if (this.inventoryDetails[0].hospital_id == null) {
         postData = {
           "source": "quote_listing_details",
@@ -520,24 +530,21 @@ export class AddinventorylistingquoteComponent implements OnInit {
     }
 
 
-    //console.log(postData);
+  console.log(postData);
+     
     // console.log(this.inventoryDetails);
 
-    for (let i in this.inventoryDetails) {
-      this.ids.push(this.inventoryDetails[i]._id);
-    }
-    //console.log(this.ids);
-
-
+    this.deleteUserId.push(this.userId);
     let deleteData = {
       "source": "quote-listing",
-      "ids": this.ids
+      "ids": this.deleteUserId
     }
     // console.log("deletedata",deleteData);
 
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
+        this.inventoryDetails = [];
         this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
           duration: 2000,
         });
@@ -589,7 +596,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         id: item._id,
         product_name: item.inventory_details.product_name,
         source: item.inventory_details.source,
-        brand_id:item.inventory_details.brand_id,
+        brand_id: item.inventory_details.brand_id,
         category_id: item.inventory_details.category_id,
         sku: item.inventory_details.sku,
         quantity: item.inventory_details.quantity,
@@ -627,7 +634,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         id: item._id,
         product_name: item.product_name,
         source: item.source,
-        brand_id:item.brand_id,
+        brand_id: item.brand_id,
         category_id: item.category_id,
         sku: item.sku,
         quantity: item.quantity,
@@ -664,8 +671,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
   saveQuote() {
-    console.log("save",this.inventoryDetails);
-    return;
+    console.log("save", this.inventoryDetails);
+
     let postData = {
       "source": "quote_listing_details",
       "data": {
@@ -678,22 +685,20 @@ export class AddinventorylistingquoteComponent implements OnInit {
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
 
-    for (let i in this.inventoryDetails) {
-      this.ids.push(this.inventoryDetails[i]._id);
-    }
-
+    this.deleteUserId.push(this.userId);
     let deleteData = {
       "source": "quote-listing",
-      "ids": this.ids
+      "ids": this.deleteUserId
     }
     //console.log(postData);
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
+        this.inventoryDetails = [];
         this._snackBar.open('Listing Inventory Quote saved in Draft.', '', {
           duration: 2000,
         });
-        this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+        this.http.httpViaPost('deletequote', deleteData).subscribe((response: any) => {
           //console.log(response);
           if (response.status = "success") {
 
@@ -727,8 +732,8 @@ export class AddinventorylistingquoteComponent implements OnInit {
       "source": "quote-listing",
       "ids": this.ids
     }
-   
-    
+
+
     this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
