@@ -105,6 +105,19 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
           this.hospitalDetails=response.res;
         });
        }
+       if(this.userType=='hospital'){
+        let data: any;
+        data = {
+          'source': 'users_view',
+          'condition': {
+            '_id_object': this.userId
+          }
+        }
+        this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+          //console.log(response);
+          this.hospitalDetails=response.res;
+        });
+       }
       this.activatedRoute.params.subscribe(params => {
         if (params['_id'] != null) {
           this.action = "edit";
@@ -555,6 +568,12 @@ minus(){
      return;
     } 
     if (this.userType=='salesrep' && this.hospitalId == undefined) {
+      this._snackBar.open('please select hospital','', {
+        duration: 1000,
+      });
+     return;
+    } 
+    if (this.userType=='hospital' && this.hospitalId == undefined) {
       this._snackBar.open('please select hospital','', {
         duration: 1000,
       });

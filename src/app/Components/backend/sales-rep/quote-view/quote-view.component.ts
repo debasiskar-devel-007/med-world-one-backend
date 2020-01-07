@@ -239,9 +239,10 @@ public Package_all_total:number;
       });
     
   }
-
-
-
+/**download */
+downloadPdf(){
+  console.log("downloadPdf");
+}
 }
 
 
