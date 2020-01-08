@@ -42,7 +42,7 @@
       <h2>product catalog</h2>
     </mat-card-content>
 
-  
+
     <mat-card-content class="searchfilter">
       <span class="search_bar">
 
@@ -52,7 +52,7 @@
           <mat-option *ngFor="let category of categoryList" value="{{category._id}}" (click)="searchBrand(category._id)">
             {{category.category_name}}</mat-option>
         </mat-select>
-          &nbsp;&nbsp;&nbsp;
+
           <!-- search by brand -->
         <mat-select class="searchpannel" *ngIf="inventory_cat!=null && inventory_cat!='' " [(ngModel)]="inventory_brand" placeholder="Search By Brand">
           <mat-option  value=""> Select a Brand</mat-option>
