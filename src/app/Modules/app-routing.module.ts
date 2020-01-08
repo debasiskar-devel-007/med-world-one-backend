@@ -79,6 +79,8 @@ import { AddinventorylistingquoteComponent } from '../Components/inventory/addin
 import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent } from '../Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from '../Components/frontend/package/package.component';
+import { InventorylistingquotefromapiComponent } from '../Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { ListingquotefromapidetailspageComponent } from '../Components/inventory/listingquotefromapidetailspage/listingquotefromapidetailspage.component';
 
 
 
@@ -438,11 +440,25 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 //________________Package frontend_________________
 // {path:'package',component:PackageComponent},
 
-  //________________INVENTORY LIST_________________
 
-  //________________INVENTORY listing quote add for admin
-  { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
-  { path: 'admin/inventory/inventorylistingquote/edit/:listingquoteid', component: AddinventorylistingquoteComponent },
+
+  //________________INVENTORY LISTing quotes_________________
+
+  //________________INVENTORY listing quotes add for admin-----------
+  // { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+  // { path: 'admin/inventory/inventorylistingquote/edit/:listingquoteid', component: AddinventorylistingquoteComponent },
+
+
+
+//________________INVENTORY listing quote add(inventory from api) for all--------------
+
+
+{ path: 'inventory/inventorylistingquote/add', component: InventorylistingquotefromapiComponent },
+{ path: 'inventory/inventorylistingquote/detailspage/:invenid', component:ListingquotefromapidetailspageComponent},
+
+
+
+
 
 //________________INVENTORY listing quote add for salesrep--------------
 { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },

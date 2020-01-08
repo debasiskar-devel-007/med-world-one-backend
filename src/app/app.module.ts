@@ -154,6 +154,8 @@ import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from './Components/frontend/package/package.component';
+import { InventorylistingquotefromapiComponent } from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { ListingquotefromapidetailspageComponent } from './Components/inventory/listingquotefromapidetailspage/listingquotefromapidetailspage.component';
 
 
 
@@ -261,7 +263,7 @@ import { PackageComponent } from './Components/frontend/package/package.componen
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
-    quoteModal,sendMailModal, Dialoginventory,AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent,
+    quoteModal,sendMailModal, Dialoginventory,AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, ListingquotefromapidetailspageComponent,
 
 
   ],
