@@ -94,7 +94,7 @@ viewQuoteDetails(quoteid:any,hospiid:any){
 
 addPurchasequotes(){
   if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
-    this.router.navigateByUrl('/admin/inventory/inventorylistingquote/add');
+    this.router.navigateByUrl('/inventory/inventorylistingquote/add');
   }
 
   if(this.activatedRoute.snapshot.url[2].path=='purchasquotelisting'){

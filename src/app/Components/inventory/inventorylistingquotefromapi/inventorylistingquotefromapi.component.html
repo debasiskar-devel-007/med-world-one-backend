@@ -1,0 +1,40 @@
+<app-adminheader>
+    <form autocomplete="off" [formGroup]="inventoryfromApiForm">
+        <!-- inventoery search -->
+    <mat-form-field>
+        <mat-label class="label">Search by Product</mat-label>
+          <input matInput placeholder="Inventory Search" formControlName="inventory_name" (keyup)="searchproduct()">
+         
+           
+      </mat-form-field>
+
+      <!-- brand Search -->
+      <!-- <mat-form-field>
+        <mat-label class="label">Search by Brand</mat-label>
+          <input matInput placeholder="Inventory Search" [matAutocomplete]="autoGroup" formControlName="brand_name">
+          <mat-autocomplete #autoGroup="matAutocomplete" >
+            <ng-container *ngIf="inven!=null ">
+            <mat-option *ngFor="let inventory of inven | async" [value]="inventory.inventory_name" (click)="inventoryAdd(inventory)" >
+              <img *ngIf="inventory.image!=null" class="example-option-img" aria-hidden [src]="inventory.image" height="25">
+              <span *ngIf="inventory.inventory_name!=null">|| {{inventory.inventory_name}} ||</span>
+              <small *ngIf="inventory.sku!=null">{{inventory.sku}}</small>
+            </mat-option>
+          </ng-container>
+          </mat-autocomplete>
+      </mat-form-field> -->
+      </form>
+      <ng-container *ngIf="inven!=null ">
+        <mat-option *ngFor="let inventory of inven" (click)="inventoryAdd(inventory)">
+          <span *ngIf="inventory._source.brandName!=null">Name:{{inventory._source.brandName}}(
+              {{inventory._source.identifiers.identifier.deviceId}})</span>
+                <!-- <span>Description:{{inventory._source.deviceDescription}})</span>
+                <span>Company name:{{inventory._source.companyName}})</span>
+                <span>Company name:{{inventory._source.companyName}})</span>
+                <span>Version or Model:{{inventory._source.versionModelNumber}})</span>
+                <span>Add to List</span> -->
+                <span (click)="viewDetails(inventory._id)">View Details</span>
+                
+        </mat-option>
+      </ng-container>
+</app-adminheader>
+
