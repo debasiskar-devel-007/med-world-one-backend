@@ -4,4 +4,55 @@
 <h1><span>Brand </span>: {{data.alldata._source.brandName}}</h1>
 <h1><span>Version or Model </span>: {{data.alldata._source.versionModelNumber}}</h1>
 <h1><span>Description </span>: {{data.alldata._source.deviceDescription}}</h1>
+<h1><span>Comercial Distribution State</span>: {{data.alldata._source.deviceCommDistributionStatus}}</h1>
+
+<h1><span>Catalog No </span>: {{data.alldata._source.catalogNumber}}</h1>
 <h1><span>UID </span>: {{data.alldata._source.identifiers.identifier.deviceId}}</h1>
+<h1><span>Issuing Agency</span>: {{data.alldata._source.identifiers.identifier.primaryDeviceIdIssuingAgency}}</h1>
+<h1><span>Labeler D-U-N-S No</span>: {{data.alldata._source.dunsNumber}}</h1>
+
+<h1><span>DEVICE Charecteristics</span>
+    
+    <h1><span>
+        What MRI safety information does the labeling contain?</span>:{{data.alldata._source.MRISafetyStatus}}</h1>
+
+        <h1><span>Device required to be labeled as containing natural rubber latex or dry natural rubber (21 CFR 801.437)</span>:
+             <ng-container *ngIf="data.alldata._source.labeledContainsNRL==true">Yes</ng-container>
+             <ng-container *ngIf="data.alldata._source.labeledContainsNRL==false">No</ng-container>
+            </h1>
+
+        <h1><span>Device labeled as "Not made with natural rubber latex"</span>:
+             <ng-container *ngIf="data.alldata._source.labeledNoNRL==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.labeledNoNRL==false">No</ng-container>
+        </h1>
+        
+        <h1><span>For Single-Use</span>: 
+            <ng-container *ngIf="data.alldata._source.singleUse==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.singleUse==false">No</ng-container>
+        </h1>
+
+        <h1><span>Prescription Use (Rx)</span>: 
+            <ng-container *ngIf="data.alldata._source.rx==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.rx==false">No</ng-container>
+        </h1>
+
+        <h1><span>Over the Counter (OTC)</span>:
+             <ng-container *ngIf="data.alldata._source.otc==true">Yes</ng-container>
+             <ng-container *ngIf="data.alldata._source.otc==false">No</ng-container>
+            </h1>
+
+        <h1><span>Kit</span>: 
+            <ng-container *ngIf="data.alldata._source.deviceKit==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.deviceKit==false">No</ng-container>
+        </h1>
+        <h1><span>Combination Product</span>: 
+            <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==false">No</ng-container>
+        </h1>
+
+        <h1><span>Human Cell, Tissue or Cellular or Tissue-Based Product (HCT/P)</span>:
+            <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
+            <ng-container *ngIf="data.alldata._source.deviceHCTP==false">No</ng-container>
+        </h1>
+
+        

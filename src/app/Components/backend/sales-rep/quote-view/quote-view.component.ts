@@ -241,31 +241,72 @@ public Package_all_total:number;
   }
 /**download */
 downloadPdf(){
+  /**purchase quote */
   if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
     var postData:any={
       "quote_id":this.activatedRoute.snapshot.params.id,
+      "source":"quote-details",
       "data":{
         "file_path":""
       }
     }
-  };
+  
   var post={
   "source":"quote-details",
   "condition":{
   "_id_object":this.activatedRoute.snapshot.params.id
   }
-  };
+  }
+}
+/**comparision quote */
+if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+  var postData:any={
+    "quote_id":this.activatedRoute.snapshot.params.id,
+    "source":"purchase_comparison_quote-details",
+    "data":{
+      "file_path":""
+    }
+  }
+
+var post={
+"source":"purchase_comparison_quote-details",
+"condition":{
+"_id_object":this.activatedRoute.snapshot.params.id
+}
+}
+}
+
+/**package quote */
+if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+  var postData:any={
+    "quote_id":this.activatedRoute.snapshot.params.id,
+    "source":"package_list",
+    "data":{
+      "file_path":""
+    }
+  }
+
+var post={
+"source":"package_list",
+"condition":{
+"_id_object":this.activatedRoute.snapshot.params.id
+}
+}
+}
+
   //console.log(postData);
   this.http.httpViaPost('downloadpdf', postData).subscribe((response: any) => {
     //console.log(response);
     if(response.status==true){
-            this.http.httpViaPost('datalist', post).subscribe((response: any) => {
-              //console.log("datalist",response);
-                      if(response.resc==1){
-                        
-                        window.location.href=response.res[0].file_path;
-                      }
-            })
+      setTimeout (() => {
+        this.http.httpViaPost('datalist', post).subscribe((response: any) => {
+          //console.log("datalist",response); 
+                    
+                    window.location.href=response.res[0].file_path;
+                  
+        })
+      }, 1000)
+           
     }
   })
 }
