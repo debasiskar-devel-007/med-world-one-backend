@@ -994,7 +994,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-underline { background-color: inherit; }
 /* end quote cart css */
 /* ----------------- list view css end -------------------- */
-.logo_wrapper{ cursor: pointer; width: 50%; display: block;}
+.logo_wrapper{ cursor: pointer; width: auto; display: block;}
 .logo_wrapper img{ max-width: 100%; }
 .logo_wrapper:focus{ outline: none;}
 .yearOfManu{ margin-top: 16px;}
@@ -1174,3 +1174,4 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .packageInventory .mat-dialog-container .formbody .button_wrapper button:first-child { margin-left: 0px; }
 
 .top_quotesection .mat-form-field-flex{ border: none; padding: 0;}
+

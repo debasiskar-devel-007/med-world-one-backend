@@ -1,11 +1,11 @@
 .Product_wrapper{ width: 1400px; margin: 50px auto;}
-.Product_wrapper .product_list_wrapper{ margin-bottom: 0; width: 100%; background: #f3f3f3; display: flex; justify-content: space-between; padding: 16px;}
+.Product_wrapper .product_list_wrapper{ margin-bottom: 0; width: 100%; background: #f3f3f3; display: flex; justify-content: space-between; padding: 16px; box-sizing: border-box;}
 .Product_wrapper .product_list_wrapper .left_inner {  width: 70%; margin-bottom: 0;}
 .Product_wrapper .product_list_wrapper .left_inner form { background: #fff; padding: 6px 16px; box-sizing: border-box; }
 .Product_wrapper .product_list_wrapper .itens_wrapper{background: #fff; box-sizing: border-box; padding: 10px; box-shadow: 0px 2px 3px 0px #656565; margin-bottom: 0;
   margin-top: 16px; display: flex; justify-content: space-between;}
 
-  .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner span{ display: block; margin-bottom: 10px; }
+  .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner span{ display: block; margin-bottom: 10px; display: flex; }
   .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner span i{ color: #08ccc3; font-size: 20px; vertical-align: top; margin-right: 5px;}
   .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner { width: 100%; margin-bottom: 0; box-sizing: border-box; }
   .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner:last-child{ width: 42%; padding-left: 20px;}
@@ -21,3 +21,5 @@
 .Product_wrapper .product_list_wrapper .right_inner{  width: 29%; background: #fff; margin-bottom: 0; padding: 10px 16px;
   box-sizing: border-box;}
 .Product_wrapper .product_list_wrapper .right_inner .Header{ color: #00adff; font-family: 'AvenirBlack'; font-size: 22px; text-transform: capitalize;}
+.Product_wrapper .proList_title{ background: #01d0ff; color: #fff; padding: 12px; text-align: center; font-size: 28px; font-family: 'AvenirMedium'; text-transform: uppercase;
+  margin-bottom: 0;}
