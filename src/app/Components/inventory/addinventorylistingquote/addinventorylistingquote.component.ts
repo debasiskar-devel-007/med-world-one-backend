@@ -483,7 +483,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
   }
 
   submitquote() {
-    console.log("submit quote", this.inventoryDetails);
+    //console.log("submit quote", this.inventoryDetails);
 
     /**inventory from save quote */
     var postData: any = {};
@@ -492,15 +492,17 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
         "source": "quote_listing_details",
         "data": {
+          
+          "id": this.invendetailsbyId[0]._id,
+          "inventory_details": this.inventoryDetails,
           "status": 1,
-          "id": this.invendetailsbyId[0]._id
         },
 
       };
-      console.log("submit quote with  _id");
+      //console.log("submit quote with  _id");
 
     } else {
-      console.log("submit quote with out _id");
+      //console.log("submit quote with out _id");
       if (this.inventoryDetails[0].hospital_id == null) {
         postData = {
           "source": "quote_listing_details",
@@ -530,7 +532,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     }
 
 
-  console.log(postData);
+  //console.log(postData);
      
     // console.log(this.inventoryDetails);
 
@@ -548,7 +550,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
         this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
           duration: 2000,
         });
-        this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+        this.http.httpViaPost('deletequote', deleteData).subscribe((response: any) => {
           //console.log(response);
           if (response.status = "success") {
 
@@ -671,7 +673,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
 
 
   saveQuote() {
-    console.log("save", this.inventoryDetails);
+    //console.log("save", this.inventoryDetails);
 
     let postData = {
       "source": "quote_listing_details",

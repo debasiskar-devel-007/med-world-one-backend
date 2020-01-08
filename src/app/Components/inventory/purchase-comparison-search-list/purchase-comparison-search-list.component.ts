@@ -115,11 +115,15 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
                  //console.log(this.inventoryUserId[i].inventory_details._id);
 
           if (this.inventoryUserId[i].inventory_details._id.indexOf(inven_id) > -1) {
-            //console.log("inventory id match");
+            console.log("inventory id match");
             this._snackBar.open('This Inventory Is Already In Your Cart', '', {
               duration: 1000,
             });
             this.flg = 1;
+            
+          }else{
+            this.flg = 0;
+           
           }
         }
         if (this.flg == 0) {
@@ -140,7 +144,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
           };
           //console.log(postData);
           this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
-            //
+            
             console.log(res);
             this._snackBar.open('Inventory Added To Your Cart', '', {
               duration: 1000,

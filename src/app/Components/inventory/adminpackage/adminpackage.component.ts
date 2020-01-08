@@ -203,7 +203,7 @@ export class AdminpackageComponent implements OnInit {
                       duration: 2000,
                     });
                     this.addpackageForm.reset();
-                    this.PackageInventoryDetails='';
+                    this.PackageInventoryDetails=[];
                      /**salesrep route */
                      if (this.userType == 'salesrep') {
                       this.router.navigateByUrl('/salesrep/package/list');
@@ -307,7 +307,7 @@ SubmitPackage(){
                       duration: 2000,
                     });
                     this.addpackageForm.reset();
-                    this.PackageInventoryDetails='';
+                    this.PackageInventoryDetails=[];
 
                       /**salesrep route */
                       if (this.userType == 'salesrep') {
