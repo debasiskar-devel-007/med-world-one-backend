@@ -26,30 +26,28 @@
           </mat-form-field> -->
         </form>
         <ng-container *ngIf="inven!=null ">
-          <mat-option *ngFor="let inventory of inven" (click)="inventoryAdd(inventory)">
-            <span *ngIf="inventory._source.brandName!=null">Name:{{inventory._source.brandName}}(
-              {{inventory._source.identifiers.identifier.deviceId}})</span>
-            <span>Description:{{inventory._source.deviceDescription}})</span>
-            <span>Company name:{{inventory._source.companyName}})</span>
-            <span>Company name:{{inventory._source.companyName}})</span>
-            <span>Version or Model:{{inventory._source.versionModelNumber}})</span>
-            <span>Add to List</span>
-            <span (click)="viewDetails(inventory._id)">View Details</span>
-
-          </mat-option>
+          <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven" (click)="inventoryAdd(inventory)">
+            <mat-card-content class="itenms_inner">
+              <span class="name" *ngIf="inventory._source.brandName!=null"> {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
+              <span class="desc"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                {{inventory._source.deviceDescription}})</span>
+            </mat-card-content>
+            <mat-card-content class="itenms_inner">
+              <span class="compName"><i class="fa fa-building-o" aria-hidden="true"></i>
+                {{inventory._source.companyName}})</span>
+              <span class="version"><i class="fa fa-diamond" aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
+              <span class="pro_wrapper">
+              <button mat-button>Add to List</button>
+              <button mat-button (click)="viewDetails(inventory._id)">View Details </button>
+            </span>
+            </mat-card-content>
+          </mat-card-content>
         </ng-container>
-
       </mat-card-content>
-      <mat-card-content class="right_inner">
 
+      <mat-card-content class="right_inner">
+        <mat-card-title class="Header">Selected Cart items</mat-card-title>
       </mat-card-content>
     </mat-card-content>
-
-
-
-
-
-
-
   </mat-card-content>
 </app-adminheader>

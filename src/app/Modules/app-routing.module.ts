@@ -80,8 +80,6 @@ import { PurchasecomparisoncartComponent } from '../Components/inventory/purchas
 import { AdminpackageComponent } from '../Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from '../Components/frontend/package/package.component';
 import { InventorylistingquotefromapiComponent } from '../Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
-import { ListingquotefromapidetailspageComponent } from '../Components/inventory/listingquotefromapidetailspage/listingquotefromapidetailspage.component';
-
 
 
 
@@ -454,7 +452,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 
 
 { path: 'inventory/inventorylistingquote/add', component: InventorylistingquotefromapiComponent },
-{ path: 'inventory/inventorylistingquote/detailspage/:invenid', component:ListingquotefromapidetailspageComponent},
+
 
 
 

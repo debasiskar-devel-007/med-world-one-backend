@@ -154,9 +154,7 @@ import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from './Components/frontend/package/package.component';
-import { InventorylistingquotefromapiComponent } from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
-import { ListingquotefromapidetailspageComponent } from './Components/inventory/listingquotefromapidetailspage/listingquotefromapidetailspage.component';
-
+import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
 
 
 @NgModule({
@@ -263,7 +261,11 @@ import { ListingquotefromapidetailspageComponent } from './Components/inventory/
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
-    quoteModal,sendMailModal, Dialoginventory,AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, ListingquotefromapidetailspageComponent,
+    listingquotedetails,
+    quoteModal,sendMailModal, 
+    Dialoginventory,AddcontactinfoComponent,
+    QuotesCartComponent,
+    AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent,
 
 
   ],
@@ -293,7 +295,7 @@ import { ListingquotefromapidetailspageComponent } from './Components/inventory/
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
