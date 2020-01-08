@@ -1,5 +1,4 @@
 <app-adminheader>
-
   <mat-card-content class="Product_wrapper">
     <mat-card-content class="product_list_wrapper">
       <mat-card-content class="left_inner">
@@ -30,11 +29,11 @@
             <mat-card-content class="itenms_inner">
               <span class="name" *ngIf="inventory._source.brandName!=null"> {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
               <span class="desc"><i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                {{inventory._source.deviceDescription}})</span>
+                {{inventory._source.deviceDescription}}</span>
             </mat-card-content>
             <mat-card-content class="itenms_inner">
               <span class="compName"><i class="fa fa-building-o" aria-hidden="true"></i>
-                {{inventory._source.companyName}})</span>
+                {{inventory._source.companyName}}</span>
               <span class="version"><i class="fa fa-diamond" aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
               <span class="pro_wrapper">
               <button mat-button>Add to List</button>
@@ -44,7 +43,6 @@
           </mat-card-content>
         </ng-container>
       </mat-card-content>
-
       <mat-card-content class="right_inner">
         <mat-card-title class="Header">Selected Cart items</mat-card-title>
       </mat-card-content>

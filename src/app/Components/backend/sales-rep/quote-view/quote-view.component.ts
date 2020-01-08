@@ -241,7 +241,33 @@ public Package_all_total:number;
   }
 /**download */
 downloadPdf(){
-  console.log("downloadPdf");
+  if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
+    var postData:any={
+      "quote_id":this.activatedRoute.snapshot.params.id,
+      "data":{
+        "file_path":""
+      }
+    }
+  };
+  var post={
+  "source":"quote-details",
+  "condition":{
+  "_id_object":this.activatedRoute.snapshot.params.id
+  }
+  };
+  //console.log(postData);
+  this.http.httpViaPost('downloadpdf', postData).subscribe((response: any) => {
+    //console.log(response);
+    if(response.status==true){
+            this.http.httpViaPost('datalist', post).subscribe((response: any) => {
+              //console.log("datalist",response);
+                      if(response.resc==1){
+                        
+                        window.location.href=response.res[0].file_path;
+                      }
+            })
+    }
+  })
 }
 }
 
