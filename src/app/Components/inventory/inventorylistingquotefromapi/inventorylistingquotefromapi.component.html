@@ -29,10 +29,9 @@
               {{inventory._source.identifiers.identifier.deviceId}})</span>
                 <span>Description:{{inventory._source.deviceDescription}})</span>
                 <span>Company name:{{inventory._source.companyName}})</span>
-                <span>Company name:{{inventory._source.companyName}})</span>
                 <span>Version or Model:{{inventory._source.versionModelNumber}})</span>
                 <span>Add to List</span>
-                <span (click)="viewDetails(inventory._id)">View Details</span>
+                <span (click)="viewDetails(inventory)">View Details</span>
                 
         </mat-option>
       </ng-container>
