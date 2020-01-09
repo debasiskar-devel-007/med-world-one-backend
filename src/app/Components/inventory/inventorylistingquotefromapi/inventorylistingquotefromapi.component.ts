@@ -76,8 +76,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   generateForm() {
     this.inventoryfromApiForm = this.formBuilder.group({
       id: [null],
-      inventory_name: ['', [Validators.required]],
-      brand_name: ["", [Validators.required]],
+      inventory_name: [''],
     });
   }
   /**submit function */

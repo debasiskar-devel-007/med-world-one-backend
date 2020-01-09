@@ -6,8 +6,8 @@
         <form autocomplete="off" [formGroup]="inventoryfromApiForm">
           <!-- inventoery search -->
           <mat-form-field>
-            <mat-label class="label">Search by Product</mat-label>
-            <input matInput placeholder="Inventory Search" formControlName="inventory_name" (keyup)="searchproduct()">
+            <mat-label class="label">Search</mat-label>
+            <input matInput placeholder="Search by Product Identifier, Name or Company Name" formControlName="inventory_name" (keyup)="searchproduct()">
           </mat-form-field>
 
           <!-- brand Search -->
