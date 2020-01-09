@@ -89,7 +89,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   searchproduct() {
 
     let postData: any = {
-      "inventoryname": this.inventoryfromApiForm.value.inventory_name
+      "api": this.inventoryfromApiForm.value.inventory_name
     }
     this.http.httpViaPost('getinventoryfromapi', postData).subscribe((response: any) => {
       //console.warn(response);
