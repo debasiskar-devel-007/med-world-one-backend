@@ -4,8 +4,8 @@
 .Product_wrapper .product_list_wrapper .left_inner form { background: #fff; padding: 6px 10px; box-sizing: border-box; border-radius: 40px; box-shadow: 0px 1px 4px 0px #00294f; }
 .Product_wrapper .product_list_wrapper .left_inner form .search_input { width: 100%; border: none; padding: 10px 0; }
 .Product_wrapper .product_list_wrapper .left_inner form .search_input:focus { outline: none; }
-.Product_wrapper .product_list_wrapper .itens_wrapper{background: #fff; box-sizing: border-box; padding: 10px; box-shadow: 0px 2px 3px 0px #656565; margin-bottom: 0;
-  margin-top: 16px; display: flex; justify-content: space-between;}
+.Product_wrapper .product_list_wrapper .itens_wrapper{background: #fff; box-sizing: border-box; padding: 10px; box-shadow: 0px 2px 3px 0px #cdcdcd; margin-bottom: 0;
+  margin-top: 16px; display: flex; justify-content: space-between; border-radius: 10px;}
  
 .Product_wrapper .product_list_wrapper .left_inner form .search_wrapper{ display: flex; justify-content: space-between; align-items: center; }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner span{ display: block; margin-bottom: 10px; display: flex; }
@@ -14,6 +14,7 @@
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner:last-child{ width: 42%; padding-left: 20px;}
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .name{ font-family: 'AvenirBlack'; font-size: 20px; color:#2e3031;  }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .desc{ font-family: 'AvenirMedium'; margin-bottom: 0; font-size: 16px; color: #353535; }
+.Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .desc p{ margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;  /* Number of lines displayed before it truncate */  overflow: hidden; }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .pro_wrapper{ margin-bottom: 0;  }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .pro_wrapper button{ background: #08ccc3; color: #fff; font-family: 'AvenirMedium';
 font-size: 18px; text-transform: capitalize; }
@@ -28,13 +29,26 @@ font-size: 18px; text-transform: capitalize; }
 .suggest_list{ padding: 8px 8px 16px; box-sizing: border-box; }
 .suggest_list .mat-list-item{ height: auto; position: relative; padding: 4px 10px; box-sizing: border-box;}
 .suggest_list .mat-list-item::before{  content: ''; width: 8px; height: 8px; background: #00cfff; position: absolute; top: 8px; border-radius: 50%; box-sizing: border-box;}
-.suggest_list .mat-list-item:last-child::before{ content: '\21D2';
-  width: 0px;
-  height: 0px;
-  background: none;
-  position: absolute;
-  top: 4px;
-  border-radius: 50%;
-  box-sizing: border-box;
-  color: #00dff6;
-  font-family: 'AvenirBlack';}
+.suggest_list .mat-list-item:last-child::before{ content: '\21D2'; width: 0px; height: 0px; background: none; position: absolute; top: 4px; border-radius: 50%; box-sizing: border-box; color: #00dff6; font-family: 'AvenirBlack';}
+.modal_content .mat-expansion-panel-header { background: linear-gradient(2deg, #02b3ad, #07d1f4)!important;}
+.modal_content .mat-expansion-panel-header .mat-expansion-panel-header-title{ color: #fff; }
+.modal_content .mat-expansion-panel-spacing{ margin: 0; }
+.modal_content .mat-expansion-panel-body { border: 1px solid #c6fffe;}
+.modal_content .action_button { position: absolute; right: 0px; top: 0px; background: #ff6959; border-radius: 50%; min-width: inherit; width: 40px; height: 40px; padding: 0;color: #fff; box-shadow: 0px 0px 2px 0px #084350; }
+
+.modal_content .mat-card-content { margin-top: 30px;}
+.modal_content .mat-card-content table{ border-collapse: collapse; width: 100%;}
+.modal_content .mat-card-content table, 
+.modal_content .mat-card-content tr,
+.modal_content .mat-card-content th,
+.modal_content .mat-card-content td{ border: 1px solid #d3d3d3; padding: 8px; text-align: left; box-sizing: border-box;}
+.modal_content .mat-card-content th{ font-family: 'AvenirRoman'; color: #000000; width: 50%;}
+.modal_content .mat-card-content td{ color: #1e1e1e; font-family: 'AvenirMedium'; }
+.modal_content .mat-card-content table .uper{ font-family: 'AvenirBlack'; display: block; }
+.tab_item{ box-shadow: 0px 0px 3px 0px #b0b0b0; padding: 10px; box-sizing: border-box; }
+.tab_item table{ width: 100%; }
+.tab_item table td{ width: 50%; padding: 5px;}
+.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: center;}
+.tab_item .action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff;}
+.tab_item .action button:last-child{ background: #ff6959; margin-left: 10px; }
+  .getQ{ display: block; margin: auto; background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; }
