@@ -34,7 +34,8 @@
                 {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
               <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o"
                   aria-hidden="true"></i>
-                {{inventory._source.deviceDescription}}</span>
+                <p> {{inventory._source.deviceDescription}}</p>
+              </span>
             </mat-card-content>
             <mat-card-content class="itenms_inner">
               <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
@@ -62,11 +63,12 @@
               <mat-list-item>Try less specific keywords</mat-list-item>
               <mat-list-item>Try fewer keywords</mat-list-item>
               <mat-list-item>Try adding wildcards to keywords</mat-list-item>
-              <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866 </mat-list-item>
-         
-          </mat-list>  
+              <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866
+              </mat-list-item>
 
-        </mat-card-content> 
+            </mat-list>
+
+          </mat-card-content>
         </ng-container>
 
       </mat-card-content>
@@ -83,56 +85,49 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+
+
           <!-- loop here -->
-          <span class="total_wrapper" *ngFor="let item of InventoeryListDetails;let i=index;">
-            <mat-card-content class="tab_item">
+          <mat-card-content class="tab_item" *ngFor="let item of InventoeryListDetails;let i=index;">
 
-              <mat-card-content class="inner_content">
-
-                <table>
-                  <tr>
-                    <td>Product Name :</td>
-                    <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
-                  </tr>
-                  <tr>
-                    <td>Company Name :</td>
-                    <td>{{item._source.companyName}}</td>
-                  </tr>
-                  <tr>
-                    <td>Brand : </td>
-                    <td>{{item._source.brandName}}</td>
-                  </tr>
-                  <tr>
-                    <td>UID# :</td>
-                    <td>{{item._source.identifiers.identifier.deviceId}}</td>
-                  </tr>
-                  <tr>
-                    <td>Quantity :</td>
-                    <td>
-                      <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
-                        placeholder="{{item.quantity}}" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Sell Price :</td>
-                    <td>
-                      <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
-                        placeholder="{{item.saleprice}}" />
-                    </td>
-                  </tr>
-                </table>
-
-
-              </mat-card-content>
-
-            </mat-card-content>
-
-
+            <table>
+              <tr>
+                <td>Product Name :</td>
+                <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
+              </tr>
+              <tr>
+                <td>Company Name :</td>
+                <td>{{item._source.companyName}}</td>
+              </tr>
+              <tr>
+                <td>Brand : </td>
+                <td>{{item._source.brandName}}</td>
+              </tr>
+              <tr>
+                <td>UID# :</td>
+                <td>{{item._source.identifiers.identifier.deviceId}}</td>
+              </tr>
+              <tr>
+                <td>Quantity :</td>
+                <td>
+                  <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
+                    placeholder="{{item.quantity}}" />
+                </td>
+              </tr>
+              <tr>
+                <td>Sell Price :</td>
+                <td>
+                  <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
+                    placeholder="{{item.saleprice}}" />
+                </td>
+              </tr>
+            </table>
             <mat-toolbar class="action">
-              <button mat-button (click)="delete(i)">Remove</button>
+              <button mat-button (click)="delete(i)">Remove</button> <button mat-button type="button">Get Quote</button>
             </mat-toolbar>
-          </span>
-          <button mat-button type="button">Get Quote</button>
+
+          </mat-card-content>
           <!-- loop end -->
         </span>
       </mat-card-content>
