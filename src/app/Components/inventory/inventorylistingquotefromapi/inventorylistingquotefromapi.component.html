@@ -5,10 +5,10 @@
       <mat-card-content class="left_inner">
         <form autocomplete="off" [formGroup]="inventoryfromApiForm">
           <!-- inventoery search -->
-          <mat-form-field>
-            <mat-label class="label">Search</mat-label>
-            <input matInput placeholder="Search by Product Identifier, Name or Company Name" formControlName="inventory_name" (keyup)="searchproduct()">
-          </mat-form-field>
+          
+            
+            <input class="search_input" placeholder="Search by Product Identifier, Name or Company Name" formControlName="inventory_name" (keyup)="searchproduct()">
+          
 
           <!-- brand Search -->
           <!-- <mat-form-field>
@@ -43,6 +43,28 @@
             </mat-card-content>
           </mat-card-content>
         </ng-container>
+
+
+
+        <ng-container>
+          <p>Please Search for a Product You Wish to List.</p>
+           <p> Search suggestions:</p>
+           <mat-list>
+             <mat-list-item> Make sure all words are spelled correctly</mat-list-item>
+             <mat-list-item>Try rephrasing keywords or using synonyms </mat-list-item>
+             <mat-list-item>Try less specific keywords</mat-list-item>
+             <mat-list-item>Try fewer keywords</mat-list-item>
+             <mat-list-item>Try adding wildcards to keywords</mat-list-item>
+             <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866 (edited) </mat-list-item>
+           </mat-list>
+           
+            
+            
+            
+            
+             
+        </ng-container>
+        
       </mat-card-content>
 
       <mat-card-content class="right_inner">
