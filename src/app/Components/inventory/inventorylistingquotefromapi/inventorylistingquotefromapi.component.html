@@ -5,10 +5,12 @@
       <mat-card-content class="left_inner">
         <form autocomplete="off" [formGroup]="inventoryfromApiForm">
           <!-- inventoery search -->
-          
-            
-            <input class="search_input" placeholder="Search by Product Identifier, Name or Company Name" formControlName="inventory_name" (keyup)="searchproduct()">
-          
+
+          <span class="search_wrapper">
+            <input class="search_input" placeholder="Search by Product Identifier, Name or Company Name"
+              formControlName="inventory_name" (keyup)="searchproduct()">
+            <i class="material-icons">search</i>
+          </span>
 
           <!-- brand Search -->
           <!-- <mat-form-field>
@@ -28,18 +30,22 @@
         <ng-container *ngIf="inven!=null ">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven">
             <mat-card-content class="itenms_inner">
-              <span class="name" *ngIf="inventory._source.brandName!=null"> {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
-              <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o" aria-hidden="true"></i>
+              <span class="name" *ngIf="inventory._source.brandName!=null">
+                {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
+              <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o"
+                  aria-hidden="true"></i>
                 {{inventory._source.deviceDescription}}</span>
             </mat-card-content>
             <mat-card-content class="itenms_inner">
-              <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o" aria-hidden="true"></i>
+              <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
+                  aria-hidden="true"></i>
                 {{inventory._source.companyName}}</span>
-              <span class="version"><i matTooltip="Model Number" matTooltipPosition="above" class="fa fa-diamond" aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
+              <span class="version"><i matTooltip="Model Number" matTooltipPosition="above" class="fa fa-diamond"
+                  aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
               <span class="pro_wrapper">
-              <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
-              <button mat-button (click)="viewDetails(inventory)">View Details </button>
-            </span>
+                <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
+                <button mat-button (click)="viewDetails(inventory)">View Details </button>
+              </span>
             </mat-card-content>
           </mat-card-content>
         </ng-container>
@@ -47,87 +53,87 @@
 
 
         <ng-container>
-          <p>Please Search for a Product You Wish to List.</p>
-           <p> Search suggestions:</p>
-           <mat-list>
-             <mat-list-item> Make sure all words are spelled correctly</mat-list-item>
-             <mat-list-item>Try rephrasing keywords or using synonyms </mat-list-item>
-             <mat-list-item>Try less specific keywords</mat-list-item>
-             <mat-list-item>Try fewer keywords</mat-list-item>
-             <mat-list-item>Try adding wildcards to keywords</mat-list-item>
-             <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866 (edited) </mat-list-item>
-           </mat-list>
-           
-            
-            
-            
-            
-             
+          <mat-card-content class="hints_wrapper">
+            <h2 class="hints">Please Search for a Product You Wish to List.</h2>
+            <p class="hints_suggestion"> Search suggestions:</p>
+            <mat-list class="suggest_list">
+              <mat-list-item> Make sure all words are spelled correctly</mat-list-item>
+              <mat-list-item>Try rephrasing keywords or using synonyms </mat-list-item>
+              <mat-list-item>Try less specific keywords</mat-list-item>
+              <mat-list-item>Try fewer keywords</mat-list-item>
+              <mat-list-item>Try adding wildcards to keywords</mat-list-item>
+              <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866 </mat-list-item>
+         
+          </mat-list>  
+
+        </mat-card-content> 
         </ng-container>
-        
+
       </mat-card-content>
 
       <mat-card-content class="right_inner">
         <mat-card-title class="Header">Selected Cart items</mat-card-title>
         <span *ngIf="InventoeryListDetails!=null && InventoeryListDetails.length>0">
-        <mat-form-field class="partner_select">
-          <mat-label>Select Medical Partner</mat-label>
-          <mat-select [(ngModel)]="selectedValue" (selectionChange)="hhospitalName($event.value)" name="id">
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">
-              {{hospital.hospitalname}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <!-- loop here -->
-        <span class="total_wrapper" *ngFor="let item of InventoeryListDetails;let i=index;">
-          <mat-card-content class="tab_item">
-           
-            <mat-card-content class="inner_content">
+          <mat-form-field class="partner_select">
+            <mat-label>Select Medical Partner</mat-label>
+            <mat-select [(ngModel)]="selectedValue" (selectionChange)="hhospitalName($event.value)" name="id">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">
+                {{hospital.hospitalname}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- loop here -->
+          <span class="total_wrapper" *ngFor="let item of InventoeryListDetails;let i=index;">
+            <mat-card-content class="tab_item">
 
-              <table>
-                <tr>
-                  <td>Product Name :</td>
-                  <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
-                </tr>
-                <tr>
-                  <td>Company Name :</td>
-                  <td>{{item._source.companyName}}</td>
-                </tr>
-                <tr>
-                  <td>Brand : </td>
-                  <td>{{item._source.brandName}}</td>
-                </tr>
-                <tr>
-                  <td>UID# :</td>
-                  <td>{{item._source.identifiers.identifier.deviceId}}</td>
-                </tr>
-                <tr>
-                  <td>Quantity :</td>
-                  <td>
-                    <input name='awesome'  type="number" [(ngModel)]="item.quantity"  value="{{item.quantity}}" placeholder="{{item.quantity}}" />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Sell Price :</td>
-                  <td>
-                    <input name='awesome'  type="number" [(ngModel)]="item.saleprice"  value="{{item.saleprice}}" placeholder="{{item.saleprice}}" />
-                  </td>
-                </tr>
-              </table>
+              <mat-card-content class="inner_content">
 
+                <table>
+                  <tr>
+                    <td>Product Name :</td>
+                    <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
+                  </tr>
+                  <tr>
+                    <td>Company Name :</td>
+                    <td>{{item._source.companyName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Brand : </td>
+                    <td>{{item._source.brandName}}</td>
+                  </tr>
+                  <tr>
+                    <td>UID# :</td>
+                    <td>{{item._source.identifiers.identifier.deviceId}}</td>
+                  </tr>
+                  <tr>
+                    <td>Quantity :</td>
+                    <td>
+                      <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
+                        placeholder="{{item.quantity}}" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sell Price :</td>
+                    <td>
+                      <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
+                        placeholder="{{item.saleprice}}" />
+                    </td>
+                  </tr>
+                </table>
+
+
+              </mat-card-content>
 
             </mat-card-content>
 
-          </mat-card-content>
 
-
-          <mat-toolbar class="action">
-            <button mat-button (click)="delete(i)">Remove</button>
-          </mat-toolbar>
-        </span>
-        <button mat-button type="button">Get Quote</button>
-        <!-- loop end -->
+            <mat-toolbar class="action">
+              <button mat-button (click)="delete(i)">Remove</button>
+            </mat-toolbar>
+          </span>
+          <button mat-button type="button">Get Quote</button>
+          <!-- loop end -->
         </span>
       </mat-card-content>
     </mat-card-content>
