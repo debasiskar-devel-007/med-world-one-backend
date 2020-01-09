@@ -25,6 +25,8 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public hospitalDetails: any = [];
   public selectedValue:any;
   public flag:number=0;
+  public quote_id: number;
+
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
@@ -67,6 +69,11 @@ export class InventorylistingquotefromapiComponent implements OnInit {
         this.hospitalDetails=response.res;
       });
      }
+       // for quote id
+    this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
+      //console.log(response.userID);
+      this.quote_id = response.userID;
+    })
   }
 
   ngOnInit() {
@@ -134,6 +141,53 @@ export class InventorylistingquotefromapiComponent implements OnInit {
        
      });
   }
+  /**get quote function */
+  getquote(){
+    //console.warn(this.InventoeryListDetails);
+    if(this.hospitalId==undefined && this.hospitalId==null){
+      this._snackBar.open('Please Select a Medical Partner', '', {
+        duration: 2000,
+      });
+      return;
+    }
+    var Finallistinginventory=[];
+for(let i in this.InventoeryListDetails){
+  var listingDetails = {
+    "device_name": this.InventoeryListDetails[i]._source.brandName+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
+    "companyName":this.InventoeryListDetails[i]._source.companyName,
+    "brandname":this.InventoeryListDetails[i]._source.brandName,
+    "device_id":this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
+    "quantity":this.InventoeryListDetails[i].quantity,
+    "saleprice":this.InventoeryListDetails[i].saleprice
+  };
+  Finallistinginventory.push(listingDetails);
+}
+    
+   var postData = {
+      "source": "quote_listing_details",
+      "data": {
+        "inventory_details":Finallistinginventory,
+        "hospital_id": this.hospitalId,
+        "user_id": this.userId,
+        "quote_id": this.quote_id,
+        "status": 1
+      },
+      "sourceobj": ["hospital_id", "quoted_by", "user_id"]
+    };
+    //console.warn(postData);
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
+      if (response.status = "success") {
+        this.InventoeryListDetails = [];
+        this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
+          duration: 2000,
+        });
+      }
+    });
+  }
+    
+  
+
 }
 
 /**view details modal */
