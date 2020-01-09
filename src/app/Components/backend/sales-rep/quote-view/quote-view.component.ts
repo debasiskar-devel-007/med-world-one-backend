@@ -80,11 +80,12 @@ public Package_all_total:number;
         if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
         //this.quotedetails[i].price=null;
 
-
         
         if(this.quotedetails[i].price==null)this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
         if(this.quotedetails[i].subtotalprice==null)this.quotedetails[i].subtotalprice=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+(parseFloat(this.quotedetails[i].wholesaleprice))*this.quotedetails[i].quantity)+parseFloat(this.quotedetails[i].tax);
         if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
+        if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
+
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
@@ -111,7 +112,8 @@ public Package_all_total:number;
       if(this.quotedetails[i].price==null) this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
       this.quotedetails[i].subtotalprice=(this.quotedetails[i].price)*this.quotedetails[i].quantity+parseFloat(this.quotedetails[i].tax);
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
-      //this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
+      if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
+      
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
       this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
@@ -134,7 +136,7 @@ public Package_all_total:number;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'sku', 'category', 'brand', 'qty', 'saleprice',];
+      this.viewQuoteHeader=[ 'name', 'uid', 'company', 'brand', 'qty', 'saleprice','quotedprice'];
     }
   }
   
@@ -258,6 +260,7 @@ downloadPdf(){
   }
   }
 }
+
 /**comparision quote */
 if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
   var postData:any={

@@ -134,6 +134,14 @@
         </span>
         <button mat-button type="button" (click)="getquote()">Get Quote</button>
         <!-- loop end -->
+        <!-- notes -->
+        <ng-container>
+          <mat-card-content class="notes_wrapper">
+            <label mat-label class="note_h">Notes :</label>
+            <textarea type="text" class="form-control" (input)="note($event.target.value)"></textarea>
+          </mat-card-content>
+        </ng-container>
+
         </span>
       </mat-card-content>
     </mat-card-content>

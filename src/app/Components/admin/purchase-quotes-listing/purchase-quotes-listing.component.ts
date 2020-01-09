@@ -173,10 +173,18 @@ export class emailModal {
         }
       }
     }
-
+      /**purchase quote listing */
     if(this.rout=='inventorylistingquote'){
       datasource='quote_listing_details_view';
+      var postData:any={
+        "quote_id":this.email.value.id,
+        "source":"quote_listing_details",
+        "data":{
+          "file_path":""
+        }
+      }
     }
+    /**purchase quote comparision */
     if(this.rout=='purchasquotelisting'){
       datasource='purchase_comparison_quote-details_view';
       var postData:any={
@@ -187,6 +195,7 @@ export class emailModal {
         }
       }
     }
+    /**purchase quote package */
     if(this.rout=='list'){
       datasource='package_list_view';
       var postData:any={
