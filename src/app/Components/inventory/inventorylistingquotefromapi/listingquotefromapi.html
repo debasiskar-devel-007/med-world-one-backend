@@ -1,87 +1,110 @@
-<h4><span>DEVICE IDENTIFIER (DI) INFORMATION</span>
-<h4><span>Device Name </span>: {{data.alldata._source.brandName}}({{data.alldata._source.identifiers.identifier.deviceId}})</h4>
-<h4><span>Company Name</span>: {{data.alldata._source.companyName}}</h4>
-<h4><span>Brand </span>: {{data.alldata._source.brandName}}</h4>
-<h4><span>Version or Model </span>: {{data.alldata._source.versionModelNumber}}</h4>
-<h4><span>Description </span>: {{data.alldata._source.deviceDescription}}</h4>
-<h4><span>Comercial Distribution State</span>: {{data.alldata._source.deviceCommDistributionStatus}}</h4>
+<h4 class="deviceName"><span>Device Name </span>:
+    {{data.alldata._source.brandName}}({{data.alldata._source.identifiers.identifier.deviceId}})</h4>
 
-<h4><span>Catalog No </span>: {{data.alldata._source.catalogNumber}}</h4>
-<h4><span>UID </span>: {{data.alldata._source.identifiers.identifier.deviceId}}</h4>
-<h4><span>Issuing Agency</span>: {{data.alldata._source.identifiers.identifier.primaryDeviceIdIssuingAgency}}</h4>
-<h4><span>Labeler D-U-N-S No</span>: {{data.alldata._source.dunsNumber}}</h4>
+<mat-accordion>
+    <mat-expansion-panel opened>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span>DEVICE IDENTIFIER (DI) INFORMATION</span>
+            </mat-panel-title>
+            <mat-panel-description>
 
-<h4><span>DEVICE Charecteristics</span>
-    
-    <h4><span>
-        What MRI safety information does the labeling contain?</span>:{{data.alldata._source.MRISafetyStatus}}</h4>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <h4><span>Company Name</span>: {{data.alldata._source.companyName}}</h4>
+        <h4><span>Brand </span>: {{data.alldata._source.brandName}}</h4>
+        <h4><span>Version or Model </span>: {{data.alldata._source.versionModelNumber}}</h4>
+        <h4><span>Description </span>: {{data.alldata._source.deviceDescription}}</h4>
+        <h4><span>Comercial Distribution State</span>: {{data.alldata._source.deviceCommDistributionStatus}}</h4>
 
-        <h4><span>Device required to be labeled as containing natural rubber latex or dry natural rubber (21 CFR 801.437)</span>:
-             <ng-container *ngIf="data.alldata._source.labeledContainsNRL==true">Yes</ng-container>
-             <ng-container *ngIf="data.alldata._source.labeledContainsNRL==false">No</ng-container>
-            </h4>
-
-        <h4><span>Device labeled as "Not made with natural rubber latex"</span>:
-             <ng-container *ngIf="data.alldata._source.labeledNoNRL==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.labeledNoNRL==false">No</ng-container>
+        <h4><span>Catalog No </span>: {{data.alldata._source.catalogNumber}}</h4>
+        <h4><span>UID </span>: {{data.alldata._source.identifiers.identifier.deviceId}}</h4>
+        <h4><span>Issuing Agency</span>: {{data.alldata._source.identifiers.identifier.primaryDeviceIdIssuingAgency}}
         </h4>
-        
-        <h4><span>For Single-Use</span>: 
-            <ng-container *ngIf="data.alldata._source.singleUse==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.singleUse==false">No</ng-container>
-        </h4>
+        <h4><span>Labeler D-U-N-S No</span>: {{data.alldata._source.dunsNumber}}</h4>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span>DEVICE Charecteristics</span>
+            </mat-panel-title>
+            <mat-panel-description>
 
-        <h4><span>Prescription Use (Rx)</span>: 
-            <ng-container *ngIf="data.alldata._source.rx==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.rx==false">No</ng-container>
-        </h4>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card-content>
+            <table>
+                <tr>
+                    <td>What MRI safety information does the labeling contain?</td>
+                    <td>{{data.alldata._source.MRISafetyStatus}}</td>
+                </tr>
+                <tr>
+                    <td>Device required to be labeled as containing natural rubber latex or dry natural rubber (21 CFR
+                        801.437)</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.labeledContainsNRL==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.labeledContainsNRL==false">No</ng-container>
+                    </td>
+                </tr>
 
-        <h4><span>Over the Counter (OTC)</span>:
-             <ng-container *ngIf="data.alldata._source.otc==true">Yes</ng-container>
-             <ng-container *ngIf="data.alldata._source.otc==false">No</ng-container>
-            </h4>
-
-        <h4><span>Kit</span>: 
-            <ng-container *ngIf="data.alldata._source.deviceKit==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.deviceKit==false">No</ng-container>
-        </h4>
-        <h4><span>Combination Product</span>: 
-            <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==false">No</ng-container>
-        </h4>
-
-        <h4><span>Human Cell, Tissue or Cellular or Tissue-Based Product (HCT/P)</span>:
-            <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
-            <ng-container *ngIf="data.alldata._source.deviceHCTP==false">No</ng-container>
-        </h4>
-        <span>FDA Product Code</span>
-        <h3><span>Product Code</span>:{{data.alldata._source.productCodes.fdaProductCode.productCode}}
-            <span>Product Code Name</span>:{{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
-        </h3>
-        
-
-        <mat-accordion>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Personal data
-                </mat-panel-title>
-                <mat-panel-description>
-                  Type your name and age
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-          
-             
-            </mat-expansion-panel>
-            <mat-expansion-panel  >
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Self aware panel
-                </mat-panel-title>
-                <mat-panel-description>
-                
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>I'm visible because I am open</p>
-            </mat-expansion-panel>
-          </mat-accordion>
+                <tr>
+                    <td>Device labeled as "Not made with natural rubber latex</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.labeledNoNRL==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.labeledNoNRL==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>For Single-Use</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.singleUse==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.singleUse==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prescription Use (Rx)</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.rx==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.rx==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>POver the Counter (OTC)</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.otc==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.otc==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Kit</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.deviceKit==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.deviceKit==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Combination Product</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Human Cell, Tissue or Cellular or Tissue-Based Product (HCT/P)</td>
+                    <td>
+                        <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
+                        <ng-container *ngIf="data.alldata._source.deviceHCTP==false">No</ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td>FDA Product Code</td>
+                    <td>
+                        <span>Product Code</span>:{{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                        <span>Product Code
+                            Name</span>:{{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
+                    </td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-expansion-panel>
+</mat-accordion>
