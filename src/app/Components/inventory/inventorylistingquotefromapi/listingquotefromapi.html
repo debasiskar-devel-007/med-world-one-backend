@@ -54,5 +54,8 @@
             <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
             <ng-container *ngIf="data.alldata._source.deviceHCTP==false">No</ng-container>
         </h1>
-
+        <span>FDA Product Code</span>
+        <h3><span>Product Code</span>:{{data.alldata._source.productCodes.fdaProductCode.productCode}}
+            <span>Product Code Name</span>:{{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
+        </h3>
         
