@@ -48,6 +48,7 @@ font-size: 18px; text-transform: capitalize; }
 .tab_item{ box-shadow: 0px 0px 3px 0px #b0b0b0; padding: 10px; box-sizing: border-box; }
 .tab_item table{ width: 100%; }
 .tab_item table td{ width: 50%; padding: 5px;}
-.action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: center;}
-.action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; position: inherit;}
-.action button:last-child{ background: #ff6959; margin-left: 10px; }
+.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: center;}
+.tab_item .action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff;}
+.tab_item .action button:last-child{ background: #ff6959; margin-left: 10px; }
+  .getQ{ display: block; margin: auto; background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; }
