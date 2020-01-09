@@ -1,4 +1,4 @@
-.Product_wrapper{ width: 1400px; margin: 50px auto;}
+.Product_wrapper{ width: 1400px; margin:30px auto;}
 .Product_wrapper .product_list_wrapper{ margin-bottom: 0; width: 100%; background: #f3f3f3; display: flex; justify-content: space-between; padding: 16px; box-sizing: border-box;}
 .Product_wrapper .product_list_wrapper .left_inner {  width: 70%; margin-bottom: 0;}
 .Product_wrapper .product_list_wrapper .left_inner form { background: #fff; padding: 6px 16px; box-sizing: border-box; }
