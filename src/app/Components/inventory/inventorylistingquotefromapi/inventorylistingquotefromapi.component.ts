@@ -1,11 +1,9 @@
 import { Component, OnInit ,Inject} from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute, Data } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-import { Observable } from 'rxjs';
-import { map, startWith, throwIfEmpty } from 'rxjs/operators';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 export interface DialogData {
   data: any;
@@ -26,6 +24,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public hospitalId:any;
   public hospitalDetails: any = [];
   public selectedValue:any;
+  public flag:number=0;
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
@@ -79,13 +78,9 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       inventory_name: [''],
     });
   }
-  /**submit function */
-  onSubmit() {
-    console.log(this.inventoryfromApiForm.value);
-  }
+ 
 
-
-  /**search by product */
+  /**search  product */
   searchproduct() {
 
     let postData: any = {
@@ -141,7 +136,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   }
 }
 
-
+/**view details modal */
 @Component({
   selector: 'listingquotedetails',
   templateUrl: 'listingquotefromapi.html',

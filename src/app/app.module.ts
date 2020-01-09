@@ -3,6 +3,7 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -271,6 +272,7 @@ import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Com
   ],
   imports: [
     BrowserModule,
+    TransferHttpCacheModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,

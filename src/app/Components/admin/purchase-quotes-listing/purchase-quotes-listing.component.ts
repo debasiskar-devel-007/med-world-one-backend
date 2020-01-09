@@ -165,15 +165,37 @@ export class emailModal {
     let datasource:any='';
     if(this.rout=='purchasequote'){
       datasource='quote-details_view';
+      var postData:any={
+        "quote_id":this.email.value.id,
+        "source":"quote-details",
+        "data":{
+          "file_path":""
+        }
+      }
     }
+
     if(this.rout=='inventorylistingquote'){
       datasource='quote_listing_details_view';
     }
     if(this.rout=='purchasquotelisting'){
       datasource='purchase_comparison_quote-details_view';
+      var postData:any={
+        "quote_id":this.email.value.id,
+        "source":"purchase_comparison_quote-details",
+        "data":{
+          "file_path":""
+        }
+      }
     }
     if(this.rout=='list'){
       datasource='package_list_view';
+      var postData:any={
+        "quote_id":this.email.value.id,
+        "source":"package_list",
+        "data":{
+          "file_path":""
+        }
+      }
     }
 
     let postEmailBody={
@@ -184,6 +206,7 @@ export class emailModal {
     "emailbody":this.email.value.body
     };
     //console.log(postEmailBody);
+    this.http.httpViaPost('downloadpdf', postData).subscribe((response: any) => {
     this.http.httpViaPost('purchasequotemailforsalesrep',postEmailBody).subscribe((res:any)=>{
       //console.log(res);
       if(res.status==1){
@@ -193,6 +216,7 @@ export class emailModal {
       }
       this.dialogRef.close();
     })
+  })
   }
 
   
