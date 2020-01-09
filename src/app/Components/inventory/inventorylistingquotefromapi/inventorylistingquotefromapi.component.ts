@@ -22,7 +22,10 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public userType: string;
   public inven: any = [];
   public InventoryDetailsFromApi: any = [];
-
+  public InventoeryListDetails:any=[];
+  public hospitalId:any;
+  public hospitalDetails: any = [];
+  public selectedValue:any;
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
@@ -30,6 +33,41 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     this.userType = userData.type;
     //console.log(this.userType,this.userId);
     this.generateForm();
+    if(this.userType=='admin'){
+      let data = {
+        "source": "users_view_hospital_withrepdetails"
+      }
+      this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+        //console.log(response);
+        this.hospitalDetails=response.res;
+      });
+     }
+
+     if(this.userType=='salesrep'){
+      let data = {
+        "source": "users_view_hospital_withrepdetails",
+        "condition":{
+          "salesrepid_object":this.userId
+        }
+      }
+      this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+        //console.log(response);
+        this.hospitalDetails=response.res;
+      });
+     }
+     if(this.userType=='hospital'){
+      let data: any;
+      data = {
+        'source': 'users_view',
+        'condition': {
+          '_id_object': this.userId
+        }
+      }
+      this.http.httpViaPost('datalist', data).subscribe((response: any) => {
+        //console.log(response);
+        this.hospitalDetails=response.res;
+      });
+     }
   }
 
   ngOnInit() {
@@ -58,7 +96,10 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       //console.warn(response);
       if (response.status == true && response.messgae == 'Successfully send .') {
         //console.warn("search",response.res.body.hits.hits);
-        this.inven = response.res.body.hits.hits;
+        
+          this.inven = response.res.body.hits.hits;
+        
+        
       }
     })
   }
@@ -67,8 +108,23 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   /**inventory Add */
   inventoryAdd(item: any) {
     // console.log(item);
+    item.quantity=1;
+    item.saleprice=1;
+
+    this.InventoeryListDetails.push(item);
+    //console.log(this.InventoeryListDetails);
+
   }
 
+  delete(index:number){
+    this.InventoeryListDetails.splice(index,index+1);
+  }
+
+    /**select onchnage  */
+    hhospitalName(data: any) {
+      this.hospitalId = data;
+      //console.log(data);
+    }
 
   /**viewDetails */
   viewDetails(inventoryDetails: any) {
