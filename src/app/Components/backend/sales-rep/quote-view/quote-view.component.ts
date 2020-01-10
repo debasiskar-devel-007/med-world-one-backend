@@ -147,20 +147,33 @@ public Package_all_total:number;
 
 /**update quote with price */
   save(){
-
     var postData:any={};
+    /**save purchase quote */
     if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
+      // let alltotal={
+      //   "totalquantity":this.totalqty,
+      //   "totaltax":this.totaltax,
+      //   "subtotal":this.totalprice,
+      // }
+      // this.quotedetails.push(alltotal);
       postData={
-
         "source":'quote-details',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
           "inventory_details":this.quotedetails
         }
       }
+      console.log(postData);
     }
-
+      /**save comparision quot */
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+      // let alltotal={
+      //   "totalquantity":this.totalqty,
+      //   "totaltax":this.totaltax,
+      //   "subtotal":this.totalprice,
+      //   "savings":this.savings
+      // }
+      // this.quotedetails.push(alltotal);
       postData={
 
         "source":'purchase_comparison_quote-details',
@@ -170,10 +183,13 @@ public Package_all_total:number;
         }
       }
     }
-
+        /**save listing quot */
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      // let alltotal={
+      //   "totalquantity":this.totalqty
+      // }
+      // this.quotedetails.push(alltotal);
       postData={
-
         "source":'quote_listing_details',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
@@ -184,7 +200,13 @@ public Package_all_total:number;
 
     /**save package */
     if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
-      
+      // var alltotal={
+      //   "totalquantity":this.totalqty,
+      //   "totaltax":this.totaltax,
+      //   "subtotal":this.totalprice,
+      //   "package_total":this.Package_all_total
+      // }
+      // this.quotedetails.push(alltotal);
       postData={
 
         "source":'package_list',

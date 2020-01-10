@@ -1,9 +1,10 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
+import { WINDOW } from '@ng-toolkit/universal';
 @Component({
   selector: 'app-addinventorylistingquote',
   templateUrl: './addinventorylistingquote.component.html',
@@ -62,7 +63,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     bucketName: "crmfiles.influxhostserver"
   }
 
-  constructor(public formBuilder: FormBuilder, public cookieService: CookieService,
+  constructor(@Inject(WINDOW) private window: Window, public formBuilder: FormBuilder, public cookieService: CookieService,
     public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar) {
 
@@ -302,7 +303,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
           postData.data.inventory_details.category = this.getcategory;
           if (postData.data.id == null) this.inventoryDetails.push(postData.data.inventory_details);
           this.router.events.subscribe(() =>
-            window.scrollTo({
+            this.window.scrollTo({
               top: 0,
               left: 0,
               behavior: 'smooth'

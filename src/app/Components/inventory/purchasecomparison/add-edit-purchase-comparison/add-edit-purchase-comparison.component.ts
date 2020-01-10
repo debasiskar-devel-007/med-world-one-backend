@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -6,6 +6,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatSnackBar } from '@angular/material';
 import { STRING_TYPE } from '@angular/compiler';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-add-edit-purchase-comparison',
@@ -73,7 +74,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     bucketName: "crmfiles.influxhostserver"
   }
 
-  constructor(public formBuilder: FormBuilder, public cookieService: CookieService,
+  constructor(@Inject(WINDOW) private window: Window, public formBuilder: FormBuilder, public cookieService: CookieService,
     public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute,public _snackBar: MatSnackBar) { 
 
@@ -362,7 +363,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
            postData.data.inventory_details.category=this.getcatagory;
            if(postData.data.id==null) this.inventoryDetails.push(postData.data.inventory_details);
             this.router.events.subscribe(() =>
-            window.scrollTo({
+            this.window.scrollTo({
                 top: 0,
                 left: 0,
                 behavior: 'smooth'

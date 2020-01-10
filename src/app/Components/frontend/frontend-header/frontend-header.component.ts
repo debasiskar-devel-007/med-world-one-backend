@@ -1,6 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-frontend-header',
@@ -26,7 +27,7 @@ export class FrontendHeaderComponent implements OnInit {
   //   }
   // }
 
-  constructor(private cookieService: CookieService, public router: Router) {
+  constructor(@Inject(WINDOW) private window: Window, private cookieService: CookieService, public router: Router) {
     // this.headerFlag = this.cookieService.get('loginFlag');
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
@@ -49,7 +50,7 @@ export class FrontendHeaderComponent implements OnInit {
     this.cookieService.deleteAll();
     this.cookieService.deleteAll('/');
     setTimeout(() => {
-      window.location.href='/';
+      this.window.location.href='/';
       this.router.navigateByUrl('/home');
     }, 1000);
   }
