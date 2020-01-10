@@ -1178,3 +1178,4 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 /* listiong view MOdal */
 .viewlistingQuoteModal{ overflow: auto; }
 .viewlistingQuoteModal .mat-dialog-container{ padding:20px!important; position: relative; }
+.modal_content .mat-expansion-indicator::after { color:#c6fffe!important;}
