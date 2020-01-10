@@ -115,11 +115,11 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     this.http.httpViaPost('getinventoryfromapi', postData).subscribe((response: any) => {
       //console.warn(response);
       if (response.status == true && response.messgae == 'Successfully send .') {
-        //console.warn("search",response.res.body.hits.hits);
+        //console.warn("search",response.res.body.hits.hits._source);
 
         this.inven = response.res.body.hits.hits;
 
-
+          this.flag=1;
       }
     })
   }
@@ -127,7 +127,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
   /**inventory Add */
   inventoryAdd(item: any) {
-    console.log(item);
+   // console.log(item);
     item.quantity = 1;
     item.saleprice = 1;
 
@@ -176,7 +176,8 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
     var postData: any = {};
     for (let i in this.InventoeryListDetails) {
-      var listingDetails = {
+   
+         var listingDetails = {
         "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
         "companyName": this.InventoeryListDetails[i]._source.companyName,
         "brandname": this.InventoeryListDetails[i]._source.brandName,
@@ -185,8 +186,11 @@ export class InventorylistingquotefromapiComponent implements OnInit {
         "saleprice": this.InventoeryListDetails[i].saleprice
       };
       Finallistinginventory.push(listingDetails);
+      
+     
     }
     var Finallistinginventory = [];
+
     if(this.activatedRoute.snapshot.params.listingquoteid){
        postData = {
       "source": "quote_listing_details",
