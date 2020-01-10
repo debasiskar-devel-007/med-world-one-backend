@@ -95,19 +95,51 @@
             <table>
               <tr>
                 <th>Product Name :</th>
-                <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}
+                  </ng-container>
+
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.device_name}}
+                  </ng-container>
+                  
+                </td>
               </tr>
               <tr>
                 <th>Company Name :</th>
-                <td>{{item._source.companyName}}</td>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item._source.companyName}}
+                  </ng-container>
+
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.companyName}}
+                  </ng-container>
+                
+                </td>
               </tr>
               <tr>
                 <th>Brand : </th>
-                <td>{{item._source.brandName}}</td>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item._source.brandName}}
+                  </ng-container>
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.brandname}}
+                  </ng-container>
+                 </td>
               </tr>
               <tr>
                 <th>UID# :</th>
-                <td>{{item._source.identifiers.identifier.deviceId}}</td>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item._source.identifiers.identifier.deviceId}}
+                  </ng-container>
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.device_ids}}
+                  </ng-container>
+                </td>
               </tr>
               <tr>
                 <th>Quantity :</th>
@@ -139,7 +171,7 @@
             </mat-card-content>
           </ng-container>
           <span class="quote_action">
-            <button mat-button type="button"  (click)="getquote()">Save Quote</button>
+            <button mat-button type="button"  (click)="savequote()">Save Quote</button>
             <button mat-button type="button"  (click)="getquote()">Get Quote</button>
           </span>
         </span>

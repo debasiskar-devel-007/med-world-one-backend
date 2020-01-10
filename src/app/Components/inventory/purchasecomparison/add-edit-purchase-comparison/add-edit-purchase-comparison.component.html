@@ -322,8 +322,8 @@
                         </tr>
                         <tr>
                           <td>Quantity:</td>
-                          <td *ngIf="item.quantity!=null">{{item.quantity}}</td>
-                          <td *ngIf="item.quantity==null">{{item.quantity_copy}}</td>
+                          <!-- <td *ngIf="item.quantity!=null">{{item.quantity}}</td> -->
+                          <input class="counter_input" type="number" step="any" [(ngModel)]="item.quantity" [value]="item.quantity">
                         </tr>
                         <tr>
                           <td>

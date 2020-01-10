@@ -59,6 +59,7 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
   public notes:string;
   public hospitalId:any;
   public hospitalDetails: any = [];
+  public deleteUserId:any=[];
   //@HostListener('window:scroll')
    //image upload 
    public configData: any = {
@@ -245,13 +246,17 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
       }
     }
     this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-        console.log(response.res);
+        
+        // response.res.quantity=1;
+        for(let i in response.res){
+          response.res[i].quantity=1;
+        }
         this.inventoryDetails=response.res;
+        //console.log("fetch",this.inventoryDetails);
     })
 
     // for quote id
     this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
-      //console.log(response.userID);
       this.quote_id=response.userID;
   })
 
@@ -314,11 +319,11 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         var postData: any = {
           "source": 'purchase_comparison_quote',
           "data":{
-            "user_id":this.userId,
+            "userid":this.userId,
             "hospital_id":this.hospital_id,
             "inventory_details":this.addinventorylistingquoteForm.value
           },
-          "sourceobj": ["user_id","hospital_id"],
+          "sourceobj": ["userid","hospital_id"],
   
         };
         this.msg='Thank You For Submitting A Comparison Quote';
@@ -327,12 +332,12 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
         var postData: any = {
           "source": 'purchase_comparison_quote',
           "data":{
-            "user_id":this.userId,
+            "userid":this.userId,
             "hospital_id":this.hospital_id,
             "inventory_details":this.addinventorylistingquoteForm.value,
             "id":inventID
           },
-          "sourceobj": ["user_id","hospital_id"],
+          "sourceobj": ["userid","hospital_id"],
   
         };
         this.msg='Inventory Updated';
@@ -546,13 +551,6 @@ export class AddEditPurchaseComparisonComponent implements OnInit {
     this.items.push(this.createItem(val));
   }
 
-/**plus */
-plus(){
-
-}
-minus(){
-
-}
   trackByFn(index) {
     return index;
   }
@@ -580,6 +578,7 @@ minus(){
       });
      return;
     } 
+
    
       var postData = {
         "source": "purchase_comparison_quote-details",
@@ -595,27 +594,31 @@ minus(){
       }; 
     
    
-    console.log(postData);
+    //console.log(postData);
     // console.log(this.inventoryDetails);
 
-    for(let i in this.inventoryDetails){
-        this.ids.push(this.inventoryDetails[i]._id);
+ 
+    this.deleteUserId.push(this.userId);
+    let deleteData = {
+      "source": "purchase_comparison_quote",
+      "ids": this.deleteUserId
     }
     // console.log(this.ids);
 
 
-    let deleteData={
-      "source": "purchase_comparison_quote",
-      "ids":this.ids
-    }
-    //console.log(deleteData);
+    // let deleteData={
+    //   "source": "purchase_comparison_quote",
+    //   "ids":this.ids
+    // }
+    console.log(deleteData);
+    
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if(response.status="success"){
         this._snackBar.open('Thank You For Submitting A Comparison Inventory Quote.', '', {
           duration: 2000,
         });
-        this.http.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
+        this.http.httpViaPost('deletequote', deleteData).subscribe((response: any) => {
           //console.log(response);
           if(response.status="success"){
             

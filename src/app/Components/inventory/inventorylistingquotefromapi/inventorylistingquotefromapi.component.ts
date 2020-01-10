@@ -27,6 +27,8 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public flag: number = 0;
   public quote_id: number;
   public notes:string;
+  public invendetailsbyId:any;
+
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, public dialog: MatDialog) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
@@ -74,6 +76,9 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       //console.log(response.userID);
       this.quote_id = response.userID;
     })
+    if(this.activatedRoute.snapshot.params.listingquoteid){
+       this.fetchAddedInventoryDetailsbyinventoryId();
+    }
   }
 
   ngOnInit() {
@@ -85,7 +90,21 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       inventory_name: [''],
     });
   }
-
+ /**Fetch inventory details by quote id*/
+ fetchAddedInventoryDetailsbyinventoryId() {
+  let postData = {
+    "source": "quote_listing_details_view",
+    "condition": {
+      "_id_object": this.activatedRoute.snapshot.params.listingquoteid
+    }
+  }
+  this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
+    //console.log("fetch by id invenID", response.res);
+    this.invendetailsbyId = response.res;
+    this.InventoeryListDetails= response.res[0].inventory_details;
+    //console.log(this.invendetailsbyId);
+  })
+}
 
   /**search  product */
   searchproduct() {
@@ -108,7 +127,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
   /**inventory Add */
   inventoryAdd(item: any) {
-    // console.log(item);
+    console.log(item);
     item.quantity = 1;
     item.saleprice = 1;
 
@@ -155,7 +174,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       });
       return;
     }
-    var Finallistinginventory = [];
+    var postData: any = {};
     for (let i in this.InventoeryListDetails) {
       var listingDetails = {
         "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
@@ -167,8 +186,18 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       };
       Finallistinginventory.push(listingDetails);
     }
-
-    var postData = {
+    var Finallistinginventory = [];
+    if(this.activatedRoute.snapshot.params.listingquoteid){
+       postData = {
+      "source": "quote_listing_details",
+      "data": {
+        "id": this.invendetailsbyId[0]._id,
+        "inventory_details": Finallistinginventory,
+        "status": 1,
+      }
+    }
+  }else{
+    postData = {
       "source": "quote_listing_details",
       "data": {
         "inventory_details": Finallistinginventory,
@@ -180,7 +209,11 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       },
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
-    //console.warn(postData);
+  }
+
+   
+  console.warn(postData);
+  return;
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
@@ -204,7 +237,63 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     });
   }
 
+/**save quote */
+savequote(){
+    //console.warn(this.InventoeryListDetails);
+    if (this.hospitalId == undefined && this.hospitalId == null) {
+      this._snackBar.open('Please Select a Medical Partner', '', {
+        duration: 2000,
+      });
+      return;
+    }
+    var Finallistinginventory = [];
+    for (let i in this.InventoeryListDetails) {
+      var listingDetails = {
+        "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
+        "companyName": this.InventoeryListDetails[i]._source.companyName,
+        "brandname": this.InventoeryListDetails[i]._source.brandName,
+        "device_id": this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
+        "quantity": this.InventoeryListDetails[i].quantity,
+        "saleprice": this.InventoeryListDetails[i].saleprice
+      };
+      Finallistinginventory.push(listingDetails);
+    }
 
+    var postData = {
+      "source": "quote_listing_details",
+      "data": {
+        "inventory_details": Finallistinginventory,
+        "hospital_id": this.hospitalId,
+        "user_id": this.userId,
+        "notes":this.notes,
+        "quote_id": this.quote_id,
+        "status": 0
+      },
+      "sourceobj": ["hospital_id", "quoted_by", "user_id"]
+    };
+    console.log("save listing quote",postData);
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
+      if (response.status = "success") {
+        this.InventoeryListDetails = [];
+        this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
+          duration: 2000,
+        });
+        /**salesrep route */
+        if (this.userType == 'salesrep') {
+          this.router.navigateByUrl('/salesrep/managequotes/inventorylistingquote/list');
+        }
+        /**hospital route */
+        if (this.userType == 'hospital') {
+          this.router.navigateByUrl('/hospital/managequotes/inventorylistingquote/list');
+        }
+        /**admin route */
+        if (this.userType == 'admin') {
+          this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+        }
+      }
+    });
+}
 
 }
 
