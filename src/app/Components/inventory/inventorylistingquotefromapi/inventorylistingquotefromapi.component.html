@@ -76,16 +76,17 @@
       <mat-card-content class="right_inner">
         <mat-card-title class="Header">Selected Cart items</mat-card-title>
         <span *ngIf="InventoeryListDetails!=null && InventoeryListDetails.length>0">
-          <mat-form-field class="partner_select">
-            <mat-label>Select Medical Partner</mat-label>
-            <mat-select [(ngModel)]="selectedValue" (selectionChange)="hhospitalName($event.value)" name="id">
-              <mat-option>None</mat-option>
-              <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">
-                {{hospital.hospitalname}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
+          <span class="form_field">
+            <mat-form-field class="partner_select" appearance="fill">
+              <mat-label>Select Medical Partner</mat-label>
+              <mat-select [(ngModel)]="selectedValue" (selectionChange)="hhospitalName($event.value)" name="id">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let hospital of hospitalDetails" [value]="hospital._id">
+                  {{hospital.hospitalname}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </span>
 
 
           <!-- loop here -->
@@ -93,30 +94,30 @@
 
             <table>
               <tr>
-                <td>Product Name :</td>
+                <th>Product Name :</th>
                 <td>{{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}</td>
               </tr>
               <tr>
-                <td>Company Name :</td>
+                <th>Company Name :</th>
                 <td>{{item._source.companyName}}</td>
               </tr>
               <tr>
-                <td>Brand : </td>
+                <th>Brand : </th>
                 <td>{{item._source.brandName}}</td>
               </tr>
               <tr>
-                <td>UID# :</td>
+                <th>UID# :</th>
                 <td>{{item._source.identifiers.identifier.deviceId}}</td>
               </tr>
               <tr>
-                <td>Quantity :</td>
+                <th>Quantity :</th>
                 <td>
                   <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
                     placeholder="{{item.quantity}}" />
                 </td>
               </tr>
               <tr>
-                <td>Sell Price :</td>
+                <th>Sell Price :</th>
                 <td>
                   <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
                     placeholder="{{item.saleprice}}" />
@@ -131,14 +132,16 @@
 
           <!-- loop end -->
           <!-- notes -->
-        <ng-container>
-          <mat-card-content class="notes_wrapper">
-            <label mat-label class="note_h">Notes :</label>
-            <textarea type="text" class="form-control" (input)="note($event.target.value)"></textarea>
-          </mat-card-content>
-        </ng-container>
-        
-        <button mat-button type="button" class="getQ" (click)="getquote()">Get Quote</button>
+          <ng-container>
+            <mat-card-content class="notes_wrapper">
+              <label mat-label class="note_h">Notes :</label>
+              <textarea type="text" class="form_control" (input)="note($event.target.value)"></textarea>
+            </mat-card-content>
+          </ng-container>
+          <span class="quote_action">
+            <button mat-button type="button"  (click)="getquote()">Save Quote</button>
+            <button mat-button type="button"  (click)="getquote()">Get Quote</button>
+          </span>
         </span>
       </mat-card-content>
     </mat-card-content>
