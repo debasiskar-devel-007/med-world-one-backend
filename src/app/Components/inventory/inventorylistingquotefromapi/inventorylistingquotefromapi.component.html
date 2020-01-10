@@ -29,7 +29,7 @@
         </form>
         <ng-container *ngIf="inven!=null ">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven">
-            <mat-card-content class="itenms_inner">
+            <mat-card-content class="itenms_inner" >
               <span class="name" *ngIf="inventory._source.brandName!=null">
                 {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
               <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o"

@@ -68,6 +68,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
 
 
   plus(i: any) {
+    if(this.inventoryDetailsByUserId[i].quantity==null)this.inventoryDetailsByUserId[i].quantity=0;
     this.inventoryDetailsByUserId[i].quantity += 1;
   }
   minus(i: any) {

@@ -219,7 +219,7 @@ public Package_all_total:number;
       }
 
 
-    //console.log(postData);
+    console.log(postData);
     
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);

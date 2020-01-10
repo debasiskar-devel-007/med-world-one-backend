@@ -161,7 +161,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     });
   }
     /**add notes */
-    note(searchValue: string): void { 
+    note(searchValue: string): void {
       this.notes=searchValue;
       //console.log(this.notes);
     }
@@ -174,6 +174,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       });
       return;
     }
+    
     var postData: any = {};
     for (let i in this.InventoeryListDetails) {
    
