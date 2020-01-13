@@ -27,7 +27,10 @@
               </mat-autocomplete>
           </mat-form-field> -->
         </form>
-        <ng-container *ngIf="inven!=null ">
+        <ng-container *ngIf="flag==1"><span>SEARCH RESULT FOR:{{searchString}}({{searchCount}}results)</span></ng-container>
+        
+
+        <ng-container *ngIf="inven!=null">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven">
             <mat-card-content class="itenms_inner" >
               <span class="name" *ngIf="inventory._source.brandName!=null">
@@ -36,13 +39,23 @@
                   aria-hidden="true"></i>
                 <p> {{inventory._source.deviceDescription}}</p>
               </span>
+
+              <span class="desc"><i matTooltip="Device ID" matTooltipPosition="above" class="fa fa-newspaper-o"
+                aria-hidden="true"></i>
+              <p> {{inventory._source.identifiers.identifier.deviceId}}</p>
+            </span>
             </mat-card-content>
+
             <mat-card-content class="itenms_inner">
               <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
                   aria-hidden="true"></i>
                 {{inventory._source.companyName}}</span>
               <span class="version"><i matTooltip="Model Number" matTooltipPosition="above" class="fa fa-diamond"
                   aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
+
+                  <span class="version"><i matTooltip="GMDN Terms" matTooltipPosition="above" class="fa fa-diamond"
+                    aria-hidden="true"></i>{{inventory._source.gmdnTerms.gmdn.gmdnPTName}}</span>
+
               <span class="pro_wrapper">
                 <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
                 <button mat-button (click)="viewDetails(inventory)">View Details </button>
