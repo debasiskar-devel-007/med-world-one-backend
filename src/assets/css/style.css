@@ -1173,4 +1173,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 /*manage team */
 .manageTeam .main_wrapper .mat-primary{ background-color: #00aee2; }
 .manageTeam .main_wrapper .mat-column-image{ width: 30%; word-break: break-word; }
-
+.manageTeam .main_wrapper .formspan .example-container { width: 100%!important; box-sizing: border-box!important;}
+.manageTeam .main_wrapper .formspan  .mat-form-field  {padding: 8px!important; }
+.manageTeam .main_wrapper .formspan .bulletarr { border: 2px solid #00aee2; }
+.manageTeam .main_wrapper .formspan .top_header { background:#00aee2; }
+.manageTeam .main_wrapper .formspan .uploadfilecontainer { width: 100%; }
