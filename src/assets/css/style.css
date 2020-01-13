@@ -1151,18 +1151,17 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 /* .listing_tab i{ color: #fff;} */
 .top_quotesection .partner_select{ margin: 10px 0;}
 .top_quotesection .partner_select .mat-form-field-flex{ width: 100%;}
+
 /* quote cart css */
 .top_quotesection { padding: 7px;}
 .top_quotesection .mat-form-field .mat-form-field-wrapper{ padding-bottom: 0; }
 .top_quotesection .mat-form-field-appearance-legacy .mat-form-field-ripple{ display: none; }
-
 .packageInventory .mat-dialog-container{ height: inherit; overflow: auto;}
 .packageInventory .mat-dialog-container .formheader { width: auto;}
 .packageInventory .mat-dialog-container .formstylemainwrapper { padding: 0px; }
 .packageInventory .mat-dialog-container .formheader .formtitle { padding: 16px; background: #00aee2; color: #fff; text-transform: uppercase; font-size: 30px!important;}
 .packageInventory .mat-dialog-container .formbody .button_wrapper button { margin-left: 10px; }
 .packageInventory .mat-dialog-container .formbody .button_wrapper button:first-child { margin-left: 0px; }
-
 .top_quotesection .mat-form-field-flex{ border: none; padding: 0;}
 
 /* listiong view MOdal */
