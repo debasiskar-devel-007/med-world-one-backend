@@ -63,7 +63,10 @@ export class PurchasecomparisoncartComponent implements OnInit {
     this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
       let result:any
       result=response.res;
-      result[0].quantity=1;
+      for(let i in result){
+        result[i].quantity=1;
+      }
+      
       this.inventoryDetailsByUserId = result;
     //console.log(this.inventoryDetailsByUserId);
     });

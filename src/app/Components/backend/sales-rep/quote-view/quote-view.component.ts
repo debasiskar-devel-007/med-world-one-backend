@@ -149,7 +149,7 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'company','version','uid',  'description', 'qty','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','quotedprice'];
     }
   }
   
