@@ -24,20 +24,14 @@ import {join} from 'path';
 export const app = express();
 
 /**sourav */
-const domino = require("domino");
-const fs = require("fs");
-const path = require("path");
-const templateA = fs
-  .readFileSync(path.join("dist/browser", "index.html"))
-  .toString();
-const win = domino.createWindow(templateA);
-win.Object = Object;
-win.Math = Math;
+const domino = require('domino');
+const fs = require('fs');
+const template = fs.readFileSync('./dist/browser/index.html').toString();
+const win = domino.createWindow(template);
+const filesBrowser = fs.readdirSync(`${process.cwd()}/dist/browser`)
 
 global["window"] = win;
 global["document"] = win.document;
-global["branch"] = null;
-global["object"] = win.object;
 global['HTMLElement'] = win.HTMLElement;
 global['navigator'] = win.navigator;
 /**sourav */
