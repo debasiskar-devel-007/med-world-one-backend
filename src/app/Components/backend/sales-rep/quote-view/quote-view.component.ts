@@ -115,6 +115,7 @@ public totalWholesellprice:number=0;
     this.totalprice=0;
     this.totaltax=0;
     this.totalPurchasedPrice=0;
+    this.totalQuotedprice=0;
 
     for(let i in this.quotedetails){
       if(this.quotedetails[i].wholesaleprice==null) this.quotedetails[i].wholesaleprice=0;
