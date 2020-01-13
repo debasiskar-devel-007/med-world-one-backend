@@ -1124,19 +1124,9 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
     * aria-label has no advantage, it won't be read inside a table
     content: attr(aria-label);
     */
-    content: attr(data-label);
-    float: left;
-    text-transform: uppercase;
-    font-weight: normal;
-
-    font-size: .85em;
-  }
-  .mat-table .mat-cell:last-child {
-    border-bottom: 0; padding: 0;
-  }
-    .mat-table .mat-cell:first-child {
-    margin-top: 4%; padding-left: 0;
-  }
+  content: attr(data-label); float: left; text-transform: uppercase; font-weight: normal; font-size: .85em; }
+  .mat-table .mat-cell:last-child { border-bottom: 0; padding: 0; }
+ .mat-table .mat-cell:first-child { margin-top: 4%; padding-left: 0; }
 }
 @media screen and (max-width: 620px) {
   .addlistingInventory_button_wrapper{ display: flex; flex-wrap: wrap; }
@@ -1179,3 +1169,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .viewlistingQuoteModal{ overflow: auto; }
 .viewlistingQuoteModal .mat-dialog-container{ padding:20px!important; position: relative; }
 .modal_content .mat-expansion-indicator::after { color:#c6fffe!important;}
+
+/*manage team */
+.manageTeam .main_wrapper .mat-primary{ background-color: #00aee2; }
+.manageTeam .main_wrapper .mat-column-image{ width: 30%; word-break: break-word; }
+
