@@ -29,6 +29,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public notes:string;
   public invendetailsbyId:any;
   public searchCount:number;
+  public searchString:string;
 
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, public dialog: MatDialog) {
@@ -120,6 +121,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
         this.inven = response.res.body.hits.hits;
         this.searchCount=response.res.body.hits.total;
+        this.searchString=response.res.body.suggest.didYouMean[0].text;
           this.flag=1;
       }
     })

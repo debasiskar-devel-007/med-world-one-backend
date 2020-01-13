@@ -1,12 +1,17 @@
 <app-adminheader>
-    <lib-team-list
-    [allData]="allDataList"
-    [SourceName]="collectionName"
-    [serverUrl]="serverUrl"
-    [Token]="token"
-    [DeleteEndpoint]="deleteendpoint"
-    [EditRoute]="editUrl"
-    [SearchSourceName]="searchSourceName"
-    [SearchEndpoint]="searchingEndpoint"
-    [AddPageRoute]="addPageRoute"></lib-team-list>
-    </app-adminheader>
+
+  <span class="listingnewstyle manageTeam">
+    <span class="dashboardcontainer">
+      <span class="aslist_view">
+        <mat-card class="main_wrapper ">
+
+          <lib-team-list [allData]="allDataList" [SourceName]="collectionName" [serverUrl]="serverUrl" [Token]="token"
+            [DeleteEndpoint]="deleteendpoint" [EditRoute]="editUrl" [SearchSourceName]="searchSourceName"
+            [SearchEndpoint]="searchingEndpoint" [AddPageRoute]="addPageRoute"></lib-team-list>
+
+        </mat-card>
+      </span>
+    </span>
+  </span>
+
+</app-adminheader>
