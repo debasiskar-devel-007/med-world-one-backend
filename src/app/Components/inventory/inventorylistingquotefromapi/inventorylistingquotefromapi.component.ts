@@ -179,6 +179,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
     
     var postData: any = {};
+    var Finallistinginventory:any=[];
     for (let i in this.InventoeryListDetails) {
    
          var listingDetails = {
@@ -195,7 +196,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       
      
     }
-    var Finallistinginventory = [];
+    //var Finallistinginventory = [];
 
     if(this.activatedRoute.snapshot.params.listingquoteid){
        postData = {
@@ -262,6 +263,8 @@ savequote(){
         "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
         "companyName": this.InventoeryListDetails[i]._source.companyName,
         "brandname": this.InventoeryListDetails[i]._source.brandName,
+        "description":this.InventoeryListDetails[i]._source.deviceDescription,
+        "version":this.InventoeryListDetails[i]._source.versionModelNumber,
         "device_id": this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
         "quantity": this.InventoeryListDetails[i].quantity,
         "saleprice": this.InventoeryListDetails[i].saleprice
