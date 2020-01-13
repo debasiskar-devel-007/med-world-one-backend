@@ -148,7 +148,7 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'uid', 'company', 'brand', 'qty','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'company','version','uid',  'description', 'qty','quotedprice'];
     }
   }
   
@@ -364,7 +364,7 @@ var post={
                    window.location.href=response.res[0].file_path;
                   
         })
-      }, 1000)
+      }, 2000)
            
     }
   })
