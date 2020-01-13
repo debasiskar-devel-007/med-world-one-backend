@@ -31,6 +31,9 @@ public savings:number=0;
 public Package_Details:any=[];
 public save_inventoery_details:any=[];
 public Package_all_total:number;
+public totalSellprice:number=0;
+public totalQuotedprice:number=0;
+public totalWholesellprice:number=0;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
@@ -84,13 +87,20 @@ public Package_all_total:number;
         if(this.quotedetails[i].price==null)this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
         if(this.quotedetails[i].subtotalprice==null)this.quotedetails[i].subtotalprice=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+(parseFloat(this.quotedetails[i].wholesaleprice))*this.quotedetails[i].quantity)+parseFloat(this.quotedetails[i].tax);
         if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
+        this.totalWholesellprice=this.totalWholesellprice+parseFloat(this.quotedetails[i].wholesaleprice);
+
         if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
+        this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice;
+
+        if(this.quotedetails[i].saleprice==null)this.quotedetails[i].saleprice=0;
+        this.totalSellprice=this.totalSellprice+this.quotedetails[i].saleprice;
 
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
         this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
         this.totalPurchasedPrice=(this.totalPurchasedPrice)+parseFloat(this.quotedetails[i].purchased_price);
         this.savings=this.totalPurchasedPrice-this.totalprice;
+
               if(this.Package_Details!=null){
                 this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;}        
             }
@@ -112,8 +122,10 @@ public Package_all_total:number;
       if(this.quotedetails[i].price==null) this.quotedetails[i].price=((parseFloat(this.quotedetails[i].wholesaleprice)*(this.purchasemarkup/100))+parseFloat(this.quotedetails[i].wholesaleprice));
       this.quotedetails[i].subtotalprice=(this.quotedetails[i].price)*this.quotedetails[i].quantity+parseFloat(this.quotedetails[i].tax);
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
+
       if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
-      
+      this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice;
+
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
       this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
       this.totaltax=(this.totaltax)+parseFloat(this.quotedetails[i].tax);
@@ -171,7 +183,9 @@ public Package_all_total:number;
         "totalquantity":this.totalqty,
         "totaltax":this.totaltax,
         "subtotal":this.totalprice,
-        "savings":this.savings
+        "savings":this.savings,
+        "mpprice":this.totalPurchasedPrice,
+        "totalwholesellprice":this.totalWholesellprice
       }
       postData={
 
@@ -186,7 +200,9 @@ public Package_all_total:number;
         /**save listing quot */
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       let alltotal={
-        "totalquantity":this.totalqty
+        "totalquantity":this.totalqty,
+        "totalsellprice":this.totalSellprice,
+        "totalquotedprice":this.totalQuotedprice
       }
 
       postData={

@@ -155,7 +155,7 @@
               </span>
             </span>
           </td>
-          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalSellprice}}</td>
         
         </ng-container>
 
@@ -170,7 +170,7 @@
               </span>
             </span>
           </td>
-          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalQuotedprice}}</td>
         
         </ng-container>
 
@@ -208,8 +208,8 @@
             <ng-container *ngIf="element.wholesaleprice==null"></ng-container>
             <ng-container *ngIf="element.wholesaleprice!=null"> {{element.wholesaleprice}} </ng-container>
             </td>
-          <td mat-footer-cell *matFooterCellDef>  </td>
-          <td mat-footer-cell *matFooterCellDef> </td>
+          <td mat-footer-cell *matFooterCellDef> {{totalWholesellprice}}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
 
         <ng-container matColumnDef="purchaseprice" >
