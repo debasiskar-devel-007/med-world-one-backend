@@ -58,7 +58,10 @@ font-size: 18px; text-transform: capitalize; }
 .form_field .mat-form-field{ width: 100%;}
 .quote_action{ display: flex; justify-content: flex-end;}
 .quote_action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; }
-.quote_action button:last-child{  background: #ff6959; margin-left: 10px;}
+.quote_action button:last-child{  background: #ff6959; margin-left: 10px;} 
+.search_result{ display: block; margin: 20px 10px 10px; font-family: 'AvenirMedium'; font-size: 20px; }
+.search_result p{ color: #ff6959; display: inline; margin: 0 10px; text-transform: uppercase;}
+.search_result a{ color: #646363; font-size: 16px;}
 
 @media screen and (max-width: 1600px){
   .Product_wrapper{ width: 90%; }

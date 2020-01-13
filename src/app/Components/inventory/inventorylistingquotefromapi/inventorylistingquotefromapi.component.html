@@ -27,34 +27,37 @@
               </mat-autocomplete>
           </mat-form-field> -->
         </form>
-        <ng-container *ngIf="flag==1"><span>SEARCH RESULT FOR:{{searchString}}({{searchCount}}results)</span></ng-container>
-        
+        <ng-container *ngIf="flag==1"><span class="search_result">SEARCH RESULT FOR:<p>{{searchString}}</p> <a>({{searchCount}} results)</a></span>
+        </ng-container>
+
 
         <ng-container *ngIf="inven!=null">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven">
-            <mat-card-content class="itenms_inner" >
+            <mat-card-content class="itenms_inner">
               <span class="name" *ngIf="inventory._source.brandName!=null">
                 {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
+
+              <span class="desc"><i matTooltip="Device ID" matTooltipPosition="above" class="fa fa-desktop"
+                  aria-hidden="true"></i>
+                <p> {{inventory._source.identifiers.identifier.deviceId}}</p>
+              </span>
+
               <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o"
                   aria-hidden="true"></i>
                 <p> {{inventory._source.deviceDescription}}</p>
               </span>
 
-              <span class="desc"><i matTooltip="Device ID" matTooltipPosition="above" class="fa fa-newspaper-o"
-                aria-hidden="true"></i>
-              <p> {{inventory._source.identifiers.identifier.deviceId}}</p>
-            </span>
             </mat-card-content>
 
             <mat-card-content class="itenms_inner">
               <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
                   aria-hidden="true"></i>
                 {{inventory._source.companyName}}</span>
-              <span class="version"><i matTooltip="Model Number" matTooltipPosition="above" class="fa fa-diamond"
+              <span class="version"><i matTooltip="Version or Model" matTooltipPosition="above" class="fa fa-diamond"
                   aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
 
-                  <span class="version"><i matTooltip="GMDN Terms" matTooltipPosition="above" class="fa fa-diamond"
-                    aria-hidden="true"></i>{{inventory._source.gmdnTerms.gmdn.gmdnPTName}}</span>
+              <span class="version"><i matTooltip="GMDN Terms" matTooltipPosition="above" class="fa fa-sign-language"
+                  aria-hidden="true"></i>{{inventory._source.gmdnTerms.gmdn.gmdnPTName}}</span>
 
               <span class="pro_wrapper">
                 <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
@@ -116,7 +119,7 @@
                   <ng-container *ngIf="item.brandname!=null">
                     {{item.device_name}}
                   </ng-container>
-                  
+
                 </td>
               </tr>
               <tr>
@@ -129,7 +132,7 @@
                   <ng-container *ngIf="item.brandname!=null">
                     {{item.companyName}}
                   </ng-container>
-                
+
                 </td>
               </tr>
               <!-- <tr>
@@ -146,11 +149,11 @@
               <tr>
                 <th>Version/Model:</th>
                 <td>
-                
-                    {{item._source.versionModelNumber}}
-                 
-                  
-                 </td>
+
+                  {{item._source.versionModelNumber}}
+
+
+                </td>
               </tr>
               <tr>
                 <th>Device ID :</th>
@@ -167,7 +170,7 @@
               <tr>
                 <th>Description</th>
                 <td>
-                    {{item._source.deviceDescription}}
+                  {{item._source.deviceDescription}}
                 </td>
               </tr>
 
@@ -201,11 +204,11 @@
             </mat-card-content>
           </ng-container>
           <span class="quote_action">
-            <button mat-button type="button"  (click)="savequote()">Save Quote</button>
-            <button mat-button type="button"  (click)="getquote()">Get Quote</button>
+            <button mat-button type="button" (click)="savequote()">Save Quote</button>
+            <button mat-button type="button" (click)="getquote()">Get Quote</button>
           </span>
         </span>
-        
+
       </mat-card-content>
     </mat-card-content>
   </mat-card-content>
