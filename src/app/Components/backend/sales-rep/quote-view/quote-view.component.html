@@ -53,8 +53,8 @@
               <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
 
-            <ng-container *ngIf="element.device_name!=null">  {{element.device_name}}<h4>
-              <ng-container><span class='descriptionquoteview'>Description: </span>{{element.description}}</ng-container></h4>
+            <ng-container *ngIf="element.device_name!=null">  {{element.device_name}}<h4 class='descriptionquoteview'>
+              <ng-container><span >Description: </span>{{element.description}}</ng-container></h4>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 

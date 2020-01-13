@@ -40,8 +40,11 @@
 
 .quote_table_wrapper table td.mat-cell { color: #465157; font-family: "AvenirMedium"; }
 .quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px; }
-.quote_table_wrapper table th:first-of-type{ width: 40%;}
-.quote_table_wrapper table th:last-of-type{ width: 15%;}
+.quote_table_wrapper table th:first-of-type{ width: 35%;}
+.quote_table_wrapper table th:last-of-type{ width: 18%;}
+.quote_table_wrapper table .descriptionquoteview{ margin: 0; margin-top: 10px; font-family: 'AvenirMedium';}
+.quote_table_wrapper table .descriptionquoteview span{  font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
+
 .hidecls{display: none !important;}
 .quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
 .quotemodalvew h1{font-family: "AvenirMedium"; font-size: 20px; color: #000; margin: 0; margin-bottom: 10px; background: #fff; padding: 10px; border: 0.5px solid #d6d6d6;
