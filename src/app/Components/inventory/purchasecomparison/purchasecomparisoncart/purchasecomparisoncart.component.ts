@@ -61,13 +61,18 @@ export class PurchasecomparisoncartComponent implements OnInit {
       }
     }
     this.httpServiceService.httpViaPost('datalist', data).subscribe((response: any) => {
-      this.inventoryDetailsByUserId = response.res;
-      //console.log(response);
+      let result:any
+      result=response.res;
+      result[0].quantity=1;
+      this.inventoryDetailsByUserId = result;
+    //console.log(this.inventoryDetailsByUserId);
     });
   }
 
 
   plus(i: any) {
+
+    if(this.inventoryDetailsByUserId[i].quantity==null)this.inventoryDetailsByUserId[i].quantity=1;
     this.inventoryDetailsByUserId[i].quantity += 1;
   }
   minus(i: any) {
@@ -98,6 +103,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
     /**select onchnage  */
     hospitalName(data: any) {
       this.hospitalId = data;
+      
       //console.log(data);
     }
     /**get quote function */
@@ -115,6 +121,11 @@ export class PurchasecomparisoncartComponent implements OnInit {
           });
          return;
         } 
+        if (this.userType=='hospital') {
+          this.hospitalId=this.userId;
+        
+        }
+
           let postData = {
             "source": "purchase_comparison_quote-details",
             "data":{
@@ -122,7 +133,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
             "hospital_id": this.hospitalId,
             "quoted_by": this.userId,
             "notes":this.notes,
-            "status":0
+            "status":1
             },
             "sourceobj":["hospital_id","quoted_by"]
           };
@@ -134,7 +145,6 @@ export class PurchasecomparisoncartComponent implements OnInit {
               this.ids.push(this.inventoryDetailsByUserId[i]._id);
           }
           //console.log(this.ids);
-    
         
           let deleteData={
             "source": "purchase_comparison_quote",

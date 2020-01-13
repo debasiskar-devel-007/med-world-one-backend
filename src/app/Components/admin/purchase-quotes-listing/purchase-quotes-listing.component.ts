@@ -129,7 +129,7 @@ editforroute(element:any){
       this.router.navigateByUrl('/admin/package/edit/'+element._id);
     }
     if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
-      this.router.navigateByUrl('/admin/inventory/inventorylistingquote/edit/'+element._id)
+      this.router.navigateByUrl('/inventory/inventorylistingquote/edit/'+element._id)
     }
   
 }

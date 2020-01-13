@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { WINDOW } from '@ng-toolkit/universal';
 
 @Component({
   selector: 'app-adminheader',
@@ -16,7 +17,7 @@ export class AdminheaderComponent implements OnInit {
   user_cookie: any;
   public type: string;
   public statusToggle:boolean = true;
-  constructor(public router: Router, private cookieService: CookieService) {
+  constructor(@Inject(WINDOW) private window: Window, public router: Router, private cookieService: CookieService) {
 
     let allData: any = {};
     allData = cookieService.getAll()
@@ -45,7 +46,7 @@ export class AdminheaderComponent implements OnInit {
     this.cookieService.deleteAll();
     this.cookieService.deleteAll('/');
     setTimeout(() => {
-      window.location.href = '/';
+      this.window.location.href = '/';
       this.router.navigateByUrl('/home');
     }, 1000);
   }

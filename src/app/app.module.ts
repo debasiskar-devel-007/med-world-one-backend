@@ -156,6 +156,7 @@ import { PurchasecomparisoncartComponent } from './Components/inventory/purchase
 import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from './Components/frontend/package/package.component';
 import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
 
 
 @NgModule({
@@ -271,7 +272,7 @@ import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Com
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     TransferHttpCacheModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -291,6 +292,7 @@ import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Com
     ClipboardModule,
     NgxDaterangepickerMd.forRoot(),
     MetaModule.forRoot(),
+    NgtUniversalModule,
   ],
   providers: [CookieService,
     LoaderService,

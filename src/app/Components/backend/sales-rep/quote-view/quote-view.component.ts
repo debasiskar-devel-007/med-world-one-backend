@@ -147,56 +147,79 @@ public Package_all_total:number;
 
 /**update quote with price */
   save(){
-
     var postData:any={};
+    /**save purchase quote */
     if(this.activatedRoute.snapshot.url[1].path=='quote-view'){
+      let alltotal={
+        "totalquantity":this.totalqty,
+        "totaltax":this.totaltax,
+        "subtotal":this.totalprice,
+      }
       postData={
-
         "source":'quote-details',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
-          "inventory_details":this.quotedetails
+          "inventory_details":this.quotedetails,
+          "total":alltotal
         }
       }
+      console.log(postData);
     }
-
+      /**save comparision quot */
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
+      let alltotal={
+        "totalquantity":this.totalqty,
+        "totaltax":this.totaltax,
+        "subtotal":this.totalprice,
+        "savings":this.savings
+      }
       postData={
 
         "source":'purchase_comparison_quote-details',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
-          "inventory_details":this.quotedetails
+          "inventory_details":this.quotedetails,
+          "total":alltotal
         }
       }
     }
-
+        /**save listing quot */
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      postData={
+      let alltotal={
+        "totalquantity":this.totalqty
+      }
 
+      postData={
         "source":'quote_listing_details',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
-          "inventory_details":this.quotedetails
+          "inventory_details":this.quotedetails,
+          "total":alltotal
         }
       }
     }
 
     /**save package */
     if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
-      
+      var alltotal={
+        "totalquantity":this.totalqty,
+        "totaltax":this.totaltax,
+        "subtotal":this.totalprice,
+        "package_total":this.Package_all_total
+      }
       postData={
 
         "source":'package_list',
         "data":{
           "id":this.activatedRoute.snapshot.params.id,
-          "package_inventoery_details":this.quotedetails
+          "package_inventoery_details":this.quotedetails,
+          "total":alltotal
         }
       }
       }
 
 
-    //console.log(postData);
+    console.log(postData);
     
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);

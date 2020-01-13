@@ -452,6 +452,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 
 
 { path: 'inventory/inventorylistingquote/add', component: InventorylistingquotefromapiComponent },
+{ path: 'inventory/inventorylistingquote/edit/:listingquoteid', component: InventorylistingquotefromapiComponent },
 
 
 
