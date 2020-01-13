@@ -107,7 +107,7 @@
 
             <table>
               <tr>
-                <th>Product Name :</th>
+                <th>Product:</th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
                     {{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}
@@ -132,7 +132,7 @@
                 
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <th>Brand : </th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
@@ -142,9 +142,18 @@
                     {{item.brandname}}
                   </ng-container>
                  </td>
+              </tr> -->
+              <tr>
+                <th>Version/Model:</th>
+                <td>
+                
+                    {{item._source.versionModelNumber}}
+                 
+                  
+                 </td>
               </tr>
               <tr>
-                <th>UID# :</th>
+                <th>Device ID :</th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
                     {{item._source.identifiers.identifier.deviceId}}
@@ -154,6 +163,14 @@
                   </ng-container>
                 </td>
               </tr>
+
+              <tr>
+                <th>Description</th>
+                <td>
+                    {{item._source.deviceDescription}}
+                </td>
+              </tr>
+
               <tr>
                 <th>Quantity :</th>
                 <td>
@@ -161,13 +178,13 @@
                     placeholder="{{item.quantity}}" />
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <th>Sell Price :</th>
                 <td>
                   <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
                     placeholder="{{item.saleprice}}" />
                 </td>
-              </tr>
+              </tr> -->
             </table>
             <mat-toolbar class="action">
               <button mat-button (click)="delete(i)">Remove</button>

@@ -132,7 +132,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   inventoryAdd(item: any) {
    // console.log(item);
     item.quantity = 1;
-    item.saleprice = 1;
+    // item.saleprice = 1;
 
     this.InventoeryListDetails.push(item);
     //console.log(this.InventoeryListDetails);
@@ -186,6 +186,8 @@ export class InventorylistingquotefromapiComponent implements OnInit {
         "companyName": this.InventoeryListDetails[i]._source.companyName,
         "brandname": this.InventoeryListDetails[i]._source.brandName,
         "device_id": this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
+        "description":this.InventoeryListDetails[i]._source.deviceDescription,
+        "version":this.InventoeryListDetails[i]._source.versionModelNumber,
         "quantity": this.InventoeryListDetails[i].quantity,
         "saleprice": this.InventoeryListDetails[i].saleprice
       };

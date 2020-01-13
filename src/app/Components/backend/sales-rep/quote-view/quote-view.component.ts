@@ -31,7 +31,7 @@ public savings:number=0;
 public Package_Details:any=[];
 public save_inventoery_details:any=[];
 public Package_all_total:number;
-public totalSellprice:number=0;
+// public totalSellprice:number=0;
 public totalQuotedprice:number=0;
 public totalWholesellprice:number=0;
   constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
@@ -92,8 +92,8 @@ public totalWholesellprice:number=0;
         if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
         this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice;
 
-        if(this.quotedetails[i].saleprice==null)this.quotedetails[i].saleprice=0;
-        this.totalSellprice=this.totalSellprice+this.quotedetails[i].saleprice;
+        // if(this.quotedetails[i].saleprice==null)this.quotedetails[i].saleprice=0;
+        // this.totalSellprice=this.totalSellprice+this.quotedetails[i].saleprice;
 
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
@@ -148,7 +148,7 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'uid', 'company', 'brand', 'qty', 'saleprice','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'uid', 'company', 'brand', 'qty','quotedprice'];
     }
   }
   
@@ -201,7 +201,6 @@ public totalWholesellprice:number=0;
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       let alltotal={
         "totalquantity":this.totalqty,
-        "totalsellprice":this.totalSellprice,
         "totalquotedprice":this.totalQuotedprice
       }
 
@@ -335,6 +334,24 @@ var post={
 }
 }
 }
+
+      /**pdf for  listing quot */
+      if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+        var postData:any={
+          "quote_id":this.activatedRoute.snapshot.params.id,
+          "source":"quote_listing_details",
+          "data":{
+            "file_path":""
+          }
+        }
+  
+        var post={
+          "source":"quote_listing_details",
+          "condition":{
+          "_id_object":this.activatedRoute.snapshot.params.id
+          }
+          }
+      }
 
   //console.log(postData);
   this.http.httpViaPost('downloadpdf', postData).subscribe((response: any) => {
