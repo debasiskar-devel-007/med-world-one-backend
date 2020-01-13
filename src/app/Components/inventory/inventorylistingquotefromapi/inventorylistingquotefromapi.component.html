@@ -27,7 +27,10 @@
               </mat-autocomplete>
           </mat-form-field> -->
         </form>
-        <ng-container *ngIf="inven!=null ">
+        <ng-container *ngIf="flag==1"><span>Search Result:{{searchCount}}</span></ng-container>
+        
+
+        <ng-container *ngIf="inven!=null">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of inven">
             <mat-card-content class="itenms_inner" >
               <span class="name" *ngIf="inventory._source.brandName!=null">

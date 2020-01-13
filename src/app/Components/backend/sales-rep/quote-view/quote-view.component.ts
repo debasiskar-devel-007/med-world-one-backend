@@ -344,7 +344,7 @@ var post={
         this.http.httpViaPost('datalist', post).subscribe((response: any) => {
           //console.log("datalist",response); 
                     
-                    window.location.href=response.res[0].file_path;
+                   window.location.href=response.res[0].file_path;
                   
         })
       }, 1000)

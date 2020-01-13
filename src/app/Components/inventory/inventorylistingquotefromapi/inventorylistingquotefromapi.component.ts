@@ -28,6 +28,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public quote_id: number;
   public notes:string;
   public invendetailsbyId:any;
+  public searchCount:number;
 
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
     public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, public dialog: MatDialog) {
@@ -118,7 +119,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
         //console.warn("search",response.res.body.hits.hits._source);
 
         this.inven = response.res.body.hits.hits;
-
+        this.searchCount=response.res.body.hits.total;
           this.flag=1;
       }
     })
@@ -218,7 +219,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
    
   console.warn(postData);
-  return;
+  
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {

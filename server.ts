@@ -23,6 +23,28 @@ import {join} from 'path';
 // Express server
 export const app = express();
 
+/**sourav */
+const domino = require("domino");
+const fs = require("fs");
+const path = require("path");
+const templateA = fs
+  .readFileSync(path.join("dist/browser", "index.html"))
+  .toString();
+const win = domino.createWindow(templateA);
+win.Object = Object;
+win.Math = Math;
+
+global["window"] = win;
+global["document"] = win.document;
+global["branch"] = null;
+global["object"] = win.object;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
+/**sourav */
+
+
+
+
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
 

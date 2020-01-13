@@ -46,8 +46,9 @@ export class AdminheaderComponent implements OnInit {
     this.cookieService.deleteAll();
     this.cookieService.deleteAll('/');
     setTimeout(() => {
-      this.window.location.href = '/';
-      this.router.navigateByUrl('/home');
+      //this.window.location.href = '/';
+      //this.router.navigateByUrl('/home');
+      this.router.navigate(['/']);
     }, 1000);
   }
   /**logout function end here**/
