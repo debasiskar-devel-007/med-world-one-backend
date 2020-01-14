@@ -383,7 +383,7 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      //console.log(data);
+      console.log(data);
     }
 
   onNoClick(): void {

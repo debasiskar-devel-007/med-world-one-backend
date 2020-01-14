@@ -53,13 +53,15 @@ export class InventoryDetailsComponent implements OnInit {
     let url: any = {};
     url = this.activatedRoute.snapshot.params.id;
     let data: any = {
-      "source": "inventories_list_view",
+      "source": "inventories_list_view_async",
       "condition": {
         "_id_object": url
       },
     };
-    this.httpServiceService.httpViaPost('datalist', data).subscribe((result: any) => {
+    console.warn(data);
 
+    this.httpServiceService.httpViaPost('datalist', data).subscribe((result: any) => {
+      console.warn(result);
       this.inventoryDetails = result.res[0];
       this.dynamic_attributes = result.res[0].dynamic_attributes;
 

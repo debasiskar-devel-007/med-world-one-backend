@@ -54,7 +54,9 @@
             </ng-container>
 
             <ng-container *ngIf="element.brandName!=null"> {{element.brandName}}{{element.identifiers.identifier.deviceId}}<h4 class='descriptionquoteview'>
-              <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container></h4>
+              <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container>
+              <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
+            </h4>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 

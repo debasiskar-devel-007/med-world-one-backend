@@ -189,7 +189,6 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       if(this.InventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.InventoeryListDetails[i].deviceCommDistributionEndDate
       if(this.InventoeryListDetails[i].publicVersionNumber!=null) delete this.InventoeryListDetails[i].publicVersionNumber
       if(this.InventoeryListDetails[i].devicePublishDate!=null) delete this.InventoeryListDetails[i].devicePublishDate
-      if(this.InventoeryListDetails[i].productCodes!=null) delete this.InventoeryListDetails[i].productCodes
       if(this.InventoeryListDetails[i].deviceSizes!=null) delete this.InventoeryListDetails[i].deviceSizes
       if(this.InventoeryListDetails[i].complete_suggest!=null) delete this.InventoeryListDetails[i].complete_suggest
       if(this.InventoeryListDetails[i].deviceClass!=null) delete this.InventoeryListDetails[i].deviceClass
@@ -264,7 +263,6 @@ savequote(){
       if(this.InventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.InventoeryListDetails[i].deviceCommDistributionEndDate
       if(this.InventoeryListDetails[i].publicVersionNumber!=null) delete this.InventoeryListDetails[i].publicVersionNumber
       if(this.InventoeryListDetails[i].devicePublishDate!=null) delete this.InventoeryListDetails[i].devicePublishDate
-      if(this.InventoeryListDetails[i].productCodes!=null) delete this.InventoeryListDetails[i].productCodes
       if(this.InventoeryListDetails[i].deviceSizes!=null) delete this.InventoeryListDetails[i].deviceSizes
       if(this.InventoeryListDetails[i].complete_suggest!=null) delete this.InventoeryListDetails[i].complete_suggest
       if(this.InventoeryListDetails[i].deviceClass!=null) delete this.InventoeryListDetails[i].deviceClass
