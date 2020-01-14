@@ -4,9 +4,11 @@
 
 .top_logo_wrapper .top_wr1{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}
 .top_logo_wrapper .top_wr1 .inner_items {margin-bottom: 0;}
-.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px;}
-.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 10px; }
-.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 3px 0; font-family: 'AvenirMedium';  }
+.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px; margin: 0;}
+.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 0px; padding-left: 10px; }
+.top_logo_wrapper .top_wr1 .details p{ margin: 5px 0; font-family: "AvenirBook"; font-size: 16px; color: #535353;}
+.top_logo_wrapper .top_wr1 .details p span{ font-family: "AvenirMedium";}
+.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 3px 0; font-family: 'AvenirBook'; color: #465157; }
 .top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;
@@ -18,6 +20,7 @@
 
 /* table */
 .quote_table_wrapper{ margin-bottom: 0;}
+.quote_table_wrapper .name_header{ font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
 .quote_table_wrapper table{width: 100%; }
 .quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }
 .quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: "AvenirRoman"; font-size: 18px;}

@@ -27,7 +27,8 @@
               </mat-autocomplete>
           </mat-form-field> -->
         </form>
-        <ng-container *ngIf="flag==1"><span class="search_result">SEARCH RESULT FOR:<p>{{searchString}}</p> <a>({{searchCount}} results)</a></span>
+        <ng-container *ngIf="flag==1"><span class="search_result">SEARCH RESULT FOR:<p>{{searchString}}</p>
+            <a>({{searchCount}} results)</a></span>
         </ng-container>
 
 
@@ -37,32 +38,37 @@
               <span class="name" *ngIf="inventory._source.brandName!=null">
                 {{inventory._source.brandName}}({{inventory._source.identifiers.identifier.deviceId}})</span>
 
-              <span class="desc"><i matTooltip="Device ID" matTooltipPosition="above" class="fa fa-desktop"
-                  aria-hidden="true"></i>
-                <p> {{inventory._source.identifiers.identifier.deviceId}}</p>
+              <span class="ineer_wr">
+                <span class="items"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
+                    aria-hidden="true"></i>
+                  <p>{{inventory._source.companyName}}</p>
+                </span>
+
+                <span class="items"><i matTooltip="Version or Model" matTooltipPosition="above" class="fa fa-diamond"
+                    aria-hidden="true"></i>
+                  <p>{{inventory._source.versionModelNumber}}</p>
+                </span>
+
+                <span class="items"><i matTooltip="Device ID" matTooltipPosition="above" class="fa fa-desktop"
+                    aria-hidden="true"></i>
+                  <p> {{inventory._source.identifiers.identifier.deviceId}}</p>
+                </span>
+
+
+                <span class="items"><i matTooltip="GMDN Terms" matTooltipPosition="above" class="fa fa-sign-language"
+                    aria-hidden="true"></i>
+                  <p>{{inventory._source.gmdnTerms.gmdn.gmdnPTName}}</p>
+                </span>
               </span>
 
               <span class="desc"><i matTooltip="Description" matTooltipPosition="above" class="fa fa-newspaper-o"
                   aria-hidden="true"></i>
                 <p> {{inventory._source.deviceDescription}}</p>
               </span>
-
             </mat-card-content>
-
-            <mat-card-content class="itenms_inner">
-              <span class="compName"><i matTooltip="Company Name" matTooltipPosition="above" class="fa fa-building-o"
-                  aria-hidden="true"></i>
-                {{inventory._source.companyName}}</span>
-              <span class="version"><i matTooltip="Version or Model" matTooltipPosition="above" class="fa fa-diamond"
-                  aria-hidden="true"></i>{{inventory._source.versionModelNumber}}</span>
-
-              <span class="version"><i matTooltip="GMDN Terms" matTooltipPosition="above" class="fa fa-sign-language"
-                  aria-hidden="true"></i>{{inventory._source.gmdnTerms.gmdn.gmdnPTName}}</span>
-
-              <span class="pro_wrapper">
-                <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
-                <button mat-button (click)="viewDetails(inventory)">View Details </button>
-              </span>
+            <mat-card-content class="action_wrapper">
+              <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
+              <button mat-button (click)="viewDetails(inventory)">View Details </button>
             </mat-card-content>
           </mat-card-content>
         </ng-container>
