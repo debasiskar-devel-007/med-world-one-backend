@@ -22,13 +22,28 @@ public departmentForm:FormGroup;
 
   ngOnInit() {
   }
+
+    /** blur function **/
+    inputBlur(val: any) {
+      this.departmentForm.controls[val].markAsUntouched();
+    }
 /**onsubmit */
 onSubmit(){
+  for (let x in this.departmentForm.controls) {
+    this.departmentForm.controls[x].markAsTouched();
+  }
   let postData: any = {
     "source": 'department',
     "data":this.departmentForm.value
       };
-      console.log(postData);
+      //console.log(postData);
+      this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+        //console.log(response);
+        if (response.status == "success") {
+          this.departmentForm.reset();
+          //console.log(response);
+        }
+      })
 }
 
 }

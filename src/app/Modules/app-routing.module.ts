@@ -81,6 +81,7 @@ import { AdminpackageComponent } from '../Components/inventory/adminpackage/admi
 import { PackageComponent } from '../Components/frontend/package/package.component';
 import { InventorylistingquotefromapiComponent } from '../Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
 import { DepartmentComponent } from '../Components/admin/department/department.component';
+import { DepartentListComponent } from '../Components/admin/department/departent-list/departent-list.component';
 
 
 
@@ -458,6 +459,16 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 //________________admin department--------------
 
 { path: 'admin/inventory/manage-department', component:DepartmentComponent},
+{ path: 'admin/inventory/manage-department/list', component:DepartentListComponent,canActivate: [AuthguardService],
+resolve: { adminList: ResolveService },
+data: {
+  requestcondition: {
+    source: 'department',
+    condition: {}
+  },
+  endpoint: 'datalist'
+},},
+
 
 
 

@@ -158,6 +158,7 @@ import { PackageComponent } from './Components/frontend/package/package.componen
 import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DepartmentComponent } from './Components/admin/department/department.component';
+import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
 
 
 @NgModule({
@@ -268,7 +269,7 @@ import { DepartmentComponent } from './Components/admin/department/department.co
     quoteModal,sendMailModal, 
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
-    AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent,
+    AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent,
 
 
   ],
