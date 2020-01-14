@@ -25,6 +25,19 @@
 
         </span>
 
+         <!-- First Name  -->
+         <span class="col-1-4">
+            <mat-form-field>
+                <mat-label>Parent Department:</mat-label>
+                <mat-select formControlName="department_parent">
+                    <mat-option *ngFor="let food of deplist"  [value]="food._id">
+                      {{food.department_name}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+
+        </span>
+
         <!-- Priority  -->
         <span class="col-1-4">
             <mat-form-field>

@@ -61,7 +61,7 @@
             <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
           </td>
-          <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 
+          <td mat-footer-cell *matFooterCellDef data-label="note"> <p><span class="name_header">Note:&nbsp;</span>{{notes}}</p><p 
             *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'" ng-bind="element.savings"> Total Savings with MD Stock International: ${{savings}}</p> 
           </td>
         </ng-container>
@@ -186,10 +186,11 @@
               </span>
             </span>
           </td>
-          <td mat-footer-cell *matFooterCellDef><h4>Total Devices: {{totalqty}}</h4>
-            <h4>Subtotal: {{totalQuotedprice}}</h4>
-            <h4>S&D: 12358</h4>
-            <h4>Total: 42358</h4>
+          <td mat-footer-cell *matFooterCellDef> 
+            <p class="total_label"><label>Total Devices:</label> <span>{{totalqty}}</span></p>
+            <p class="total_label"><label>Subtotal:</label> <span>{{totalQuotedprice}}</span></p>
+            <p class="total_label"><label>S&D:</label> <span>12358</span></p>
+            <p class="total_label"><label>Total:</label> <span>42358</span></p> 
             </td>
         
         </ng-container>

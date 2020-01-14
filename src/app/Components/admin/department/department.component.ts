@@ -9,13 +9,23 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class DepartmentComponent implements OnInit {
 public departmentForm:FormGroup;
+public deplist:any=[];
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService) {
+
+      let post={
+        "source": 'department',
+      }
+      this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+        this.deplist=res.res;
+        console.warn(res);
+      })
 
       this.departmentForm = this.formBuilder.group({
        department_name:['',Validators.required],
        department_description:['',Validators.required],
        department_priority:['',Validators.required],
+       department_parent:[''],
        status:['',Validators.required]
       });
      }
@@ -34,7 +44,8 @@ onSubmit(){
   }
   let postData: any = {
     "source": 'department',
-    "data":this.departmentForm.value
+    "data":this.departmentForm.value,
+    "sourceobj":["department_parent"]
       };
       //console.log(postData);
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
