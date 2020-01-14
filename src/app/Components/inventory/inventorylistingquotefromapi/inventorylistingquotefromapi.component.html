@@ -113,7 +113,7 @@
                 <th>Product:</th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
-                    {{item._source.brandName}}{{item._source.identifiers.identifier.deviceId}}
+                    {{item.brandName}}{{item.identifiers.identifier.deviceId}}
                   </ng-container>
 
                   <ng-container *ngIf="item.brandname!=null">
@@ -126,7 +126,7 @@
                 <th>Company Name :</th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
-                    {{item._source.companyName}}
+                    {{item.companyName}}
                   </ng-container>
 
                   <ng-container *ngIf="item.brandname!=null">
@@ -149,8 +149,13 @@
               <tr>
                 <th>Version/Model:</th>
                 <td>
-
-                  {{item._source.versionModelNumber}}
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.versionModelNumber}}
+                  </ng-container>
+                 
+                  <ng-container *ngIf="item.version!=null">
+                    {{item.version}}
+                  </ng-container>
 
 
                 </td>
@@ -159,10 +164,10 @@
                 <th>Device ID :</th>
                 <td>
                   <ng-container *ngIf="item.brandname==null">
-                    {{item._source.identifiers.identifier.deviceId}}
+                    {{item.identifiers.identifier.deviceId}}
                   </ng-container>
                   <ng-container *ngIf="item.brandname!=null">
-                    {{item.device_ids}}
+                    {{item.device_id}}
                   </ng-container>
                 </td>
               </tr>
@@ -170,7 +175,15 @@
               <tr>
                 <th>Description</th>
                 <td>
-                  {{item._source.deviceDescription}}
+                  
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.deviceDescription}}
+                  </ng-container>
+                 
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.version}}
+                  </ng-container>
+
                 </td>
               </tr>
 

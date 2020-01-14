@@ -53,8 +53,8 @@
               <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
 
-            <ng-container *ngIf="element.device_name!=null">  {{element.device_name}}<h4 class='descriptionquoteview'>
-              <ng-container><span >Description: </span>{{element.description}}</ng-container></h4>
+            <ng-container *ngIf="element.brandName!=null"> {{element.brandName}}{{element.identifiers.identifier.deviceId}}<h4 class='descriptionquoteview'>
+              <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container></h4>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p>Note :{{notes}}</p><p 
@@ -65,7 +65,7 @@
         <!-- UID Column -->
         <ng-container matColumnDef="uid">
           <th mat-header-cell *matHeaderCellDef> Device ID </th>
-          <td mat-cell *matCellDef="let element" data-label="sku#"> {{element.device_id}} </td>
+          <td mat-cell *matCellDef="let element" data-label="sku#"> {{element.identifiers.identifier.deviceId}} </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
         </ng-container>
@@ -96,7 +96,7 @@
          <ng-container matColumnDef="version">
           <th mat-header-cell *matHeaderCellDef> version/model </th>
           <td mat-cell *matCellDef="let element" data-label="Category">
-             {{element.version}}
+             {{element.versionModelNumber}}
         
           </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
