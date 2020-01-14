@@ -269,7 +269,7 @@ public totalWholesellprice:number=0;
     // console.log(ele);
      
       const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-       panelClass:'viewquoteModal',
+       panelClass:'viewlistingQuoteModal',
         data: {alldata: ele}
        
       });
