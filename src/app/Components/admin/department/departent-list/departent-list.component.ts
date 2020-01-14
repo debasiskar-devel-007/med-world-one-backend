@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-departent-list',
@@ -12,10 +13,9 @@ export class DepartentListComponent implements OnInit {
   adminData_skip: any = ["_id","created_at"];
   adminData_modify_header: any = {
     "firstname": "department_name", "status": "Status" };
-  tableName: any = 'users';
+  tableName: any = 'department';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
-  user_cookie: any;
   searchingEndpoint: any = "datalist";
   editUrl: any = 'admin/inventory/manage-department/edit';
   apiUrl: any = this.http.baseUrl;
@@ -25,7 +25,7 @@ export class DepartentListComponent implements OnInit {
   public search_settings: any =
     {
     };
-  constructor(public http: HttpServiceService,public activatedRoute: ActivatedRoute) { }
+  constructor(public http: HttpServiceService,public activatedRoute: ActivatedRoute,public cookieService:CookieService) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {

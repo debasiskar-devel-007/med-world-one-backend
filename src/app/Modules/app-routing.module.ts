@@ -82,6 +82,7 @@ import { PackageComponent } from '../Components/frontend/package/package.compone
 import { InventorylistingquotefromapiComponent } from '../Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
 import { DepartmentComponent } from '../Components/admin/department/department.component';
 import { DepartentListComponent } from '../Components/admin/department/departent-list/departent-list.component';
+import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
 
 
 
@@ -470,7 +471,8 @@ data: {
   endpoint: 'datalist'
 },},
 
-
+//-------------admin manage-hospital-package
+{ path: 'admin/manage-hospital-package/add', component: ManageHospitalPackageComponent },
 
 
 //________________INVENTORY listing quote add for salesrep--------------
