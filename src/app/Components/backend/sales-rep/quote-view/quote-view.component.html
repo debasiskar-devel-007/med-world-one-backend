@@ -7,14 +7,15 @@
           <img src="../../../../../assets/images/logo.png">
         </mat-card-content>
 
-        <mat-card-content class="inner_items_top">
-          <mat-list class="details">
-            <mat-list-item><span>Date :</span><span>{{dateAdded}}</span></mat-list-item>
-            <mat-list-item><span>Quote ID :</span><span>{{quoteId}}</span></mat-list-item>
-            <mat-list-item>1175 American Pacific Dr Ste# F
+        <mat-card-content class="inner_items_top"> 
+          <mat-card-content class="details">
+              <p><span>Date:&nbsp;</span>{{dateAdded}}</p>
+              <p><span>Quote ID:&nbsp;</span>{{quoteId}}</p>
+              <p><span>Corporate Address:&nbsp;</span> 
+              1175 American Pacific Dr Ste# F
               Henderson, NV 89074
-            </mat-list-item>
-          </mat-list>
+            </p>
+          </mat-card-content>
         </mat-card-content>
       </span>
       <mat-card-content class="inner_items_top_bottom">
@@ -53,7 +54,7 @@
               <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
             </ng-container>
 
-            <ng-container *ngIf="element.brandName!=null"> {{element.brandName}}{{element.identifiers.identifier.deviceId}}<h4 class='descriptionquoteview'>
+            <ng-container *ngIf="element.brandName!=null"> <span class='name_header'> {{element.brandName}}{{element.identifiers.identifier.deviceId}}</span><h4 class='descriptionquoteview'>
               <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container></h4>
             </ng-container>
           </td>
