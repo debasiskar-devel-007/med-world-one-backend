@@ -1,0 +1,48 @@
+<app-adminheader>
+    <form autocomplete="off" [formGroup]="packageHospitalForm">
+        <span class="col-1-4">
+            <mat-form-field>
+                <mat-label>Package Name:</mat-label>
+                <input matInput type="text" formControlName="package_name" (blur)="inputBlur('package_name')">
+                <mat-error *ngIf="!packageHospitalForm.controls['package_name'].valid
+                && packageHospitalForm.controls['package_name'].errors.required">
+                    Department Name is required.
+                </mat-error>
+            </mat-form-field>
+
+        </span>
+
+          <!-- Department  -->
+          <span class="col-1-4">
+            <mat-form-field>
+                <mat-label>Department:</mat-label>
+                <mat-select formControlName="department">
+                    <mat-option *ngFor="let food of deplist"  [value]="food._id">
+                      {{food.department_name}}
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+
+        </span>
+
+
+        <!-- Description  -->
+        <span class="col-1-4">
+            <mat-form-field>
+                <mat-label>Description:</mat-label>
+                <textarea matInput formControlName="package_description" (blur)="inputBlur('package_description')"></textarea>
+                <mat-error *ngIf="!packageHospitalForm.controls['package_description'].valid
+                                            && packageHospitalForm.controls['package_description'].errors.required">
+                    Description is required.
+                </mat-error>
+            </mat-form-field>
+
+        </span>
+
+       
+
+        <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
+        <button mat-button type="button" class="skybutton" (click)="cancel()" color="warm">Cancel</button>
+    </form>
+</app-adminheader>
+

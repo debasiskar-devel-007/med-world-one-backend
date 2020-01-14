@@ -1,4 +1,5 @@
 <app-adminheader>
+<<<<<<< HEAD
     <mat-card class="admindashboardmainwrapper departmentList">
         <span class="dashboardcontainer">
             <!-- Listing goes here  -->
@@ -9,7 +10,7 @@
                 </mat-card-content>
                 <lib-listing *ngIf="adminData != null && adminData.length>0" [datasource]="adminData"
                     [skip]="adminData_skip" [modify_header_array]="adminData_modify_header" [sourcedata]="tableName"
-                    [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"
+                    [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="cookieService.get('jwtToken')" [statusarr]="status"
                     [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
                     [date_search_endpoint]="searchingEndpoint" [date_search_source]="view"
                     [search_settings]="search_settings" [detail_skip_array]="detail_header">
