@@ -101,7 +101,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
   }
   this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-    //console.log("fetch by id invenID", response.res);
+    console.log("fetch by id invenID", response.res);
     this.invendetailsbyId = response.res;
     this.InventoeryListDetails= response.res[0].inventory_details;
     //console.log(this.invendetailsbyId);
@@ -131,11 +131,13 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   /**inventory Add */
   inventoryAdd(item: any) {
    // console.log(item);
-    item.quantity = 1;
+    
+    let itm:any=item._source;
+    itm.quantity=1;
     // item.saleprice = 1;
 
-    this.InventoeryListDetails.push(item);
-    //console.log(this.InventoeryListDetails);
+    this.InventoeryListDetails.push(itm);
+    console.log(this.InventoeryListDetails);
 
   }
 
@@ -179,31 +181,29 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
     
     var postData: any = {};
-    var Finallistinginventory:any=[];
+
     for (let i in this.InventoeryListDetails) {
-   
-         var listingDetails = {
-        "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
-        "companyName": this.InventoeryListDetails[i]._source.companyName,
-        "brandname": this.InventoeryListDetails[i]._source.brandName,
-        "device_id": this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
-        "description":this.InventoeryListDetails[i]._source.deviceDescription,
-        "version":this.InventoeryListDetails[i]._source.versionModelNumber,
-        "quantity": this.InventoeryListDetails[i].quantity,
-        "saleprice": this.InventoeryListDetails[i].saleprice
-      };
-      Finallistinginventory.push(listingDetails);
-      
-     
+      if(this.InventoeryListDetails[i].publicDeviceRecordKey!=null) delete this.InventoeryListDetails[i].publicDeviceRecordKey
+      if(this.InventoeryListDetails[i].publicVersionStatus!=null) delete this.InventoeryListDetails[i].publicVersionStatus
+      if(this.InventoeryListDetails[i].deviceRecordStatus!=null) delete this.InventoeryListDetails[i].deviceRecordStatus
+      if(this.InventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.InventoeryListDetails[i].deviceCommDistributionEndDate
+      if(this.InventoeryListDetails[i].publicVersionNumber!=null) delete this.InventoeryListDetails[i].publicVersionNumber
+      if(this.InventoeryListDetails[i].devicePublishDate!=null) delete this.InventoeryListDetails[i].devicePublishDate
+      if(this.InventoeryListDetails[i].productCodes!=null) delete this.InventoeryListDetails[i].productCodes
+      if(this.InventoeryListDetails[i].deviceSizes!=null) delete this.InventoeryListDetails[i].deviceSizes
+      if(this.InventoeryListDetails[i].complete_suggest!=null) delete this.InventoeryListDetails[i].complete_suggest
+      if(this.InventoeryListDetails[i].deviceClass!=null) delete this.InventoeryListDetails[i].deviceClass
+      if(this.InventoeryListDetails[i].implantFlag!=null) delete this.InventoeryListDetails[i].implantFlag
+      if(this.InventoeryListDetails[i].publicVersionDate!=null) delete this.InventoeryListDetails[i].publicVersionDate
+
     }
-    //var Finallistinginventory = [];
 
     if(this.activatedRoute.snapshot.params.listingquoteid){
        postData = {
       "source": "quote_listing_details",
       "data": {
         "id": this.invendetailsbyId[0]._id,
-        "inventory_details": Finallistinginventory,
+        "inventory_details": this.InventoeryListDetails,
         "status": 1,
       }
     }
@@ -211,7 +211,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     postData = {
       "source": "quote_listing_details",
       "data": {
-        "inventory_details": Finallistinginventory,
+        "inventory_details":this.InventoeryListDetails,
         "hospital_id": this.hospitalId,
         "user_id": this.userId,
         "notes":this.notes,
@@ -223,8 +223,8 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   }
 
    
-  console.warn(postData);
-  
+  //console.warn(postData);
+
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
@@ -257,25 +257,27 @@ savequote(){
       });
       return;
     }
-    var Finallistinginventory = [];
     for (let i in this.InventoeryListDetails) {
-      var listingDetails = {
-        "device_name": this.InventoeryListDetails[i]._source.brandName +'('+this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId+')',
-        "companyName": this.InventoeryListDetails[i]._source.companyName,
-        "brandname": this.InventoeryListDetails[i]._source.brandName,
-        "description":this.InventoeryListDetails[i]._source.deviceDescription,
-        "version":this.InventoeryListDetails[i]._source.versionModelNumber,
-        "device_id": this.InventoeryListDetails[i]._source.identifiers.identifier.deviceId,
-        "quantity": this.InventoeryListDetails[i].quantity,
-        "saleprice": this.InventoeryListDetails[i].saleprice
-      };
-      Finallistinginventory.push(listingDetails);
+      if(this.InventoeryListDetails[i].publicDeviceRecordKey!=null) delete this.InventoeryListDetails[i].publicDeviceRecordKey
+      if(this.InventoeryListDetails[i].publicVersionStatus!=null) delete this.InventoeryListDetails[i].publicVersionStatus
+      if(this.InventoeryListDetails[i].deviceRecordStatus!=null) delete this.InventoeryListDetails[i].deviceRecordStatus
+      if(this.InventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.InventoeryListDetails[i].deviceCommDistributionEndDate
+      if(this.InventoeryListDetails[i].publicVersionNumber!=null) delete this.InventoeryListDetails[i].publicVersionNumber
+      if(this.InventoeryListDetails[i].devicePublishDate!=null) delete this.InventoeryListDetails[i].devicePublishDate
+      if(this.InventoeryListDetails[i].productCodes!=null) delete this.InventoeryListDetails[i].productCodes
+      if(this.InventoeryListDetails[i].deviceSizes!=null) delete this.InventoeryListDetails[i].deviceSizes
+      if(this.InventoeryListDetails[i].complete_suggest!=null) delete this.InventoeryListDetails[i].complete_suggest
+      if(this.InventoeryListDetails[i].deviceClass!=null) delete this.InventoeryListDetails[i].deviceClass
+      if(this.InventoeryListDetails[i].implantFlag!=null) delete this.InventoeryListDetails[i].implantFlag
+      if(this.InventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.InventoeryListDetails[i].deviceCommDistributionEndDate
+      if(this.InventoeryListDetails[i].publicVersionDate!=null) delete this.InventoeryListDetails[i].publicVersionDate
+
     }
 
     var postData = {
       "source": "quote_listing_details",
       "data": {
-        "inventory_details": Finallistinginventory,
+        "inventory_details": this.InventoeryListDetails,
         "hospital_id": this.hospitalId,
         "user_id": this.userId,
         "notes":this.notes,
@@ -284,7 +286,8 @@ savequote(){
       },
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
-    console.log("save listing quote",postData);
+    //console.log("save listing quote",postData);
+    
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
