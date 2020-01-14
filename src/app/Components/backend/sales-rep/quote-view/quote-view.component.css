@@ -43,13 +43,16 @@
 
 .quote_table_wrapper table td.mat-cell { color: #465157; font-family: "AvenirMedium"; }
 .quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px; }
-.quote_table_wrapper table th:first-of-type{ width: 35%;}
-.quote_table_wrapper table th:last-of-type{ width: 18%; text-align: center;}
+.quote_table_wrapper table th:first-of-type{ width: 39%;}
+.quote_table_wrapper table th:last-of-type{ width: 14%; text-align: center;}
 .quote_table_wrapper table .mat-column-quotedprice { text-align: center; }
 .quote_table_wrapper table .mat-column-quotedprice h4{ margin: 0; font-family: 'AvenirMedium';}
 .quote_table_wrapper table .mat-column-qty{ text-align: center; width: 5%; }
 .quote_table_wrapper table .descriptionquoteview{ margin: 0; margin-top: 10px; font-family: 'AvenirMedium';}
 .quote_table_wrapper table .descriptionquoteview span{  font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
+.quote_table_wrapper table .total_label{ display: flex; margin: 7px 0; justify-content: space-between; border-bottom: 1px solid #b3b3b3;}
+.quote_table_wrapper table .total_label:last-child{ border-bottom: none; }
+.quote_table_wrapper table .total_label label{ font-family: 'AvenirBlack' }
 
 .hidecls{display: none !important;}
 .quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
@@ -62,15 +65,7 @@
 .quotemodalvew{ margin-bottom: 0; padding: 24px; background: #e4e4e4; border: 5px solid #164e84; box-sizing: border-box; display: flex; flex-direction: column; }
 .quotemodalvew button{ background: #12457b; min-width: 120px; color: #fff; text-transform: uppercase; font-family: 'Avenirmedium'; margin-left: auto; border-radius: 0;
   margin-top: 16px;}
-  .deviceName  {
-    margin: 0;
-    padding: 10px;
-    border-bottom: 3px solid #00667d;
-    font-family: 'AvenirRoman';
-    color: #00667d;
-    font-size: 22px;
-    background: #effcff;
-}
+.deviceName { margin: 0; padding: 10px; border-bottom: 3px solid #00667d; font-family: 'AvenirRoman'; color: #00667d; font-size: 22px; background: #effcff;}
 
 @media screen and ( max-width:1540px){ 
   .quote_cart_wrapper { width: 88%; }
