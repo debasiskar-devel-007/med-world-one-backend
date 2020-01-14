@@ -459,6 +459,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 //________________admin department--------------
 
 { path: 'admin/inventory/manage-department', component:DepartmentComponent},
+{ path: 'admin/inventory/manage-department/edit/:id', component:DepartmentComponent},
 { path: 'admin/inventory/manage-department/list', component:DepartentListComponent,canActivate: [AuthguardService],
 resolve: { adminList: ResolveService },
 data: {

@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DepartentListComponent implements OnInit {
   adminData: any = [];
-  adminData_skip: any = ["_id",];
+  adminData_skip: any = ["_id","created_at"];
   adminData_modify_header: any = {
     "firstname": "department_name", "status": "Status" };
   tableName: any = 'users';
@@ -17,7 +17,7 @@ export class DepartentListComponent implements OnInit {
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
   searchingEndpoint: any = "datalist";
-  editUrl: any = '';
+  editUrl: any = 'admin/inventory/manage-department/edit';
   apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
   view: any = "users_view";
@@ -29,7 +29,7 @@ export class DepartentListComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-     // console.log(resolveData);
+     //console.log(resolveData);
       this.adminData = resolveData.adminList.res;
     });
   }
