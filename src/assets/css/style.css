@@ -1173,5 +1173,5 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .departmentAdd .dept_btn_wpr{ height: auto; align-items: center; justify-content: center; margin: 16px 0 0;}
 .departmentAdd .dept_btn_wpr button{ width: 210px; border-radius: 0; padding: 5px; background: #3f51b5; color: #fff; font-family: 'AvenirMedium'; text-transform: uppercase;
   font-size: 24px;}
-.departmentAdd .text_dept{ min-height: 120px; }
-.departmentAdd .dept_btn_wpr button:last-child{ background: #f44336!important; margin-left: 10px; resize: none;  }
+.departmentAdd .text_dept{ min-height: 120px; resize: none; }
+.departmentAdd .dept_btn_wpr button:last-child{ background: #f44336!important; margin-left: 10px;  }
