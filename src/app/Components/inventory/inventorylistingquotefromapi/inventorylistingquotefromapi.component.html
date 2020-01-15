@@ -8,8 +8,8 @@
 
           <span class="search_wrapper">
             <input class="search_input" placeholder="Search by Product Identifier, Name or Company Name"
-              formControlName="inventory_name" (keyup)="searchproduct()">
-            <i class="material-icons">search</i>
+              formControlName="inventory_name">
+              <button mat-button type="button" (click)="searchproduct()"><i class="material-icons">search</i></button>
           </span>
 
           <!-- brand Search -->
@@ -209,6 +209,7 @@
               </tr> -->
             </table>
             <mat-toolbar class="action">
+              <button mat-button (click)="viewDetails(item)">Device Details</button>
               <button mat-button (click)="delete(i)">Remove</button>
             </mat-toolbar>
 

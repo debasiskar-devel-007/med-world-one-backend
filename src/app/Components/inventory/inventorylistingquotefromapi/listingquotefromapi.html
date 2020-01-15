@@ -2,7 +2,13 @@
 
 
     <h4 class="deviceName"><span>Device Name </span>:
-        {{data.alldata._source.brandName}}({{data.alldata._source.identifiers.identifier.deviceId}})</h4>
+        <ng-container *ngIf="data.alldata._source!=null">
+            {{data.alldata._source.brandName}}({{data.alldata._source.identifiers.identifier.deviceId}})
+        </ng-container>
+        <ng-container *ngIf="data.alldata.brandName!=null">
+            {{data.alldata.brandName}}({{data.alldata.identifiers.identifier.deviceId}})
+        </ng-container>
+        </h4>
 <br>
     <mat-accordion class="accordians">
         <mat-expansion-panel [expanded]="true">
@@ -15,44 +21,108 @@
                 <table>
                     <tr>
                         <th>Company Name</th>
-                        <td>{{data.alldata._source.companyName}}</td>
+                        <td> <ng-container *ngIf="data.alldata._source!=null">
+                            {{data.alldata._source.companyName}}
+                             </ng-container>
+                             <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.companyName}}
+                            </ng-container>
+                        </td>
                     </tr>
                     <tr>
                         <th>Brand</th>
-                        <td>{{data.alldata._source.brandName}}</td>
+                        <td>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                            {{data.alldata._source.brandName}}
+                          </ng-container>
+                          <ng-container *ngIf="data.alldata.brandName!=null">
+                            {{data.alldata.brandName}}
+                          </ng-container>
+                            
+                        </td>
                     </tr>
                     <tr>
                         <th>Version or Model</th>
-                        <td>{{data.alldata._source.versionModelNumber}}</td>
+                        <td>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.versionModelNumber}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.versionModelNumber}}
+                            </ng-container>
+                        </td>
                     </tr>
 
                     <tr>
                         <th>Comercial Distribution State</th>
-                        <td> {{data.alldata._source.deviceCommDistributionStatus}} </td>
+                        <td> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.deviceCommDistributionStatus}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.deviceCommDistributionStatus}}
+                            </ng-container>
+                             </td>
                     </tr>
                     <tr>
                         <th>Catalog No</th>
-                        <td> {{data.alldata._source.catalogNumber}} </td>
+                        <td> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.catalogNumber}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.catalogNumber}}
+                            </ng-container>
+                             </td>
                     </tr>
                     <tr>
                         <th>UID</th>
-                        <td> {{data.alldata._source.identifiers.identifier.deviceId}} </td>
+                        <td> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.identifiers.identifier.deviceId}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.identifiers.identifier.deviceId}}
+                            </ng-container>
+                             </td>
                     </tr>
                     <tr>
                         <th>Issuing Agency</th>
-                        <td> {{data.alldata._source.identifiers.identifier.primaryDeviceIdIssuingAgency}} </td>
+                        <td> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.identifiers.identifier.primaryDeviceIdIssuingAgency}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.identifiers.identifier.primaryDeviceIdIssuingAgency}}
+                            </ng-container>
+                             </td>
                     </tr>
                     <tr>
                         <th>Labeler D-U-N-S No</th>
-                        <td> {{data.alldata._source.dunsNumber}} </td>
+                        <td> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.dunsNumber}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.dunsNumber}}
+                            </ng-container>
+                             </td>
                     </tr>
                     <tr>
-                        <td colspan="2"><span class="uper">Description:</span> <br> {{data.alldata._source.deviceDescription}}</td>
+                        <td colspan="2"><span class="uper">Description:</span> <br> 
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.deviceDescription}}
+                            </ng-container>
+                            </td>
                     </tr>
                 </table>
             </mat-card-content>
         </mat-expansion-panel>
-        <mat-expansion-panel>
+
+         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     <span>DEVICE Charecteristics</span>
@@ -63,78 +133,148 @@
                 <table>
                     <tr>
                         <th>What MRI safety information does the labeling contain?</th>
-                        <td>{{data.alldata._source.MRISafetyStatus}}</td>
+                        <td>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.MRISafetyStatus}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.MRISafetyStatus}}
+                            </ng-container>
+                            </td>
                     </tr>
                     <tr>
                         <th>Device required to be labeled as containing natural rubber latex or dry natural rubber (21
                             CFR
                             801.437)</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.labeledContainsNRL==true">Yes</ng-container>
-                            <ng-container *ngIf="data.alldata._source.labeledContainsNRL==false">No</ng-container>
+                            
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.deviceDescription}}
+                            </ng-container>
                         </td>
                     </tr>
 
                     <tr>
                         <th>Device labeled as "Not made with natural rubber latex</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.labeledNoNRL==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.labeledNoNRL==true">Yes</ng-container>
                             <ng-container *ngIf="data.alldata._source.labeledNoNRL==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.labeledNoNRL==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata.labeledNoNRL==false">No</ng-container>
+                            </ng-container>
                         </td>
                     </tr>
                     <tr>
                         <th>For Single-Use</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.singleUse==true">Yes</ng-container>
-                            <ng-container *ngIf="data.alldata._source.singleUse==false">No</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.singleUse==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata._source.singleUse==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.singleUse==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata.singleUse==false">No</ng-container>
+                            </ng-container>
+                          
                         </td>
                     </tr>
                     <tr>
                         <th>Prescription Use (Rx)</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.rx==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.rx==true">Yes</ng-container>
                             <ng-container *ngIf="data.alldata._source.rx==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.rx==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata.rx==false">No</ng-container>
+                            </ng-container>
                         </td>
                     </tr>
                     <tr>
                         <th>POver the Counter (OTC)</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.otc==true">Yes</ng-container>
-                            <ng-container *ngIf="data.alldata._source.otc==false">No</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.otc==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata._source.otc==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.otc==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata.otc==false">No</ng-container>
+                            </ng-container>
+
                         </td>
                     </tr>
                     <tr>
                         <th>Kit</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.deviceKit==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.deviceKit==true">Yes</ng-container>
                             <ng-container *ngIf="data.alldata._source.deviceKit==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.deviceKit==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata.deviceKit==false">No</ng-container>
+                            </ng-container>
                         </td>
                     </tr>
                     <tr>
                         <th>Combination Product</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==true">Yes</ng-container>
                             <ng-container *ngIf="data.alldata._source.deviceCombinationProduct==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.deviceCombinationProduct==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata.deviceCombinationProduct==false">No</ng-container>
+                            </ng-container>
                         </td>
                     </tr>
                     <tr>
                         <th>Human Cell, Tissue or Cellular or Tissue-Based Product (HCT/P)</th>
                         <td>
-                            <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                <ng-container *ngIf="data.alldata._source.deviceHCTP==true">Yes</ng-container>
                             <ng-container *ngIf="data.alldata._source.deviceHCTP==false">No</ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                <ng-container *ngIf="data.alldata.deviceHCTP==true">Yes</ng-container>
+                                <ng-container *ngIf="data.alldata.deviceHCTP==false">No</ng-container>
+                            </ng-container>
                         </td>
                     </tr>
                     <tr>
                         <th>FDA Product Code</th>
                         <td>
-                            <span>Product Code</span>:{{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                            <span>Product Code</span>:
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
                             <span>Product Code
-                                Name</span>:{{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
+                                Name</span>:
+                                <ng-container *ngIf="data.alldata._source!=null">
+                                    {{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
+                                </ng-container>
+                                <ng-container *ngIf="data.alldata.brandName!=null">
+                                    {{data.alldata.productCodes.fdaProductCode.productCodeName}}
+                                </ng-container>
+                                
                         </td>
                     </tr>
                 </table>
             </mat-card-content>
-        </mat-expansion-panel>
+        </mat-expansion-panel>  
+
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -146,11 +286,27 @@
                 <table>
                     <tr>
                         <th>Product Code</th>
-                        <td>{{data.alldata._source.productCodes.fdaProductCode.productCode}}</td>
+                        <td>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.productCodes.fdaProductCode.productCode}}
+                            </ng-container>
+                            
+                            </td>
                     </tr>
                     <tr>
                         <th>Product Code Name</th>
-                        <td>{{data.alldata._source.productCodes.fdaProductCode.productCodeName}}</td>
+                        <td>
+                            <ng-container *ngIf="data.alldata._source!=null">
+                                {{data.alldata._source.productCodes.fdaProductCode.productCodeName}}
+                            </ng-container>
+                            <ng-container *ngIf="data.alldata.brandName!=null">
+                                {{data.alldata.productCodes.fdaProductCode.productCodeName}}
+                            </ng-container>
+                            
+                            </td>
                     </tr>
                 </table>
             </mat-card-content>

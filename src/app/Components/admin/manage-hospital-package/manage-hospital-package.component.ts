@@ -12,6 +12,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ManageHospitalPackageComponent implements OnInit {
 public packageHospitalForm:FormGroup;
 public deplist:any;
+public medicalDevice:any;
+public disInventory:any;
+public medDevice:any;
+public disposableInventory:any;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -35,10 +39,29 @@ public deplist:any;
   ngOnInit() {
   }
 
+  /**search medical device form other api */
+  medicalDeviceSearch(medDevice:any){
+   // console.log(medDevice)
+    let postData: any = {
+      "api": medDevice
+    }
+    this.http.httpViaPost('getinventoryfromapi', postData).subscribe((response: any) => {
+      //console.warn(response);
+      if (response.status == true && response.messgae == 'Successfully send .') {
+        this.medDevice=response.res.body.hits.hits;
+        //console.warn("search",response.res.body.hits.hits)
+      }
+    })
+  }
+  /** */
+  inventorySearch(){
+
+  }
     /** blur function **/
     inputBlur(val: any) {
       this.packageHospitalForm.controls[val].markAsUntouched();
     }
+    
   onSubmit(){
     for (let x in this.packageHospitalForm.controls) {
       this.packageHospitalForm.controls[x].markAsTouched();

@@ -153,7 +153,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
   /**viewDetails */
   viewDetails(inventoryDetails: any) {
-    //console.log(invenId);
+    //console.log(inventoryDetails);
     const dialogRef = this.dialog.open(listingquotedetails, {
       panelClass: 'viewlistingQuoteModal',
       data: { alldata: inventoryDetails }
@@ -161,10 +161,14 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
-
     });
   }
+
+  /**deviceDetails */
+  deviceDetails(){
+    
+  }
+
     /**add notes */
     note(searchValue: string): void {
       this.notes=searchValue;
