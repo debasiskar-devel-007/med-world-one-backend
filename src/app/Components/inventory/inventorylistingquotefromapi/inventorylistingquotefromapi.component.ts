@@ -134,6 +134,11 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     
     let itm:any=item._source;
     itm.quantity=1;
+    itm.purchaseyear='';
+    itm.cosmetic_condition='';
+    itm.selling_timeframe='';
+    itm.original_cost=0;
+    itm.addditional_information=0;
     // item.saleprice = 1;
 
     this.InventoeryListDetails.push(itm);
@@ -163,12 +168,6 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-
-  /**deviceDetails */
-  deviceDetails(){
-    
-  }
-
     /**add notes */
     note(searchValue: string): void {
       this.notes=searchValue;
@@ -288,7 +287,7 @@ savequote(){
       },
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
-    //console.log("save listing quote",postData);
+    console.log("save listing quote",postData);
     
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
@@ -312,7 +311,17 @@ savequote(){
       }
     });
 }
+/**add condition in modal */
+addCondition(inventoryDetails:any){
+  const dialogRef = this.dialog.open(addCondition, {
+    panelClass: 'addconditiionModal',
+    data: { alldata: inventoryDetails }
 
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
 }
 
 /**view details modal */
@@ -334,3 +343,24 @@ export class listingquotedetails {
   }
 
 }
+
+/**add condition modal */
+@Component({
+  selector: 'add-COndition',
+  templateUrl: 'addconditionlink.html',
+  styleUrls: ['./inventorylistingquotefromapi.component.css']
+})
+export class addCondition {
+
+  constructor(
+    public dialogRef: MatDialogRef<addCondition>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    //console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+

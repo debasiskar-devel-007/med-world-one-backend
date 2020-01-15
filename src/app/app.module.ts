@@ -155,7 +155,7 @@ import { TeamModule } from 'team-lib-influxiq';
 import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
 import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
 import { PackageComponent } from './Components/frontend/package/package.component';
-import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { InventorylistingquotefromapiComponent ,listingquotedetails,addCondition} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DepartmentComponent } from './Components/admin/department/department.component';
 import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
@@ -270,7 +270,7 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     quoteModal,sendMailModal, 
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
-    AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent,
+    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent,
 
 
   ],
@@ -302,7 +302,7 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
