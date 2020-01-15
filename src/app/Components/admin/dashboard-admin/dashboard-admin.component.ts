@@ -38,7 +38,8 @@ const Recent_DATA = [
 })
 export class DashboardAdminComponent implements OnInit {
 
-
+  public searchbyMedicalName:string;
+  public searchbySalesrepEmail:string;
   /** declarations **/
   public userData: any;
   displayedColumns: string[] = ['date','firstname','lastname','email','phone','state','city'];
@@ -50,14 +51,22 @@ export class DashboardAdminComponent implements OnInit {
   public fullImagePath: any = [];
   public salesRepHospital: any = [];
   public count_dashboard: any;
+  public salesrepPurchaseQuote:any=[];
+  public salesrepListingQuote:any=[];
   public hospital_count:string;
   public salesrep_count:string;
   public inventory_count:string;
   public medicalpartner_count:string;
   public purcehseComparisionQuote:any=[];
+  public user_name:string;
   public purcehseComparisionHeader:string[]=['date','medicalpartner','hospitalname','status'];
   public recentlyAdded:any=[];
 
+  public hospitalrepDetails:any=[];
+  public hospitalPurchaseQuote:any=[];
+  public hospitalListingQuote:any=[];
+  public hospitalPurchseComparison:any=[];
+  public searchbyrecentlyaddedSalesrep:any;
   displayed: string[] = ['date', 'quote_id','medical_partner', 'sales_rep', 'quoted_by', 'status', 'action'];
   // recentlyAdded = Recent_DATA;
 
@@ -70,83 +79,84 @@ export class DashboardAdminComponent implements OnInit {
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.type = this.userData.type;
+
+    switch (this.userData.type) {
+      case "admin":
+        // this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+        break;
+      case "salesrep":
+          this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+        break;
+      case "hospital":
+          this.user_name = this.userData.hospitalname;
+        break;
+    }
   }
 
   ngOnInit() {
     this.getCount();
-    if(this.type=='admin')
-    this.getHospitals();
-    else
-    this.getHospitalsSalesRep();
+    if(this.type=='admin'){
+    this.getadmin();
+    }
+    if(this.type=='salesrep'){
+      this.getSalesRepallData();
+    }
+    if(this.type=='hospital'){
+      this.getmedicalpartnerData();
+    }
+    
   }
 
   toHospitalList(index: any) {
     this.router.navigateByUrl('admin/hospital/view_details/' + index)
   }
 
-  /** getting hospitals for salesrep **/
-  getHospitalsSalesRep() {
+  /** getting for salesrep **/
+  getSalesRepallData() {
 
     let data: any = {
-      source: 'users_view',
-      condition: {
-        'type': 'hospital',
-        "salesrepselect_object": this.userData._id
-      }
+                
+        "salesrepid": this.userData._id,
+        "user_id":this.userData._id
     }
-    this.http.httpViaPost('datalist', data).subscribe((response: any) => {
-      this.hospitalDetails = response.res;
-
+    this.http.httpViaPost('salesrepdashboard', data).subscribe((response: any) => {
+      //console.log(response);
+      this.hospitalDetails = response.hospitaldetails;
+      this.salesrepPurchaseQuote=response.quotedetails;
+      this.salesrepListingQuote=response.quotelisting;
+      this.purcehseComparisionQuote=response.purchasecomparisonquote;
     });
 
-    let dta: any = {
-      source: 'purchasecomparison_view_admin',
-      condition: {
-        'salesrep_id_object': this.userData._id
-      },
-      token: this.cookieService.get('jwtToken')
-    }
+  }
 
-    this.http.httpViaPost('datalist', dta).subscribe(response => {
-      this.purcehseComparisionQuote = response.res;
-      //console.log(this.purcehseComparisionQuote);
-
+  /**getting data for admin */
+  getadmin() {
+    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
+      this.hospitalDetails = response.hospital;
+      this.dataSource = response.salesrep;
+      this.recentlyAdded=response.quotedetails;
     });
   }
 
 
-  getHospitals() {
-    this.http.httpViaPost('hospitalsalesrepdata', undefined).subscribe((response: any) => {
-      this.hospitalDetails = response.hospital;
-      this.dataSource = response.salesrep;
-      // console.log("hospital name recently",this.hospitalDetails);
-      // console.log("salesrep name recently",this.dataSource)
-    });
-      /**quote details for admin */
-      let postData={"source": "quote-details_view"};
-    this.http.httpViaPost('datalist',postData).subscribe((response: any) => {
-      this.recentlyAdded=response.res;
-      console.log(response.res);
+    /**getting data for hospital */
+  getmedicalpartnerData(){
+    let data: any = {
+      "hospital_id": this.userData._id,
+      "salesrepid":this.userData.salesrepselect
+      }
+    this.http.httpViaPost('hospitaldashboard',data).subscribe((response: any) => {
+      this.hospitalrepDetails=response.salesrepdetails[0];
+      this.hospitalPurchaseQuote=response.quotedetails;
+      this.hospitalListingQuote=response.quotelisting;
+      this.hospitalPurchseComparison=response.purchasecomparisonquote;
     });
   }
 
 
   getCount() {
-    let data = {
-      "condition": {
-        "hospitaltype": {
-          "type": "hospital"
-        },
-        "salesreptype": {
-          "type": "salesrep"
-        },
-        "mckessontype": {
-          "source": "mckesson"
-        }
-      }
-    }
     /** getting the count **/
-    this.http.httpViaPost('admindashboradcount', data).subscribe((response: any) => {
+    this.http.httpViaPost('admindashboradcount', undefined).subscribe((response: any) => {
       this.count_dashboard = response;
       this.hospital_count = this.count_dashboard.hospitalcount;
       this.salesrep_count = this.count_dashboard.salesrepcount;
@@ -161,5 +171,44 @@ viewQuoteDetails(quoteid:any,hospiid:any){
   this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
 //console.log("quote details",quoteid);
 }
+/**addes quote in admin */
+adminsearchbyMedicalName(){
+ console.log(this.searchbyMedicalName.toLowerCase())
+    let post={
+      "source":"quote-details_view",
+    "condition":{
+      "hospitalname_search_regex":this.searchbyMedicalName.toLowerCase()
+    },
+    "limit":10,
+    }
+    this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+        console.warn(res);
+        this.recentlyAdded=res.res;
+    })
+  
+  
+}
+
+/**admin search recently add salesrep firstname*/
+adminAddSalesrepSearch(){
+  let condition:any={};
+  if(this.searchbyrecentlyaddedSalesrep!=null){
+    condition={};
+     condition.firstname_search_regex=this.searchbyrecentlyaddedSalesrep.toLowerCase();
+  }
+  if(this.searchbySalesrepEmail!=null){
+    condition={};
+    condition.email_regex=this.searchbySalesrepEmail
+  }
+  let post={
+  "source":"users_view_salesrep",
+"condition":condition,
+"limit":6,
+}
+console.log(post)
+this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
+    //console.log(res);
+    this.dataSource=res.res;
+})}
 
 }

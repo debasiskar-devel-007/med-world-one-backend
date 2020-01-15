@@ -2,7 +2,7 @@
 
   <mat-card-content class="bg">
     <mat-card-content class="img_wrapper">
-      <img src="../../../../assets/images/team_member_image.jpg">
+      <img src="{{data.image[0]}}">
     </mat-card-content>
   </mat-card-content>
   <mat-card-content class="details">
@@ -15,11 +15,11 @@
       <mat-card-content class="contact_wrapper">
         <mat-card-content class="itemss">
           <mat-card-title class="header-title">Email</mat-card-title>
-          <mat-card-title class="email"> {{data.multipleemail}}</mat-card-title>
+          <mat-card-title class="email"> {{data.multipleemail[0].contactemail}}</mat-card-title>
         </mat-card-content>
         <mat-card-content class="itemss">
           <mat-card-title class="header-title">Phone</mat-card-title>
-          <mat-card-title class="email"> {{data.multiplephone}}</mat-card-title>
+          <mat-card-title class="email"> {{data.multiplephone[0]}}</mat-card-title>
         </mat-card-content>
       </mat-card-content>
 
@@ -28,8 +28,8 @@
     <fieldset>
       <legend>Personal Details:</legend>
       <mat-card-content class="short_desc">Description:{{data.description}}</mat-card-content>
-      <p class="short_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, illo accusantium. Nisi
-        corporis sunt labore ullam, molestiae necessitatibus reiciendis! Eveniet.</p>
+      <!-- <p class="short_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, illo accusantium. Nisi
+        corporis sunt labore ullam, molestiae necessitatibus reiciendis! Eveniet.</p> -->
     </fieldset>
 
     <span class="button_wrapper">

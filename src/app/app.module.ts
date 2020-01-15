@@ -3,11 +3,11 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './Modules/material-module';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { LoginModule } from 'login-lib-influxiq';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListingModule } from 'listing-angular7';
-import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { ClipboardModule } from 'ngx-clipboard';
 import { AppRoutingModule } from './Modules/app-routing.module';
 import { LoginComponent } from './Components/auth/login/login.component';
@@ -52,7 +52,6 @@ import { ListingBlogcatComponent } from './Components/managewebsites/blogmanagem
 
 
 //Team
-// import { TeamModule } from 'team';
 import { AddEditTeamComponent } from './Components/managewebsites/teammanagement/add-edit-team/add-edit-team.component';
 import { ListingTeamComponent } from './Components/managewebsites/teammanagement/listing-team/listing-team.component';
 import { ListingTeamCatComponent } from './Components/managewebsites/teammanagement/listing-team-cat/listing-team-cat.component';
@@ -139,19 +138,28 @@ import { ListingPurchaseComparisonComponent ,quoteModal,sendMailModal} from './C
 
 import { MetaModule } from '@ngx-meta/core';
 import { AddcontactinfoComponent } from './Components/miscellaneous/addcontactinfo/addcontactinfo.component';
-import { QuotesCartComponent } from './Components/frontend/quotes-cart/quotes-cart.component';
+import { QuotesCartComponent ,Dialoggetquote} from './Components/frontend/quotes-cart/quotes-cart.component';
 
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
-import { QuoteViewComponent } from './Components/backend/sales-rep/quote-view/quote-view.component';
+import { QuoteViewComponent ,DialogOverviewExampleDialog} from './Components/backend/sales-rep/quote-view/quote-view.component';
 
 //admin dashboard view purchase quote
-import { PurchaseQuotesListingComponent } from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
+import { PurchaseQuotesListingComponent ,emailModal} from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
 import { PurchaseComparisonSearchListComponent } from './Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from './Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from './Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
-
+import { FileUploadModule } from 'file-upload-lib-influxiq';
+import { TeamModule } from 'team-lib-influxiq';
+import { PurchasecomparisoncartComponent } from './Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
+import { AdminpackageComponent,Dialoginventory} from './Components/inventory/adminpackage/adminpackage.component';
+import { PackageComponent } from './Components/frontend/package/package.component';
+import { InventorylistingquotefromapiComponent ,listingquotedetails} from './Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { DepartmentComponent } from './Components/admin/department/department.component';
+import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
+import { ManageHospitalPackageComponent } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
 
 
 @NgModule({
@@ -255,12 +263,20 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     ListingPurchaseComparisonComponent,
     Dialoglogin,
     Dialogloginn,
-    quoteModal,sendMailModal, AddcontactinfoComponent, QuotesCartComponent, AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent,
+    Dialoggetquote,
+    DialogOverviewExampleDialog,
+    emailModal,
+    listingquotedetails,
+    quoteModal,sendMailModal, 
+    Dialoginventory,AddcontactinfoComponent,
+    QuotesCartComponent,
+    AdminDashboardHospitalViewdetailsComponent, AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent,
 
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    TransferHttpCacheModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
@@ -271,7 +287,7 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     FileUploadModule,
     BlogModule,
     CKEditorModule,
-    // TeamModule,
+    TeamModule,
     HttpClientModule,
     ContactusModule,
     CommonModule,
@@ -279,13 +295,14 @@ import { AddinventorylistingquoteComponent } from './Components/inventory/addinv
     ClipboardModule,
     NgxDaterangepickerMd.forRoot(),
     MetaModule.forRoot(),
+    NgtUniversalModule,
   ],
   providers: [CookieService,
     LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

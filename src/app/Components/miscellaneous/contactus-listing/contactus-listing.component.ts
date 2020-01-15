@@ -25,6 +25,7 @@ editUrl: any = '';
 public apiUrl: any = this.httpServiceService.baseUrl;
 status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
 public view:any="contactus_view";
+public image_detail_datatype:any='';
 public search_settings: any = {
     // selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
     // textsearch: [{ label: "Search By brand name...", field: 'brand_name' }]
@@ -46,7 +47,7 @@ contactInfoData_modify_header: any = {
 tableNam: any = 'contactus';
 UpdateEndpnt: any = "addorupdatedata";
 deleteEndpnt: any = "deletesingledata";
-
+public image_detail_datatyp:any='';
 searchingEndpnt: any = "datalist";
 edtUrl: any = '';
 apiUrll: any =this.httpServiceService.baseUrl;

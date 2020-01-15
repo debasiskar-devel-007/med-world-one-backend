@@ -7,14 +7,15 @@
           <img src="../../../../../assets/images/logo.png">
         </mat-card-content>
 
-        <mat-card-content class="inner_items_top">
-          <mat-list class="details">
-            <mat-list-item><span>Date :</span><span>{{quoteinfo.date}}</span></mat-list-item>
-            <mat-list-item><span>Quote ID :</span><span>{{quoteinfo.user_id}}</span></mat-list-item>
-            <mat-list-item>1175 American Pacific Dr Ste# F
+        <mat-card-content class="inner_items_top"> 
+          <mat-card-content class="details">
+              <p><span>Date:&nbsp;</span>{{dateAdded}}</p>
+              <p><span>Quote ID:&nbsp;</span>{{quoteId}}</p>
+              <p><span>Corporate Address:&nbsp;</span> <br>
+              1175 American Pacific Dr Ste# F
               Henderson, NV 89074
-            </mat-list-item>
-          </mat-list>
+            </p>
+          </mat-card-content>
         </mat-card-content>
       </span>
       <mat-card-content class="inner_items_top_bottom">
@@ -42,75 +43,204 @@
         <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
 
-        <!-- Position Column -->
+        <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.inventory_name}} </td>
+          <td mat-cell *matCellDef="let element" data-label="Name">
+            <ng-container *ngIf="element.inventory_name!=null"><span class="name_header">{{element.inventory_name}}</span>
+            </ng-container>
+
+            <ng-container *ngIf="element.product_name!=null">  {{element.product_name}}
+              <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
+            </ng-container>
+
+            <ng-container *ngIf="element.brandName!=null"><span class="name_header">{{element.brandName}}&nbsp;{{element.identifiers.identifier.deviceId}}</span><h4 class='descriptionquoteview'>
+              <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container>
+              
+            </h4>
+            <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
+            </ng-container>
+          </td>
+          <td mat-footer-cell *matFooterCellDef data-label="note"> <p><span class="name_header">Note:&nbsp;</span>{{notes}}</p><p 
+            *ngIf="activatedRoute.snapshot.url[1].path=='quote-comparison-view'" ng-bind="element.savings"> Total Savings with MD Stock International: ${{savings}}</p> 
+          </td>
+        </ng-container>
+
+        <!-- UID Column -->
+        <ng-container matColumnDef="uid">
+          <th mat-header-cell *matHeaderCellDef> Device ID </th>
+          <td mat-cell *matCellDef="let element" data-label="sku#"> {{element.identifiers.identifier.deviceId}} </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- Sku Column -->
         <ng-container matColumnDef="sku">
           <th mat-header-cell *matHeaderCellDef> sku# </th>
-          <td mat-cell *matCellDef="let element"> {{element.sku}} </td>
+          <td mat-cell *matCellDef="let element" data-label="sku#"> {{element.sku}} </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
         </ng-container>
 
-        <!-- Weight Column -->
+        <!-- Category Column -->
         <ng-container matColumnDef="category">
           <th mat-header-cell *matHeaderCellDef> category </th>
-          <td mat-cell *matCellDef="let element"> {{element.brand_name}} </td>
+          <td mat-cell *matCellDef="let element" data-label="Category">
+            <ng-container *ngIf="element.category_name!=null">  {{element.category_name}}
+            </ng-container>
+
+            <ng-container *ngIf="element.category!=null">  {{element.category}}
+            </ng-container>
+          </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
         </ng-container>
 
-        <!-- Symbol Column -->
+         <!-- version and model Column -->
+         <ng-container matColumnDef="version">
+          <th mat-header-cell *matHeaderCellDef> version/model </th>
+          <td mat-cell *matCellDef="let element" data-label="Category">
+             {{element.versionModelNumber}}
+        
+          </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- Company Name -->
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef> Company </th>
+          <td mat-cell *matCellDef="let element" data-label="Category">
+            <ng-container *ngIf="element.companyName!=null">  {{element.companyName}}
+            </ng-container>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-footer-cell *matFooterCellDef>  </td>
+        </ng-container>
+
+        <!-- brand Column -->
         <ng-container matColumnDef="brand">
           <th mat-header-cell *matHeaderCellDef> brand </th>
-          <td mat-cell *matCellDef="let element"> {{element.brand_name}} </td>
-          <!-- <td mat-footer-cell *matFooterCellDef>  </td>
-          <td mat-footer-cell *matFooterCellDef>  </td> -->
-          <td mat-footer-cell *matFooterCellDef> Total </td>
+          <td mat-cell *matCellDef="let element" data-label="brand">
+            <ng-container *ngIf="element.brand_name!=null">  {{element.brand_name}}
+            </ng-container>
+            <ng-container *ngIf="element.brandname!=null">  {{element.brandname}}
+            </ng-container>
+
+            <ng-container *ngIf="element.brand!=null">  {{element.brand}}
+            </ng-container>
+            </td>
+          <td mat-footer-cell *matFooterCellDef> Total 
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Quantity : </p></td>
         </ng-container>
-        <!-- Symbol Column -->
+
+       
+        <!-- quinty Column -->
         <ng-container matColumnDef="qty">
-          <th mat-header-cell *matHeaderCellDef> qty </th> 
-          <td mat-cell *matCellDef="let element; let i=index;"> {{element.quantity}} </td>
-          <!-- <td mat-footer-cell *matFooterCellDef>  </td>
-          <td mat-footer-cell *matFooterCellDef>  </td> -->
-          <td mat-footer-cell *matFooterCellDef> {{totalqty}} </td>
+          <th mat-header-cell *matHeaderCellDef> qty </th>
+          <td mat-cell *matCellDef="let element; let i=index;" data-label="qty"> {{element.quantity}} </td>
+                    
+          <td mat-footer-cell *matFooterCellDef> <p *ngIf="activatedRoute.snapshot.url[1].path!='inventory-listing-view'">{{totalqty}}</p>
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">{{Package_Details.package_quantity}} </p>
+          </td>
         </ng-container>
+
         <!-- Symbol Column -->
         <ng-container matColumnDef="price" >
           <th mat-header-cell *matHeaderCellDef> MDSI price </th>
-          <td mat-cell *matCellDef="let element">
+          <td mat-cell *matCellDef="let element" data-label="MDSI price">
             <span class="text_with_span">
-              <textarea name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.price" (keyup)="calculatevalue()"  value="{{element.price}}" placeholder="{{element.price}}"></textarea>
+              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.price"  (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.price}}" placeholder="{{element.price}}" />
               <span class="action_button">
-                <!-- <button mat-button>edit</button>
-                <button mat-button>revert</button> -->
+                
               </span>
             </span>
           </td>
           <td mat-footer-cell *matFooterCellDef>  </td>
-          <!-- <td mat-footer-cell *matFooterCellDef> $5265354 </td>
-          <td mat-footer-cell *matFooterCellDef> $5265354 test </td> -->
+         
         </ng-container>
+
+         <!-- Symbol sellprice -->
+        <!-- <ng-container matColumnDef="saleprice" >
+          <th mat-header-cell *matHeaderCellDef> Sell price </th>
+          <td mat-cell *matCellDef="let element" data-label="Quoted price">
+            <span class="text_with_span">
+              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.saleprice" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.price}}" placeholder="{{element.price}}" />
+              <span class="action_button">
+               
+              </span>
+            </span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalSellprice}}</td>
+        
+        </ng-container> -->
+
+        <!-- quotedprice -->
+        <ng-container matColumnDef="quotedprice" >
+          <th mat-header-cell *matHeaderCellDef> Quoted price </th>
+          <td mat-cell *matCellDef="let element" data-label="Quoted price">
+            <span class="text_with_span">
+              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.quotedprice" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.quotedprice}}" placeholder="{{element.quotedprice}}" />
+              <span class="action_button">
+               
+              </span>
+            </span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef> 
+            <p class="total_label"><label>Total Devices:</label> <span>{{totalqty}}</span></p>
+            <p class="total_label"><label>Subtotal:</label> <span>{{totalQuotedprice}}</span></p>
+            <p class="total_label"><label>S&D:</label> <span>12358</span></p>
+            <p class="total_label"><label>Total:</label> <span>42358</span></p> 
+            </td>
+        
+        </ng-container>
+
+
+              <!-- tax Column -->
+        <ng-container matColumnDef="tax">
+          <th mat-header-cell *matHeaderCellDef> Tax </th>
+          <td mat-cell *matCellDef="let element" data-label="Tax">
+            <span class="text_with_span">
+              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}"  min="0"
+              pattern="^[0-9]+\.[0-9][0-9]$" />
+            </span>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>
+          <!-- <td mat-footer-cell *matFooterCellDef> </td> -->
+          </ng-container>
+
+
+
+
          <ng-container matColumnDef="subtotalprice">
-          <th mat-header-cell *matHeaderCellDef> subtotal </th> 
-          <td mat-cell *matCellDef="let element; let i=index;"> {{element.subtotalprice}} </td>
-          <td mat-footer-cell *matFooterCellDef> {{totalprice}}  </td>
+          <th mat-header-cell *matHeaderCellDef> subtotal </th>
+          <td mat-cell *matCellDef="let element; let i=index;" data-label="subtotal"> {{element.subtotalprice}} </td>
+          <td mat-footer-cell *matFooterCellDef> {{totalprice}}  
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Total : {{Package_all_total}}</p>
+          </td>
           <!-- <td mat-footer-cell *matFooterCellDef>  </td> -->
         </ng-container>
-        <!-- Symbol Column -->
+
+
+        <!-- wholesale Column -->
         <ng-container matColumnDef="wholesale" >
           <th mat-header-cell *matHeaderCellDef> wholesale Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.wholesaleprice}} </td>
-          <td mat-footer-cell *matFooterCellDef>  </td>
+          <td mat-cell *matCellDef="let element" data-label="wholesale Price" >
+            <ng-container *ngIf="element.wholesaleprice==null"></ng-container>
+            <ng-container *ngIf="element.wholesaleprice!=null"> {{element.wholesaleprice}} </ng-container>
+            </td>
+          <td mat-footer-cell *matFooterCellDef> {{totalWholesellprice}}</td>
+          <td mat-footer-cell *matFooterCellDef></td>
+        </ng-container>
+
+        <ng-container matColumnDef="purchaseprice" >
+          <th mat-header-cell *matHeaderCellDef> MP Price </th>
+          <td mat-cell *matCellDef="let element" data-label="purchaseprice Price"> {{element.purchased_price}} </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalPurchasedPrice}}  </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
+
+
         <tr mat-header-row *matHeaderRowDef="viewQuoteHeader"></tr>
         <tr mat-row *matRowDef="let row; columns: viewQuoteHeader;"></tr>
         <tr mat-footer-row *matFooterRowDef="viewQuoteHeader;"></tr>
@@ -120,7 +250,7 @@
 
       <mat-card-content class="bottom_action">
         <button mat-button *ngIf="userType=='admin'" (click)="save()">Save</button>
-        <button mat-button>Download</button>
+        <button mat-button (click)="downloadPdf()">Download</button>
       </mat-card-content>
     </mat-card-content>
   </mat-card>

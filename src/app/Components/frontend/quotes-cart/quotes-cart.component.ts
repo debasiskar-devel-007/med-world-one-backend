@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+export interface DialogData {
+
+}
 @Component({
   selector: 'app-quotes-cart',
   templateUrl: './quotes-cart.component.html',
@@ -20,7 +25,22 @@ export class QuotesCartComponent implements OnInit {
   public noteValue:any;
   public ids:any=[];
   public notes:string;
-  constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar) {
+  constructor(public router:Router,public dialog: MatDialog,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
+
+      this.meta.setTitle('MD Stock International - quotes cart');
+      this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      this.meta.setTag('twitter:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+
+      this.meta.setTag('og:keyword', 'Medical Equipment $ Supplies Partner, Direct-to-Manufacturer Purchases, Top-Quality On-Demand Supplies, Buy & Sell Medical Equipment');
+      this.meta.setTag('twitter:keyword', 'Medical Equipment $ Supplies Partner, Direct-to-Manufacturer Purchases, Top-Quality On-Demand Supplies, Buy & Sell Medical Equipment');
+
+      this.meta.setTag('og:title', 'MD Stock International - quotes cart');
+      this.meta.setTag('twitter:title', 'MD Stock International - quotes cart');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
@@ -44,11 +64,11 @@ export class QuotesCartComponent implements OnInit {
   ngOnInit() {
   }
 
-  plus(item: any, i: any) {
+  plus(i: any) {
     this.amount = this.amount + 1;
     this.inventoryDetailsByUserId[i].quantity += 1;
   }
-  minus(item: any, i: any) {
+  minus(i: any) {
     this.amount = this.amount - 1;
     if (this.inventoryDetailsByUserId[i].quantity > 1) this.inventoryDetailsByUserId[i].quantity -= 1;
   }
@@ -78,14 +98,14 @@ export class QuotesCartComponent implements OnInit {
   }
 
   /**add notes */
-  onSearchChange(searchValue: string): void { 
+  onSearchChange(searchValue: string): void {
     this.notes=searchValue;
     //console.log(this.notes);
   }
 
   /**get quote function */
   getQuote() {
-    
+
     /**if sales */
     if(this.userType=='salesrep'){
 
@@ -93,8 +113,8 @@ export class QuotesCartComponent implements OnInit {
         this._snackBar.open('please select hospital','', {
           duration: 1000,
         });
-       
-      } 
+
+      }
       else {
         let postData = {
           "source": "quote-details",
@@ -107,16 +127,16 @@ export class QuotesCartComponent implements OnInit {
           },
           "sourceobj":["hospital_id","quoted_by"]
         };
-  
+
         //console.log(postData);
         for(let i in this.inventoryDetailsByUserId){
-            
+
             this.ids.push(this.inventoryDetailsByUserId[i]._id);
         }
         //console.log(this.ids);
-  
-  
-  
+
+
+
         let deleteData={
           "source": "quote",
           "ids":this.ids
@@ -125,29 +145,24 @@ export class QuotesCartComponent implements OnInit {
         this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
           //console.log(response);
           if(response.status="success"){
-  
-  
+              this.openDialog();
+
             this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-              if(response.status="success"){
-                this._snackBar.open('Your Quote Submitted Successfully','', {
-                  duration: 3000,
-                });
-                this.router.navigateByUrl('/inventory');
-              }
+
             })
-            
-  
-  
+
+
+
           }
         })
-  
-  
+
+
       }
     }
 
     /**if hospital */
     if(this.userType=='hospital'){
-       
+
       let postData = {
         "source": "quote-details",
         "data":{
@@ -162,7 +177,7 @@ export class QuotesCartComponent implements OnInit {
 
       console.log(postData);
       for(let i in this.inventoryDetailsByUserId){
-          
+
           this.ids.push(this.inventoryDetailsByUserId[i]._id);
       }
       //console.log(this.ids);
@@ -177,17 +192,12 @@ export class QuotesCartComponent implements OnInit {
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         //console.log(response);
         if(response.status="success"){
-
+          this.openDialog();
 
           this.httpServiceService.httpViaPost('deletesingledatamany', deleteData).subscribe((response: any) => {
-            if(response.status="success"){
-              this._snackBar.open('Your Quote Submitted Successfully','', {
-                duration: 3000,
-              });
-              this.router.navigateByUrl('/inventory');
-            }
+
           })
-          
+
 
 
         }
@@ -200,7 +210,7 @@ export class QuotesCartComponent implements OnInit {
   remove(id:any,indx:any){
     //console.log(id,indx);
     let data={"source": "quote",
-                "id":id            
+                "id":id
   }
     this.httpServiceService.httpViaPost('deletesingledata', data).subscribe((response: any) => {
         //console.log(response);
@@ -210,4 +220,41 @@ export class QuotesCartComponent implements OnInit {
       })
   }
 
+  /*******************Open Susses Modal********************************/
+  openDialog(): void {
+    const dialogRef = this.dialog.open(Dialoggetquote, {
+      panelClass: 'Login_confirm',
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  /***************************************************** */
+
+}
+
+/** susess Modal*/
+@Component({
+  selector: 'Dialoggetquote',
+  templateUrl: 'success.html',
+  styleUrls: ['./quotes-cart.component.css']
+})
+export class Dialoggetquote {
+
+  constructor(
+    public dialogRef: MatDialogRef<Dialoggetquote>, public router: Router,
+    @Inject(MAT_DIALOG_DATA) public DialogData) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  goToinventoryPage(){
+    this.router.navigateByUrl('/inventory');
+    this.onNoClick();
+  }
+  goTodashboardPage(){
+    this.router.navigateByUrl('/dashboard-admin');
+    this.onNoClick();
+  }
 }

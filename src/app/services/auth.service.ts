@@ -18,8 +18,6 @@ export class AuthService implements CanActivate {
     let user=this.cookie.get('user_details');
     if (getToken !=null &&  user == '') {
       return true;
-    } else {
-      this._router.navigate(['/dashboard-admin']);
-    }
+    } 
   }
 }

@@ -4,9 +4,11 @@
 
 .top_logo_wrapper .top_wr1{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;}
 .top_logo_wrapper .top_wr1 .inner_items {margin-bottom: 0;}
-.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px;}
-.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 10px; }
-.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 5px 0;}
+.top_logo_wrapper .top_wr1 .inner_items_top  { width: 300px; margin: 0;}
+.top_logo_wrapper .top_wr1 .details{ border-left: 1px solid #d2d2d2; padding: 0; margin-top: 0px; padding-left: 10px; }
+.top_logo_wrapper .top_wr1 .details p{ margin: 5px 0; font-family: "AvenirBook"; font-size: 16px; color: #535353;}
+.top_logo_wrapper .top_wr1 .details p span{ font-family: "AvenirMedium";}
+.top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 3px 0; font-family: 'AvenirBook'; color: #465157; }
 .top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;
@@ -18,6 +20,7 @@
 
 /* table */
 .quote_table_wrapper{ margin-bottom: 0;}
+.quote_table_wrapper .name_header{ font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
 .quote_table_wrapper table{width: 100%; }
 .quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }
 .quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: "AvenirRoman"; font-size: 18px;}
@@ -31,13 +34,107 @@
 .quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0;}
 .quote_table_wrapper .bottom_action button:last-child{ margin-left: 10px; background:#09c5fb;}
 .quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}
-.quote_table_wrapper table .cdk-column-price{    width: 8%;}
-.quote_table_wrapper table td.mat-footer-cell{border-bottom-color:none; }
-.quote_table_wrapper table td.mat-footer-cell:last-child{ border: 1px solid #d2d2d2; text-align: center;}
+.quote_table_wrapper table td.mat-cell .viewDetails {background: #09c5fb; color: #fff; font-family: 'AvenirMedium'; line-height: inherit;  padding: 2px 8px;
+  font-size: 14px; margin-top: 10px; }
+.quote_table_wrapper table .cdk-column-price{ width: 8%;}
+.quote_table_wrapper table td.mat-footer-cell{ border: 1px solid #d2d2d2; padding: 8px; }
+.quote_table_wrapper table td.mat-footer-cell:last-child{ border: 1px solid #d2d2d2; }
 .quote_table_wrapper table td.mat-footer-cell:nth-child(6){ border: 1px solid #d2d2d2; text-align: center; }
 
 .quote_table_wrapper table td.mat-cell { color: #465157; font-family: "AvenirMedium"; }
-.quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px!important; }
-.quote_table_wrapper table th:first-of-type{ width: 40%;}
-.quote_table_wrapper table th:last-of-type{ width: 15%;}
+.quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 24px; }
+.quote_table_wrapper table th:first-of-type{ width: 39%;}
+.quote_table_wrapper table th:last-of-type{ width: 14%; text-align: center;}
+.quote_table_wrapper table .mat-column-quotedprice { text-align: center; }
+.quote_table_wrapper table .mat-column-quotedprice h4{ margin: 0; font-family: 'AvenirMedium';}
+.quote_table_wrapper table .mat-column-qty{ text-align: center; width: 5%; }
+.quote_table_wrapper table .descriptionquoteview{ margin: 0; margin-top: 10px; font-family: 'AvenirMedium';}
+.quote_table_wrapper table .descriptionquoteview span{  font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
+.quote_table_wrapper table .total_label{ display: flex; margin: 7px 0; justify-content: space-between; border-bottom: 1px solid #b3b3b3;}
+.quote_table_wrapper table .total_label:last-child{ border-bottom: none; }
+.quote_table_wrapper table .total_label label{ font-family: 'AvenirBlack' }
+
 .hidecls{display: none !important;}
+.quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
+.quotemodalvew h1{font-family: "AvenirMedium"; font-size: 20px; color: #000; margin: 0; margin-bottom: 10px; background: #fff; padding: 10px; border: 0.5px solid #d6d6d6;
+  border-radius: 2px;}
+.quotemodalvew h1 span{ color: #564c4c; margin: 0; min-width: 150px; display: inline-block;}
+.quotemodalvew .image_wrapper{ display: flex; justify-content: center; border: 1px solid #01c7ff; padding: 10px; box-sizing: border-box; background: #fff; align-items: center;
+}
+.quotemodalvew .image_wrapper img{ max-width: 100%;}
+.quotemodalvew{ margin-bottom: 0; padding: 24px; background: #e4e4e4; border: 5px solid #164e84; box-sizing: border-box; display: flex; flex-direction: column; }
+.quotemodalvew button{ background: #12457b; min-width: 120px; color: #fff; text-transform: uppercase; font-family: 'Avenirmedium'; margin-left: auto; border-radius: 0;
+  margin-top: 16px;}
+.deviceName { margin: 0; padding: 10px; border-bottom: 3px solid #00667d; font-family: 'AvenirRoman'; color: #00667d; font-size: 22px; background: #effcff;}
+
+@media screen and ( max-width:1540px){ 
+  .quote_cart_wrapper { width: 88%; }
+}
+@media screen and ( max-width:992px){
+  .top_logo_wrapper .top_wr1 .inner_items{ width: 50%; }
+  .top_logo_wrapper .top_wr1 .inner_items img{ max-width: 100%; }
+  .top_logo_wrapper .top_wr1 .inner_items_top { width: 48%; }
+}
+@media screen and ( max-width:960px){
+.quote_table_wrapper table .cdk-column-price { width: auto; }
+.quote_table_wrapper table td.mat-footer-cell:nth-child(2),
+.quote_table_wrapper table td.mat-footer-cell:nth-child(3),
+.quote_table_wrapper table td.mat-footer-cell:nth-child(6),
+.quote_table_wrapper table td.mat-footer-cell:last-child{ display: none;}
+.quote_table_wrapper table td.mat-cell:first-of-type  { padding-left: 8px; }
+}
+
+@media screen and ( max-width: 840px){
+.top_logo_wrapper .inner_items_top_bottom { display: flex; flex-wrap: wrap; }
+.top_logo_wrapper .inner_items_top_bottom .rep_wrapper { width: 100%; }
+.top_logo_wrapper .inner_items_top_bottom .rep_wrapper:first-child { margin-bottom: 16px; }
+.top_logo_wrapper .top_wr1 .details .mat-list-item{ padding: 0; line-height: 18px; }
+}
+@media screen and ( max-width: 668px){
+.top_logo_wrapper .top_wr1 .details { margin-top: 0; }
+}
+
+
+
+/* sourav */
+.modal_content .mat-expansion-panel-header { background: linear-gradient(2deg, #02b3ad, #07d1f4)!important;}
+.modal_content .mat-expansion-panel-header .mat-expansion-panel-header-title{ color: #fff; }
+.modal_content .mat-expansion-panel-spacing{ margin: 0; }
+.modal_content .mat-expansion-panel-body { border: 1px solid #c6fffe;}
+.modal_content .action_button { position: absolute; right: 0px; top: 0px; background: #ff6959; border-radius: 50%; min-width: inherit; width: 40px; height: 40px; padding: 0;color: #fff; box-shadow: 0px 0px 2px 0px #084350; }
+
+.modal_content .mat-card-content { margin-top: 30px;}
+.modal_content .mat-card-content table{ border-collapse: collapse; width: 100%;}
+.modal_content .mat-card-content table,
+.modal_content .mat-card-content tr,
+.modal_content .mat-card-content th,
+.modal_content .mat-card-content td{ border: 1px solid #d3d3d3; padding: 8px; text-align: left; box-sizing: border-box;}
+.modal_content .mat-card-content th{ font-family: 'AvenirRoman'; color: #000000; width: 50%;}
+.modal_content .mat-card-content td{ color: #1e1e1e; font-family: 'AvenirMedium'; word-break: break-word; }
+.modal_content .mat-card-content table .uper{ font-family: 'AvenirBlack'; display: block; }
+.tab_item{ box-shadow: 0px 0px 3px 0px #b0b0b0; padding: 10px; box-sizing: border-box; background: linear-gradient(45deg, #08ccc3, transparent)}
+.tab_item table{ width: 100%; }
+.tab_item table th{ width:37%; padding: 5px; font-family: 'AvenirBlack'; text-align: left; vertical-align: text-bottom;}
+.tab_item table td{ width: 63%; padding: 5px; font-family: 'AvenirMedium'; word-break: break-word;}
+.tab_item table td input{ width: 100%; }
+.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: flex-end;}
+.tab_item .action button{ background: #ff6959; font-family: 'AvenirMedium'; color: #fff; line-height: 22px; padding: 2px 10px; min-width: inherit;}
+
+.notes_wrapper .note_h{ display: block; font-family: 'AvenirMedium'; }
+.notes_wrapper .form_control{ display: block; width: 100%; padding: 10px; box-sizing: border-box; resize: none; border-radius: 3px; font-family: 'AvenirMedium';  min-height: 90px; }
+.form_field .mat-form-field{ width: 100%;}
+.quote_action{ display: flex; justify-content: flex-end;}
+.quote_action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; }
+.quote_action button:last-child{  background: #ff6959; margin-left: 10px;} 
+.search_result{ display: block; margin: 20px 10px 10px; font-family: 'AvenirMedium'; font-size: 20px; }
+.search_result p{ color: #ff6959; display: inline; margin: 0 10px; text-transform: uppercase;}
+.search_result a{ color: #646363; font-size: 16px;}
+
+@media screen and (max-width: 1600px){
+  .Product_wrapper{ width: 90%; }
+}
+@media screen and (max-width: 1440px){
+  .Product_wrapper .product_list_wrapper .right_inner { width: 33%; }
+  .Product_wrapper .product_list_wrapper .left_inner { width: 66%; }
+}
+

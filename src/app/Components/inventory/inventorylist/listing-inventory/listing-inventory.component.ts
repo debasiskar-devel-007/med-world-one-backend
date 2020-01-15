@@ -15,8 +15,8 @@ export class ListingInventoryComponent implements OnInit {
   // ===============================Declarations=========================
   inventoryListData: any = [];
   inventoryListData_skip: any = ["_id", "description_html", "description", "created_at",
-   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search','price','brand_id'];
-  detail_skip_array: any = ["_id"]
+   "inventory_image", 'image','source','status','quantity','dynamic_attributes','inventory_search','price','brand_id','category_id'];
+  detail_skip_array: any = ["_id","category_id"]
   inventoryListData_modify_header: any = {
     "brand name": "Brand Name",
     "parent category": "Parent Category", "priority": "Priority", "status": "Status",

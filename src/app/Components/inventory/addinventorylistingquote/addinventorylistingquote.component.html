@@ -28,19 +28,27 @@
                       </mat-form-field>
                     </span>
 
+                    <span class="col-1-1 pb-20">
+                      <!-- quote Id  -->
+                      <mat-form-field>
+                        <mat-label class="label">Quote Id</mat-label>
+                        <input matInput value="{{quote_id}}" [disabled]='true' >
+                      </mat-form-field>
+                    </span>
+
                     <span class="col-1-3">
                       <!-- source  -->
                       <mat-form-field>
                         <mat-label class="label">Source</mat-label>
-                        <mat-select matNativeControl formControlName="source" [(value)]="selected" required>
+                        <mat-select matNativeControl formControlName="source" [(value)]="selected" [disabled]="disableSelect">
                           <mat-option value="">Select Source</mat-option>
-                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list">
+                          <mat-option value="{{ item._id }}" *ngFor="let item of  active_hospital_list"
+                            (click)="gethospitalName(item.hospitalname,item._id)">
                             {{ item.hospitalname }}
                           </mat-option>
                         </mat-select>
                         <mat-error
-                          *ngIf="!addinventorylistingquoteForm.controls['source'].valid
-                                                            && addinventorylistingquoteForm.controls['source'].errors.required">
+                          *ngIf="!addinventorylistingquoteForm.controls['source'].valid">
                           Source
                           Name is
                           required.
@@ -51,12 +59,12 @@
                     <span class="col-1-3">
                       <!-- Inventory Category mat-selection  -->
                       <!-- Inventory Category mat-selection  -->
-                      <mat-form-field *ngIf="userType!='hospital'">
+                      <mat-form-field>
                         <mat-label class="label">Category</mat-label>
                         <mat-select matNativeControl formControlName="category_id" required>
                           <mat-option value="">Select Category</mat-option>
                           <mat-option value="{{ item._id }}" *ngFor="let item of inventory_category_array"
-                            (click)="getBrandName(item._id )">
+                            (click)="getBrandName(item._id )" (click)="getcatagoryName(item.category_name)">
                             {{ item.category_name }}
                           </mat-option>
                         </mat-select>
@@ -73,7 +81,8 @@
                         <mat-label class="label">Brand</mat-label>
                         <mat-select matNativeControl formControlName="brand_id" required>
                           <mat-option value="">Select Brand</mat-option>
-                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array">
+                          <mat-option value="{{ item.brand_id }}" *ngFor="let item of brand_name_array"
+                            (click)="getbrandName(item.brand_name)">
                             {{ item.brand_name }}
                           </mat-option>
                         </mat-select>
@@ -89,7 +98,7 @@
                       <!-- SKU -->
                       <mat-form-field>
                         <mat-label class="label">SKU #</mat-label>
-                        <input matInput formControlName="sku" (blur)="inputBlur('sku')">
+                        <input matInput type="number" formControlName="sku" (blur)="inputBlur('sku')">
                         <mat-error *ngIf="!addinventorylistingquoteForm.controls['sku'].valid
                                 && addinventorylistingquoteForm.controls['sku'].errors.required">SKU# is required.
                         </mat-error>
@@ -100,7 +109,7 @@
 
                       <mat-form-field>
                         <mat-label class="label">Quantity</mat-label>
-                        <input matInput formControlName="quantity" type="quantity" (blur)="inputBlur('quantity')">
+                        <input matInput type="number" formControlName="quantity" type="quantity" (blur)="inputBlur('quantity')">
                         <mat-error
                           *ngIf="!addinventorylistingquoteForm.controls['quantity'].valid
                                                         && addinventorylistingquoteForm.controls['quantity'].errors.required">
@@ -114,14 +123,14 @@
                       <!-- wholesale price -->
 
                       <mat-form-field>
-                        <mat-label class="label">Salle price</mat-label>
+                        <mat-label class="label">Sell price</mat-label>
                         <input matInput formControlName="saleprice" type="number" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
                           step="0.11" (blur)="inputBlur('saleprice')">
                         <span matPrefix></span>
                         <mat-error
                           *ngIf="!addinventorylistingquoteForm.controls['saleprice'].valid
                                                         && addinventorylistingquoteForm.controls['saleprice'].errors.required">
-                          Wholesale
+                          sell
                           price is required.</mat-error>
                       </mat-form-field>
                     </span>
@@ -164,7 +173,7 @@
                       <!-- Condition -->
                       <mat-label class="label">Condition:</mat-label>
                       <mat-radio-group formControlName="condition">
-                        <mat-radio-button value="New" (click)="yom_flag=false"> New</mat-radio-button>
+                        <mat-radio-button value="New" (click)="conditionRadio()"> New</mat-radio-button>
                         <mat-radio-button value="Used" (click)="yom_flag=true">Used</mat-radio-button>
                       </mat-radio-group>
                     </span>
@@ -172,7 +181,7 @@
 
                       <!-- Year of manufacture -->
 
-                      <mat-form-field *ngIf="yom_flag==true">
+                      <mat-form-field *ngIf="yom_flag==true" class="yearOfManu"> 
                         <mat-label class="label">Year of manufacture</mat-label>
                         <input matInput type="number" formControlName="yom">
                       </mat-form-field>
@@ -181,8 +190,8 @@
                     <!-- DYNAMIC FORM ATTRIBUTE  -->
 
                     <div formArrayName="items" class="dynamic_attributes"
-                      *ngFor="let item of addinventorylistingquoteForm.get('items').controls; let i = index;">
-                      <div [formGroupName]="i">
+                      *ngFor="let item of addinventorylistingquoteForm.controls.items['controls']; let i = index;">
+                      <div [formGroupName]="i" class="repeatBg">
                         <mat-form-field>
                           <input matInput formControlName="label_name" placeholder="Attribute Name">
                         </mat-form-field>
@@ -200,8 +209,8 @@
                     </button><br><br>
                     <!-- Status -->
 
-                    <mat-label class="label">Status</mat-label><br>
-                    <mat-checkbox formControlName="status">Active</mat-checkbox><br>
+                    <!-- <mat-label class="label">Status</mat-label><br>
+                    <mat-checkbox formControlName="status" >Active</mat-checkbox><br> -->
 
 
                     <span class="button_wrapper addlistingInventory_button_wrapper">
@@ -210,14 +219,16 @@
                                                 &nbsp; Add
                                                 field
                                             </button> -->
-
+                                            
                       <!-- Buttons  -->
-                      <button mat-flat-button type="button" (click)="onSubmit()" color="accent">Add To Listing Quote
+                      <button mat-flat-button type="button" *ngIf="submitbuttonFlage==0" (click)="onSubmit()" color="accent">Add New Listing Inventory Quote
                       </button>
+
+                      <button mat-flat-button type="button" *ngIf="submitbuttonFlage==1" (click)="onSubmit()" color="accent">Save Change</button>
 
                       <button mat-flat-button type="reset" color="warn">RESET</button>
 
-                      <button mat-flat-button type="button">Cancel</button>
+                      <button mat-flat-button type="button" (click)="cancel()">Cancel</button>
                     </span>
 
 
@@ -226,39 +237,40 @@
                 </mat-list-item>
               </mat-card-content>
               <mat-card-content class="items_content">
-                <mat-card-title class="title">List Inventory Quote (5)</mat-card-title>
+                <mat-card-title class="title" *ngIf="inventoryDetails.length>0">List Inventory Quote
+                  ({{inventoryDetails.length}})</mat-card-title>
                 <!-- loop here -->
-                <span class="total_wrapper">
+                <span class="total_wrapper" *ngFor="let item of inventoryDetails;let i=index;">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
-                      <img src="../../../../assets/images/home_main_item_image.png">
+                      <img src="{{item.inventory_image}}">
                     </mat-card-content>
                     <mat-card-content class="inner_content">
 
                       <table>
                         <tr>
                           <td>Product Name :</td>
-                          <td>Product Name</td>
+                          <td>{{item.product_name}}</td>
                         </tr>
                         <tr>
                           <td>Source/Manufacturer :</td>
-                          <td>Source/Manufacturer:</td>
+                          <td>{{item.hospitalname}}</td>
                         </tr>
                         <tr>
                           <td>Category : </td>
-                          <td>Product Name</td>
+                          <td>{{item.category}}</td>
                         </tr>
                         <tr>
                           <td>SKU# :</td>
-                          <td>TEst</td>
+                          <td>{{item.sku}}</td>
                         </tr>
                         <tr>
                           <td>Quantity :</td>
-                          <td>Product Name</td>
+                          <td>{{item.quantity}}</td>
                         </tr>
                         <tr>
                           <td>Sell Price :</td>
-                          <td>Product Name</td>
+                          <td>{{item.saleprice}}</td>
                         </tr>
                       </table>
 
@@ -269,13 +281,13 @@
 
 
                   <mat-toolbar class="action">
-                    <button mat-button>view details</button>
-                    <button mat-button>Delete</button>
+                    <button mat-button (click)="viewDetailsInventory(item)">view details</button>
+                    <button mat-button (click)="delete(item._id,i)">Delete</button>
                   </mat-toolbar>
                 </span>
                 <!-- end loop -->
 
-                <span class="total_wrapper">
+                <!-- <span class="total_wrapper">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
                       <img src="../../../../assets/images/home_main_item_image.png">
@@ -319,9 +331,9 @@
                     <button mat-button>view details</button>
                     <button mat-button>Delete</button>
                   </mat-toolbar>
-                </span>
+                </span> -->
 
-                <span class="total_wrapper">
+                <!-- <span class="total_wrapper">
                   <mat-card-content class="tab_item">
                     <mat-card-content class="inner_image">
                       <img src="../../../../assets/images/home_main_item_image.png">
@@ -365,13 +377,13 @@
                     <button mat-button>view details</button>
                     <button mat-button>Delete</button>
                   </mat-toolbar>
-                </span>
+                </span> -->
 
 
                 <!-- footer action -->
-                <mat-toolbar class="action main_action">
-                  <button mat-button>Save Quote</button>
-                  <button mat-button>Submit Quote</button>
+                <mat-toolbar class="action main_action" *ngIf="inventoryDetails.length>0">
+                  <button mat-button (click)="saveQuote()">Save Quote</button>
+                  <button mat-button (click)="submitquote()">Submit Quote</button>
                 </mat-toolbar>
               </mat-card-content>
             </mat-card-content>

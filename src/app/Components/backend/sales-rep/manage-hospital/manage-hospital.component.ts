@@ -59,6 +59,7 @@ export class ManageHospitalComponent implements OnInit {
         this.action = "edit";
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
+          console.log(resolveData);
           this.defaultData = resolveData.data.res[0];
           this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
 

@@ -19,6 +19,7 @@ export class AddEditInventoryComponent implements OnInit {
 
   // ======================declarations=================
   public brand_name_array: any = [];
+  public selected:any;
   public inventoryForm: FormGroup;
   public inventory_category_array: any = [];
   public header_txt: any = "Add Inventory";
@@ -127,6 +128,7 @@ export class AddEditInventoryComponent implements OnInit {
       inventory_image: [],
       condition: ['New',],
       yom: [],
+      priority:['',Validators.required],
       items: new FormArray([]),
       dynamic_attributes: [],
       status: [],
@@ -152,7 +154,8 @@ export class AddEditInventoryComponent implements OnInit {
       inventory_image: defaultValue.inventory_image,
       quantity: defaultValue.quantity,
       wholesaleprice:defaultValue.wholesaleprice,
-      source: this.defaultData.source
+      source: this.defaultData.source,
+      priority:this.defaultData.priority
 
     })
     this.fullImagePath = defaultValue.inventory_image.basepath + defaultValue.inventory_image.image;

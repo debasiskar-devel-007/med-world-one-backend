@@ -1,0 +1,81 @@
+<app-adminheader>
+    <span class="inputstyle departmentAdd">
+        <span class="dashboardcontainer">
+            <mat-card class="main_wrapper">
+                <form autocomplete="off" [formGroup]="departmentForm">
+                    <span class="col-1-2">
+                        <mat-form-field>
+                            <mat-label>Department Name:</mat-label>
+                            <input matInput type="text" formControlName="department_name"
+                                (blur)="inputBlur('department_name')">
+                            <mat-error *ngIf="!departmentForm.controls['department_name'].valid
+                && departmentForm.controls['department_name'].errors.required">
+                                Department Name is required.
+                            </mat-error>
+                        </mat-form-field>
+
+                    </span>
+                    <!-- Parent Department  -->
+                    <span class="col-1-2">
+                        <mat-form-field>
+                            <mat-label>Parent Department:</mat-label>
+                            <mat-select formControlName="department_parent">
+                                <mat-option *ngFor="let food of deplist" [value]="food._id">
+                                    {{food.department_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </span>
+                    <!-- Description  -->
+                    <span class="col-1-1">
+                        <mat-form-field>
+                            <mat-label>Description:</mat-label>
+                            <textarea matInput formControlName="department_description" class="text_dept"
+                                (blur)="inputBlur('department_description')"></textarea>
+                            <mat-error *ngIf="!departmentForm.controls['department_description'].valid
+                                            && departmentForm.controls['department_description'].errors.required">
+                                Description is required.
+                            </mat-error>
+                        </mat-form-field>
+
+                    </span>
+
+
+
+                    <!-- Priority  -->
+                    <span class="col-1-2">
+                        <mat-form-field>
+                            <mat-label>Priroty:</mat-label>
+                            <input matInput type="number" formControlName="department_priority"
+                                (blur)="inputBlur('department_priority')">
+                            <mat-error *ngIf="!departmentForm.controls['department_priority'].valid
+                                            && departmentForm.controls['department_priority'].errors.required">
+                                Priority is required.
+                            </mat-error>
+                        </mat-form-field>
+                    </span>
+
+
+                    <!-- Status -->
+
+                    <span class="col-1-2">
+                        <span class="checkradiowrapper">
+                            <mat-label class="checkradiotitle">Status</mat-label>
+                            <mat-radio-group aria-label="Select an option" formControlName="status">
+                                <mat-radio-button [value]=1>Active</mat-radio-button>
+                                <mat-radio-button [value]=0>Blocked</mat-radio-button>
+                            </mat-radio-group><br>
+                        </span>
+                    </span>
+
+
+                    <mat-toolbar class="dept_btn_wpr">
+                        <button mat-button type="button" (click)="onSubmit()" color="primary">Submit</button>
+                        <button mat-button type="button" (click)="cancel()" color="warm">Cancel</button>
+                    </mat-toolbar>
+                </form>
+            </mat-card>
+        </span>
+    </span>
+</app-adminheader>

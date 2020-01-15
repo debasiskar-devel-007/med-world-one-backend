@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
 }
 
@@ -33,17 +34,34 @@ export class InventoryDetailsComponent implements OnInit {
   }
 
 
-  constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog) {
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog, private readonly meta: MetaService) {
+
+      this.meta.setTitle('MD Stock International - Inventory Details');
+      this.meta.setTag('og:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+      this.meta.setTag('twitter:description', 'Find Hospital and Laboratory Equipment, easily and conveniently, from an Inventory listing that comprises of thousands of different items from various top brands in the industry.');
+
+      this.meta.setTag('og:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+      this.meta.setTag('twitter:keyword', 'Inventory Listing for Hospital Equipment, Find Used Medical Equipment, Premium Medical Equipment Inventory');
+
+      this.meta.setTag('og:title', 'MD Stock International - Inventory Details');
+      this.meta.setTag('twitter:title', 'MD Stock International - Inventory Details');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
+
+
     let url: any = {};
     url = this.activatedRoute.snapshot.params.id;
     let data: any = {
-      "source": "inventories_list_view",
+      "source": "inventories_list_view_async",
       "condition": {
         "_id_object": url
       },
     };
-    this.httpServiceService.httpViaPost('datalist', data).subscribe((result: any) => {
+    console.warn(data);
 
+    this.httpServiceService.httpViaPost('datalist', data).subscribe((result: any) => {
+      console.warn(result);
       this.inventoryDetails = result.res[0];
       this.dynamic_attributes = result.res[0].dynamic_attributes;
 

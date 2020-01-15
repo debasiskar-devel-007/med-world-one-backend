@@ -40,7 +40,7 @@
                                                         <mat-icon matSuffix class="clickable" (click)="clearEmail(i)">clear</mat-icon>
                                                     </mat-chip>
                                                     <input matInput placeholder="Emails" formControlName="email" [matChipInputFor]="chipListt"
-                                                        [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_email($event)">
+                                                        [matChipInputAddOnBlur]="inputUntouch" (keyup)="collect_email($event)">
                             
                                                     <!-- <mat-error *ngIf=" contactusForm.controls['email'].touched && !contactusForm.controls['email'].valid" class="errortext">Email
                                                       is required</mat-error> -->
@@ -57,7 +57,7 @@
                                                     </mat-chip>
                             
                                                     <input matInput placeholder="Phones" formControlName="phone" [matChipInputFor]="chipList"
-                                                        [matChipInputAddOnBlur]="addOnBlur" (keyup)="collect_phones($event)">
+                                                        [matChipInputAddOnBlur]="inputUntouch" (keyup)="collect_phones($event)">
                             
                                                     <!-- <mat-error *ngIf="
                                                       contactusForm.controls['phone'].touched &&

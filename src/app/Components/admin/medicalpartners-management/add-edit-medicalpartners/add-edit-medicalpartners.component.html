@@ -1,14 +1,6 @@
 <app-adminheader>
   <span class="dashboardcontainer">
     <mat-card class="main_wrapper inputstyle">
-      <!-- <mat-card-content class="bred_cram_wrapper">
-            <a mat-list-item routerLinkActive="active"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active" [routerLink]="'/admin/medicalpartners-management/list'">Medical
-                Partner List </a>
-            <a mat-list-item routerLinkActive="active activebread"
-                [routerLink]="'/admin/medicalpartners-management/add'"> add
-            </a>
-        </mat-card-content> -->
 
       <mat-card-content class="from_wrapper">
         <mat-list class="formstylemainwrapper">
@@ -240,7 +232,7 @@
                 <mat-card class="example-card">
                   <img mat-card-image [src]="fullImgPath">
                   <mat-card-title>{{ imgName }}</mat-card-title>
-                  <mat-card-subtitle>{{ imgType }}</mat-card-subtitle>
+                  <mat-card-subtitle>{{ imgtype }}</mat-card-subtitle>
                   <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
 
                 </mat-card>

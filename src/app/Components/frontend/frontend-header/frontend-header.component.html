@@ -1,21 +1,49 @@
 <mat-card class="front_main">
   <mat-toolbar class="top_toolbar">
+
     <span class="wrapper">
       <mat-nav-list class="top_toolbar_navigation">
 
-        <a  *ngIf="type != ''" [routerLink]="'/cart'">
+        <a *ngIf="type != ''" [routerLink]="'/cart'">
           <!-- <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon> -->
           <mat-icon>shopping_cart</mat-icon>
         </a>
         <a *ngIf="type == ''" [routerLink]="'/login'">Login</a>
         <a href="https://dev-hospital-signup.mdstockinternational.com" *ngIf="type == ''">Register</a>
-
+        <a *ngIf="type != ''" (click)="logout();">Logout</a>
       </mat-nav-list>
     </span>
   </mat-toolbar>
+
+
   <mat-toolbar class="frontend_nav">
 
-    <mat-card-content class="logo_wrapper" routerLink="/home">
+    <!-- go to salesrep dashborad -->
+    <ng-container *ngIf="type=='salesrep'">
+
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-salesrep">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
+    </ng-container>
+
+    <!-- go to hospital dashboard -->
+    <ng-container *ngIf="type=='hospital'">
+
+        <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-medical-partner">
+          <img src="../../../../assets/images/dashboard.png">
+        </a>
+
+    </ng-container>
+
+    <!-- go to admin dashboard -->
+    <ng-container *ngIf="type=='admin'">
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-admin">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
+    </ng-container>
+
+
+    <mat-card-content class="logo_wrapper">
       <img src="assets/images/logo.png">
 
     </mat-card-content>
@@ -26,20 +54,17 @@
       <a mat-list-item [routerLink]="'/home'" routerLinkActive="active"> Home </a>
       <a mat-list-item [routerLink]="'/buy-from-us'" routerLinkActive="active"> Buy From Us </a>
       <a mat-list-item [routerLink]="'/inventory'" routerLinkActive="active"> Inventory </a>
+      <!-- <a mat-list-item [routerLink]="'/package'" routerLinkActive="active"> Package </a> -->
       <a mat-list-item [routerLink]="'/medical-partners'" routerLinkActive="active"> Medical Partners</a>
       <a mat-list-item [routerLink]="'/manufacturar-direct'" routerLinkActive="active"> Manufacturar Direct</a>
       <a mat-list-item [routerLink]="'/our-team'" routerLinkActive="active"> Our Team</a>
       <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
-      <!-- <a mat-list-item class="login" *ngIf="type == ''" [routerLink]="'/login'">Login</a> -->
-      <!-- <a mat-list-item href="https://dev-hospital-signup.mdstockinternational.com" class="signup"
-        *ngIf="type == ''">Signup</a> -->
-      <a mat-list-item class="signup" *ngIf="type != ''" (click)="logout();">Logout</a>
+      
+      
       <mat-card-content class="a_pro" *ngIf="type != ''">
-        <!-- <span class="profile">
-          <img src="https://icon-library.net/images/user-image-icon/user-image-icon-11.jpg">
-        </span> -->
+      
         <i class="material-icons" [matMenuTriggerFor]="repmenu"> more_vert </i>
       </mat-card-content>
 
@@ -79,11 +104,6 @@
       </mat-menu>
 
 
-      <!-- <mat-menu #loginmenu="matMenu">
-        <button mat-menu-item [routerLink]="'/login'">Admin Login</button>
-        <button mat-menu-item [routerLink]="'/salesrep-login'">Sales Rep Login</button>
-        <button mat-menu-item [routerLink]="'/hospital-login'">Hospital Login</button>
-      </mat-menu> -->
     </mat-nav-list>
 
     <!-- Language container OFF NOW -->

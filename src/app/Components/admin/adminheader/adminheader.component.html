@@ -1,122 +1,136 @@
 <span class="topbar">
-    <span class="dashboardcontainer">
-        <mat-card-content>WELCOME TO MD STOCK</mat-card-content>
-    </span>
+  <span class="dashboardcontainer">
+    <mat-card-content>WELCOME TO MD STOCK</mat-card-content>
+  </span>
+  <button mat-flat-button class="menu_button" (click)="togglemenu()"><i class="material-icons"> menu </i></button>
 </span>
 <span class="topblock2">
-    <span class="dashboardcontainer">
-        <mat-card-content class="topblock2subwrapper">
-            <span class="logo_wrapper" [routerLink]="[ '/dashboard-admin' ]">
-                <img src="/assets/images/dashboardlogo.png">
-                <button mat-flat-button><i class="material-icons"> menu </i></button>
+  <span class="dashboardcontainer">
+    <mat-card-content class="topblock2subwrapper">
+      <span class="logo_wrapper" routerLink="/dashboard-admin">
+        <img src="/assets/images/dashboardlogo.png">
+
+      </span>
+      <mat-card-content class="profile_section">
+        <mat-menu #appMenu="matMenu">
+          <ng-container *ngIf="type=='salesrep'">
+            <button mat-menu-item [routerLink]="['/salesrep/my-details']">
+              <mat-icon>account_circle</mat-icon> Account
+            </button>
+          </ng-container>
+
+          <ng-container *ngIf="type=='admin'">
+            <button mat-menu-item [routerLink]="['/admin/myaccount']">
+              <mat-icon>account_circle</mat-icon> Account
+            </button>
+          </ng-container>
+
+          <button mat-menu-item *ngIf="type=='salesrep'" [routerLink]="['/salesrep/change-password']">
+            <mat-icon>build</mat-icon> Change Password
+          </button>
+
+          <button mat-menu-item *ngIf="type=='hospital'" [routerLink]="['/hospital/change-password']">
+            <mat-icon>build</mat-icon> Change Password
+          </button>
+
+          <button mat-menu-item (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon> Logout
+          </button>
+
+        </mat-menu>
+        <span class="menubtnwrapper">
+          <span class="username">{{ user_name }}</span>
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <span class="user_profile">
+              <mat-icon>account_circle</mat-icon>
+              <i class="material-icons">
+                keyboard_arrow_down
+              </i>
             </span>
-            <mat-card-content class="profile_section">
-                <mat-menu #appMenu="matMenu">
-                        <ng-container *ngIf="type=='salesrep'">
-                                <button mat-menu-item [routerLink]="['/salesrep/my-details']">
-                                    <mat-icon>account_circle</mat-icon> Account
-                                </button>
-                        </ng-container>
+          </button>
+        </span>
 
-                        <ng-container *ngIf="type=='admin'">
-                                <button mat-menu-item [routerLink]="['/salesrep/my-details']">
-                                    <mat-icon>account_circle</mat-icon> Account
-                                </button>
-                        </ng-container>
+      </mat-card-content>
 
-                      <button mat-menu-item *ngIf="type=='salesrep'" [routerLink]="['/salesrep/change-password']">
-                        <mat-icon>build</mat-icon> Change Password
-                    </button>
-
-                    <button mat-menu-item *ngIf="type=='hospital'" [routerLink]="['/hospital/change-password']">
-                        <mat-icon>build</mat-icon> Change Password
-                    </button>
-
-                    <button mat-menu-item (click)="logout()">
-                        <mat-icon>power_settings_new</mat-icon> Logout
-                    </button>
-
-                </mat-menu>
-                <span class="menubtnwrapper">
-                    <span class="username">{{ user_name }}</span>
-                    <button mat-icon-button [matMenuTriggerFor]="appMenu">
-                        <span class="user_profile">
-                            <mat-icon>account_circle</mat-icon>
-                            <i class="material-icons">
-                                keyboard_arrow_down
-                            </i>
-                        </span>
-                    </button>
-                </span>
-
-            </mat-card-content>
-
-        </mat-card-content>
-    </span>
+    </mat-card-content>
+  </span>
 </span>
-<mat-card *ngIf="type=='admin'" class="adminnavbar" >
-<mat-toolbar class="techdashboard_header">
+<mat-card *ngIf="type=='admin'" class="adminnavbar" [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
+  <mat-toolbar class="techdashboard_header">
 
     <span class="dashboardcontainer">
+      <mat-card-content class="quotation" id="myDIV">
+        <span>
+          <mat-nav-list>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/home'"> Home</a>
+            <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="marketerMenu"> User Management <i
+                class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/team-category/list">Manage Team</a>
+            <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/addblogcategory/list">Manage
+              Blog</a>
 
-        <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
-        <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
-        <mat-card-content class="quotation" id="myDIV">
-            <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
-            <span>
-                <mat-nav-list>
-
-                    <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
-                    <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="marketerMenu"> User Management <i class="material-icons">keyboard_arrow_down</i></a>
-                    <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/team-category/list">Manage Team</a>
-                    <a mat-list-item routerLinkActive="active" routerLink="/manage-websites/addblogcategory/list">Manage Blog</a>
-
-                    <a mat-list-item [matMenuTriggerFor]="userManagement">Inventory Management <i class="material-icons">keyboard_arrow_down</i></a>
-                    <a mat-list-item [matMenuTriggerFor]="Quotesmanage">Manage Quotes <i class="material-icons">keyboard_arrow_down</i></a>
-                    <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="miscMenu"> Miscellaneous <i class="material-icons">keyboard_arrow_down</i></a>
-
-
-                    <!-- manage website -->
+            <a mat-list-item [matMenuTriggerFor]="userManagement">Inventory Management <i
+                class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item [matMenuTriggerFor]="Quotesmanage">Manage Quotes <i
+                class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="miscMenu"> Miscellaneous <i
+                class="material-icons">keyboard_arrow_down</i></a>
 
 
-                    <!-- Resource manager list -->
-                    <mat-menu #miscMenu="matMenu" class="admin_submenu">
-                        <button mat-menu-item routerLink="/admin-dashboard/contact"> Contact Us</button>
-                        <button mat-menu-item routerLink="/admin-dashboard/language-container"> Language Container</button>
-                    </mat-menu>
-
-                    <!-- User Management list -->
-                    <mat-menu #marketerMenu="matMenu" class="admin_submenu">
-                        <button mat-menu-item routerLink="/admin-management/list">Admin Management</button>
-                        <button mat-menu-item routerLink="/admin/medicalpartners-management/list">Medical Partners</button>
-                        <button mat-menu-item routerLink="/admin/salesrep-management/list">Sales Rep Management</button>
-                    </mat-menu>
+            <!-- manage website -->
 
 
+            <!-- Resource manager list -->
+            <mat-menu #miscMenu="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/admin-dashboard/contact"> Contact Us</button>
+              <button mat-menu-item routerLink="/admin-dashboard/language-container"> Language Container</button>
+            </mat-menu>
 
-                    <!-- Resource manager list -->
-                    <mat-menu #userManagement="matMenu" class="admin_submenu">
-                            <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory</button>
-                        <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Category</button>
-                        <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup</button>
-                    </mat-menu>
-
-                    <!-- -------- Manage Quotes list ---------- -->
-
-                    <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
-                        <button mat-menu-item routerLink="/admin/managequotes/purchasequote/list">Purchase Quotes</button>
-                        <button mat-menu-item routerLink="/inventory/inventorylistingquote/add">Inventory Listing Quotes</button>
-                        <button mat-menu-item routerLink="/admin/inventory/purchase-comparison/list">Purchase Comparison Quotes</button>
-                    </mat-menu>
-
-                </mat-nav-list>
-            </span>
+            <!-- User Management list -->
+            <mat-menu #marketerMenu="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/admin-management/list">Admin Management</button>
+              <button mat-menu-item routerLink="/admin/medicalpartners-management/list">Medical Partners</button>
+              <button mat-menu-item routerLink="/admin/salesrep-management/list">Sales Rep Management</button>
+            </mat-menu>
 
 
-            <span *ngIf="indexUrl === 'user-dashboard' ">
-                <mat-nav-list>
-                    <!-- <a mat-list-item routerLinkActive="active" [routerLink]="'/landingpage'"> <i class="material-icons">home </i> </a> -->
-                    <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/user'"> Dashboard </a>
+
+            <!-- Resource manager list -->
+            <mat-menu #userManagement="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory</button>
+              <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Category</button>
+              <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup</button>
+              <button mat-menu-item routerLink="/admin/inventory/manage-department/list">Manage Department</button>
+              <button mat-menu-item routerLink="/admin/manage-hospital-package/add">Manage Hospital Package</button>
+
+              <!-- <button mat-menu-item routerLink="/admin/package">Package</button> -->
+            </mat-menu>
+
+            <!-- -------- Manage Quotes list ---------- -->
+
+            <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/admin/managequotes/purchasequote/list">Purchase Quotes</button>
+
+              <button mat-menu-item routerLink="/admin/managequotes/inventorylistingquote/list">Inventory Listing
+                Quotes</button>
+              <!-- <button mat-menu-item routerLink="/admin/inventory/inventorylistingquote/list">Inventory Listing Quotes</button> -->
+
+              <button mat-menu-item routerLink="/admin/managequotes/purchasquotelisting/list">Purchase Comparison
+                Quotes</button>
+
+              <button mat-menu-item routerLink="/admin/package/list">Package Quotes</button>
+                
+            </mat-menu>
+
+          </mat-nav-list>
+        </span>
+
+
+        <!-- <span *ngIf="indexUrl === 'user-dashboard' ">
+                <mat-nav-list> -->
+        <!-- <a mat-list-item routerLinkActive="active" [routerLink]="'/landingpage'"> <i class="material-icons">home </i> </a> -->
+        <!-- <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/user'"> Dashboard </a>
                     <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/articles'"> Articles </a>
                     <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/teledoc/home'"> Teledoc
                         Services </a>
@@ -129,210 +143,133 @@
 
 
 
-            </span>
+            </span>  -->
 
 
-        </mat-card-content>
+      </mat-card-content>
 
     </span>
 
 
 
-</mat-toolbar>
+  </mat-toolbar>
 </mat-card>
 
 
-<mat-card *ngIf="type=='salesrep'" class="repdashboardnavbar">
-        <mat-toolbar class="techdashboard_header">
+<mat-card *ngIf="type=='salesrep'" class="repdashboardnavbar"
+  [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
+  <mat-toolbar class="techdashboard_header">
 
-            <span class="dashboardcontainer">
+    <span class="dashboardcontainer">
 
-                <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
-                <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
-                <mat-card-content class="quotation" id="myDIV">
-                    <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
-                    <span>
-                        <mat-nav-list>
 
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-salesrep'"> Dashboard </a>
-                            <a mat-list-item routerLinkActive="active" routerLink="/salesrep/my-hospital">Medical Partners</a>
-                            <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="Quotes"> Quotes <i class="material-icons">keyboard_arrow_down</i></a>
-                            <a mat-list-item routerLinkActive="active" >Reports</a>
-                            <a mat-list-item routerLinkActive="active" routerLink="/inventory">Inventory</a>
-                            <a mat-list-item routerLinkActive="active" >Quote Cart</a>
+      <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
+      <mat-card-content class="quotation" id="myDIV">
+        <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
+        <span>
+          <mat-nav-list>
 
-                            <!-- <a mat-list-item [matMenuTriggerFor]="userManagement">Manage Inventory <i class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-salesrep'"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/home'"> Home</a>
+            <a mat-list-item routerLinkActive="active" routerLink="/salesrep/my-hospital">Medical Partners</a>
+            <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="Quotes"> Quotes <i
+                class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item routerLinkActive="active">Reports</a>
+            <a mat-list-item routerLinkActive="active" routerLink="/inventory">Inventory</a>
+            <a mat-list-item routerLinkActive="active">Quote Cart</a>
+
+            <!-- <a mat-list-item [matMenuTriggerFor]="userManagement">Manage Inventory <i class="material-icons">keyboard_arrow_down</i></a>
                             <a mat-list-item [matMenuTriggerFor]="Quotesmanage">Manage Quotes <i class="material-icons">keyboard_arrow_down</i></a>
                             <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="miscMenu"> Miscellaneous <i class="material-icons">keyboard_arrow_down</i></a> -->
 
 
-                            <!-- manage website -->
+            <!-- manage website -->
 
 
-                            <!-- Resource manager list -->
-                            <!-- <mat-menu #miscMenu="matMenu" class="admin_submenu">
+            <!-- Resource manager list -->
+            <!-- <mat-menu #miscMenu="matMenu" class="admin_submenu">
                                 <button mat-menu-item routerLink="/admin-dashboard/contact"> Contact Us</button>
                                 <button mat-menu-item routerLink="/admin-dashboard/language-container"> Language Container</button>
                             </mat-menu> -->
 
-                            <!-- User Management list -->
-                            <mat-menu #Quotes="matMenu" class="admin_submenu">
-                                <button mat-menu-item routerLink="/salesrep/managequotes/purchasequote/list">Purchase Quotes</button>
-                                <button mat-menu-item routerLink="/salesrep/inventory/inventorylistingquote/add">Inventory Listing Quotes</button>
-                                <button mat-menu-item routerLink="/salesrep/purchase-comparison/list">Purchase Comparison Quotes</button>
-                            </mat-menu>
+            <!-- User Management list -->
+            <mat-menu #Quotes="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/salesrep/managequotes/purchasequote/list">Purchase Quotes</button>
+              <button mat-menu-item routerLink="/salesrep/managequotes/inventorylistingquote/list">Inventory Listing
+                Quotes</button>
+              <button mat-menu-item routerLink="/salesrep/managequotes/purchasquotelisting/list">Purchase Comparison
+                Quotes</button>
+
+                <button mat-menu-item routerLink="/salesrep/package/list">Package Quotes</button>
+            </mat-menu>
 
 
 
-                            <!-- Resource manager list -->
-                            <!-- <mat-menu #userManagement="matMenu" class="admin_submenu">
-                                <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Category & Brand</button>
-                                <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory List</button>
-                                <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup Management List</button>
-                                <button mat-menu-item routerLink="/admin/inventory/purchase-comparison/list">Price Comparison Report</button>
-                            </mat-menu> -->
+          </mat-nav-list>
+        </span>
 
-                            <!-- -------- Manage Quotes list ---------- -->
+      </mat-card-content>
 
-                            <!-- <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
-                                <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Purchase Quotes</button>
-                                <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory Listing Quotes</button>
-                                <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Purchase Comparison Quotes</button>
-                            </mat-menu> -->
-
-                        </mat-nav-list>
-                    </span>
-
-
-                    <span *ngIf="indexUrl === 'user-dashboard' ">
-                        <mat-nav-list>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/landingpage'"> <i
-                                    class="material-icons">home
-                                </i> </a>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/user'"> Dashboard </a>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/articles'"> Articles </a>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/teledoc/home'"> Teledoc
-                                Services </a>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/360-healthcare'"> 360
-                                Healthcare Review </a>
-                            <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/webiners'"> Webinars </a>
-                            <a mat-list-item class="sehedule_link" routerLinkActive="active"
-                                [routerLink]="'/user-dashboard/teledoc/book-appointments'">Scheduled Appointment</a>
-                        </mat-nav-list>
+    </span>
 
 
 
-                    </span>
-
-
-                </mat-card-content>
-
-            </span>
-
-
-
-        </mat-toolbar>
+  </mat-toolbar>
 </mat-card>
-<mat-card *ngIf="type=='hospital'" class="repdashboardnavbar">
-    <mat-toolbar class="techdashboard_header">
+<mat-card *ngIf="type=='hospital'" class="repdashboardnavbar"
+  [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
+  <mat-toolbar class="techdashboard_header">
 
-        <span class="dashboardcontainer">
+    <span class="dashboardcontainer">
 
-            <button mat-flat-button id="menu_button"><i class="material-icons"> menu </i></button>
-            <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
-            <mat-card-content class="quotation" id="myDIV">
-                <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
-                <span>
-                    <mat-nav-list>
+      <!-- <i routerLinkActive="active" [routerLink]="'/home'" class="material-icons home_button"> home </i> -->
+      <mat-card-content class="quotation" id="myDIV">
+        <!-- *ngIf="indexUrl === 'admin-dashboard'" -->
+        <span>
+          <mat-nav-list>
 
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-medical-partner'"> Dashboard </a>
-                        <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="Quotes"> Quotes <i class="material-icons">keyboard_arrow_down</i></a>
-                        <a mat-list-item routerLinkActive="active" >Reports</a>
-                        <a mat-list-item routerLinkActive="active" routerLink="/inventory">Inventory</a>
-                        <a mat-list-item routerLinkActive="active" >Quote Cart</a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-medical-partner'"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active" [routerLink]="'/home'"> Home</a>
+            <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="Quotes"> Quotes <i
+                class="material-icons">keyboard_arrow_down</i></a>
+            <a mat-list-item routerLinkActive="active">Reports</a>
+            <a mat-list-item routerLinkActive="active" routerLink="/inventory">Inventory</a>
+            <a mat-list-item routerLinkActive="active">Quote Cart</a>
 
-                        <!-- <a mat-list-item [matMenuTriggerFor]="userManagement">Manage Inventory <i class="material-icons">keyboard_arrow_down</i></a>
-                        <a mat-list-item [matMenuTriggerFor]="Quotesmanage">Manage Quotes <i class="material-icons">keyboard_arrow_down</i></a>
-                        <a mat-list-item routerLinkActive="active" [matMenuTriggerFor]="miscMenu"> Miscellaneous <i class="material-icons">keyboard_arrow_down</i></a> -->
+          
+            <mat-menu #Quotes="matMenu" class="admin_submenu">
+              <button mat-menu-item routerLink="/hospital/managequotes/purchasequote/list">Purchase Quotes</button>
+              <button mat-menu-item routerLink="/hospital/managequotes/inventorylistingquote/list">Inventory Listing
+                Quotes</button>
+              <button mat-menu-item routerLink="/hospital/managequotes/purchasquotelisting/list">Purchase Comparison Quotes</button>
+              <button mat-menu-item routerLink="/medicalpartner/package/list">Package Quotes</button>
 
+            </mat-menu>
 
-                        <!-- manage website -->
+            
 
-
-                        <!-- Resource manager list -->
-                        <!-- <mat-menu #miscMenu="matMenu" class="admin_submenu">
-                            <button mat-menu-item routerLink="/admin-dashboard/contact"> Contact Us</button>
-                            <button mat-menu-item routerLink="/admin-dashboard/language-container"> Language Container</button>
-                        </mat-menu> -->
-
-                        <!-- User Management list -->
-                        <mat-menu #Quotes="matMenu" class="admin_submenu">
-                            <button mat-menu-item routerLink="/hospital/managequotes/purchasequote/list">Purchase Quotes</button>
-                            <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory Listing Quotes</button>
-                            <button mat-menu-item routerLink="/salesrep/purchase-comparison/list">Purchase Comparison Quotes</button>
-                        </mat-menu>
-
-
-
-                        <!-- Resource manager list -->
-                        <!-- <mat-menu #userManagement="matMenu" class="admin_submenu">
-                            <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Category & Brand</button>
-                            <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory List</button>
-                            <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Price Markup Management List</button>
-                            <button mat-menu-item routerLink="/admin/inventory/purchase-comparison/list">Price Comparison Report</button>
-                        </mat-menu> -->
-
-                        <!-- -------- Manage Quotes list ---------- -->
-
-                        <!-- <mat-menu #Quotesmanage="matMenu" class="admin_submenu">
-                            <button mat-menu-item routerLink="/inventory/manage-inventory/inventory-category/list">Purchase Quotes</button>
-                            <button mat-menu-item routerLink="/inventory/inventory-list/list">Inventory Listing Quotes</button>
-                            <button mat-menu-item routerLink="/inventory/price-markup-management-list/list">Purchase Comparison Quotes</button>
-                        </mat-menu> -->
-
-                    </mat-nav-list>
-                </span>
-
-
-                <span *ngIf="indexUrl === 'user-dashboard' ">
-                    <mat-nav-list>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/landingpage'"> <i
-                                class="material-icons">home
-                            </i> </a>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/user'"> Dashboard </a>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/articles'"> Articles </a>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/teledoc/home'"> Teledoc
-                            Services </a>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/360-healthcare'"> 360
-                            Healthcare Review </a>
-                        <a mat-list-item routerLinkActive="active" [routerLink]="'/user-dashboard/webiners'"> Webinars </a>
-                        <a mat-list-item class="sehedule_link" routerLinkActive="active"
-                            [routerLink]="'/user-dashboard/teledoc/book-appointments'">Scheduled Appointment</a>
-                    </mat-nav-list>
-
-
-
-                </span>
-
-
-            </mat-card-content>
-
+          </mat-nav-list>
         </span>
 
 
+      
 
-    </mat-toolbar>
+      </mat-card-content>
+
+    </span>
+
+
+
+  </mat-toolbar>
 </mat-card>
 
 <div class="inner_wrapper">
-    <!-- <div class="leftpannel">
-       <app-left-nav></app-left-nav>
-    </div> -->
-    <div class="rightpannel">
-        <ng-content></ng-content>
+ 
+  <div class="rightpannel">
+    <ng-content></ng-content>
 
-        <app-footer></app-footer>
-    </div>
+    <app-footer></app-footer>
+  </div>
 </div>
 
 

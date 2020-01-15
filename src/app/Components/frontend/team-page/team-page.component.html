@@ -47,13 +47,14 @@
 <mat-card-content class="Team_members_block">
     <mat-card-content class="team_items" *ngFor="let teamMember of teamList">
         <mat-card-content class="member_image">
-            <img src="../../../../assets/images/team_member_image.jpg">
+            <img src="{{teamMember.image[0]}}">
         </mat-card-content>
 
         <mat-card-content class="member_content_wrapper">
             <mat-card-title class="title">{{teamMember.membername}}</mat-card-title>
-            <p class="phone"> {{teamMember.multipleemail}} </p>
-            <p class="email"> {{teamMember.multiplephone}}</p>
+            
+            <p class="email"> {{teamMember.multiplephone[0]}}</p>
+            <p class="phone"> {{teamMember.multipleemail[0].contactemail}} </p>
             <p class="short_desc"> {{ teamMember.description}}</p>
         </mat-card-content>
         <button mat-button class="view_details" (click)="openDialog(teamMember)">view details</button>

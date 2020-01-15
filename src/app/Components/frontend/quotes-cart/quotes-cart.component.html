@@ -17,20 +17,10 @@
         </mat-form-field>
       </mat-card-content>
     </form>
-    <mat-card-content class="top_quotesection">
-      <label mat-label>Notes :</label>
-      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-    </mat-card-content>
+
   </mat-card-content>
 
-    <!-- hospital -->
 
-  <mat-card-content *ngIf="userType=='hospital'" class="medical_partners">
-    <mat-card-content class="top_quotesection">
-      <label mat-label>Notes :</label>
-      <input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-    </mat-card-content>
-  </mat-card-content>
 
   <mat-card-content class="cart_item_wrapper">
 
@@ -62,8 +52,8 @@
               <span class="inner_box">
                 <span class="boxes">{{item.quantity}}</span>
                 <span class="counter">
-                  <a (click)="plus(item,i)"><i class="material-icons"> keyboard_arrow_up </i></a>
-                  <a (click)="minus(item,i)"><i class="material-icons"> keyboard_arrow_down </i></a>
+                  <a (click)="plus(i)"><i class="material-icons"> keyboard_arrow_up </i></a>
+                  <a (click)="minus(i)"><i class="material-icons"> keyboard_arrow_down </i></a>
                 </span>
               </span>
 
@@ -73,6 +63,9 @@
         </mat-toolbar>
       </mat-card-content>
     </mat-card-content>
+
+
+
     <!-- <mat-card-content class="cart_item">
       <mat-card-content class="image_wrapper">
         <img src="../../../../assets/images/invItemimage2.jpg">
@@ -112,172 +105,17 @@
         </mat-toolbar>
       </mat-card-content>
     </mat-card-content> -->
-
-    <!-- <mat-card-content class="cart_item">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage3.jpg">
-      </mat-card-content>
-
-      <mat-card-content class="cart_content">
-        <table class="cart_table">
-          <tr>
-            <th>SKU # :</th>
-            <td>911727</td>
-          </tr>
-          <tr>
-            <th>Product Name :</th>
-            <td>Nebulizer Kits</td>
-          </tr>
-          <tr>
-            <th>Manufacturer :</th>
-            <td>Lorem Ipsum</td>
-          </tr>
-        </table>
-
-        <mat-toolbar class="acctions">
-          <mat-card-content class="quantity">
-            <p>qty</p>
-            <span class="counter_wrapper">
-              <span class="inner_box">
-                <span class="boxes">1</span>
-                <span class="counter">
-                  <a (click)="plus()"><i class="material-icons"> keyboard_arrow_up </i></a>
-                  <a (click)="minus()"><i class="material-icons"> keyboard_arrow_down </i></a>
-                </span>
-              </span>
-
-              <button mat-button class="remove">Remove</button>
-            </span>
-          </mat-card-content>
-        </mat-toolbar>
-      </mat-card-content>
-    </mat-card-content> -->
-
-
-    <!-- <mat-card-content class="cart_item">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage4.jpg">
-      </mat-card-content>
-
-      <mat-card-content class="cart_content">
-        <table class="cart_table">
-          <tr>
-            <th>SKU # :</th>
-            <td>911727</td>
-          </tr>
-          <tr>
-            <th>Product Name :</th>
-            <td>Nebulizer Kits</td>
-          </tr>
-          <tr>
-            <th>Manufacturer :</th>
-            <td>Lorem Ipsum</td>
-          </tr>
-        </table>
-
-        <mat-toolbar class="acctions">
-          <mat-card-content class="quantity">
-            <p>qty</p>
-            <span class="counter_wrapper">
-              <span class="inner_box">
-                <span class="boxes">1</span>
-                <span class="counter">
-                  <a (click)="plus()"><i class="material-icons"> keyboard_arrow_up </i></a>
-                  <a (click)="minus()"><i class="material-icons"> keyboard_arrow_down </i></a>
-                </span>
-              </span>
-
-              <button mat-button class="remove">Remove</button>
-            </span>
-          </mat-card-content>
-        </mat-toolbar>
-      </mat-card-content>
-    </mat-card-content> -->
-
-
-    <!-- <mat-card-content class="cart_item">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage5.jpg">
-      </mat-card-content>
-
-      <mat-card-content class="cart_content">
-        <table class="cart_table">
-          <tr>
-            <th>SKU # :</th>
-            <td>911727</td>
-          </tr>
-          <tr>
-            <th>Product Name :</th>
-            <td>Nebulizer Kits</td>
-          </tr>
-          <tr>
-            <th>Manufacturer :</th>
-            <td>Lorem Ipsum</td>
-          </tr>
-        </table>
-
-        <mat-toolbar class="acctions">
-          <mat-card-content class="quantity">
-            <p>qty</p>
-            <span class="counter_wrapper">
-              <span class="inner_box">
-                <span class="boxes">1</span>
-                <span class="counter">
-                  <a (click)="plus()"><i class="material-icons"> keyboard_arrow_up </i></a>
-                  <a (click)="minus()"><i class="material-icons"> keyboard_arrow_down </i></a>
-                </span>
-              </span>
-
-              <button mat-button class="remove">Remove</button>
-            </span>
-          </mat-card-content>
-        </mat-toolbar>
-      </mat-card-content>
-    </mat-card-content> -->
-
-
-    <!-- <mat-card-content class="cart_item">
-      <mat-card-content class="image_wrapper">
-        <img src="../../../../assets/images/invItemimage1.jpg">
-      </mat-card-content>
-
-      <mat-card-content class="cart_content">
-        <table class="cart_table">
-          <tr>
-            <th>SKU # :</th>
-            <td>911727</td>
-          </tr>
-          <tr>
-            <th>Product Name :</th>
-            <td>Nebulizer Kits</td>
-          </tr>
-          <tr>
-            <th>Manufacturer :</th>
-            <td>Lorem Ipsum</td>
-          </tr>
-        </table>
-
-        <mat-toolbar class="acctions">
-          <mat-card-content class="quantity">
-            <p>qty</p>
-            <span class="counter_wrapper">
-              <span class="inner_box">
-                <span class="boxes">1</span>
-                <span class="counter">
-                  <a (click)="plus()"><i class="material-icons"> keyboard_arrow_up </i></a>
-                  <a (click)="minus()"><i class="material-icons"> keyboard_arrow_down </i></a>
-                </span>
-              </span>
-
-              <button mat-button class="remove">Remove</button>
-            </span>
-          </mat-card-content>
-        </mat-toolbar>
-      </mat-card-content>
-    </mat-card-content> -->
+ 
   </mat-card-content>
+  <!-- hospital -->
 
-  <mat-card-content class="button_wrapper" >
+  <mat-card-content class="medical_partners">
+    <mat-card-content class="top_quotesection">
+      <label mat-label>Notes :</label>
+      <textarea type="text" class="form-control" (input)="onSearchChange($event.target.value)"></textarea>
+    </mat-card-content>
+  </mat-card-content>
+  <mat-card-content class="button_wrapper">
     <button class="cart_action" mat-button color="accent" (click)="getQuote()">get quote</button>
   </mat-card-content>
 </mat-card-content>

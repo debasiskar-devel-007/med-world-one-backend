@@ -11,16 +11,30 @@ import { environment } from '../../../../../environments/environment.dev';
 export class ListingTeamCatComponent implements OnInit {
 
   //Team category Listing
-  public allTeamData: any = [];
-  public sourceName: any = "team_category";
-  public updateendpoint: any = "addorupdatedata";
-  public searchendpoint: any = "datalist";
-  public deleteEndpoint: any = "deletesingledata";
-  public addPageRoute: any = 'manage-websites/team-category/add';
-  manageTeamRoute:any = 'manage-websites/team/list';
-  public editpageRoute: any = 'manage-websites/team-category/edit';
-  public serverUrl: any = environment.API_URL;
-  public jwtToken = this.cookies.get('jwtToken');
+  public allTeamData:any=[];
+  public sourceName:any="team_category";
+  public updateendpoint:any="addorupdatedata";
+  public searchendpoint:any="datalist";
+  public deleteEndpoint:any="deletesingledata";
+  public addPageRoute:any='manage-websites/team-category/add';
+  public manageButtonRoute:any='manage-websites/team/list';
+  public editpageRoute:any='manage-websites/team-category/edit';
+  public serverUrl:any = environment.API_URL;
+  public jwtToken=this.cookies.get('jwttoken');
+
+
+
+  //////
+  // public allTeamData: any = [];
+  // public sourceName: any = "team_category";
+  // public updateendpoint: any = "addorupdatedata";
+  // public searchendpoint: any = "datalist";
+  // public deleteEndpoint: any = "deletesingledata";
+  // public addPageRoute: any = 'manage-websites/team-category/add';
+  // manageTeamRoute:any = 'manage-websites/team/list';
+  // public editpageRoute: any = 'manage-websites/team-category/edit';
+  // public serverUrl: any = environment.API_URL;
+  // public jwtToken = this.cookies.get('jwtToken');
 
 
   constructor(public activeRoute: ActivatedRoute, public cookies: CookieService) { }
@@ -28,6 +42,7 @@ export class ListingTeamCatComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.data.forEach(data => {
+      console.log(data.teamCatList.res);
       let result: any;
       result = data.teamCatList.res;
       this.allTeamData = result;

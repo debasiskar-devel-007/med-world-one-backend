@@ -2,14 +2,6 @@
     <span class="inputstyle ">
         <span class="dashboardcontainer">
             <mat-card class="main_wrapper">
-                <!-- <mat-card-content class="bred_cram_wrapper">
-            <a mat-list-item routerLinkActive="active" [routerLink]="'/dashboard-admin'"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active" [routerLink]="'/inventory/inventory-list/list'"> inventory-list
-            </a>
-            <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/inventory/inventory-list/add'"> add
-            </a>
-        </mat-card-content> -->
-
 
                 <mat-card-content class="from_wrapper">
                     <mat-list class="formstylemainwrapper">
@@ -114,13 +106,27 @@
                                         <mat-label class="label">wholesale price</mat-label>
                                         <input matInput formControlName="wholesaleprice" type="number"
                                             ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.11"
-                                            (blur)="inputBlur('quantity')">
+                                            (blur)="inputBlur('wholesaleprice')">
                                         <span matPrefix></span>
                                         <mat-error *ngIf="!inventoryForm.controls['wholesaleprice'].valid	
                                                 && inventoryForm.controls['wholesaleprice'].errors.required">Wholesale
                                             price is required.</mat-error>
                                     </mat-form-field>
                                 </span>
+
+                                <span class="col-1-1">
+                                    <!-- Priority -->
+
+                                    <mat-form-field>
+                                        <mat-label class="label">Priority</mat-label>
+                                        <input matInput formControlName="priority" type="number"   (blur)="inputBlur('priority')">
+                                        <mat-error *ngIf="!inventoryForm.controls['priority'].valid	
+                                                && inventoryForm.controls['priority'].errors.required">Wholesale
+                                            price is required.</mat-error>
+                                    </mat-form-field>
+                                </span>
+
+
                                 <span class="col-1-1">
                                     <!-- Description  -->
                                     <mat-form-field>
@@ -177,7 +183,7 @@
                                 <!-- DYNAMIC FORM ATTRIBUTE  -->
 
                                 <div formArrayName="items" class="dynamic_attributes"
-                                    *ngFor="let item of inventoryForm.get('items').controls; let i = index;">
+                                    *ngFor="let item of inventoryForm.controls.items['controls']; let i = index;">
                                     <div [formGroupName]="i">
                                         <mat-form-field>
                                             <input matInput formControlName="label_name" placeholder="Enter A Label">
@@ -202,7 +208,7 @@
 
                                 <span class="button_wrapper">
                                     <!-- Dynamic form fields  -->
-                                    <button mat-flat-button type="button" (click)="create_field()" color="primary">
+                                    <button mat-flat-button type="button"  color="primary">
                                         &nbsp; Add
                                         field
                                     </button>

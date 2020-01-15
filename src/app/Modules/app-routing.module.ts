@@ -5,7 +5,6 @@ import { LoginComponent } from '../Components/auth/login/login.component';
 import { ResetPasswordComponent } from '../Components/auth/reset-password/reset-password.component';
 import { DashboardAdminComponent } from '../Components/admin/dashboard-admin/dashboard-admin.component';
 import { AuthguardService } from '../services/authguard.service';
-import {AuthService } from '../services/auth.service';
 import { AddEditAdminComponent } from '../Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from '../Components/admin/admin-management/listing-admin/listing-admin.component';
 import { ResolveService } from '../services/resolve.service';
@@ -61,7 +60,6 @@ import { ManageHospitalComponent } from '../Components/backend/sales-rep/manage-
 import { BlogComponentFrontEnd } from '../Components/frontend/blog/blog.component';
 // import { BlogComponent } from 'blog-lib-influxiq';
 import { HospitalLoginComponent } from '../Components/frontend/logins/hospital-login/hospital-login.component';
-import { LoginAdminComponent } from '../Components/frontend/logins/login/login.component';
 import { ListingPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/listing-price-markup-management/listing-price-markup-management.component';
 import { AddEditPriceMarkupManagementComponent } from '../Components/inventory/priceMarkupManagementList/add-edit-price-markup-management/add-edit-price-markup-management.component';
 import { ContactusListingComponent } from '../Components/miscellaneous/contactus-listing/contactus-listing.component';
@@ -78,6 +76,13 @@ import { PurchaseQuotesListingComponent } from '../Components/admin/purchase-quo
 import { PurchaseComparisonSearchListComponent } from '../Components/inventory/purchase-comparison-search-list/purchase-comparison-search-list.component';
 import { AdminInventoryDetailsComponent } from '../Components/inventory/admin-inventory-details/admin-inventory-details.component';
 import { AddinventorylistingquoteComponent } from '../Components/inventory/addinventorylistingquote/addinventorylistingquote.component';
+import { PurchasecomparisoncartComponent } from '../Components/inventory/purchasecomparison/purchasecomparisoncart/purchasecomparisoncart.component';
+import { AdminpackageComponent } from '../Components/inventory/adminpackage/adminpackage.component';
+import { PackageComponent } from '../Components/frontend/package/package.component';
+import { InventorylistingquotefromapiComponent } from '../Components/inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component';
+import { DepartmentComponent } from '../Components/admin/department/department.component';
+import { DepartentListComponent } from '../Components/admin/department/departent-list/departent-list.component';
+import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
 
 
 
@@ -86,30 +91,31 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
-  { path: 'login/:id/:token', component: LoginComponent },
+  // { path: 'login/:id/:token', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
-
-
-  { path: 'home', component: HomePageComponent,canActivate: [AuthService]},
+  { path: 'home', component: HomePageComponent },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'hospital/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-  // Auth Route
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
 
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reset-password/:token', component: ResetPasswordComponent },
+
+
 
   //Admin Dashboard
-  { path: 'dashboard-admin', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [AuthguardService] },
   //Medical Dashboard
-  { path: 'dashboard-medical-partner', component: DashboardAdminComponent,canActivate: [AuthguardService] },
+  { path: 'dashboard-medical-partner', component: DashboardAdminComponent, canActivate: [AuthguardService] },
   //SalesRep Dashboard
-  { path: 'dashboard-salesrep', component: DashboardAdminComponent,canActivate: [AuthguardService]},
+  { path: 'dashboard-salesrep', component: DashboardAdminComponent, canActivate: [AuthguardService] },
 
-   { path:'admin/quote-view/:id/:hospitalid', component:QuoteViewComponent,canActivate: [AuthguardService]},
+  { path: 'admin/quote-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+  { path: 'admin/quote-comparison-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+  { path: 'admin/inventory-listing-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
+
   // { path:'admin/quote-view/:id', component:QuoteViewComponent,canActivate: [AuthguardService]},
 
 
@@ -120,7 +126,7 @@ const routes: Routes = [
 
   // _______________MANAGE ADMIN____________
   /**admin my account */
-  { path: 'admin/myaccount', component:AdminDetailsComponent,canActivate: [AuthguardService]},
+  { path: 'admin/myaccount', component: AdminDetailsComponent, canActivate: [AuthguardService] },
 
   { path: 'admin-management/add', component: AddEditAdminComponent },
   {
@@ -131,7 +137,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_admin',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -154,7 +160,7 @@ const routes: Routes = [
 
 
   //____________MANAGE MEDICAL PARTNERS_____________
-  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent,canActivate: [AuthguardService]},
+  { path: 'admin/medicalpartners-management/add', component: AddEditMedicalpartnersComponent, canActivate: [AuthguardService] },
   {
     path: 'admin/medicalpartners-management/list',
     component: ListingMedicalpartnersComponent,
@@ -163,7 +169,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_hospital',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -193,7 +199,7 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: 'users_view_salesrep',
-        condition: {  }
+        condition: {}
       },
       endpoint: 'datalist'
     },
@@ -290,7 +296,7 @@ const routes: Routes = [
     resolve: { teamCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_category_view',
+        source: 'team_category',
         condition: {}
       },
       endpoint: 'datalist'
@@ -303,7 +309,7 @@ const routes: Routes = [
     resolve: { teamCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_category',
+        source: 'team_category',
         condition: {}
       },
       endpoint: 'datalist'
@@ -322,7 +328,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
@@ -335,7 +341,7 @@ const routes: Routes = [
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management',
+        source: 'team_management',
         condition: {}
       },
       endpoint: 'datalist'
@@ -350,7 +356,7 @@ const routes: Routes = [
   // =========================================================
 
 
-  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent,canActivate: [AuthguardService] },
+  { path: 'inventory/manage-inventory/inventory-category/add', component: AddEditInventoryCatComponent, canActivate: [AuthguardService] },
 
   {
     path: 'inventory/manage-inventory/inventory-category/list',
@@ -408,11 +414,71 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
+//________________Package_________________
+{path:'admin/package',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
+data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
+
+{path:'admin/package/edit/:id',component:AdminpackageComponent,resolve: { inventoryList: ResolveService },
+data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorypackage' }},
+//________________Package admin listing_________________
+{path:'admin/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {} }, endpoint: 'datalist' }},
+//________________Package admin view
+{ path: 'admin/quote-package-view/:id/:hospitalid', component: QuoteViewComponent, canActivate: [AuthguardService] },
 
 
-  //________________INVENTORY LIST_________________
-  { path: 'inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
-  { path: 'salesrep/inventory/inventorylistingquote/add', component:AddinventorylistingquoteComponent },
+//________________Package salesrep view
+{path:'salesrep/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {'salesid_object': 'user_id'} }, endpoint: 'datalist' }},
+
+
+
+//________________Package hospital view
+{path:'medicalpartner/package/list',component:PurchaseQuotesListingComponent,resolve: { purchasequotelist: ResolveService },
+data: { requestcondition: { source: 'package_list_view', condition: {'hospital_id_object': 'user_id'} }, endpoint: 'datalist' }},
+
+
+//________________Package frontend_________________
+// {path:'package',component:PackageComponent},
+
+
+
+  //________________INVENTORY LISTing quotes_________________
+
+  //________________INVENTORY listing quotes add for admin-----------
+  // { path: 'admin/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+  // { path: 'admin/inventory/inventorylistingquote/edit/:listingquoteid', component: AddinventorylistingquoteComponent },
+
+
+
+//________________INVENTORY listing quote add(inventory from api) for all--------------
+
+
+{ path: 'inventory/inventorylistingquote/add', component: InventorylistingquotefromapiComponent },
+{ path: 'inventory/inventorylistingquote/edit/:listingquoteid', component: InventorylistingquotefromapiComponent },
+
+//________________admin department--------------
+
+{ path: 'admin/inventory/manage-department', component:DepartmentComponent},
+{ path: 'admin/inventory/manage-department/edit/:id', component:DepartmentComponent},
+{ path: 'admin/inventory/manage-department/list', component:DepartentListComponent,canActivate: [AuthguardService],
+resolve: { adminList: ResolveService },
+data: {
+  requestcondition: {
+    source: 'department',
+    condition: {}
+  },
+  endpoint: 'datalist'
+},},
+
+//-------------admin manage-hospital-package
+{ path: 'admin/manage-hospital-package/add', component: ManageHospitalPackageComponent },
+
+
+//________________INVENTORY listing quote add for salesrep--------------
+{ path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
+
+  { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
   { path: 'inventory/inventory-list/add', component: AddEditInventoryComponent },
 
   {
@@ -422,8 +488,8 @@ const routes: Routes = [
     resolve: { inventoryList: ResolveService },
     data: {
       requestcondition: {
-        source: 'inventories_list_view',
-        condition: {}
+        source: 'temp_inventory_view_view',
+        condition: {},limit:700
       },
       endpoint: 'datalist'
     },
@@ -444,26 +510,28 @@ const routes: Routes = [
 
   // _________________purchase comaprison search  list________________
 
-  
+
   {
-     path: 'admin/inventory/purchase-comparison-search-list', 
-     component: PurchaseComparisonSearchListComponent,  
-     resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, 
+    path: 'admin/inventory/purchase-comparison-search-list',
+    component: PurchaseComparisonSearchListComponent,
+    resolve: { inventoryList: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' },
   },
   {
     path: 'admin/inventory/inventory-details/:_id',
-    component: AdminInventoryDetailsComponent,  
+    component: AdminInventoryDetailsComponent,
     resolve: { inventoryList: ResolveService },
- data: { requestcondition: { source: 'inventories_list_view',condition: {}},endpoint: 'datalist'}, 
+    data: { requestcondition: { source: 'inventories_list_view', condition: {} }, endpoint: 'datalist' },
   },
 
 
-//_______________Admin Contact us Listing_____________//
-{path: 'admin-dashboard/contact',component:ContactusListingComponent,resolve:{contactlist:ResolveService},
-data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist'},canActivate: [AuthguardService]},
-// add admin contact info
- {path:'admin-dashboard/addcontactinfo',component:AddcontactinfoComponent,canActivate: [AuthguardService]},
+  //_______________Admin Contact us Listing_____________//
+  {
+    path: 'admin-dashboard/contact', component: ContactusListingComponent, resolve: { contactlist: ResolveService },
+    data: { requestcondition: { source: 'contactus_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthguardService]
+  },
+  // add admin contact info
+  { path: 'admin-dashboard/addcontactinfo', component: AddcontactinfoComponent, canActivate: [AuthguardService] },
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -497,9 +565,10 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   },
 
 
-           /*Manage Quotes */
+  /*Manage Quotes */
 
-    {path:'admin/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+  {
+    path: 'admin/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
@@ -507,46 +576,130 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
         condition: {}
       },
       endpoint: 'datalist'
-       
-    }},
 
-     /**manage purchase quote for salesref */
-     
-    {path:'salesrep/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
+    }
+  },
+    /*inventory Listing  Quotes  for admin*/
+  {
+    path: 'admin/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote_listing_details_view',
+        condition: {'copy_status':'Pending'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+   /*inventory Listing  Quotes  for salesrep*/
+  {
+    path: 'salesrep/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote_listing_details_view',
+        condition: {'salesrepid_object': 'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+  /*inventory Listing  Quotes  for hospital*/
+
+  {
+    path: 'hospital/managequotes/inventorylistingquote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote_listing_details_view',
+        condition: {'hospital_id_object': 'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+
+
+  /**manage purchase quote for salesref */
+
+  {
+    path: 'salesrep/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
     data: {
       requestcondition: {
         source: 'quote-details_view',
-        condition: {'salesrepid_object':'user_id'}
+        condition: { 'salesrepid_object': 'user_id' }
       },
       endpoint: 'datalist'
 
-    }},
+    }
+  },
 
-     /**manage purchase quote for Hospital */
-     
-     {path:'hospital/managequotes/purchasequote/list',component:PurchaseQuotesListingComponent,canActivate:[AuthguardService],
-     resolve: { purchasequotelist: ResolveService },
-     data: {
-       requestcondition: {
-         source: 'quote-details_view',
-         condition: {'hospital_id_object':'user_id'}
-       },
-       endpoint: 'datalist'
- 
-     }},
+  /**manage purchase quote for Hospital */
 
-    
+  {
+    path: 'hospital/managequotes/purchasequote/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'quote-details_view',
+        condition: { 'hospital_id_object': 'user_id' }
+      },
+      endpoint: 'datalist'
 
+    }
+  },
 
+  // purchase Quote Listing for admin 
+  {
+    path: 'admin/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: {'copy_status':'Pending'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+
+  // purchase Quote Listing for salesrep
+  {
+    path: 'salesrep/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: { 'salesrepid_object': 'user_id' }
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+   // purchase Quote Listing for hospital
+   {
+    path: 'hospital/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
+    resolve: { purchasequotelist: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'purchase_comparison_quote-details_view',
+        condition: {'hospital_id_object': 'user_id'}
+      },
+      endpoint: 'datalist'
+
+    }
+  },
+  
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },
-  { path: 'cart', component: QuotesCartComponent,canActivate: [AuthguardService]},
+  { path: 'cart', component: QuotesCartComponent, canActivate: [AuthguardService] },
 
   // front end routing
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent,canActivate: [AuthguardService]},
+  { path: 'home', component: HomePageComponent, canActivate: [AuthguardService] },
   { path: 'sales-rep/home', component: HomePageComponent },
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
@@ -567,24 +720,13 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     resolve: { teamList: ResolveService },
     data: {
       requestcondition: {
-        source: 'Team_management_view',
+        source: 'team_management_view',
         condition: {}
       },
       endpoint: 'datalist'
     },
   },
-  {
-    path: 'our-team',
-    component: TeamPageComponent,
-    resolve: { teamList: ResolveService },
-    data: {
-      requestcondition: {
-        source: 'Team_management_view',
-        condition: {}
-      },
-      endpoint: 'datalist'
-    },
-  },
+
 
   { path: 'blog', component: BlogComponentFrontEnd },
 
@@ -603,8 +745,10 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
     }
   },
   // Forntend inventory list
-  { path: 'inventory', component: InventoryComponent,  resolve: { inventoryList: ResolveService },
-  data: { requestcondition: { source: '',condition: {}},endpoint: 'inventorybrandcategory'}, },
+  {
+    path: 'inventory', component: InventoryComponent, resolve: { inventoryList: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventorybrandcategory' },
+  },
 
   { path: 'inventory-details/:id', component: InventoryDetailsComponent },
 
@@ -653,6 +797,7 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
       endpoint: 'datalist'
     },
   },
+  { path: 'admin/purchasecomparision/cart', component: PurchasecomparisoncartComponent, canActivate: [AuthguardService] },
   {
     path: 'admin/inventory/purchase-comparison/edit/:_id',
     component: AddEditPurchaseComparisonComponent,
@@ -725,7 +870,8 @@ data:{requestcondition:{source:'contactus_view',condition:{}},endpoint:'datalist
   { path: 'hospital/view-quotes/details', component: DetailsQuotesComponent },
 
 
-  {path: 'salesrep/my-details',component: MyDetailsComponent,resolve: { data: ResolveService },
+  {
+    path: 'salesrep/my-details', component: MyDetailsComponent, resolve: { data: ResolveService },
     data: {
       requestcondition: {
         source: 'users_view',

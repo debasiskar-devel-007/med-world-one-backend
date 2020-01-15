@@ -24,9 +24,9 @@
 .home_wrapper .home_bottom .main_content .link{ font-family: "AvenirBlack"; font-size: 18px; color: #fff; text-transform: capitalize; text-decoration: none; }
 .home_wrapper .home_bottom .main_content .image_wrapper img{ max-width: 100%; border: 2px solid #fff; box-sizing: border-box; width: 100%; }
 .homeGetaQuote{ background: url("../../../../assets/images/getAquoteBanner.png") no-repeat center center; background-size: cover; margin-bottom: 0;}
-.homeGetaQuote .quoteText{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; margin-bottom: 0; padding: 0 50px 0 0;}
+.homeGetaQuote .quoteText{ color: #fff; font-family: "AvenirMedium"; font-size: 24px; margin-bottom: 0; }
 .homeGetaQuote .quoteText span{ font-family: "AvenirBlack"; }
-.homeGetaQuote .Quotecontainer{ width: 1480px; margin: 0 auto; display: flex; align-items: center; padding: 30px 0; }
+.homeGetaQuote .Quotecontainer{ width: 1460px; margin: 0 auto; display: flex; align-items: center; padding: 30px 0; }
 .homeGetaQuote .Quotecontainer .freeReportButton{ min-width: 280px; background: transparent; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; border: 2px solid #fff;
   padding: 3px; font-size: 24px; }
 
@@ -40,14 +40,45 @@
   .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+1){ margin-left: 0; }
   .popularProduct .product_container .product_item_wrapper .product_item:nth-child(4n+4){ margin-right: 0; }
 
-  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper{ width: 100%; margin-bottom: 5px; min-height: 215px; justify-content: center;
-   display: flex; align-items: stretch;}
-  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper img{ max-width: 100%; }
-  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_name { font-size: 18px; font-family: "AvenirBlack"; text-transform: uppercase; color: #09bbfe; margin-bottom: 0; }
+  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper{ width: 100%;
+    margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+    align-items: stretch;
+    height: 222px;
+    box-shadow: 0px 2px 5px 0px #e0e0e0;}
+  .popularProduct .product_container .product_item_wrapper .product_item .productimage_wrapper img{ max-width: 100%; height: 100%; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_name {     font-size: 18px;
+    font-family: "AvenirBlack";
+    text-transform: uppercase;
+    color: #09bbfe;
+    margin-bottom: 0;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 22px;
+    max-height: 44px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;    min-height: 46px;
+  }
 
-  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_desc { color: #002751; font-family: "AvenirMedium"; font-size: 18px; margin: 5px 0 15px; line-height: 20px; }
-  .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action{ background: none; justify-content: space-between; height: auto; padding: 0; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .product_desc {     color: #002751;
+    font-family: "AvenirMedium";
+    font-size: 18px;
+    margin: 5px 0;
+    line-height: 20px;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 70px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action{ background: none; justify-content: space-between; height: auto; padding: 0;     margin-top: auto; }
   .popularProduct .product_container .product_item_wrapper .product_item .product_content .button_action button{ background: #0a4788; font-size: 14px; font-family: "AvenirMedium"; text-transform: capitalize; border-radius: 0; color:#fff; }
+  .popularProduct .product_container .product_item_wrapper .product_item .product_content{ min-height: 165px; display: flex; flex-direction: column;}
 
   .globalMedical_partner{ background: #ffffff; margin: 0; padding: 30px 0 45px; box-shadow: -3px 1px 5px 0px #2171c1; }
   .globalMedical_partner .partner_wrapper{  width: 1460px; margin: 0 auto;  }
@@ -56,7 +87,6 @@
   .globalMedical_partner .partner_wrapper .top_content .content_header{  font-size: 48px; color: #002346; font-family: "AvenirBlack"; text-transform: uppercase; }
   .globalMedical_partner .partner_wrapper .top_content .partner_top_desc{  font-size: 18px; color: #002346; font-family: "AvenirRoman"; line-height: 26px; }
   .globalMedical_partner .partner_wrapper .top_content .partner_top_desc span{ font-family: "AvenirBlack"; }
-
 
 
  .bottom_content .new_wrapper{ display: flex; justify-content: center; margin-bottom: 0; }

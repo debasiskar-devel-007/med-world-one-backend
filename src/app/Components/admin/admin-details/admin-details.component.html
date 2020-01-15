@@ -45,7 +45,7 @@
                         <span class="col-1-2">
                             <mat-form-field>
                                 <mat-label>Email </mat-label>
-                                <input matInput placeholder="adam123@gmail.com" [readonly]="flag==true?true:false"
+                                <input matInput placeholder="adam123@gmail.com" 
                                     formControlName="email" (blur)="inputBlur('email')">
                                 <mat-error
                                     *ngIf="!adminForm.controls['email'].valid && adminForm.controls['email'].errors.required">

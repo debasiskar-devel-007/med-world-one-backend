@@ -19,7 +19,8 @@ export class AuthguardService implements CanActivate {
 
     if (getToken !=null && user !=null && user != '') {
       return true;
-    } else {
+    }
+    else {
       this._router.navigate(['/login']);
     }
   }
