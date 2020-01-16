@@ -316,10 +316,10 @@ addCondition(inventoryDetails:any){
   const dialogRef = this.dialog.open(addCondition, {
     panelClass: 'addconditiionModal',
     data: { alldata: inventoryDetails }
-
   });
 
   dialogRef.afterClosed().subscribe(result => {
+    //console.log(">>>>", result);
   });
 }
 }
@@ -364,42 +364,37 @@ export class addCondition {
   conversionNeeded: 0,
   bucketName: "crmfiles.influxhostserver"
 }
-public ig:any;
   constructor(
     public dialogRef: MatDialogRef<addCondition>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     //console.log(data);
-     // this.ig=data;
-      // if (this.configData.files) {
-      //   if (this.configData.files.length > 1) {
-      //     data.alldata.listing_image=
-      //       {
-      //         "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
-      //         "image": this.configData.files[0].upload.data.data.fileservername,
-      //         "name": this.configData.files[0].name,
-      //         "type": this.configData.files[0].type
-      //       };
-      //     }
-      //   }
   }
  
-  img(data:any){
-    console.log("img");
-    for(let i in data.alldata){
-      for (const loop in this.configData.files) {
-        data.alldata[i].listing_image=data.alldata[i].listing_image.concat({
-          "basepath": this.configData.files[loop].upload.data.basepath + '/' + this.configData.path + '/',
-          "image": this.configData.files[loop].upload.data.data.fileservername,
-          "name": this.configData.files[loop].name,
-          "type": this.configData.files[loop].type
-        })
+  img(){
+   
+   if (this.configData.files) {
+      
+        this.data.alldata.listing_image=
+          {
+            "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+            "image": this.configData.files[0].upload.data.data.fileservername,
+            "name": this.configData.files[0].name,
+            "type": this.configData.files[0].type
+          };
+        
       }
-
-    }
     
-    //   console.log(data);
+     //console.log(this.data);
   }
-    
+  cancel(){
+    this.data.alldata.purchaseyear='';
+    this.data.alldata.cosmetic_condition='';
+    this.data.alldata.selling_timeframe='';
+    this.data.alldata.original_cost=0;
+    this.data.alldata.additional_information='';
+    this.data.alldata.listing_image=[];
+  }
+
   onNoClick(): void {
     this.dialogRef.close();
   }

@@ -1,4 +1,6 @@
 <h4>add condition</h4>
+<button type="button" (click)="img();">ADD</button>
+<button type="button" (click)="cancel();">Cancel</button>
 <h4><span>Purchase year:</span><input type="number" [(ngModel)]="data.alldata.purchaseyear" placeholder="Purchase year"></h4>
 <h4><span>Cosmetic Condition:</span><input type="text" [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition"></h4>
 <h4><span>Original Cost:</span><input type="number" [(ngModel)]="data.alldata.original_cost" placeholder="Original Cost"></h4>
@@ -25,5 +27,7 @@
 
       </mat-card>
     </mat-card-content>
+
+    
 
   </span>
