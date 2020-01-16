@@ -245,9 +245,7 @@ th.mat-header-cell { color: #ffffff; text-transform: uppercase;  font-family: "A
 tr td br{ display: none; }
 /* tr.mat-row:nth-child(even) { background: #dde2e5; } */
 td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
-.mat-paginator {
-  background: #105d9f!important;
-  color: #fff!important; }
+.mat-paginator { background: #105d9f!important; color: #fff!important; }
 .mat-button.mat-accent[disabled], .mat-button.mat-primary[disabled], .mat-button.mat-warn[disabled], .mat-button[disabled][disabled], .mat-icon-button.mat-accent[disabled], .mat-icon-button.mat-primary[disabled], .mat-icon-button.mat-warn[disabled], .mat-icon-button[disabled][disabled], .mat-stroked-button.mat-accent[disabled], .mat-stroked-button.mat-primary[disabled], .mat-stroked-button.mat-warn[disabled], .mat-stroked-button[disabled][disabled]{
     color: #fff!important;
 }
@@ -589,32 +587,17 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .inputstyle .mat-form-field-label-wrapper{
   overflow: inherit;
 }
-.inputstyle  .mat-form-field-infix input, .inputstyle  .mat-form-field-infix mat-select{
-  height: 35px;
-    border: 1px solid #ddd;
-    padding: 0 1%;
-    width: 98%;background: #fff;
-}
-.inputstyle  .mat-form-field-infix textarea{
-  border: 1px solid #ddd;
-  width: 99%;
-  padding: .5%;
-}
+.inputstyle  .mat-form-field-infix input,
+.inputstyle  .mat-form-field-infix mat-select{
+  height: 35px; border: 1px solid #ddd; padding: 0 1%; width: 98%;background: #fff; }
+.inputstyle .mat-form-field-infix textarea{ border: 1px solid #ddd; width: 99%; padding: .5%; background: #fff; }
 .inputstyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 0;
 }
 .inputstyle .mat-form-field-appearance-legacy .mat-form-field-infix, .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix{
-  padding: 5px 0;
-  border: 0;
-  margin: 0 0;
-  margin-top: 20px;
-  position: relative;padding-bottom: 15px;
-}
+  padding: 5px 0; border: 0; margin: 0 0; margin-top: 20px; position: relative;padding-bottom: 15px; }
 .inputstyle .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex{
-  background: none;
-    position: relative;
-    top: -10px;
-}
+  background: none; position: relative; top: -10px;}
 .inputstyle .mat-radio-button{margin-right: 10px;}
 .inputstyle .mat-form-field-underline{display: none;}
 .inputstyle .mat-form-field-wrapper {
@@ -1177,3 +1160,51 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .manageTeam .main_wrapper .formspan .bulletarr { border: 2px solid #00aee2; }
 .manageTeam .main_wrapper .formspan .top_header { background:#00aee2; }
 .manageTeam .main_wrapper .formspan .uploadfilecontainer { width: 100%; }
+
+/* department list */
+.departmentList .liblisitin_wrapper .headers_parts{ display: flex; justify-content: space-between; align-items: center; width: 100%; border-bottom: 1px solid #566075;
+  padding: 10px 16px; box-sizing: border-box; }
+.departmentList .liblisitin_wrapper .headers_parts button{ min-width: 105px; color: #fff; text-transform: uppercase; font-size: 18px;
+  font-family: 'AvenirMedium' !important; text-shadow: 0 2px 0 rgba(0,0,0,.30); background: #369ff3; text-align: center; }
+.departmentList .liblisitin_wrapper .titli{margin: 0; font-family: 'AvenirLight'; font-size: 22px; text-transform: capitalize; color: #535353;}
+.departmentList .mat-paginator{ background: #566075!important}
+
+
+.departmentList .cursor:nth-child(1) i{ display: none; }
+.departmentList .cursor:nth-child(2) i{ display: none; }
+.departmentList .cursor:nth-child(3){ display: none; }
+.departmentList .cursor:nth-child(4) { display: none; }
+
+.departmentList .cursor:nth-child(1){ display: inline-block; background: #00294f; padding: 5px; color: #fff; margin-right: 5px;}
+.departmentList .cursor:nth-child(1)::after{ content: 'View Details'}
+
+.departmentList .cursor:nth-child(2){ display: inline-block; background: #f7452e; padding: 5px; color: #fff; margin-right: 5px;}
+.departmentList .cursor:nth-child(2)::after{ content: 'Delete'}
+.departmentList td.mat-cell:last-of-type,
+.departmentList td.mat-footer-cell:last-of-type,
+.departmentList th.mat-header-cell:last-of-type { padding-right: 24px; text-align: center; }
+.departmentList .searchbar { background: #00294f; color: #fff;}
+.departmentList .searchbar .mat-form-field-flex {  background: #fff; padding: 0 10px; }
+.departmentList .searchbar .mat-form-field-wrapper{ padding-bottom: 0; }
+.departmentList .searchbar .mat-form-field-underline{ height: 0;}
+.departmentAdd .main_wrapper { background: #f2f2f2; padding: 20px!important; box-sizing: border-box; margin: 30px 0; box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)!important;
+}
+.departmentAdd .dept_btn_wpr{ height: auto; align-items: center; justify-content: center; margin: 16px 0 0;}
+.departmentAdd .dept_btn_wpr button{ width: 210px; border-radius: 0; padding: 5px; background: #3f51b5; color: #fff; font-family: 'AvenirMedium'; text-transform: uppercase;
+  font-size: 24px;}
+.departmentAdd .text_dept{ min-height: 120px; resize: none; }
+.departmentAdd .dept_btn_wpr button:last-child{ background: #f44336!important; margin-left: 10px;  }
+
+
+
+/* delete modal */
+.custom-modalbox{ width: 700px; }
+.custom-modalbox .mat-dialog-container{ padding: 10px!important;background: #eaf5ff;
+  box-sizing: border-box;}
+.custom-modalbox .mat-dialog-container .mat-dialog-title{  text-align: center; font-family: 'AvenirMedium'; background: #001c36; color: #fff; font-size: 26px; padding: 10px 0;}
+  .custom-modalbox .mat-dialog-container .mat-dialog-content{ padding: 0; margin: 0; text-align: center; font-size: 20px; font-family: 'AvenirMedium';}
+
+.custom-modalbox .mat-dialog-container .mat-dialog-actions{display: block; text-align: center; padding: 0; margin: 0; }
+.custom-modalbox .mat-dialog-container .mat-dialog-actions button{ background: #00294f; font-family: 'Avenirmedium'; font-size: 16px; text-transform: uppercase; border-radius: 0; color: #fff; min-width: 120px;}
+.custom-modalbox .mat-dialog-container .mat-dialog-actions button:last-child{ background: #f7452e;  margin-left: 10px; }
+

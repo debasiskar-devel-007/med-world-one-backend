@@ -143,7 +143,7 @@ import { QuotesCartComponent ,Dialoggetquote} from './Components/frontend/quotes
 // admin dashboard hospital view details
 import { AdminDashboardHospitalViewdetailsComponent } from './Components/admin/admin-dashboard-hospital-viewdetails/admin-dashboard-hospital-viewdetails.component';
 import { AdminDetailsComponent} from './Components/admin/admin-details/admin-details.component';
-import { QuoteViewComponent ,DialogOverviewExampleDialog} from './Components/backend/sales-rep/quote-view/quote-view.component';
+import { QuoteViewComponent ,DialogOverviewExampleDialog,ConditionDetails} from './Components/backend/sales-rep/quote-view/quote-view.component';
 
 //admin dashboard view purchase quote
 import { PurchaseQuotesListingComponent ,emailModal} from './Components/admin/purchase-quotes-listing/purchase-quotes-listing.component';
@@ -266,6 +266,7 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     Dialoggetquote,
     DialogOverviewExampleDialog,
     emailModal,
+    ConditionDetails,
     listingquotedetails,
     quoteModal,sendMailModal, 
     Dialoginventory,AddcontactinfoComponent,
@@ -302,7 +303,9 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5, Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent, TeamDetails]
+  entryComponents: [ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
+                    Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5,
+                    Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent,TeamDetails]
 })
 export class AppModule {
   constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {

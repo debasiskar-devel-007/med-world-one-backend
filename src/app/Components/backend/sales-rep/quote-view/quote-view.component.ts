@@ -102,8 +102,11 @@ public totalWholesellprice:number=0;
         this.savings=this.totalPurchasedPrice-this.totalprice;
 
               if(this.Package_Details!=null){
-                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;}        
+                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
+              } 
+                    
             }
+           
      }
     });
 
@@ -139,6 +142,7 @@ public totalWholesellprice:number=0;
       this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
       }
     }
+   
     //console.log(this.savings);
    }
 
@@ -152,15 +156,13 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','tax','quotedprice'];
     }
   }
   
  
   viewQuoteHeader: string[] = [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice','wholesale'];
   
-
-
 /**update quote with price */
   save(){
     var postData:any={};
@@ -436,9 +438,23 @@ var post={
     }
   })
 }
+
+/***condition Info */
+conditionInfo(condetails:any){
+  const dialogRef = this.dialog.open(ConditionDetails, {
+    panelClass:'viewlistingQuoteModal',
+     data: {alldata: condetails}
+    
+   });
+
+   dialogRef.afterClosed().subscribe(result => {
+     
+     
+   });
+}
 }
 
-
+/**view details modal */
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
@@ -449,7 +465,28 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      console.log(data);
+      //console.log(data);
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+/**condition modal */
+@Component({
+  selector: 'conditiondetails',
+  templateUrl: 'conditionDetails.html',
+  styleUrls: ['./quote-view.component.css']
+})
+export class ConditionDetails {
+ 
+  constructor(
+    public dialogRef: MatDialogRef<ConditionDetails>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      //console.log(data);
     }
 
   onNoClick(): void {

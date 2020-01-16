@@ -138,7 +138,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     itm.cosmetic_condition='';
     itm.selling_timeframe='';
     itm.original_cost=0;
-    itm.additional_information=0;
+    itm.additional_information='';
     itm.listing_image=[];
     // item.saleprice = 1;
 
@@ -288,8 +288,7 @@ savequote(){
       },
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
-    console.log("save listing quote",postData);
-    return;
+    //console.log("save listing quote",postData);
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {

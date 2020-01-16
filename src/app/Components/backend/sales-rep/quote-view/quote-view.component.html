@@ -59,6 +59,7 @@
               
             </h4>
             <button (click)="showDetails(element)" mat-button class="viewDetails">Device Details</button>
+            <button (click)="conditionInfo(element)" mat-button class="viewDetails">Condition Details</button>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p><span class="name_header">Note:&nbsp;</span>{{notes}}</p><p 
@@ -202,8 +203,8 @@
           <td mat-footer-cell *matFooterCellDef> 
             <p class="total_label"><label>Total Devices:</label> <span>{{totalqty}}</span></p>
             <p class="total_label"><label>Subtotal:</label> <span>{{totalQuotedprice}}</span></p>
-            <p class="total_label"><label>S&D:</label> <span>12358</span></p>
-            <p class="total_label"><label>Total:</label> <span>42358</span></p> 
+            <p class="total_label"><label>S&D:</label> <span>12,358</span></p>
+            <p class="total_label"><label>Total:</label> <span>42,358</span></p> 
             </td>
         
         </ng-container>
@@ -218,7 +219,7 @@
               pattern="^[0-9]+\.[0-9][0-9]$" />
             </span>
           </td>
-          <td mat-footer-cell *matFooterCellDef>{{totaltax}}</td>
+          <td mat-footer-cell *matFooterCellDef>{{totaltax | number}}</td>
           <!-- <td mat-footer-cell *matFooterCellDef> </td> -->
           </ng-container>
 
@@ -227,8 +228,8 @@
 
          <ng-container matColumnDef="subtotalprice">
           <th mat-header-cell *matHeaderCellDef> subtotal </th>
-          <td mat-cell *matCellDef="let element; let i=index;" data-label="subtotal"> {{element.subtotalprice}} </td>
-          <td mat-footer-cell *matFooterCellDef> {{totalprice}}  
+          <td mat-cell *matCellDef="let element; let i=index;" data-label="subtotal"> {{element.subtotalprice | number}} </td>
+          <td mat-footer-cell *matFooterCellDef> {{totalprice| number}}  
             <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Total : {{Package_all_total}}</p>
           </td>
           <!-- <td mat-footer-cell *matFooterCellDef>  </td> -->
@@ -242,14 +243,14 @@
             <ng-container *ngIf="element.wholesaleprice==null"></ng-container>
             <ng-container *ngIf="element.wholesaleprice!=null"> {{element.wholesaleprice}} </ng-container>
             </td>
-          <td mat-footer-cell *matFooterCellDef> {{totalWholesellprice}}</td>
+          <td mat-footer-cell *matFooterCellDef> {{totalWholesellprice | number}}</td>
           <td mat-footer-cell *matFooterCellDef></td>
         </ng-container>
 
         <ng-container matColumnDef="purchaseprice" >
           <th mat-header-cell *matHeaderCellDef> MP Price </th>
           <td mat-cell *matCellDef="let element" data-label="purchaseprice Price"> {{element.purchased_price}} </td>
-          <td mat-footer-cell *matFooterCellDef>{{totalPurchasedPrice}}  </td>
+          <td mat-footer-cell *matFooterCellDef>{{totalPurchasedPrice | number}}  </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
 
