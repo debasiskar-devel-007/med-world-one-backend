@@ -201,9 +201,10 @@
             </span>
           </td>
           <td mat-footer-cell *matFooterCellDef> 
-            <p class="total_label"><label>Total Devices:</label> <span>{{totalqty}}</span></p>
-            <p class="total_label"><label>Subtotal:</label> <span>{{totalQuotedprice}}</span></p>
-            <p class="total_label"><label>S&D:</label> <span>12,358</span></p>
+            <p class="total_label"><label>Total Devices:</label> <span>{{totalqty | number}}</span></p>
+            <p class="total_label"><label>Total Tax:</label> <span>{{totaltax | number}}</span></p>
+            <p class="total_label"><label>Subtotal:</label> <span>{{totalQuotedprice | number}}</span></p>
+            <p class="total_label"><label>Shipping & Handling:</label> <span>12,358</span></p>
             <p class="total_label"><label>Total:</label> <span>42,358</span></p> 
             </td>
         
