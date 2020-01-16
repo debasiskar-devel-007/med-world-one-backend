@@ -384,20 +384,21 @@ public ig:any;
       //   }
   }
  
-  img(){
+  img(data:any){
     console.log("img");
-    if (this.configData.files) {
-      if (this.configData.files.length > 1) {
-        this.data.alldata.listing_image=
-          {
-            "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
-            "image": this.configData.files[0].upload.data.data.fileservername,
-            "name": this.configData.files[0].name,
-            "type": this.configData.files[0].type
-          };
-        }
+    for(let i in data.alldata){
+      for (const loop in this.configData.files) {
+        data.alldata[i].listing_image=data.alldata[i].listing_image.concat({
+          "basepath": this.configData.files[loop].upload.data.basepath + '/' + this.configData.path + '/',
+          "image": this.configData.files[loop].upload.data.data.fileservername,
+          "name": this.configData.files[loop].name,
+          "type": this.configData.files[loop].type
+        })
       }
-     //console.log(this.ig);
+
+    }
+    
+    //   console.log(data);
   }
     
   onNoClick(): void {

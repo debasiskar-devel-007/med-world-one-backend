@@ -3,12 +3,13 @@
 <h4><span>Cosmetic Condition:</span><input type="text" [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition"></h4>
 <h4><span>Original Cost:</span><input type="number" [(ngModel)]="data.alldata.original_cost" placeholder="Original Cost"></h4>
 <h4><span>Selling Timeframe:</span><input type="text" [(ngModel)]="data.alldata.selling_timeframe" placeholder="Selling Timeframe"></h4>
-<h4><span>Additional Information:</span><textarea [(ngModel)]="data.alldata.additional_information" placeholder="Additional Information"></textarea></h4>
+<h4><span>Additional Information
+    .:</span><textarea [(ngModel)]="data.alldata.additional_information" placeholder="Additional Information"></textarea></h4>
 <span class="col-1-1">
 
     <!-- image upload -->
     <h3>Image :</h3>
-    <lib-file-upload [config]="configData" (change)="img()"></lib-file-upload><br>
+    <lib-file-upload [config]="configData" (change)="img(data)"></lib-file-upload><br>
     <!-- <mat-error>Please add just one service image.</mat-error>
     <mat-error>Please add an image.</mat-error> -->
   </span>

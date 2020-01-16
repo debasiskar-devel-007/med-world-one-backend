@@ -58,7 +58,7 @@
               <ng-container><span >Description: </span>{{element.deviceDescription}}</ng-container>
               
             </h4>
-            <button (click)="showDetails(element)" mat-button class="viewDetails">View Details</button>
+            <button (click)="showDetails(element)" mat-button class="viewDetails">Device Details</button>
             </ng-container>
           </td>
           <td mat-footer-cell *matFooterCellDef data-label="note"> <p><span class="name_header">Note:&nbsp;</span>{{notes}}</p><p 
@@ -180,7 +180,20 @@
           <th mat-header-cell *matHeaderCellDef> Quoted price </th>
           <td mat-cell *matCellDef="let element" data-label="Quoted price">
             <span class="text_with_span">
-              <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.quotedprice" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.quotedprice}}" placeholder="{{element.quotedprice}}" />
+
+              <ng-container *ngIf="userType=='admin'">
+                <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.quotedprice_admin" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.quotedprice_admin}}" placeholder="{{element.quotedprice}}" />
+              </ng-container>
+
+              <ng-container *ngIf="userType=='salesrep'">
+                <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.quotedprice_admin" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.quotedprice}}" placeholder="{{element.quotedprice}}" />
+              </ng-container>
+
+              <ng-container *ngIf="userType=='hospital'">
+                <input name='awesome' [attr.disabled]="userType=='admin' ? null : '' " type="number" [(ngModel)]="element.quotedprice_admin" (change)="calculatevalue()" (keyup)="calculatevalue()" value="{{element.quotedprice}}" placeholder="{{element.quotedprice}}" />
+              </ng-container>
+             
+
               <span class="action_button">
                
               </span>
@@ -250,7 +263,10 @@
 
       <mat-card-content class="bottom_action">
         <button mat-button *ngIf="userType=='admin'" (click)="save()">Save</button>
+        <button mat-button *ngIf="userType=='admin' && activatedRoute.snapshot.url[1].path=='inventory-listing-view'" (click)="submit()">Submit</button>
+        
         <button mat-button (click)="downloadPdf()">Download</button>
+        <button mat-button *ngIf="userType=='admin' && activatedRoute.snapshot.url[1].path=='inventory-listing-view'" (click)="cancel()">cancel</button>
       </mat-card-content>
     </mat-card-content>
   </mat-card>
