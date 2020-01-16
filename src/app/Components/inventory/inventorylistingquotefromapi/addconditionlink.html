@@ -1,6 +1,28 @@
 <h4>add condition</h4>
-<h4><input type="number" [(ngModel)]="data.alldata.purchaseyear" placeholder="Purchase year"></h4>
-<h4><input type="text" [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition"></h4>
-<h4><input type="number" [(ngModel)]="data.alldata.original_cost" placeholder="Original Cost"></h4>
-<h4><input type="number" [(ngModel)]="data.alldata.selling_timeframe" placeholder="Selling Timeframe"></h4>
-<h4><input type="text" [(ngModel)]="data.alldata.addditional_information" placeholder="Additional Information"></h4>
+<h4><span>Purchase year:</span><input type="number" [(ngModel)]="data.alldata.purchaseyear" placeholder="Purchase year"></h4>
+<h4><span>Cosmetic Condition:</span><input type="text" [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition"></h4>
+<h4><span>Original Cost:</span><input type="number" [(ngModel)]="data.alldata.original_cost" placeholder="Original Cost"></h4>
+<h4><span>Selling Timeframe:</span><input type="text" [(ngModel)]="data.alldata.selling_timeframe" placeholder="Selling Timeframe"></h4>
+<h4><span>Additional Information:</span><textarea [(ngModel)]="data.alldata.additional_information" placeholder="Additional Information"></textarea></h4>
+<span class="col-1-1">
+
+    <!-- image upload -->
+    <h3>Image :</h3>
+    <lib-file-upload [config]="configData" (change)="img()"></lib-file-upload><br>
+    <!-- <mat-error>Please add just one service image.</mat-error>
+    <mat-error>Please add an image.</mat-error> -->
+  </span>
+  <span class="col-1-1">
+
+    <!-- Card view for Image  -->
+    <mat-card-content class="files-view">
+      <mat-card class="example-card">
+        <img mat-card-image [src]="fullImagePath">
+        <mat-card-title>{{ imageName }}</mat-card-title>
+        <mat-card-subtitle>{{ imageType }}</mat-card-subtitle>
+        <span class="closecard" (click)="clear_image()"><i class="material-icons">clear</i></span>
+
+      </mat-card>
+    </mat-card-content>
+
+  </span>

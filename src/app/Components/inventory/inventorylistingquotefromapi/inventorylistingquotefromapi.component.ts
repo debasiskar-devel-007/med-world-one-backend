@@ -138,11 +138,12 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     itm.cosmetic_condition='';
     itm.selling_timeframe='';
     itm.original_cost=0;
-    itm.addditional_information=0;
+    itm.additional_information=0;
+    itm.listing_image=[];
     // item.saleprice = 1;
 
     this.InventoeryListDetails.push(itm);
-    console.log(this.InventoeryListDetails);
+    //console.log(this.InventoeryListDetails);
 
   }
 
@@ -288,7 +289,7 @@ savequote(){
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
     console.log("save listing quote",postData);
-    
+    return;
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
@@ -351,13 +352,54 @@ export class listingquotedetails {
   styleUrls: ['./inventorylistingquotefromapi.component.css']
 })
 export class addCondition {
-
+ //image upload 
+ public configData: any = {
+  baseUrl: "https://fileupload.influxhostserver.com/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format: ["jpg", "jpeg", "png"], // use all small font
+  type: "inventory-file",
+  path: "files",
+  prefix: "_inventory-file",
+  formSubmit: false,
+  conversionNeeded: 0,
+  bucketName: "crmfiles.influxhostserver"
+}
+public ig:any;
   constructor(
     public dialogRef: MatDialogRef<addCondition>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     //console.log(data);
+     // this.ig=data;
+      // if (this.configData.files) {
+      //   if (this.configData.files.length > 1) {
+      //     data.alldata.listing_image=
+      //       {
+      //         "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+      //         "image": this.configData.files[0].upload.data.data.fileservername,
+      //         "name": this.configData.files[0].name,
+      //         "type": this.configData.files[0].type
+      //       };
+      //     }
+      //   }
   }
-
+ 
+  img(){
+    console.log("img");
+    if (this.configData.files) {
+      if (this.configData.files.length > 1) {
+        this.data.alldata.listing_image=
+          {
+            "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
+            "image": this.configData.files[0].upload.data.data.fileservername,
+            "name": this.configData.files[0].name,
+            "type": this.configData.files[0].type
+          };
+        }
+      }
+     //console.log(this.ig);
+  }
+    
   onNoClick(): void {
     this.dialogRef.close();
   }
