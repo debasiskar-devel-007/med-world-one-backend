@@ -15,7 +15,7 @@
   text-transform: uppercase; padding: 7px; border-radius: 0; }
 
 .sh_buyfrmus_block2 {
-  width: 1665px;
+  width: 1460px;
   margin: 26px auto;
 }
 
@@ -62,7 +62,7 @@
   background: url("../../../../assets/images/sh_buyfrmus_block2_sub2_right_image.png") no-repeat right center;
   background-size: contain;
 }
-.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 667px 20px 0; }
+.sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content { padding: 20px 600px 20px 0; }
 .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .title1 { font-family: "MontserratSemibold"; font-size: 48px; text-transform: uppercase; color: #282828; }
 .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .subtitle1 { font-family: "MontserratSemibold"; font-size: 30px; text-transform: uppercase; color: #282828; }
 .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .description_section { font-family: "RobotoRegular"; font-size: 16px;  color: #383838; }
@@ -70,7 +70,7 @@
 .sh_buyfrmus_block2_sub2 .sh_buyfrmus_block2_sub2_inner_content .btn_actions{ background: #111214; width: 260px; font-family: "RobotoMedium"; text-transform: uppercase;  color: #fff; font-size: 30px; padding: 7px; border-radius: 0; }
 .buyfromus_bottomBanner{
   background: url("../../../../assets/images/buyfromus_bottomBanner.jpg") no-repeat 0% center;
-  background-size: cover;
+  background-size: cover; margin: 0;
 }
 .buyfromus_bottomBanner .buyfromus_bottom_wrapper {padding: 40px 130px 40px 715px;}
 .buyfromus_bottomBanner .buyfromus_bottom_wrapper .title_wrapper{ font-size: 48px; text-transform: uppercase; font-family: "MontserratSemibold"; color: #fff;}
