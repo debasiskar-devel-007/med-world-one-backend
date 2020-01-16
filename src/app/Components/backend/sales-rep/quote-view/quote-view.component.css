@@ -31,8 +31,10 @@
 .quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: "AvenirMedium";  }
 .quote_table_wrapper .text_with_span .action_button button:last-child { background:#013265;  margin-top: 1px; }
 .quote_table_wrapper .bottom_action { justify-content: flex-end; margin-top: 24px; align-items: center; height: auto; display: flex;}
-.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0;}
-.quote_table_wrapper .bottom_action button:last-child{ margin-left: 10px; background:#09c5fb;}
+.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0; margin: 0 2px;}
+.quote_table_wrapper .bottom_action button:first-child{ margin-left: 0px; }
+.quote_table_wrapper .bottom_action button:nth-child(2){ background:#09c5fb;}
+.quote_table_wrapper .bottom_action button:last-child{ margin-right: 0px; background:#09c5fb;}
 .quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}
 .quote_table_wrapper table td.mat-cell .viewDetails {background: #09c5fb; color: #fff; font-family: 'AvenirMedium'; line-height: inherit;  padding: 2px 8px;
   font-size: 14px; margin-top: 10px; }
@@ -53,6 +55,8 @@
 .quote_table_wrapper table .total_label{ display: flex; margin: 7px 0; justify-content: space-between; border-bottom: 1px solid #b3b3b3;}
 .quote_table_wrapper table .total_label:last-child{ border-bottom: none; }
 .quote_table_wrapper table .total_label label{ font-family: 'AvenirBlack' }
+
+.quote_table_wrapper table .mat-column-name button:last-child{ margin-left: 10px; }
 
 .hidecls{display: none !important;}
 .quote_table_wrapper table td.mat-footer-cell:first-child{ padding-left: 24px;}
@@ -129,6 +133,9 @@
 .search_result{ display: block; margin: 20px 10px 10px; font-family: 'AvenirMedium'; font-size: 20px; }
 .search_result p{ color: #ff6959; display: inline; margin: 0 10px; text-transform: uppercase;}
 .search_result a{ color: #646363; font-size: 16px;}
+
+
+
 
 @media screen and (max-width: 1600px){
   .Product_wrapper{ width: 90%; }

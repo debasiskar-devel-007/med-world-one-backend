@@ -442,7 +442,7 @@ var post={
 /***condition Info */
 conditionInfo(condetails:any){
   const dialogRef = this.dialog.open(ConditionDetails, {
-    panelClass:'viewlistingQuoteModal',
+    panelClass:'conditionDetails',
      data: {alldata: condetails}
     
    });
