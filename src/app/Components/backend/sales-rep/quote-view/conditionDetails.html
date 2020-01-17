@@ -9,6 +9,19 @@
 
 <mat-card-content class="contain_details_data">
     <mat-cartd-title class="title_wrapper">Conditions Details</mat-cartd-title>
+
+    <mat-card-content class="pro_img_wrapper">
+        <mat-card-content class="big_image">
+            <!-- <img src="{{item}}"> -->
+            <img src="{{ viewImages }}">
+            <!-- <img src="../../../../../assets/images/aboutus_topBanner.jpg"> -->
+        </mat-card-content>
+        <mat-card-content class="pro_image_w">
+            <mat-card-content class="items" *ngFor="let item of data.alldata.listing_image;let i=index;">
+                <img src="{{ item }}" (click)=selectSmallImage(item);>
+            </mat-card-content>
+        </mat-card-content>
+    </mat-card-content>
     <table>
         <tr>
             <th>Purchase year</th>
@@ -37,6 +50,6 @@
 
     </table>
 
-    <button class="close" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i
-        class="material-icons"> clear </i></button> 
+    <!-- <button class="close" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i class="material-icons">
+            clear </i></button> -->
 </mat-card-content>

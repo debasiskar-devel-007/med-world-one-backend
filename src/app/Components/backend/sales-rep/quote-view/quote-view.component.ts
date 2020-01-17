@@ -70,7 +70,7 @@ public totalWholesellprice:number=0;
     
     //console.log(response);
      if(response.status="success"){
-      //console.log("quotedetails",response.quotedetails[0].inventory_details);
+      console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
       this.quoteinfo=response.quoteinfo[0];
       this.purchasemarkup=response.countrysetvalue;
@@ -484,16 +484,24 @@ export class DialogOverviewExampleDialog {
   templateUrl: 'conditionDetails.html',
   styleUrls: ['./quote-view.component.css']
 })
+
 export class ConditionDetails {
  
+  public viewImages: any;
+
   constructor(
     public dialogRef: MatDialogRef<ConditionDetails>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
       //console.log(data);
+      this.viewImages = this.data.alldata.listing_image[0];
     }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  selectSmallImage(imageSrc) {
+    this.viewImages = imageSrc;
   }
 
 }

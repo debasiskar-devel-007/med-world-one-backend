@@ -101,11 +101,14 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
   }
   this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-    console.log("fetch by id invenID", response.res);
+    //console.log("fetch by id invenID", response.res);
     this.invendetailsbyId = response.res;
     this.InventoeryListDetails= response.res[0].inventory_details;
     //console.log(this.invendetailsbyId);
+    this.notes=response.res[0].notes;
   })
+  
+
 }
 
   /**search  product */
@@ -126,7 +129,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       }
     })
   }
-
+  
 
   /**inventory Add */
   inventoryAdd(item: any) {
@@ -364,6 +367,8 @@ export class addCondition {
   conversionNeeded: 0,
   bucketName: "crmfiles.influxhostserver"
 }
+
+  public viewImages: any;
   constructor(
     public dialogRef: MatDialogRef<addCondition>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
@@ -371,20 +376,16 @@ export class addCondition {
   }
  
   img(){
-   
-   if (this.configData.files) {
-      
-        this.data.alldata.listing_image=
-          {
-            "basepath": this.configData.files[0].upload.data.basepath + '/' + this.configData.path + '/',
-            "image": this.configData.files[0].upload.data.data.fileservername,
-            "name": this.configData.files[0].name,
-            "type": this.configData.files[0].type
-          };
-        
-      }
-    
-     //console.log(this.data);
+
+  for (const loop in this.configData.files) {
+    this.data.alldata.listing_image=
+    this.data.alldata.listing_image.concat([
+         this.configData.files[loop].upload.data.basepath + '/' + this.configData.path + '/' + this.configData.files[loop].upload.data.data.fileservername
+    ]);
+  }
+      //console.log(this.data);
+    this.onNoClick();
+     
   }
   cancel(){
     this.data.alldata.purchaseyear='';

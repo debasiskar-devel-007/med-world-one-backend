@@ -55,9 +55,24 @@
 .tab_item table th{ width:37%; padding: 5px; font-family: 'AvenirBlack'; text-align: left; vertical-align: text-bottom;}
 .tab_item table td{ width: 63%; padding: 5px; font-family: 'AvenirMedium'; word-break: break-word;}
 .tab_item table td input{ width: 100%; }
-.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: flex-end;}
-.tab_item .action button{ background: #ff6959; font-family: 'AvenirMedium'; color: #fff; line-height: 22px; padding: 2px 10px; min-width: inherit;}
+.tab_item table td .device_descc{ 
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 16px; /* fallback */
+  
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+ }
 
+
+.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: space-evenly;}
+.tab_item .action button{ background: #ff6959; font-family: 'AvenirMedium'; color: #fff; line-height: 22px; padding: 2px 10px; min-width: inherit;}
+.tab_item .action a{ font-family: 'AvenirMedium';
+  font-size: 16px;
+  color: #ff4081;
+  cursor: pointer;}
 .notes_wrapper .note_h{ display: block; font-family: 'AvenirMedium'; }
 .notes_wrapper .form_control{ display: block; width: 100%; padding: 10px; box-sizing: border-box; resize: none; border-radius: 3px; font-family: 'AvenirMedium';  min-height: 90px; }
 .form_field .mat-form-field{ width: 100%;}

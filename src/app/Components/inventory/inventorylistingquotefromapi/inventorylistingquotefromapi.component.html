@@ -183,7 +183,9 @@
                 <td>
                   
                   <ng-container *ngIf="item.brandname==null">
+                    <span class="device_descc"> 
                     {{item.deviceDescription}}
+                  </span>
                   </ng-container>
                  
                   <ng-container *ngIf="item.brandname!=null">
@@ -221,7 +223,7 @@
           <ng-container>
             <mat-card-content class="notes_wrapper">
               <label mat-label class="note_h">Notes :</label>
-              <textarea type="text" class="form_control" (input)="note($event.target.value)"></textarea>
+              <textarea type="text" class="form_control" [value]="notes" (input)="note($event.target.value)"></textarea>
             </mat-card-content>
           </ng-container>
           <span class="quote_action">

@@ -2,31 +2,31 @@
   <h4 class="title_4_add">add condition</h4>
 
 <mat-card-content class="items">
-  <mat-label>Purchase year:</mat-label>
+  <mat-label class="label">Purchase year:</mat-label>
   <mat-form-field>
   <input type="number" matInput [(ngModel)]="data.alldata.purchaseyear" placeholder="Purchase year">
 </mat-form-field>
 </mat-card-content>
 <mat-card-content class="items">
-  <mat-label>Cosmetic Condition:</mat-label>
+  <mat-label class="label">Cosmetic Condition:</mat-label>
   <mat-form-field>
-  <input type="number" matInput [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition">
+  <input type="text" matInput [(ngModel)]="data.alldata.cosmetic_condition" placeholder="Cosmetic Condition">
 </mat-form-field>
 </mat-card-content>
 <mat-card-content class="items">
-  <mat-label>Original Cost:</mat-label>
+  <mat-label class="label">Original Cost:</mat-label>
   <mat-form-field>
   <input type="number" matInput [(ngModel)]="data.alldata.original_cost" placeholder="Original Cost">
 </mat-form-field>
 </mat-card-content>
 <mat-card-content class="items">
-  <mat-label>Selling Timeframe:</mat-label>
+  <mat-label class="label">Selling Timeframe:</mat-label>
   <mat-form-field>
-  <input type="number" matInput [(ngModel)]="data.alldata.selling_timeframe" placeholder="Selling Timeframe">
+  <input type="text" matInput [(ngModel)]="data.alldata.selling_timeframe" placeholder="Selling Timeframe">
 </mat-form-field>
 </mat-card-content>
 <mat-card-content class="items">
-  <mat-label>Additional Information:</mat-label>
+  <mat-label class="label">Additional Information:</mat-label>
   <mat-form-field>
     <textarea matInput [(ngModel)]="data.alldata.additional_information" placeholder="Additional Information"></textarea>
 </mat-form-field>
@@ -35,7 +35,7 @@
 
   <!-- image upload -->
   <h3>Image :</h3>
-  <lib-file-upload [config]="configData" (change)="img(data)"></lib-file-upload><br>
+  <lib-file-upload [config]="configData"></lib-file-upload><br>
   <!-- <mat-error>Please add just one service image.</mat-error>
   <mat-error>Please add an image.</mat-error> -->
 </span>
