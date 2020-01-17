@@ -94,6 +94,8 @@ public totalWholesellprice:number=0;
 
         // if(this.quotedetails[i].saleprice==null)this.quotedetails[i].saleprice=0;
         // this.totalSellprice=this.totalSellprice+this.quotedetails[i].saleprice;
+        if(this.quotedetails[i].quotedprice==null)this.quotedetails[i].quotedprice=0;
+      if(this.quotedetails[i].tax_for_other==null)this.quotedetails[i].tax_for_other=0;
 
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
@@ -130,7 +132,6 @@ public totalWholesellprice:number=0;
       if(this.quotedetails[i].quotedprice_admin==null) this.quotedetails[i].quotedprice_admin=0;
       this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice_admin;
 
-      if(this.quotedetails[i].quotedprice==null)this.quotedetails[i].quotedprice=0;
       
 
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
@@ -156,7 +157,7 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','tax','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','tax_admin','quotedprice'];
     }
   }
   
@@ -282,6 +283,8 @@ public totalWholesellprice:number=0;
       for(let i in this.quotedetails){
         if(this.quotedetails[i].quotedprice=this.quotedetails[i].quotedprice_admin){
           this.quotedetails[i].quotedprice=this.quotedetails[i].quotedprice_admin;
+          this.quotedetails[i].tax_for_other=this.quotedetails[i].tax;
+          
         }
       }
 
