@@ -22,7 +22,7 @@ public medicaldevice:any=[];
         }
       }
       this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
-        console.warn(res);
+       // console.warn(res);
         this.packageDetails=res.res[0].package_details;
         this.medicaldevice=res.res[0].medical_device;
         this.disposalDevice=res.res[0].disposal_device;
