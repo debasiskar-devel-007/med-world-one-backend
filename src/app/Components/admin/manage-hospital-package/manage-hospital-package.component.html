@@ -120,7 +120,7 @@
 
         <!-- inventory search result -->
 
-        <mat-card *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
+        <ng-container *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
           <mat-card-content class="package_wrapper">
             <span class="total_wrapper" *ngFor="let item of PackageInventoryDetails;let i=index;">
               <mat-card-content class="tab_item">
@@ -155,7 +155,7 @@
             </span>
           </mat-card-content>
 
-        </mat-card>
+        </ng-container>
       </mat-card-content>
 
 
@@ -256,7 +256,7 @@
             </tr>
             <tr>
               <th>
-                <mat-checkbox class="example-margin" (change)="checkSelected(i)"></mat-checkbox>Tied to Bed:
+                <mat-checkbox class="example-margin" (change)="checkSelected(i)"></mat-checkbox>&nbsp;Tied to Bed:
               </th>
               <td>
                 <input name='awesome' type="number" [(ngModel)]="item.tied_to_bed" value="{{item.tied_to_bed}}"
@@ -273,8 +273,7 @@
         <mat-card-content>
 
           <mat-card-title class="Header">Disposable</mat-card-title>
-
-          <mat-card *ngIf="disposalDevice!=null && disposalDevice.length > 0">
+          <ng-container *ngIf="disposalDevice!=null && disposalDevice.length > 0">
             <mat-card-content class="package_wrapper">
               <mat-card-content *ngFor="let item of disposalDevice;let i=index;" class="dispo_wrapper">
                 <mat-card-content class="inner_image">
@@ -304,19 +303,20 @@
                   </table>
                 </mat-card-content>
 
-                <mat-card-content class="action">
+                <mat-toolbar class="action">
                   <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
                   <button mat-button (click)="remove(i)" class="remove">Remove</button>
-                </mat-card-content>
+                </mat-toolbar>
 
               </mat-card-content>
             </mat-card-content>
-          </mat-card>
-
+          </ng-container>
         </mat-card-content>
 
+        <mat-toolbar class="main_action_button">
         <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
         <button mat-button type="button" class="skybutton" (click)="cancel()" color="primary">Cancel</button>
+      </mat-toolbar>
       </mat-card-content>
 
 
