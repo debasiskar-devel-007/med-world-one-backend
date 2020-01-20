@@ -27,7 +27,7 @@ public APiInventoeryListDetails:any=[];
 public disabled = false;
 public disposalDevice:any=[];
 public arrayIndex:number;
-  constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
+  constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) { 
       this.packageHospitalForm=this.formBuilder.group({
         package_name:['',Validators.required],
@@ -189,6 +189,7 @@ delete(index: number) {
         this.packageHospitalForm.reset();
         this.disposalDevice=[];
         this.APiInventoeryListDetails=[];
+        this.router.navigateByUrl('/admin/manage-hospital-package/list');
         }
       })
     }

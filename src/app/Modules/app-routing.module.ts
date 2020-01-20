@@ -478,7 +478,7 @@ data: {
 resolve: { adminList: ResolveService },
 data: {
   requestcondition: {
-    source: 'department',
+    source: 'package_hospital_details_list_view',
     condition: {}
   },
   endpoint: 'datalist'
