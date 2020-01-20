@@ -26,7 +26,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public selectedValue: any;
   public flag: number = 0;
   public quote_id: number;
-  public notes:string;
+  public notes:string='';
   public invendetailsbyId:any;
   public searchCount:number;
   public searchString:string;
