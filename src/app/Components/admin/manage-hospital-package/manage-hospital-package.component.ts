@@ -66,11 +66,13 @@ public disposalDevice:any=[];
   }
 /**delete inventory */
 remove(indx:any){
-  this.PackageInventoryDetails.splice(indx, indx + 1);
+
+  this.disposalDevice.splice(indx, indx + 1);
   //console.log(this.PackageInventoryDetails);
 }
 delete(index: number) {
-  this.medDevice.splice(index, index + 1);
+   console.log(index);
+  this.APiInventoeryListDetails.splice(index, index + 1);
 }
 
 

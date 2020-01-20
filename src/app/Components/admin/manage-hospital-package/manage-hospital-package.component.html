@@ -137,10 +137,6 @@
                 </mat-card-content>
 
                 <mat-card-content class="action">
-                  <!-- <span class="inc_dec">
-                      <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
-                      <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
-                    </span> -->
                   <button mat-button (click)="Adddisposal(item)" class="remove">Add to List</button>
 
                   <button mat-button (click)="remove(i)" class="remove">View Details</button>
@@ -158,6 +154,7 @@
       <mat-card-content class="right_inner"
         *ngIf="disposalDevice!=null && disposalDevice.length > 0 || APiInventoeryListDetails!=null && APiInventoeryListDetails.length > 0">
         <mat-card-title class="Header">Medical Device</mat-card-title> 
+
         <mat-card-content class="cart_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
 
           <table>
@@ -267,6 +264,7 @@
         <mat-card-content>
 
           <mat-card-title class="Header">Disposable</mat-card-title>
+
           <mat-card *ngIf="disposalDevice!=null && disposalDevice.length > 0">
             <mat-card-content class="package_wrapper">
               <mat-card-content *ngFor="let item of disposalDevice;let i=index;" class="dispo_wrapper">
@@ -288,23 +286,25 @@
                       <td>Description:</td>
                       <td class="desc">{{item.description}}</td>
                     </tr>
+                    <tr>
+                      <td>Quantity</td>
+                      <td> <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
+                        placeholder="{{item.quantity}}" /></td>
+                    </tr>
                   </table>
                 </mat-card-content>
 
                 <mat-card-content class="action">
-                  <span class="inc_dec">
-                    <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
-                    <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
-                  </span>
-                  <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
+                <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
 
-                  <button mat-button (click)="remove(i)" class="remove">View Details</button>
+                  <button mat-button (click)="remove(i)" class="remove">Remove</button>
 
                 </mat-card-content>
 
               </mat-card-content>
             </mat-card-content>
           </mat-card>
+          
         </mat-card-content>
 
         <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
