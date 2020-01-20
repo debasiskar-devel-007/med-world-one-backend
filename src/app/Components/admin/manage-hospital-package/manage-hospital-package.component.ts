@@ -16,6 +16,8 @@ public medicalDevice:any;
 public disInventory:any;
 public medDevice:any;
 public disposableInventory:any;
+public PackageInventoryDetails:any;
+public APiInventoeryListDetails:any;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -53,10 +55,45 @@ public disposableInventory:any;
       }
     })
   }
-  /** */
-  inventorySearch(){
 
+
+
+  /**Disposable Inventory */
+  inventorySearch(disposal:any){
+    console.log(disposal);
+    let postData: any = {
+      "source":'inventories_list_view_async',
+      "inventory_search_regex": disposal
+    }
+    this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
+      console.warn(response);
+      // if (response.status == true && response.messgae == 'Successfully send .') {
+      //   this.medDevice=response.res.body.hits.hits;
+      //   //console.warn("search",response.res.body.hits.hits)
+      // }
+    })
   }
+
+
+  /**inventory Add */
+  inventoryAdd(item: any) {
+    // console.log(item);
+     
+     let itm:any=item._source;
+     itm.quantity=1;
+     itm.purchaseyear='';
+     itm.cosmetic_condition='';
+     itm.selling_timeframe='';
+     itm.original_cost=0;
+     itm.additional_information='';
+     itm.listing_image=[];
+     // item.saleprice = 1;
+ 
+     this.APiInventoeryListDetails.push(itm);
+     //console.log(this.InventoeryListDetails);
+ 
+   }
+
     /** blur function **/
     inputBlur(val: any) {
       this.packageHospitalForm.controls[val].markAsUntouched();
@@ -66,5 +103,6 @@ public disposableInventory:any;
     for (let x in this.packageHospitalForm.controls) {
       this.packageHospitalForm.controls[x].markAsTouched();
     }
+    console.log(this.packageHospitalForm.controls);
   }
 }

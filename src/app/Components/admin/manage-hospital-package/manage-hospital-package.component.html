@@ -47,14 +47,18 @@
         <!-- search medical device -->
         <mat-lebal>Search Medical Device</mat-lebal>
         <input type="text" value="Sydney" [(ngModel)]="medicalDevice" />
-        <button (click)="medicalDeviceSearch(medicalDevice)">click</button>
+        <button (click)="medicalDeviceSearch(medicalDevice)">click</button><br>
         <!-- search medical device -->
+
+
 
          <!-- search medical device -->
          <mat-lebal>Search Disposable Inventory</mat-lebal>
          <input type="text" value="Sydney" [(ngModel)]="disInventory" />
-         <button (click)="inventorySearch()">click</button>
+         <button (click)="inventorySearch(disInventory)">click</button>
          <!-- search medical device -->
+
+
 
         <ng-container *ngIf="medDevice!=null">
             <mat-card-content class="itens_wrapper" *ngFor="let inventory of medDevice">
@@ -91,10 +95,162 @@
                 </span>
               </mat-card-content>
               <mat-card-content class="action_wrapper">
-                <button mat-button>Add to List</button>
+                <button mat-button (click)="inventoryAdd(inventory)">Add to List</button>
                 <button mat-button>View Details </button>
               </mat-card-content>
             </mat-card-content>
           </ng-container>
+
+
+
+          <!-- inventory search result -->
+          <mat-card *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
+            <mat-card-content class="package_wrapper">
+                <span class="total_wrapper" *ngFor="let item of PackageInventoryDetails;let i=index;">
+                    <mat-card-content class="tab_item">
+                      <mat-card-content class="inner_image">
+                        <img src="{{item.image}}">
+                      </mat-card-content>
+                      <mat-card-content class="inner_content">
+
+                        <table>
+                          <tr>
+                            <td>Inventory Name:</td>
+                            <td class="invName">{{item.inventory_name}}</td>
+                          </tr>
+                          <tr>
+                            <td>Brand:</td>
+                            <td>{{item.brand}}</td>
+                          </tr>
+                          <tr>
+                            <td>SKU#:</td>
+                            <td>{{item.sku}}</td>
+                          </tr>
+                          <tr>
+                            <td >Description:</td>
+                            <td class="desc">{{item.description}}</td>
+                          </tr>
+                        </table>
+                      </mat-card-content>
+
+                    </mat-card-content>
+                    <mat-toolbar class="action">
+                      <span class="inc_dec">
+                        <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
+                        <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
+                      </span>
+                      <button mat-button (click)="remove(i)" class="remove">Remove</button>
+                    </mat-toolbar>
+                  </span>
+            </mat-card-content>
+
+      </mat-card>
+
+      <!-- add to list for medical device -->
+      <mat-card-content class="tab_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
+
+        <table>
+          <tr>
+            <th>Product:</th>
+            <td>
+              <ng-container *ngIf="item.brandname==null">
+                {{item.brandName}}{{item.identifiers.identifier.deviceId}}
+              </ng-container>
+
+              <ng-container *ngIf="item.brandname!=null">
+                {{item.device_name}}
+              </ng-container>
+
+            </td>
+          </tr>
+          <tr>
+            <th>Company Name :</th>
+            <td>
+              <ng-container *ngIf="item.brandname==null">
+                {{item.companyName}}
+              </ng-container>
+
+              <ng-container *ngIf="item.brandname!=null">
+                {{item.companyName}}
+              </ng-container>
+
+            </td>
+          </tr>
+          <!-- <tr>
+            <th>Brand : </th>
+            <td>
+              <ng-container *ngIf="item.brandname==null">
+                {{item._source.brandName}}
+              </ng-container>
+              <ng-container *ngIf="item.brandname!=null">
+                {{item.brandname}}
+              </ng-container>
+             </td>
+          </tr> -->
+          <tr>
+            <th>Version/Model:</th>
+            <td>
+              <ng-container *ngIf="item.brandname==null">
+                {{item.versionModelNumber}}
+              </ng-container>
+             
+              <ng-container *ngIf="item.version!=null">
+                {{item.version}}
+              </ng-container>
+
+
+            </td>
+          </tr>
+          <tr>
+            <th>Device ID :</th>
+            <td>
+              <ng-container *ngIf="item.brandname==null">
+                {{item.identifiers.identifier.deviceId}}
+              </ng-container>
+              <ng-container *ngIf="item.brandname!=null">
+                {{item.device_id}}
+              </ng-container>
+            </td>
+          </tr>
+
+          <tr>
+            <th>Description</th>
+            <td>
+              
+              <ng-container *ngIf="item.brandname==null">
+                <span class="device_descc"> 
+                {{item.deviceDescription}}
+              </span>
+              </ng-container>
+             
+              <ng-container *ngIf="item.brandname!=null">
+                {{item.version}}
+              </ng-container>
+
+            </td>
+          </tr>
+
+          <tr>
+            <th>Quantity :</th>
+            <td>
+              <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
+                placeholder="{{item.quantity}}" />
+            </td>
+          </tr>
+          <!-- <tr>
+            <th>Sell Price :</th>
+            <td>
+              <input name='awesome' type="number" [(ngModel)]="item.saleprice" value="{{item.saleprice}}"
+                placeholder="{{item.saleprice}}" />
+            </td>
+          </tr> -->
+        </table>
+        <mat-toolbar class="action">
+          <a (click)="addCondition(item)">Add Condition Info</a>
+          <button mat-button (click)="viewDetails(item)">Device Details</button>
+          <button mat-button (click)="delete(i)">Remove</button>
+        </mat-toolbar>
+
+      </mat-card-content>
 </app-adminheader>
 
