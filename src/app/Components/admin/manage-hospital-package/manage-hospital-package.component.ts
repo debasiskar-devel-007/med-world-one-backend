@@ -94,15 +94,6 @@ delete(index: number) {
     })
   }
 
-     /**add and delete quentity */
-     addToqty(item:any){
-
-      item.quantity=item.quantity+1;
-      
-    }
-    removeItem(item:any){
-      item.quantity=item.quantity-1;
-     }
 
 
   /**ad list inventory details */
@@ -150,7 +141,11 @@ delete(index: number) {
     inputBlur(val: any) {
       this.packageHospitalForm.controls[val].markAsUntouched();
     }
-    
+    cancel(){
+      this.packageHospitalForm.reset();
+      this.disposalDevice=[];
+      this.APiInventoeryListDetails=[];
+    }
   onSubmit(){
     for (let x in this.packageHospitalForm.controls) {
       this.packageHospitalForm.controls[x].markAsTouched();
