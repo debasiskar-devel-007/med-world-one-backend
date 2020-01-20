@@ -39,11 +39,11 @@ public totalWholesellprice:number=0;
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
       let datasource:any='';
-      // console.log(this.activatedRoute.params);
+     
       // console.log(this.activatedRoute.snapshot.url[0].path,'1');
       // console.log(this.activatedRoute.snapshot.url[1].path,'2');
       // let urlsegments:any=this.router.parseUrl(this.router.routerState.snapshot.url);
-      // console.log('urlsegments',urlsegments);
+     
       let userData = JSON.parse(this.cookieService.get('user_details'));
       this.userId = userData._id;
       this.userType = userData.type;
@@ -70,7 +70,7 @@ public totalWholesellprice:number=0;
     
     //console.log(response);
      if(response.status="success"){
-      //console.log("quotedetails",response.quotedetails[0].inventory_details);
+      console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
       this.quoteinfo=response.quoteinfo[0];
       this.purchasemarkup=response.countrysetvalue;
@@ -89,11 +89,13 @@ public totalWholesellprice:number=0;
         if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
         this.totalWholesellprice=this.totalWholesellprice+parseFloat(this.quotedetails[i].wholesaleprice);
 
-        if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
-        this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice;
+        if(this.quotedetails[i].quotedprice_admin==null) this.quotedetails[i].quotedprice_admin=0;
+        this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice_admin;
 
         // if(this.quotedetails[i].saleprice==null)this.quotedetails[i].saleprice=0;
         // this.totalSellprice=this.totalSellprice+this.quotedetails[i].saleprice;
+        if(this.quotedetails[i].quotedprice==null)this.quotedetails[i].quotedprice=0;
+      if(this.quotedetails[i].tax_for_other==null)this.quotedetails[i].tax_for_other=0;
 
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
         this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
@@ -102,8 +104,11 @@ public totalWholesellprice:number=0;
         this.savings=this.totalPurchasedPrice-this.totalprice;
 
               if(this.Package_Details!=null){
-                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;}        
+                this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
+              } 
+                    
             }
+           
      }
     });
 
@@ -124,8 +129,10 @@ public totalWholesellprice:number=0;
       this.quotedetails[i].subtotalprice=(this.quotedetails[i].price)*this.quotedetails[i].quantity+parseFloat(this.quotedetails[i].tax);
         this.totalqty=((this.totalqty)+parseFloat(this.quotedetails[i].quantity));
 
-      if(this.quotedetails[i].quotedprice==null) this.quotedetails[i].quotedprice=0;
-      this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice;
+      if(this.quotedetails[i].quotedprice_admin==null) this.quotedetails[i].quotedprice_admin=0;
+      this.totalQuotedprice=this.totalQuotedprice+this.quotedetails[i].quotedprice_admin;
+
+      
 
       if(this.quotedetails[i].tax==null) this.quotedetails[i].tax=0;
       this.totalprice=(this.totalprice)+parseFloat((this.quotedetails[i].subtotalprice));
@@ -136,6 +143,7 @@ public totalWholesellprice:number=0;
       this.Package_all_total=this.Package_Details.package_quantity*this.totalprice;
       }
     }
+   
     //console.log(this.savings);
    }
 
@@ -149,15 +157,13 @@ public totalWholesellprice:number=0;
     //   this.viewQuoteHeader.push('tax');
     // }
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
-      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','quotedprice'];
+      this.viewQuoteHeader=[ 'name', 'company','version','uid', 'qty','tax_admin','quotedprice'];
     }
   }
   
  
   viewQuoteHeader: string[] = [ 'name', 'sku', 'category', 'brand', 'qty', 'price','tax','subtotalprice','wholesale'];
   
-
-
 /**update quote with price */
   save(){
     var postData:any={};
@@ -176,7 +182,7 @@ public totalWholesellprice:number=0;
           "total":alltotal
         }
       }
-      console.log(postData);
+      //console.log(postData);
     }
       /**save comparision quot */
     if(this.activatedRoute.snapshot.url[1].path=='quote-comparison-view'){
@@ -235,7 +241,7 @@ public totalWholesellprice:number=0;
       }
 
 
-    console.log(postData);
+   // console.log(postData);
     
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
@@ -264,7 +270,63 @@ public totalWholesellprice:number=0;
 
   }
 
+  /**submit */
+  submit(){
+    var postData:any={};
+     /**submit listing quot */
 
+     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      let alltotal={
+        "totalquantity":this.totalqty,
+        "totalquotedprice":this.totalQuotedprice
+      }
+      for(let i in this.quotedetails){
+        if(this.quotedetails[i].quotedprice=this.quotedetails[i].quotedprice_admin){
+          this.quotedetails[i].quotedprice=this.quotedetails[i].quotedprice_admin;
+          this.quotedetails[i].tax_for_other=this.quotedetails[i].tax;
+          
+        }
+      }
+
+      postData={
+        "source":'quote_listing_details',
+        "data":{
+          "id":this.activatedRoute.snapshot.params.id,
+          "inventory_details":this.quotedetails,
+          "total":alltotal
+        }
+      }
+    }
+
+    //console.log(postData);
+    
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      //console.log(response);
+      if(response.status="success"){
+      this._snackBar.open('Data Updated','', {
+        duration: 2000,
+      });
+      /**purchase quote */
+      if(this.router.routerState.snapshot.url=='/admin/quote-view'){
+        this.router.navigateByUrl('/admin/managequotes/purchasequote/list');
+      }
+
+      if(this.router.routerState.snapshot.url=='/admin/quote-comparison-view'){
+        this.router.navigateByUrl('/admin/managequotes/purchasquotelisting/list');
+      }
+      /**inventory listing quote */
+      if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+        this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+      }
+       /**package quote for admin rout */
+       if(this.activatedRoute.snapshot.url[1].path=='quote-package-view'){
+        this.router.navigateByUrl('/admin/package/list');
+        }
+    }
+    })
+  }
+
+  /**view details in modal */
   showDetails(ele:any){
     // console.log(ele);
      
@@ -280,6 +342,15 @@ public totalWholesellprice:number=0;
       });
     
   }
+  /**cancel */
+  cancel(){
+    if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
+      if(this.userType=='admin'){
+        this.router.navigateByUrl('/admin/managequotes/inventorylistingquote/list');
+      }
+   }
+  }
+
 /**download */
 downloadPdf(){
   /**purchase quote */
@@ -370,9 +441,23 @@ var post={
     }
   })
 }
+
+/***condition Info */
+conditionInfo(condetails:any){
+  const dialogRef = this.dialog.open(ConditionDetails, {
+    panelClass:'conditionDetails',
+     data: {alldata: condetails}
+    
+   });
+
+   dialogRef.afterClosed().subscribe(result => {
+     
+     
+   });
+}
 }
 
-
+/**view details modal */
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'dialog-overview-example-dialog.html',
@@ -383,11 +468,40 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      console.log(data);
+      //console.log(data);
     }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+}
+
+
+/**condition modal */
+@Component({
+  selector: 'conditiondetails',
+  templateUrl: 'conditionDetails.html',
+  styleUrls: ['./quote-view.component.css']
+})
+
+export class ConditionDetails {
+ 
+  public viewImages: any;
+
+  constructor(
+    public dialogRef: MatDialogRef<ConditionDetails>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+      //console.log(data);
+      this.viewImages = this.data.alldata.listing_image[0];
+    }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  selectSmallImage(imageSrc) {
+    this.viewImages = imageSrc;
   }
 
 }

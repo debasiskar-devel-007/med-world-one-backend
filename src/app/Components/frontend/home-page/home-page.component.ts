@@ -27,22 +27,22 @@ export class HomePageComponent implements OnInit {
     this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
     this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
 
+    this.httpServiceService.httpViaPost('popularinventory',undefined).subscribe((res:any)=>{
+      this.popularInventoryDetails=res.popularlisting;
+    // console.log(res);
+    // console.log(this.popularInventoryDetails);
+    })
 
 
+  }
+
+  ngOnInit() {
     const link = this.api_url + 'temptoken';
     this.httpClient.post(link, {}).subscribe(res => {
     let result: any = res;
     this.cookieService.set('jwtToken', result.token);
 
-  });
-  }
-
-  ngOnInit() {
-        this.httpServiceService.httpViaPost('popularinventory',undefined).subscribe((res:any)=>{
-          this.popularInventoryDetails=res.popularlisting;
-        // console.log(res);
-        // console.log(this.popularInventoryDetails);
-        })
+  });  
   }
 
  

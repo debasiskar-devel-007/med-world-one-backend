@@ -101,11 +101,14 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     }
   }
   this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
-    console.log("fetch by id invenID", response.res);
+    //console.log("fetch by id invenID", response.res);
     this.invendetailsbyId = response.res;
     this.InventoeryListDetails= response.res[0].inventory_details;
     //console.log(this.invendetailsbyId);
+    this.notes=response.res[0].notes;
   })
+  
+
 }
 
   /**search  product */
@@ -126,7 +129,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       }
     })
   }
-
+  
 
   /**inventory Add */
   inventoryAdd(item: any) {
@@ -134,10 +137,16 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     
     let itm:any=item._source;
     itm.quantity=1;
+    itm.purchaseyear='';
+    itm.cosmetic_condition='';
+    itm.selling_timeframe='';
+    itm.original_cost=0;
+    itm.additional_information='';
+    itm.listing_image=[];
     // item.saleprice = 1;
 
     this.InventoeryListDetails.push(itm);
-    console.log(this.InventoeryListDetails);
+    //console.log(this.InventoeryListDetails);
 
   }
 
@@ -153,7 +162,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
 
   /**viewDetails */
   viewDetails(inventoryDetails: any) {
-    //console.log(invenId);
+    //console.log(inventoryDetails);
     const dialogRef = this.dialog.open(listingquotedetails, {
       panelClass: 'viewlistingQuoteModal',
       data: { alldata: inventoryDetails }
@@ -161,8 +170,6 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
-
     });
   }
     /**add notes */
@@ -285,7 +292,6 @@ savequote(){
       "sourceobj": ["hospital_id", "quoted_by", "user_id"]
     };
     //console.log("save listing quote",postData);
-    
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if (response.status = "success") {
@@ -308,7 +314,17 @@ savequote(){
       }
     });
 }
+/**add condition in modal */
+addCondition(inventoryDetails:any){
+  const dialogRef = this.dialog.open(addCondition, {
+    panelClass: 'addconditiionModal',
+    data: { alldata: inventoryDetails }
+  });
 
+  dialogRef.afterClosed().subscribe(result => {
+    //console.log(">>>>", result);
+  });
+}
 }
 
 /**view details modal */
@@ -330,3 +346,59 @@ export class listingquotedetails {
   }
 
 }
+
+/**add condition modal */
+@Component({
+  selector: 'add-COndition',
+  templateUrl: 'addconditionlink.html',
+  styleUrls: ['./inventorylistingquotefromapi.component.css']
+})
+export class addCondition {
+ //image upload 
+ public configData: any = {
+  baseUrl: "https://fileupload.influxhostserver.com/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format: ["jpg", "jpeg", "png"], // use all small font
+  type: "inventory-file",
+  path: "files",
+  prefix: "_inventory-file",
+  formSubmit: false,
+  conversionNeeded: 0,
+  bucketName: "crmfiles.influxhostserver"
+}
+
+  public viewImages: any;
+  constructor(
+    public dialogRef: MatDialogRef<addCondition>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    //console.log(data);
+  }
+ 
+  img(){
+
+  for (const loop in this.configData.files) {
+    this.data.alldata.listing_image=
+    this.data.alldata.listing_image.concat([
+         this.configData.files[loop].upload.data.basepath + '/' + this.configData.path + '/' + this.configData.files[loop].upload.data.data.fileservername
+    ]);
+  }
+      //console.log(this.data);
+    this.onNoClick();
+     
+  }
+  cancel(){
+    this.data.alldata.purchaseyear='';
+    this.data.alldata.cosmetic_condition='';
+    this.data.alldata.selling_timeframe='';
+    this.data.alldata.original_cost=0;
+    this.data.alldata.additional_information='';
+    this.data.alldata.listing_image=[];
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+

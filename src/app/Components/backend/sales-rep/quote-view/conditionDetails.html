@@ -1,0 +1,55 @@
+<!-- <h4 class="deviceName"><span>Purchase year</span>:{{data.alldata.purchaseyear}}</h4>
+<h4 class="deviceName"><span>Cosmetic Condition</span>:{{data.alldata.cosmetic_condition}}</h4>
+<h4 class="deviceName"><span>Selling Timeframe</span>:{{data.alldata.selling_timeframe}}</h4>
+<h4 class="deviceName"><span>Original Cost</span>:{{data.alldata.original_cost}}</h4>
+<h4 class="deviceName"><span>Additional Information</span>:{{data.alldata.additional_information}}</h4>
+<button class="action_button" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i
+    class="material-icons"> clear </i></button> -->
+
+
+<mat-card-content class="contain_details_data">
+    <mat-cartd-title class="title_wrapper">Conditions Details</mat-cartd-title>
+
+    <mat-card-content class="pro_img_wrapper">
+        <mat-card-content class="big_image">
+            <!-- <img src="{{item}}"> -->
+            <img src="{{ viewImages }}">
+            <!-- <img src="../../../../../assets/images/aboutus_topBanner.jpg"> -->
+        </mat-card-content>
+        <mat-card-content class="pro_image_w">
+            <mat-card-content class="items" *ngFor="let item of data.alldata.listing_image;let i=index;">
+                <img src="{{ item }}" (click)=selectSmallImage(item);>
+            </mat-card-content>
+        </mat-card-content>
+    </mat-card-content>
+    <table>
+        <tr>
+            <th>Purchase year</th>
+            <td>{{data.alldata.purchaseyear}}</td>
+        </tr>
+
+        <tr>
+            <th>Cosmetic Condition</th>
+            <td>{{data.alldata.cosmetic_condition}}</td>
+        </tr>
+
+        <tr>
+            <th>Selling Timeframe</th>
+            <td>{{data.alldata.selling_timeframe}}</td>
+        </tr>
+
+        <tr>
+            <th>Original Cost</th>
+            <td>{{data.alldata.original_cost}}</td>
+        </tr>
+
+        <tr>
+            <th>Additional Information</th>
+            <td>{{data.alldata.additional_information}}</td>
+        </tr>
+
+    </table>
+
+    <!-- <button class="close" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i class="material-icons">
+            clear </i></button> -->
+</mat-card-content>
