@@ -24,6 +24,7 @@ public disposableInventory:any;
 public PackageInventoryDetails:any=[];
 public APiInventoeryListDetails:any=[];
 public disabled = false;
+public disposalDevice:any=[];
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -90,12 +91,24 @@ delete(index: number) {
       }
     })
   }
+
+     /**add and delete quentity */
+     addToqty(item:any){
+
+      item.quantity=item.quantity+1;
+      
+    }
+    removeItem(item:any){
+      item.quantity=item.quantity-1;
+     }
+
+     
   /**ad list inventory details */
   Adddisposal(value:any){
     //console.log('inventory choice',value);
     value.quantity=1;
     value.tied_to_bed=0;
-    this.PackageInventoryDetails.push(value);
+    this.disposalDevice.push(value);
     //console.log(this.PackageInventoryDetails);
   }
 

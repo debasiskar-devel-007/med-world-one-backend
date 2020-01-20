@@ -1,7 +1,19 @@
 .Product_wrapper{ width: 1400px; margin:30px auto;}
 .Product_wrapper .product_list_wrapper{ margin-bottom: 0; width: 100%; background: #f3f3f3; display: flex; justify-content: space-between; padding: 16px; box-sizing: border-box;}
 .Product_wrapper .product_list_wrapper .left_inner { width: 70%; margin-bottom: 0;}
-.Product_wrapper .product_list_wrapper .left_inner form { background: #fff; padding: 6px 10px; box-sizing: border-box; border-radius: 40px; box-shadow: 0px 1px 4px 0px #00294f; }
+.Product_wrapper .product_list_wrapper .left_inner form {
+  background: #fff;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border-radius: 0;
+  box-shadow: 0px 1px 4px 0px #00294f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Product_wrapper .product_list_wrapper .left_inner form .mat-form-field{ width: 100%; }
+.Product_wrapper .product_list_wrapper .left_inner form .mat-form-field .mat-form-field-infinix{ background: #fff; }
 .Product_wrapper .product_list_wrapper .left_inner form .search_input { width: 100%; border: none; padding: 10px; }
 .Product_wrapper .product_list_wrapper .left_inner form .search_input:focus { outline: none; }
 .Product_wrapper .product_list_wrapper .itens_wrapper{background: #fff; box-sizing: border-box; padding: 10px; box-shadow: 0px 2px 3px 0px #cdcdcd; margin-bottom: 0;
@@ -50,7 +62,12 @@
 .modal_content .mat-card-content th{ font-family: 'AvenirRoman'; color: #000000; width: 50%;}
 .modal_content .mat-card-content td{ color: #1e1e1e; font-family: 'AvenirMedium'; word-break: break-word; }
 .modal_content .mat-card-content table .uper{ font-family: 'AvenirBlack'; display: block; }
-.tab_item{ box-shadow: 0px 0px 3px 0px #b0b0b0; padding: 10px; box-sizing: border-box; background: linear-gradient(45deg, #08ccc3, transparent)}
+.tab_item{ box-shadow: 0px 0px 3px 0px #b0b0b0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;}
 .tab_item table{ width: 100%; }
 .tab_item table th{ width:37%; padding: 5px; font-family: 'AvenirBlack'; text-align: left; vertical-align: text-bottom;}
 .tab_item table td{ width: 63%; padding: 5px; font-family: 'AvenirMedium'; word-break: break-word;}
@@ -67,12 +84,16 @@
  }
 
 
-.tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: space-evenly;}
-.tab_item .action button{ background: #ff6959; font-family: 'AvenirMedium'; color: #fff; line-height: 22px; padding: 2px 10px; min-width: inherit;}
-.tab_item .action a{ font-family: 'AvenirMedium';
+ .package_wrapper .tab_item .action{ background: transparent; display: flex; padding: 0; height: 40px; justify-content: space-evenly; flex-direction: column;}
+ .package_wrapper .tab_item .action button{ background: #09cad6; font-family: 'AvenirMedium'; color: #fff; line-height: 22px; padding: 2px 10px; min-width: inherit; border-radius: 0;}
+ .package_wrapper .tab_item .action button:last-child{
+   background: #ed4735; margin-top: 10px;
+ }
+ .tab_item .action a{ font-family: 'AvenirMedium';
   font-size: 16px;
   color: #ff4081;
   cursor: pointer;}
+ 
 .notes_wrapper .note_h{ display: block; font-family: 'AvenirMedium'; }
 .notes_wrapper .form_control{ display: block; width: 100%; padding: 10px; box-sizing: border-box; resize: none; border-radius: 3px; font-family: 'AvenirMedium';  min-height: 90px; }
 .form_field .mat-form-field{ width: 100%;}
@@ -82,6 +103,20 @@
 .search_result{ display: block; margin: 20px 10px 10px; font-family: 'AvenirMedium'; font-size: 20px; }
 .search_result p{ color: #ff6959; display: inline; margin: 0 10px; text-transform: uppercase;}
 .search_result a{ color: #646363; font-size: 16px;}
+/* new package wrapper */
+.package_wrapper .tab_item .inner_image{ width: 120px; }
+.package_wrapper .tab_item .inner_image img{ max-width: 100%; }
+.package_wrapper .inner_content table .desc{ 
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box; 
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+ }
+ 
+
+
 
 @media screen and (max-width: 1600px){
   .Product_wrapper{ width: 90%; }

@@ -6,8 +6,8 @@
 
         <form autocomplete="off" [formGroup]="packageHospitalForm">
           <span class="col-1-4">
-            <mat-form-field>
               <mat-label>Package Name:</mat-label>
+            <mat-form-field> 
               <input matInput type="text" formControlName="package_name" (blur)="inputBlur('package_name')">
               <mat-error *ngIf="!packageHospitalForm.controls['package_name'].valid
                 && packageHospitalForm.controls['package_name'].errors.required">
@@ -122,17 +122,13 @@
 
                   <table>
                     <tr>
-                      <td>Inventory Name:</td>
-                      <td class="invName">{{item.inventory_name}}</td>
+                      <td colspan="2"> {{item.inventory_name}}</td>
                     </tr>
                     <tr>
                       <td>Brand:</td>
                       <td>{{item.brand}}</td>
                     </tr>
-                    <tr>
-                      <td>SKU#:</td>
-                      <td>{{item.sku}}</td>
-                    </tr>
+                     
                     <tr>
                       <td>Description:</td>
                       <td class="desc">{{item.description}}</td>
@@ -140,15 +136,17 @@
                   </table>
                 </mat-card-content>
 
+                <mat-card-content class="action">
+                    <!-- <span class="inc_dec">
+                      <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
+                      <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
+                    </span> -->
+                    <button mat-button (click)="Adddisposal(item)" class="remove">Add to List</button>
+    
+                    <button mat-button (click)="remove(i)" class="remove">View Details</button>
+                  </mat-card-content>
               </mat-card-content>
-              <mat-toolbar class="action">
-                <span class="inc_dec">
-                  <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
-                  <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
-                </span>
-                <button mat-button (click)="Adddisposal(item)" class="remove">Add to List</button>
-                <button mat-button (click)="remove(i)" class="remove">Remove</button>
-              </mat-toolbar>
+
             </span>
           </mat-card-content>
 
@@ -159,6 +157,7 @@
     <!-- add to list for medical device -->
     <mat-card-content class="right_inner">
       <mat-card-title class="Header">Medical Device</mat-card-title>
+
     <mat-card-content class="tab_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
 
       <table>
@@ -264,7 +263,43 @@
 
     </mat-card-content>
    <mat-card-content>
+
     <mat-card-title class="Header">Disposable</mat-card-title>
+
+    <mat-card-content *ngFor="let item of disposalDevice;let i=index;">
+      <mat-card-content class="inner_image">
+        <img src="{{item.image}}">
+      </mat-card-content>
+      <mat-card-content class="inner_content">
+
+        <table>
+          <tr>
+            <td colspan="2"> {{item.inventory_name}}</td>
+          </tr>
+          <tr>
+            <td>Brand:</td>
+            <td>{{item.brand}}</td>
+          </tr>
+           
+          <tr>
+            <td>Description:</td>
+            <td class="desc">{{item.description}}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+
+      <mat-card-content class="action">
+          <span class="inc_dec">
+            <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
+            <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
+          </span>
+          <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
+
+          <button mat-button (click)="remove(i)" class="remove">View Details</button>
+        
+    </mat-card-content>
+
+    </mat-card-content>
 
    </mat-card-content>
 
