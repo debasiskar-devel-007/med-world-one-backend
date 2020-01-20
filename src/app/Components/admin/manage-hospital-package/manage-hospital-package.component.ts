@@ -194,6 +194,7 @@ delete(index: number) {
     }
    
   }
+  
   checkSelected(i:number){
    // console.log(i);
   this.arrayIndex=i;

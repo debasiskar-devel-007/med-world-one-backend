@@ -83,6 +83,7 @@ import { InventorylistingquotefromapiComponent } from '../Components/inventory/i
 import { DepartmentComponent } from '../Components/admin/department/department.component';
 import { DepartentListComponent } from '../Components/admin/department/departent-list/departent-list.component';
 import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
+import { ManagePakageListComponent } from '../Components/admin/manage-pakage-list/manage-pakage-list.component';
 
 
 
@@ -473,7 +474,15 @@ data: {
 
 //-------------admin manage-hospital-package
 { path: 'admin/manage-hospital-package/add', component: ManageHospitalPackageComponent },
-
+{ path: 'admin/manage-hospital-package/list', component: ManagePakageListComponent,canActivate: [AuthguardService],
+resolve: { adminList: ResolveService },
+data: {
+  requestcondition: {
+    source: 'department',
+    condition: {}
+  },
+  endpoint: 'datalist'
+}, },
 
 //________________INVENTORY listing quote add for salesrep--------------
 { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
