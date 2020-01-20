@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export interface DialogData {
+  data: any;
+  alldata: any
+}
 @Component({
   selector: 'app-manage-hospital-package',
   templateUrl: './manage-hospital-package.component.html',
@@ -17,9 +22,9 @@ public disInventory:any;
 public medDevice:any;
 public disposableInventory:any;
 public PackageInventoryDetails:any;
-public APiInventoeryListDetails:any;
+public APiInventoeryListDetails:any=[];
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
-    public cookieService: CookieService,public activatedRoute:ActivatedRoute) { 
+    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
       this.packageHospitalForm=this.formBuilder.group({
         package_name:['',Validators.required],
         department:['',Validators.required],
@@ -74,10 +79,21 @@ public APiInventoeryListDetails:any;
     })
   }
 
+ /**viewDetails */
+ viewDetails(inventoryDetails: any) {
+  //console.log(inventoryDetails);
+  const dialogRef = this.dialog.open(hospitalPackagedetails, {
+    panelClass: 'viewlistingQuoteModal',
+    data: { alldata: inventoryDetails }
 
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
   /**inventory Add */
   inventoryAdd(item: any) {
-    // console.log(item);
+    //console.log(item);
      
      let itm:any=item._source;
      itm.quantity=1;
@@ -105,4 +121,25 @@ public APiInventoeryListDetails:any;
     }
     console.log(this.packageHospitalForm.controls);
   }
+}
+
+
+/**view details modal */
+@Component({
+  selector: 'listingquotedetails',
+  templateUrl: '../../inventory/inventorylistingquotefromapi/listingquotefromapi.html',
+  styleUrls: ['../../inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component.css']
+})
+export class hospitalPackagedetails {
+
+  constructor(
+    public dialogRef: MatDialogRef<hospitalPackagedetails>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    //console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

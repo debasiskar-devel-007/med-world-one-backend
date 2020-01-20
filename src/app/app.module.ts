@@ -159,7 +159,7 @@ import { InventorylistingquotefromapiComponent ,listingquotedetails,addCondition
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DepartmentComponent } from './Components/admin/department/department.component';
 import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
-import { ManageHospitalPackageComponent } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
+import { ManageHospitalPackageComponent,hospitalPackagedetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
 
 
 @NgModule({
@@ -269,6 +269,7 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     ConditionDetails,
     listingquotedetails,
     quoteModal,sendMailModal, 
+    hospitalPackagedetails,
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
     AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent,
@@ -303,7 +304,7 @@ import { ManageHospitalPackageComponent } from './Components/admin/manage-hospit
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
+  entryComponents: [hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
                     Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5,
                     Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent,TeamDetails]
 })
