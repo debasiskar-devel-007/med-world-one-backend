@@ -84,6 +84,7 @@ import { DepartmentComponent } from '../Components/admin/department/department.c
 import { DepartentListComponent } from '../Components/admin/department/departent-list/departent-list.component';
 import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from '../Components/admin/manage-pakage-list/manage-pakage-list.component';
+import { ManagePakageDetailsComponent } from '../Components/admin/manage-pakage-details/manage-pakage-details.component';
 
 
 
@@ -483,7 +484,7 @@ data: {
   },
   endpoint: 'datalist'
 }, },
-
+{ path: 'admin/manage-hospital-package/details/:id', component: ManagePakageDetailsComponent,canActivate: [AuthguardService]},
 //________________INVENTORY listing quote add for salesrep--------------
 { path: 'salesrep/inventory/inventorylistingquote/add', component: AddinventorylistingquoteComponent },
 

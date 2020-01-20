@@ -161,6 +161,7 @@ import { DepartmentComponent } from './Components/admin/department/department.co
 import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
 import { ManageHospitalPackageComponent,hospitalPackagedetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from './Components/admin/manage-pakage-list/manage-pakage-list.component';
+import { ManagePakageDetailsComponent } from './Components/admin/manage-pakage-details/manage-pakage-details.component';
 
 
 @NgModule({
@@ -273,7 +274,7 @@ import { ManagePakageListComponent } from './Components/admin/manage-pakage-list
     hospitalPackagedetails,
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
-    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent,
+    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent, ManagePakageDetailsComponent,
 
 
   ],
