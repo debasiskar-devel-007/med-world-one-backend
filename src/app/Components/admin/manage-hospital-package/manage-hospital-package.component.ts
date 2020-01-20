@@ -23,6 +23,7 @@ public medDevice:any;
 public disposableInventory:any;
 public PackageInventoryDetails:any=[];
 public APiInventoeryListDetails:any=[];
+public disabled = false;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -48,6 +49,7 @@ public APiInventoeryListDetails:any=[];
 
   /**search medical device form other api */
   medicalDeviceSearch(medDevice:any){
+    
    // console.log(medDevice)
     let postData: any = {
       "api": medDevice
@@ -55,16 +57,25 @@ public APiInventoeryListDetails:any=[];
     this.http.httpViaPost('getinventoryfromapi', postData).subscribe((response: any) => {
       //console.warn(response);
       if (response.status == true && response.messgae == 'Successfully send .') {
+        this.PackageInventoryDetails=[];
         this.medDevice=response.res.body.hits.hits;
         //console.warn("search",response.res.body.hits.hits)
       }
     })
   }
-
+/**delete inventory */
+remove(indx:any){
+  this.PackageInventoryDetails.splice(indx, indx + 1);
+  //console.log(this.PackageInventoryDetails);
+}
+delete(index: number) {
+  this.medDevice.splice(index, index + 1);
+}
 
 
   /**Disposable Inventory */
   inventorySearch(disposal:any){
+    
     //console.log(disposal);
     let postData: any = {
       "source":'inventories_list_view_async',
@@ -74,6 +85,7 @@ public APiInventoeryListDetails:any=[];
     this.http.httpViaPost('search', postData).subscribe((response: any) => {
       //console.warn(response);
       if (response.status =='success') {
+        this.medDevice=[];
         this.PackageInventoryDetails=response.data;
       }
     })
@@ -82,6 +94,7 @@ public APiInventoeryListDetails:any=[];
   Adddisposal(value:any){
     //console.log('inventory choice',value);
     value.quantity=1;
+    value.tied_to_bed=0;
     this.PackageInventoryDetails.push(value);
     //console.log(this.PackageInventoryDetails);
   }
@@ -104,6 +117,7 @@ public APiInventoeryListDetails:any=[];
      
      let itm:any=item._source;
      itm.quantity=1;
+     itm.tied_to_bed=0;
      itm.purchaseyear='';
      itm.cosmetic_condition='';
      itm.selling_timeframe='';
