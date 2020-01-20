@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface DialogData {
   data: any;
@@ -27,7 +28,7 @@ public disabled = false;
 public disposalDevice:any=[];
 public arrayIndex:number;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
-    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
+    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) { 
       this.packageHospitalForm=this.formBuilder.group({
         package_name:['',Validators.required],
         department:['',Validators.required],
@@ -134,7 +135,7 @@ delete(index: number) {
      // item.saleprice = 1;
  
      this.APiInventoeryListDetails.push(itm);
-     //console.log(this.InventoeryListDetails);
+    // console.log(this.APiInventoeryListDetails);
  
    }
 
@@ -165,24 +166,36 @@ delete(index: number) {
       if(this.APiInventoeryListDetails[i].publicVersionDate!=null) delete this.APiInventoeryListDetails[i].publicVersionDate
 
     }
-    console.log(this.packageHospitalForm.controls);
-    console.log(this.disposalDevice);
-    console.log(this.APiInventoeryListDetails);
+    //console.log(this.packageHospitalForm.controls);
+    //console.log(this.disposalDevice);
+    //console.log(this.APiInventoeryListDetails);
     let postData: any = {
       "source":'package_hospital_details',
+      "data":{
       "package_details":this.packageHospitalForm.value,
       "medical_device":this.APiInventoeryListDetails,
       "disposal_device":this.disposalDevice
-    }
-    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-      
-      if (response.status =='success') {
-      console.warn(response);
       }
-    })
+    }
+    //console.log(postData);
+    if(this.packageHospitalForm.valid){
+      this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+        //console.warn(response);
+        if (response.status =='success') {
+        
+        this._snackBar.open('Package Submitted Successfully', '', {
+          duration: 2000,
+        });
+        this.packageHospitalForm.reset();
+        this.disposalDevice=[];
+        this.APiInventoeryListDetails=[];
+        }
+      })
+    }
+   
   }
   checkSelected(i:number){
-    console.log(i);
+   // console.log(i);
   this.arrayIndex=i;
   }
 }
