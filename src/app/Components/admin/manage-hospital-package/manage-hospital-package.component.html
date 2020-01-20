@@ -5,8 +5,9 @@
       <mat-card-content class="left_inner">
 
         <form autocomplete="off" [formGroup]="packageHospitalForm">
-          <span class="col-1-4">
-            <mat-label>Package Name:</mat-label>
+
+          <span class="s_wrp">
+            <mat-label class="form_label">Package Name:</mat-label>
             <mat-form-field>
               <input matInput type="text" formControlName="package_name" (blur)="inputBlur('package_name')">
               <mat-error *ngIf="!packageHospitalForm.controls['package_name'].valid
@@ -18,9 +19,10 @@
           </span>
 
           <!-- Department  -->
-          <span class="col-1-4">
+          <span class="s_wrp">
+            <mat-label class="form_label">Department:</mat-label>
             <mat-form-field>
-              <mat-label>Department:</mat-label>
+
               <mat-select formControlName="department">
                 <mat-option *ngFor="let food of deplist" [value]="food._id">
                   {{food.department_name}}
@@ -32,9 +34,10 @@
 
 
           <!-- Description  -->
-          <span class="col-1-4">
+          <span class="s_wrp">
+            <mat-label class="form_label">Description:</mat-label>
             <mat-form-field>
-              <mat-label>Description:</mat-label>
+
               <textarea matInput formControlName="package_description"
                 (blur)="inputBlur('package_description')"></textarea>
               <mat-error *ngIf="!packageHospitalForm.controls['package_description'].valid
@@ -49,22 +52,28 @@
 
 
         </form>
+        <mat-card-content class="search_inner_wrapper">
+          <!-- search medical device -->
+          <mat-card-content class="input_index">
+            <mat-lebal class="label">Search Medical Device</mat-lebal>
+            <span class="input_w_btn">
+              <input class="input_form" type="text" value="Sydney" [(ngModel)]="medicalDevice" />
+              <button mat-button (click)="medicalDeviceSearch(medicalDevice)"><i
+                  class="material-icons">search</i></button>
+            </span>
+            <!-- search medical device -->
+          </mat-card-content>
+          <!-- search medical device -->
 
-        <!-- search medical device -->
-        <mat-lebal>Search Medical Device</mat-lebal>
-        <input type="text" value="Sydney" [(ngModel)]="medicalDevice" />
-        <button (click)="medicalDeviceSearch(medicalDevice)">click</button><br>
-        <!-- search medical device -->
-
-
-
-        <!-- search medical device -->
-        <mat-lebal>Search Disposable Inventory</mat-lebal>
-        <input type="text" value="Sydney" [(ngModel)]="disInventory" />
-        <button (click)="inventorySearch(disInventory)">click</button>
-        <!-- search medical device -->
-
-
+          <mat-card-content class="input_index">
+            <mat-lebal class="label">Search Disposable Inventory</mat-lebal>
+            <span class="input_w_btn">
+              <input class="input_form" type="text" value="Sydney" [(ngModel)]="disInventory" />
+              <button mat-button (click)="inventorySearch(disInventory)"><i class="material-icons">search</i></button>
+              <!-- search medical device -->
+            </span>
+          </mat-card-content>
+        </mat-card-content>
 
         <ng-container *ngIf="medDevice!=null">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of medDevice">
@@ -111,7 +120,7 @@
 
         <!-- inventory search result -->
 
-        <mat-card *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
+        <ng-container *ngIf="PackageInventoryDetails!=null && PackageInventoryDetails.length > 0">
           <mat-card-content class="package_wrapper">
             <span class="total_wrapper" *ngFor="let item of PackageInventoryDetails;let i=index;">
               <mat-card-content class="tab_item">
@@ -131,7 +140,7 @@
 
                     <tr>
                       <td>Description:</td>
-                      <td class="desc">{{item.description}}</td>
+                      <td><span class="desc">{{item.description}}</span></td>
                     </tr>
                   </table>
                 </mat-card-content>
@@ -146,14 +155,14 @@
             </span>
           </mat-card-content>
 
-        </mat-card>
+        </ng-container>
       </mat-card-content>
 
 
       <!-- add to list for medical device -->
       <mat-card-content class="right_inner"
         *ngIf="disposalDevice!=null && disposalDevice.length > 0 || APiInventoeryListDetails!=null && APiInventoeryListDetails.length > 0">
-        <mat-card-title class="Header">Medical Device</mat-card-title> 
+        <mat-card-title class="Header">Medical Device</mat-card-title>
 
         <mat-card-content class="cart_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
 
@@ -247,7 +256,7 @@
             </tr>
             <tr>
               <th>
-                <mat-checkbox class="example-margin"  (change)="checkSelected(i)"></mat-checkbox>Tied to Bed:
+                <mat-checkbox class="example-margin" (change)="checkSelected(i)"></mat-checkbox>&nbsp;Tied to Bed:
               </th>
               <td>
                 <input name='awesome' type="number" [(ngModel)]="item.tied_to_bed" value="{{item.tied_to_bed}}"
@@ -264,8 +273,7 @@
         <mat-card-content>
 
           <mat-card-title class="Header">Disposable</mat-card-title>
-
-          <mat-card *ngIf="disposalDevice!=null && disposalDevice.length > 0">
+          <ng-container *ngIf="disposalDevice!=null && disposalDevice.length > 0">
             <mat-card-content class="package_wrapper">
               <mat-card-content *ngFor="let item of disposalDevice;let i=index;" class="dispo_wrapper">
                 <mat-card-content class="inner_image">
@@ -284,31 +292,31 @@
 
                     <tr>
                       <td>Description:</td>
-                      <td class="desc">{{item.description}}</td>
+                      <td>
+                        <span class="desc">{{item.description}}</span></td>
                     </tr>
                     <tr>
                       <td>Quantity</td>
                       <td> <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
-                        placeholder="{{item.quantity}}" /></td>
+                          placeholder="{{item.quantity}}" /></td>
                     </tr>
                   </table>
                 </mat-card-content>
 
-                <mat-card-content class="action">
-                <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
-
+                <mat-toolbar class="action">
+                  <!-- <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button> -->
                   <button mat-button (click)="remove(i)" class="remove">Remove</button>
-
-                </mat-card-content>
+                </mat-toolbar>
 
               </mat-card-content>
             </mat-card-content>
-          </mat-card>
-
+          </ng-container>
         </mat-card-content>
 
+        <mat-toolbar class="main_action_button">
         <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
         <button mat-button type="button" class="skybutton" (click)="cancel()" color="primary">Cancel</button>
+      </mat-toolbar>
       </mat-card-content>
 
 
