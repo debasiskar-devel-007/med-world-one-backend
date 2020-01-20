@@ -951,7 +951,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .salesreplistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
   width: 233px;
 }
-.quote_table_wrapper .text_with_span input{ width: 85px; padding: 8px 4px; text-align: center; }
+.quote_table_wrapper .text_with_span input{ width: 85px; padding: 8px 4px; text-align: center; font-family: 'AvenirMedium'; }
 
 /* inventory login modal css */
 .Login_confirm{ width: 600px;}
@@ -1240,11 +1240,51 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
     background: transparent;
     min-width: inherit;
     padding: 0;}
+.contain_details_data .pro_image_w{ display: flex; justify-content: center;}
+.contain_details_data .pro_image_w .items{ width: 65px; margin: 0.5%; border: 1px solid #afbac3;
+  display: flex; justify-content: center; align-items: center;}
+.contain_details_data .pro_img_wrapper{ box-shadow: -1px 2px 4px 0px #7d7d7d;}
+.contain_details_data .pro_img_wrapper .big_image{ margin-bottom: 0;
+  width: 100%;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #cecece;}
+.contain_details_data .pro_img_wrapper .big_image img{ max-width: 100%;}
+.contain_details_data .pro_image_w .items:last-child{ margin-bottom: 0.5%;}
+.contain_details_data .pro_image_w .items img{ max-width: 100%; height: auto;}
 /* ADD conditional modal */
-.addconditiionModal{ width: 600px;}
+.addconditiionModal{ width: 600px;overflow: auto;}
 .addconditiionModal .mat-dialog-container{ padding: 16px!important;}
+.add_condition{ margin-bottom: 0!important;}
 .add_condition .title_4_add{ font-family: 'AvenirBlack'; color: #fff; font-size: 20px; background: #2fe1fd;
 padding: 12px 16px;text-transform: uppercase;}
-
-.add_condition .items .mat-label{ display: block!important; margin-bottom: 10px!important;}
-.add_condition .items .mat-form-field .mat-form-field-infix{ background: rgb(245, 205, 205);}
+.add_condition .items{
+  display: flex; flex-direction: column;
+}
+.add_condition .items .label{display: block;
+  margin-bottom: 4px;
+  font-family: 'AvenirMedium';
+  font-size: 18px;}
+.add_condition .items .mat-form-field .mat-form-field-flex{ border: 1px solid #c7c7c7;
+  padding: 5px 10px 2px;
+  box-sizing: border-box;}
+.add_condition .col-1-1 h3{ margin: 0; font-family: 'AvenirMedium'; font-size: 18px; }
+.add_condition .add_cancel{ background: transparent;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  box-sizing: border-box;}
+  .add_condition .add_cancel button{ background: #001c36;
+    margin: 3px;
+    color: #fff;
+    font-family: 'AvenirMedium';
+    font-size: 18px;
+    border-radius: 0;}
+  .add_condition .files-view{ display: none; }
+  .add_condition .add_cancel button:first-child{ margin-left: 0px;}
+  .add_condition .add_cancel button:last-child{ margin-right: 0px;}
