@@ -16,7 +16,7 @@ export class ManagePakageListComponent implements OnInit {
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   searchingEndpoint: any = "datalist";
-  editUrl: any = 'admin/inventory/manage-department/edit';
+  editUrl: any = 'admin/manage-hospital-package/details';
   apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
   view: any = "users_view";

@@ -70,7 +70,7 @@ public totalWholesellprice:number=0;
     
     //console.log(response);
      if(response.status="success"){
-      console.log("quotedetails",response.quotedetails[0].inventory_details);
+      //console.log("quotedetails",response.quotedetails[0].inventory_details);
       //console.log("quoteinfo",response.quoteinfo[0]);
       this.quoteinfo=response.quoteinfo[0];
       this.purchasemarkup=response.countrysetvalue;
@@ -208,6 +208,7 @@ public totalWholesellprice:number=0;
     if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       let alltotal={
         "totalquantity":this.totalqty,
+        "totaltax":this.totaltax,
         "totalquotedprice":this.totalQuotedprice
       }
 
@@ -278,6 +279,7 @@ public totalWholesellprice:number=0;
      if(this.activatedRoute.snapshot.url[1].path=='inventory-listing-view'){
       let alltotal={
         "totalquantity":this.totalqty,
+        "totaltax":this.totaltax,
         "totalquotedprice":this.totalQuotedprice
       }
       for(let i in this.quotedetails){
@@ -433,7 +435,12 @@ var post={
         this.http.httpViaPost('datalist', post).subscribe((response: any) => {
           //console.log("datalist",response); 
                     
-                   window.location.href=response.res[0].file_path;
+                   //window.location.href=response.res[0].file_path;
+
+                  window.open(
+                    response.res[0].file_path,
+                    '_blank' 
+                  );
                   
         })
       }, 2000)
