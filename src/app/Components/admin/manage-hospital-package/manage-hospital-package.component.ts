@@ -25,6 +25,7 @@ public PackageInventoryDetails:any=[];
 public APiInventoeryListDetails:any=[];
 public disabled = false;
 public disposalDevice:any=[];
+public arrayIndex:number;
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -167,6 +168,22 @@ delete(index: number) {
     console.log(this.packageHospitalForm.controls);
     console.log(this.disposalDevice);
     console.log(this.APiInventoeryListDetails);
+    let postData: any = {
+      "source":'package_hospital_details',
+      "package_details":this.packageHospitalForm.value,
+      "medical_device":this.APiInventoeryListDetails,
+      "disposal_device":this.disposalDevice
+    }
+    this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
+      
+      if (response.status =='success') {
+      console.warn(response);
+      }
+    })
+  }
+  checkSelected(i:number){
+    console.log(i);
+  this.arrayIndex=i;
   }
 }
 
