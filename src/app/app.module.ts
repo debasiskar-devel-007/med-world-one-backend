@@ -160,6 +160,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DepartmentComponent } from './Components/admin/department/department.component';
 import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
 import { ManageHospitalPackageComponent,hospitalPackagedetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
+import { ManagePakageListComponent } from './Components/admin/manage-pakage-list/manage-pakage-list.component';
 
 
 @NgModule({
@@ -272,7 +273,7 @@ import { ManageHospitalPackageComponent,hospitalPackagedetails } from './Compone
     hospitalPackagedetails,
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
-    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent,
+    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent,
 
 
   ],
