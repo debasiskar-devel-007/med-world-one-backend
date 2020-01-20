@@ -70,7 +70,7 @@ public APiInventoeryListDetails:any=[];
       "source":'inventories_list_view_async',
       "inventory_search_regex": disposal
     }
-    this.http.httpViaPost('datalist', postData).subscribe((response: any) => {
+    this.http.httpViaPost('search', postData).subscribe((response: any) => {
       console.warn(response);
       // if (response.status == true && response.messgae == 'Successfully send .') {
       //   this.medDevice=response.res.body.hits.hits;
