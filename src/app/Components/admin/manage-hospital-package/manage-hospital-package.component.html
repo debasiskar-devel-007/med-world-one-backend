@@ -47,7 +47,7 @@
 
 
 
-          <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
+         
         </form>
 
         <!-- search medical device -->
@@ -155,7 +155,7 @@
     
 
     <!-- add to list for medical device -->
-    <mat-card-content class="right_inner">
+    <mat-card-content class="right_inner" *ngIf="disposalDevice!=null && disposalDevice.length > 0 || APiInventoeryListDetails!=null && APiInventoeryListDetails.length > 0">
       <mat-card-title class="Header">Medical Device</mat-card-title>
 
     <mat-card-content class="tab_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
@@ -305,8 +305,11 @@
       </mat-card>
    </mat-card-content>
 
-
+   <button mat-button type="button" class="skybutton" (click)="onSubmit()" color="primary">Submit</button>
+   <button mat-button type="button" class="skybutton" (click)="cancel()" color="primary">Cancel</button>
   </mat-card-content>
+
+
   </mat-card-content>
   </mat-card-content>
 </app-adminheader>

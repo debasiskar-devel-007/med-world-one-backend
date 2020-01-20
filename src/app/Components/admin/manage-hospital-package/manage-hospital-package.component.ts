@@ -102,7 +102,7 @@ delete(index: number) {
       item.quantity=item.quantity-1;
      }
 
-     
+
   /**ad list inventory details */
   Adddisposal(value:any){
     //console.log('inventory choice',value);
@@ -153,7 +153,23 @@ delete(index: number) {
     for (let x in this.packageHospitalForm.controls) {
       this.packageHospitalForm.controls[x].markAsTouched();
     }
+    for (let i in this.APiInventoeryListDetails) {
+      if(this.APiInventoeryListDetails[i].publicDeviceRecordKey!=null) delete this.APiInventoeryListDetails[i].publicDeviceRecordKey
+      if(this.APiInventoeryListDetails[i].publicVersionStatus!=null) delete this.APiInventoeryListDetails[i].publicVersionStatus
+      if(this.APiInventoeryListDetails[i].deviceRecordStatus!=null) delete this.APiInventoeryListDetails[i].deviceRecordStatus
+      if(this.APiInventoeryListDetails[i].deviceCommDistributionEndDate!=null) delete this.APiInventoeryListDetails[i].deviceCommDistributionEndDate
+      if(this.APiInventoeryListDetails[i].publicVersionNumber!=null) delete this.APiInventoeryListDetails[i].publicVersionNumber
+      if(this.APiInventoeryListDetails[i].devicePublishDate!=null) delete this.APiInventoeryListDetails[i].devicePublishDate
+      if(this.APiInventoeryListDetails[i].deviceSizes!=null) delete this.APiInventoeryListDetails[i].deviceSizes
+      if(this.APiInventoeryListDetails[i].complete_suggest!=null) delete this.APiInventoeryListDetails[i].complete_suggest
+      if(this.APiInventoeryListDetails[i].deviceClass!=null) delete this.APiInventoeryListDetails[i].deviceClass
+      if(this.APiInventoeryListDetails[i].implantFlag!=null) delete this.APiInventoeryListDetails[i].implantFlag
+      if(this.APiInventoeryListDetails[i].publicVersionDate!=null) delete this.APiInventoeryListDetails[i].publicVersionDate
+
+    }
     console.log(this.packageHospitalForm.controls);
+    console.log(this.disposalDevice);
+    console.log(this.APiInventoeryListDetails);
   }
 }
 
