@@ -146,6 +146,8 @@
                   <a *ngIf="item.quantity!=1" (click)="removeItem(item)">-</a>
                   <label>{{item.quantity}}</label><a (click)="addToqty(item)"> + </a>
                 </span>
+                <button mat-button (click)="Adddisposal(item)" class="remove">Add to List</button>
+
                 <button mat-button (click)="remove(i)" class="remove">Remove</button>
               </mat-toolbar>
             </span>
@@ -157,7 +159,7 @@
 
     <!-- add to list for medical device -->
     <mat-card-content class="right_inner">
-      <mat-card-title class="Header">Selected Cart items</mat-card-title>
+      <mat-card-title class="Header">Medical Device</mat-card-title>
     <mat-card-content class="tab_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
 
       <table>
@@ -257,13 +259,17 @@
           </tr> -->
       </table>
       <mat-toolbar class="action">
-        <a (click)="addCondition(item)">Add Condition Info</a>
-        <button mat-button (click)="viewDetails(item)">Device Details</button>
+        <button mat-button (click)="viewDetails(item)">See Details</button>
         <button mat-button (click)="delete(i)">Remove</button>
       </mat-toolbar>
 
     </mat-card-content>
-   
+   <mat-card-content>
+    <mat-card-title class="Header">Disposable</mat-card-title>
+
+   </mat-card-content>
+
+
   </mat-card-content>
   </mat-card-content>
   </mat-card-content>

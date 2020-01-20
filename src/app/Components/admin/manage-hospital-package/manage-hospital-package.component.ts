@@ -21,7 +21,7 @@ public medicalDevice:any;
 public disInventory:any;
 public medDevice:any;
 public disposableInventory:any;
-public PackageInventoryDetails:any;
+public PackageInventoryDetails:any=[];
 public APiInventoeryListDetails:any=[];
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog) { 
@@ -65,18 +65,25 @@ public APiInventoeryListDetails:any=[];
 
   /**Disposable Inventory */
   inventorySearch(disposal:any){
-    console.log(disposal);
+    //console.log(disposal);
     let postData: any = {
       "source":'inventories_list_view_async',
-      "inventory_search_regex": disposal
+      "condition":{"inventory_search": disposal}
+      
     }
     this.http.httpViaPost('search', postData).subscribe((response: any) => {
-      console.warn(response);
-      // if (response.status == true && response.messgae == 'Successfully send .') {
-      //   this.medDevice=response.res.body.hits.hits;
-      //   //console.warn("search",response.res.body.hits.hits)
-      // }
+      //console.warn(response);
+      if (response.status =='success') {
+        this.PackageInventoryDetails=response.data;
+      }
     })
+  }
+  /**ad list inventory details */
+  Adddisposal(value:any){
+    //console.log('inventory choice',value);
+    value.quantity=1;
+    this.PackageInventoryDetails.push(value);
+    //console.log(this.PackageInventoryDetails);
   }
 
  /**viewDetails */
