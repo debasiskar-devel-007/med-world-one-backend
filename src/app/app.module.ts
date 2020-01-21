@@ -159,7 +159,7 @@ import { InventorylistingquotefromapiComponent ,listingquotedetails,addCondition
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { DepartmentComponent } from './Components/admin/department/department.component';
 import { DepartentListComponent } from './Components/admin/department/departent-list/departent-list.component';
-import { ManageHospitalPackageComponent,hospitalPackagedetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
+import { ManageHospitalPackageComponent,hospitalPackagedetails,disposalDetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from './Components/admin/manage-pakage-list/manage-pakage-list.component';
 import { ManagePakageDetailsComponent } from './Components/admin/manage-pakage-details/manage-pakage-details.component';
 
@@ -272,6 +272,7 @@ import { ManagePakageDetailsComponent } from './Components/admin/manage-pakage-d
     listingquotedetails,
     quoteModal,sendMailModal, 
     hospitalPackagedetails,
+    disposalDetails,
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
     AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent, ManagePakageDetailsComponent,
@@ -306,7 +307,7 @@ import { ManagePakageDetailsComponent } from './Components/admin/manage-pakage-d
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
+  entryComponents: [disposalDetails,hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
                     Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5,
                     Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent,TeamDetails]
 })

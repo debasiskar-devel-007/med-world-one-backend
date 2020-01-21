@@ -165,7 +165,7 @@
                 <mat-card-content class="action">
                   <button mat-button (click)="Adddisposal(item)" class="remove">Add to List</button>
 
-                  <button mat-button (click)="remove(i)" class="remove">View Details</button>
+                  <button mat-button (click)="disposalViewDetails(item)" class="remove">View Details</button>
                 </mat-card-content>
               </mat-card-content>
 
@@ -300,7 +300,8 @@
 
                   <table>
                     <tr>
-                      <td colspan="2"> {{item.inventory_name}}</td>
+                      <td>Product Name:</td>
+                      <td> {{item.inventory_name}}</td>
                     </tr>
                     <tr>
                       <td>Brand:</td>
@@ -317,11 +318,17 @@
                       <td> <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
                           placeholder="{{item.quantity}}" /></td>
                     </tr>
+                    <tr>
+                      <th>
+                        <mat-checkbox class="example-margin" (change)="checkSelected(i)"></mat-checkbox>&nbsp;Tied to Bed:
+                      <td> <input name='awesome' type="number" [(ngModel)]="item.tied_to_bed" value="{{item.tied_to_bed}}"
+                        placeholder="{{item.tied_to_bed}}" [attr.disabled]="arrayIndex==i ? null : '' " /></td>
+                    </tr>
                   </table>
                 </mat-card-content>
 
                 <mat-toolbar class="action">
-                  <button mat-button (click)="Adddisposal(item)" class="remove">See Details</button>
+                  <button mat-button (click)="disposalViewDetails(item)" class="remove">View Details</button>
                   <button mat-button (click)="remove(i)" class="remove">Remove</button>
                 </mat-toolbar>
 

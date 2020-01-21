@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-content class="inner_image">
+        <img src="{{data.alldata.image}}">
+      </mat-card-content>
+      
+    <mat-card-content>
+                    <table>
+                    <tr>
+                        <td>Product Name:</td>
+                        <td> {{data.alldata.inventory_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Brand:</td>
+                        <td>{{data.alldata.brand}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Description:</td>
+                        <td><span class="desc">{{data.alldata.description}}</span></td>
+                    </tr>
+                </table>
+</mat-card-content>
+
+</mat-card>

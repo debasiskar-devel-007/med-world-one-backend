@@ -200,6 +200,18 @@ delete(index: number) {
    // console.log(i);
   this.arrayIndex=i;
   }
+
+  disposalViewDetails(item:any){
+     //console.log(inventoryDetails);
+  const dialogRef = this.dialog.open(disposalDetails, {
+    panelClass: 'viewlistingQuoteModal',
+    data: { alldata: item }
+
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
+  }
 }
 
 
@@ -213,6 +225,25 @@ export class hospitalPackagedetails {
 
   constructor(
     public dialogRef: MatDialogRef<hospitalPackagedetails>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    //console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+/**disposalDetails */
+@Component({
+  selector: 'listingquotedetails',
+  templateUrl: './disposaldetails.html',
+  styleUrls: ['./manage-hospital-package.component.css']
+})
+export class disposalDetails {
+
+  constructor(
+    public dialogRef: MatDialogRef<disposalDetails>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     //console.log(data);
   }
