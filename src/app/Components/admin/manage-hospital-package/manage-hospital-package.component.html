@@ -74,6 +74,23 @@
             </span>
           </mat-card-content>
         </mat-card-content>
+        <mat-card-content class="hints_wrapper">
+          <h2 class="hints">Please Search for a Product You Wish to List.</h2>
+          <p class="hints_suggestion"> Search suggestions:</p>
+          <mat-list class="suggest_list">
+            <mat-list-item> Make sure all words are spelled correctly</mat-list-item>
+            <mat-list-item>Try rephrasing keywords or using synonyms </mat-list-item>
+            <mat-list-item>Try less specific keywords</mat-list-item>
+            <mat-list-item>Try fewer keywords</mat-list-item>
+            <mat-list-item>Try adding wildcards to keywords</mat-list-item>
+            <mat-list-item>Example: search *74866 to find all numbers and Device Identifiers that end with 74866
+            </mat-list-item>
+
+          </mat-list>
+
+        </mat-card-content>
+
+
 
         <ng-container *ngIf="medDevice!=null">
           <mat-card-content class="itens_wrapper" *ngFor="let inventory of medDevice">
