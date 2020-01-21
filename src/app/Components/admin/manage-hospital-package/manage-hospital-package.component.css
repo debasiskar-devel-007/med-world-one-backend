@@ -125,11 +125,11 @@
  .right_inner .cart_item .action button,
  .package_wrapper .dispo_wrapper .action button{ background: #ed4735; color: #fff; line-height: inherit; font-size: 16px; font-family: 'AvenirRoman'; border-radius: 0;
   margin: 0 4px;}
-  .right_inner .cart_item .action button:first-child,
-  .package_wrapper .dispo_wrapper .action button:first-child{ background: none; text-decoration: underline; color:royalblue; margin-left: 0; }
-  .right_inner .cart_item .action button:last-child,
-  .dispo_wrapper .action button:last-child{ margin-right: 0;}
-  .hints_wrapper{ border: 1px solid #00cfff; background: #fff; margin-top: 30px;}
+.right_inner .cart_item .action button:first-child,
+.package_wrapper .dispo_wrapper .action button:first-child{ background: none; text-decoration: underline; color:royalblue; margin-left: 0; }
+.right_inner .cart_item .action button:last-child,
+.dispo_wrapper .action button:last-child{ margin-right: 0;}
+.hints_wrapper{ border: 1px solid #00cfff; background: #fff; margin-top: 30px;}
 .hints_wrapper h2{ font-family: 'AvenirBlack'; font-size: 20px; margin: 0; padding: 12px 16px; background: #edfcff; color: #01d0ff; }
 .hints_wrapper .hints_suggestion{ font-family: 'AvenirMedium'; font-size:18px; padding: 0 16px; color: #f0220a; margin: 0; box-sizing: border-box;}
 

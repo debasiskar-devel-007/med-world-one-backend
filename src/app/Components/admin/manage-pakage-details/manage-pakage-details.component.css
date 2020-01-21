@@ -1,0 +1,18 @@
+.hospital_package_wrapper{    width: 1440px;
+  margin: 20px auto;
+  box-shadow: none; background-color: #f3f3f3;
+  padding: 0;}
+  .hospital_package_wrapper .card_title{ padding: 0;  background: #fff;}
+.hospital_package_wrapper .Header{ background: #0ad7d9; margin: 0;
+  font-family: 'AvenirMedium';
+  font-size: 34px;
+  color: #fff;
+  padding: 10px;
+  text-transform: capitalize;}
+.hospital_package_wrapper .card_wrp { padding-top: 0; background: #f3f3f3;
+  border-radius: 0;
+  box-shadow: none;
+  border: 1px solid #e9e9e9; }
+  .hospital_package_wrapper .card_wrp .desc_wrapper{ background: #fff; display: block; padding: 16px; }
+  .hospital_package_wrapper .card_wrp .desc_wrapper .desc{ font-family: 'AvenirMedium'; font-size: 16px;  }
+  .hospital_package_wrapper .package_container .title{ background: #00294f; font-family: 'AvenirRoman'; font-size: 16px;  }
