@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-department',
@@ -15,7 +16,8 @@ public departmentForm:FormGroup;
 public deplist:any=[];
 public defaultvalue:any
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
-    public cookieService: CookieService,public activatedRoute:ActivatedRoute) {
+    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public router:Router,
+    public _snackBar: MatSnackBar) {
       //console.log(this.activatedRoute.snapshot.params.id);
       if(this.activatedRoute.snapshot.params.id){
         let post={
@@ -97,7 +99,11 @@ onSubmit(){
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         //console.log(response);
         if (response.status == "success") {
+          this._snackBar.open('Department Submitted Successfully', '', {
+            duration: 2000,
+          });
           this.departmentForm.reset();
+          this.router.navigateByUrl('/admin/inventory/manage-department/list');
           //console.log(response);
         }
       })

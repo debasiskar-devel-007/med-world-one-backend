@@ -23,7 +23,7 @@ public medicaldevice:any=[];
       }
       this.http.httpViaPost('datalist',post).subscribe((res:any)=>{
        console.warn(res);
-        this.packageDetails=res.res[0].package_details;
+        this.packageDetails=res.res[0].package_details[0];
         this.medicaldevice=res.res[0].medical_device;
         this.disposalDevice=res.res[0].disposal_device;
       })     
@@ -33,5 +33,6 @@ public medicaldevice:any=[];
   ngOnInit() {
   }
   buildPackageNow(){console.log("buildPackageNow")}
-  cancel(){console.log("cancel")}
+  cancel(){console.log("cancel")
+}
 }

@@ -198,7 +198,7 @@ delete(index: number) {
   
   checkSelected(i:any){
    console.log(i);
-  this.arrayIndex=i._id;
+  this.arrayIndex=i;
   }
 
   disposalViewDetails(item:any){
