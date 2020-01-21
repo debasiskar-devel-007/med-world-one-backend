@@ -98,9 +98,8 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>
-                      {{item.tied_to_bed}}
-                    </td>
+                    <td>Bed</td>
+                    <td>{{item.tied_to_bed}}</td>
                   </tr>
                 </table>      
               </mat-card-content>
@@ -131,10 +130,15 @@
                       <td>Quantity</td>
                       <td>{{item.quantity}}</td>
                     </tr>
+                    <tr>
+                      <td>Bed</td>
+                      <td>{{item.tied_to_bed}}</td>
+                    </tr>
                   </table>
                 </mat-card-content>
               </mat-card-content>
         </mat-card>
-
+        <button mat-button type="button" (click)="buildPackageNow()">Build package Now</button>
+        <button mat-button type="button" (click)="cancel()">Cancel</button>
     </mat-card>
 </app-adminheader>
