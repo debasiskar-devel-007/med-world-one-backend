@@ -27,6 +27,7 @@ public APiInventoeryListDetails:any=[];
 public disabled = false;
 public disposalDevice:any=[];
 public arrayIndex:number;
+public flag:number=0;
   constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -35,7 +36,7 @@ public arrayIndex:number;
         package_description:['',Validators.required]
       });
 
-
+     
       /**department fetch */
 
       let post={
@@ -48,6 +49,7 @@ public arrayIndex:number;
     }
 
   ngOnInit() {
+   
   }
 
   /**search medical device form other api */
@@ -62,6 +64,7 @@ public arrayIndex:number;
       if (response.status == true && response.messgae == 'Successfully send .') {
         this.PackageInventoryDetails=[];
         this.medDevice=response.res.body.hits.hits;
+        this.flag=1;
         //console.warn("search",response.res.body.hits.hits)
       }
     })
@@ -73,12 +76,12 @@ remove(indx:any){
   //console.log(this.PackageInventoryDetails);
 }
 delete(index: number) {
-   console.log(index);
+  
   this.APiInventoeryListDetails.splice(index, index + 1);
 }
 
 
-  /**Disposable Inventory */
+  /**Search Disposable Inventory */
   inventorySearch(disposal:any){
     
     //console.log(disposal);
@@ -92,7 +95,8 @@ delete(index: number) {
       if (response.status =='success') {
         this.medDevice=[];
         this.PackageInventoryDetails=response.data;
-      }
+        this.flag=1;
+      }else{this.flag=0;}
     })
   }
 
@@ -109,7 +113,6 @@ delete(index: number) {
 
  /**viewDetails */
  viewDetails(inventoryDetails: any) {
-  //console.log(inventoryDetails);
   const dialogRef = this.dialog.open(hospitalPackagedetails, {
     panelClass: 'viewlistingQuoteModal',
     data: { alldata: inventoryDetails }
@@ -197,12 +200,11 @@ delete(index: number) {
   }
   
   checkSelected(i:any){
-   console.log(i);
+  //  console.log(i);
   this.arrayIndex=i;
   }
 
   disposalViewDetails(item:any){
-     //console.log(inventoryDetails);
   const dialogRef = this.dialog.open(disposalDetails, {
     panelClass: 'viewlistingQuoteModal',
     data: { alldata: item }

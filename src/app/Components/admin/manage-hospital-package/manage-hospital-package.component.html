@@ -74,6 +74,8 @@
             </span>
           </mat-card-content>
         </mat-card-content>
+
+        <ng-container *ngIf="flag==0">
         <mat-card-content class="hints_wrapper">
           <h2 class="hints">Please Search for a Product You Wish to List.</h2>
           <p class="hints_suggestion"> Search suggestions:</p>
@@ -89,7 +91,7 @@
           </mat-list>
 
         </mat-card-content>
-
+      </ng-container>
 
 
         <ng-container *ngIf="medDevice!=null">

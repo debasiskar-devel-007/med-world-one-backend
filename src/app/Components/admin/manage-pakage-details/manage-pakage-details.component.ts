@@ -37,6 +37,7 @@ public medicaldevice:any=[];
 
   ngOnInit() {
   }
+
   /**disposal device view details */
   disposalViewDetails(item:any){
     //console.log(inventoryDetails);
@@ -49,6 +50,7 @@ public medicaldevice:any=[];
  dialogRef.afterClosed().subscribe(result => {
  });
  }
+ 
 /**medical device view modal */
  viewDetails(inventoryDetails: any) {
   //console.log(inventoryDetails);
@@ -64,8 +66,10 @@ public medicaldevice:any=[];
 
 
   buildPackageNow(){console.log("buildPackageNow")}
-  cancel(){console.log("cancel")
+  cancel(){
+    this.router.navigateByUrl('/admin/manage-hospital-package/list');
 }
+
 }
 
 /**disposalDetails */
