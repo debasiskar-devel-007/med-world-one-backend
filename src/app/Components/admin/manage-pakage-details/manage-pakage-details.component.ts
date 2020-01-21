@@ -37,6 +37,7 @@ public medicaldevice:any=[];
 
   ngOnInit() {
   }
+  /**disposal device view details */
   disposalViewDetails(item:any){
     //console.log(inventoryDetails);
  const dialogRef = this.dialog.open(disposalDetails1, {
@@ -48,6 +49,20 @@ public medicaldevice:any=[];
  dialogRef.afterClosed().subscribe(result => {
  });
  }
+/**medical device view modal */
+ viewDetails(inventoryDetails: any) {
+  //console.log(inventoryDetails);
+  const dialogRef = this.dialog.open(hospitalPackagedetails1, {
+    panelClass: 'viewlistingQuoteModal',
+    data: { alldata: inventoryDetails }
+
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  });
+}
+
+
   buildPackageNow(){console.log("buildPackageNow")}
   cancel(){console.log("cancel")
 }
@@ -63,6 +78,26 @@ export class disposalDetails1 {
 
   constructor(
     public dialogRef: MatDialogRef<disposalDetails1>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    //console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+/**view details modal */
+@Component({
+  selector: 'listingquotedetails',
+  templateUrl: '../../inventory/inventorylistingquotefromapi/listingquotefromapi.html',
+  styleUrls: ['../../inventory/inventorylistingquotefromapi/inventorylistingquotefromapi.component.css']
+})
+export class hospitalPackagedetails1 {
+
+  constructor(
+    public dialogRef: MatDialogRef<hospitalPackagedetails1>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     //console.log(data);
   }

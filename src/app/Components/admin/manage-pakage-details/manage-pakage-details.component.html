@@ -107,6 +107,9 @@
                 </td>
               </tr>
             </table>
+            <mat-toolbar class="view_details">
+              <a (click)="viewDetails(item)">view details</a>
+            </mat-toolbar>
           </mat-card-content>
         </mat-card-content>
       </mat-card>
@@ -139,7 +142,7 @@
                 </tr>
               </table>
               <mat-toolbar class="view_details">
-                <a (click)=disposalViewDetails(item)>view details</a>
+                <a (click)="disposalViewDetails(item)">view details</a>
               </mat-toolbar>
             </mat-card-content>
           </mat-card-content>
