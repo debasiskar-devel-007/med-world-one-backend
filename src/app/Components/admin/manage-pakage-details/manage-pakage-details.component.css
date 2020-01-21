@@ -15,4 +15,86 @@
   border: 1px solid #e9e9e9; }
   .hospital_package_wrapper .card_wrp .desc_wrapper{ background: #fff; display: block; padding: 16px; }
   .hospital_package_wrapper .card_wrp .desc_wrapper .desc{ font-family: 'AvenirMedium'; font-size: 16px;  }
-  .hospital_package_wrapper .package_container .title{ background: #00294f; font-family: 'AvenirRoman'; font-size: 16px;  }
+  .hospital_package_wrapper .package_container .title{ background: #00294f;
+    font-family: 'AvenirRoman';
+    font-size: 18px;
+    padding: 14px;
+    color: #fff;
+}
+
+.hospital_package_wrapper .package_container { border-radius: 0; box-shadow: none;}
+.hospital_package_wrapper .package_container .item_wrapper{ display: flex; justify-content: center; flex-wrap: wrap; }
+.hospital_package_wrapper .package_container .item_wrapper .cart_item{ background: #e8edf1; width: 24%; margin: 0.5%; border: 1px solid #dddddd; padding: 10px;
+  box-sizing: border-box; }
+  .hospital_package_wrapper .package_container .item_wrapper .cart_item table{ font-family: 'AvenirRoman';
+    font-size: 12px;
+    text-align: left;
+    vertical-align: top;}
+.hospital_package_wrapper .package_container .item_wrapper .cart_item table tr th{ width: 50%;}
+.disposal_wrapper { border-radius: 0; box-shadow: none;}
+.disposal_wrapper .Header{background: #00294f;
+ font-family: 'AvenirRoman';
+ font-size: 18px;
+ padding: 14px;
+ color: #fff;
+}
+
+.dispo_wrapper{ display: flex; flex-wrap: wrap;}
+.dispo_wrapper .itemss{  padding: 10px; border: 1px solid #dddddd;
+  box-sizing: border-box;
+  display: flex;
+  background: #e8edf1;
+  width: 24%;
+  margin: .5%;
+  justify-content: space-between;
+}
+.dispo_wrapper .itemss .inner_image{ width: 30%;
+  margin-bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+.dispo_wrapper .itemss .inner_content { width: 69%; margin-bottom: 0; }
+.dispo_wrapper .itemss .inner_content table { width: 100%; min-height: 150px; max-height: 150px; }
+.dispo_wrapper .itemss .inner_content td, th {line-height: 20px; }
+.inner_image  img{ max-width: 100%;}
+.dispo_wrapper .itemss .inner_content .desc{
+  word-break: break-word;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+   -webkit-box-orient: vertical;}
+
+   .dispo_wrapper .itemss .inner_content .name{
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+   line-height: 16px;
+   font-family: 'AvenirBlack';
+   }
+   .dispo_wrapper .itemss .inner_content .view_details{ background: none;
+    height: auto;
+    padding: 0;
+    text-align: right;
+    display: block;}
+   .dispo_wrapper .itemss .inner_content .view_details a{ color: #2986f9; cursor: pointer;
+    text-decoration: underline;
+    font-size: 12px;
+    font-family: 'AvenirMedium';
+    text-transform: capitalize; }
+
+.mt-toolbar_action{ display: flex; justify-content: flex-end;}
+.mt-toolbar_action button{    background: #09cad6;
+  color: #fff;
+  font-family: 'AvenirRoman';
+  font-size: 18px;
+  border-radius: 0;
+  margin: 0 5px;
+  padding: 0 17px;
+  min-width: 120px;}
+  .mt-toolbar_action button:first-child{ margin-left: 0; background: #00294f;}
+  .mt-toolbar_action button:last-child{ margin-right: 0;}

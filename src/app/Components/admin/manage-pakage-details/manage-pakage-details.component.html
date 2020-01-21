@@ -10,133 +10,146 @@
 
       <mat-card class="package_container">
         <mat-card-title class="title">Medical Device</mat-card-title>
-        <mat-card-content class="cart_item" *ngFor="let item of medicaldevice;let i=index;">
-
-          <table>
-            <tr>
-              <th>Product:</th>
-              <td>
-                <ng-container *ngIf="item.brandname==null">
-                  {{item.brandName}}{{item.identifiers.identifier.deviceId}}
-                </ng-container>
-
-                <ng-container *ngIf="item.brandname!=null">
-                  {{item.device_name}}
-                </ng-container>
-
-              </td>
-            </tr>
-            <tr>
-              <th>Company Name :</th>
-              <td>
-                <ng-container *ngIf="item.brandname==null">
-                  {{item.companyName}}
-                </ng-container>
-
-                <ng-container *ngIf="item.brandname!=null">
-                  {{item.companyName}}
-                </ng-container>
-
-              </td>
-            </tr>
-            <tr>
-              <th>Brand : </th>
-              <td>
-                <ng-container *ngIf="item.brandname==null">
-                  {{item.brandName}}
-                </ng-container>
-                <ng-container *ngIf="item.brandname!=null">
-                  {{item.brandname}}
-                </ng-container>
-              </td>
-            </tr>
-            <tr>
-              <th>Version/Model:</th>
-              <td>
-                <ng-container *ngIf="item.brandname==null">
-                  {{item.versionModelNumber}}
-                </ng-container>
-
-                <ng-container *ngIf="item.version!=null">
-                  {{item.version}}
-                </ng-container>
-
-
-              </td>
-            </tr>
-            <tr>
-              <th>Device ID :</th>
-              <td>
-                <ng-container *ngIf="item.brandname==null">
-                  {{item.identifiers.identifier.deviceId}}
-                </ng-container>
-                <ng-container *ngIf="item.brandname!=null">
-                  {{item.device_id}}
-                </ng-container>
-              </td>
-            </tr>
-
-            <tr>
-              <th>Description</th>
-              <td>
-
-                <ng-container *ngIf="item.brandname==null">
-                  <span class="device_descc">
-                    {{item.deviceDescription}}
-                  </span>
-                </ng-container>
-
-                <ng-container *ngIf="item.brandname!=null">
-                  {{item.version}}
-                </ng-container>
-
-              </td>
-            </tr>
-
-            <tr>
-              <th>Quantity :</th>
-              <td>
-                {{item.quantity}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                {{item.tied_to_bed}}
-              </td>
-            </tr>
-          </table>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card>
-        <mat-card-title class="Header">Disposal Device details</mat-card-title>
-        <mat-card-content *ngFor="let item of disposalDevice;let i=index;" class="dispo_wrapper">
-          <mat-card-content class="inner_image">
-            <img src="{{item.image}}">
-          </mat-card-content>
-          <mat-card-content class="inner_content">
-
+        <mat-card-content class="item_wrapper">
+          <mat-card-content class="cart_item" *ngFor="let item of medicaldevice;let i=index;">
             <table>
               <tr>
-                <td colspan="2"> {{item.inventory_name}}</td>
+                <th>Product:</th>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.brandName}}{{item.identifiers.identifier.deviceId}}
+                  </ng-container>
+
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.device_name}}
+                  </ng-container>
+
+                </td>
               </tr>
               <tr>
-                <td>Brand:</td>
-                <td>{{item.brand}}</td>
+                <th>Company Name :</th>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.companyName}}
+                  </ng-container>
+
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.companyName}}
+                  </ng-container>
+
+                </td>
+              </tr>
+              <tr>
+                <th>Brand : </th>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.brandName}}
+                  </ng-container>
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.brandname}}
+                  </ng-container>
+                </td>
+              </tr>
+              <tr>
+                <th>Version/Model:</th>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.versionModelNumber}}
+                  </ng-container>
+
+                  <ng-container *ngIf="item.version!=null">
+                    {{item.version}}
+                  </ng-container>
+
+
+                </td>
+              </tr>
+              <tr>
+                <th>Device ID :</th>
+                <td>
+                  <ng-container *ngIf="item.brandname==null">
+                    {{item.identifiers.identifier.deviceId}}
+                  </ng-container>
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.device_id}}
+                  </ng-container>
+                </td>
               </tr>
 
               <tr>
-                <td>Description:</td>
-                <td class="desc">{{item.description}}</td>
+                <th>Description</th>
+                <td>
+
+                  <ng-container *ngIf="item.brandname==null">
+                    <span class="device_descc">
+                      {{item.deviceDescription}}
+                    </span>
+                  </ng-container>
+
+                  <ng-container *ngIf="item.brandname!=null">
+                    {{item.version}}
+                  </ng-container>
+
+                </td>
+              </tr>
+
+              <tr>
+                <th>Quantity :</th>
+                <td>
+                  {{item.quantity}}
+                </td>
               </tr>
               <tr>
-                <td>Quantity</td>
-                <td>{{item.quantity}}</td>
+                <th><input type="checkbox">&nbsp;Tied To Beds</th>
+                <td>
+                  {{item.tied_to_bed}}
+                </td>
               </tr>
             </table>
           </mat-card-content>
         </mat-card-content>
       </mat-card>
+
+      <mat-card class="disposal_wrapper">
+        <mat-card-title class="Header">Disposal Device details</mat-card-title>
+        <mat-card-content class="dispo_wrapper">
+          <mat-card-content class="itemss" *ngFor="let item of disposalDevice;let i=index;">
+            <mat-card-content class="inner_image">
+              <img src="{{item.image}}">
+            </mat-card-content>
+            <mat-card-content class="inner_content">
+
+              <table>
+                <tr>
+                  <td colspan="2"><span class="name"> {{item.inventory_name}}</span></td>
+                </tr>
+                <tr>
+                  <td>Brand:</td>
+                  <td>{{item.brand}}</td>
+                </tr>
+
+                <tr>
+                  <td>Description:</td>
+                  <td><span class="desc">{{item.description}}</span></td>
+                </tr>
+                <tr>
+                  <td>Quantity</td>
+                  <td>{{item.quantity}}</td>
+                </tr>
+              </table>
+              <mat-toolbar class="view_details">
+                <a>view details</a>
+              </mat-toolbar>
+            </mat-card-content>
+          </mat-card-content>
+
+        </mat-card-content>
+
+      </mat-card>
     </mat-card>
+    <mat-toolbar class="mt-toolbar_action">
+      <button mat-button type="button" (click)="buildPackageNow()">Build package Now</button>
+      <button mat-button type="button" (click)="cancel()">Cancel</button>
+    </mat-toolbar>
   </mat-card>
 </app-adminheader>
