@@ -388,12 +388,13 @@ export class addCondition {
      
   }
   cancel(){
-    this.data.alldata.purchaseyear='';
-    this.data.alldata.cosmetic_condition='';
-    this.data.alldata.selling_timeframe='';
-    this.data.alldata.original_cost=0;
-    this.data.alldata.additional_information='';
-    this.data.alldata.listing_image=[];
+    // this.data.alldata.purchaseyear='';
+    // this.data.alldata.cosmetic_condition='';
+    // this.data.alldata.selling_timeframe='';
+    // this.data.alldata.original_cost=0;
+    // this.data.alldata.additional_information='';
+    // this.data.alldata.listing_image=[];
+    this.dialogRef.close();
   }
 
   onNoClick(): void {
