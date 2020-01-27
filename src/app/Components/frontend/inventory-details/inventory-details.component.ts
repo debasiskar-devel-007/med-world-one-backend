@@ -58,10 +58,10 @@ export class InventoryDetailsComponent implements OnInit {
         "_id_object": url
       },
     };
-    console.warn(data);
+    //console.warn(data);
 
     this.httpServiceService.httpViaPost('datalist', data).subscribe((result: any) => {
-      console.warn(result);
+      //console.warn(result);
       this.inventoryDetails = result.res[0];
       this.dynamic_attributes = result.res[0].dynamic_attributes;
 
@@ -100,14 +100,14 @@ export class InventoryDetailsComponent implements OnInit {
       };
       //console.log(postData);
       this.httpServiceService.httpViaPost('addorupdatedata', postData).subscribe((res: any) => {
-        console.log(res);
+        //console.log(res);
       })
 
     } else {
       // console.log("Please Log IN");
       this.openDialog();
       //  this.router.navigateByUrl('/login'+this.router.url);
-       console.log('/login'+this.router.url)
+       //console.log('/login'+this.router.url)
     }
   }
 

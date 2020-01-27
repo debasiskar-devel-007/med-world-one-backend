@@ -91,13 +91,13 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
       
       let postData ={
         "source": "inventories_list_view_async",
-        'condition':condition,
-        "limit":30
+        'condition':condition
       }
-      // console.log(postData);
-      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-        this.inventoryCatagoryList = res.res;
-        // console.log(res);
+      console.log(postData);
+      
+      this.httpServiceService.httpViaPost('search', postData).subscribe((res: any) => {
+        //this.inventoryCatagoryList = res.res;
+        console.log(res);
       })
   }
 

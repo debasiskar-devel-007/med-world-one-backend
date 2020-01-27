@@ -79,11 +79,21 @@ public medicaldevice:any=[];
   styleUrls: ['../manage-hospital-package/manage-hospital-package.component.css']
 })
 export class disposalDetails1 {
-
+  public dynamic_attributes: any;
+  public dynamic_attributes1:any=[];
   constructor(
     public dialogRef: MatDialogRef<disposalDetails1>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    //console.log(data);
+     //console.log(">>>",data);
+     this.dynamic_attributes=data.alldata.dynamic_attributes;
+     //console.log(">>>",this.dynamic_attributes);
+ 
+     for (let i in this.dynamic_attributes) {
+ 
+       this.dynamic_attributes1.push({ key: Object.keys(this.dynamic_attributes[i])[0], value: Object.values(this.dynamic_attributes[i])[0] })
+       //this.dynamic_attributes1.push((this.dynamic_attributes[i]))
+     }
+      //console.log('this.dynamic_attributes1',this.dynamic_attributes1);
   }
 
   onNoClick(): void {

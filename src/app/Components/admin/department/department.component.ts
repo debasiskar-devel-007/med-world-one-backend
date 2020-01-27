@@ -76,37 +76,40 @@ onSubmit(){
   for (let x in this.departmentForm.controls) {
     this.departmentForm.controls[x].markAsTouched();
   }
-
-  if(this.departmentForm.value.id==null){
-    delete this.departmentForm.value.id
-    var postData: any = {
-      "source": 'department',
-      "data":this.departmentForm.value,
-      "sourceobj":["department_parent"]
-        };
-  }else{
-    var postData: any = {
-
-      "source": 'department',
-       "data":this.departmentForm.value,
-   
-      "sourceobj":["department_parent"]
-        };
-  }
-
-      //console.log(postData);
-
-      this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
-        //console.log(response);
-        if (response.status == "success") {
-          this._snackBar.open('Department Submitted Successfully', '', {
-            duration: 2000,
-          });
-          this.departmentForm.reset();
-          this.router.navigateByUrl('/admin/inventory/manage-department/list');
+   if(this.departmentForm.valid){
+     
+    if(this.departmentForm.value.id==null){
+      delete this.departmentForm.value.id
+      var postData: any = {
+        "source": 'department',
+        "data":this.departmentForm.value,
+        "sourceobj":["department_parent"]
+          };
+    }else{
+      var postData: any = {
+  
+        "source": 'department',
+         "data":this.departmentForm.value,
+     
+        "sourceobj":["department_parent"]
+          };
+    }
+  
+        //console.log(postData);
+  
+        this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
           //console.log(response);
-        }
-      })
+          if (response.status == "success") {
+            this._snackBar.open('Department Submitted Successfully', '', {
+              duration: 2000,
+            });
+            this.departmentForm.reset();
+            this.router.navigateByUrl('/admin/inventory/manage-department/list');
+            //console.log(response);
+          }
+        })
+   }
+  
 }
 
 }

@@ -19,6 +19,8 @@ export class ManageHospitalPackageComponent implements OnInit {
 public packageHospitalForm:FormGroup;
 public deplist:any;
 public medicalDevice:any;
+public dynamic_attributes: any;
+  public dynamic_attributes1:any=[];
 public disInventory:any;
 public medDevice:any;
 public disposableInventory:any;
@@ -28,6 +30,7 @@ public disabled = false;
 public disposalDevice:any=[];
 public arrayIndex:number;
 public flag:number=0;
+
   constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) { 
       this.packageHospitalForm=this.formBuilder.group({
@@ -87,11 +90,11 @@ delete(index: number) {
     //console.log(disposal);
     let postData: any = {
       "source":'inventories_list_view_async',
-      "condition":{"inventory_search": disposal}
+      "condition":{"inventory_search": disposal.toLowerCase()}
       
     }
     this.http.httpViaPost('search', postData).subscribe((response: any) => {
-      //console.warn(response);
+      //console.warn("disposal search list",response);
       if (response.status =='success') {
         this.medDevice=[];
         this.PackageInventoryDetails=response.data;
@@ -205,6 +208,7 @@ delete(index: number) {
   }
 
   disposalViewDetails(item:any){
+    //console.log("disposal view details",item);
   const dialogRef = this.dialog.open(disposalDetails, {
     panelClass: 'viewlistingQuoteModal',
     data: { alldata: item }
@@ -243,11 +247,21 @@ export class hospitalPackagedetails {
   styleUrls: ['./manage-hospital-package.component.css']
 })
 export class disposalDetails {
-
+  public dynamic_attributes: any;
+  public dynamic_attributes1:any=[];
   constructor(
     public dialogRef: MatDialogRef<disposalDetails>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    //console.log(data);
+    //console.log(">>>",data);
+    this.dynamic_attributes=data.alldata.dynamic_attributes;
+    //console.log(">>>",this.dynamic_attributes);
+
+    for (let i in this.dynamic_attributes) {
+
+      this.dynamic_attributes1.push({ key: Object.keys(this.dynamic_attributes[i])[0], value: Object.values(this.dynamic_attributes[i])[0] })
+      //this.dynamic_attributes1.push((this.dynamic_attributes[i]))
+    }
+     //console.log('this.dynamic_attributes1',this.dynamic_attributes1);
   }
 
   onNoClick(): void {

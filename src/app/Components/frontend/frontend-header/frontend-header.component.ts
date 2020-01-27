@@ -38,7 +38,7 @@ export class FrontendHeaderComponent implements OnInit {
 
   mobileView() {
     this.status = !this.status;
-    console.log("working");
+    //console.log("working");
   }
 
   ngOnInit() {
