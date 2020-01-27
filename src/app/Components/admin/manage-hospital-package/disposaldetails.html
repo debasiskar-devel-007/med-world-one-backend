@@ -1,39 +1,41 @@
-<mat-card>
-    <mat-card-content class="inner_image">
-        <img src="{{data.alldata.image}}">
-      </mat-card-content>
-      
-    <mat-card-content>
-                    <table>
-                    <tr>
-                        <td>Product Name:</td>
-                        <td> {{data.alldata.inventory_name}}</td>
-                    </tr>
-                    <tr>
-                        <td>SKU#:</td>
-                        <td>{{data.alldata.sku}}</td>
-                    </tr>
-                    <tr>
-                        <td>Brand:</td>
-                        <td>{{data.alldata.brand}}</td>
-                    </tr>
-                    <tr>
-                        <td>Category:</td>
-                        <td>{{data.alldata.category}}</td>
-                    </tr>
-                    <tr>
-                        <td>Description:</td>
-                        <td><span class="desc">{{data.alldata.description}}</span></td>
-                    </tr>
-                        <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
-                          <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
-                            <th>{{dynamic.key}} </th>
-                            <td class="para">{{dynamic.value}}</td>
-                          </tr>
-          
-                        </ng-container>                
-                </table>
-</mat-card-content>
-<button class="action_button" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i
-    class="material-icons"> clear </i></button>
+<mat-card class="viewDetails_modal">
+  <mat-card-content class="inner_image">
+    <span class="img_deco">
+      <img src="{{data.alldata.image}}">
+    </span>
+  </mat-card-content>
+
+  <mat-card-content class="in_contentu">
+    <table>
+      <tr>
+        <th>Product Name:</th>
+        <td> {{data.alldata.inventory_name}}</td>
+      </tr>
+      <tr>
+        <th>SKU#:</th>
+        <td>{{data.alldata.sku}}</td>
+      </tr>
+      <tr>
+        <th>Brand:</th>
+        <td>{{data.alldata.brand}}</td>
+      </tr>
+      <tr>
+        <th>Category:</th>
+        <td>{{data.alldata.category}}</td>
+      </tr>
+      <tr>
+        <th>Description:</th>
+        <td><span class="desc">{{data.alldata.description}}</span></td>
+      </tr>
+      <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
+        <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+          <th>{{dynamic.key}} </th>
+          <td class="para">{{dynamic.value}}</td>
+        </tr>
+
+      </ng-container>
+    </table>
+  </mat-card-content>
+  <button class="action_button" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i
+      class="material-icons"> clear </i></button>
 </mat-card>

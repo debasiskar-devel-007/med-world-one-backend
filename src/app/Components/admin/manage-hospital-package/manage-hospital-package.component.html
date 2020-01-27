@@ -152,17 +152,17 @@
                 </mat-card-content>
                 <mat-card-content class="inner_content">
 
-                  <table>
+                  <table class="device_listing">
                     <tr>
-                      <td colspan="2"> {{item.inventory_name}}</td>
+                      <td colspan="2"><span class="headerr"> {{item.inventory_name}} </span></td>
                     </tr>
                     <tr>
-                      <td>Brand:</td>
+                      <th>Brand:</th>
                       <td>{{item.brand}}</td>
                     </tr>
 
                     <tr>
-                      <td>Description:</td>
+                      <th>Description:</th>
                       <td><span class="desc">{{item.description}}</span></td>
                     </tr>
                   </table>
@@ -189,7 +189,7 @@
 
         <mat-card-content class="cart_item" *ngFor="let item of APiInventoeryListDetails;let i=index;">
 
-          <table>
+          <table >
             <tr>
               <th>Product:</th>
               <td>
@@ -303,23 +303,23 @@
                 </mat-card-content>
                 <mat-card-content class="inner_content">
 
-                  <table>
+                  <table class="pro_list_tab">
                     <tr>
-                      <td>Product Name:</td>
+                      <th>Product Name:</th>
                       <td> {{item.inventory_name}}</td>
                     </tr>
                     <tr>
-                      <td>Brand:</td>
+                      <th>Brand:</th>
                       <td>{{item.brand}}</td>
                     </tr>
 
                     <tr>
-                      <td>Description:</td>
+                      <th>Description:</th>
                       <td>
                         <span class="desc">{{item.description}}</span></td>
                     </tr>
                     <tr>
-                      <td>Quantity</td>
+                      <th>Quantity</th>
                       <td> <input name='awesome' type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"
                           placeholder="{{item.quantity}}" /></td>
                     </tr>

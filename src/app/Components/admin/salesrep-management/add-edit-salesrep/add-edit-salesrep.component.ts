@@ -75,7 +75,7 @@ export class AddEditSalesrepComponent implements OnInit {
     //Calling list of states here
     this.allStateCityData();
 
-    // Case 
+    // Case
     switch (this.action) {
       case 'add':
         /* Button text */
@@ -138,7 +138,7 @@ export class AddEditSalesrepComponent implements OnInit {
   // =========================================MODAL functions==========================================
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(Modal3, {
-      width: '250px',
+      panelClass:'custom-modalbox',
       data: { msg: x }
     });
 

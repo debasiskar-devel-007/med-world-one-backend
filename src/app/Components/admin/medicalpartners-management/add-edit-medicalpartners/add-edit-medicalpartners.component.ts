@@ -117,7 +117,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     this.getSalesName();
 
 
-    // Case 
+    // Case
     switch (this.action) {
       case 'add':
         /* Button text */
@@ -128,7 +128,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
           this.http.httpViaPost('userid', undefined).subscribe((response: any) => {
             this.medicalPartnerForm.patchValue({ user_id: response.userID });
           });
-  
+
           //Generating the form on ngOnInit
           this.generateForm();
         break;
@@ -152,7 +152,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   // =========================================MODAL functions==========================================
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(Modal2, {
-      width: '250px',
+      panelClass:'custom-modalbox',
       data: { msg: x }
     });
 
@@ -210,7 +210,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
       country:defaultValue.country,
       mpimage: defaultValue.mpimage
     })
-   
+
     this.collect_email_array = defaultValue.contactemails;
     this.collect_phone_array = defaultValue.contactphones;
 
@@ -276,13 +276,13 @@ export class AddEditMedicalpartnersComponent implements OnInit {
   // ====================SUBMIT FUNCTION+===================
   onSubmit() {
 
-    
+
     for (let x in this.medicalPartnerForm.controls) {
       this.medicalPartnerForm.controls[x].markAsTouched();
     }
 
-    
-    //  File Upload Works 
+
+    //  File Upload Works
     if (this.configData.files) {
 
       if (this.configData.files.length > 1) { this.ErrCode = true; return; }
@@ -339,7 +339,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
           setTimeout(() => {
             this.dialogRef.close();
           }, 2000);
-         
+
           setTimeout(() => {
             this.router.navigateByUrl('/admin/medicalpartners-management/list');
           }, 2000);
@@ -403,9 +403,9 @@ export class AddEditMedicalpartnersComponent implements OnInit {
     }
 
     this.http.httpViaPost('datalist',data).subscribe(response=>{
-       this.salesNameArray = response.res;      
+       this.salesNameArray = response.res;
     });
-   
+
   }
 
 }

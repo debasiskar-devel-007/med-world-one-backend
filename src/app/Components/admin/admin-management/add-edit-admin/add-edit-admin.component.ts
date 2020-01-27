@@ -84,7 +84,7 @@ export class AddEditAdminComponent implements OnInit {
     /** getting all states **/
     this.allStateCityData();
 
-    // Case 
+    // Case
     switch (this.action) {
       case 'add':
         /* Button text */
@@ -137,7 +137,8 @@ export class AddEditAdminComponent implements OnInit {
   // =========================================MODAL functions==========================================
   openDialog(x: any): void {
     this.dialogRef = this.dialog.open(Modal, {
-      width: '250px',
+      // width: '250px',
+      panelClass:'custom-modalbox',
       data: { msg: x }
     });
 
@@ -313,6 +314,7 @@ export class AddEditAdminComponent implements OnInit {
 @Component({
   selector: 'app-modal',
   templateUrl: 'modal.html',
+  styleUrls: ['./add-edit-admin.component.css']
 })
 export class Modal {
 
