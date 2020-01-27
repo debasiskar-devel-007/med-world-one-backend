@@ -467,7 +467,7 @@ data: { requestcondition: { source: 'package_list_view', condition: {'hospital_i
 resolve: { adminList: ResolveService },
 data: {
   requestcondition: {
-    source: 'department',
+    source: 'department_view',
     condition: {}
   },
   endpoint: 'datalist'

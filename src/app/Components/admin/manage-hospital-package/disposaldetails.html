@@ -10,14 +10,28 @@
                         <td> {{data.alldata.inventory_name}}</td>
                     </tr>
                     <tr>
+                        <td>SKU#:</td>
+                        <td>{{data.alldata.sku}}</td>
+                    </tr>
+                    <tr>
                         <td>Brand:</td>
                         <td>{{data.alldata.brand}}</td>
                     </tr>
-
+                    <tr>
+                        <td>Category:</td>
+                        <td>{{data.alldata.category}}</td>
+                    </tr>
                     <tr>
                         <td>Description:</td>
                         <td><span class="desc">{{data.alldata.description}}</span></td>
                     </tr>
+                        <ng-container *ngIf="dynamic_attributes1 !=null && dynamic_attributes1.length > 0 ">
+                          <tr *ngFor="let dynamic of dynamic_attributes1;let i=index; ">
+                            <th>{{dynamic.key}} </th>
+                            <td class="para">{{dynamic.value}}</td>
+                          </tr>
+          
+                        </ng-container>                
                 </table>
 </mat-card-content>
 <button class="action_button" mat-button mat-button [mat-dialog-close]="true" cdkFocusInitial><i

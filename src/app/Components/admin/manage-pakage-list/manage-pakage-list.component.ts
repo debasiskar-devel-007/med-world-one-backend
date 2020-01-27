@@ -12,7 +12,7 @@ export class ManagePakageListComponent implements OnInit {
   adminData_skip: any = ["_id","created_at"];
   adminData_modify_header: any = {
     "firstname": "department_name", "status": "Status" };
-  tableName: any = 'department';
+  tableName: any = 'package_hospital_details';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   searchingEndpoint: any = "datalist";

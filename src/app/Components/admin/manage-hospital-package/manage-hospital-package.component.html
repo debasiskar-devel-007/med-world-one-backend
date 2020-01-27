@@ -28,6 +28,10 @@
                   {{food.department_name}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="!packageHospitalForm.controls['department'].valid
+                && packageHospitalForm.controls['department'].errors.required">
+                Department is required.
+              </mat-error>
             </mat-form-field>
 
           </span>
