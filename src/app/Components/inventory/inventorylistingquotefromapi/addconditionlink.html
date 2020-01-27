@@ -42,15 +42,18 @@
  
 
   <!-- Card view for Image  -->
-  <mat-card-content class="files-view">
+ 
     <mat-card class="example-card">
-      <!-- <img mat-card-image [src]="fullImagePath">
-      <mat-card-title>{{ imageName }}</mat-card-title>
-      <mat-card-subtitle>{{ imageType }}</mat-card-subtitle> -->
-      <span class="closecard"><i class="material-icons">clear</i></span>
+      <!-- <ng-container *ngIf="data.alldata.listing_image!=null && data.alldata.listing_image.length > 0"> -->
 
+        <ng-container *ngFor="let i of data.alldata.listing_image">
+          <img [src]="i">
+        </ng-container>
+       
+      <!-- </ng-container> -->
+       
     </mat-card>
-  </mat-card-content> 
+
  
 </mat-card-content>
  
