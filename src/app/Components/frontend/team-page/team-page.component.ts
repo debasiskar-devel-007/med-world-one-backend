@@ -33,7 +33,7 @@ export class TeamPageComponent implements OnInit {
      
       let result: any = data.teamList.res;
       this.teamList = result;
-      console.log(result);
+      //console.log(result);
     })
 
   }
