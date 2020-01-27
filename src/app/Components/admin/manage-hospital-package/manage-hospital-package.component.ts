@@ -32,14 +32,14 @@ public arrayIndex:number;
 public flag:number=0;
 
   constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,
-    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) { 
+    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) {
       this.packageHospitalForm=this.formBuilder.group({
         package_name:['',Validators.required],
         department:['',Validators.required],
         package_description:['',Validators.required]
       });
 
-     
+
       /**department fetch */
 
       let post={
@@ -52,12 +52,12 @@ public flag:number=0;
     }
 
   ngOnInit() {
-   
+
   }
 
   /**search medical device form other api */
   medicalDeviceSearch(medDevice:any){
-    
+
    // console.log(medDevice)
     let postData: any = {
       "api": medDevice
@@ -79,19 +79,19 @@ remove(indx:any){
   //console.log(this.PackageInventoryDetails);
 }
 delete(index: number) {
-  
+
   this.APiInventoeryListDetails.splice(index, index + 1);
 }
 
 
   /**Search Disposable Inventory */
   inventorySearch(disposal:any){
-    
+
     //console.log(disposal);
     let postData: any = {
       "source":'inventories_list_view_async',
       "condition":{"inventory_search": disposal.toLowerCase()}
-      
+
     }
     this.http.httpViaPost('search', postData).subscribe((response: any) => {
       //console.warn("disposal search list",response);
@@ -128,7 +128,7 @@ delete(index: number) {
   /**inventory Add */
   inventoryAdd(item: any) {
     //console.log(item);
-     
+
      let itm:any=item._source;
      itm.quantity=1;
      itm.tied_to_bed=0;
@@ -139,10 +139,10 @@ delete(index: number) {
      itm.additional_information='';
      itm.listing_image=[];
      // item.saleprice = 1;
- 
+
      this.APiInventoeryListDetails.push(itm);
     // console.log(this.APiInventoeryListDetails);
- 
+
    }
 
     /** blur function **/
@@ -188,7 +188,7 @@ delete(index: number) {
       this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
         //console.warn(response);
         if (response.status =='success') {
-        
+
         this._snackBar.open('Package Submitted Successfully', '', {
           duration: 2000,
         });
@@ -199,9 +199,9 @@ delete(index: number) {
         }
       })
     }
-   
+
   }
-  
+
   checkSelected(i:any){
   //  console.log(i);
   this.arrayIndex=i;
@@ -210,7 +210,7 @@ delete(index: number) {
   disposalViewDetails(item:any){
     //console.log("disposal view details",item);
   const dialogRef = this.dialog.open(disposalDetails, {
-    panelClass: 'viewlistingQuoteModal',
+    panelClass: 'dispoviewModal',
     data: { alldata: item }
 
   });

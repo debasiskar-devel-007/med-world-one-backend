@@ -1,11 +1,12 @@
 <app-adminheader>
-    <lib-addedit-team
-    [TeamData]="teamDataList"
-    [serverUrl]="serverUrl"
-    [getDataEndpoint]="getdataEndpoint"
-    [addEndpoint]="addendpoint"
-    [ListPageRoute]="listRoute"
-    [SourceName]="sourceName"
-    [RoleSourceName]="roleSourceName"
-    [singleEditData]="SingleTeamData"></lib-addedit-team>
+  <span class="dashboardcontainer Team4mange">
+    <mat-card class="main_wrapper">
+      <mat-card-content class="from_wrapper inputstyle">
+
+        <lib-addedit-team [TeamData]="teamDataList" [serverUrl]="serverUrl" [getDataEndpoint]="getdataEndpoint"
+          [addEndpoint]="addendpoint" [ListPageRoute]="listRoute" [SourceName]="sourceName"
+          [RoleSourceName]="roleSourceName" [singleEditData]="SingleTeamData"></lib-addedit-team>
+      </mat-card-content>
+    </mat-card>
+  </span>
 </app-adminheader>
