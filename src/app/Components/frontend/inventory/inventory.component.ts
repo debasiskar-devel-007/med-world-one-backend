@@ -27,9 +27,10 @@ export class InventoryComponent implements OnInit {
   public sku:any;
   public inventory_brand:any;
   public inventory_cat:any;
+
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
-    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) { 
-      
+    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) {
+
       this.qouteDetails()
       //this.getCategoryList();
 
@@ -45,10 +46,7 @@ export class InventoryComponent implements OnInit {
       this.meta.setTag('og:type', 'website');
       this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
       this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/logo.png');
-
-    
-    
-    }
+}
 
 
   ngOnInit() {
@@ -104,7 +102,7 @@ export class InventoryComponent implements OnInit {
       if(this.inventoryName!=null && this.inventoryName.length>0){
         condition.inventory_search_regex=this.inventoryName.toLowerCase()
       }
-      
+
       let postData ={
         "source": "inventories_list_view_async",
         'condition':condition,
@@ -205,7 +203,7 @@ export class InventoryComponent implements OnInit {
     if (this.cookieService.get('user_details') != '' && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != undefined) {
       let user = JSON.parse(this.cookieService.get('user_details'));
       this.type=user.type;
-      
+
       let postData = {
         "source": "quote", "condition": {
           "user_id_object": user._id

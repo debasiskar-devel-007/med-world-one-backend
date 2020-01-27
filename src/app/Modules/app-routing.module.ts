@@ -661,7 +661,7 @@ data: {
     }
   },
 
-  // purchase Quote Listing for admin 
+  // purchase Quote Listing for admin
   {
     path: 'admin/managequotes/purchasquotelisting/list', component: PurchaseQuotesListingComponent, canActivate: [AuthguardService],
     resolve: { purchasequotelist: ResolveService },
@@ -701,7 +701,7 @@ data: {
 
     }
   },
-  
+
   // ________________________ACCOUNT SETTINGS______________________
 
   { path: 'account-settings', component: AccountsComponent },

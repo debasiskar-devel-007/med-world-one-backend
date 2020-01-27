@@ -30,7 +30,7 @@
 .Team_members_block .team_items  .view_details{ font-family: "RobotoBold"; font-size: 30px; background: #1069b5; color: #fff; border-radius: 0; width: 100%;       text-transform: uppercase; padding: 10px; }
 
 
-Team_members_block{ width: 100%; margin: 20px auto; display: flex; flex-wrap: wrap; }
+.Team_members_block{ width: 100%; margin: 20px auto; display: flex; flex-wrap: wrap; }
 .Team_members_block .team_items { width: 23%; background: #fff; border: 1px solid #dadada; position: relative; min-height: 200px; text-align: center; margin: 0.9%;
     margin-top: 160px;margin-bottom: 40px;    box-shadow: 0px 3px 3px 0px #969696;}
 .Team_members_block .team_items .member_image  {

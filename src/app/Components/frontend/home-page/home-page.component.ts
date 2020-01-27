@@ -42,10 +42,10 @@ export class HomePageComponent implements OnInit {
     let result: any = res;
     this.cookieService.set('jwtToken', result.token);
 
-  });  
+  });
   }
 
- 
+
    copyText(val:any){
     //console.log('copyText');
   }
@@ -55,12 +55,12 @@ export class HomePageComponent implements OnInit {
     this.router.navigateByUrl('/inventory-details/' + val);
   }
 
-  
+
   //***********blog list view in blog detail************//
   blogdetail(val:any){
     // console.log(val)
     this.router.navigateByUrl('/blog-details/' +val)
   }
 
-  
+
 }
