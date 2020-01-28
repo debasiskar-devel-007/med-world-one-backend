@@ -85,6 +85,8 @@ import { DepartentListComponent } from '../Components/admin/department/departent
 import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from '../Components/admin/manage-pakage-list/manage-pakage-list.component';
 import { ManagePakageDetailsComponent } from '../Components/admin/manage-pakage-details/manage-pakage-details.component';
+import { FrontendFooterComponent } from '../Components/frontend/frontend-footer/frontend-footer.component';
+import { FrontendHeaderComponent } from '../Components/frontend/frontend-header/frontend-header.component';
 
 
 
@@ -103,8 +105,8 @@ const routes: Routes = [
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-
-
+  /**cart value for observal */
+  {path:'frontendheader',component:FrontendHeaderComponent},
 
 
   //Admin Dashboard

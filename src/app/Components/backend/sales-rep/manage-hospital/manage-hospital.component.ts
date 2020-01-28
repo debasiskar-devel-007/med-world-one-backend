@@ -17,6 +17,7 @@ export class ManageHospitalComponent implements OnInit {
 
   /**  declarations **/
   public manageHospitalForm: FormGroup;
+  public imgMedical:any;
   public states: string;
   public allCities: any;
   public cities: string;
@@ -155,10 +156,16 @@ export class ManageHospitalComponent implements OnInit {
       contactperson: defaultValue.contactperson,
       zip: defaultValue.zip,
       city: defaultValue.city,
-      state: defaultValue.state
+      state: defaultValue.state,
+      address:defaultValue.address
     })
     this.collect_phone_array = this.defaultData.contactemails;
     this.collect_email_array = this.defaultData.contactphones;
+    if(this.defaultData.mpimage!=null){
+      this.imgMedical=this.defaultData.mpimage.basepath+this.defaultData.mpimage.image;
+    }
+    
+    
   }
 
   /** configuration for image **/

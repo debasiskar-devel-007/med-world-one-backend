@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { WINDOW } from '@ng-toolkit/universal';
+import {CartService} from '../../../services/cart.service';
 
 @Component({
   selector: 'app-frontend-header',
@@ -15,19 +16,11 @@ export class FrontendHeaderComponent implements OnInit {
   public pageUrl: string = '';
   public user_details:any='';
   public type:any='';
+  public CartCount:any=0;
+  
 
-  // @HostListener("window:resize", [])
-
-  // onResize() {
-  //   var width = window.innerWidth;
-  //   if (width < 992) {
-  //     this.mobile = false;
-  //   } else {
-  //     this.mobile = true;
-  //   }
-  // }
-
-  constructor(@Inject(WINDOW) private window: Window, private cookieService: CookieService, public router: Router) {
+  constructor(@Inject(WINDOW) public window: Window, private cookieService: CookieService, 
+  public router: Router,public cartService:CartService) {
     // this.headerFlag = this.cookieService.get('loginFlag');
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
@@ -42,7 +35,11 @@ export class FrontendHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.cartService.currentData.subscribe((res:any) =>{
+      console.warn('>>>>frontend header',res)
+      this.CartCount=res.carData;
+      console.warn(this.CartCount);
+    })
   }
 
   logout() {

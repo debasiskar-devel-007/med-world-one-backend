@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MetaService } from '@ngx-meta/core';
+import {CartService} from '../../../services/cart.service';
 export interface DialogData {
 
 }
@@ -27,9 +28,10 @@ export class InventoryComponent implements OnInit {
   public sku:any;
   public inventory_brand:any;
   public inventory_cat:any;
+  public cartCount:number=0;
 
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
-    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) {
+    public router: Router, public cartService:CartService,public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta: MetaService) {
 
       this.qouteDetails()
       //this.getCategoryList();
@@ -111,7 +113,7 @@ export class InventoryComponent implements OnInit {
       // console.log(postData);
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
         this.inventoryCatagoryList = res.res;
-         console.log(res);
+         //console.log(res);
       })
 
   }
@@ -158,7 +160,14 @@ export class InventoryComponent implements OnInit {
             this._snackBar.open('This Inventory Add in your Cart', '', {
               duration: 1000,
             });
+            this.cartCount=this.cartCount+1;
+
+            let carData={
+              carData: this.cartCount
+            };
+            this.cartService.carData(carData)
           })
+
         }
 
 
@@ -184,7 +193,13 @@ export class InventoryComponent implements OnInit {
           this._snackBar.open('This Inventory Add in your Cart', '', {
             duration: 1000,
           });
-
+          this.cartCount=this.cartCount+1;
+          // console.log(this.cartCount);
+          
+          let carData={
+            carData: this.cartCount
+          };
+          this.cartService.carData(carData)
         })
       }
     }

@@ -103,13 +103,13 @@
           
             <span class="col-1-2">
               <mat-form-field>
-                <input matInput formControlName="password" placeholder="Password">
+                <input type="password" matInput formControlName="password" placeholder="Password">
               </mat-form-field>
             </span>
             <span class="col-1-2">
               <ng-container *ngIf="action=='add'">
                 <mat-form-field>
-                  <input matInput formControlName="confirmpassword" placeholder="Confirm Password">
+                  <input type="password" matInput formControlName="confirmpassword" placeholder="Confirm Password">
                 </mat-form-field>
               </ng-container>
             </span>
@@ -159,6 +159,15 @@
                 <mat-error *ngIf="ErrCode==true">Please add just one service image.</mat-error>
               </mat-card-content>
             </mat-card-content>
+
+            <mat-card class="example-card" *ngIf="imgMedical !=null">
+            
+                
+                  <img [src]="imgMedical">
+                          
+               
+            </mat-card>
+
             <mat-toolbar class="button_action">
               <button type="button" mat-button (click)="onSubmit()">{{ btn_text }}</button>
               <button type="button" mat-button>cancel</button>

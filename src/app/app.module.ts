@@ -21,7 +21,7 @@ import { LeftNavComponent } from './Components/admin/left-nav/left-nav.component
 import { CKEditorModule } from 'ngx-ckeditor';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
-
+import { DatePipe } from '@angular/common';
 //Admin Management
 import { AddEditAdminComponent, Modal } from './Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from './Components/admin/admin-management/listing-admin/listing-admin.component';
@@ -303,9 +303,9 @@ import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1}
     MetaModule.forRoot(),
     NgtUniversalModule,
   ],
-  providers: [CookieService,
+  providers: [CookieService,DatePipe,
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true ,}],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   entryComponents: [hospitalPackagedetails1,disposalDetails1,disposalDetails,hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
