@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'md-stock-international';
+  title = 'Med-world-one-Backend';
 }

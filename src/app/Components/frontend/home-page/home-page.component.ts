@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   public popularInventoryDetails:any=[];
   constructor(public router:Router,public httpClient:HttpClient, public cookieService: CookieService,public httpServiceService: HttpServiceService, private readonly meta: MetaService) {
 
-    this.meta.setTitle('MD Stock International - Your Medical Partner');
+    this.meta.setTitle('Med-world-one-Backend - Your Medical Partner');
     this.meta.setTag('og:description', 'MD Stick International is the Medical Partner you want to have to source Premium Hospital Equipment and Supplies for your Hospital, Clinic or other medical facilities.');
     this.meta.setTag('twitter:description', 'MD Stick International is the Medical Partner you want to have to source Premium Hospital Equipment and Supplies for your Hospital, Clinic or other medical facilities.');
 
