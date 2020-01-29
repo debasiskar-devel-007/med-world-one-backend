@@ -43,6 +43,15 @@
     </ng-container>
 
 
+
+    <!-- go to listing manager dashboard -->
+    <ng-container *ngIf="type=='listmanager'">
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-admin">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
+    </ng-container>
+
+
     <mat-card-content class="logo_wrapper">
       <img src="assets/images/logo.png">
 

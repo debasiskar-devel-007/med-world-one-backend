@@ -25,7 +25,7 @@ export class FrontendHeaderComponent implements OnInit {
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.type=this.user_details.type;
-     // console.log(this.user_details.type);
+     //console.log(this.user_details.type);
       }
   }
 
@@ -36,9 +36,9 @@ export class FrontendHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.cartService.currentData.subscribe((res:any) =>{
-      console.warn('>>>>frontend header',res)
+      //console.warn('>>>>frontend header',res)
       this.CartCount=res.carData;
-      console.warn(this.CartCount);
+      //console.warn(this.CartCount);
     })
   }
 

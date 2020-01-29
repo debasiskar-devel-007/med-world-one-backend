@@ -132,7 +132,8 @@ const routes: Routes = [
 
   // admin listing maneger
   {path:'admin/listing-manager/add',component:AddlistingmanagerComponent},
-  {path:'admin/listing-manager/list',component:ListlistingmanagerComponent},
+  {path:'admin/listing-manager/list',component:ListlistingmanagerComponent,resolve: { salesRepList: ResolveService },
+  data: {requestcondition: {source: 'users_view_listmanager',condition: {}},endpoint: 'datalist'},},
 
   // _______________MANAGE ADMIN____________
   /**admin my account */
