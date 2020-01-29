@@ -87,6 +87,8 @@ import { ManagePakageListComponent } from '../Components/admin/manage-pakage-lis
 import { ManagePakageDetailsComponent } from '../Components/admin/manage-pakage-details/manage-pakage-details.component';
 import { FrontendFooterComponent } from '../Components/frontend/frontend-footer/frontend-footer.component';
 import { FrontendHeaderComponent } from '../Components/frontend/frontend-header/frontend-header.component';
+import { AddlistingmanagerComponent } from '../Components/admin/listingmanager-managment/addlistingmanager/addlistingmanager.component';
+import { ListlistingmanagerComponent } from '../Components/admin/listingmanager-managment/listlistingmanager/listlistingmanager.component';
 
 
 
@@ -127,6 +129,10 @@ const routes: Routes = [
 
   // __________________ADMIN MANGEMENT____________________
   // =====================================================
+
+  // admin listing maneger
+  {path:'admin/listing-manager/add',component:AddlistingmanagerComponent},
+  {path:'admin/listing-manager/list',component:ListlistingmanagerComponent},
 
   // _______________MANAGE ADMIN____________
   /**admin my account */
