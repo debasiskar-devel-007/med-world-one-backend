@@ -30,7 +30,7 @@ export class MyDetailsComponent implements OnInit {
   public sharelink:any;
 
 
-  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, public http: HttpServiceService, public snackBar: MatSnackBar,
     public router: Router,public clipboardService:ClipboardService,public readonly meta: MetaService,public readonly Title:Title) {
       this.meta.setTitle('MD Stock International - Your Medical Partner');
