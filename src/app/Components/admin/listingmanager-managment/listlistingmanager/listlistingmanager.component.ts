@@ -21,7 +21,7 @@ export class ListlistingmanagerComponent implements OnInit {
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
   searchingEndpoint: any = "datalist";
-  editUrl: any = 'admin/salesrep-management/edit';
+  editUrl: any = 'admin/listing-manager/edit';
   apiUrl: any =this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
   view:any="user_view";
