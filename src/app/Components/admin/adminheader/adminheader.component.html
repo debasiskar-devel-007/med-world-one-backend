@@ -13,8 +13,15 @@
       </span>
       <mat-card-content class="profile_section">
         <mat-menu #appMenu="matMenu">
+
           <ng-container *ngIf="type=='salesrep'">
             <button mat-menu-item [routerLink]="['/salesrep/my-details']">
+              <mat-icon>account_circle</mat-icon> Account
+            </button>
+          </ng-container>
+
+          <ng-container *ngIf="type=='listmanager'">
+            <button mat-menu-item [routerLink]="['/listmanager/my-details']">
               <mat-icon>account_circle</mat-icon> Account
             </button>
           </ng-container>
@@ -26,6 +33,10 @@
           </ng-container>
 
           <button mat-menu-item *ngIf="type=='salesrep'" [routerLink]="['/salesrep/change-password']">
+            <mat-icon>build</mat-icon> Change Password
+          </button>
+
+          <button mat-menu-item *ngIf="type=='listmanager'" [routerLink]="['/listing-manager/change-password']">
             <mat-icon>build</mat-icon> Change Password
           </button>
 
@@ -217,6 +228,7 @@
 
   </mat-toolbar>
 </mat-card>
+
 <mat-card *ngIf="type=='hospital'" class="repdashboardnavbar"
   [ngClass]="statusToggle ? 'checkedClass' : 'uncheckedClass'">
   <mat-toolbar class="techdashboard_header">
@@ -284,12 +296,10 @@
 
                <a mat-list-item routerLinkActive="active">HN Inventory</a>
               <mat-menu #Meddeviceinvenotory="matMenu" class="admin_submenu">
-                <!-- <button mat-menu-item routerLink="/hospital/managequotes/purchasequote/list">Purchase Quotes</button>
-                <button mat-menu-item routerLink="/hospital/managequotes/inventorylistingquote/list">Inventory Listing
-                  Quotes</button>
-                <button mat-menu-item routerLink="/hospital/managequotes/purchasquotelisting/list">Purchase Comparison Quotes</button>
-                <button mat-menu-item routerLink="/medicalpartner/package/list">Package Quotes</button> -->
-  
+                <button mat-menu-item>Add MD Inventory</button>
+               
+                <button mat-menu-item>MD Inventory</button> 
+
               </mat-menu>   
               
   

@@ -149,7 +149,13 @@ export class MyDetailsComponent implements OnInit {
 
 
           setTimeout(() => {
-            this.router.navigateByUrl('/salesrep/my-details');
+            if(this.activatedRoute.snapshot.url[0].path=='listmanager'){
+              this.router.navigateByUrl('/dashboard-admin');
+            }else{
+              this.router.navigateByUrl('/salesrep/my-details');
+            }
+
+            
           }, 3000);
         }
         else {

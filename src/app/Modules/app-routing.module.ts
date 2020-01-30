@@ -133,15 +133,16 @@ const routes: Routes = [
   // admin listing maneger
   {path:'admin/listing-manager/add',component:AddlistingmanagerComponent},
   {path:'admin/listing-manager/edit/:_id',component:AddlistingmanagerComponent,resolve: { salesRepList: ResolveService },
-  data: {
-    requestcondition: {
-      source: 'users',
-      condition: {}
-    },
-    endpoint: 'datalist'
-  },},
+  data: {requestcondition: {source: 'users',condition: {}},endpoint: 'datalist'},},
+
   {path:'admin/listing-manager/list',component:ListlistingmanagerComponent,resolve: { salesRepList: ResolveService },
   data: {requestcondition: {source: 'users_view_listmanager',condition: {}},endpoint: 'datalist'},},
+
+  {path: 'listmanager/my-details', component: MyDetailsComponent, resolve: { data: ResolveService },
+  data:{requestcondition: {source: 'users_view',condition: { 'type': 'listmanager' }},endpoint: 'datalist'},
+  canActivate: [AuthguardService]},
+
+  {path:'listing-manager/change-password',component:SalesrepChangePasswordComponent},
 
   // _______________MANAGE ADMIN____________
   /**admin my account */
