@@ -85,6 +85,10 @@ import { DepartentListComponent } from '../Components/admin/department/departent
 import { ManageHospitalPackageComponent } from '../Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from '../Components/admin/manage-pakage-list/manage-pakage-list.component';
 import { ManagePakageDetailsComponent } from '../Components/admin/manage-pakage-details/manage-pakage-details.component';
+import { FrontendFooterComponent } from '../Components/frontend/frontend-footer/frontend-footer.component';
+import { FrontendHeaderComponent } from '../Components/frontend/frontend-header/frontend-header.component';
+import { AddlistingmanagerComponent } from '../Components/admin/listingmanager-managment/addlistingmanager/addlistingmanager.component';
+import { ListlistingmanagerComponent } from '../Components/admin/listingmanager-managment/listlistingmanager/listlistingmanager.component';
 
 
 
@@ -103,8 +107,8 @@ const routes: Routes = [
   { path: 'buy-from-us', component: BuyFromUsComponent },
   { path: 'manufacturar-direct', component: ManufacturarDirectComponent },
   { path: 'medical-partners', component: MedicalPartnersComponent },
-
-
+  /**cart value for observal */
+  {path:'frontendheader',component:FrontendHeaderComponent},
 
 
   //Admin Dashboard
@@ -125,6 +129,20 @@ const routes: Routes = [
 
   // __________________ADMIN MANGEMENT____________________
   // =====================================================
+
+  // admin listing maneger
+  {path:'admin/listing-manager/add',component:AddlistingmanagerComponent},
+  {path:'admin/listing-manager/edit/:_id',component:AddlistingmanagerComponent,resolve: { salesRepList: ResolveService },
+  data: {requestcondition: {source: 'users',condition: {}},endpoint: 'datalist'},},
+
+  {path:'admin/listing-manager/list',component:ListlistingmanagerComponent,resolve: { salesRepList: ResolveService },
+  data: {requestcondition: {source: 'users_view_listmanager',condition: {}},endpoint: 'datalist'},},
+
+  {path: 'listmanager/my-details', component: MyDetailsComponent, resolve: { data: ResolveService },
+  data:{requestcondition: {source: 'users_view',condition: { 'type': 'listmanager' }},endpoint: 'datalist'},
+  canActivate: [AuthguardService]},
+
+  {path:'listing-manager/change-password',component:SalesrepChangePasswordComponent},
 
   // _______________MANAGE ADMIN____________
   /**admin my account */

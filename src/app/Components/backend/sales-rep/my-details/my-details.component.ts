@@ -30,7 +30,7 @@ export class MyDetailsComponent implements OnInit {
   public sharelink:any;
 
 
-  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, public http: HttpServiceService, public snackBar: MatSnackBar,
     public router: Router,public clipboardService:ClipboardService,public readonly meta: MetaService,public readonly Title:Title) {
       this.meta.setTitle('MD Stock International - Your Medical Partner');
@@ -149,7 +149,13 @@ export class MyDetailsComponent implements OnInit {
 
 
           setTimeout(() => {
-            this.router.navigateByUrl('/salesrep/my-details');
+            if(this.activatedRoute.snapshot.url[0].path=='listmanager'){
+              this.router.navigateByUrl('/dashboard-admin');
+            }else{
+              this.router.navigateByUrl('/salesrep/my-details');
+            }
+
+            
           }, 3000);
         }
         else {

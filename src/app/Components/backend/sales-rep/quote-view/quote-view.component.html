@@ -216,8 +216,8 @@
           <th mat-header-cell *matHeaderCellDef> Tax </th>
           <td mat-cell *matCellDef="let element" data-label="Tax">
             <span class="text_with_span">
-              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}"  min="0"
-              pattern="^[0-9]+\.[0-9][0-9]$" />
+              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}" min="0"
+              pattern="[0-9]+([\.,][0-9]+)*" />
 
               
             </span>
@@ -234,7 +234,7 @@
             <span class="text_with_span">
 
               <ng-container *ngIf="userType=='admin'">
-              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}"  min="0"
+              <input type="number" name='element.tax' [attr.disabled]="userType=='admin' ? null : '' " [(ngModel)]="element.tax" (change)="calculatevalue()" (keyup)="calculatevalue()"  value="{{element.tax}}"  placeholder="{{element.tax | number}}" min="0"
               pattern="^[0-9]+\.[0-9][0-9]$" />
             </ng-container>
               
@@ -259,7 +259,7 @@
           <th mat-header-cell *matHeaderCellDef> subtotal </th>
           <td mat-cell *matCellDef="let element; let i=index;" data-label="subtotal"> {{element.subtotalprice | number}} </td>
           <td mat-footer-cell *matFooterCellDef> {{totalprice| number}}  
-            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Total : {{Package_all_total}}</p>
+            <p *ngIf="activatedRoute.snapshot.url[1].path=='quote-package-view'">Package Total : {{Package_all_total | number}}</p>
           </td>
           <!-- <td mat-footer-cell *matFooterCellDef>  </td> -->
         </ng-container>
@@ -270,7 +270,7 @@
           <th mat-header-cell *matHeaderCellDef> wholesale Price </th>
           <td mat-cell *matCellDef="let element" data-label="wholesale Price" >
             <ng-container *ngIf="element.wholesaleprice==null"></ng-container>
-            <ng-container *ngIf="element.wholesaleprice!=null"> {{element.wholesaleprice}} </ng-container>
+            <ng-container *ngIf="element.wholesaleprice!=null"> {{element.wholesaleprice | number}} </ng-container>
             </td>
           <td mat-footer-cell *matFooterCellDef> {{totalWholesellprice | number}}</td>
           <td mat-footer-cell *matFooterCellDef></td>
@@ -278,7 +278,7 @@
 
         <ng-container matColumnDef="purchaseprice" >
           <th mat-header-cell *matHeaderCellDef> MP Price </th>
-          <td mat-cell *matCellDef="let element" data-label="purchaseprice Price"> {{element.purchased_price}} </td>
+          <td mat-cell *matCellDef="let element" data-label="purchaseprice Price"> {{element.purchased_price | number}} </td>
           <td mat-footer-cell *matFooterCellDef>{{totalPurchasedPrice | number}}  </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>

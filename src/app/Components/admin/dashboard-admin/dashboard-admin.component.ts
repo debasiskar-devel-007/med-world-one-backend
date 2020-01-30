@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -72,7 +73,7 @@ export class DashboardAdminComponent implements OnInit {
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
-    public activatedRoute: ActivatedRoute) {
+    public activatedRoute: ActivatedRoute,public datePipe:DatePipe) {
 
     /**fetching the cookie details **/
     let allData: any = {};
@@ -106,7 +107,9 @@ export class DashboardAdminComponent implements OnInit {
     }
     
   }
-
+  date(date:any){
+    console.warn(this.datePipe.transform(date,"MM-dd-yyyy"));
+  }
   toHospitalList(index: any) {
     this.router.navigateByUrl('admin/hospital/view_details/' + index)
   }

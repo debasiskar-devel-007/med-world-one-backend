@@ -35,6 +35,9 @@ export class AdminheaderComponent implements OnInit {
       case "hospital":
           this.user_name = this.userData.hospitalname;
         break;
+      case "listmanager":
+        this.user_name = this.userData.firstname + ' ' + this.userData.lastname;
+        break;
     }
   }
 

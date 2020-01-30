@@ -98,7 +98,7 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
       this.httpServiceService.httpViaPost('searchwithcondition', postData).subscribe((res: any) => {
         //this.inventoryCatagoryList = res.res;
         this.inventoryCatagoryList = res.data;
-        console.log(res);
+        //console.log(res);
       })
   }
 

@@ -1,7 +1,7 @@
 <app-adminheader>
     <mat-card-content class="my_details_wrapper">
 
-        <fieldset class="shareLinkWrapper">
+        <fieldset class="shareLinkWrapper" *ngIf="this.activatedRoute.snapshot.url[0].path!='listmanager'">
             <legend class="link_title">Share Link For hospital Sign up</legend>
 
             <mat-toolbar class="share_linkBar">

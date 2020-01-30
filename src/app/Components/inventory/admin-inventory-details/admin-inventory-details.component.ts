@@ -34,7 +34,7 @@ export class AdminInventoryDetailsComponent implements OnInit {
     let url: any = {};
     url = this.activatedRoute.snapshot.params._id;
     let data: any = {
-      "source": "inventories_list_view",
+      "source": "inventories_list_view_async",
       "condition": {
         "_id_object": url
       },
@@ -45,7 +45,6 @@ export class AdminInventoryDetailsComponent implements OnInit {
       this.dynamic_attributes = result.res[0].dynamic_attributes;
 
 
-      let dynamic_attributes1 = [];
 
       for (let i in this.dynamic_attributes) {
 

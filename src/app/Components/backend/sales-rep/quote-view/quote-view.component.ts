@@ -247,7 +247,7 @@ public totalWholesellprice:number=0;
     this.http.httpViaPost('addorupdatedata', postData).subscribe((response: any) => {
       //console.log(response);
       if(response.status="success"){
-      this._snackBar.open('Data Updated','', {
+      this._snackBar.open('Quote updated successfully.','', {
         duration: 2000,
       });
       /**purchase quote */

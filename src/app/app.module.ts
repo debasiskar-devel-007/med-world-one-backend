@@ -21,7 +21,7 @@ import { LeftNavComponent } from './Components/admin/left-nav/left-nav.component
 import { CKEditorModule } from 'ngx-ckeditor';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
-
+import { DatePipe } from '@angular/common';
 //Admin Management
 import { AddEditAdminComponent, Modal } from './Components/admin/admin-management/add-edit-admin/add-edit-admin.component';
 import { ListingAdminComponent } from './Components/admin/admin-management/listing-admin/listing-admin.component';
@@ -162,6 +162,8 @@ import { DepartentListComponent } from './Components/admin/department/departent-
 import { ManageHospitalPackageComponent,hospitalPackagedetails,disposalDetails } from './Components/admin/manage-hospital-package/manage-hospital-package.component';
 import { ManagePakageListComponent } from './Components/admin/manage-pakage-list/manage-pakage-list.component';
 import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1} from './Components/admin/manage-pakage-details/manage-pakage-details.component';
+import { AddlistingmanagerComponent,Modal33 } from './Components/admin/listingmanager-managment/addlistingmanager/addlistingmanager.component';
+import { ListlistingmanagerComponent } from './Components/admin/listingmanager-managment/listlistingmanager/listlistingmanager.component';
 
 
 @NgModule({
@@ -173,6 +175,7 @@ import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1}
     DashboardAdminComponent,
     AddEditAdminComponent,
     Modal,
+    Modal33,
     AdminInventoryDetailsComponent,
     ListingAdminComponent,
     AddinventorylistingquoteComponent,
@@ -276,7 +279,7 @@ import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1}
     disposalDetails1,
     Dialoginventory,AddcontactinfoComponent,
     QuotesCartComponent,
-    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent, ManagePakageDetailsComponent,
+    AdminDashboardHospitalViewdetailsComponent, addCondition,AdminDetailsComponent, QuoteViewComponent, PurchasecomparisoncartComponent, AdminpackageComponent, PackageComponent, InventorylistingquotefromapiComponent, DepartmentComponent, DepartentListComponent, ManageHospitalPackageComponent, ManagePakageListComponent, ManagePakageDetailsComponent, AddlistingmanagerComponent, ListlistingmanagerComponent,
 
 
   ],
@@ -303,12 +306,12 @@ import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1}
     MetaModule.forRoot(),
     NgtUniversalModule,
   ],
-  providers: [CookieService,
+  providers: [CookieService,DatePipe,
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true ,}],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [hospitalPackagedetails1,disposalDetails1,disposalDetails,hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
+  entryComponents: [Modal33,hospitalPackagedetails1,disposalDetails1,disposalDetails,hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,
                     Dialoggetquote,Dialogloginn,sendMailModal,quoteModal,Modal5,
                     Dialoglogin,Modal4, Modal, Modal2, Modal3,Modal6, DialogBoxComponent,TeamDetails]
 })
