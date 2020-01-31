@@ -5,6 +5,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {CartService} from '../../../services/cart.service';
+
 export interface DialogData {
 
 }
@@ -25,7 +27,7 @@ export class QuotesCartComponent implements OnInit {
   public noteValue:any;
   public ids:any=[];
   public notes:string;
-  constructor(public router:Router,public dialog: MatDialog,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
+  constructor(public router:Router,public cartService:CartService,public dialog: MatDialog,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,private readonly meta: MetaService) {
 
       this.meta.setTitle('MD Stock International - quotes cart');
       this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
@@ -216,6 +218,14 @@ export class QuotesCartComponent implements OnInit {
         //console.log(response);
         if(response.status=="success"){
           this.inventoryDetailsByUserId.splice(indx, indx + 1);
+          // this.qouteCount=this.qouteCount-1;
+
+          // let carData={
+          //   carData: this.qouteCount
+          // };
+          // console.warn("quotes cart remove",this.qouteCount);
+          // this.cartService.carData(carData);
+
         }
       })
   }

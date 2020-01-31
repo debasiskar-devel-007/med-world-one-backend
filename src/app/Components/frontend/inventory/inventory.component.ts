@@ -137,6 +137,7 @@ export class InventoryComponent implements OnInit {
               duration: 1000,
             });
             this.flg = 1;
+            return;
           }
         }
         if (this.flg == 0) {

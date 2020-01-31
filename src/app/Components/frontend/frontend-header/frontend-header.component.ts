@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { WINDOW } from '@ng-toolkit/universal';
 import {CartService} from '../../../services/cart.service';
+import { HttpServiceService } from '../../../services/http-service.service';
 
 @Component({
   selector: 'app-frontend-header',
@@ -20,11 +21,24 @@ export class FrontendHeaderComponent implements OnInit {
   
 
   constructor(@Inject(WINDOW) public window: Window, private cookieService: CookieService, 
-  public router: Router,public cartService:CartService) {
+  public router: Router,public cartService:CartService,public httpServiceService: HttpServiceService) {
     // this.headerFlag = this.cookieService.get('loginFlag');
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.type=this.user_details.type;
+      let postData = {
+        "source": "quote_view",
+        "condition": {
+          "user_id_object": this.user_details._id
+        },
+      };
+      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
+        
+        this.CartCount=parseInt(this.CartCount)+parseInt(res.resc);
+        // console.log(this.CartCount);
+        // console.log(this.CartCount);
+
+      })
      //console.log(this.user_details.type);
       }
   }
@@ -37,8 +51,9 @@ export class FrontendHeaderComponent implements OnInit {
   ngOnInit() {
     this.cartService.currentData.subscribe((res:any) =>{
       //console.warn('>>>>frontend header',res)
-      this.CartCount=res.carData;
-      //console.warn(this.CartCount);
+      this.CartCount=parseInt(this.CartCount)+res.carData;
+      // console.warn(this.CartCount);
+      // console.warn(res.carData);
     })
   }
 
