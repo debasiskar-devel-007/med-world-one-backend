@@ -5,7 +5,7 @@
       <mat-nav-list class="top_toolbar_navigation">
 
         <a *ngIf="type != ''" [routerLink]="'/cart'">
-          <mat-icon matBadge="{{CartCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+          <mat-icon  matBadge="{{CartCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
          <!-- /<mat-icon>shopping_cart</mat-icon> -->
         </a>
         <a *ngIf="type == ''" [routerLink]="'/login'">Login</a>

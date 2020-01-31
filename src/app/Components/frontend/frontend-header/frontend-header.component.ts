@@ -26,20 +26,6 @@ export class FrontendHeaderComponent implements OnInit {
     if(this.cookieService.get('user_details')!=null && this.cookieService.get('user_details')!=''){
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.type=this.user_details.type;
-      let postData = {
-        "source": "quote_view",
-        "condition": {
-          "user_id_object": this.user_details._id
-        },
-      };
-      this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
-        
-        this.CartCount=parseInt(this.CartCount)+parseInt(res.resc);
-        // console.log(this.CartCount);
-        // console.log(this.CartCount);
-
-      })
-     //console.log(this.user_details.type);
       }
   }
 
@@ -53,12 +39,12 @@ export class FrontendHeaderComponent implements OnInit {
       //console.warn('>>>>frontend header',res)
       this.CartCount=parseInt(this.CartCount)+res.carData;
       // console.warn(this.CartCount);
-      // console.warn(res.carData);
+      //  console.warn(res.carData);
     })
   }
 
   logout() {
-    // console.log("sourav logout");
+    // console.log("logout");
     this.cookieService.deleteAll();
     this.cookieService.deleteAll('/');
     setTimeout(() => {

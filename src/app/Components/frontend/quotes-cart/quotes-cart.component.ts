@@ -17,7 +17,7 @@ export interface DialogData {
 })
 export class QuotesCartComponent implements OnInit {
   public inventoryDetailsByUserId: any = [];
-  public qouteCount: number;
+  public qouteCount: number=0;
   public amount: number = 1;
   public userId: any;
   public userType: any;
@@ -87,10 +87,16 @@ export class QuotesCartComponent implements OnInit {
       };
       this.httpServiceService.httpViaPost('datalist', postData).subscribe((res: any) => {
         this.inventoryDetailsByUserId = res.res;
-        this.qouteCount = res.resc;
+        this.qouteCount = parseInt(res.resc);
         //console.log(res);
+        let carData={
+          carData: this.qouteCount
+        };
+        //console.warn(carData);
+        this.cartService.carData(carData)
+      });
 
-      })
+    
     }
   }
   /**select onchnage  */
@@ -177,7 +183,7 @@ export class QuotesCartComponent implements OnInit {
         "sourceobj":["hospital_id","quoted_by"]
       };
 
-      console.log(postData);
+      //console.log(postData);
       for(let i in this.inventoryDetailsByUserId){
 
           this.ids.push(this.inventoryDetailsByUserId[i]._id);
