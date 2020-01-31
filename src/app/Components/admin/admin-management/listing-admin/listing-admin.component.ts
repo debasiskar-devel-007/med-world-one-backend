@@ -21,7 +21,7 @@ export class ListingAdminComponent implements OnInit {
   adminData: any = [];
   adminData_skip: any = ["_id", "password", "type", "salesrepname"];
   adminData_modify_header: any = {
-    "firstname": "Full Name", "status": "Status", "email": "Email Address",
+    "firstname": "First Name", "status": "Status", "email": "Email Address",
     "phone": "Contact Number", "date": "Date","lastname":"Last Name","user id":"User ID"
   };
   tableName: any = 'users';

@@ -49,7 +49,7 @@ export class ListlistingmanagerComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      //console.warn(resolveData);
+      console.warn(resolveData);
       this.listingData= resolveData.salesRepList.res;
       
     });
