@@ -165,7 +165,9 @@ import { ManagePakageListComponent } from './Components/admin/manage-pakage-list
 import { ManagePakageDetailsComponent ,disposalDetails1,hospitalPackagedetails1} from './Components/admin/manage-pakage-details/manage-pakage-details.component';
 import { AddlistingmanagerComponent,Modal33 } from './Components/admin/listingmanager-managment/addlistingmanager/addlistingmanager.component';
 import { ListlistingmanagerComponent } from './Components/admin/listingmanager-managment/listlistingmanager/listlistingmanager.component';
-
+/**date range */
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule } from 'saturn-datepicker';
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -286,6 +288,7 @@ import { ListlistingmanagerComponent } from './Components/admin/listingmanager-m
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    SatDatepickerModule,
     TransferHttpCacheModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -309,7 +312,8 @@ import { ListlistingmanagerComponent } from './Components/admin/listingmanager-m
   ],
   providers: [CookieService,DatePipe,
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true ,}],
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true ,},{provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   entryComponents: [Modal33,hospitalPackagedetails1,disposalDetails1,disposalDetails,hospitalPackagedetails,ConditionDetails,addCondition,listingquotedetails,Dialoginventory,emailModal,DialogOverviewExampleDialog,

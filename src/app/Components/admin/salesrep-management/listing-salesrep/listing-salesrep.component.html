@@ -16,6 +16,15 @@
           <button class="singleButton" mat-raised-button [routerLink]="['/admin/salesrep-management/add']">Add</button>
         </mat-toolbar>
  
+        <!-- <ng-container>
+         
+            <mat-form-field>
+              <input matInput placeholder="Choose a date" [satDatepicker]="picker" [value]="date" [(ngModel)]="dateRange"/>
+              <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+              <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+            </mat-form-field>
+            <button type="button" (click)="datesearch()">Date search</button>
+          </ng-container> -->
 
 <!-- Listing goes here  -->
 <lib-listing *ngIf="salesData != null && salesData.length>0" 

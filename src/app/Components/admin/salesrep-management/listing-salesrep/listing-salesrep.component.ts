@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-
+import * as momentImported from 'moment';
+const moment = momentImported;
 
 @Component({
   selector: 'app-listing-salesrep',
@@ -12,7 +12,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class ListingSalesrepComponent implements OnInit {
 
-
+public dateRange:any;
   // ===============================Declarations=========================
   salesData: any = [];
   salesData_skip: any = ["_id","password","address","type","fullname","firstname_search","email_search"];
@@ -62,6 +62,9 @@ export class ListingSalesrepComponent implements OnInit {
     });
   }
 
+  // datesearch(){
+  //   console.log(this.dateRange);
+  // }
 
 }
 

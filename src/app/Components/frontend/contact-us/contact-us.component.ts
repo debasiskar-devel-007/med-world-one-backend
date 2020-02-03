@@ -54,7 +54,7 @@ export class ContactUsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.contactLocationActive=resolveData.activeContact.res;
-        // console.log(resolveData.activeContact.res);
+      //console.log('contactus frontend',resolveData);
       });
   }
 
