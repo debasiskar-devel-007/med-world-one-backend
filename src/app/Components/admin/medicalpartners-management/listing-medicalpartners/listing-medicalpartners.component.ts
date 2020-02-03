@@ -17,13 +17,13 @@ export class ListingMedicalpartnersComponent implements OnInit {
 
   // ===============================Declarations=========================
   mpData: any = [];
-  mpData_skip: any = ["_id", "password","contactemail","address","zip"];
+  mpData_skip: any = ["_id", "password","contactemail","address","zip","state_search","status_search","hospitalname_search"];
   mpData_modify_header: any = {
    "hospitalname":"Hospital Name","contactperson":"Contact Person","state":"State","city":"City",
    "zip":"ZIP","speciality":"Speciality","status":"Status","date":"Date Added",'email':'Email Address',
    "salesrepname":"SalesRep","user id":"User ID","contactphones":"contact number"
   };
-  tableName: any = 'users';
+  tableName: any = 'users_view_hospital';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
@@ -31,13 +31,13 @@ export class ListingMedicalpartnersComponent implements OnInit {
   editUrl: any = 'admin/medicalpartners-management/edit';
   apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
-  view:any='user_view';
+  view:any='users_view_hospital';
   detail_header: any = ['_id', 'type', 'password','status','salesrepselect','images'];
   public search_settings: any =
     {
-      selectsearch: [{ label: 'status...', field: 'status', values: this.status }],
-      textsearch: [{ label: "hospital name", field: 'hospitalname' },
-      { label: "state", field: 'state' },
+      selectsearch: [{ label: 'status...', field: 'status_search', values: this.status }],
+      textsearch: [{ label: "hospital name", field: 'hospitalname_search' },
+      { label: "state", field: 'state_search' },
       // { label: "speciality", field: 'speciality' }
     ],
       datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
@@ -59,6 +59,7 @@ export class ListingMedicalpartnersComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
+      //console.warn(resolveData.mpList);
       this.mpData = resolveData.mpList.res;
     });
   }

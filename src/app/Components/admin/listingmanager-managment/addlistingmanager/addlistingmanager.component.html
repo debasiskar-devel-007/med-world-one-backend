@@ -68,7 +68,7 @@
                     <input matInput formControlName="fax">
                   </mat-form-field>
                 </span>
-                <span class="col-1-2" *ngIf="action=='edit'">
+                <span class="col-1-2" *ngIf="action!='edit'">
                   <mat-form-field>
                     <mat-label>Password:</mat-label>
                     <input matInput type="password" formControlName="password">

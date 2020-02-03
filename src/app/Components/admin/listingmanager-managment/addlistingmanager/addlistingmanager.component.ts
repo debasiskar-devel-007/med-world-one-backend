@@ -46,6 +46,7 @@ export class AddlistingmanagerComponent implements OnInit {
         this.condition = { id: params._id };
         this.activatedRoute.data.subscribe(resolveData => {
           this.defaultData = resolveData.salesRepList.res[0];
+          console.warn("sourav",this.defaultData);
           this.date = moment(this.defaultData.created_at).format('MM/DD/YYYY');
         });
       }

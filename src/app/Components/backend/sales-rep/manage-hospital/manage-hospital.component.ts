@@ -36,6 +36,8 @@ export class ManageHospitalComponent implements OnInit {
   public date: any;
   public useridval: any = null;
   public sharelink:any;
+  public countryList: any = [];
+
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService, public snackBar: MatSnackBar, public router: Router,
     public activatedRoute: ActivatedRoute,public clipboardService:ClipboardService,public readonly meta: MetaService,
@@ -142,6 +144,17 @@ export class ManageHospitalComponent implements OnInit {
         break;
     }
 
+     //country list
+     let data: any = {
+      "source": 'country',
+    };
+    this.http.httpViaPost('datalist', data).subscribe((res:any) => {
+    
+      //console.log(res.res);
+       this.countryList = res.res;
+     
+    })
+
   }
 
 
@@ -157,7 +170,9 @@ export class ManageHospitalComponent implements OnInit {
       zip: defaultValue.zip,
       city: defaultValue.city,
       state: defaultValue.state,
-      address:defaultValue.address
+      address:defaultValue.address,
+      country:defaultValue.country
+
     })
     this.collect_phone_array = this.defaultData.contactemails;
     this.collect_email_array = this.defaultData.contactphones;
@@ -204,7 +219,8 @@ export class ManageHospitalComponent implements OnInit {
       status: [0],
       email: [],
       salesrepname: [this.salesrepname],
-      mpimage: []
+      mpimage: [],
+      country:[]
     });
   }
 

@@ -1,10 +1,7 @@
-
 import { Component, OnInit } from '@angular/core';
-
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
-
 
 
 
@@ -32,13 +29,13 @@ export class ListingAdminComponent implements OnInit {
   editUrl: any = 'admin-management/edit';
   apiUrl: any = this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
-  view: any = "users_view";
+  view: any = "users_view_admin";
   detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =
     {
       selectsearch: [{ label: 'Search By status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By Name", field: 'fullname' }],
-      datesearch: [{ startdatelabel: "Start Date", enddatelabel: "End Date", submit: "Search By Date", field: "date" }],   // this is use for  date search 
+      textsearch: [{ label: "Search By FirstName", field: 'firstname_search' }],
+      datesearch: [{ startdatelabel: "Start Date", enddatelabel: "End Date", submit: "Search By Date", field: "created_at" }],   // this is use for  date search 
     };
   // ====================================================================
 
@@ -50,6 +47,7 @@ export class ListingAdminComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
+      console.warn(resolveData);
       this.adminData = resolveData.adminList.res;
     });
   }

@@ -121,6 +121,27 @@
               </mat-form-field>
             </span>
 
+            
+            
+            <span class="col-1-3">
+              <!-- <mat-label class="mydetails_ac_lebel">STATE</mat-label> -->
+              <mat-form-field>
+                <mat-label>Country</mat-label>
+                <!-- <mat-label>State</mat-label> -->
+                <mat-select formControlName="country">
+                  <mat-option [value]=0>Select a Country</mat-option>
+                  <mat-option *ngFor="let con of countryList;" value="{{ con.name }}">{{ con.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
+
+
+
+
+
+
+
             <span class="col-1-3">
               <!-- <mat-label class="mydetails_ac_lebel">STATE</mat-label> -->
               <mat-form-field>

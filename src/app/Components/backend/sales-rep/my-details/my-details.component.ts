@@ -85,7 +85,8 @@ export class MyDetailsComponent implements OnInit {
       city: [],
       state: [],
       zip: ['', Validators.required],
-      phone:[]
+      phone:[],
+      address:[]
     });
   }
 
@@ -99,7 +100,8 @@ export class MyDetailsComponent implements OnInit {
       city: defaultValue.city,
       state: defaultValue.state,
       zip: defaultValue.zip,
-      phone: defaultValue.phone
+      phone: defaultValue.phone,
+      address:defaultValue.address
     });
   }
 
@@ -134,7 +136,8 @@ export class MyDetailsComponent implements OnInit {
           userDetailsCookie.city = this.salesRepForm.value.city;
           userDetailsCookie.zip = this.salesRepForm.value.zip;
           userDetailsCookie.phone = this.salesRepForm.value.phone;
-
+          userDetailsCookie.address=this.salesRepForm.value.address;
+          
           setTimeout(() => {
             this.cookieService.set('user_details', userDetailsCookie);
           }, 1000);

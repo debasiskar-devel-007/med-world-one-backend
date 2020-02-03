@@ -10,13 +10,13 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 export class ListlistingmanagerComponent implements OnInit {
   // ===============================Declarations=========================
   listingData: any = [];
-  listingData_skip: any = ["_id","password","address","type","fullname","salesrepname"];
+  listingData_skip: any = ["_id","password","address","type","fullname","salesrepname","email_search","firstname_search"];
   listingData_modify_header: any = {
     "state":"State","city":"City","zip":"ZIP","phone":"Contact Number","fax":"FAX",
     "status":"Status","date":"Date","user id":"User ID","firstname":"First Name",
     "lastname":"Last Name","email":"Email Address"
   };
-  tableName: any = 'users';
+  tableName: any = 'users_view_listmanager';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   user_cookie: any;
@@ -24,14 +24,12 @@ export class ListlistingmanagerComponent implements OnInit {
   editUrl: any = 'admin/listing-manager/edit';
   apiUrl: any =this.http.baseUrl;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Blocked' }];
-  view:any="user_view";
+  view:any="users_view_listmanager";
   detail_header: any = ['_id', 'type', 'password','status'];
   public search_settings: any =
     {
-      // selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
-      textsearch: [{ label: "Search By name", field: 'name' },
-      // { label: "Search By state", field: 'state' },
-      { label: "Search By email", field: 'email' }],
+      textsearch: [{ label: "Search By name", field: 'firstname_search' },
+      { label: "Search By email", field: 'email_search' }],
       datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"date"}],
     };
   // ====================================================================
@@ -49,7 +47,7 @@ export class ListlistingmanagerComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
-      console.warn(resolveData);
+      //console.warn(resolveData);
       this.listingData= resolveData.salesRepList.res;
       
     });
