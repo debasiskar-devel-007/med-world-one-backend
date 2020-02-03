@@ -239,7 +239,7 @@ export class AddEditSalesrepComponent implements OnInit {
   // ==================SUBMIT===================
   onSubmit() {
 
-    console.log(this.salesRepForm.value.status);
+    //console.log(this.salesRepForm.value.status);
     if (this.salesRepForm.invalid) {
       console.log("Invalid");
       return;
