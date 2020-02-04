@@ -1,10 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators ,FormGroupDirective} from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
-import { Router, NavigationCancel } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hospital-change-password',
@@ -12,6 +12,7 @@ import { Router, NavigationCancel } from '@angular/router';
   styleUrls: ['./hospital-change-password.component.css']
 })
 export class HospitalChangePasswordComponent implements OnInit {
+  @ViewChild(FormGroupDirective,{static: false}) formDirective: FormGroupDirective;
 
   /**  declarations **/
   changePwdForm: FormGroup;
@@ -67,8 +68,9 @@ export class HospitalChangePasswordComponent implements OnInit {
         "newPassword": this.changePwdForm.value.new_pwd
       }
       this.http.httpViaPost('changepassword', posData).subscribe((response: any) => {
+        // console.log(response);
         if (response.Status == true) {
-
+          this.formDirective.resetForm();
           this.message = "Password Changed Successfully!!!";
           let action: any = "Ok";
           this.snackBar.open(this.message, action, {
@@ -79,7 +81,9 @@ export class HospitalChangePasswordComponent implements OnInit {
 
         }
         else {
-          this.message = "Could not change password!Please try again later!!!"
+          // this.message = "Could not change password!Please try again !!";
+          this.message =response.message;
+
           this.snackBar.open(this.message, "OK", {
             duration: 1500
           });

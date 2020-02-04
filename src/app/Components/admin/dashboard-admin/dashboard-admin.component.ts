@@ -176,7 +176,7 @@ viewQuoteDetails(quoteid:any,hospiid:any){
 }
 /**addes quote in admin */
 adminsearchbyMedicalName(){
- console.log(this.searchbyMedicalName.toLowerCase())
+ //console.log(this.searchbyMedicalName.toLowerCase())
     let post={
       "source":"quote-details_view",
     "condition":{

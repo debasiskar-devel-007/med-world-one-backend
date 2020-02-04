@@ -20,6 +20,12 @@
             </button>
           </ng-container>
 
+          <ng-container *ngIf="type=='hospital'">
+            <button mat-menu-item [routerLink]="['/hospital/my-details']">
+              <mat-icon>account_circle</mat-icon> Account
+            </button>
+          </ng-container>
+
           <ng-container *ngIf="type=='listmanager'">
             <button mat-menu-item [routerLink]="['/listmanager/my-details']">
               <mat-icon>account_circle</mat-icon> Account
