@@ -51,10 +51,10 @@
 .Team_members_block .team_items .member_image img{ max-width: 100%;min-height: 100%;}
 .Team_members_block .team_items .member_content_wrapper .title{ font-family: "HelveticaBold"; font-size: 20px; color: #151515;  text-transform: uppercase;  border-bottom: 2px solid #ddd;
   padding-bottom: 5px; }
-.Team_members_block .team_items .member_content_wrapper .phone{ font-family: "Helvetica-Normal"; font-size: 20px; color: #151515; margin: 10px 0; }
-.Team_members_block .team_items .member_content_wrapper .email{ font-family: "Helvetica-Normal"; font-size:16px; color: #151515; margin: 10px 0; margin-bottom: 0;}
-.Team_members_block .team_items .member_content_wrapper .short_desc{ font-family: "Helvetica-Normal"; font-size: 16px; color: #151515;   }
-.Team_members_block .team_items .member_content_wrapper h4{ font-family: "Helvetica-Normal"; font-size: 20px; color: #151515; font-weight: normal;margin: 0;}
+.Team_members_block .team_items .member_content_wrapper .phone{ font-family: "AvenirMedium"; font-size: 20px; color: #151515; margin: 10px 0; }
+.Team_members_block .team_items .member_content_wrapper .email{ font-family: "AvenirMedium"; font-size:16px; color: #151515; margin: 10px 0; margin-bottom: 0;}
+.Team_members_block .team_items .member_content_wrapper .short_desc{ font-family: "AvenirMedium"; font-size: 16px; color: #151515;   }
+.Team_members_block .team_items .member_content_wrapper h4{ font-family: "AvenirMedium"; font-size: 20px; color: #151515; font-weight: normal;margin: 0;}
 .Team_members_block .team_items .member_content_wrapper { margin-top: 45%; padding: 0 20px; }
 .Team_members_block .team_items  .view_details{ font-family: "HelveticaBold"; font-size: 30px; background: #1272c2; color: #fff; border-radius: 0; width: 100%; font-weight: normal; text-transform: uppercase; padding: 10px; padding-top: 15px;  }
 .Team_members_block .team_items:nth-child(odd) .view_details {background: #3ec5f2;}

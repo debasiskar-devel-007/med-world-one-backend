@@ -2,13 +2,13 @@
 
 .adminnavbar, .repdashboardnavbar{padding: 0; background: none; border-radius: 0;}
 
-.topbar{display: block; width: 100%; background-color: #1a1d26; padding: 10px 0; }
+.topbar{display: block; width: 100%; background-color: var(--c-t-primary-btn_title); padding: 10px 0; }
 .topbar .mat-card-content{font-family: "HelveticaRegular"; font-size: 12px; color: #fff;    margin: 0; text-align: right; }
 .techdashboard_header .logo_wrapper{ max-width: 170px; display: block; cursor: pointer; background: #fff; }
 .techdashboard_header .logo_wrapper:focus{ outline: none; border: none; }
 .techdashboard_header .logo_wrapper img{ max-width: 100%; vertical-align: middle; }
 .techdashboard_header .logo_wrapper button{ color: #fff; background: transparent; margin-left: 10px;}
-.techdashboard_header{ top:0;  z-index: 1; height: auto;  justify-content: space-between;padding: 25px 0; box-sizing: border-box; background: #00294f; box-shadow: 1px 1px 0px 0px #716f6f;}
+.techdashboard_header{ top:0;  z-index: 1; height: auto;  justify-content: space-between;padding: 25px 0; box-sizing: border-box; background: var(--c-t-primary); box-shadow: 1px 1px 0px 0px #716f6f;}
 .techdashboard_header .quotation { margin-bottom: 0px;}
 .techdashboard_header .quotation { margin-bottom: 0px;}
 .techdashboard_header .quotation .mat-nav-list i:nth-child(1){ color: #fff; margin: 5px;}
@@ -18,14 +18,14 @@
 .techdashboard_header  .profile_section .username{ padding-right: 20px; display: block; }
 .techdashboard_header   .quotation .mat-list-base{ display: flex; padding-top: 0;}
 
-.active{ color: #ffffff!important; background: #0bc6fd;}
+.active{ color: #ffffff!important; background: var(--c-t-primary-btn_title);;}
 .active:after {
   content: '';
   width: 0;
   height: 0;
   border-left: 40px solid transparent;
   border-right: 40px solid transparent;
-  border-top: 20px solid #00294f;
+  border-top: 20px solid var(--c-t-primary);
   position: absolute;
   left: 50%;
   bottom: -40px;
@@ -189,7 +189,7 @@
 .patient_report_section .patient_top_search h1 { font-size: 24px; }
 .menu_button { left: 20px; }
 }
- 
+
 @media screen and (max-width: 420px){
   .topblock2subwrapper { display: flex; flex-direction: column; }
   .topblock2 {padding: 10px }

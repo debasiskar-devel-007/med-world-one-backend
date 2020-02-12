@@ -127,19 +127,19 @@ export class AddlistingmanagerComponent implements OnInit {
       });
     }
     // =====================================================
-  
-  
-  
-  
+
+
+
+
     // =========================================MODAL functions==========================================
     openDialog(x: any): void {
       this.dialogRef = this.dialog.open(Modal33, {
         panelClass:'custom-modalbox',
         data: { msg: x }
       });
-  
+
       this.dialogRef.afterClosed().subscribe(result => {
-  
+
       });
     }
     // =====================================================================================================
@@ -194,7 +194,7 @@ export class AddlistingmanagerComponent implements OnInit {
 
   change_password() {
     let data: any = {
-      width: '250px',
+
       panelClass:'changepassword',
       data: {
         header: "Change Password",
@@ -221,7 +221,7 @@ export class AddlistingmanagerComponent implements OnInit {
     });
   }
 
-  
+
   // ==================SUBMIT===================
   onSubmit() {
     //console.log(this.salesRepForm.value);
