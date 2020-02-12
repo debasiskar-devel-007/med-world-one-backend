@@ -38,7 +38,7 @@
       <!-- loop blogs  -->
       <mat-card-content class="blog_container" *ngFor="let blog of blogListing; let i = index">
         <mat-card-content class="image_wrapper" (click)="blogdetail(blog._id)">
-          <img src="{{ blog.blogs_image }}" />
+          <img src="{{ blog.image }}" />
         </mat-card-content>
 
         <mat-card-content class="content_wrapper">
