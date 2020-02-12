@@ -76,7 +76,7 @@ export class ContactUsComponent implements OnInit {
       this.collect_phone_array.push(value);
       if(input){
         input.value='';
-      }  
+      }
   }
 
   //delete mass email

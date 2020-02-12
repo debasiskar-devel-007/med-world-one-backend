@@ -5,8 +5,8 @@
       <mat-nav-list class="top_toolbar_navigation">
 
         <a *ngIf="type != ''" [routerLink]="'/cart'">
-          <mat-icon  matBadge="{{CartCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
-         <!-- /<mat-icon>shopping_cart</mat-icon> -->
+          <mat-icon matBadge="{{CartCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
+          <!-- /<mat-icon>shopping_cart</mat-icon> -->
         </a>
         <a *ngIf="type == ''" [routerLink]="'/login'">Login</a>
         <a href="https://dev-hospital-signup.mdstockinternational.com" *ngIf="type == ''">Register</a>
@@ -21,7 +21,8 @@
     <!-- go to salesrep dashborad -->
     <ng-container *ngIf="type=='salesrep'">
 
-      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-salesrep">
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left"
+        routerLink="/dashboard-salesrep">
         <img src="../../../../assets/images/dashboard.png">
       </a>
     </ng-container>
@@ -29,9 +30,10 @@
     <!-- go to hospital dashboard -->
     <ng-container *ngIf="type=='hospital'">
 
-        <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left" routerLink="/dashboard-medical-partner">
-          <img src="../../../../assets/images/dashboard.png">
-        </a>
+      <a matTooltip="Go to Dashboard" class="floating_button" matTooltipPosition="left"
+        routerLink="/dashboard-medical-partner">
+        <img src="../../../../assets/images/dashboard.png">
+      </a>
 
     </ng-container>
 
@@ -70,10 +72,10 @@
       <a mat-list-item [routerLink]="'/blog'" routerLinkActive="active">Blog</a>
       <a mat-list-item [routerLink]="'/about-us'" routerLinkActive="active"> About Us</a>
       <a mat-list-item [routerLink]="'/contactus'" routerLinkActive="active"> Contact Us</a>
-      
-      
+
+
       <mat-card-content class="a_pro" *ngIf="type != ''">
-      
+
         <i class="material-icons" [matMenuTriggerFor]="repmenu"> more_vert </i>
       </mat-card-content>
 

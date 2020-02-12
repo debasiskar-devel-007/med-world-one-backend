@@ -1,7 +1,7 @@
 <app-adminheader>
-    <span class="listingnewstyle salesreplistingnewstyle ">
-        <span class="dashboardcontainer">
-    <mat-card class="main_wrapper">
+  <span class="listingnewstyle salesreplistingnewstyle ">
+    <span class="dashboardcontainer ">
+      <mat-card class="main_wrapper">
         <!-- <mat-card-content class="inventory_banner">
           <mat-card-title class="inventory_title">SALESREP LIST</mat-card-title>
           <p class="inventory_para">We make premium quality used medical equipment available, from Hospitals that are
@@ -15,30 +15,21 @@
           <mat-card-title class="toolbar_header">Listing Managers List</mat-card-title>
           <button class="singleButton" mat-raised-button [routerLink]="['/admin/listing-manager/add']">Add</button>
         </mat-toolbar>
- 
 
-<!-- Listing goes here  -->
-<lib-listing *ngIf="listingData != null && listingData.length>0" 
-  [datasource]="listingData" 
-  [skip]="listingData_skip"
-  [modify_header_array]="listingData_modify_header" 
-  [sourcedata]="tableName"
-  [apiurl]="apiUrl"  
-  [editroute]="editUrl"
-  [jwttoken]="user_cookie"
-  [statusarr]="status"
-  [updateendpoint]="UpdateEndpoint"
-  [deleteendpoint]="deleteEndpoint"
-  [date_search_endpoint]="searchingEndpoint"
-  [date_search_source]="view"
-  [search_settings]="search_settings"
-  [detail_datatype]="listingData.pendingmodelapplicationarray_detail_datatype"
-  [detail_skip_array]="detail_header" >
-</lib-listing>
 
-<h2 *ngIf="listingData.length == 0">No record found.</h2>
-<!-- Listing ends here  -->
-</mat-card>
-</span>
-</span>
+        <!-- Listing goes here  -->
+        <lib-listing *ngIf="listingData != null && listingData.length>0" [datasource]="listingData"
+          [skip]="listingData_skip" [modify_header_array]="listingData_modify_header" [sourcedata]="tableName"
+          [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"
+          [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint" [date_search_endpoint]="searchingEndpoint"
+          [date_search_source]="view" [search_settings]="search_settings"
+          [detail_datatype]="listingData.pendingmodelapplicationarray_detail_datatype"
+          [detail_skip_array]="detail_header">
+        </lib-listing>
+
+        <h2 *ngIf="listingData.length == 0">No record found.</h2>
+        <!-- Listing ends here  -->
+      </mat-card>
+    </span>
+  </span>
 </app-adminheader>

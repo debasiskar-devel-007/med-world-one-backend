@@ -23,7 +23,7 @@
     justify-content: space-between;
 }
 .blockwrapper1 .imgwrapper{
-    background-color: #46cd93;
+    background-color: var(--c-t-links);
     height: 100px;
     width: 100px;
     display: flex;
@@ -31,9 +31,9 @@
     justify-content: center;
     align-items: center;
 }
-.main_wrapper .mat-list .mat-list-item:nth-child(2) .blockwrapper1 .imgwrapper{background-color: #e66793;}
-.main_wrapper .mat-list .mat-list-item:nth-child(3) .blockwrapper1 .imgwrapper{background-color: #4bbbce;}
-.main_wrapper .mat-list .mat-list-item:nth-child(4) .blockwrapper1 .imgwrapper{background-color: #5985ee;}
+.main_wrapper .mat-list .mat-list-item:nth-child(2) .blockwrapper1 .imgwrapper{background-color: var(--c-t-primary);}
+.main_wrapper .mat-list .mat-list-item:nth-child(3) .blockwrapper1 .imgwrapper{background-color: var(--c-t-primary-btn_title);}
+.main_wrapper .mat-list .mat-list-item:nth-child(4) .blockwrapper1 .imgwrapper{background-color: var(--c-t-long-para);}
 .blockwrapper1 .imgwrapper img{
     max-width: 100%;
     height: auto;
@@ -50,9 +50,9 @@
 
 .searchmainwrapper .mat-card-content{
   margin: 0;
-  font-family: "AvenirLight";
+  font-family: "AvenirRoman";
   font-size: 24px;
-  color: #535353;
+  color: var(--c-t-sub-primary);
   text-transform: uppercase;
 }
 
@@ -62,11 +62,10 @@
 .buttonwrapper {display: inline-block; width: 100%; padding-top: 16px; margin-top: auto;}
 .right{text-align: right;}
 .center{text-align: center;}
-.bluebtn{ background: #09c5fb; color: #fff; border-radius: 0; text-transform: uppercase; font-size: 16px; font-family: "AvenirRoman";  }
+.bluebtn{ background: var(--c-t-primary); color: #fff; border-radius: 0; text-transform: uppercase; font-size: 16px; font-family: "AvenirRoman";  }
 .blocktablemainwrapper {margin-bottom: 30px;}
 .blocktablemainwrapper .table_wrapper{ border: 1px solid #d6d6d6;padding: 8px; margin-bottom: 0; }
-.blocktablemainwrapper .table_wrapper table .acction_button button{ background: #09c5fb; padding: 4px; line-height: inherit; margin: 0; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; }
-
+.blocktablemainwrapper .table_wrapper table .acction_button button{ background: var(--c-t-primary); padding: 4px; line-height: inherit; margin: 0; color: #fff; font-family: "AvenirMedium"; text-transform: capitalize; border-radius: 0; }
 
 
 .block2content{display: flex; justify-content: center; flex-wrap: wrap; margin: 0 -7px;}
