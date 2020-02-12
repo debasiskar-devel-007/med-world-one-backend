@@ -1,76 +1,19 @@
-body {
-    overflow: overlay;
+
+
+:root {
+  --c-t-bg: #dce5ea;
+  --c-t-bg-secondary: #a5e1cf;
+  --c-t-sub-primary: #48281b;
+  --c-t-primary: #d0531c;
+  --c-t-secondary: #0b5746;
+  --c-t-primary-btn_title: #48281b;
+  --c-t-paragraph: #797a7b;
+  --c-t-links: #005d40;
+  --c-t-alt-links: #ffdead;
+  --c-t-long-para: #002346;
 }
 
-
-@font-face {
-    font-family: 'RobotoMedium';
-    src: url('../fonts//Roboto-Medium.woff2') format('woff2'), url('../fonts/Roboto-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'RobotoRegular';
-    src: url('../fonts/Roboto-Regular.woff2') format('woff2'), url('../fonts/Roboto-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HelveticaBold';
-    src: url('../fonts/Helvetica-Bold.woff2') format('woff2'), url('../fonts/bold/Helvetica-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'HelveticaRegular';
-    src: url('../fonts/Helvetica.woff2') format('woff2'), url('..fonts/Helvetica.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'RobotoBold';
-    src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
-        url('../fonts/Roboto-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'MontserratSemibold';
-    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
-        url('../fonts/Montserrat-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'MontserratBold';
-    src: url('../fonts/Montserrat-Bold.woff2') format('woff2'),
-        url('../fonts/Montserrat-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'MontserratSemibold';
-    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'),
-        url('../fonts/Montserrat-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'HelveticaRegular';
-    src: url('../fonts/Helvetica.woff2') format('woff2'),
-        url('../fonts/Helvetica.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
   /* new avenir font */
-
-
-
 @font-face {
     font-family: 'AvenirMedium';
     src: url('../fonts/AvenirLTStd-Medium.woff2') format('woff2'),
@@ -240,9 +183,9 @@ body {
 
 /* table structure */
 
-tr.mat-header-row { background: #566075; }
+tr.mat-header-row { background: var(--c-t-alt-links); }
 .mat-sort-header-button {  color: #fff!important; text-transform: uppercase; }
-th.mat-header-cell { color: #ffffff; text-transform: uppercase;  font-family: "AvenirRoman"; font-size: 16px; }
+th.mat-header-cell { color: var(--c-t-sub-primary); text-transform: uppercase;  font-family: "AvenirRoman"; font-size: 16px; }
 tr td br{ display: none; }
 /* tr.mat-row:nth-child(even) { background: #dde2e5; } */
 td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
@@ -963,8 +906,14 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 
 /*-------------- modal css start ---------------- */
-.changepassword .cdk-overlay-pane{width: 33% !important;}
-.changepassword .mat-dialog-container{border: 7px solid #1a8eec;}
+.changepassword  {width:550px;}
+.changepassword .mat-dialog-container{border: 4px solid #1a8eec; padding: 10px!important; box-sizing: border-box;}
+.changepassword .mat-dialog-container .modal .mat-dialog-title { font-size: 20px; font-family: 'AvenirBlack'; color: #ffffff; text-align: center; text-transform: uppercase;
+  background: #03213e; padding: 5px; }
+.changepassword .mat-dialog-container .modal form{ display: flex; flex-direction: column; }
+.changepassword .mat-dialog-container .mat-dialog-actions { padding: 16px; display: flex; flex-wrap: wrap; min-height: inherit; align-items: center; margin-bottom: 0; justify-content: flex-end; }
+.changepassword .mat-dialog-container .mat-dialog-actions button{ background: #d01d0d; color: #fff; font-family: 'AvenirMedium'; border-radius: 0; font-size: 18px; }
+.changepassword .mat-dialog-container .mat-dialog-actions button:last-child{ background: #001c36;}
 /*-------------- modal css end ---------------- */
 
 /* quote cart css */
@@ -1308,3 +1257,21 @@ padding: 12px 16px;text-transform: uppercase;}
 .viewDetails_modal .in_contentu table td{ width: 100%; font-family: 'AvenirMedium';  color: #141618;}
 .dispoviewModal .action_button { position: absolute; z-index: 1; right: 20px; top: 20px; color: #fff; font-family: 'AvenirBlack'; min-width: inherit; padding: 0;}
 .dispoviewModal .action_button:hover{ background: transparent!important;}
+
+/* listing manager */
+ .newModifyListing{ margin: 20px auto!important}
+ .newModifyListing .button_wrapper{ margin-top: 20px; }
+ .newModifyListing .button_wrapper button{ border-radius: 0; margin-right: 10px; font-size: 20px;}
+ .newModifyListing .button_wrapper button:last-child{margin: 0;}
+
+
+
+
+
+ /* media here */
+
+ @media screen and (max-width: 700px){
+  .col-1-2,
+  .col-1-3,
+  .col-1-4 { width: 100%; padding: 0; }
+ }
