@@ -13,6 +13,7 @@
   --c-t-long-para: #002346;
 }
 
+
   /* new avenir font */
 @font-face {
     font-family: 'AvenirMedium';
@@ -184,7 +185,7 @@
 /* table structure */
 
 tr.mat-header-row { background: var(--c-t-alt-links); }
-.mat-sort-header-button {  color: #fff!important; text-transform: uppercase; }
+.mat-sort-header-button {  text-transform: uppercase; }
 th.mat-header-cell { color: var(--c-t-sub-primary); text-transform: uppercase;  font-family: "AvenirRoman"; font-size: 16px; }
 tr td br{ display: none; }
 /* tr.mat-row:nth-child(even) { background: #dde2e5; } */
@@ -380,28 +381,20 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   .my_details_wrapper .mydetails_form_wrapper .forms .mat-form-field .mat-form-field-flex { padding: 0 10px!important; }
   .hospital_details_wrapper .details_description .mat-list-item .mat-list-item-content{ align-items: inherit!important; padding: 0;}
 
-  .brand_group .mat-tab-label { background: #0bb4e5;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 20px;
-    font-family: "HelveticaBold";
-    opacity: 1;
-    min-width: 240px;
+  .brand_group .mat-tab-label { background: var(--c-t-primary); text-transform: uppercase; color: #fff; font-size: 20px; font-family: "AvenirMedium"; opacity: 1; min-width: 240px; }
 
-}
-
-    .brand_group .mat-tab-label-active {
-      background-color: #000!important;
+  .brand_group .mat-tab-label-active {
+      background-color: var(--c-t-primary-btn_title)!important;
       color: #fff;
       opacity: 1; border-bottom: 2px solid #f7462e;
   }
 
-  .admin_submenu{ background: linear-gradient(-6deg, #053f75, #379fff)!important;}
+  .admin_submenu{ background: linear-gradient(90deg, var(--c-t-primary), var(--c-t-primary-btn_title))!important; }
   .admin_submenu button{ color: #fff; border-bottom: 2px solid #ddd;}
   .admin_submenu button:last-child{ color: #fff; border: none;}
 
   .quotation .mat-menu-item-highlighted:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item:hover:not([disabled]) {
-    background: #3193ee!important;
+    background: var(--c-t-primary-btn_title)!important;
 }
 .contact_form_banner .contactus_wrapper .form_section .example-container{ display:inherit; flex-direction: inherit; }
 .contact_form_banner .contactus_wrapper .form_section .example-container .mat-form-field{ background: #15365c!important; margin-bottom: 10px; width: 100%; padding: 0 10px; box-sizing: border-box; }
@@ -475,7 +468,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .block2content .mat-list-item .mat-list-item-content{padding: 0 !important;align-items: stretch !important;height: 100% !important;}
 .dashboardcontainer{width: 1400px; margin: 0 auto; display: block;}
 .dashboardcontainer .inputstyle {margin: 30px 0; display: block;}
-
+.dashboardcontainer .main_wrapper{ margin: 40px auto;}
 /* ----------------- list view css start ------------------ */
 
 .aslist_view .mat-form-field-infix {
@@ -564,14 +557,14 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 .inputstyle.from_wrapper{border-radius: 5px;}
 
-.formtitle{
-  font-family: 'AvenirLight';
+.formtitle{ font-family: 'AvenirMedium';
   font-size: 24px !important;
-  padding-bottom: 25px;
   width: 100%;
-  border-bottom: 1px solid #566075;
-  margin-bottom: 25px !important;
-  text-transform: capitalize;
+  margin-bottom: 40px!important;
+  background: linear-gradient(45deg, var(--c-t-bg-secondary), var(--c-t-alt-links));
+  padding: 14px 18px;
+  color: var(--c-t-primary-btn_title);
+  text-transform: uppercase;
 }
 .inputstyle .mat-form-field{display: block !important;}
 .inputstyle mat-label, .inputstyle .mat-form-field-label {
@@ -627,9 +620,8 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   margin-top: 16px;
   width: 100%;
 }
-.button_wrapper button{min-width: 145px; color: #fff; text-transform: uppercase; font-size: 18px;font-family: 'AvenirMedium' !important; text-align: center;text-shadow: 0 2px 0 rgba(0,0,0,.30);}
-.bluebutton{background-color: #013265 !important;}
-.skybutton{background-color: #09c5fb !important;}
+.formfooter .button_wrapper button{ margin-right: 10px; width: 160px; border-radius: 0; padding: 3px; background: var(--c-t-primary); color: #fff; font-family: 'AvenirMedium'; font-size: 20px;}
+.formfooter .button_wrapper button:last-child{ background: var(--c-t-sub-primary); margin: 0;}
 .inputstyle .mat-form-field-appearance-fill .mat-form-field-flex{padding: 0;}
 /* .inputstyle .mat-form-field-appearance-fill .mat-form-field-infix {
   padding: 0;
@@ -707,7 +699,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 }
 .blogaddeditwrapper .inputstyle .mat-checkbox{display: block;}
 
-.listingnewstyle{display: block; background-color: #edf1f4; width: 100%; overflow: hidden;padding: 50px 0;}
+.listingnewstyle{display: block; background-color: #edf1f4; width: 100%; overflow: hidden; }
 .listingnewstyle .main_wrapper{
   background: #fff;
   box-shadow: 0px 1px 10px rgba(0,0,0,.30) !important;
@@ -761,19 +753,14 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 }
 .listingnewstyle .mat-paginator .mat-select-value-text{color: #fff;}
 .listingnewstyle .mat-paginator .mat-select-arrow{color: #fff;}
-.listingnewstyle .mat-paginator {
-  background: #566075!important;
-  color: #fff!important;
-}
+.listingnewstyle .mat-paginator { background: var(--c-t-paragraph) !important; color: #fff!important; }
 .listingnewstyle .mat-paginator .mat-paginator-range-label {
   margin: 0 5px 0 5px;font-family: 'AvenirLight';
 }
 
 .listingnewstyle .mat-paginator-container{justify-content: center;align-items: center;}
 .listingnewstyle .mat-paginator-page-size-select{margin: 0px 4px 0 4px;}
-.listingnewstyle tr.mat-header-row {
-  background: #566075;
-}
+.listingnewstyle tr.mat-header-row { background: var(--c-t-alt-links); }
 /* .listingnewstyle .mat-paginator-outer-container {
   padding: 12px 0;
 } */
@@ -790,11 +777,11 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   color: #465157;
 }
 .listingnewstyle .ng-star-inserted .cursor{display: none;}
-.listingnewstyle .ng-star-inserted .cursor:nth-child(1){display: inline-block;background: #00294f;padding: 5px;color: #fff;margin-right: 5px;}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(1){display: inline-block;background: var(--c-t-primary); padding: 5px;color: #fff;margin-right: 5px;}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(1):after{content: 'View Details';}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(1) i{display: none;}
 
-.listingnewstyle .ng-star-inserted .cursor:nth-child(2){display: inline-block;background: #f7452e;padding: 5px;color: #fff;margin-right: 5px;}
+.listingnewstyle .ng-star-inserted .cursor:nth-child(2){display: inline-block;background: var(--c-t-primary-btn_title);padding: 5px;color: #fff;margin-right: 0px;}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(2):after{content: 'Delete';}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(2) i{display: none;}
 
@@ -809,7 +796,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   margin-right: 5px;
 }
 .listingnewstyle mat-toolbar-row.searchbar {
-  background: #00294f;
+  background: var(--c-t-primary);
   padding: 13px;
   justify-content: space-between;
   height: auto;
@@ -818,7 +805,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .listingnewstyle mat-toolbar-row.searchbar .mat-raised-button.mat-primary{
   margin: 0 !important;
   border-radius: 0;
-  background-color: #369ff3;
+  background-color: var(--c-t-primary-btn_title);
   text-transform: capitalize;
   font-family: 'AvenirMedium' !important;
 }
@@ -858,8 +845,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   font-family: 'AvenirMedium' !important;
   text-align: center;
   text-shadow: 0 2px 0 rgba(0,0,0,.30);
-  background: #369ff3;
-  text-align: center;
+  background: var(--c-t-primary-btn_title);
 }
 
 .medicalpartnerlistingnewstyle.listingnewstyle mat-toolbar-row.searchbar .ng-star-inserted mat-form-field .mat-form-field-infix {
@@ -1104,12 +1090,16 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .modal_content .mat-expansion-indicator::after { color:#c6fffe!important;}
 
 /*manage team */
-.manageTeam .main_wrapper .mat-primary{ background-color: #00aee2; }
+.manageTeam .main_wrapper .mat-primary{ background-color: var(--c-t-primary-btn_title); }
+
+
+
+
 .manageTeam .main_wrapper .mat-column-image{ width: 30%; word-break: break-word; }
 .manageTeam .main_wrapper .formspan .example-container { width: 100%!important; box-sizing: border-box!important;}
 .manageTeam .main_wrapper .formspan  .mat-form-field  {padding: 8px!important; }
-.manageTeam .main_wrapper .formspan .bulletarr { border: 2px solid #00aee2; }
-.manageTeam .main_wrapper .formspan .top_header { background:#00aee2; }
+.manageTeam .main_wrapper .formspan .bulletarr { border: 1px solid var(--c-t-primary);}
+.manageTeam .main_wrapper .formspan .top_header { background: var(--c-t-primary); }
 .manageTeam .main_wrapper .formspan .uploadfilecontainer { width: 100%; }
 
 /* department list */
@@ -1258,11 +1248,7 @@ padding: 12px 16px;text-transform: uppercase;}
 .dispoviewModal .action_button { position: absolute; z-index: 1; right: 20px; top: 20px; color: #fff; font-family: 'AvenirBlack'; min-width: inherit; padding: 0;}
 .dispoviewModal .action_button:hover{ background: transparent!important;}
 
-/* listing manager */
- .newModifyListing{ margin: 20px auto!important}
- .newModifyListing .button_wrapper{ margin-top: 20px; }
- .newModifyListing .button_wrapper button{ border-radius: 0; margin-right: 10px; font-size: 20px;}
- .newModifyListing .button_wrapper button:last-child{margin: 0;}
+
 
 
 
