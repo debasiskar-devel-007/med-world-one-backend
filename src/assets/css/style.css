@@ -1192,7 +1192,7 @@ text-align: center; margin-bottom: 16px; margin-top: 10px!important;}
 .Team4mange .main_wrapper .submitbtn { background: #e42514; margin-top: 20px; }
 .Team4mange .main_wrapper .submitbtn:last-child { background: #00294f;  }
 
-.dispoviewModal{ overflow: auto; width: 768px;}
+.dispoviewModal{ overflow: auto; }
 .viewDetails_modal { position: relative!important; padding: 0!important; border: 1px solid var(--c-t-primary); width: 700px;}
 .viewDetails_modal .inner_image { display: block; margin: auto; background: linear-gradient(45deg, var(--c-t-alt-links), var(--c-t-primary)); padding: 16px; text-align: center; }
 .viewDetails_modal .inner_image .img_deco{ height: 280px; width: 280px; background: #fff; text-align: center; border-radius: 50%; overflow: hidden; display: block; margin: auto; }
