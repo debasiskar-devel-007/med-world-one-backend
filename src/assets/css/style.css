@@ -1248,11 +1248,24 @@ padding: 12px 16px;text-transform: uppercase;}
 .dispoviewModal .action_button { position: absolute; z-index: 1; right: 20px; top: 20px; color: #fff; font-family: 'AvenirBlack'; min-width: inherit; padding: 0;}
 .dispoviewModal .action_button:hover{ background: transparent!important;}
 
+/* add edit blog */
+.AddEditBlog lib-addedit-blogmanagement .mat-card{ padding: 0!important; }
 
+.AddEditBlog .mat-toolbar.mat-primary{  font-family: 'AvenirMedium'; font-size: 24px !important; width: 100%; margin-bottom: 40px!important; background: linear-gradient(45deg, var(--c-t-bg-secondary), var(--c-t-alt-links));
+  padding: 14px 18px; color: var(--c-t-primary-btn_title); text-transform: uppercase;}
 
+  .AddEditBlog lib-addedit-blogmanagement h1 { color: var(--c-t-primary); font-family: 'AvenirMedium'; font-size: 24px; }
+  .AddEditBlog lib-addedit-blogmanagement .submitbtn {border-radius: 0; background: var(--c-t-primary-btn_title); min-width: 165px; margin: 0 auto!important;
+    display: block; font-family: 'AvenirMedium'; font-size: 20px; }
+    .AddEditBlog lib-addedit-blogmanagement .uploadfilecontainer {   width: 100%!important; margin: 0px auto; }
+    .AddEditBlog lib-addedit-blogmanagement .files-view { width: 100%!important; margin: 16px;}
+    .AddEditBlog lib-addedit-blogmanagement .files-view .mat-card img{ max-width: 100%;}
+    .AddEditBlog lib-addedit-blogmanagement .files-view .mat-card .mat-card-title{ font-size: 16px; font-family: 'AvenirMedium';  width: 100%; padding: 0 10px; box-sizing: border-box;
+      color: var(--c-t-primary); text-transform: capitalize; }
+.AddEditBlog lib-addedit-blogmanagement .button-group{ width: 100%!important;}
 
-
-
+  .formspan .example-container, .formspan,
+  .formspan .mat-form-field { width: 100%!important; box-sizing: border-box;}
 
  /* media here */
 
