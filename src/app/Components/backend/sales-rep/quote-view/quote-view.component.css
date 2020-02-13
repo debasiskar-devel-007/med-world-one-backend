@@ -11,7 +11,7 @@
 .top_logo_wrapper .top_wr1 .details .mat-list-item{ height: auto; padding: 3px 0; font-family: 'AvenirBook'; color: #465157; }
 .top_logo_wrapper .inner_items_top_bottom { display: flex; justify-content: space-between; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper { margin-bottom: 0; width: 49.5%; border: 1px solid #d2d2d2; padding-bottom: 8px; box-sizing: border-box; }
-.top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: #013265;  color: #fff;
+.top_logo_wrapper .inner_items_top_bottom .rep_wrapper .header { font-family: 'AvenirBlack'; text-transform: uppercase; font-size: 20px; background: var(--c-t-links);  color: #fff;
   padding: 10px; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper  .mat-list{ padding: 0; }
 .top_logo_wrapper .inner_items_top_bottom .rep_wrapper p{ font-family: "AvenirBook"; font-size: 18px; color: #535353; height: auto; word-break: break-word;
@@ -22,7 +22,7 @@
 .quote_table_wrapper{ margin-bottom: 0;}
 .quote_table_wrapper .name_header{ font-family: 'AvenirBlack'; color: #000; font-size: 16px; }
 .quote_table_wrapper table{width: 100%; }
-.quote_table_wrapper table th.mat-header-cell{background: #1b66b5; }
+.quote_table_wrapper table th.mat-header-cell{background: var(--c-t-primary-btn_title); }
 .quote_table_wrapper table th.mat-header-cell { color: #ffffff; text-transform: uppercase; font-family: "AvenirRoman"; font-size: 18px;}
 .quote_table_wrapper .text_with_span { display: inline-flex; align-items: center;  }
 .quote_table_wrapper .text_with_span textarea {border: 1px solid #ddd; resize: none; text-align: center;}
@@ -31,12 +31,10 @@
 .quote_table_wrapper .text_with_span .action_button button {line-height: inherit; padding: 3px; background:#e73a38; border-radius: 0; color:#fff; text-transform: capitalize; font-size: 12px; font-family: "AvenirMedium";  }
 .quote_table_wrapper .text_with_span .action_button button:last-child { background:#013265;  margin-top: 1px; }
 .quote_table_wrapper .bottom_action { justify-content: flex-end; margin-top: 24px; align-items: center; height: auto; display: flex;}
-.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: #013265; color: #fff; min-width: 120px; border-radius: 0; margin: 0 2px;}
-.quote_table_wrapper .bottom_action button:first-child{ margin-left: 0px; }
-.quote_table_wrapper .bottom_action button:nth-child(2){ background:#09c5fb;}
-.quote_table_wrapper .bottom_action button:last-child{ margin-right: 0px; background:#09c5fb;}
+.quote_table_wrapper .bottom_action button{ font-family: 'AvenirRoman'; font-size: 18px; text-transform: uppercase; background: var(--c-t-primary); color: #fff; min-width: 120px; border-radius: 0; margin-right: 10px;}
+.quote_table_wrapper .bottom_action button:last-child{ margin-right: 0px; background:var(--c-t-primary-btn_title);}
 .quote_table_wrapper table td.mat-cell { border: .2px solid #dadada; padding: 8px;}
-.quote_table_wrapper table td.mat-cell .viewDetails {background: #09c5fb; color: #fff; font-family: 'AvenirMedium'; line-height: inherit;  padding: 2px 8px;
+.quote_table_wrapper table td.mat-cell .viewDetails {background: var(--c-t-links); color: #fff; font-family: 'AvenirMedium'; line-height: inherit;  padding: 2px 8px;
   font-size: 14px; margin-top: 10px; }
 .quote_table_wrapper table .cdk-column-price{ width: 8%;}
 .quote_table_wrapper table td.mat-footer-cell{ border: 1px solid #d2d2d2; padding: 8px; }
@@ -69,7 +67,13 @@
 .quotemodalvew{ margin-bottom: 0; padding: 24px; background: #e4e4e4; border: 5px solid #164e84; box-sizing: border-box; display: flex; flex-direction: column; }
 .quotemodalvew button{ background: #12457b; min-width: 120px; color: #fff; text-transform: uppercase; font-family: 'Avenirmedium'; margin-left: auto; border-radius: 0;
   margin-top: 16px;}
-.deviceName { margin: 0; padding: 10px; border-bottom: 3px solid #00667d; font-family: 'AvenirRoman'; color: #00667d; font-size: 22px; background: #effcff;}
+.deviceName {     margin: 0;
+  padding: 10px;
+  border-bottom: 2px solid var(--c-t-primary);
+  font-family: 'AvenirRoman';
+  color: var(--c-t-primary);
+  font-size: 22px;
+  background: var(--c-t-alt-links);}
 
 @media screen and ( max-width:1540px){
   .quote_cart_wrapper { width: 88%; }
@@ -102,7 +106,7 @@
 
 
 /* sourav */
-.modal_content .mat-expansion-panel-header { background: linear-gradient(2deg, #02b3ad, #07d1f4)!important;}
+.modal_content .mat-expansion-panel-header { background: var(--c-t-primary)!important;}
 .modal_content .mat-expansion-panel-header .mat-expansion-panel-header-title{ color: #fff; }
 .modal_content .mat-expansion-panel-spacing{ margin: 0; }
 .modal_content .mat-expansion-panel-body { border: 1px solid #c6fffe;}
