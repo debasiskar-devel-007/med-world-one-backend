@@ -1,65 +1,35 @@
-.hospital_package_wrapper{    width: 1440px;
-  margin: 20px auto;
-  box-shadow: none; background-color: #f3f3f3;
-  padding: 0;}
-  .hospital_package_wrapper .card_title{ padding: 0;  background: #fff;}
-.hospital_package_wrapper .Header{ background: #0ad7d9; margin: 0;
-  font-family: 'AvenirMedium';
-  font-size: 34px;
-  color: #fff;
-  padding: 10px;
-  text-transform: capitalize;}
-.hospital_package_wrapper .card_wrp { padding-top: 0; background: #f3f3f3;
-  border-radius: 0;
-  box-shadow: none;
-  border: 1px solid #e9e9e9; }
-  .hospital_package_wrapper .card_wrp .desc_wrapper{ background: #fff; display: block; padding: 16px; }
-  .hospital_package_wrapper .card_wrp .desc_wrapper .desc{ font-family: 'AvenirMedium'; font-size: 16px;  }
-  .hospital_package_wrapper .package_container .title{ background: #00294f;
-    font-family: 'AvenirRoman';
-    font-size: 18px;
-    padding: 14px;
-    color: #fff;
+.hospital_package_wrapper{ width: 1400px; margin: 20px auto; box-shadow: none; background-color: #f3f3f3; padding: 0;}
+.hospital_package_wrapper .card_title{ padding: 0;  background: #fff;}
+.hospital_package_wrapper .Header{ background: var(--c-t-secondary); margin: 0; font-family: 'AvenirMedium'; font-size: 26px;
+  color: #fff; padding: 10px 16px; text-transform: uppercase; }
+.hospital_package_wrapper .card_wrp { padding-top: 0; background: #f3f3f3; border-radius: 0; box-shadow: none; border: 1px solid #e9e9e9; }
+.hospital_package_wrapper .card_wrp .desc_wrapper{ background: #fff; display: block; padding: 16px; }
+.hospital_package_wrapper .card_wrp .desc_wrapper .desc{ font-family: 'AvenirMedium'; font-size: 16px;  }
+.hospital_package_wrapper .package_container .title{ background: var(--c-t-alt-links); font-family: 'AvenirBlack'; font-size: 18px; padding: 14px;  color: var(--c-t-primary-btn_title);
 }
-
 .hospital_package_wrapper .package_container { border-radius: 0; box-shadow: none;}
 .hospital_package_wrapper .package_container .item_wrapper{ display: flex; justify-content: center; flex-wrap: wrap; }
-.hospital_package_wrapper .package_container .item_wrapper .cart_item{ background: #e8edf1; width: 24%; margin: 0.5%; border: 1px solid #dddddd; padding: 10px;
-  box-sizing: border-box; }
-  .hospital_package_wrapper .package_container .item_wrapper .cart_item table{ font-family: 'AvenirRoman';
-    font-size: 12px;
-    text-align: left;
-    vertical-align: top;}
-.hospital_package_wrapper .package_container .item_wrapper .cart_item table tr th{ width: 50%;}
+.hospital_package_wrapper .package_container .item_wrapper .cart_item{ background: #e8edf1; width: 24%; margin: 0.5%; border: 1px solid #dddddd; padding: 10px; box-sizing: border-box; display: flex;
+  flex-direction: column; }
+  .hospital_package_wrapper .package_container .item_wrapper .cart_item .view_details { padding: 0; height: auto; color: #fff; text-transform: uppercase; background: var(--c-t-primary); margin-top: auto;}
+  .hospital_package_wrapper .package_container .item_wrapper .cart_item .view_details a{ width: 100%; cursor: pointer; text-align: center;}
+.hospital_package_wrapper .package_container .item_wrapper .cart_item table{ font-family: 'AvenirRoman'; font-size: 12px; text-align: left; vertical-align: top;}
+.hospital_package_wrapper .package_container .item_wrapper .cart_item table tr th{ width: 41%; vertical-align: top; font-family: 'AvenirBlack'; font-size: 14px;
+  color: var(--c-t-primary-btn_title); }
 .disposal_wrapper { border-radius: 0; box-shadow: none;}
-.disposal_wrapper .Header{background: #00294f;
- font-family: 'AvenirRoman';
- font-size: 18px;
- padding: 14px;
- color: #fff;
-}
-
+.disposal_wrapper .Header{    background: var(--c-t-alt-links);
+  font-family: 'AvenirBlack';
+  font-size: 18px;
+  padding: 14px;
+  color: var(--c-t-primary-btn_title);}
 .dispo_wrapper{ display: flex; flex-wrap: wrap;}
-.dispo_wrapper .itemss{  padding: 10px; border: 1px solid #dddddd;
-  box-sizing: border-box;
-  display: flex;
-  background: #e8edf1;
-  width: 24%;
-  margin: .5%;
-  justify-content: space-between;
-}
-.dispo_wrapper .itemss .inner_image{ width: 30%;
-  margin-bottom: 0;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-.dispo_wrapper .itemss .inner_content { width: 69%; margin-bottom: 0; }
+.dispo_wrapper .itemss{  padding: 10px; border: 1px solid #dddddd; box-sizing: border-box; display: flex; background: #e8edf1; width: 24%; margin: .5%; justify-content: space-between; flex-direction: column; }
+.dispo_wrapper .itemss .inner_image{ width:100%; margin-bottom: 0; background: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; height: 130px;}
+.dispo_wrapper .itemss .inner_content { width: 100%; margin-bottom: 0; }
 .dispo_wrapper .itemss .inner_content table { width: 100%; min-height: 150px; max-height: 150px; }
-.dispo_wrapper .itemss .inner_content td, th {line-height: 20px; }
-.inner_image  img{ max-width: 100%;}
-.dispo_wrapper .itemss .inner_content .desc{
-  word-break: break-word;
+.dispo_wrapper .itemss .inner_content td, th {line-height: 20px; vertical-align: top; }
+.inner_image  img{ max-width: 100%; height: 100%;}
+.dispo_wrapper .itemss .inner_content .desc{ word-break: break-word;
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -74,7 +44,7 @@
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
    line-height: 16px;
-   font-family: 'AvenirBlack';
+   font-family: 'AvenirBlack'; color: var(--c-t-primary);
    }
    .dispo_wrapper .itemss .inner_content .view_details{ background: none;
     height: auto;
@@ -88,13 +58,12 @@
     text-transform: capitalize; }
 
 .mt-toolbar_action{ display: flex; justify-content: flex-end;}
-.mt-toolbar_action button{ text-transform: capitalize; background: #09cad6;
+.mt-toolbar_action button{ text-transform: capitalize; background: var(--c-t-primary);
   color: #fff;
   font-family: 'AvenirRoman';
   font-size: 18px;
   border-radius: 0;
-  margin: 0 5px;
+  margin-right: 10px;
   padding: 0 17px;
   min-width: 120px;}
-  .mt-toolbar_action button:first-child{ margin-left: 0; background: #00294f;}
-  .mt-toolbar_action button:last-child{ margin-right: 0;}
+  .mt-toolbar_action button:last-child{ margin-right: 0; background: var(--c-t-primary-btn_title) }
