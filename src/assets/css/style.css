@@ -572,7 +572,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
     font-size: 16px !important;
     color: #535353 !important
 }
-.inputstyle a{color: #0fa6d2;cursor: pointer;width: fit-content;}
+.inputstyle a{ color: var(--c-t-links);cursor: pointer; width: fit-content; }
 .cpass{
   text-transform: uppercase;
   text-decoration: underline;
@@ -893,13 +893,13 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 /*-------------- modal css start ---------------- */
 .changepassword  {width:550px;}
-.changepassword .mat-dialog-container{border: 4px solid #1a8eec; padding: 10px!important; box-sizing: border-box;}
+.changepassword .mat-dialog-container{border: 4px solid var(--c-t-primary); padding: 10px!important; box-sizing: border-box;}
 .changepassword .mat-dialog-container .modal .mat-dialog-title { font-size: 20px; font-family: 'AvenirBlack'; color: #ffffff; text-align: center; text-transform: uppercase;
-  background: #03213e; padding: 5px; }
+  background: var(--c-t-primary); padding: 5px; }
 .changepassword .mat-dialog-container .modal form{ display: flex; flex-direction: column; }
 .changepassword .mat-dialog-container .mat-dialog-actions { padding: 16px; display: flex; flex-wrap: wrap; min-height: inherit; align-items: center; margin-bottom: 0; justify-content: flex-end; }
-.changepassword .mat-dialog-container .mat-dialog-actions button{ background: #d01d0d; color: #fff; font-family: 'AvenirMedium'; border-radius: 0; font-size: 18px; }
-.changepassword .mat-dialog-container .mat-dialog-actions button:last-child{ background: #001c36;}
+.changepassword .mat-dialog-container .mat-dialog-actions button{ background: var(--c-t-primary); color: #fff; font-family: 'AvenirMedium'; border-radius: 0; font-size: 18px; }
+.changepassword .mat-dialog-container .mat-dialog-actions button:last-child{ background: var(--c-t-primary-btn_title);}
 /*-------------- modal css end ---------------- */
 
 /* quote cart css */
