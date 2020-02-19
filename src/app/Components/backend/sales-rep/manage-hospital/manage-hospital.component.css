@@ -1,15 +1,10 @@
 .my_details_wrapper{
   /* background: #ffffff; */
-  border: 1px solid #dddd;
-  padding-bottom: 20px;
-  width: 100%;
-  margin: 35px auto;
-  box-shadow: 0 5px 10px #b2b2b2;    padding: 0;
-}
+  border: 1px solid #dddd; padding-bottom: 20px; width: 100%; margin: 35px auto; box-shadow: 0 5px 10px #b2b2b2; padding: 0;}
 .mydetails_form_wrapper { padding: 8px;  }
-.my_details_wrapper .header_part{ display: block; height: auto; background: url("../../../../../assets/images/mydetails_hospitalicon.png") no-repeat 98%;  background-size: 75px;
-  padding: 16px; padding-right: 50px; border-bottom: 1px solid #d6d2d2; }
-.my_details_wrapper .header_part h2{ color: #1480db; font-family: "AvenirMedium"; text-transform: capitalize; font-size: 24px;}
+.my_details_wrapper .header_part{ display: block; height: auto; background: var(--c-t-alt-links)  url("../../../../../assets/images/mydetails_hospitalicon.png") no-repeat 98%;  background-size: 75px;
+  padding: 16px; padding-right: 50px; border-bottom: 1px solid #d6d2d2; margin-bottom: 40px; }
+.my_details_wrapper .header_part h2{ color: var(--c-t-primary); font-family: "AvenirMedium"; text-transform: capitalize; font-size: 22px;}
 .my_details_wrapper .header_part p{ color: #393939; font-family: "AvenirLight"; text-transform: capitalize; font-size: 18px; margin: 0;}
 .my_details_wrapper .mydetails_form_wrapper .forms{ display: flex; flex-direction: column; margin-bottom: 0; width: 100%; margin: 0; }
   .my_details_wrapper .mydetails_form_wrapper  .address_wrapper{ display: flex; justify-content: space-between;     flex-wrap: wrap;}
@@ -20,14 +15,14 @@
 
 
 .my_details_wrapper .mydetails_form_wrapper .forms .mydetails_ac_lebel{ font-size: 16px; text-transform: uppercase; font-family: "AvenirLight"; color: #111214; margin-bottom: 6px;}
-
-.my_details_wrapper .mydetails_form_wrapper .button_action button{ width:290px; font-family: "AvenirRoman"; font-size: 30px; text-transform: uppercase; padding: 8px;
-  margin-left: 6px; color: #fff; border-radius: 0; }
 .my_details_wrapper .mydetails_form_wrapper .button_action { justify-content: center; margin-top: 20px; background: none;}
-.my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(1){ background: #137fda; margin-left: 0; }
-.my_details_wrapper .mydetails_form_wrapper .button_action button:nth-child(2){ background: #111214; }
+.my_details_wrapper .mydetails_form_wrapper .button_action button{background: var(--c-t-primary); width:210px; font-family: "AvenirRoman"; font-size: 30px; text-transform: uppercase; padding: 5px;
+  margin-right: 10px; color: #fff; border-radius: 0; }
+.my_details_wrapper .mydetails_form_wrapper .button_action button:last-child{ background: var(--c-t-primary-btn_title); margin-right: 0; }
 
 .my_details_wrapper .mydetails_form_wrapper  .file_uploader { padding: 0 10px; }
+.my_details_wrapper .mydetails_form_wrapper  .example-card { width: 100%; box-sizing: border-box; }
+.my_details_wrapper .mydetails_form_wrapper .example-card img { max-width: 100%; }
 /* .my_details_wrapper .mydetails_form_wrapper  .file_uploader .mydetails_ac_lebel { font-size: 16px; text-transform: uppercase; font-family: "AvenirLight"; color: #4b4d52; margin: 10px 0; display: block;} */
 .my_details_wrapper .mydetails_form_wrapper  .file_uploader .mydetails_ac_lebel { font-size: 20px; text-transform: uppercase; font-family: "AvenirBook";  margin: 10px 0; display: inline-block;
     margin-bottom: 0; color: #137fda; border-bottom: 2px solid; }
@@ -40,20 +35,19 @@ width: 170px; padding: 3px; background: linear-gradient(180deg, #80d7ff, #0081de
 .my_details_wrapper .mydetails_form_wrapper  .file_uploader .inner_wrapper .change_image i{ color: #fff; margin-left: 10px; }
 .imageupload{width: 100%;}
 .formmainwrapper{ background-color: #ececec; display: block; padding: 0 16px 16px; margin: 20px 0;}
-
-.shareLinkWrapper { border: 1px solid #1787e6; }
-.shareLinkWrapper .link_title{ color: #1480db; font-family: "AvenirMedium"; font-size: 20px; text-transform: capitalize; }
-.share_linkBar{ display: flex; justify-content: space-between; align-items: center; height: auto; background: #0673df; padding: 5px; margin-top: 5px; }
+.shareLinkWrapper { border: 1px solid var(--c-t-bg-secondary); }
+.shareLinkWrapper .link_title{ color: var(--c-t-primary); font-family: "AvenirMedium"; font-size: 16px; text-transform: uppercase; }
+.share_linkBar{ display: flex; justify-content: space-between; align-items: center; height: auto; background: var(--c-t-bg-secondary); padding: 2px; margin-top: 5px; }
 
 
 .share_linkBar .share_LL{ background: #002950; margin-bottom: 0; padding: 5px 20px; box-sizing: border-box; text-align: center; color: #fff; font-size: 18px; font-family: "HelveticaRegular"; }
 
 .share_linkBar .copyLinkWrappr{ min-height: 32px; background: #fff; width: 100%; padding: 3px 5px; display: inline-flex; justify-content: flex-start; align-items: center; position: relative; margin: 0; padding-right: 67px;}
-.share_linkBar .copyLinkWrappr  button{ background: #ee210d; position: absolute; color: #fff; font-size: 22px; padding: 0; width: auto; border-radius: 0; right: 0; height: 100%;
+.share_linkBar .copyLinkWrappr  button{ background: var(--c-t-bg-secondary); position: absolute; color: var(--c-t-links); font-size: 22px; padding: 0; width: auto; border-radius: 0; right: 0; height: 100%;
     }
 .share_linkBar .share_link{ line-height: 16px; font-size: 16px; font-family: "AvenirMedium"; word-break: break-all; white-space: normal; }
-.social_media_wrapper{ margin:0; border: 1px solid #fff; display: flex; width: 160px;}
-.social_media_wrapper a{ font-size: 18px; font-family: "MontserratBold"; color: #fff; border-radius: 0; min-width: 40px; padding: 2px 10px; box-sizing: border-box; }
+.social_media_wrapper{ margin:0; border: 1px solid var(--c-t-bg-secondary); display: flex; width: 160px;}
+.social_media_wrapper a{ font-size: 18px; font-family: "MontserratBold"; color: #fff; border-radius: 0; min-width: 40px; padding: 2px 10px; box-sizing: border-box; text-align: center;}
 .social_media_wrapper a:nth-child(1){background: #3b5998;}
 .social_media_wrapper a:nth-child(2){background: #0e76a8;}
 .social_media_wrapper a:nth-child(3){background: #00acee;}

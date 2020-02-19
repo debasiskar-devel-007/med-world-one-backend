@@ -99,15 +99,15 @@
    /* background: linear-gradient(24deg, #185fad, #2b88da); */
    padding: 70px 566px 70px 80px;
    /* background: linear-gradient(45deg, #1960af, transparent), url("../../../../assets/images/salesrepBanner.png") no-repeat right #5f9ea0; */
-   background: linear-gradient(34deg, #1a63b2 56%, transparent 20%), url("../../../../assets/images/salesrepBanner.png") no-repeat right #f0220b;
+   background: linear-gradient(34deg, var(--c-t-alt-links) 56%, transparent 20%), url("../../../../assets/images/salesrepBanner.png") no-repeat right var(--c-t-bg-secondary);
    background-size: contain;
 }
-.rapdashboard_content .Welcome_banner h2 {  color: #fff;
+.rapdashboard_content .Welcome_banner h2 {  color: var(--c-t-primary-btn_title);
   text-transform: uppercase;
   font-size: 42px;
   font-family: "AvenirBlack";
   margin-bottom: 10px;}
-.rapdashboard_content .Welcome_banner p{ color: #fff;
+.rapdashboard_content .Welcome_banner p{ color: var(--c-t-sub-primary);
   font-size: 24px;
   font-family: "AvenirMedium";
   line-height: 30px; }

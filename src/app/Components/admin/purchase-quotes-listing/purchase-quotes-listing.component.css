@@ -1,18 +1,5 @@
-.searchmainwrapper{ display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 16px;}
-.header{
-  margin: 0;
-    font-family: "AvenirLight";
-    font-size: 24px;
-    color: #535353;
-    text-transform: uppercase; margin: 0;
-}
+.searchmainwrapper{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;}
+.header{ margin: 0; font-family: "AvenirLight"; font-size: 24px; color: #535353; text-transform: uppercase; margin: 0; }
 .searchwrapper .mat-form-field-infix{ margin-left: 5px;}
-.adButton{ background: #09c5fb;
-  color: #fff;
-  border-radius: 0;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-family: "AvenirRoman";
-  min-width: 100px;
-  padding: 3px; }
+.adButton{ background: var(--c-t-primary-btn_title); color: #fff; border-radius: 0; text-transform: uppercase; font-size: 20px; font-family: "AvenirRoman"; min-width: 100px; padding: 2px;
+}

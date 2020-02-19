@@ -572,7 +572,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
     font-size: 16px !important;
     color: #535353 !important
 }
-.inputstyle a{color: #0fa6d2;cursor: pointer;width: fit-content;}
+.inputstyle a{ color: var(--c-t-links);cursor: pointer; width: fit-content; }
 .cpass{
   text-transform: uppercase;
   text-decoration: underline;
@@ -640,7 +640,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .inputstyle .mat-form-field-appearance-fill .mat-form-field-underline::before{display: none;}
 .inputstyle .mat-select-value{overflow: inherit;}
 .checkradiotitle{display: block;}
-.inputstyle .mat-radio-button.mat-accent .mat-radio-inner-circle{background-color: #0fce26;}
+.inputstyle .mat-radio-button.mat-accent .mat-radio-inner-circle{background-color: var(--c-t-primary);}
 
 .inputstyle .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: #757575;
@@ -709,14 +709,14 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 /* purchase quotes list */
 .listingnewstyle .main_wrapper .purchase_quotes td.mat-cell:last-of-type{ text-align: inherit;}
-.listingnewstyle .main_wrapper .purchase_quotes td button{ background: #00294f;
+.listingnewstyle .main_wrapper .purchase_quotes td button{ background: var(--c-t-primary);
   padding: 4px;
   line-height: inherit;
   margin: 0;
   color: #fff;
   font-family: "AvenirMedium";
   text-transform: capitalize; border-radius: 0; }
-  .listingnewstyle .main_wrapper .purchase_quotes td button:last-child{ background: #f7452e; margin-left: 5px;}
+  .listingnewstyle .main_wrapper .purchase_quotes td button:last-child{ background: var(--c-t-primary-btn_title); margin-left: 5px;}
   .listingnewstyle .main_wrapper .purchase_quotes th.mat-header-cell:last-of-type,
   .listingnewstyle .main_wrapper .purchase_quotes td.mat-cell:last-of-type{ text-align: center;}
   .puchase_quotes .mat-form-field-infix { display: flex; width: 324px; border: 1px solid #d6d6d6; margin: 0 3px !important; align-items: center; border-radius: 5px; }
@@ -893,13 +893,13 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 
 /*-------------- modal css start ---------------- */
 .changepassword  {width:550px;}
-.changepassword .mat-dialog-container{border: 4px solid #1a8eec; padding: 10px!important; box-sizing: border-box;}
+.changepassword .mat-dialog-container{border: 4px solid var(--c-t-primary); padding: 10px!important; box-sizing: border-box;}
 .changepassword .mat-dialog-container .modal .mat-dialog-title { font-size: 20px; font-family: 'AvenirBlack'; color: #ffffff; text-align: center; text-transform: uppercase;
-  background: #03213e; padding: 5px; }
+  background: var(--c-t-primary); padding: 5px; }
 .changepassword .mat-dialog-container .modal form{ display: flex; flex-direction: column; }
 .changepassword .mat-dialog-container .mat-dialog-actions { padding: 16px; display: flex; flex-wrap: wrap; min-height: inherit; align-items: center; margin-bottom: 0; justify-content: flex-end; }
-.changepassword .mat-dialog-container .mat-dialog-actions button{ background: #d01d0d; color: #fff; font-family: 'AvenirMedium'; border-radius: 0; font-size: 18px; }
-.changepassword .mat-dialog-container .mat-dialog-actions button:last-child{ background: #001c36;}
+.changepassword .mat-dialog-container .mat-dialog-actions button{ background: var(--c-t-primary); color: #fff; font-family: 'AvenirMedium'; border-radius: 0; font-size: 18px; }
+.changepassword .mat-dialog-container .mat-dialog-actions button:last-child{ background: var(--c-t-primary-btn_title);}
 /*-------------- modal css end ---------------- */
 
 /* quote cart css */
@@ -926,14 +926,16 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .viewquoteModal{ width: 700px; overflow: auto; }
 /* email dialog */
 .emailModal{ width: 700px;}
-.email_wrapper .mat-card-title{ font-family: 'Avenirmedium'; font-size:30px; color: #ffffff; text-align: center; text-transform: uppercase; background: #01b2d3;
+.email_wrapper .mat-card-title{ font-family: 'Avenirmedium'; font-size:30px; color: #ffffff; text-align: center; text-transform: uppercase; background: var(--c-t-primary);
   padding: 10px; margin-bottom: 16px; }
-.emailModal .mat-dialog-container { border: 2px solid #0bb5e4; padding: 0; }
+.emailModal .mat-dialog-container { border:2px solid var(--c-t-primary); padding: 0; }
 .email_wrapper { padding: 0!important;}
 .email_wrapper .mat-form-field{ width: 100%;}
 .email_wrapper .button_send{ background: transparent; height: auto; padding: 0; justify-content: flex-end; }
-.email_wrapper .button_send button{ background: #15b7e4; color: #fff; font-size: 24px; min-width: 150px; text-transform: uppercase; padding:3pxq  d 5px; border-radius: 25px;}
-.email_wrapper .mat-form-field .mat-form-field-flex { border: 1px solid #01b2d3; padding: 6px 10px; }
+.email_wrapper .button_send button{ background: var(--c-t-primary); color: #fff; font-size: 24px; min-width: 150px; text-transform: uppercase; border-radius: 25px;
+  margin-right: 10px;}
+  .email_wrapper .button_send button:last-child{ background: var(--c-t-primary-btn_title); margin: 0; }
+.email_wrapper .mat-form-field .mat-form-field-flex { border: 1px solid var(--c-t-bg); padding: 6px 10px; }
 .email_wrapper .mat-form-field-appearance-legacy .mat-form-field-underline { height: 0; }
 .email_wrapper form{ padding: 16px;}
 
@@ -1079,7 +1081,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .packageInventory .mat-dialog-container{ height: inherit; overflow: auto;}
 .packageInventory .mat-dialog-container .formheader { width: auto;}
 .packageInventory .mat-dialog-container .formstylemainwrapper { padding: 0px; }
-.packageInventory .mat-dialog-container .formheader .formtitle { padding: 16px; background: #00aee2; color: #fff; text-transform: uppercase; font-size: 30px!important;}
+.packageInventory .mat-dialog-container .formheader .formtitle {     margin: 0 16px;}
 .packageInventory .mat-dialog-container .formbody .button_wrapper button { margin-left: 10px; }
 .packageInventory .mat-dialog-container .formbody .button_wrapper button:first-child { margin-left: 0px; }
 .top_quotesection .mat-form-field-flex{ border: none; padding: 0;}
@@ -1109,16 +1111,12 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
   font-family: 'AvenirMedium' !important; text-shadow: 0 2px 0 rgba(0,0,0,.30); background: #369ff3; text-align: center; }
 .departmentList .liblisitin_wrapper .titli{margin: 0; font-family: 'AvenirLight'; font-size: 22px; text-transform: capitalize; color: #535353;}
 .departmentList .mat-paginator{ background: #566075!important}
-
-
 .departmentList .cursor:nth-child(1) i{ display: none; }
 .departmentList .cursor:nth-child(2) i{ display: none; }
 .departmentList .cursor:nth-child(3){ display: none; }
 .departmentList .cursor:nth-child(4) { display: none; }
-
 .departmentList .cursor:nth-child(1){ display: inline-block; background: #00294f; padding: 5px; color: #fff; margin-right: 5px;}
 .departmentList .cursor:nth-child(1)::after{ content: 'View Details'}
-
 .departmentList .cursor:nth-child(2){ display: inline-block; background: #f7452e; padding: 5px; color: #fff; margin-right: 5px;}
 .departmentList .cursor:nth-child(2)::after{ content: 'Delete'}
 .departmentList td.mat-cell:last-of-type,
@@ -1131,12 +1129,10 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .departmentAdd .main_wrapper { background: #f2f2f2; padding: 20px!important; box-sizing: border-box; margin: 30px 0; box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12)!important;
 }
 .departmentAdd .dept_btn_wpr{ height: auto; align-items: center; justify-content: center; margin: 16px 0 0;}
-.departmentAdd .dept_btn_wpr button{ width: 210px; border-radius: 0; padding: 5px; background: #3f51b5; color: #fff; font-family: 'AvenirMedium'; text-transform: uppercase;
+.departmentAdd .dept_btn_wpr button{ width: 160px; border-radius: 0; padding: 3px; background: var(--c-t-primary); color: #fff; font-family: 'AvenirMedium'; text-transform: uppercase;
   font-size: 24px;}
 .departmentAdd .text_dept{ min-height: 120px; resize: none; }
-.departmentAdd .dept_btn_wpr button:last-child{ background: #f44336!important; margin-left: 10px;  }
-
-
+.departmentAdd .dept_btn_wpr button:last-child{ background: var(--c-t-primary-btn_title)!important; margin-left: 10px;  }
 
 /* delete modal */
 .custom-modalbox{ width: 700px; }
@@ -1152,49 +1148,22 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 /* Condition Details */
 
 .conditionDetails { overflow: scroll!important; }
-.conditionDetails .mat-dialog-container{ width: 700px; border: 2px solid #012245; }
-.contain_details_data{ padding: 20px; position: relative;
-  border-radius: 0;
-  margin-bottom: 0!important;}
+.conditionDetails .mat-dialog-container{ width: 700px; border: 2px solid var(--c-t-primary); }
+.contain_details_data{ padding: 20px; position: relative; border-radius: 0; margin-bottom: 0!important;}
 .contain_details_data table{ width: 100%; border-collapse: collapse;}
 .contain_details_data table tr,
 .contain_details_data table td,
-.contain_details_data table th{border: 1px solid #adadad;
-  padding: 10px;
-  width: 50%;
-  text-align: left; font-family: 'AvenirMedium';font-size: 18px;
-}
+.contain_details_data table th{border: 1px solid #adadad; padding: 10px; width: 50%; text-align: left; font-family: 'AvenirMedium';font-size: 18px;}
 .contain_details_data table th { font-family: 'AvenirBlack'; }
-
-.contain_details_data .title_wrapper{     font-family: 'AvenirBlack';
-  font-size: 24px;
-  color: #fff;
-  background: #1f5f98;
-  display: block;
-  padding: 10px;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 16px;
-  margin-top: 10px!important;}
-  .contain_details_data .close{ position: absolute;
-    top: -8px;
-    right: 0px;
-    background: transparent;
-    min-width: inherit;
-    padding: 0;}
+.contain_details_data .title_wrapper{ font-family: 'AvenirBlack'; font-size: 24px; color: #fff; background: var(--c-t-primary); display: block; padding: 10px; text-transform: uppercase;
+text-align: center;margin-top: 0px; margin-bottom: 16px;}
+.contain_details_data .close{ position: absolute; top: -8px; right: 0px; background: transparent; min-width: inherit; padding: 0;}
 .contain_details_data .pro_image_w{ display: flex; justify-content: center;}
 .contain_details_data .pro_image_w .items{ width: 65px; margin: 0.5%; border: 1px solid #afbac3;
   display: flex; justify-content: center; align-items: center;}
 .contain_details_data .pro_img_wrapper{ box-shadow: -1px 2px 4px 0px #7d7d7d;}
-.contain_details_data .pro_img_wrapper .big_image{ margin-bottom: 0;
-  width: 100%;
-  max-height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #cecece;}
+.contain_details_data .pro_img_wrapper .big_image{ margin-bottom: 0; width: 100%; max-height: 500px; display: flex; justify-content: center; align-items: center; padding: 16px;
+  box-sizing: border-box; border-bottom: 1px solid #cecece;}
 .contain_details_data .pro_img_wrapper .big_image img{ max-width: 100%;}
 .contain_details_data .pro_image_w .items:last-child{ margin-bottom: 0.5%;}
 .contain_details_data .pro_image_w .items img{ max-width: 100%; height: auto;}
@@ -1202,23 +1171,12 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .addconditiionModal{ width: 600px;overflow: auto;}
 .addconditiionModal .mat-dialog-container{ padding: 16px!important;}
 .add_condition{ margin-bottom: 0!important;}
-.add_condition .title_4_add{ font-family: 'AvenirBlack'; color: #fff; font-size: 20px; background: #2fe1fd;
-padding: 12px 16px;text-transform: uppercase;}
-.add_condition .items{
-  display: flex; flex-direction: column;
-}
-.add_condition .items .label{display: block;
-  margin-bottom: 4px;
-  font-family: 'AvenirMedium';
-  font-size: 18px;}
-.add_condition .items .mat-form-field .mat-form-field-flex{ border: 1px solid #c7c7c7;
-  padding: 5px 10px 2px;
-  box-sizing: border-box;}
+.add_condition .title_4_add{ font-family: 'AvenirBlack'; color: #fff; font-size: 20px; background: #2fe1fd; padding: 12px 16px;text-transform: uppercase;}
+.add_condition .items{ display: flex; flex-direction: column; }
+.add_condition .items .label{display: block; margin-bottom: 4px; font-family: 'AvenirMedium'; font-size: 18px;}
+.add_condition .items .mat-form-field .mat-form-field-flex{ border: 1px solid #c7c7c7; padding: 5px 10px 2px; box-sizing: border-box;}
 .add_condition .col-1-1 h3{ margin: 0; font-family: 'AvenirMedium'; font-size: 18px; }
-.add_condition .add_cancel{ background: transparent; height: auto; align-items: center;
-  justify-content: center;
-  padding: 6px 10px;
-  box-sizing: border-box;}
+.add_condition .add_cancel{ background: transparent; height: auto; align-items: center; justify-content: center; padding: 6px 10px; box-sizing: border-box;}
 .add_condition .add_cancel button{ background: #001c36; margin: 3px; color: #fff; font-family: 'AvenirMedium'; font-size: 18px; border-radius: 0;}
 .add_condition .files-view{ display: none; }
 .add_condition .add_cancel button:first-child{ margin-left: 0px;}
@@ -1236,24 +1194,38 @@ padding: 12px 16px;text-transform: uppercase;}
 .Team4mange .main_wrapper .submitbtn { background: #e42514; margin-top: 20px; }
 .Team4mange .main_wrapper .submitbtn:last-child { background: #00294f;  }
 
-.dispoviewModal{ overflow: auto; width: 768px;}
-.viewDetails_modal { position: relative!important; padding: 0!important; border: 1px solid #0593a6;}
-.viewDetails_modal .inner_image { display: block; margin: auto; background: linear-gradient(45deg, #1565b9, #05c0da); padding: 16px; text-align: center; }
+.dispoviewModal{ overflow: auto; }
+.viewDetails_modal { position: relative!important; padding: 0!important; border: 1px solid var(--c-t-primary); width: 700px;}
+.viewDetails_modal .inner_image { display: block; margin: auto; background: linear-gradient(45deg, var(--c-t-alt-links), var(--c-t-primary)); padding: 16px; text-align: center; }
 .viewDetails_modal .inner_image .img_deco{ height: 280px; width: 280px; background: #fff; text-align: center; border-radius: 50%; overflow: hidden; display: block; margin: auto; }
 .viewDetails_modal .inner_image img{ height: 100%;height: 100%; }
 .viewDetails_modal .in_contentu{ margin-bottom: 0; padding: 16px; box-sizing: border-box;}
 .viewDetails_modal .in_contentu table{ width: 100%;}
 .viewDetails_modal .in_contentu table th{ width: 20%; font-family: 'AvenirBlack'; text-align: left; vertical-align: top; line-height: 26px; color: #001c36;}
 .viewDetails_modal .in_contentu table td{ width: 100%; font-family: 'AvenirMedium';  color: #141618;}
+.viewDetails_modal .action_button { position: absolute; top: 0; right: 0; color: #fff; }
 .dispoviewModal .action_button { position: absolute; z-index: 1; right: 20px; top: 20px; color: #fff; font-family: 'AvenirBlack'; min-width: inherit; padding: 0;}
 .dispoviewModal .action_button:hover{ background: transparent!important;}
 
+/* add edit blog */
+.AddEditBlog lib-addedit-blogmanagement .mat-card{ padding: 0!important; }
+.AddEditBlog .mat-toolbar.mat-primary{  font-family: 'AvenirMedium'; font-size: 24px !important; width: 100%; margin-bottom: 40px!important; background: linear-gradient(45deg, var(--c-t-bg-secondary), var(--c-t-alt-links));
+padding: 14px 18px; color: var(--c-t-primary-btn_title); text-transform: uppercase;}
+.AddEditBlog lib-addedit-blogmanagement h1 { color: var(--c-t-primary); font-family: 'AvenirMedium'; font-size: 24px; }
+.AddEditBlog lib-addedit-blogmanagement .submitbtn {border-radius: 0; background: var(--c-t-primary-btn_title); min-width: 165px; margin: 0 auto!important;
+display: block; font-family: 'AvenirMedium'; font-size: 20px; }
+.AddEditBlog lib-addedit-blogmanagement .uploadfilecontainer {   width: 100%!important; margin: 0px auto; }
+.AddEditBlog lib-addedit-blogmanagement .files-view { width: 100%!important; margin: 16px;}
+.AddEditBlog lib-addedit-blogmanagement .files-view .mat-card img{ max-width: 100%;}
+.AddEditBlog lib-addedit-blogmanagement .files-view .mat-card .mat-card-title{ font-size: 16px; font-family: 'AvenirMedium';  width: 100%; padding: 0 10px; box-sizing: border-box;
+ color: var(--c-t-primary); text-transform: capitalize; }
+.AddEditBlog lib-addedit-blogmanagement .button-group{ width: 100%!important;}
+
+.formspan .example-container, .formspan,
+.formspan .mat-form-field { width: 100%!important; box-sizing: border-box;}
 
 
-
-
-
-
+/* .departmentAdd .from_wrapper .formheader{} */
  /* media here */
 
  @media screen and (max-width: 700px){

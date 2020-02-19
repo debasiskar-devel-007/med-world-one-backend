@@ -7,11 +7,11 @@
 .Product_wrapper .product_list_wrapper .itens_wrapper{background: #fff; box-sizing: border-box; padding: 10px; box-shadow: 0px 2px 3px 0px #cdcdcd; margin-bottom: 0;
   margin-top: 16px; display: flex; justify-content: space-between; border-radius: 10px;}
 
-.Product_wrapper .product_list_wrapper .left_inner form .search_wrapper{ display: flex; justify-content: space-between; align-items: center; } 
+.Product_wrapper .product_list_wrapper .left_inner form .search_wrapper{ display: flex; justify-content: space-between; align-items: center; }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner span i{ color: #08ccc3; font-size: 20px; vertical-align: top; margin-right: 5px;}
-.Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner { width: 100%; margin-bottom: 0; box-sizing: border-box; } 
+.Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner { width: 100%; margin-bottom: 0; box-sizing: border-box; }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .name{ font-family: 'AvenirBlack'; font-size: 20px; color:#2e3031; margin-bottom: 10px; display: block; }
- 
+
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .desc p{ margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;  /* Number of lines displayed before it truncate */  overflow: hidden; }
 .Product_wrapper .product_list_wrapper .itens_wrapper .itenms_inner .pro_wrapper{ margin-bottom: 0;  }
 
@@ -23,11 +23,11 @@
 .Product_wrapper .product_list_wrapper .itens_wrapper .action_wrapper{ display: flex; flex-direction: column; width: 160px; box-sizing: border-box; align-items: center; justify-content: center;}
 .Product_wrapper .product_list_wrapper .itens_wrapper .action_wrapper button{ background: #08ccc3; color: #fff; font-family: 'AvenirMedium';
   font-size: 18px; text-transform: capitalize; width: 100%; }
-  .Product_wrapper .product_list_wrapper .itens_wrapper .action_wrapper button:last-child{ background: #ff6959; margin-top: 10px;} 
+  .Product_wrapper .product_list_wrapper .itens_wrapper .action_wrapper button:last-child{ background: #ff6959; margin-top: 10px;}
 .Product_wrapper .product_list_wrapper .right_inner{ width: 29%; background: #fff; margin-bottom: 0; padding: 10px 16px; box-sizing: border-box;}
 .Product_wrapper .product_list_wrapper .right_inner .Header{ color: #fff; background: linear-gradient(45deg, #08ccc3, #01d0ff); font-family: 'AvenirRoman'; font-size: 22px; text-transform: capitalize; padding: 8px; text-align: center; }
 .Product_wrapper .proList_title{ background: linear-gradient(45deg, #08ccc3, #03cff3); color: #fff; padding: 12px; text-align: center; font-size: 28px; font-family: 'AvenirMedium'; text-transform: uppercase; margin-bottom: 0;}
-.deviceName{ margin: 0; padding: 10px; border-bottom: 3px solid #00667d; font-family: 'AvenirRoman'; color: #00667d; font-size: 22px; background: #effcff; }
+.deviceName{ margin: 0; padding: 10px; border-bottom: 1px solid var(--c-t-alt-links); font-family: 'AvenirRoman'; color: var(--c-t-alt-links); font-size: 22px; background: var(--c-t-primary);}
 .hints_wrapper{ border: 1px solid #00cfff; background: #fff; margin-top: 30px;}
 .hints_wrapper h2{ font-family: 'AvenirBlack'; font-size: 20px; margin: 0; padding: 12px 16px; background: #edfcff; color: #01d0ff; }
 .hints_wrapper .hints_suggestion{ font-family: 'AvenirMedium'; font-size:18px; padding: 0 16px; color: #f0220a; margin: 0; box-sizing: border-box;}
@@ -35,11 +35,12 @@
 .suggest_list .mat-list-item{ height: auto; position: relative; padding: 4px 10px; box-sizing: border-box;}
 .suggest_list .mat-list-item::before{  content: ''; width: 8px; height: 8px; background: #00cfff; position: absolute; top: 8px; border-radius: 50%; box-sizing: border-box;}
 .suggest_list .mat-list-item:last-child::before{ content: '\21D2'; width: 0px; height: 0px; background: none; position: absolute; top: 4px; border-radius: 50%; box-sizing: border-box; color: #00dff6; font-family: 'AvenirBlack';}
-.modal_content .mat-expansion-panel-header { background: linear-gradient(2deg, #02b3ad, #07d1f4)!important;}
-.modal_content .mat-expansion-panel-header .mat-expansion-panel-header-title{ color: #fff; }
+.modal_content .mat-expansion-panel-header { background: var(--c-t-alt-links)!important;}
+.modal_content .mat-expansion-panel-header .mat-expansion-panel-header-title{ color: var(--c-t-primary); }
 .modal_content .mat-expansion-panel-spacing{ margin: 0; }
 .modal_content .mat-expansion-panel-body { border: 1px solid #c6fffe;}
-.modal_content .action_button { position: absolute; right: 0px; top: 0px; background: #ff6959; border-radius: 50%; min-width: inherit; width: 40px; height: 40px; padding: 0;color: #fff; box-shadow: 0px 0px 2px 0px #084350; }
+.modal_content .action_button {position: absolute; right: 0px; top: 0px; background: var(--c-t-alt-links); border-radius: 50%; min-width: inherit; width: 40px; height: 40px;
+  padding: 0; color: var(--c-t-primary); box-shadow: 0px 0px 2px 0px #084350; z-index: 1;}
 
 .modal_content .mat-card-content { margin-top: 30px;}
 .modal_content .mat-card-content table{ border-collapse: collapse; width: 100%;}
@@ -55,13 +56,13 @@
 .tab_item table th{ width:37%; padding: 5px; font-family: 'AvenirBlack'; text-align: left; vertical-align: text-bottom;}
 .tab_item table td{ width: 63%; padding: 5px; font-family: 'AvenirMedium'; word-break: break-word;}
 .tab_item table td input{ width: 100%; }
-.tab_item table td .device_descc{ 
+.tab_item table td .device_descc{
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   line-height: 16px; /* fallback */
-  
+
   -webkit-line-clamp: 3; /* number of lines to show */
   -webkit-box-orient: vertical;
  }
@@ -78,7 +79,7 @@
 .form_field .mat-form-field{ width: 100%;}
 .quote_action{ display: flex; justify-content: flex-end;}
 .quote_action button{ background: #08ccc3; font-family: 'AvenirMedium'; color: #fff; }
-.quote_action button:last-child{  background: #ff6959; margin-left: 10px;} 
+.quote_action button:last-child{  background: #ff6959; margin-left: 10px;}
 .search_result{ display: block; margin: 20px 10px 10px; font-family: 'AvenirMedium'; font-size: 20px; }
 .search_result p{ color: #ff6959; display: inline; margin: 0 10px; text-transform: uppercase;}
 .search_result a{ color: #646363; font-size: 16px;}

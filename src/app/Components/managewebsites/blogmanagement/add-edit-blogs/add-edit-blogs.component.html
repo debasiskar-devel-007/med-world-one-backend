@@ -1,12 +1,12 @@
-<app-adminheader>
-        <lib-addedit-blogmanagement 
-        [serverUrl]="server"
-        [addEndpoint]="addUrl" 
-        [getDataEndpoint]="getDataUrl"
-        [listRoute]="listURL"
-        [singleData]="editdata" 
-        [imageUpload]="configData"
-        [fileUpload]="configFileData"  
-        [action]="action"      
-        ></lib-addedit-blogmanagement>
-</app-adminheader>
+
+  <app-adminheader>
+    <span class="listingnewstyle AddEditBlog">
+      <span class="dashboardcontainer">
+        <mat-card class="main_wrapper">
+          <lib-addedit-blogmanagement [serverUrl]="server" [addEndpoint]="addUrl" [getDataEndpoint]="getDataUrl"
+            [listRoute]="listURL" [singleData]="editdata" [imageUpload]="configData" [fileUpload]="configFileData"
+            [action]="action"></lib-addedit-blogmanagement>
+        </mat-card>
+      </span>
+    </span>
+  </app-adminheader>
