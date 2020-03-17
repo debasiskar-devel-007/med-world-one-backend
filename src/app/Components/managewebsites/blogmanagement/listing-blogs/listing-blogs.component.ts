@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../../../environments/environment.dev';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-blogs',
@@ -25,8 +26,22 @@ export class ListingBlogsComponent implements OnInit {
   
     }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute,
-    private cookieService: CookieService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, private readonly meta:MetaService) {
+
+      this.meta.setTitle('MedWorldOne - Listing Blogs');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - Listing Blogs');
+      this.meta.setTag('twitter:title', 'MedWorldOne - Listing Blogs');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  
+     }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {

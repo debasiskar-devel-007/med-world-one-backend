@@ -19,7 +19,7 @@ export class PurchasecomparisoncartComponent implements OnInit {
   public userType:any;
   public hospitalDetails: any = [];
   constructor(public router:Router,public cookieService: CookieService, public httpServiceService: HttpServiceService,public _snackBar: MatSnackBar,
-    public readonly meta: MetaService) {
+    private readonly meta: MetaService) {
       let userData = JSON.parse(this.cookieService.get('user_details'));
       this.userId = userData._id;
       this.userType = userData.type;
@@ -48,6 +48,21 @@ export class PurchasecomparisoncartComponent implements OnInit {
      }
         
         this.qouteDetails();
+
+        this.meta.setTitle('MedWorldOne - Purchase Comparison Cart List');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+    
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+    
+        this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison Cart List');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison Cart List');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+        
      }
 
   ngOnInit() {

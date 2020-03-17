@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-admin-inventory-details',
   templateUrl: './admin-inventory-details.component.html',
@@ -30,7 +31,7 @@ export class AdminInventoryDetailsComponent implements OnInit {
   }
 
 
-  constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog) {
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,public httpServiceService: HttpServiceService, public cookieService: CookieService, public dialog: MatDialog, private readonly meta:MetaService) {
     let url: any = {};
     url = this.activatedRoute.snapshot.params._id;
     let data: any = {
@@ -52,6 +53,21 @@ export class AdminInventoryDetailsComponent implements OnInit {
         //this.dynamic_attributes1.push((this.dynamic_attributes[i]))
       }
     })
+
+    this.meta.setTitle('MedWorldOne - Admin Inventory Details');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Admin Inventory Details');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Admin Inventory Details');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
   }
 
   ngOnInit() {

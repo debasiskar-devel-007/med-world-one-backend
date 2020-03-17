@@ -614,7 +614,8 @@ data: {
     data: {
       requestcondition: {
         source: 'quote_listing_details_view',
-        condition: {'copy_status':'Pending'}
+        condition: {'copy_status':'Pending'},
+        
       },
       endpoint: 'datalist'
 

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { environment } from '../../../../../../environments/environment';
 import { resolve } from 'url';
+import { MetaService } from '@ngx-meta/core';
 
 
 @Component({
@@ -66,9 +67,24 @@ public search_settingsBrand: any =
 
 
 
-  constructor(private http: HttpServiceService, private cookieService: CookieService,
-    private router: Router, public activatedRoute: ActivatedRoute) {
+  constructor(private http: HttpServiceService, private cookieService: CookieService, private router: Router, public activatedRoute: ActivatedRoute, private readonly meta:MetaService) {
     this.user_cookie = cookieService.get('jwtToken');
+
+
+    this.meta.setTitle('MedWorldOne - Category');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Category');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Category');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
     
   }
 

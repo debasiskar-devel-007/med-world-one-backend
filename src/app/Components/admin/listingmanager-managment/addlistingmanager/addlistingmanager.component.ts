@@ -8,6 +8,7 @@ import { matchpwd, nameValidator, phoneValidator } from './validators';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import * as moment from 'moment';
 import { from } from 'rxjs';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
   msg: string;
 }
@@ -39,7 +40,7 @@ export class AddlistingmanagerComponent implements OnInit {
   // =========================================
   constructor(private formBuilder: FormBuilder, private http: HttpServiceService,
     private cookieService: CookieService, private router: Router,
-    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+    private activatedRoute: ActivatedRoute, public dialog: MatDialog, private readonly meta: MetaService) {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -63,6 +64,21 @@ export class AddlistingmanagerComponent implements OnInit {
 
     if (this.action == 'add')
       this.date = moment(this.myDate).format('MM/DD/YYYY');
+
+
+      this.meta.setTitle('MedWorldOne - Add Manager');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - Add Manager');
+      this.meta.setTag('twitter:title', 'MedWorldOne -  Add Manager');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  
   }
 
   ngOnInit() {

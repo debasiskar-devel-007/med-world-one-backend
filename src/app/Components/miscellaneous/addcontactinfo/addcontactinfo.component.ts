@@ -4,6 +4,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-addcontactinfo',
   templateUrl: './addcontactinfo.component.html',
@@ -16,7 +17,7 @@ public allCities:any;
 public adminid:any;
 public collect_email_array: any = [];
 public collect_phone_array: any = [];
-  constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,public cookieService: CookieService,public _snackBar: MatSnackBar) {
+  constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,public cookieService: CookieService,public _snackBar: MatSnackBar, private readonly meta:MetaService) {
     
        /*Getting the role*/
        let allData: any = {};
@@ -39,6 +40,22 @@ public collect_phone_array: any = [];
       phone:[],
       status:0
     })
+
+
+    this.meta.setTitle('MedWorldOne - Add Contact Info');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add Contact Info');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add Contact Info');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
 
    }
 

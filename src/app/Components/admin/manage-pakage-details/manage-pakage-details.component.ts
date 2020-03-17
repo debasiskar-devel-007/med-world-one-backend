@@ -2,6 +2,7 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   data: any;
@@ -16,7 +17,7 @@ export class ManagePakageDetailsComponent implements OnInit {
 public packageDetails:any=[];
 public disposalDevice:any=[];
 public medicaldevice:any=[];
-  constructor(public dialog: MatDialog,public router:Router,public activatedRoute:ActivatedRoute,public http: HttpServiceService,) {
+  constructor(public dialog: MatDialog,public router:Router,public activatedRoute:ActivatedRoute,public http: HttpServiceService, private readonly meta: MetaService) {
     //console.log(this.activatedRoute.snapshot.params.id);
 
     if(this.activatedRoute.snapshot.params.id){
@@ -33,6 +34,23 @@ public medicaldevice:any=[];
         this.disposalDevice=res.res[0].disposal_device;
       })     
     }
+
+
+    this.meta.setTitle('MedWorldOne - Manage Package Details');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Manage Package Details');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Manage Package Details');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
    }
 
   ngOnInit() {

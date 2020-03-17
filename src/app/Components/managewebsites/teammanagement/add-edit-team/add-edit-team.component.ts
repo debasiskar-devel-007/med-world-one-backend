@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../../../environments/environment.dev';
+import { MetaService } from '@ngx-meta/core';
 
 
 @Component({
@@ -29,7 +30,23 @@ export class AddEditTeamComponent implements OnInit {
     conversionNeeded: 0,
     bucketName: "teammanagement-files"
   }
-  constructor( public activeRoute : ActivatedRoute ) { }
+  constructor( public activeRoute : ActivatedRoute, private readonly meta:MetaService ) { 
+
+    this.meta.setTitle('MedWorldOne - Listing Language');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Listing Language');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Listing Language');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+  }
 
   ngOnInit() {
     // this.activeRoute.data.forEach(data => {

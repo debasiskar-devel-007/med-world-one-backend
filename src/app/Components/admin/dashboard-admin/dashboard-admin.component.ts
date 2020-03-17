@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../services/http-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { MetaService } from '@ngx-meta/core';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -73,7 +74,7 @@ export class DashboardAdminComponent implements OnInit {
 
 
   constructor(private router: Router, public cookieService: CookieService, private http: HttpServiceService,
-    public activatedRoute: ActivatedRoute,public datePipe:DatePipe) {
+    public activatedRoute: ActivatedRoute,public datePipe:DatePipe, private readonly meta: MetaService) {
 
     /**fetching the cookie details **/
     let allData: any = {};
@@ -92,18 +93,60 @@ export class DashboardAdminComponent implements OnInit {
           this.user_name = this.userData.hospitalname;
         break;
     }
+
+
+
   }
 
   ngOnInit() {
     this.getCount();
     if(this.type=='admin'){
     this.getadmin();
+
+    this.meta.setTitle('MedWorldOne - Admin Dashboard');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne -  Admin Dashboard');
+    this.meta.setTag('twitter:title', 'MedWorldOne -  Admin Dashboard');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
     }
     if(this.type=='salesrep'){
       this.getSalesRepallData();
+      
+    this.meta.setTitle('MedWorldOne - Salesrep Dashboard');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne -  Salesrep Dashboard');
+    this.meta.setTag('twitter:title', 'MedWorldOne -  Salesrep Dashboard');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
     }
     if(this.type=='hospital'){
       this.getmedicalpartnerData();
+      this.meta.setTitle('MedWorldOne - Hospital Dashboard');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne -  Hospital Dashboard');
+      this.meta.setTag('twitter:title', 'MedWorldOne -  Hospital Dashboard');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
     }
     
   }

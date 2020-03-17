@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {HttpServiceService} from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-contactus-listing',
   templateUrl: './contactus-listing.component.html',
@@ -57,12 +58,28 @@ public search_settingss: any = {
     // selectsearch: [{ label: 'Search By Status', field: 'status', values: this.status }],
     // textsearch: [{ label: "Search By brand name...", field: 'brand_name' }]
   };
-  constructor(public activatedRoute: ActivatedRoute,public httpServiceService:HttpServiceService,public cookieService:CookieService) {
+  constructor(public activatedRoute: ActivatedRoute,public httpServiceService:HttpServiceService,public cookieService:CookieService, private readonly meta:MetaService) {
     let postData={"source":"contactus_view_admin","condition": {},}
     this.httpServiceService.httpViaPost('datalist',postData).subscribe((res:any)=>{
       this.contactInfoData=res.res;
     })
     this.user_cookie=cookieService.get('jwtToken');
+
+
+    this.meta.setTitle('MedWorldOne - Contact Us');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Contact Us');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Contact Us');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
    }
 
   ngOnInit() {

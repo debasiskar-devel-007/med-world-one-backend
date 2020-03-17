@@ -4,6 +4,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-purchase-comparison-search-list',
@@ -26,7 +27,24 @@ export class PurchaseComparisonSearchListComponent implements OnInit {
   public inventory_sku:any;
 
   constructor(public dialog: MatDialog, public cookieService: CookieService, public activatedRoute: ActivatedRoute,
-    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar) { this.qouteDetails() }
+    public router: Router, public httpServiceService: HttpServiceService, public _snackBar: MatSnackBar, private readonly meta:MetaService) { 
+      this.qouteDetails() 
+    
+      this.meta.setTitle('MedWorldOne - Purchase Comparison Search List');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison Search List');
+      this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison Search List');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+      
+    }
 
 
   ngOnInit() {

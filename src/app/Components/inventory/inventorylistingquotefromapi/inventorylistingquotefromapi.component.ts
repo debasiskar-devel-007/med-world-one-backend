@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Data } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
   data: any;
   alldata: any
@@ -32,7 +33,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
   public searchString:string;
 
   constructor(public formBuilder: FormBuilder, public cookieService: CookieService, public http: HttpServiceService, public router: Router,
-    public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, public dialog: MatDialog) {
+    public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, public dialog: MatDialog, private readonly meta: MetaService) {
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
     this.userType = userData.type;
@@ -81,6 +82,23 @@ export class InventorylistingquotefromapiComponent implements OnInit {
     if(this.activatedRoute.snapshot.params.listingquoteid){
        this.fetchAddedInventoryDetailsbyinventoryId();
     }
+
+
+    this.meta.setTitle('MedWorldOne - Inventory Listing Quote From Api');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Inventory Listing Quote From Api');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Inventory Listing Quote From Api');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
   ngOnInit() {
@@ -235,7 +253,7 @@ export class InventorylistingquotefromapiComponent implements OnInit {
       //console.log(response);
       if (response.status = "success") {
         this.InventoeryListDetails = [];
-        this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
+        this._snackBar.open('Thank You For Submitting A Inventory Listing Quote From Api Quote.', '', {
           duration: 2000,
         });
         /**salesrep route */
@@ -296,7 +314,7 @@ savequote(){
       //console.log(response);
       if (response.status = "success") {
         this.InventoeryListDetails = [];
-        this._snackBar.open('Thank You For Submitting A Listing Inventory Quote.', '', {
+        this._snackBar.open('Thank You For Submitting A Inventory Listing Quote From Api Quote.', '', {
           duration: 2000,
         });
         /**salesrep route */

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
+import { MetaService } from '@ngx-meta/core';
 
 
 @Component({
@@ -21,12 +22,27 @@ export class SalesrepChangePasswordComponent implements OnInit {
 
 
   constructor(public formBuilder: FormBuilder , public cookieService : CookieService,
-    private http : HttpServiceService , private snackBar : MatSnackBar) {
+    private http : HttpServiceService , private snackBar : MatSnackBar, private readonly meta:MetaService) {
     let allData: any = {};
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.role = this.userData.type;
     this.id = this.userData._id;
+
+    this.meta.setTitle('MedWorldOne - Salesrep Change password');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Salesrep Change password');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Salesrep Change password');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
    }
 
   ngOnInit() {
