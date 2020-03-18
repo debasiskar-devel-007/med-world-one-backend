@@ -779,6 +779,7 @@ td.mat-cell  { color:#465157; font-family: "AvenirLight";  }
 .listingnewstyle .ng-star-inserted .cursor{display: none;}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(1){display: inline-block;background: var(--c-t-primary); padding: 5px;color: #fff;margin-right: 5px;}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(1):after{content: 'View Details';}
+.nodetails .ng-star-inserted .cursor:nth-child(1){ display: none;}
 .listingnewstyle .ng-star-inserted .cursor:nth-child(1) i{display: none;}
 
 .listingnewstyle .ng-star-inserted .cursor:nth-child(2){display: inline-block;background: var(--c-t-primary-btn_title);padding: 5px;color: #fff;margin-right: 0px;}

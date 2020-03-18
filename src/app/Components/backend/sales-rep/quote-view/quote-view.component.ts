@@ -4,6 +4,7 @@ import { HttpServiceService } from '../../../../services/http-service.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
   data: any;
   alldata:any
@@ -34,7 +35,7 @@ public Package_all_total:number;
 // public totalSellprice:number=0;
 public totalQuotedprice:number=0;
 public totalWholesellprice:number=0;
-  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router) {
+  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public cookieService:CookieService,public _snackBar:MatSnackBar,public router:Router, private readonly meta:MetaService) {
     //console.log("Quote ID",this.activatedRoute.snapshot.params.id);
     //console.log("Hospital ID",this.activatedRoute.snapshot.params.hospitalid);
       // this.tableshow(); 
@@ -145,6 +146,26 @@ public totalWholesellprice:number=0;
     }
    
     //console.log(this.savings);
+
+
+
+
+    this.meta.setTitle('MedWorldOne - Quote View');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Quote View');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Quote View');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
+
    }
 
   ngOnInit() {

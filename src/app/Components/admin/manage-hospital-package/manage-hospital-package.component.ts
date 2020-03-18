@@ -5,6 +5,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   data: any;
@@ -32,7 +33,7 @@ public arrayIndex:number;
 public flag:number=0;
 
   constructor(public router:Router,public formBuilder: FormBuilder, public http: HttpServiceService,
-    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar) {
+    public cookieService: CookieService,public activatedRoute:ActivatedRoute,public dialog: MatDialog,public _snackBar: MatSnackBar, private readonly meta: MetaService) {
       this.packageHospitalForm=this.formBuilder.group({
         package_name:['',Validators.required],
         department:['',Validators.required],
@@ -49,6 +50,21 @@ public flag:number=0;
         this.deplist=res.res;
         //console.warn(res);
       })
+
+      
+      this.meta.setTitle('MedWorldOne - manage hospital package');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - manage hospital package');
+      this.meta.setTag('twitter:title', 'MedWorldOne -  manage hospital package');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  
     }
 
   ngOnInit() {

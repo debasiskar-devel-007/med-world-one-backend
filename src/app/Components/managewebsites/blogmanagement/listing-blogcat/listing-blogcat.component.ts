@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { environment } from '../../../../../environments/environment.dev';
 import {HttpServiceService} from '../../../../services/http-service.service'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-blogcat',
@@ -61,7 +62,20 @@ public search_settings: any = {
 
 
 
-  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService,public http:HttpServiceService) {
+  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService,public http:HttpServiceService, private readonly meta:MetaService) {
+
+    this.meta.setTitle('MedWorldOne - Manage Blog');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Manage Blog');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Manage Blog');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
 
 
    }

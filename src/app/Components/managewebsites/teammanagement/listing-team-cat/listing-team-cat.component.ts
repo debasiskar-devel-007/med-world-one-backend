@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../../../environments/environment.dev';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-team-cat',
@@ -10,7 +11,7 @@ import { environment } from '../../../../../environments/environment.dev';
 })
 export class ListingTeamCatComponent implements OnInit {
 
-  //Team category Listing
+  //Manage Team
   public allTeamData:any=[];
   public sourceName:any="team_category";
   public updateendpoint:any="addorupdatedata";
@@ -37,7 +38,25 @@ export class ListingTeamCatComponent implements OnInit {
   // public jwtToken = this.cookies.get('jwtToken');
 
 
-  constructor(public activeRoute: ActivatedRoute, public cookies: CookieService) { }
+  constructor(public activeRoute: ActivatedRoute, public cookies: CookieService, private readonly meta:MetaService) {
+
+    
+    this.meta.setTitle('MedWorldOne - Manage Team');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Manage Team');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Manage Team');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+    
+
+
+   }
   
 
   ngOnInit() {

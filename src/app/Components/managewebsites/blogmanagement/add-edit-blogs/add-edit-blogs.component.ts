@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../../../environments/environment.dev';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-add-edit-blogs',
@@ -44,7 +45,22 @@ export class AddEditBlogsComponent implements OnInit {
     conversionNeeded: 0,
     bucketName: "crmfiles.influxhostserver"
   }
-  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute) { }
+  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute, private readonly meta:MetaService) { 
+
+    this.meta.setTitle('MedWorldOne - Add Edit Blogs');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add Edit Blogs');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add Edit Blogs');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+    
+  }
 
   ngOnInit() {
 

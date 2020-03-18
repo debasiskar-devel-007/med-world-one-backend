@@ -7,6 +7,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { Observable } from 'rxjs';
 import { map, startWith, throwIfEmpty } from 'rxjs/operators';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MetaService } from '@ngx-meta/core';
 export interface inventory {
   sku: any;
   inventory_name: any;
@@ -47,8 +48,7 @@ export class AdminpackageComponent implements OnInit {
     conversionNeeded: 0,
     bucketName: "crmfiles.influxhostserver"
   }
-  constructor(public formBuilder: FormBuilder, public cookieService: CookieService,public http: HttpServiceService, public router: Router,
-    public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog) {
+  constructor(public formBuilder: FormBuilder, public cookieService: CookieService,public http: HttpServiceService, public router: Router, public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar,public dialog: MatDialog, private readonly meta:MetaService) {
       /**package edit */
       if(this.activatedRoute.snapshot.params.id){
         this.fetchPackageDetailsId(this.activatedRoute.snapshot.params.id);
@@ -59,6 +59,24 @@ export class AdminpackageComponent implements OnInit {
       this.userId = userData._id;
       this.userType = userData.type;
       this.generateForm();
+
+
+      this.meta.setTitle('MedWorldOne - Admin Package');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - Admin Package');
+      this.meta.setTag('twitter:title', 'MedWorldOne - Admin Package');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  
+
+
+
      }
 
   ngOnInit() {

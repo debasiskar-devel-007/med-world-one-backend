@@ -13,7 +13,7 @@
                             <mat-card-title class="toolbar_header">Contact us list </mat-card-title>
                         </mat-toolbar>
                         <!-- Listing goes here  -->
-                        <lib-listing class="contactus_misc" *ngIf="contactData != null && contactData.length>0"
+                        <lib-listing class="contactus_misc nodetails" *ngIf="contactData != null && contactData.length>0"
                             [datasource]="contactData" [skip]="contactData_skip"
                             [modify_header_array]="contactData_modify_header" [sourcedata]="tableName" [apiurl]="apiUrl"
                             [editroute]="editUrl" [jwttoken]="user_cookie" [statusarr]="status"

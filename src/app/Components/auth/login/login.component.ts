@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import {HttpServiceService} from '../../../services/http-service.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
 
   public routerStatus: any;
 
-  constructor(public httpServiceService:HttpServiceService) {
+  constructor(public httpServiceService:HttpServiceService, private readonly meta:MetaService) {
     this.routerStatus = {           // this is use for if login succcess then navigate which page
       "data": [
         {
@@ -51,6 +52,20 @@ export class LoginComponent implements OnInit {
         }
       ]
     }
+
+    this.meta.setTitle('MedWorldOne - Login');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Login');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Login');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
   }
 
   ngOnInit() {

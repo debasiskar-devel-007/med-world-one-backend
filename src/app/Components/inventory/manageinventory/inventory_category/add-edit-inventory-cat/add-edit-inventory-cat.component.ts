@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { map, startWith } from 'rxjs/operators';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
   msg: string;
 }
@@ -39,9 +40,7 @@ export class AddEditInventoryCatComponent implements OnInit {
   public brand_array: any = [];
   public errCode: boolean = false;
   // ==================================================
-  constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
-    private http: HttpServiceService, private router: Router,
-    private activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+  constructor(private formBuilder: FormBuilder, private cookieService: CookieService,private http: HttpServiceService, private router: Router,private activatedRoute: ActivatedRoute, public dialog: MatDialog, private readonly meta:MetaService) {
 
 
     this.activatedRoute.params.subscribe(params => {
@@ -55,6 +54,23 @@ export class AddEditInventoryCatComponent implements OnInit {
       else
         this.action = "add";
     });
+
+
+    this.meta.setTitle('MedWorldOne - Add Edit Inventory Category');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add Edit Inventory Category');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add Edit Inventory Category');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
   ngOnInit() {

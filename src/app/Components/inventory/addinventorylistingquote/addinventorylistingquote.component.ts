@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import { WINDOW } from '@ng-toolkit/universal';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-addinventorylistingquote',
   templateUrl: './addinventorylistingquote.component.html',
@@ -63,9 +64,7 @@ export class AddinventorylistingquoteComponent implements OnInit {
     bucketName: "crmfiles.influxhostserver"
   }
 
-  constructor(@Inject(WINDOW) private window: Window, public formBuilder: FormBuilder, public cookieService: CookieService,
-    public http: HttpServiceService, public router: Router,
-    public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar) {
+  constructor(@Inject(WINDOW) private window: Window, public formBuilder: FormBuilder, public cookieService: CookieService,public http: HttpServiceService, public router: Router, public activatedRoute: ActivatedRoute, public _snackBar: MatSnackBar, private readonly meta:MetaService) {
 
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
@@ -96,6 +95,21 @@ export class AddinventorylistingquoteComponent implements OnInit {
       //console.log(response.userID);
       this.quote_id = response.userID;
     })
+
+    this.meta.setTitle('MedWorldOne - Add Inventory Listing Quotes');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add Inventory Listing Quotes');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add Inventory Listing Quotes');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
   }
 
   ngOnInit() {

@@ -560,6 +560,10 @@ data: {
   },
   // add admin contact info
   { path: 'admin-dashboard/addcontactinfo', component: AddcontactinfoComponent, canActivate: [AuthguardService] },
+  { path: 'admin-dashboard/addcontactinfo/:_id', component: AddcontactinfoComponent, 
+  resolve: { contactInfo: ResolveService },
+    data: { requestcondition: { source: 'contactus', condition: {} }, endpoint: 'datalist' },
+  canActivate: [AuthguardService] },
   //____________________price markup management______________________//
 
   { path: 'inventory/price-markup-management-list/add', component: AddEditPriceMarkupManagementComponent },
@@ -614,7 +618,8 @@ data: {
     data: {
       requestcondition: {
         source: 'quote_listing_details_view',
-        condition: {'copy_status':'Pending'}
+        condition: {'copy_status':'Pending'},
+        
       },
       endpoint: 'datalist'
 

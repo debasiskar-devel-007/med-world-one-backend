@@ -5,6 +5,7 @@ import { HttpServiceService } from '../../../services/http-service.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 export interface DialogData {
   data: any;
   alldata:any
@@ -25,7 +26,7 @@ export class PurchaseQuotesListingComponent implements OnInit {
   public recentlyAdded:any=[];
     
 
-  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router,public cookieService:CookieService) {
+  constructor(public dialog: MatDialog,public activatedRoute:ActivatedRoute,public http:HttpServiceService,public router: Router,public cookieService:CookieService, private readonly meta:MetaService) {
     //console.log(this.activatedRoute.snapshot.url[2].path);
     let userData = JSON.parse(this.cookieService.get('user_details'));
     this.userId = userData._id;
@@ -33,6 +34,133 @@ export class PurchaseQuotesListingComponent implements OnInit {
     if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
       this.flage=1;
     }
+
+    if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasequote/list'){
+        this.meta.setTitle('MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+
+        this.meta.setTag('og:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+      }
+
+      if(this.router.routerState.snapshot.url=='/salesrep/managequotes/purchasequote/list'){
+        this.meta.setTitle('MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+
+        this.meta.setTag('og:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+      }
+
+      if(this.router.routerState.snapshot.url=='/hospital/managequotes/purchasequote/list'){
+        this.meta.setTitle('MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+
+        this.meta.setTag('og:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Quotes');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+      }
+
+
+      if(this.activatedRoute.snapshot.url[2].path=='inventorylistingquote'){
+        this.meta.setTitle('MedWorldOne - Inventory Listing Quotes');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+
+        this.meta.setTag('og:title', 'MedWorldOne - Inventory Listing Quotes');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Inventory Listing Quotes');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+       }
+     
+
+
+       /**purchase comparision for admin */
+  if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasquotelisting/list'){
+        this.meta.setTitle('MedWorldOne - Purchase Comparison Quotes');
+        this.meta.setTag('og:description', '');
+        this.meta.setTag('twitter:description', '');
+
+        this.meta.setTag('og:keyword', '');
+        this.meta.setTag('twitter:keyword', '');
+
+        this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison Quotes');
+        this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison Quotes');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+        this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  }
+   /**purchase comparision for salesrep */
+   if(this.router.routerState.snapshot.url=='/salesrep/managequotes/purchasquotelisting/list'){
+    this.meta.setTitle('MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  }
+  /**purchase comparision for hospital */
+  if(this.router.routerState.snapshot.url=='/hospital/managequotes/purchasquotelisting/list'){
+    this.meta.setTitle('MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison Quotes');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  }
+
+    /**package quote view */
+    if(this.activatedRoute.snapshot.url[1].path=='package'){
+      this.meta.setTitle('MedWorldOne - Package Quotes');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+
+      this.meta.setTag('og:title', 'MedWorldOne - Package Quotes');
+      this.meta.setTag('twitter:title', 'MedWorldOne - Package Quotes');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+    }
+
    }
 
   ngOnInit() {
@@ -52,11 +180,13 @@ viewQuoteDetails(quoteid:any,hospiid:any){
  
   if(this.router.routerState.snapshot.url=='/admin/managequotes/purchasequote/list'){
     // console.log("purchase Quote");
-    this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+
+    this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);    
   }
   if(this.router.routerState.snapshot.url=='/salesrep/managequotes/purchasequote/list'){
     // console.log("purchase Quote");
     this.router.navigateByUrl('/admin/quote-view/' + quoteid+'/'+hospiid);
+    this.meta.setTitle('MedWorldOne - Purchase Quotes List');
   }
   if(this.router.routerState.snapshot.url=='/hospital/managequotes/purchasequote/list'){
     // console.log("purchase Quote");

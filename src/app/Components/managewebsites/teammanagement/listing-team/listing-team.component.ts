@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../../../../environments/environment.dev';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-team',
@@ -30,7 +31,23 @@ export class ListingTeamComponent implements OnInit {
   public searchingEndpoint="datalist";
   public addPageRoute = "/manage-websites/team/add";
 
-  constructor(public activateRoute : ActivatedRoute,public cookies :CookieService) { }
+  constructor(public activateRoute : ActivatedRoute,public cookies :CookieService, private readonly meta:MetaService) {
+
+    this.meta.setTitle('MedWorldOne - Team Listing');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Team Listing');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Team Listing');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+    
+
+   }
 
   ngOnInit() {
     this.activateRoute.data.forEach(data => {

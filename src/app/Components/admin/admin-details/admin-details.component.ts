@@ -5,6 +5,8 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { matchpwd, nameValidator, phoneValidator } from '../../common/validators';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Router} from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
+
 @Component({
   selector: 'app-admin-details',
   templateUrl: './admin-details.component.html',
@@ -18,7 +20,7 @@ public cities: any;
 public states: any;
 public condition:any;
   constructor(public cookieService:CookieService,public http:HttpServiceService,public formBuilder:FormBuilder,
-    public _snackBar: MatSnackBar,public router:Router) { 
+    public _snackBar: MatSnackBar,public router:Router, private readonly meta: MetaService) { 
 
     let allData: any = {};
     allData = cookieService.getAll()
@@ -26,7 +28,25 @@ public condition:any;
     //console.log(this.adminData);
     this.condition = { id:this.adminData.id};
     this.genarateForm();
+
+
+    this.meta.setTitle('MedWorldOne - admin details');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne -  admin details');
+    this.meta.setTag('twitter:title', 'MedWorldOne -  admin details');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
   }
+
+  
 
   ngOnInit() {
     //getting the cities

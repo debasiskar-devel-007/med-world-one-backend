@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpServiceService} from '../../../services/http-service.service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-forgotpassword',
   templateUrl: './forgot-password.component.html',
@@ -31,8 +32,25 @@ export class ForgotPasswordComponent implements OnInit {
 
   public domainUrl: any = 'https://dev.mdstockinternational.com/reset-password';
 
-  constructor(public httpServiceService:HttpServiceService) {
+  constructor(public httpServiceService:HttpServiceService, private readonly meta:MetaService) {
     console.log(this.domainUrl);
+
+
+    this.meta.setTitle('MedWorldOne - Forgot Password');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Forgot Password');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Forgot Password');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
   ngOnInit() {

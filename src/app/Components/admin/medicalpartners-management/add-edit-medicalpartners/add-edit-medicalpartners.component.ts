@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import * as moment from 'moment';
+import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   msg: string;
@@ -70,7 +71,7 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
     public http: HttpServiceService, public router: Router, private activatedRoute: ActivatedRoute,
-    public dialog: MatDialog) {
+    public dialog: MatDialog, private readonly meta:MetaService) {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -92,6 +93,24 @@ export class AddEditMedicalpartnersComponent implements OnInit {
 
     if(this.action == 'add')
     this.date = moment(this.myDate).format('MM/DD/YYYY');
+
+
+    
+    this.meta.setTitle('MedWorldOne - Add edit Medical Partners');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add edit Medical Partners');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add edit Medical Partners');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
 

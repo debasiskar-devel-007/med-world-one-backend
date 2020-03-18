@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class AddEditLanguageComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private snackBar: MatSnackBar, public cookieService: CookieService,
-    public http: HttpServiceService, private router: Router, private activatedRoute: ActivatedRoute) {
+    public http: HttpServiceService, private router: Router, private activatedRoute: ActivatedRoute, private readonly meta:MetaService) {
     this.activatedRoute.params.subscribe(params => {
       if (params['_id'] != null) {
         this.action = "edit";
@@ -37,6 +38,19 @@ export class AddEditLanguageComponent implements OnInit {
       else
         this.action = "add";
     });
+
+    this.meta.setTitle('MedWorldOne - Add Edit Language');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Add Edit Language');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Add Edit Language');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
 
   }
 

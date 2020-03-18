@@ -10,6 +10,7 @@ import { map, startWith } from 'rxjs/operators';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { Moment } from 'moment';
 import * as moment from 'moment';
+import { MetaService } from '@ngx-meta/core';
 
 
 
@@ -51,14 +52,31 @@ export class ListingPurchaseComparisonComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
 
-  constructor(private http: HttpServiceService, private cookieService: CookieService,
-    private router: Router, public activatedRoute: ActivatedRoute, public dialog: MatDialog) {
+  constructor(private http: HttpServiceService, private cookieService: CookieService, private router: Router, public activatedRoute: ActivatedRoute, public dialog: MatDialog,private readonly meta: MetaService) {
     this.user_cookie = cookieService.get('jwtToken');
     let allData: any = {};
     allData = cookieService.getAll()
     this.userData = JSON.parse(allData.user_details);
     this.id = this.userData._id;
     this.salesrep_name = this.userData.firstname + ' ' + this.userData.lastname;
+
+
+
+    this.meta.setTitle('MedWorldOne - Purchase Comparison List');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - Purchase Comparison List');
+    this.meta.setTag('twitter:title', 'MedWorldOne - Purchase Comparison List');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
   ngOnInit() {

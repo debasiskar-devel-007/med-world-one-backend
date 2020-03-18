@@ -43,18 +43,33 @@ export class ManageHospitalComponent implements OnInit {
     public activatedRoute: ActivatedRoute,public clipboardService:ClipboardService,public readonly meta: MetaService,
     public readonly Title:Title) {
 
-      this.meta.setTitle('MD Stock International - Your Medical Partner');
-      this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
-      this.meta.setTag('og:title', 'MD Stock International - Your Medical Partner');
-      this.meta.setTag('og:type', 'website');
-      this.meta.setTag('og:url', 'https://dev.mdstockinternational.com/');
-      this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
-      this.meta.setTag('og:keywords','');
+      // this.meta.setTitle('MD Stock International - Your Medical Partner');
+      // this.meta.setTag('og:description', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      // this.meta.setTag('og:title', 'MD Stock International - Your Medical Partner');
+      // this.meta.setTag('og:type', 'website');
+      // this.meta.setTag('og:url', 'https://dev.mdstockinternational.com/');
+      // this.meta.setTag('og:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+      // this.meta.setTag('og:keywords','');
      
-      this.meta.setTag('twitter:description', 'MD-stock-international');
-      this.meta.setTag('twitter:title', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
-      this.meta.setTag('twitter:card', 'summary');
-      this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+      // this.meta.setTag('twitter:description', 'MD-stock-international');
+      // this.meta.setTag('twitter:title', 'MD Stock International is the Medical Equipment & Supplies Partner you want for Top-Quality On-Demand Supplies, Direct-to-Manufacturer Purchases and much more.');
+      // this.meta.setTag('twitter:card', 'summary');
+      // this.meta.setTag('twitter:image', 'https://dev.mdstockinternational.com/assets/images/mdstocklogometa.jpg');
+
+
+      this.meta.setTitle('MedWorldOne - Manage Hospital Sales-rep');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne - Manage Hospital Sales-rep');
+      this.meta.setTag('twitter:title', 'MedWorldOne - Manage Hospital Sales-rep');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+  
 
 
     this.activatedRoute.params.subscribe(params => {

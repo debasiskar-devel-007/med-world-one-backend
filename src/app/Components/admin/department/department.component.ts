@@ -5,6 +5,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-department',
@@ -17,7 +18,7 @@ public deplist:any=[];
 public defaultvalue:any
   constructor(public formBuilder: FormBuilder, public http: HttpServiceService,
     public cookieService: CookieService,public activatedRoute:ActivatedRoute,public router:Router,
-    public _snackBar: MatSnackBar) {
+    public _snackBar: MatSnackBar, private readonly meta: MetaService) {
       //console.log(this.activatedRoute.snapshot.params.id);
       if(this.activatedRoute.snapshot.params.id){
         let post={
@@ -51,7 +52,24 @@ public defaultvalue:any
        department_parent:[''],
        status:['',Validators.required]
       });
-     }
+
+
+      this.meta.setTitle('MedWorldOne - Manage Department');
+      this.meta.setTag('og:description', '');
+      this.meta.setTag('twitter:description', '');
+  
+      this.meta.setTag('og:keyword', '');
+      this.meta.setTag('twitter:keyword', '');
+  
+      this.meta.setTag('og:title', 'MedWorldOne -  Manage Department');
+      this.meta.setTag('twitter:title', 'MedWorldOne -  Manage Department');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+      this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+      
+
+  }
 
   ngOnInit() {
 

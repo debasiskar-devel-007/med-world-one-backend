@@ -309,6 +309,7 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
     NgxDaterangepickerMd.forRoot(),
     MetaModule.forRoot(),
     NgtUniversalModule,
+    
   ],
   providers: [CookieService,DatePipe,
     LoaderService,

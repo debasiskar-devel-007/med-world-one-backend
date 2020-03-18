@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpServiceService } from '../../../../services/http-service.service';
 import { MatSnackBar } from '@angular/material';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-my-details-hospital',
@@ -35,7 +36,7 @@ export class MyDetailsHospitalComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private cookieService: CookieService,
     private activatedRoute: ActivatedRoute, private http: HttpServiceService,
-    private snackBar : MatSnackBar , private router : Router) {
+    private snackBar : MatSnackBar , private router : Router,private readonly meta:MetaService) {
 
     /*Getting the role*/
     let allData: any = {};
@@ -65,6 +66,22 @@ export class MyDetailsHospitalComponent implements OnInit {
     this.contactemailarray = this.userData.contactemails;
     this.contactphonesarray = this.userData.contactphones;
     
+
+    this.meta.setTitle('MedWorldOne - My Details Hospital');
+    this.meta.setTag('og:description', '');
+    this.meta.setTag('twitter:description', '');
+
+    this.meta.setTag('og:keyword', '');
+    this.meta.setTag('twitter:keyword', '');
+
+    this.meta.setTag('og:title', 'MedWorldOne - My Details Hospital');
+    this.meta.setTag('twitter:title', 'MedWorldOne - My Details Hospital');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-fb.png');
+    this.meta.setTag('twitter:image', 'https://medworldonebackend.influxiq.com/assets/images/logo-twitter.png');
+
+
+
   }
 
   ngOnInit() {
