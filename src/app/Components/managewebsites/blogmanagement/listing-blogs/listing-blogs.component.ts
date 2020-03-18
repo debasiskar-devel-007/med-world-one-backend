@@ -30,6 +30,7 @@ export class ListingBlogsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(resolveData => {
+      console.log(resolveData);
       this.blogListConfig = resolveData.blogsList.res;
       this.blogListConfig.jwtToken = this.cookieService.get('jwtToken');
     });
