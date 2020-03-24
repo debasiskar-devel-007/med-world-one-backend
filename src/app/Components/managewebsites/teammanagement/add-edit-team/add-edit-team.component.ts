@@ -14,7 +14,7 @@ export class AddEditTeamComponent implements OnInit {
   public teamDataList:any=[];
   public serverUrl:any =environment.API_URL;
   public addendpoint:any="addorupdatedata";
-  public listPageRoute:any="/manage-websites/team/list";
+  public listPageRoute:any="manage-websites/team-category/list";
   public getdataEndpoint:any="datalist";
   public sourceName :any="team_management";
   public categorySourceName : any = "team_category";

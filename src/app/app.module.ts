@@ -117,6 +117,7 @@ import { LeftNavSalesComponent } from './Components/backend/sales-rep/left-nav-s
 import { HospitalLoginComponent } from './Components/frontend/logins/hospital-login/hospital-login.component';
 import { UploadDialogBoxComponent, DialogContentExampleDialog } from './Components/common/upload-dialog-box/upload-dialog-box.component';
 import { LoginAdminComponent } from './Components/frontend/logins/login/login.component';
+// import { ContactusModule } from 'contactus';
 import { MomentModule } from 'ngx-moment';
 
 

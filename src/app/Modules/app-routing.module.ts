@@ -316,7 +316,7 @@ const routes: Routes = [
     resolve: { teamCatList: ResolveService },
     data: {
       requestcondition: {
-        source: 'team_category',
+        source: 'team_category_view',
         condition: {}
       },
       endpoint: 'datalist'
